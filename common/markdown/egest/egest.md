@@ -311,7 +311,7 @@ The samples are written in NodeJs and use the [Azure Storage SDK for NodeJs](htt
 
  
 # Tutorial 
-In this section you will find a collection of materials that will provide a deeper understanding and insight on how to ingest your data to a data storage.  
+In this section you will find a collection of materials that will provide a deeper understanding and insight on how to egest your data to a data storage.  
  
 # Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
@@ -319,7 +319,7 @@ In this section we will give theoretical and practical recommendations on how to
 # References 
 
 ## GitHub  
-Follow our open projects related to ingest on https://github.com/veracity
+Follow our open projects related to egest on https://github.com/veracity
 
 ## Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity
@@ -345,7 +345,7 @@ A: Some users have reported issues with running storage explorer. We tested it s
  
  
 # Price model 
-The prosess of ingesting data is at the moment not subject to cost. Storage does have cost related to it, and you may find additional information HERE  
+The prosess of egesting data is at the moment not subject to cost. Storage does have cost related to it, and you may find additional information HERE  
  
  
  

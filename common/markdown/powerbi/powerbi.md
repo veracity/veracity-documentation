@@ -1,6 +1,6 @@
 # Overview
 
-This tool is in Privat Preview. Contact Veracity Developers Toolbox team if you want details.
+This tool is in Privat Preview. Contact Veracity Developers Toolbox team if you want details
 
 
 Power BI is a self-service Business Intelligence tool which helps you to visualize and organize your data. Veracity has developed an integrated framework for Power BI, named Insight, which can be used to share the Power Bi reports and dashboards in a secure way to your customers. The tool also enable you to brand the application so that it follows with your own brand profile.

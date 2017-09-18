@@ -1,11 +1,12 @@
 # Overview 
+
 Data quality is a prerequisite for ensuring trust in the data stored in Veracity. Data quality can be measured for a number of metrics usually grouped in categories (dimensions). Veracity supports some generic metrics for time-series data such as completeness (missing records), uniqueness (duplicate records), below min and above max. The level of data quality for any metric is expressed as a Data Quality Index (DQI). The DQI is defined as 1 - RB/RT, where RB is the number of records that failed to meet the data quality requirement whereas RT is the number of total records assessed. The DQI will yield a number between 0 and 1 where a score of 0 will mean all records failed (low quality) and 1 will mean all records passed (high quality). Other metrics will need to be custom-made based on data quality requirements for any particular data source. The data quality metrics defined in Veracity are displayed in a data quality dashboard that can be accessed in the Veracity portal (https://dataservices.dnvgl.com). The user can select any metric and drill down to any level to investigate when the error occurred and for which sensor.    
 
 
 # Quick start
 The data quality dashboards are available for all MyDNVGL users with the appropriate access rights to projects that contain data with applied data quality metrics. The below screenshot shows some sample projects where one (MDC-NYK Venus) has a data quality dashboard. The data management services can be accesses from https://dataservices.dnvgl.com . Select Data quality  (in red box) to proceed to the data quality dashboard. The next section, Tutorial, provides a more detailed explanation for how to use the data quality dashboard.  Links in document: [Text]{#NAME-of-HEADER}- [Ingest using Azure Storage Explorer (one time data load)](#Ingest-using-Azure-storage-explorer)
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality1.png?token=AbX7aVufoe33Gdwx3yezB6E3zqLsbhTAks5ZiwpbwA%3D%3D "Data Management Services")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality1.png "Data Management Services")
 
 Figure – The Veracity landing page for data services and data quality (https://dataservices.dnvgl.com)
 
@@ -15,13 +16,13 @@ The data quality functionality in data management services is divided in three l
 #### Data quality dashboard
 When selecting the Data quality (INSERT PIC OF ICON) icon  for a project, the user will be presented with the data quality dashboard displaying all defined data quality metrics for the data management services project. The screenshot below shows a data quality dashboard with six defined metrics. The first four (uniqueness, above min, above max and completeness) are generic metrics for time-series data, whereas Goodness is a custom metric based on a data quality flag present in this data stream. The metric labelled Usable measures the ratio of records without any data quality issues, ie any record which satisfies all data quality requirements.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality2.png?token=AbX7adex08rZB0t1ld43vXmTNsJbk7Z-ks5ZiwrMwA%3D%3D "Data Quality dashboard") 
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality2.png "Data Quality dashboard") 
 
 Figure -  Data quality dashboard
 #### Data quality gauge
 Each data quality gauge has an information icon        in the top right corner. If the user hovers over this icon a detailed description of the data quality metric is displayed. The below figure show the information box for the metric labelled Usable. Table 1 also shows the information text for the generic time-series data quality metrics.   
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality3.png?token=AbX7adrkq6tEWgZEiItGeS80DlNhF45Jks5Ziws7wA%3D%3D "Usable data quality metric") 
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality3.png "Usable data quality metric") 
 Figure – Information for the Usable data quality metric
 
 | Metric        | Information    
@@ -48,20 +49,19 @@ Each data quality metric is represented on the dashboard as a data quality gauge
 
 Table – Gauge properties
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality4.png?token=AbX7aRVYOCVey8fm0G0eGTGPEtN1mBTYks5Ziwt7wA%3D%3D "Dashboard gauge characteristics
-") 
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality4.png "Dashboard gauge characteristics") 
 
 Figure – Overview of dashboard gauge characteristics
 #### Data quality drilldown
 Clicking on any data quality gauge provides a drilldown to identify the offending data points. The drilldown displays both a historical representation as well as a hierarchical representation.  The historical representation currently has a fixed resolution of one week. The below figure shows a sample historical drilldown for the Completeness metric. The horizontal red line represents the Data quality requirement whereas the blue line represent the measured data quality. For the shown case, the data quality falls short of the requirements except for in the start and end of the period. 
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality5.png?token=AbX7aZ7OhwQ-pdUty9ig_OEZ4C_1bjkZks5ZiwvSwA%3D%3D "Drilldown for historical data") 
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality5.png "Drilldown for historical data") 
 
 Figure – Drilldown for historical data
 
 The hierarchical drilldown provides both a list- and tree- view representation of sensors in a functional breakdown structure. The sensors must have been mapped to the breakdown structure in a previous process, please refer to (REF). The below figure shows an example for a hierarchical drilldown for a compressor sensor. The measured data quality index is shown for each sensor and the sensors that doesn’t satisfy the requirements are labelled with a red circle, like the labelling on the data quality gauge.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality6.png?token=AbX7acm0EVY93RRl7pkAChzNzVOjQNgXks5ZiwwNwA%3D%3D "Drilldown for hierarchical data") 
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality6.png "Drilldown for hierarchical data") 
 
 Figure – Drilldown for hierarchical data
 
@@ -91,7 +91,7 @@ The effect of the implemented data quality activities should be monitored carefu
 
 The below figure shows the overall process for the activities described above.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality7.png?token=AbX7acvbMfqvmtuDYlSxVsBomkM-GgLHks5ZiwxYwA%3D%3D "Overall process for data quality assessment") 
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality7.png "Overall process for data quality assessment") 
 
 
 Figure – The overall process for data quality assessment

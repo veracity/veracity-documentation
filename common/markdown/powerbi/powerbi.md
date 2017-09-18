@@ -15,7 +15,7 @@ The quick start consists of three parts that will guide you through the necessar
 ### Part 1: Getting started with the Power BI desktop tool
 1. Download the desktop tool by visiting the Power BI desktop site at Microsoft Power BI [here](http:\\www.powerbi.com). Microsoft releases a new version of Power BI Desktop every month. We encourage you to always have the latest version installed.  If you already have downloaded the power BI desktop, you can go directly to section 2 [here](#Part-2:-How-to-request-the-Power-BI-insight-tool)
 
-INSERT SCREENSHOT
+INSERT SCREENSHOT HERE
 
 2. Click on 'Advanced download options'.
 

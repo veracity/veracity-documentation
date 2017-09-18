@@ -4,7 +4,7 @@ Data egest is the action of extracting data from a data storage. There are vario
 
 This guide will show you how into egest data to the Veracity cloud. To proceed with your data egest, you will need to be set up with a Veracity account. If you are not already set up with an account, please click here.
 
-Link to Quick-Start
+Link to Quick-Start:
 
 - [Egest using Azure Storage Explorer](#Egest-using-Azure-storage-explorer)
 - [Egesting data using REST API](#Egesting-data-using-REST-API)

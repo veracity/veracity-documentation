@@ -1,5 +1,4 @@
 # Overview 
-
 Data quality is a prerequisite for ensuring trust in the data stored in Veracity. Data quality can be measured for a number of metrics usually grouped in categories (dimensions). Veracity supports some generic metrics for time-series data such as completeness (missing records), uniqueness (duplicate records), below min and above max. The level of data quality for any metric is expressed as a Data Quality Index (DQI). The DQI is defined as 1 - RB/RT, where RB is the number of records that failed to meet the data quality requirement whereas RT is the number of total records assessed. The DQI will yield a number between 0 and 1 where a score of 0 will mean all records failed (low quality) and 1 will mean all records passed (high quality). Other metrics will need to be custom-made based on data quality requirements for any particular data source. The data quality metrics defined in Veracity are displayed in a data quality dashboard that can be accessed in the Veracity portal (https://dataservices.dnvgl.com). The user can select any metric and drill down to any level to investigate when the error occurred and for which sensor.
 
 

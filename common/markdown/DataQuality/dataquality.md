@@ -1,10 +1,10 @@
 # Overview 
 
-Data quality is a prerequisite for ensuring trust in the data stored in Veracity. Data quality can be measured for a number of metrics usually grouped in categories (dimensions). Veracity supports some generic metrics for time-series data such as completeness (missing records), uniqueness (duplicate records), below min and above max. The level of data quality for any metric is expressed as a Data Quality Index (DQI). The DQI is defined as 1 - RB/RT, where RB is the number of records that failed to meet the data quality requirement whereas RT is the number of total records assessed. The DQI will yield a number between 0 and 1 where a score of 0 will mean all records failed (low quality) and 1 will mean all records passed (high quality). Other metrics will need to be custom-made based on data quality requirements for any particular data source. The data quality metrics defined in Veracity are displayed in a data quality dashboard that can be accessed in the Veracity portal (https://dataservices.dnvgl.com). The user can select any metric and drill down to any level to investigate when the error occurred and for which sensor.    
+Data quality is a prerequisite for ensuring trust in the data stored in Veracity. Data quality can be measured for a number of metrics usually grouped in categories (dimensions). Veracity supports some generic metrics for time-series data such as completeness (missing records), uniqueness (duplicate records), below min and above max. The level of data quality for any metric is expressed as a Data Quality Index (DQI). The DQI is defined as 1 - RB/RT, where RB is the number of records that failed to meet the data quality requirement whereas RT is the number of total records assessed. The DQI will yield a number between 0 and 1 where a score of 0 will mean all records failed (low quality) and 1 will mean all records passed (high quality). Other metrics will need to be custom-made based on data quality requirements for any particular data source. The data quality metrics defined in Veracity are displayed in a data quality dashboard that can be accessed in the Veracity portal (https://dataservices.dnvgl.com). The user can select any metric and drill down to any level to investigate when the error occurred and for which sensor.
 
 
 # Quick start
-The data quality dashboards are available for all MyDNVGL users with the appropriate access rights to projects that contain data with applied data quality metrics. The below screenshot shows some sample projects where one (MDC-NYK Venus) has a data quality dashboard. The data management services can be accesses from https://dataservices.dnvgl.com . Select Data quality  (in red box) to proceed to the data quality dashboard. The next section, Tutorial, provides a more detailed explanation for how to use the data quality dashboard.  
+The data quality dashboards are available for all MyDNVGL users with the appropriate access rights to projects that contain data with applied data quality metrics. The below screenshot shows some sample projects where one (MDC-NYK Venus) has a data quality dashboard. The data management services can be accesses from https://dataservices.dnvgl.com . Select Data quality (in red box) to proceed to the data quality dashboard. The next section, Tutorial, provides a more detailed explanation for how to use the data quality dashboard. 
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality1.png "Data Management Services")
 
@@ -14,20 +14,20 @@ Figure – The Veracity landing page for data services and data quality (https:/
 The data quality functionality in data management services is divided in three layers; Data quality dashboard, data quality gauge and data quality drilldown. The dashboard contains a gauge for each metric and each gauge provides drilldown to specific data points.
 
 #### Data quality dashboard
-When selecting the Data quality (INSERT PIC OF ICON) icon  for a project, the user will be presented with the data quality dashboard displaying all defined data quality metrics for the data management services project. The screenshot below shows a data quality dashboard with six defined metrics. The first four (uniqueness, above min, above max and completeness) are generic metrics for time-series data, whereas Goodness is a custom metric based on a data quality flag present in this data stream. The metric labelled Usable measures the ratio of records without any data quality issues, ie any record which satisfies all data quality requirements.
+When selecting the Data quality (INSERT PIC OF ICON) icon for a project, the user will be presented with the data quality dashboard displaying all defined data quality metrics for the data management services project. The screenshot below shows a data quality dashboard with six defined metrics. The first four (uniqueness, above min, above max and completeness) are generic metrics for time-series data, whereas Goodness is a custom metric based on a data quality flag present in this data stream. The metric labelled Usable measures the ratio of records without any data quality issues, ie any record which satisfies all data quality requirements.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality2.png "Data Quality dashboard") 
 
-Figure -  Data quality dashboard
+Figure - Data quality dashboard
 #### Data quality gauge
-Each data quality gauge has an information icon        in the top right corner. If the user hovers over this icon a detailed description of the data quality metric is displayed. The below figure show the information box for the metric labelled Usable. Table 1 also shows the information text for the generic time-series data quality metrics.   
+Each data quality gauge has an information icon in the top right corner. If the user hovers over this icon a detailed description of the data quality metric is displayed. The below figure show the information box for the metric labelled Usable. Table 1 also shows the information text for the generic time-series data quality metrics. 
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality3.png "Usable data quality metric") 
 Figure – Information for the Usable data quality metric
 
-| Metric        | Information    
+| Metric | Information|
 | ------------- |:-------------:| 
-|  Uniqueness   | Measures the proportion of data points registered as a single value, ie no timestamp collision |
+| Uniqueness   | Measures the proportion of data points registered as a single value, ie no timestamp collision |
 | Above min     | Measures the proportion of data points above the minimum value set in the metadata      |  
 | Below max     | Measures the proportion of data points below the maximum value set in the metadata      |  
 | Completeness  | Measures how many data points are present in the data set according to a given samplling rate      |  
@@ -35,9 +35,9 @@ Figure – Information for the Usable data quality metric
 
 Table - Generic metrics and information texts
 
-Each data quality metric is represented on the dashboard as a data quality gauge.  The below figure shows the gauge for the generic metric labeled Completeness with a description of the main gauge properties. The gauge properties are also described in more detail in the below table.
+Each data quality metric is represented on the dashboard as a data quality gauge. The below figure shows the gauge for the generic metric labeled Completeness with a description of the main gauge properties. The gauge properties are also described in more detail in the below table.
 
-| Gauge property  | Description    
+| Gauge property  | Description |   
 | ------------- |:-------------:| 
 |  Metric name   | A short descriptive name of generic or custom data quality rule |
 | Ratio meeting requirements | Ratio (0 to 1) of data points meeting the requirement       |  

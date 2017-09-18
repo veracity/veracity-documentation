@@ -12,7 +12,7 @@ Power BI can be used to connect to a wide range of data sources, including but n
 # Quick start
 The quick start consists of three parts that will guide you through the necessary steps for you to complete before being able to have your nice reports available to your customers.  
 
-### Part 1: Getting started with the Power BI desktop tool
+## Part 1: Getting started with the Power BI desktop tool
 1. Download the desktop tool by visiting the Power BI desktop site at Microsoft Power BI [here](http:\\www.powerbi.com). Microsoft releases a new version of Power BI Desktop every month. We encourage you to always have the latest version installed.  If you already have downloaded the power BI desktop, you can go irectly to section 2 [here](#Part-2:-How-to-request-the-Power-BI-insight-tool).
 
 INSERT SCREENSHOT HERE
@@ -37,12 +37,12 @@ INSERT SCREENSHOT
 
 You should now be able to start making reports and analysis your data with Power BI Desktop. Remember it's your responsibility to keep the Power BI Desktop up to date (Power BI releases a new version monthly). 
 
-### Part 2: How to request the Power BI insight tool
+## Part 2: How to request the Power BI insight tool
 
 The Power BI tool Insght is in Private Preview, but we are onboarding mature services at the moment. If you think you would fit into this category, contact the Veracity Developer Toolbox team for details.
 
 
-### Part 3: How to use the Power BI publishing tool towards customers
+## Part 3: How to use the Power BI publishing tool towards customers
 You are now the owner and admin of your service in Veracity and will see your service as a tile under My Services. Now that you have created your first report you are ready to share it with your customer. Your customer(s) obtain access to your reports through your Power BI application page. When clicking on the tile you will land on the home page of your site:
 
 INSERT SCREENSHOT
@@ -109,7 +109,7 @@ e. Click 'add'.
 
 INSERT SCREENSHOT
 
-### Training
+## Training
 Power BI has a lot to offer when it comes to analytics, and the best way to get started is with proper Power BI training. We recommend you to have a look at the tutorials Microsoft has created. It takes about 90 minutes to go through all of them and they can be found [here](https://powerbi.microsoft.com/en-us/guided-learning/).
 
 ### Data sources you can connect to
@@ -144,19 +144,19 @@ Before you start using this application you should consider two things
 # Pattern and practices
 We have a set of best practices for report development. These consist of both development guidelines and visual guidelines
 
-### Development guidelines
+## Development guidelines
 Insert text
-### Visual guidelines/Design
+## Visual guidelines/Design
 
-#### Cart choice
+## Cart choice
 Below you will find an overview of which charts are available and in which way they can best be used
 
 INSERT SCREENSHOT
 
-#### Report themes
+## Report themes
 With Report Themes, you can apply a color theme to your entire report, such as your companies corporate colors. Read the full guide on how to use report themes [here](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-themes/).
 
-#### Custom visuals
+## Custom visuals
 Microsoft offers a custom visual gallery in the Office Store. The user can easily download and use them in a report. There are some considerations a report developer should investigate before using or developing a custom visual as these are developed by third parties. Check-list and guidelines for using custom visuals from the Office Store.
 
 *Using custom visuals from the Office Store:*

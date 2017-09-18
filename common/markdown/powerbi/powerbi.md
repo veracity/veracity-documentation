@@ -13,7 +13,7 @@ Power BI can be used to connect to a wide range of data sources, including but n
 The quick start consists of three parts that will guide you through the necessary steps for you to complete before being able to have your nice reports available to your customers.  
 
 ### Part 1: Getting started with the Power BI desktop tool
-1. Download the desktop tool by visiting the Power BI desktop site at Microsoft Power BI [here](http:\\www.powerbi.com). Microsoft releases a new version of Power BI Desktop every month. We encourage you to always have the latest version installed.  If you already have downloaded the power BI desktop, you can go directly to section 2 [here](#Part-2:-How-to-request-the-Power-BI-insight-tool)
+1. Download the desktop tool by visiting the Power BI desktop site at Microsoft Power BI [here](http:\\www.powerbi.com). Microsoft releases a new version of Power BI Desktop every month. We encourage you to always have the latest version installed.  If you already have downloaded the power BI desktop, you can go irectly to section 2 [here](#Part-2:-How-to-request-the-Power-BI-insight-tool).
 
 INSERT SCREENSHOT HERE
 
@@ -47,11 +47,11 @@ You are now the owner and admin of your service in Veracity and will see your se
 
 INSERT SCREENSHOT
 
-Navigate to the  admin  page where you will see four tiles: 
+Navigate to the admin page where you will see four tiles: 
 
 INSERT SCREENSHOT
 
-To learn more about each item on this page, hover your mouse cursor over the  ?  icon and a tool tip will be displayed with more contextual information. The application is meant to give an intuitive user experience with several tool tips throughout.  However, we recommend you read through the tutorial for the application the first time.
+To learn more about each item on this page, hover your mouse cursor over the ? icon and a tool tip will be displayed with more contextual information. The application is meant to give an intuitive user experience with several tool tips throughout. However, we recommend you read through the tutorial for the application the first time.
 
 
 # Tutorial
@@ -71,14 +71,14 @@ a. Click on the first box named 'Manage Files'
 b. Click 'upload file'.
 c. Click 'browse' and select the power BI file you wish to upload.
 d. Write in a name under 'Report name'.
-e. If you do not use direct query, skip this step. If you use a database in your report you need to inform what the connection string is by checking the  Connection string  box and informing what the connection string is. This string is not stored in veracity but passed on to Power BI services to render the report. 
+e. If you do not use direct query, skip this step. If you use a database in your report you need to inform what the connection string is by checking the Connection string box and informing what the connection string is. This string is not stored in veracity but passed on to Power BI services to render the report. 
 f. Click 'Save changes'.
 
 INSERT PICTURE
 
 e. You will now see your uploaded report file on the page.
 
-*Return to the main page by clicking  Admin  in the upper left corner to go back to the main page.* 
+*Return to the main page by clicking Admin in the upper left corner to go back to the main page.* 
 
 **2. Manage Reports**
 a. Click on the second box named 'Manage Reports'.
@@ -88,17 +88,17 @@ d. Click 'add'.
 
 INSERT SCREENSHOT
 
-*Return to the main page by clicking  Admin  in the upper left corner to go back to the main page.*
+*Return to the main page by clicking Admin in the upper left corner to go back to the main page.*
 
 **3. Manage Entities**
 a. Click on the third box named 'Manage Entities'.
 b. Click 'Add'.
-c. Fill in  Name ,  Type , 'Reports', Type Property Value Setting'. 
+c. Fill in Name , Type , 'Reports', Type Property Value Setting'. 
 d. Click 'Add'. 
 
 INSERT SCREENSHOT
 
-*Return to the main page by clicking  Admin  in the upper left corner to go back to the main page.*
+*Return to the main page by clicking Admin in the upper left corner to go back to the main page.*
 
 **4. Manage Users**
 a. Click on the fourth box named 'Manage Users'. 
@@ -120,7 +120,7 @@ The Power BI embedded version in Azure only support refresh on Azure SQL databas
 For Row Level Security to work you need to create a security role called "MyDNVGLUser" in Power BI Desktop. You also need the MYDNVGL ID which is a GUID to be able to use USERNAME()-It looks like this: 57a61395-4dc1-4ff1-ad04-2f14a1b9e6c5|16. 
 GUID is a unique identifier in DNVGL and Veracity on an individual basis. If the person change company or email, he or she will still be able to use the same account. 
 Contact Mona Olander for giving you access to the tool where you can get the MyDNVGL GUID's.
-You can look up the GUID in the My DNV GL Admin tool: https://myadmin.dnvgl.com   go to  Users  and look up the email address of the user. Click on the user. The GUID is the value in the  Id  field:
+You can look up the GUID in the My DNV GL Admin tool: https://myadmin.dnvgl.com go to Users and look up the email address of the user. Click on the user. The GUID is the value in the Id field:
 
 INSERT SCREENSHOTS
 

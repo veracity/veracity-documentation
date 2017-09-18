@@ -27,7 +27,7 @@ When doing a manual egest of data from Veracity, we recommend using Azure Storag
 Download Azure Storage Explorer from http://storageexplorer.com/. Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically. Do not use an outdated version from the Codeplex repository, as these are most likely the versions which are shown on the screen when you use BING to search for "Azure Storage Explorer". The correct download screen should look like this: 
 
  
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-download.png?token=ATKIGzfMe8EsHLvrUimjnExhsKcQk4Doks5ZiwhZwA%3D%3D "Download Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-download.png "Download Azure Storage Explorer")
 
 
 If you are having problems with the installation, please visit our FAQ section for Azure
@@ -38,7 +38,7 @@ Step by step installation
 1.	Download the executable from http://storageexplorer.com/
 2.	Run the executable, you should now see a window as seen below:
 
- ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-install.png?token=ATKIG4dnUE0UbtqAKfwg3QHysrtKNVPUks5ZiwgvwA%3D%3D "Install Azure Storage Explorer")
+ ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-install.png "Install Azure Storage Explorer")
 
 3.	Follow the instructions provided in the installation wizard. Note that you cannot complete the installation without accepting Microsoft's terms of use
 4.	Azure storage explorer is now installed, and should open automatically after the first installation, regularly check for updates and apply them. They are indicated when available
@@ -46,11 +46,11 @@ Step by step installation
 ### Connect to a Veracity container using your key
 The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, click [HERE] to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. 
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-connect-01.png?token=ATKIG7Il5z2-kdlKl4v6Mi9qeDJyVtFAks5Ziwf4wA%3D%3D "Connect to Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-01.png "Connect to Azure Storage Explorer")
 
 In Azure Storage Explorer, click the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-connect-02.png?token=ATKIG1zlRlexQAfuOykdzcpjyyprS2Tdks5Ziwh0wA%3D%3D "Connect to Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-02.png "Connect to Azure Storage Explorer")
 
 The key you have received from Veracity is in the form of a SAS URI, select the radio
 button labeled "Use a SAS URI" and paste the key into the field that is now available, you
@@ -62,12 +62,12 @@ to a new storage container by clicking the connection icon in the black menu on 
 It has been marked with a blue square in the picture below. Once you have clicked this
 button, you may follow the steps listed above.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-connect-03.png?token=ATKIG2XF9xlPjyyijY-bxADuqTWH6DqJks5ZiwikwA%3D%3D "Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-03.png "Azure Storage Explorer")
 
 You should now have access to the container that your key unlocks. You can find it in the
 hierarchy by using the search feature, in the upper left corner of the application, as shown in the picture below.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-connect-04.png?token=ATKIG0TH1o6Hda3_d5LYCIlDvzH-7Gx1ks5Ziwi7wA%3D%3D "Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-04.png "Azure Storage Explorer")
 
 Depending on the type of key you have been provided, you may now browse, read,
 create and/or delete data-sets from the container.
@@ -85,11 +85,11 @@ want to lock the data set to prevent others from accessing it while you are uplo
 new version. This can be accomplished by acquiring a lease on the given file, as shown
 below.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-working-01.png?token=ATKIG5yYwW1gNo5iFwLOYfZx3M3cwCx8ks5ZiwjYwA%3D%3D "Working with Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-01.png "Working with Azure Storage Explorer")
 
 A lease will prevent anyone from modifying the file until you release the file. The lease acquired through Azure Storage Explorer is permanent, which means it is critical that you break the lease as soon as possible. As a lease is bound to your current key, you must break the lease before the key expires to ensure that the file is not locked permanently. This is shown in the picture below.
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-working-02.png?token=ATKIGwJjRoIYdt2ANxK9NgZPOWl28Natks5ZiwjtwA%3D%3D "Working with Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-02.png "Working with Azure Storage Explorer")
 
 ### Common pitfalls
 Authentication Error. The specified signed resource is not allowed for this resource level.
@@ -98,7 +98,7 @@ When looking for your container in the hierarchy, you might see an item ending w
 #### Proxy Configuration
 Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy:
 
-![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/ingest-ase-pitfalls-proxy-01.png?token=ATKIG7vLmSmwfmMNmZz1NItrva4FqMk9ks5Ziwk-wA%3D%3D "Working with Azure Storage Explorer")
+![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-pitfalls-proxy-01.png "Working with Azure Storage Explorer")
 
 
 ## Egesting data using REST API

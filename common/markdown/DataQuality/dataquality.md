@@ -4,7 +4,7 @@ Data quality is a prerequisite for ensuring trust in the data stored in Veracity
 
 
 # Quick start
-The data quality dashboards are available for all MyDNVGL users with the appropriate access rights to projects that contain data with applied data quality metrics. The below screenshot shows some sample projects where one (MDC-NYK Venus) has a data quality dashboard. The data management services can be accesses from https://dataservices.dnvgl.com . Select Data quality  (in red box) to proceed to the data quality dashboard. The next section, Tutorial, provides a more detailed explanation for how to use the data quality dashboard.  Links in document: [Text]{#NAME-of-HEADER}- [Ingest using Azure Storage Explorer (one time data load)](#Ingest-using-Azure-storage-explorer)
+The data quality dashboards are available for all MyDNVGL users with the appropriate access rights to projects that contain data with applied data quality metrics. The below screenshot shows some sample projects where one (MDC-NYK Venus) has a data quality dashboard. The data management services can be accesses from https://dataservices.dnvgl.com . Select Data quality  (in red box) to proceed to the data quality dashboard. The next section, Tutorial, provides a more detailed explanation for how to use the data quality dashboard.  
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality1.png "Data Management Services")
 

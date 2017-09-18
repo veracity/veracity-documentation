@@ -1,13 +1,13 @@
 # Overview 
 This guide will describe in details Veracity open source projects. Each of them is small piece of code providing useful functionality within Veracity platform. To proceed, you need to have Azure subscription.
 
-Links to content
+Links to content:
 
 - [Markdown parser tool](#Markdown-parser-tool)
 - [Machine Learning automation](#Machine-Learning-automation)
 
 ## Markdown parser tool
-When preparing documentation, we base on GitHub and markdown files (.md) where we put all documentation data. With that approach, we can easily maintain the data and have full control over the workflow. On the other hand, it’s not convenient for external users to go through repository when looking at documentation.
+When preparing documentation, we base on GitHub and markdown files (.md) where we put all documentation data. With that approach, we can easily maintain the data and have full control over the workflow. On the other hand, itâ€™s not convenient for external users to go through repository when looking at documentation.
 That's why there is a tool which can easily translate .md format to HTML syntax consumed by web browser. 
 Thanks to this translation and extraction of additional metadata we can provide user friendly and intuitive documentation which is easy to read and navigate.
 The following code description applies to the .NET implementation as it is the base platform used for that tool.
@@ -15,7 +15,7 @@ The following code description applies to the .NET implementation as it is the b
 ### Implementation and usage
 Markdown parser tool is designed as a fully automatic module that is executed every time Documentation repository on GitHub is updated. So, there is no need for user input other than adding or updating documentation.
 To achieve that goal, we need to setup and deploy a service that will be able to track repository changes and execute appropriately providing a piece of data which can be easily interpreted by web browser at the end.
-Instead of setting up whole service with all infrastructure and management concerns we decided to use completely serverless approach called Azure Functions. It’s a solution for running pieces of code in the cloud where we pay only for the time the code runs and trust Azure to scale as needed.
+Instead of setting up whole service with all infrastructure and management concerns we decided to use completely serverless approach called Azure Functions. Itâ€™s a solution for running pieces of code in the cloud where we pay only for the time the code runs and trust Azure to scale as needed.
 Source code is available [here](https://github.com/veracity/MarkdownParser).
 
 #### Markdown parser Azure Function
@@ -384,8 +384,8 @@ private BatchExecutionRequest PrepareRequest(AzureStorageData inputdata, AzureSt
 }
 ```
 Our request message contains corresponding collections of input and output data. Input is a location where data for retraining is stored. We need to provide Data Connection String to Azure Storage Account, container and blob name.
-As output from retraining we get .ilearner file. It’s our new retrained model. We need to store it somewhere and later update our predictive model using WebServiceUpdater class.
-We can use the same Azure Storage Account but it’s not required so we need to specify it here as well. We need to provide container and blob name.
+As output from retraining we get .ilearner file. Itâ€™s our new retrained model. We need to store it somewhere and later update our predictive model using WebServiceUpdater class.
+We can use the same Azure Storage Account but itâ€™s not required so we need to specify it here as well. We need to provide container and blob name.
 
 With request data prepared like this we can use HttpClient from System.Net.Http and send it via REST API
 ```csharp

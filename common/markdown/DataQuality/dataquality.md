@@ -1,5 +1,5 @@
 # Overview 
-Data quality is a prerequisite for ensuring trust in the data stored in Veracity. Data quality can be measured for a number of metrics usually grouped in categories (dimensions). Veracity supports some generic metrics for time-series data such as completeness (missing records), uniqueness (duplicate records), below min and above max. The level of data quality for any metric is expressed as a Data Quality Index (DQI). The DQI is defined as 1 - RB/RT, where RB is the number of records that failed to meet the data quality requirement whereas RT is the number of total records assessed. The DQI will yield a number between 0 and 1 where a score of 0 will mean all records failed (low quality) and 1 will mean all records passed (high quality). Other metrics will need to be custom-made based on data quality requirements for any particular data source. The data quality metrics defined in Veracity are displayed in a data quality dashboard that can be accessed in the Veracity portal (https://dataservices.dnvgl.com). The user can select any metric and drill down to any level to investigate when the error occurred and for which sensor.   
+Data quality is a prerequisite for ensuring trust in the data stored in Veracity. Data quality can be measured for a number of metrics usually grouped in categories (dimensions). Veracity supports some generic metrics for time-series data such as completeness (missing records), uniqueness (duplicate records), below min and above max. The level of data quality for any metric is expressed as a Data Quality Index (DQI). The DQI is defined as 1 - RB/RT, where RB is the number of records that failed to meet the data quality requirement whereas RT is the number of total records assessed. The DQI will yield a number between 0 and 1 where a score of 0 will mean all records failed (low quality) and 1 will mean all records passed (high quality). Other metrics will need to be custom-made based on data quality requirements for any particular data source. The data quality metrics defined in Veracity are displayed in a data quality dashboard that can be accessed in the Veracity portal (https://dataservices.dnvgl.com). The user can select any metric and drill down to any level to investigate when the error occurred and for which sensor.    
 
 
 # Quick start
@@ -7,7 +7,7 @@ The data quality dashboards are available for all MyDNVGL users with the appropr
 
 ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality1.png?token=AbX7aVufoe33Gdwx3yezB6E3zqLsbhTAks5ZiwpbwA%3D%3D "Data Management Services")
 
-Figure – The Veracity landing page for data services and data quality (https://dataservices.dnvgl.com)
+Figure â€“ The Veracity landing page for data services and data quality (https://dataservices.dnvgl.com)
 
 ## Tutorial
 The data quality functionality in data management services is divided in three layers; Data quality dashboard, data quality gauge and data quality drilldown. The dashboard contains a gauge for each metric and each gauge provides drilldown to specific data points.
@@ -22,7 +22,7 @@ Figure -  Data quality dashboard
 Each data quality gauge has an information icon        in the top right corner. If the user hovers over this icon a detailed description of the data quality metric is displayed. The below figure show the information box for the metric labelled Usable. Table 1 also shows the information text for the generic time-series data quality metrics.   
 
 ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality3.png?token=AbX7adrkq6tEWgZEiItGeS80DlNhF45Jks5Ziws7wA%3D%3D "Usable data quality metric") 
-Figure – Information for the Usable data quality metric
+Figure â€“ Information for the Usable data quality metric
 
 | Metric        | Information    
 | ------------- |:-------------:| 
@@ -46,24 +46,24 @@ Each data quality metric is represented on the dashboard as a data quality gauge
 | Metric description  | Metric description from above table      |  
 | Deviation from requirement  | The difference between the required and the measured DQI. If the measured DQI falls short of the requirement a red dot is displayed      |  
 
-Table – Gauge properties
+Table â€“ Gauge properties
 
 ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality4.png?token=AbX7aRVYOCVey8fm0G0eGTGPEtN1mBTYks5Ziwt7wA%3D%3D "Dashboard gauge characteristics
 ") 
 
-Figure – Overview of dashboard gauge characteristics
+Figure â€“ Overview of dashboard gauge characteristics
 #### Data quality drilldown
 Clicking on any data quality gauge provides a drilldown to identify the offending data points. The drilldown displays both a historical representation as well as a hierarchical representation.  The historical representation currently has a fixed resolution of one week. The below figure shows a sample historical drilldown for the Completeness metric. The horizontal red line represents the Data quality requirement whereas the blue line represent the measured data quality. For the shown case, the data quality falls short of the requirements except for in the start and end of the period. 
 
 ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality5.png?token=AbX7aZ7OhwQ-pdUty9ig_OEZ4C_1bjkZks5ZiwvSwA%3D%3D "Drilldown for historical data") 
 
-Figure – Drilldown for historical data
+Figure â€“ Drilldown for historical data
 
-The hierarchical drilldown provides both a list- and tree- view representation of sensors in a functional breakdown structure. The sensors must have been mapped to the breakdown structure in a previous process, please refer to (REF). The below figure shows an example for a hierarchical drilldown for a compressor sensor. The measured data quality index is shown for each sensor and the sensors that doesn’t satisfy the requirements are labelled with a red circle, like the labelling on the data quality gauge.
+The hierarchical drilldown provides both a list- and tree- view representation of sensors in a functional breakdown structure. The sensors must have been mapped to the breakdown structure in a previous process, please refer to (REF). The below figure shows an example for a hierarchical drilldown for a compressor sensor. The measured data quality index is shown for each sensor and the sensors that doesnâ€™t satisfy the requirements are labelled with a red circle, like the labelling on the data quality gauge.
 
 ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality6.png?token=AbX7acm0EVY93RRl7pkAChzNzVOjQNgXks5ZiwwNwA%3D%3D "Drilldown for hierarchical data") 
 
-Figure – Drilldown for hierarchical data
+Figure â€“ Drilldown for hierarchical data
 
 The combination of both historical and hierarchical drilldowns provides a powerful means of determining the specific sensors not meeting the data quality requirements as well as in what time interval the problem occurred. 
 
@@ -78,7 +78,7 @@ The first step of the data quality process should involve a detailed description
 In the initial phase of a data quality assessment, data profiling and data exploration can be used to both validate existing business rules and requirements as well as to establish new rules and requirements.
 
 #### Data Quality measurement 
-ISO 8000/8 divides data quality issues into three main categories: Syntactic, Semantic and Pragmatic. Syntactic data quality measures conformance to schema and business and domain rules, semantic data quality measures conformance to the real world or reference data and pragmatic data quality is a measure of the user’s perception of the fitness for use. The data quality metrics on the data quality dashboard falls into the syntactic category. The semantic category commonly relies on sampling techniques or reference to trusted data such as provided by registers or digital twins. The pragmatic data quality is commonly measured by interviews and questionnaires.
+ISO 8000/8 divides data quality issues into three main categories: Syntactic, Semantic and Pragmatic. Syntactic data quality measures conformance to schema and business and domain rules, semantic data quality measures conformance to the real world or reference data and pragmatic data quality is a measure of the userâ€™s perception of the fitness for use. The data quality metrics on the data quality dashboard falls into the syntactic category. The semantic category commonly relies on sampling techniques or reference to trusted data such as provided by registers or digital twins. The pragmatic data quality is commonly measured by interviews and questionnaires.
 
 #### Data Management Maturity (DMM)
 The DMM model divides the organizational capabilities to handle data quality issues in eight categories and five levels. The categories include people and processes, technology and standards as well as data quality metrics and dimensions. The levels include initial, repeatable, defined, managed and optimized. It is important to establish both the current maturity level as well as the desired level to define any deviations and activities required to close the gap. 
@@ -94,12 +94,12 @@ The below figure shows the overall process for the activities described above.
 ![](https://raw.githubusercontent.com/veracity/Documentation/master/common/images/dataquality7.png?token=AbX7acvbMfqvmtuDYlSxVsBomkM-GgLHks5ZiwxYwA%3D%3D "Overall process for data quality assessment") 
 
 
-Figure – The overall process for data quality assessment
+Figure â€“ The overall process for data quality assessment
 
 ## References
 DNVGL-RP-0497 Data quality assessment framework
-ISO 8000/8 Information and data quality – concepts and measuring
-Data Management Maturity (DMM) Model – CMMI Institute
+ISO 8000/8 Information and data quality â€“ concepts and measuring
+Data Management Maturity (DMM) Model â€“ CMMI Institute
 
 ## Resources 
 In this section we have added resources that may provide you with additional learning. 

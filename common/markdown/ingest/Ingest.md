@@ -13,7 +13,7 @@ Quick-Start
 - [Ingest using Blob, REST API, AZCopy or Azure CLI (continuous data load)](#Ingest-using-Blob-REST-API-AZCopy-or-Azure-CLI)
 
 
-Tutorial 
+Tutorial:
 
 - How to work in Azure Storage Explorer 
 

@@ -9,7 +9,7 @@ Link to Quick-Start
 - [Egest using Azure Storage Explorer](#Egest-using-Azure-storage-explorer)
 - [Egesting data using REST API](#Egesting-data-using-REST-API)
 
-Link to tutorial
+Link to tutorial:
 -	How to work in Azure Storage Explorer
 -	How to work in Blob, REST API, AZCopy or Azure CLI
 -	Egest using Mac

@@ -2,6 +2,7 @@
 
 This tool is in Privat Preview. Contact Veracity Developers Toolbox team if you want details.
 
+
 Power BI is a self-service Business Intelligence tool which helps you to visualize and organize your data. Veracity has developed an integrated framework for Power BI, named Insight, which can be used to share the Power Bi reports and dashboards in a secure way to your customers. The tool also enable you to brand the application so that it follows with your own brand profile.
 
 Power BI can be used to connect to a wide range of data sources, including but not limited to databases (SQL, Oracle, IBM, etc.), Azure and Files (Excel, CSV, XML, etc).
@@ -42,15 +43,15 @@ The Power BI tool Insght is in Private Preview, but we are onboarding mature ser
 
 
 ### Part 3: How to use the Power BI publishing tool towards customers
-You are now the owner and admin of your service in Veracity and will see your service as a tile under ‘My Services’. Now that you have created your first report you are ready to share it with your customer. Your customer(s) obtain access to your reports through your Power BI application page. When clicking on the tile you will land on the home page of your site:
+You are now the owner and admin of your service in Veracity and will see your service as a tile under ï¿½My Servicesï¿½. Now that you have created your first report you are ready to share it with your customer. Your customer(s) obtain access to your reports through your Power BI application page. When clicking on the tile you will land on the home page of your site:
 
 INSERT SCREENSHOT
 
-Navigate to the ‘admin’ page where you will see four tiles: 
+Navigate to the ï¿½adminï¿½ page where you will see four tiles: 
 
 INSERT SCREENSHOT
 
-To learn more about each item on this page, hover your mouse cursor over the ’?’ icon and a tool tip will be displayed with more contextual information. The application is meant to give an intuitive user experience with several tool tips throughout.  However, we recommend you read through the tutorial for the application the first time.
+To learn more about each item on this page, hover your mouse cursor over the ï¿½?ï¿½ icon and a tool tip will be displayed with more contextual information. The application is meant to give an intuitive user experience with several tool tips throughout.  However, we recommend you read through the tutorial for the application the first time.
 
 
 # Tutorial
@@ -70,14 +71,14 @@ a. Click on the first box named 'Manage Files'
 b. Click 'upload file'.
 c. Click 'browse' and select the power BI file you wish to upload.
 d. Write in a name under 'Report name'.
-e. If you do not use direct query, skip this step. If you use a database in your report you need to inform what the connection string is by checking the ‘Connection string’ box and informing what the connection string is. This string is not stored in veracity but passed on to Power BI services to render the report. 
+e. If you do not use direct query, skip this step. If you use a database in your report you need to inform what the connection string is by checking the ï¿½Connection stringï¿½ box and informing what the connection string is. This string is not stored in veracity but passed on to Power BI services to render the report. 
 f. Click 'Save changes'.
 
 INSERT PICTURE
 
 e. You will now see your uploaded report file on the page.
 
-*Return to the main page by clicking ‘Admin’ in the upper left corner to go back to the main page.* 
+*Return to the main page by clicking ï¿½Adminï¿½ in the upper left corner to go back to the main page.* 
 
 **2. Manage Reports**
 a. Click on the second box named 'Manage Reports'.
@@ -87,17 +88,17 @@ d. Click 'add'.
 
 INSERT SCREENSHOT
 
-*Return to the main page by clicking ‘Admin’ in the upper left corner to go back to the main page.*
+*Return to the main page by clicking ï¿½Adminï¿½ in the upper left corner to go back to the main page.*
 
 **3. Manage Entities**
 a. Click on the third box named 'Manage Entities'.
 b. Click 'Add'.
-c. Fill in ‘Name’, ‘Type’, 'Reports', Type Property Value Setting'. 
+c. Fill in ï¿½Nameï¿½, ï¿½Typeï¿½, 'Reports', Type Property Value Setting'. 
 d. Click 'Add'. 
 
 INSERT SCREENSHOT
 
-*Return to the main page by clicking ‘Admin’ in the upper left corner to go back to the main page.*
+*Return to the main page by clicking ï¿½Adminï¿½ in the upper left corner to go back to the main page.*
 
 **4. Manage Users**
 a. Click on the fourth box named 'Manage Users'. 
@@ -119,7 +120,7 @@ The Power BI embedded version in Azure only support refresh on Azure SQL databas
 For Row Level Security to work you need to create a security role called "MyDNVGLUser" in Power BI Desktop. You also need the MYDNVGL ID which is a GUID to be able to use USERNAME()-It looks like this: 57a61395-4dc1-4ff1-ad04-2f14a1b9e6c5|16. 
 GUID is a unique identifier in DNVGL and Veracity on an individual basis. If the person change company or email, he or she will still be able to use the same account. 
 Contact Mona Olander for giving you access to the tool where you can get the MyDNVGL GUID's.
-You can look up the GUID in the My DNV GL Admin tool: https://myadmin.dnvgl.com – go to “Users” and look up the email address of the user. Click on the user. The GUID is the value in the “Id” field:
+You can look up the GUID in the My DNV GL Admin tool: https://myadmin.dnvgl.com ï¿½ go to ï¿½Usersï¿½ and look up the email address of the user. Click on the user. The GUID is the value in the ï¿½Idï¿½ field:
 
 INSERT SCREENSHOTS
 
@@ -132,7 +133,7 @@ Please be aware of security concerns! We recommend to use a place which has acce
 
 
 # Legal
-We recommend to check with your own legal department that you are operating within a legal framework before using Power BI with your customer’s data.
+We recommend to check with your own legal department that you are operating within a legal framework before using Power BI with your customerï¿½s data.
 
 # Terms
 Before you start using this application you should consider two things

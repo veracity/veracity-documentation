@@ -1,5 +1,5 @@
 
-# Introduction to developer community 
+# Introduction to developer toolbox 
 Welcome to Veracity’s developer community!
 
 This platform is intended to facilitate authentic participation by engaging providers and consumers. Developer Community gives those who seek to work on Veracity an opportunity to evaluate its potential through information, inspiration and collaboration

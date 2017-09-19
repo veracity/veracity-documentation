@@ -3,7 +3,6 @@
 This document is a quick-start resource for AIC on how to set up a Machine Learning experiment on Microsoft Machine Learning Studio, leveraging our Group Digital Accelerator subscription to Microsoft Azure, and using data stored on an Azure Storage as input.
 In particular, in the following you can find some guidance on:
 
-
 Further
 -	how to set up a Machine Learning Workspace on your azure subscription in the Group Digital Accelerator resource group
 -	how to upload data into your azure storage

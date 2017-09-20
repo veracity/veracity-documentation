@@ -1,10 +1,10 @@
-# Is Veracity the right place for your
+# Introduction to developer toolbox 
+Welcome to Veracity’s developer community!
 
-It is no secret that a service will perform better when complemented by the right platform and vice versa. Veracity intends to facilitate services that meet customers expectations, both in quality of the service and focus of segment. We have put together a self-assessment tool that you should complete if you are planing to onboard as a service provider. (The purpose of this self-assessment is to create a profile of the proposal so it can be assessed properly for platform value)
+This platform is intended to facilitate authentic participation by engaging providers and consumers. Developer Community gives those who seek to work on Veracity an opportunity to evaluate its potential through information, inspiration and collaboration
 
-
-## Self-assessment
-
-
-
+Developer community will assist in leading you toward the service(s) and data you are seeking by providing easy navigation to description of tools, tutorials, training, inspirational articles and best practices.
  
+We seek to continuously improve our platform so it is easy to use, appealing and promotes self-service.
+
+Unsure how to get started? Check out our introduction video [her](https:\\developer.veracity.com\).

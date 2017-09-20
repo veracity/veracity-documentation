@@ -2,7 +2,7 @@
 This Veracity API's enable data providers and consumers to interact with veracity programatically.  
 
 # API Reference
-- Some reference....
+- Some reference.....
 
 
 # Tutorial
@@ -13,16 +13,16 @@ Veracity uses API Management. In order to get access, you will need to do the fo
 NB! The endpoint URLs might be changed/refactored during private preview period to further enhance the developer experience. We will try to inform users of the API before such changes take place.
 
 
-### Standard structure of API Call
+## Standard structure of API Call
 
-#### Call header:
+### Call header:
 - **Ocp-Apim-Subscription-Key** - this header attribute is for authentication to API Management
 - **Authorization** this header attribute needs to contain the Bearer Token gotten through atuhorization on Veracity
 
-#### Query parameters:
+### Query parameters:
 Depeding on end-point
 
-#### Authorization snippet (for developer)
+### Authorization snippet (for developer)
 You need to authorize to Veracity with code and copy the Bearer Token to your requests (we will provide later). Swagger UI can be used for now. Bearer token is usually valid for one hour, after that you need to request a new.
 
 Best practice to always get a new token before a request. 
@@ -48,17 +48,17 @@ In this section we will give theoretical and practical recommendations on how to
  
 # References 
 
-## GitHub  
+# GitHub  
 Follow our open projects related to veracity API on https://github.com/veracity
 
-## Stack Overflow
+# Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity
  
 [Visit Stack Oerflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
 
 
  
-### Video 
+# Video 
 Some text
 
  

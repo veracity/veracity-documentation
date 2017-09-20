@@ -18,23 +18,22 @@ In this section we will give theoretical and practical recommendations on how to
  
 # References 
 
-## GitHub  
+# GitHub  
 Follow our open projects related to security on https://github.com/veracity
 
-## Stack Overflow
+# Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity
  
-[Visit Stack Oerflow](https://stackoverflow.com/search?q=Veracity+template)
+[Visit Stack Oerflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
 
 
  
-### Video 
+# Video 
 Some text
 
  
 # Resources  
 In this section we have added resources that may provide you with additional learning.  
-
 
  
 # FAQ 

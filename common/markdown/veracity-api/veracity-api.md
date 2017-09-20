@@ -2,7 +2,7 @@
 This Veracity API's enable data providers and consumers to interact with veracity programatically.  
 
 # API Reference
-- Some reference.....
+- Some reference...
 
 
 # Tutorial

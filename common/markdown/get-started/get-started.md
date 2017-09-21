@@ -7,4 +7,4 @@ Developer community will assist in leading you toward the service(s) and data yo
  
 We seek to continuously improve our platform so it is easy to use, appealing and promotes self-service.
 
-Unsure how to get started? Check out our introduction video [her](https:\\developer.veracity.com\).
+Unsure how to get started? Check out our introduction video [her](https:\\developer.veracity.com\)

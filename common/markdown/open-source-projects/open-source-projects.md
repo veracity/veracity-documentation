@@ -7,19 +7,19 @@ Links to content
 - [Markdown parser tool](#markdown-parser-tool)
 - [Machine Learning automation](#machine-learning-automation)
 
-## Markdown parser tool
+# Markdown parser tool
 When preparing documentation, we base on GitHub and markdown files (.md) where we put all documentation data. With that approach, we can easily maintain the data and have full control over the workflow. On the other hand, it’s not convenient for external users to go through repository when looking at documentation.
 That's why there is a tool which can easily translate .md format to HTML syntax consumed by web browser. 
 Thanks to this translation and extraction of additional metadata we can provide user friendly and intuitive documentation which is easy to read and navigate.
 The following code description applies to the .NET implementation as it is the base platform used for that tool.
 
-### Implementation and usage
+## Implementation and usage
 Markdown parser tool is designed as a fully automatic module that is executed every time Documentation repository on GitHub is updated. So, there is no need for user input other than adding or updating documentation.
 To achieve that goal, we need to setup and deploy a service that will be able to track repository changes and execute appropriately providing a piece of data which can be easily interpreted by web browser at the end.
 Instead of setting up whole service with all infrastructure and management concerns we decided to use completely serverless approach called Azure Functions. It’s a solution for running pieces of code in the cloud where we pay only for the time the code runs and trust Azure to scale as needed.
 Source code is available [here](https://github.com/veracity/MarkdownParser).
 
-#### Markdown parser Azure Function
+### Markdown parser Azure Function
 Azure Functions among many great functionalities provides templates to get started with key scenarios. One of scenarios is called GitHub webhook.
 This template executes our "piece of code" every time event occur in GitHub repositories. Its perfect scenario for us. We wait with our Azure Function until a user makes a change in repository, then GitHub sends an event with data about the change and thanks to webhook Azure executes our Function. And we pay only for that execution, not for idle time between repository updates.
 More details about Azure Functions and other templates can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
@@ -44,7 +44,7 @@ Inside the method we can distinguish three parts.
 - Process request - extract needed data from request, process it in Markdown parser
 - Return HTTP response based on status from Markdown parser
 
-#### Preparing request for parser
+### Preparing request for parser
 
 To read input request properly we need to know data structure of the request. As the data comes from GitHub, there we can find how sample webhook payload looks like.
 Here is [link](https://developer.github.com/v3/activity/events/types/#pushevent) to GitHub documentation and below small description of key points.
@@ -81,7 +81,7 @@ private static async Task<bool> ProcessCommitAsync(dynamic data, Binder binder, 
 As you can see we expect data like repository id and branch name for accessing correct place in Git repository. Also, we expect commit id.
 All of this are needed to get .md files included in commit that triggered this webhook event.
 
-#### Ask GitHub API for changes in commit
+### Ask GitHub API for changes in commit
 
 Having above data we are ready to ask GitHub API for data that we are interested in. To achieve that we use a wrapper called [Octokit](https://github.com/octokit/octokit.net) available as NuGet package.
 
@@ -115,7 +115,7 @@ But we need to track those changes also, so we put entry in return collection as
 
 With data prepared like this we can execute core code of Markdown parser.
 
-#### Markdown parser core
+### Markdown parser core
 
 In Markdown parser code, we are interested only in md file content. Input collection of Tuples in method PrepareJsonData is used only for creating similar output.
 With a difference that output Tuple Item1 is name of produced json file and Item2 is json content.
@@ -187,7 +187,7 @@ And so on.
 
 So, in CreateTree method we look at every header and try to assign it to proper branch of our Header Tree structure.
 
-#### JSON serialization
+### JSON serialization
 
 When Markdown Data object is prepared, we need to serialize it into JSON format. We use standard JSON serialization library from [Netwonsoft](https://www.newtonsoft.com/json)
 
@@ -238,20 +238,20 @@ Here we don't have this possibility because we don't know blob name at this poin
 For more details about imperative binding click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-csharp#imperative-bindings).
 
 
-## Machine Learning automation
+# Machine Learning automation
 When considering data quality, we deal a lot with concept of Machine Learning. Thanks to advanced algorithms we can go through user data, test it against a number of metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.
 Microsoft provides a platform called Azure Machine Learning. Undeniable advantage of AML is that it exists in Azure environment so it is put as close to user data as possible. And it provides easy to use API for managing this data.
 In this solution, we are trying to provide code samples about how we can automate parts of Machine Learning workflow.
 In particular we are focusing on consuming and retraining AML Web Service with usage of Azure Functions. 
 The following code description applies to the .NET implementation as it is the base platform used for that tool.
 
-### Implementation and usage
+## Implementation and usage
 Solution contains several projects covering functionalities like consuming AML Web Service and retraining AML Web Service. Additionally, there is sample Azure Function code showing how to use retraining code in specific scenario. 
 There is an assumption that AML Web Service with retraining experiment is already setup and published. More information about how to create retraining experiment and publish in Azure, please have a look [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
 Source code described in detail below is available [here](https://github.com/veracity/veracity-machinelearning-automation).
 
-#### Consuming AML Web Service
+### Consuming AML Web Service
 One of the standard operations executed while working with Machine Learning is asking Web Service via REST API for predictions giving some input data. At this stage model is already trained and will expect only particular set of input data.
 Here we will focus on how to send data and receive predictions in real-time. 
 
@@ -334,14 +334,14 @@ This structure contains one dimensional array of string for column names and two
 
 As output, we receive JSON string formatted like input structure with this difference that additionally to values in array we receive also predictions.
 
-#### Retraining AML Azure Function
+### Retraining AML Azure Function
 When working with Machine Learning, just next to standard usage its required time to time to update Machine Learning model. The operation is called retraining and can be executed via Web Service REST API.
 Code available [here](https://github.com/veracity/veracity-machinelearning-automation/tree/master/MachineLearningRetrain) provides a usage sample of how step by step we can retrain our Model.
 There are two main classes
 - [WebServiceRetrainer](#Web-Service-Retrainer-class)
 - [WebServiceUpdater](#Web-Service-Updater-class)
 
-##### Web Service Retrainer class
+#### Web Service Retrainer class
 Just like in WebServiceConsumer we need to provide two properties via constructor when initializing class.
 ```csharp
 public WebServiceRetrainer(string serviceUrl, string apiKey)
@@ -452,7 +452,7 @@ public class AzureBlobDataReference
 
 This file will be used by WebServiceUpdater to update our predictive model.
 
-##### Web Service Updater class
+#### Web Service Updater class
 When initializing updater class, we need to provide WebService url and Api key
         public WebServiceUpdater(string serviceEndPointUrl, string endpointApiKey)
         {

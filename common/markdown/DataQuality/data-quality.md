@@ -9,16 +9,16 @@ The data quality dashboards are available for all MyDNVGL users with the appropr
 
 Figure – The Veracity landing page for data services and data quality (https://dataservices.dnvgl.com)
 
-## Tutorial
+# Tutorial
 The data quality functionality in data management services is divided in three layers; Data quality dashboard, data quality gauge and data quality drilldown. The dashboard contains a gauge for each metric and each gauge provides drilldown to specific data points.
 
-### Data quality dashboard
+## Data quality dashboard
 When selecting the Data quality (INSERT PIC OF ICON) icon for a project, the user will be presented with the data quality dashboard displaying all defined data quality metrics for the data management services project. The screenshot below shows a data quality dashboard with six defined metrics. The first four (uniqueness, above min, above max and completeness) are generic metrics for time-series data, whereas Goodness is a custom metric based on a data quality flag present in this data stream. The metric labelled Usable measures the ratio of records without any data quality issues, ie any record which satisfies all data quality requirements.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality2.png "Data Quality dashboard") 
 
 Figure - Data quality dashboard
-### Data quality gauge
+## Data quality gauge
 Each data quality gauge has an information icon in the top right corner. If the user hovers over this icon a detailed description of the data quality metric is displayed. The below figure show the information box for the metric labelled Usable. Table 1 also shows the information text for the generic time-series data quality metrics. 
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality3.png "Usable data quality metric") 
@@ -51,7 +51,7 @@ Table – Gauge properties
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality4.png "Dashboard gauge characteristics") 
 
 Figure – Overview of dashboard gauge characteristics
-### Data quality drilldown
+## Data quality drilldown
 Clicking on any data quality gauge provides a drilldown to identify the offending data points. The drilldown displays both a historical representation as well as a hierarchical representation.  The historical representation currently has a fixed resolution of one week. The below figure shows a sample historical drilldown for the Completeness metric. The horizontal red line represents the Data quality requirement whereas the blue line represent the measured data quality. For the shown case, the data quality falls short of the requirements except for in the start and end of the period. 
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/dataquality5.png "Drilldown for historical data") 

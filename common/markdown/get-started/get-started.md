@@ -1,10 +1,11 @@
-# Introduction to developer toolbox 
+# Introduction to developer toolbox/community 
+
 Welcome to Veracity’s developer community!
 
-This platform is intended to facilitate authentic participation by engaging providers and consumers. Developer Community gives those who seek to work on Veracity an opportunity to evaluate its potential through information, inspiration and collaboration.
+Those who seek to work on Veracity can use Veracity's Developer Community as an opportunity to evaluate its potential through information, inspiration and collaboration. Developers community is intended to encourage participation by engaging providers and consumers. 
 
-Developer community will assist in leading you toward the service(s) and data you are seeking by providing easy navigation to description of tools, tutorials, training, inspirational articles and best practices.
- 
-We seek to continuously improve our platform so it is easy to use, appealing and promotes self-service.
+Veracity's Developer Community will assist in leading you towards the services and data you are seeking by providing easy navigation to services, tutorials, training and inspirational articles. We seek to continuously improve our platform so it is easy to use, appealing and promotes self-service.
 
-Unsure how to get started? Check out our introduction video [her](https:\\developer.veracity.com\)
+On the front page you will find several tiles. Each tile contains documentation that is intended to inform and demostrate the selected topic. To get a quick overview with key information of each tile, please see (insert link to overvie of tools) 
+
+

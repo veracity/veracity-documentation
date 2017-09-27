@@ -74,7 +74,7 @@ private static async Task<bool> ProcessCommitAsync(dynamic data, Binder binder, 
     var commitId = (string) data.head_commit.id;
     var mdFiles = await GetAllMdFilesTask("MarkdownParser", repositoryId, branch, commitId, log);
     var jsonFiles = PrepareJsonData(mdFiles, log);
-    return await WriteJsonFilesToBlobsTask(jsonFiles, binder, log);
+    return await WriteJsonFilesToFileShareTask(jsonFiles, log);
 }
 ```
 
@@ -157,18 +157,21 @@ The Markdig library is used as follows:
 using (var writer = new StringWriter())
 {
     var builder = new MarkdownPipelineBuilder();
-    builder.UseAutoIdentifiers()
-        .UseAdvancedExtensions()
-        .UseSyntaxHighlighting();
+    builder.UseAutoIdentifiers();
+    builder.UseFigures();
+    builder.UseCustomCodeBlockExtension();
     document = Markdown.ToHtml(mdFileContent, writer, builder.Build());
     htmlString = writer.ToString();
 }
 ```
+UseAutoIdentifiers enables adding ids for headers. 
 
-Notice UseSyntaxHighlighting method executed on builder. It's not by default provided by Markdig but there is an extension [here](https://github.com/RichardSlater/Markdig.SyntaxHighlighting) available as NuGet packege.
+UseFigures enables usage of Figures statements.
+
+UseCustomCodeBlockExtension is an extension written by us to replace default html code blob renderer with our own. 
+This approach gives great possibilities for html syntax modifications for specified part of .md files, in this case parts with code samples.
 
 As Markdig object model does not provide hierarchical object grouping like tree model, when extracting Headers there was need to write custom code.
-
 ```csharp
 private void CreateTree(IEnumerable<HeadingBlock> headingBlocks, HeaderData root)
 {
@@ -205,12 +208,34 @@ private string ConvertToJson(MarkdownData data)
 
 In ProcessCommitAsync method there is one more step to do:
 ```csharp
-return await WriteJsonFilesToBlobsTask(jsonFiles, binder, log);
+return await WriteJsonFilesToFileShareTask(jsonFiles, log);
 ```
 
-We need to store our new json files somewhere. We decided to choose Azure Blob Storage. There is a container created only for this data.
+We need to store our new json files somewhere. We decided to choose Azure File Shares. There is a FileShare created only for this data.
 
 The core of method is like this:
+```csharp
+var storageAccount = CloudStorageAccount.Parse(GetEnvironmentVariable("AzureWebJobsStorage"));
+var fileClient = storageAccount.CreateCloudFileClient();
+var share = fileClient.GetShareReference(GetEnvironmentVariable("OutputFileShareName"));
+
+foreach (var json in jsonData)
+{
+    var sourceFile = share.GetRootDirectoryReference().GetFileReference(json.Item1);
+    if (string.IsNullOrEmpty(json.Item2)) // when content is empty we should delete blob.
+    {
+        if (sourceFile.Exists())
+            await sourceFile.DeleteAsync();
+    }
+    else
+    {
+        sourceFile.Properties.ContentType = "application/json; charset=utf-8";
+        sourceFile.UploadText(json.Item2, Encoding.UTF8);
+    }
+}
+```
+
+There is also solution based on Azure Blobs which is not used but can be easly switched on.
 ```csharp
 foreach (var json in jsonData)
 {
@@ -222,9 +247,10 @@ foreach (var json in jsonData)
     }
     else
     {
-        using (var writer =
-            await binder.BindAsync<TextWriter>(new BlobAttribute($"json-container/{json.Item1}")))
-            writer.Write(json.Item2);
+        var blob =
+            await binder.BindAsync<CloudBlockBlob>(new BlobAttribute($"json-container/{json.Item1}"));
+        blob.Properties.ContentType = "application/json; charset=utf-8";
+        blob.UploadText(json.Item2, Encoding.UTF8);
     }
 }
 ```

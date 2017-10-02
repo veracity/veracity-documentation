@@ -822,7 +822,7 @@ AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyCo
 This will copy all files starting with "my". Use option /S to copy more than one file.
 
 (3) Copying a local folder to a BLOB container:
-```batch
+```powershell
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /S
 ```
 

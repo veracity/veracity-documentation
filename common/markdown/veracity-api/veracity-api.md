@@ -27,11 +27,12 @@ You need to authorize to Veracity with code and copy the Bearer Token to your re
 
 Best practice to always get a new token before a request. 
 
-'''curl
+```
 curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={boolean}&owned={boolean}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 -H "Authorization: Bearer {token}"
-'''
+```
+
 
 ## Data API
 The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers, get their key to a data container or share a key with another Veracity Data Platform user.

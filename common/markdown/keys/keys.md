@@ -1,5 +1,5 @@
 # Overview 
-Veracity keys...
+Veracity keys
 
 
 Different types of keys:
@@ -7,6 +7,34 @@ Different types of keys:
 - Read and list
 - Read, write and list
 - Read, write, list and delete
+
+
+# Security
+All the different keys available in Veracity are of the type "shared access signature" (SAS) keys. The SAS key provides you with a way to grant limited access to objects in your storage to others, without exposing your account key. The account key is stored with Veracity data fabric, and is not able to be retrieved by any users. 
+
+## What is shared access signature
+In Veracity the SAS gives you granular control over the type of access you grant to clients who have the SAS, including:
+
+- The time which the SAS is valid.
+- The permissions granted by the SAS. In Veracity these levels are: 
+    1. Write
+    2. Read and list
+    3. Read, write and list
+    4. Read, write, list and delete
+- You may revoke the key you have shared at any time
+- You can enable the client to renew the key, while it is only valid for a limited time when key is claimed.
+
+
+## Key duration
+A SAS key may be granted for a limited time, where the options in Veracity are:
+    - 1 hours
+    - 8 hours
+    - 1, 2, 3, 4, 5 and 6 months
+Note that when a key is shared one share the right to claim a key. The person who have recieved the key may claim that key at any time, and from that point on the timer will start. It is strongly recomended that one limit the duration on the key, and rather add the repeat/recuring option, enabling the client to reclaim the key.
+
+## Recuring keys
+All keys can be given a repeating property, which means it is automatically renewed until the owner of the container revokes it. Enabling this option allow for much lower duration on keys, which increase the security. The client who have been granted a SAS key, would need to reclaim the key after the duration expire. This can either be done through the Veracity MyData, or through the Veracity API.
+
 
 
 # Type of keys 

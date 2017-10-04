@@ -3,11 +3,11 @@ The data protection and keys assosiated with access to storage in Veracity are b
 
 
 Short links:
-- [Security](#Security)
-- [Write key](#Write-key)
-- [Read and list](#Read-and-list)
-- Read, write and list
-- Read, write, list and delete
+- [Security](#security)
+- [Write key](#write-key)
+- [Read and list](#read-and-list)
+- [Read, write and list](#read-write-and-list)
+- [Read, write, list and delete](#read-write-list-and-delete)
 
 
 # Security

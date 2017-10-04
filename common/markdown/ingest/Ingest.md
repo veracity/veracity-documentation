@@ -857,9 +857,12 @@ Link
  
 # FAQ 
 Q: I am using Ubuntu Linux and I have issues running storage explorer 
+
 A: Some users have reported issues with running storage explorer. We tested it successfully with the Windows desktop operation systems: Windows 7, Windows 8, Windows 10 and with the server operations systems Windows server 2008 and windows server 2012. The test failed with Ubuntu Linux 17.04 
  
+ 
 Q: I attempt to use the SAS key in Azure Storage Explorer a second time and get the Authentication Error: The spesific signed resource is not allowed for this resource level
+
 A: This is a known bug in Azure Storage Explorer. This will occure if you did not detatch the storage before you tried to reconnect using the same ket. You will need to access the storage under the "(SAS-Attatched Services)" storage account in Azure Storage Explorer. The storage should still be mapped there. The Microsoft Azure team will need to resolve this bug, and Veracity is not able to contrtibute to that. Pleas continiue to update your Azure Storage Explorer when new realeases are awailable.
  
 # Price model 

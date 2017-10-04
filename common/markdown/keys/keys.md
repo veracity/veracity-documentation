@@ -25,6 +25,8 @@ In Veracity the SAS gives you granular control over the type of access you grant
 - You may revoke the key you have shared at any time
 - You can enable the client to renew the key, while it is only valid for a limited time when key is claimed.
 
+[](https://veracitydevtest.blob.core.windows.net/static-documentation/keys-share.PNG)
+
 
 ## Key duration
 A SAS key may be granted for a limited time, where the options in Veracity are:

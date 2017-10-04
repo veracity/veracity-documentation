@@ -1,16 +1,17 @@
 # Overview 
-Veracity keys
+The data protection and keys assosiated with access to storage in Veracity are built around shared access signature (SAS). This enable sharing of data, where access is granted based on policies, and where the granted access can be revoked at any time. The activity related to the data can in this way be tracked by the container owner, and reviewed in the container owner.
 
 
-Different types of keys:
-- Write key
-- Read and list
+Short links:
+- [Security](#Security)
+- [Write key](#Write-key)
+- [Read and list](#Read-and-list)
 - Read, write and list
 - Read, write, list and delete
 
 
 # Security
-All the different keys available in Veracity are of the type "shared access signature" (SAS) keys. The SAS key provides you with a way to grant limited access to objects in your storage to others, without exposing your account key. The account key is stored with Veracity data fabric, and is not able to be retrieved by any users. 
+All the different keys available in Veracity are of the type "shared access signature" (SAS) keys. The SAS key provides a way to grant limited access to objects in your storage to others, without exposing your account key. The account key is stored with Veracity data fabric, and is not able to be retrieved by any users. 
 
 ## What is shared access signature
 In Veracity the SAS gives you granular control over the type of access you grant to clients who have the SAS, including:
@@ -38,8 +39,7 @@ All keys can be given a repeating property, which means it is automatically rene
 
 
 # Type of keys 
-Some info on sas keys
-
+Veracity support 4 different keys, where one can define the duration of the key, and the if the key will be recuring.
 
 ## Write key
 Write key gives the user rights to write to a container for the given amount of time, but not list the content. Typically used for applications or developers that should only write to a data container.
@@ -52,15 +52,6 @@ Read, write and list key gives the user rights to read, write and browse the con
 
 ## Read, write, list and delete
 Read, write, list and delete key gives the user full access to the content of your data container for the given amount of time. Typically used for data managers/providers. 
-
-## Duration of keys
-You can choose among the following durations for all types of keys
-
-1h and 8h
-
-1, 2, 3, 4, 5 and 6 months.
-
-All keys can be given a repeating property, which means it is automatically renewed until the user of the container revokes it.
 
 
 # Pattern & Practices 

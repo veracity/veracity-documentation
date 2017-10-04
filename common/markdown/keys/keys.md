@@ -1,6 +1,8 @@
 # Overview 
 The data protection and keys assosiated with access to storage in Veracity are built around shared access signature (SAS). This enable sharing of data, where access is granted based on policies, and where the granted access can be revoked at any time. The activity related to the data can in this way be tracked by the container owner, and reviewed in the container owner.
 
+Keys are only possible to share with other platform users, and the SAS key may only be obtained by authenticated users.
+
 
 Short links:
 - [Security](#security)
@@ -57,8 +59,14 @@ Read, write, list and delete key gives the user full access to the content of yo
 
 
 # Pattern & Practices 
-How to securely use keys
- 
+
+## Best practices when sharing keys
+As a data storage owner you may share the data with other. When you share a key it is best practice to choose as short duration on the key as possible for the intended use. If access to storage is going to be used over a prolonged period of time it is recomended that you go for the recuring key option, where the key will need to be renewed by the user after the duration expires. The renewal of the key can ether be done through the Veracity MyData page, or programmatically using the Veracity API.  
+
+## Best practices when usin keys
+When your applications use a SAS key from veracity, it is recomended to build in to your application to always call the Veracity API for renewall of key, prior to the accessing of the data. In this way you will always have the latest valid key. 
+
+
 # References 
 
 # GitHub  

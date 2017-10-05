@@ -23,8 +23,6 @@ Veracity support file of any type and size. In this section we will provide deta
 
  Ingress refers to all data (requests) being sent to a storage account. Egress refers to all data (responses) being received from a storage account.
 
-
-
 # Regions for storage 
 Veracity is designed for global scale, and will support storage in a number of regions. At the moment, there are two regions in general availability in Veracity, one in EU and one in USA. You are able to select this during the creation of the storage container in MyData or by setting the the storageLocation parameter using the provisioning API. All regions in general availability will have full feature support in Veracity.
 

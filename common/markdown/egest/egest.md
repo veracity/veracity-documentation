@@ -20,7 +20,7 @@ Link to tutorial:
 
 
 # Quick start 
-## Egest using Azure storage explorer
+## Egest using Azure Storage Explorer
 When doing a manual egest of data from Veracity, we recommend using Azure Storage Explorer. This independent application from Microsoft allows you to manually retrieve, view and interact with the data. This tool allows you to access any Veracity storage container you have been granted access to. Azure Storage Explorer is available through Windows, macOS and Linux.
 
 ### Download and install Azure Storage Explorer.
@@ -41,7 +41,7 @@ Step by step installation
  ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-install.png "Install Azure Storage Explorer")
 
 3.	Follow the instructions provided in the installation wizard. Note that you cannot complete the installation without accepting Microsoft's terms of use
-4.	Azure storage explorer is now installed, and should open automatically after the first installation, regularly check for updates and apply them. They are indicated when available
+4.	Azure Storage Explorer is now installed, and should open automatically after the first installation, regularly check for updates and apply them. They are indicated when available
 
 ### Connect to a Veracity container using your key
 The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, click [HERE] to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. 

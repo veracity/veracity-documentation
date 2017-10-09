@@ -192,7 +192,7 @@ So, in CreateTree method we look at every header and try to assign it to proper 
 
 ### JSON serialization
 
-When Markdown Data object is prepared, we need to serialize it into JSON format. We use standard JSON serialization library from [Netwonsoft](https://www.newtonsoft.com/json)
+When Markdown Data object is prepared, we need to serialize it into JSON format. We use standard JSON serialization library from [Newtonsoft](https://www.newtonsoft.com/json)
 
 Here is the usage:
 ```csharp

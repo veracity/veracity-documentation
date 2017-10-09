@@ -270,22 +270,22 @@ In this sample we are using Maven project and reference following dependencies:
 
 You can download it from Maven repositories or add dependency directly in pom.xml file:
 ```xml
-    <dependencies>
-      <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-storage</artifactId>
-        <version>5.5.0</version>
-      </dependency>
-    </dependencies>
+<dependencies>
+  <dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-storage</artifactId>
+    <version>5.5.0</version>
+  </dependency>
+</dependencies>
 ```
 
 Next step is to add proper imports to project:
 ```java
-    import java.net.URI;
-    import java.util.ArrayList;
+import java.net.URI;
+import java.util.ArrayList;
 
-    import com.microsoft.azure.storage.*;
-    import com.microsoft.azure.storage.blob.*;
+import com.microsoft.azure.storage.*;
+import com.microsoft.azure.storage.blob.*;
 ```
 
 We now basically need to do three things. We first need to get a reference to the container using a SAS key
@@ -377,7 +377,7 @@ The samples are written in Node.js and use the [Azure Storage SDK for Node.js](h
 
 To obtain the package use Node Package Manager (NPM) from command line or from wizard via Visual Studio. 
 When using command line type
-```md
+```
 npm install azure-storage
 ```
 
@@ -522,7 +522,7 @@ We will in this quick start look at how to programaticaly read data from Veracit
 The samples are written in Python and use the [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 In your python environment you need to add package
- ```md
+ ```
 azure-storage
  ```
 
@@ -795,7 +795,7 @@ int main()
 }
 ```
 
-## Ingest data usinng AzCopy
+## Ingest data using AzCopy
 AzCopy is a command line tool used to upload and download data to or from  BLOB containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same locations.
 However, it can also be used to upload data from a local computer or between any BLOBs in any subscriptions and locations.
 AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from for example Windows Powershell.
@@ -867,6 +867,3 @@ A: This is a known bug in Azure Storage Explorer. This will occure if you did no
  
 # Price model 
 The prosess of ingesting data is at the moment not subject to cost. Storage does have cost related to it, and you may find additional information HERE  
- 
- 
- 

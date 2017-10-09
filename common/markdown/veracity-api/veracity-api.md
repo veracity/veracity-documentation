@@ -38,10 +38,10 @@ curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={bool
 The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers, get their key to a data container or share a key with another Veracity Data Platform user.
 
 Implementations:
-- [.NET implementation](#dataapi-net-implementation)
+- [.NET implementation](#net-implementation)
 
 
-### DataAPI .NET implementation
+### .NET implementation
 Below sample assumes that user have Subscription Key from Veracity Portal and Bearer Key. As for now Bearer Key can be obtained from Swagger UI.
 User also needs to know Uri to Data Api service.
 
@@ -314,46 +314,8 @@ public class SasData
 Object model contains SAS uri and SAS key that gives us access to specified resource.
 
 ## Provision API
-The Veracity Data Platform ProvisioningAPI is an API where developers and applications can create data containers.
 
-Implementations:
-- [.NET implementation](#provisionapi-net-implementation)
-
-
-### ProvisionAPI .NET implementation
-Below sample assumes that user have Subscription Key from Veracity Portal and Bearer Key. As for now Bearer Key can be obtained from Swagger UI.
-User also needs to know Uri to Data Api service.
-
-We are going to access Provision Api service via http requests and in implementation we will use HttpClient from System.Net.Http.
-
-#### POST ProvisionContainer
-When having Subscription Key and Bearer Key for authentication user is able to provision data container.
-It's required to choose storage location from available options:
-1. Unknown,
-2. NorthEurope,
-3. EastUs1
-User can also specify container name. This parameter is optional.
-```csharp
-public async Task<string> ProvisionContainer(StorageLocations storageLocation, string containerShortName = null)
-{
-    var queryString = HttpUtility.ParseQueryString(string.Empty);
-    if(!string.IsNullOrEmpty(containerShortName))
-        queryString["containerShortName"] = containerShortName;
-
-    var requestCode = Guid.NewGuid().ToString();
-
-    var uri = $"{_baseProvisioningApiUrl}container?storageLocation={storageLocation}&requestCode={requestCode}&{queryString}";
-    var body = JsonConvert.SerializeObject(new { StorageLocation = storageLocation.ToString(), RequestCode = requestCode, ContainerShortName = containerShortName });
-
-    var response = await _httpClient.PostAsync(uri, new StringContent(body, Encoding.UTF8, "application/json"));
-    var responseContent = await response.Content.ReadAsStringAsync();
-    return response.IsSuccessStatusCode ? response.ReasonPhrase : responseContent;
-}
-```
-It is important to notice that additionally to Url filled with parameters user needs to create Json with same paraemters and send this Json in request.
-As result we expect to get string information about success or failure of our operation.
-Provisioning of container can take up to 10 minutes so there is time delay needed between requesting container and performing operations on that container.
-## Meta Data API
+## Metadata API
 
 
 # Pattern & Practices 

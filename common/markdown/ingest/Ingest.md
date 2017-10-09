@@ -795,7 +795,7 @@ int main()
 }
 ```
 
-## Ingest data usinng AzCopy
+## Ingest data using AzCopy
 AzCopy is a command line tool used to upload and download data to or from  BLOB containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same locations.
 However, it can also be used to upload data from a local computer or between any BLOBs in any subscriptions and locations.
 AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from for example Windows Powershell.

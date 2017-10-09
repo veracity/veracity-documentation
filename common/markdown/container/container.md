@@ -50,6 +50,6 @@ Follow our open projects related to containers on https://github.com/veracity
 # Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity
  
-[Visit Stack Oerflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
+[Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
  
 # Resources  

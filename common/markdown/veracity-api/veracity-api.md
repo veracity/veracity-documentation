@@ -315,7 +315,7 @@ Object model contains SAS uri and SAS key that gives us access to specified reso
 
 ## Provision API
 
-## Meta Data API
+## Metadata API
 
 
 # Pattern & Practices 

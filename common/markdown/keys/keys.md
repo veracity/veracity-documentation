@@ -42,19 +42,19 @@ All keys can be given a repeating property, which means it is automatically rene
 
 
 
-# Type of keys 
-Veracity support 4 different keys, where one can define the duration of the key, and the if the key will be recurring.
+# Types of keys 
+Veracity supports 4 different keys, where one can define the duration of the key, and if the key will be recurring.
 
 ## Write key
 Write key gives the user rights to write to a container for the given amount of time, but not list the content. Typically used for applications or developers that should only write to a data container.
 
-## Read and list
+## Read and list key
 Read and list key gives the user rights to read a container and browse the content of the container for the given amount of time. Typically used for projects, sharing data for single operations or sharing read access to Analytics Providers.
 
-## Read, write and list
+## Read, write and list key
 Read, write and list key gives the user rights to read, write and browse the content of a data container for the given amount of time. Typically used for Provider Services or single operations for an analyst.
 
-## Read, write, list and delete
+## Read, write, list and delete key
 Read, write, list and delete key gives the user full access to the content of your data container for the given amount of time. Typically used for data managers/providers. 
 
 

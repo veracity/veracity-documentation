@@ -377,7 +377,7 @@ The samples are written in Node.js and use the [Azure Storage SDK for Node.js](h
 
 To obtain the package use Node Package Manager (NPM) from command line or from wizard via Visual Studio. 
 When using command line type
-```md
+```
 npm install azure-storage
 ```
 
@@ -522,7 +522,7 @@ We will in this quick start look at how to programaticaly read data from Veracit
 The samples are written in Python and use the [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 In your python environment you need to add package
- ```md
+ ```
 azure-storage
  ```
 

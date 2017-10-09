@@ -270,22 +270,22 @@ In this sample we are using Maven project and reference following dependencies:
 
 You can download it from Maven repositories or add dependency directly in pom.xml file:
 ```xml
-    <dependencies>
-      <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-storage</artifactId>
-        <version>5.5.0</version>
-      </dependency>
-    </dependencies>
+<dependencies>
+  <dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-storage</artifactId>
+    <version>5.5.0</version>
+  </dependency>
+</dependencies>
 ```
 
 Next step is to add proper imports to project:
 ```java
-    import java.net.URI;
-    import java.util.ArrayList;
+import java.net.URI;
+import java.util.ArrayList;
 
-    import com.microsoft.azure.storage.*;
-    import com.microsoft.azure.storage.blob.*;
+import com.microsoft.azure.storage.*;
+import com.microsoft.azure.storage.blob.*;
 ```
 
 We now basically need to do three things. We first need to get a reference to the container using a SAS key

@@ -63,17 +63,6 @@ Sample payload for push event:
   }
 }
 ```
-```json
-{
-  "head_commit": {
-    "id": "0d1a26e67d8f5eaf1f6ba5c57fc3c7d91ac0fd1c",
-  },
-  "repository": {
-    "id": 35129377,
-    "default_branch": "master"
-  }
-}
-```
 
 Processing method in our Azure Function:
 

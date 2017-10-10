@@ -1,8 +1,12 @@
 # Overview
-This Veracity API's enable data providers and consumers to interact with veracity programatically.  
+This Veracity API's enable data providers and consumers to interact with veracity programatically. There are 3 main Veracity API. 
+
+- Data API - The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers.
+- Provisioning API - The Veracity Data Platform ProvisioningAPI is an API where developers and applications can create data containers.
+- Metadata API - The Veracity Data Platform MetadataAPI is an API where the developers can add and modify the metadata assosiated with containers and data in the platform.
 
 # API Reference
-- Some reference...
+This document will provide you with everything you will need to get going with the Veracity API, but for further reference, you may visit [https://api-portal.dnvgl.com/](https://api-portal.dnvgl.com/).
 
 
 # Tutorial

@@ -823,8 +823,6 @@ int main()
     return 0;
 }
 ```
-# Tutorial 
-In this section you will find a collection of materials that will provide a deeper understanding and insight on how to ingest your data to a data storage.  
  
 # Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 

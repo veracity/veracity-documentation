@@ -353,7 +353,7 @@ public async Task<string> ProvisionContainer(StorageLocations storageLocation, s
 It is important to notice that additionally to Url filled with parameters user needs to create Json with same paraemters and send this Json in request.
 As result we expect to get string information about success or failure of our operation.
 Provisioning of container can take up to 10 minutes so there is time delay needed between requesting container and performing operations on that container.
-## Meta Data API
+## Metadata API
 
 
 # Pattern & Practices 

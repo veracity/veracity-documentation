@@ -74,12 +74,18 @@ private static async Task<bool> ProcessCommitAsync(dynamic data, Binder binder, 
     var commitId = (string) data.head_commit.id;
     var mdFiles = await GetAllMdFilesTask("MarkdownParser", repositoryId, branch, commitId, log);
     var jsonFiles = PrepareJsonData(mdFiles, log);
-    return await WriteJsonFilesToFileShareTask(jsonFiles, log);
+    return await Utilities.WriteJsonFilesToFileShareTask(jsonFiles,
+        Utilities.GetEnvironmentVariable("AzureWebJobsStorage"),
+        Utilities.GetEnvironmentVariable("OutputFileShareName"), log);
 }
 ```
 
 As you can see we expect data like repository id and branch name for accessing correct place in Git repository. Also, we expect commit id.
 All of this are needed to get .md files included in commit that triggered this webhook event.
+
+We are going to write output Jsons to File Share. We need to have proper access credentials - in this case data connection string and we define File Share name.
+This data is saved in Azure Function settings in Azure Portal so we use helper method to get values.
+Utilities class is a helper class used also in Console App described later.
 
 ### Ask GitHub API for changes in commit
 
@@ -208,16 +214,18 @@ private string ConvertToJson(MarkdownData data)
 
 In ProcessCommitAsync method there is one more step to do:
 ```csharp
-return await WriteJsonFilesToFileShareTask(jsonFiles, log);
+return await Utilities.WriteJsonFilesToFileShareTask(jsonFiles,
+    Utilities.GetEnvironmentVariable("AzureWebJobsStorage"),
+    Utilities.GetEnvironmentVariable("OutputFileShareName"), log);
 ```
 
 We need to store our new json files somewhere. We decided to choose Azure File Shares. There is a FileShare created only for this data.
 
 The core of method is like this:
 ```csharp
-var storageAccount = CloudStorageAccount.Parse(GetEnvironmentVariable("AzureWebJobsStorage"));
+var storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
 var fileClient = storageAccount.CreateCloudFileClient();
-var share = fileClient.GetShareReference(GetEnvironmentVariable("OutputFileShareName"));
+var share = fileClient.GetShareReference(GetEnvironmentVariable(fileShareName));
 
 foreach (var json in jsonData)
 {
@@ -263,6 +271,35 @@ Very short, Azure Functions in general use declarative bindings. So you define i
 Here we don't have this possibility because we don't know blob name at this point. 
 For more details about imperative binding click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-csharp#imperative-bindings).
 
+### Markdown parser in console app
+There are scenarios where parser itself gets updated or changed. In that cases we would like to update all markdown files in specific repo according to new parser code. We could modify each md file and push those changes to GitHub which will fire Azure Function but it is not the best approach.
+That's why we createad a console app which takes all markdown files from given repo and run parser against each of them. Resulting jsons are saved to FileShare in storage account given by the user.
+
+Parameters:
+```
+-app         ApplicationName
+-owner       GitHub repo owner
+-name        GitHub repo name
+-branch      GitHub branch name
+-share       Name of File Share where result jsons will be stored
+-connection  DataConnectionString to storage where result jsons will be stored
+```
+Data connection string is to be taken from Azure Portal in this form:
+```
+"DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<key>"
+```
+The code is similar to what MarkdownParserFunction provides. With this difference that we are looking for all markdown files in repo, not only those from latest commit.
+So we use
+```csharp
+contents = await client.Repository.Content.GetAllContentsByRef(owner, repoName, branch);
+```
+to get all directories and files on root directory and then loop through them and use
+```csharp
+contents = await client.Repository.Content.GetAllContentsByRef(owner, repoName, path, branch);
+```
+where path is pointing to specific file or directory. 
+Collection of all found markdown files is passed to parser as in Azure Function. 
+Resulting Jsons are stored in FileShare defined by data connection string and share name parameters.
 
 # Machine Learning automation
 When considering data quality, we deal a lot with concept of Machine Learning. Thanks to advanced algorithms we can go through user data, test it against a number of metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.

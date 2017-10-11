@@ -42,7 +42,7 @@ There are multiple components of Veracity in play when interacting with your dat
 - We guarantee that at least 99.9%  of the time, we will successfully process requests to write data
 
 
-# References 
+# References
 
 # GitHub  
 Follow our open projects related to containers on https://github.com/veracity

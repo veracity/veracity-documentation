@@ -44,7 +44,7 @@ There are multiple components of Veracity in play when interacting with your dat
 
 # References
 
-# GitHub  
+# GitHub
 Follow our open projects related to containers on https://github.com/veracity
 
 # Stack Overflow

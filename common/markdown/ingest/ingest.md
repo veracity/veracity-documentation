@@ -22,7 +22,7 @@ Tutorial:
 
 - Inges using Linux 
 
-- Other 
+- Other  
 
 
 

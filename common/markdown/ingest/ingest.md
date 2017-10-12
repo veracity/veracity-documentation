@@ -9,8 +9,12 @@ This guide will show you how into ingest your data into Azure cloud. To proceed 
 Quick-Start:
 
 - [Ingest using Azure Storage Explorer (one time data load)](#Ingest-using-Azure-storage-explorer)
-- [Ingest using Blob, REST API, AZCopy or Azure CLI](#Ingest-using-Blob-REST-API-AZCopy-or-Azure-CLI)
-
+- [Programmatically ingest data](#programmatically-ingest-data)
+	- [.NET implementation](#net-implementation)
+	- [Java Implementation](#java-implementation) 
+	- [NodeJs Implementation](#nodejs-implementation)
+	- [Python Implementation](#python-implementation)
+	- [Cpp Implementation](#cpp-implementation)
 
 
 

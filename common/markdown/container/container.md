@@ -33,7 +33,7 @@ The storage accounts in Veracity are deployed to the region the storage account 
 Veracity will not geo-replicate the data to ensuring that restrictions related to replicating data only within a country due to data governance requirements are met. 
 
 ## What region to choose
-Veracity will create your storage in EU as default. You may choose to switch that to US when you create the storage. If there are no regulatory reasons for choosing one region over the other, we recommend that you choose the region closest to yourself and your business partners. If you are uncertain of where to place your data, you may contact the Veracity support to get additional guidance.
+Veracity will create your storage in EU as default. You may choose to switch that to US when you create the storage. If there are no regulatory reasons for choosing one region over the other, we recommend that you choose the region closest to yourself and your business partners. There are benefits from a cost perspective that data and analytics are conducted in the same region. This reduce the costs related to transfeering data out of a region. This is imparticular important when there are large amounts of data involved. If you are uncertain of where to place your data, you may contact the Veracity support to get additional guidance.
 
 ## Storage availability
 There are multiple components of Veracity in play when interacting with your data. While the overall Veracity service does not explicitly state an SLA, you will have an SLA of 99.9% with respect to your storage account. This does not include the claim of a SAS or renewal of the SAS. Please contact the Veracity team for details on the SLA in the individual case.

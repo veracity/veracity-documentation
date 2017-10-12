@@ -1,16 +1,5 @@
 # Overview 
-Some text
-
-Quick-Start 
-
-- some list
-- some list
-
-
-# Quick start 
-## Some header
-Some text
-
+This document is pending review before publishing
 
 
 # Pattern & Practices 

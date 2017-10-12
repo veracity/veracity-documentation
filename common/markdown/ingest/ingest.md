@@ -9,20 +9,8 @@ This guide will show you how into ingest your data into Azure cloud. To proceed 
 Quick-Start:
 
 - [Ingest using Azure Storage Explorer (one time data load)](#Ingest-using-Azure-storage-explorer)
-- [Ingest using Blob, REST API, AZCopy or Azure CLI (continuous data load)](#Ingest-using-Blob-REST-API-AZCopy-or-Azure-CLI)
+- [Ingest using Blob, REST API, AZCopy or Azure CLI](#Ingest-using-Blob-REST-API-AZCopy-or-Azure-CLI)
 
-
-Tutorial:
-
-- How to work in Azure Storage Explorer 
-
-- How to work in Blob, REST API, AZCopy or Azure CLI 
-
-- Ingest using Mac 
-
-- Inges using Linux 
-
-- Other  
 
 
 

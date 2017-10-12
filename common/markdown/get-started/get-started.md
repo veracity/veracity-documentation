@@ -1,3 +1,8 @@
+---
+Title : "Introduction"
+---
+
+
 # Introduction to Veracity Developer 
 
 Welcome to Veracity’s developer community!

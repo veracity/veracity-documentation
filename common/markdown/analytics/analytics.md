@@ -43,6 +43,4 @@ Link
 
  
 # FAQ 
- 
-# Price model 
-The prosess of ingesting data is at the moment not subject to cost. Storage does have cost related to it, and you may find additional information HERE
+

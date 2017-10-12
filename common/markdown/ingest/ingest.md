@@ -530,7 +530,24 @@ And import BlockBlobService
 ```python
 from azure.storage.blob import BlockBlobService
  ```
-We now basically need to get a reference to the container using a SAS key
+We create some variables that will come in handy
+```python
+accountName = "<storage account name>"
+veracityContainerSAS = "< your sas key without question mark'?' >"
+```
+If you are using the Veracity portal to get hold of the SAS key, and not the Veracity API, you will need to pick the different pieces from the SAS Uri for eache variable above. If we use the following SAS token as an example:
+
+```
+https://ns4dnvglfstspus00001.blob.core.windows.net/devcontainer9ae56656-bd3a-4d6e-b257-cfbb6241b1ea?sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl
+```
+We have the SAS key as the parameter, and we have the account name as the subdomain. We then get the following:
+
+```python
+accountName = "ns4dnvglfstspus00001"
+veracityContainerSAS = "sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl"
+```
+We now basically need to create a reference to the container using the SAS key and account name.
+
 ```python
 try:
     sas_service = BlockBlobService(account_name=accountName, sas_token=veracityContainerSAS)
@@ -538,15 +555,38 @@ except Exception as e:
     print("There was an error during SAS service creation. Details: {0}".format(e))
 ```
 
-And we are ready to perform write operation
+And we are ready to perform write operations to the blob. At this point you should consult the documentation of the library azure.storage.blob. You may use the create_blob_from_path, create_blob_from_stream, create_blob_from_bytes or create_blob_from_text methods.
+
+We first try the create_blob_from_path, which will upload some blob to the storage. Note that you then will need to include the azure.storage.blob import ContentSetting. We then get
+
 ```python
+from azure.storage.blob import ContentSettings
+
+blobName = " < blob name > "
+
+sas_service.create_blob_from_path(
+    'accountName',
+    'blobName',
+    'sensorData.csv',
+    content_settings=ContentSettings(content_type='sensor/csv')
+            )
+```
+We now have uploaded the file sensorData.csv into Veracity and it is stored under the blob blobName. 
+
+We can also try to write a text string directly into the blob. Lets add a variable for a container name and use the create_blob_from_text. We then get
+
+```python
+blobName = " < blob name > "
+
 try:
-    sas_service.create_blob_from_text(containerName, blobName, 'text')
+    sas_service.create_blob_from_text(containerName, blobName, 'some text to blob')
 except Exception as e:
     print("There was an error during blob uploading. Details: {0}".format(e))
 ```
+We now basically have written a text string and stored it in the container. 
 
-We can also list existing blobs
+We can also list existing blobs to check what we have done
+
 ```python
 try:
     generator = sas_service.list_blobs(containerName)
@@ -556,26 +596,12 @@ except Exception as e:
     print("There was an error during blobs listing. Details: {0}".format(e))
 ```
 
-And read blob content 
-```python
-try:
-    blob_text = sas_service.get_blob_to_text(containerName, blobName)
-    print(blob_text.content)
-except Exception as e:
-    print("There was an error during blob reading. Details: {0}".format(e))
-```
-Finally we can delete blob if its not needed anymore
- ```python
-try:
-    sas_service.delete_blob(containerName, blobName)
-except Exception as e:
-    print("There was an error during deletion of blob. Details: {0}".format(e))
-```
 
 Complete sample is as below:
 
 ```python
 from azure.storage.blob import BlockBlobService
+from azure.storage.blob import ContentSettings
 
 accountName = "<storage account name>"
 veracityContainerSAS = "< your sas key without question mark'?' >"
@@ -587,6 +613,17 @@ try:
     sas_service = BlockBlobService(account_name=accountName, sas_token=veracityContainerSAS)
 except Exception as e:
     print("There was an error during SAS service creation. Details: {0}".format(e))
+
+# uploading a file from path 
+
+blobName = " < blob name > "
+
+sas_service.create_blob_from_path(
+    'accountName',
+    'blobName',
+    'sensorData.csv',
+    content_settings=ContentSettings(content_type='sensor/csv')
+            )
 
 # upload text blob to container
 blobName = "blobCreatedViaSAS.txt"
@@ -605,24 +642,6 @@ try:
 except Exception as e:
     print("There was an error during blobs listing. Details: {0}".format(e))
 
-# read blob from container
-print("")
-print("{0} blob content: ".format(blobName))
-try:
-    blob_text = sas_service.get_blob_to_text(containerName, blobName)
-    print(blob_text.content)
-except Exception as e:
-    print("There was an error during blob reading. Details: {0}".format(e))
-
-# delete blob
-print("")
-print("Deleting {0} blob...".format(blobName))
-try:
-    sas_service.delete_blob(containerName, blobName)
-except Exception as e:
-    print("There was an error during deletion of blob. Details: {0}".format(e))
-
-print("Blob {0} deleted.".format(blobName))
  ```
 ### Cpp implementation
 We will in this quick start look at how to programaticaly read data from Veracity using a Cpp. On Github you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our github Repo and create a local emulated storage.

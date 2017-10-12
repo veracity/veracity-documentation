@@ -563,13 +563,15 @@ We first try the create_blob_from_path, which will upload some blob to the stora
 from azure.storage.blob import ContentSettings
 
 blobName = " < blob name > "
-
-sas_service.create_blob_from_path(
-    'accountName',
-    'blobName',
-    'sensorData.csv',
-    content_settings=ContentSettings(content_type='sensor/csv')
-            )
+try:
+    sas_service.create_blob_from_path(
+       'accountName',
+       'blobName',
+       'sensorData.csv',
+       content_settings=ContentSettings(content_type='sensor/csv')
+    )
+except Exception as e:
+    print("There was an error during blob uploading. Details: {0}".format(e))
 ```
 We now have uploaded the file sensorData.csv into Veracity and it is stored under the blob blobName. 
 

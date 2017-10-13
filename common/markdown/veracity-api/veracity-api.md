@@ -1,3 +1,6 @@
+---
+Title : "Veracity API"
+---
 # Overview
 This Veracity API's enable data providers and consumers to interact with veracity programatically. There are 3 main Veracity API. 
 

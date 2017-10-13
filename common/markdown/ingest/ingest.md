@@ -529,6 +529,7 @@ We create some variables that will come in handy
 ```python
 accountName = "<storage account name>"
 veracityContainerSAS = "< your sas key without question mark'?' >"
+containerName = "< container name reference>"
 ```
 If you are using the Veracity portal to get hold of the SAS key, and not the Veracity API, you will need to pick the different pieces from the SAS Uri for eache variable above. If we use the following SAS token as an example:
 
@@ -540,6 +541,7 @@ We have the SAS key as the parameter, and we have the account name as the subdom
 ```python
 accountName = "ns4dnvglfstspus00001"
 veracityContainerSAS = "sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl"
+containerName = "devcontainer-12312325"
 ```
 We now basically need to create a reference to the container using the SAS key and account name.
 
@@ -614,13 +616,14 @@ except Exception as e:
 # uploading a file from path 
 
 blobName = " < blob name > "
+loacalFile = "sensorData.csv"
 
 sas_service.create_blob_from_path(
-    'accountName',
-    'blobName',
-    'sensorData.csv',
+    containerName,
+    blobName,
+    loaclFile,
     content_settings=ContentSettings(content_type='sensor/csv')
-            )
+)
 
 # upload text blob to container
 blobName = "blobCreatedViaSAS.txt"

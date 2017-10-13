@@ -1,4 +1,7 @@
-﻿
+---
+Title : "Egest"
+---
+
 # Overview 
 Data egest is the action of extracting data from a data storage. There are various ways to egest data from Veracity. The method best suited for you will depend on your technical ability as well as intended use.  
 

@@ -14,9 +14,9 @@ Veracity Data Platform bring people with data close to those who can help bring 
 To get started with analytics real fast, a good option can be to create a Virtual Machine in Azure. To simplify that process for you we have created two nice buttons for you. Pick your favourite:
 
 
-Linux: [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Linux%2Fdeployazure.json)
+Linux (Ubuntu): [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Linux%2Fdeployazure.json)
 
-Windows: [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Windows%2Fdeployazure.json)
+Windows 2016: [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Windows%2Fdeployazure.json)
 
 
 ### Data Science Virtual Machine Linux (Ubuntu)

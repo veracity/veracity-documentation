@@ -4,7 +4,7 @@ Title : "Analytics"
 
 # Overview
 
-Veracity Data Platform bring people with data close to those who can help bring knowledge and value out of those data togheter. In this section you can read about some tools you can use to do analytics on data. In the tutorial section you will be able to follow comprehensive guides from A to Z on how to do this.
+Veracity Data Platform bring people with data close to those who can help bring knowledge and value out of those data. In this section you can read about some tools you can use to do analytics on data. In the tutorial section you will be able to follow comprehensive guides from A to Z on how to do this.
 
 
 

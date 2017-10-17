@@ -2,9 +2,9 @@
 Title : "Veracity API"
 ---
 # Overview
-This Veracity API's enable data providers and consumers to interact with veracity programatically. There are 3 main Veracity API. 
+This Veracity API's enable data providers and consumers to interact with veracity programmatically. There are 3 main Veracity API. 
 
-- Data API - The Veracity Data Platform Data API is an API where developers and applications can get information on data containers, get their key to a data container or share a key with another Veracity Dataplatform user.
+- Data API - The Veracity Data Platform Data API is an API where developers and applications can get information on data containers, get their key to a data container or share a key with another Veracity Data Platform user.
 - Provisioning API - The Veracity Data Platform Provision API is an API where developers and applications can generate data containers as a user of the platform. The main consumer as of now is the Veracity web application that integrates to this API to generate data containers in the portal.
 - Metadata API - The Veracity Data Platform Metadata API is an API where developers and applications can get/post information on data containers. The main consumer as of now is the Veracity web application that integrates to these APIs to visual represent the data containers in the portal.
 
@@ -24,7 +24,7 @@ NB! The endpoint URLs might be changed/refactored during private preview period 
 
 ### Call header:
 - **Ocp-Apim-Subscription-Key** - this header attribute is for authentication to API Management
-- **Authorization** this header attribute needs to contain the Bearer Token gotten through atuhorization on Veracity
+- **Authorization** this header attribute needs to contain the Bearer Token gotten through authorization on Veracity
 
 ### Query parameters:
 Depeding on end-point
@@ -122,7 +122,7 @@ public async Task<Tuple<string, User>> RequestCurrentUser()
 }
 ```
 Notice Url that additionally to base address provided by user has additional path to users.
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+As a result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Json object model for User is represented by below class.
 ```csharp
@@ -149,7 +149,7 @@ public async Task<Tuple<string, User>> RequestUser(string userId)
         : new Tuple<string, User>(responseContent, null);
 }
 ```
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+As a result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Response Json is similar to one in previous example.
 
@@ -167,7 +167,7 @@ public async Task<Tuple<string, Company>> RequestCompany(string companyId)
         : new Tuple<string, Company>(responseContent, null);
 }
 ```
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+As a result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Result object model from Json response is like below.
 ```csharp
@@ -196,7 +196,7 @@ public async Task<Tuple<string, List<StorageKeyTemplate>>> RequestStorageKeyTemp
         : new Tuple<string, List<StorageKeyTemplate>>(responseContent, null);
 }
 ```
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+Thus, from method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Result Json is represented by object model like below.
 ```csharp
@@ -234,7 +234,7 @@ public async Task<Tuple<string, Resources>> RequestAllResources(bool shared, boo
 }
 ```
 As input parameters we have two bool properties. We can specify if want to list only owned resources or maybe shared resources as well.
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+The result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Successful output from method are two collections of resources, in object model like below.
 ```csharp
@@ -283,7 +283,7 @@ public async Task<Tuple<string, Accesses>> RequestAccesses(string resourceId, in
 }
 ```
 As input arguments, next to resourceId that we are interested in, we specify also page number and page size if we expect to have a lot of results.
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+As a result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Result Json is like below.
 ```csharp
@@ -331,9 +331,9 @@ public async Task<Tuple<string, ShareAccessResponse>> ShareAccess(string resourc
         : new Tuple<string, ShareAccessResponse>(responseContent, null);
 }
 ```
-Important here is that adiitionally to defined Url we need to send Json content with resource id that we want to share, user id that we want to share resource with and share template id saying what access type user will have to your resource.
+Important here is that adiitionally to defined Url we need to send Json content with resource id that we want to share, user id that we want to share resource with and share template id saying what access type the user will have to your resource.
 Share template id you can obtain executing RequestStorageKeyTemplates method and choosing one that fits best.
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+As a result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 As result we get access sharing id.
 ```csharp
@@ -356,7 +356,7 @@ public async Task<Tuple<string, SasData>> FetchKeyForStorageContainer(string res
         : new Tuple<string, SasData>(responseContent, null);
 } 
 ```
-As a result from method we get Tuple containing string message and Object Model deserialized from Json response.
+As a result from the method we get Tuple containing string message and Object Model deserialized from Json response.
 String message is empty if operation is successful. If operation failed, there is error message.
 Result Json is like below.
 ```csharp

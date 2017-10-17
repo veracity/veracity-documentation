@@ -146,18 +146,19 @@ public static List<Tuple<string, string>> PrepareJsonData(List<Tuple<string, str
 }
 ```
 
-As a result for JSON serialization we expect object of type MarkdownData.
+As an immediate result for JSON serialization we expect object of type MarkdownData.
 
 ```csharp
 public class MarkdownData
 {
-    public string Title { get; set; } = string.Empty; // to be used later
     public string HtmlString { get; set; }
     public List<Header> HeaderData { get; set; }
+    public Dictionary<string, string> Metadata {g et;set; }
 }
 ```
 HtmlString is a properly formatted HTML web page created based on .md input.
 HeaderData is a metadata extracted from .md input defining tree structure of headers. Its used for menu creation.
+MetaData is information extracted from frontmatter or md file containg data like document title or author.
 
 For pure HTML generation [Markdig](https://github.com/lunet-io/markdig) library is used. As one of middle steps it produces nice object model which is used by us for Headers tree structure generation.
 
@@ -167,6 +168,7 @@ using (var writer = new StringWriter())
 {
     var builder = new MarkdownPipelineBuilder();
     builder.UseAutoIdentifiers();
+    builder.UsePipeTables();
     builder.UseFigures();
     builder.UseCustomCodeBlockExtension();
     document = Markdown.ToHtml(mdFileContent, writer, builder.Build());
@@ -174,6 +176,8 @@ using (var writer = new StringWriter())
 }
 ```
 UseAutoIdentifiers enables adding ids for headers. 
+
+UsePipeTables enables adding tables.
 
 UseFigures enables usage of Figures statements.
 
@@ -202,8 +206,24 @@ So, in CreateTree method we look at every header and try to assign it to proper 
 ### JSON serialization
 
 When Markdown Data object is prepared, we need to serialize it into JSON format. We use standard JSON serialization library from [Newtonsoft](https://www.newtonsoft.com/json)
+Additionaly to HtmlString and HeaderData we need to serialize Metadata dictionary. Some of fields here are mandatory so before we serialize object validation is performed.
+```csharp
+private Dictionary<string, string> ValidateMetaData(Dictionary<string, string> pairs)
+{
+    var validatedMetaData = new Dictionary<string, string>();
+    CheckExistence("Title", pairs, validatedMetaData);
+    CheckExistence("Author", pairs, validatedMetaData);
+    CheckExistence("Published", pairs, validatedMetaData);
+    foreach(var pair in pairs)
+        validatedMetaData.Add(pair.Key, pair.Value);
+    return validatedMetaData;
+}
+```
+Title, Author and Published properties are required. So first we check if they are put in input dictionary passed as argument.
+If not, we add them with empty value.
+All other items from input dictionary is added at the end.
 
-Here is the usage:
+Here is the usage of serialization code:
 ```csharp
 private string ConvertToJson(MarkdownData data)
 {

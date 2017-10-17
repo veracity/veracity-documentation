@@ -39,7 +39,59 @@ curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={bool
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 -H "Authorization: Bearer {token}"
 ```
+## Azure AD B2C
+To acquire Bearer Token needed for API requests it is possible to authenticate with below code.
+Important is to register new app in Azure Active Directory as Native App. 
+That app ID together with tenant will be used to obtain authentication key.
 
+Below code in .NET shows how to programmatically get Bearer Key. Code is available [here](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-veracity-api/veracity-api-net).
+
+Data required to continue with below code:
+```
+Tenant - tenant name from Azure Portal (Active Directory)
+ClientId - Application ID from your Native app registration
+PolicySignUpSignIn - sign in policy created during app registration
+ApiScopes - scopes available for given api
+```
+
+For user identification we use class PublicClientApplication available in namespace Microsoft.Identity.Client.
+You can include it as NuGet package, currently in preview mode.
+```csharp
+public static PublicClientApplication PublicClientApp { get; } =
+    new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
+```
+
+Authority is an url:
+```
+"https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
+```
+where tenant and policy are replaced with proper values from app registration.
+
+To sign in, AcquireTokenAsync method from PublicClientApplication is used.
+```csharp
+public static async Task<AuthenticationResult> SignIn()
+{
+    try
+    {
+        var authResult = await PublicClientApp.AcquireTokenAsync(ApiScopes,
+            GetUserByPolicy(PublicClientApp.Users, PolicySignUpSignIn), UIBehavior.SelectAccount, string.Empty,
+            null, Authority);
+
+        DisplayBasicTokenInfo(authResult);
+        return authResult;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(
+            $"Users:{string.Join(",", PublicClientApp.Users.Select(u => u.Identifier))}{Environment.NewLine}Error Acquiring Token:{Environment.NewLine}{ex}");
+        return null;
+    }
+}
+```
+
+AuthenticationResult object contains AccessToken property where Bearer Key is stored.
+
+This key is to be used in following code to properly authenticate API requests.
 
 ## Data API
 The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers, get their key to a data container or share a key with another Veracity Data Platform user.

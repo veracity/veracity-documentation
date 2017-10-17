@@ -65,7 +65,7 @@ Read, write, list and delete key gives the user full access to the content of yo
 # Pattern & Practices 
 
 ## Best practices when sharing keys
-As a data storage owner, you may share the data with other. When you share a key, it is best practice to choose as short duration on the key as possible for the intended use. If access to storage is going to be used over a prolonged period of time, it is recommended that you go for the recurring key option, where the key will need to be renewed by the user after the duration expires. The renewal of the key can either be done through the Veracity MyData page, or programmatically using the Veracity API.  
+As a data storage owner, you may share the data with other. When you share a key, it is best practice to choose as short duration on the key as possible for the intended use. If access to storage is going to be used over a prolonged period, it is recommended that you go for the recurring key option, where the key will need to be renewed by the user after the duration expires. The renewal of the key can either be done through the Veracity MyData page, or programmatically using the Veracity API.  
 
 ## Best practices when using keys
 When your applications use a SAS key from veracity, it is recommended to build in to your application to always call the Veracity API for renewal of key, prior to the accessing of the data. In this way you will always have the latest valid key. 

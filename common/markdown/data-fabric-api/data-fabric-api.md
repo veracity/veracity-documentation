@@ -1,5 +1,5 @@
 ---
-Title : "Veracity API"
+Title : "Data Fabric API"
 ---
 # Overview
 This Veracity API's enable data providers and consumers to interact with veracity programmatically. There are 3 main Veracity API. 

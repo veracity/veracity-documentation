@@ -57,3 +57,4 @@ Stack Overflow is the largest, most trusted online community for developers to l
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
  
 # Resources  
+ 

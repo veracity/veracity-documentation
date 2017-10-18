@@ -2,7 +2,7 @@
 Title : "Identity"
 ---
 # Overview 
-This document is pending review before publishing
+This document is pending review before publishing.
 
 
 # Pattern & Practices 

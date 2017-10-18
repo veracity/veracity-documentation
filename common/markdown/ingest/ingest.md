@@ -1,6 +1,7 @@
 ---
 Title : "Ingest"
 ---
+
 # Overview 
 Data ingestion is the action of importing data to a data storage, for either immediate use or for use later. There are various ways to ingest data to Veracity. The best direction for you will depend on your technical ability as well your intention for using Veracity.   
 

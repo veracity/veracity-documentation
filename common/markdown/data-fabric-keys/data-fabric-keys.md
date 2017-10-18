@@ -17,7 +17,7 @@ Short links:
 
 
 # Security
-All the different keys available in Veracity are of the type "shared access signature" (SAS) keys. The SAS key provides a way to grant limited access to objects in your storage to others, without exposing your account key. The account key is stored with Veracity data fabric, and is not able to be retrieved by any users. 
+All the different keys available in Veracity are of the type "shared access signature" (SAS) keys. The SAS key provides a way to grant limited access to objects in your storage to others, without exposing your account key. The account key is stored with Veracity data fabric, and is not able to be retrieved by any users.
 
 ## What is shared access signature
 In Veracity, the SAS gives you granular control over the type of access you grant to clients who have the SAS, including:

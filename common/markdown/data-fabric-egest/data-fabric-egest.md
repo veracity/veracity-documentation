@@ -10,7 +10,7 @@ This guide will show you how into egest data to the Veracity cloud. To proceed w
 Link to Quick-Start:
 
 - [Egest using Azure Storage Explorer](#egest-using-azure-storage-explorer)
-- [Egesting data using API](#egesting-data-using-API)
+- [Programmatically egest data](#programmatically-ingest-data)
 	- [.NET implementation](#net-implementation)
 	- [Java Implementation](#java-implementation) 
 	- [NodeJs Implementation](#nodejs-implementation)
@@ -102,7 +102,7 @@ Working with the Azure Storage Explorer requires direct access to the Internet o
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-pitfalls-proxy-01.png "Working with Azure Storage Explorer")
 
 
-## Egesting data using API
+## Programmatically egest data
 These applications allow you to programmatically view/interact with your data. This quick guide will show you how to do this using some common languages. For details on how the code work consult the readme file in the HelloWorld applications or the tutorials on each language in the next sections. 
 
 Implementations:

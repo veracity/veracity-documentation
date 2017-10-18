@@ -2,7 +2,7 @@
 Title : "Egest"
 ---
 
-# Overview 
+# Overview
 Data egest is the action of extracting data from a data storage. There are various ways to egest data from Veracity. The method best suited for you will depend on your technical ability as well as intended use.  
 
 This guide will show you how into egest data to the Veracity cloud. To proceed with your data egest, you will need to be set up with a Veracity account. If you are not already set up with an account, please click here.

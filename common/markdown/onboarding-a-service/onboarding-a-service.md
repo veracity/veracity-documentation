@@ -1,4 +1,6 @@
-
+---
+Title: Onboarding a service
+---
 # Overview
 
 Veracity is an open neutral platform that will allow services to be offered by both internal and external providers. There is no need for a direct affiliation with DNVGL, however there is an integration process which will have mandatory requirements to ensure quality of product and service provided.

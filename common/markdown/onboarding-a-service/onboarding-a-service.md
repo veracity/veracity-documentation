@@ -9,10 +9,6 @@ Marketplace allows purchases to be made by businesses and authorised individual 
 
 Purchases can be made via electronic invoice and in the near future it will be possible to make purchases using credit card.
 
-
-
-
-
 # Veracity the right place for your
 
 It is no secret that a service will perform better when complemented by the right platform and vice versa. Veracity intends to facilitate services that meet customers expectations, both in quality of the service and focus of segment. We have put together a self-assessment tool that you should complete if you are planing to onboard as a service provider. The purpose of this self-assessment is to create a profile of the proposal, enabling a smoother onboarding process.

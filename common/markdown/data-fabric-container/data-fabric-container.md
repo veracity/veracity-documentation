@@ -8,9 +8,9 @@ Veracity Storage Containers are allowing you to store unstructured data at a mas
 
 Quick links:
 
-- Specifications
-- Regions for storage
-- Availability, backup and disaster recovery
+- [Specifications](#spesifications)
+- [Regions for storage](#regions-for-storage)
+- [Availability, backup and disaster recovery](#availability-backup-and-disaster-recovery)
 
 
 # Specifications
@@ -25,7 +25,9 @@ Veracity support file of any type and size. In this section, we will provide det
 | Max egress per storage account (EU) |	15 Gbps |
 | Total Request Rate (assuming 1 KB object size) per storage account | Up to 20,000 IOPS, entities per second, or messages per second |
 
- Ingress refers to all data (requests) being sent to a storage account. Egress refers to all data (responses) being received from a storage account.
+Ingress refers to all data (requests) being sent to a storage account. Egress refers to all data (responses) being received from a storage account.
+
+All data in the Veracity are stored in hot storage.
 
 # Regions for storage 
 Veracity is designed for global scale, and will support storage all over the world. At the moment, there are two regions in general availability in Veracity, one in EU (Northe Europe) and one in USA (East US). You are able to select this during the creation of the storage container in My Data or by setting the the storageLocation parameter using the provisioning API. All regions in general availability will have full feature support in Veracity.

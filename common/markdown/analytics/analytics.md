@@ -75,7 +75,11 @@ In particular, in the following you can find some guidance on:
 -	how to export data back into Veracity once you performed your data analytics on Microsoft Machine Learning Studio
 
 ### Create a machine learning workspace
-In order to start using Microsoft Machine learning studio, you need to create a machine learning workspace. You do that in the following way.
+In order to start using Microsoft Machine learning studio, you need to create a machine learning workspace. You do that in two ways. You could just press this button:
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-azure-machine-learning-studio-workspace%2Fdeployazure.json) 
+
+or you can do it in the following way.
 
 1.	Log in into https://portal.azure.com/ with your Microsoft Azure credentials
 2.	On the Azure Portal, select the “New” icon, then “Internet of Things” and then “Machine Learning Workspace”

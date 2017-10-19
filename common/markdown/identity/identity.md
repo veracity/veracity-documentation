@@ -6,14 +6,20 @@ Review state added
 
 
 
-# Tutorial - Azure AD B2C
-Azure AD B2C is a cloud identity management solution for your web and mobile applications. 
-It is a highly available global service that scales to hundreds of millions of identities. 
-Built on an enterprise-grade secure platform, Azure AD B2C keeps applications, business, and customers protected.
-Below code describes how to connect to Azure AD B2C and get authentication token used later to request Veracity API.
-Important is to register new app in Azure Active Directory as Native App. 
-That app ID together with tenant will be used to obtain authentication key.
-Code is available [here](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-security/Azure%20AD%20B2C).
+# Tutorial
+
+
+## Azure AD B2C
+Azure AD B2C is a cloud identity management solution for your web and mobile applications. It is a highly available global service that scales to hundreds of millions of identities. Built on an enterprise-grade secure platform, Azure AD B2C keeps applications, business, and customers protected.
+
+Below code describes how to connect to Azure AD B2C and get authentication token used later to request Veracity Data Fabric API. Important is to register new app in Azure Active Directory in accordence with the application you create. This process is part of the Veracity service onboarding. Contact Veracity support for additional details.
+
+
+### .NET implementation
+When your application is registered with Azure AD B2C tenant, you will recieve some information, among others the app ID together with tenant, and we will use that to obtain authentication key. Code is available [here](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-identity/azure-ad-b2c/azure-ad-b2c-net).
+
+
+#### Native App
 
 Data required to continue with below code:
 ```

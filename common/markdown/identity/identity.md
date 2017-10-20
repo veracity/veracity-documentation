@@ -61,3 +61,83 @@ public static async Task<AuthenticationResult> SignIn()
 ```
 
 AuthenticationResult object contains AccessToken property where Bearer Key is stored.
+
+#### Web application
+Below code is based on default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi)
+
+Data required to perform authentication:
+```xml
+    <add key="ida:Tenant" value="Tenant name from Azure Portal (Active Directory)"/>
+    <add key="ida:ClientId" value="Application ID from your Native app registration" />
+    <add key="ida:ClientSecret" value="secrec created during app registration" />
+    <add key="ida:AadInstance" value="base authority url" />
+    <add key="ida:RedirectUri" value="redirect url to go after successfull authentication" />
+    <add key="ida:SignUpSignInPolicyId" value="sign in policy created during app registration" />
+```
+
+All above values are to be sent in web.config file.
+
+To compile and run sample you need to install following NuGet packages:
+- Microsoft.Owin.Security.OpenIdConnect
+- Microsoft.Owin.Security.Cookies
+- Microsoft.Owin.Host.SystemWeb
+
+OWIN is a middleware that defines a standard interface between .NET web servers and web applications.
+
+In the root directory of the project there is class called Startup.cs. Its used by OWIN at startup.
+```csharp
+using Microsoft.Owin;
+using Owin;
+
+[assembly: OwinStartup(typeof(aad_b2c_web_net.Startup))]
+
+namespace aad_b2c_web_net
+{
+    public partial class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            ConfigureAuth(app);
+        }
+    }
+}
+```
+In App_Start directory there is second part of above partial class, defining ConfigureAuth method.
+It basically setup cookie authentication, policies, error and notification handling. For more details see Microsoft guide [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi).
+
+In Account controller, to sign in and out use below code:
+```csharp
+public void SignUpSignIn()
+{
+    // Use the default policy to process the sign up / sign in flow
+    if (!Request.IsAuthenticated)
+    {
+        HttpContext.GetOwinContext().Authentication.Challenge();
+        return;
+    }
+    Response.Redirect("/");
+}
+public void SignOut()
+{
+    // To sign out the user, you should issue an OpenIDConnect sign out request.
+    if (Request.IsAuthenticated)
+    {
+        IEnumerable<AuthenticationDescription> authTypes = HttpContext.GetOwinContext().Authentication.GetAuthenticationTypes();
+        HttpContext.GetOwinContext().Authentication.SignOut(authTypes.Select(t => t.AuthenticationType).ToArray());
+        Request.GetOwinContext().Authentication.GetAuthenticationTypes();
+    }
+}
+```
+
+There is also Claims View and Controller accessible only when user is authenticated. Otherwise it will redirect to sign in page.
+To achieve that simple attribute is added in controller:
+```csharp
+[Authorize]
+public ActionResult Claims()
+{
+    var displayName =
+        ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    return View();
+}
+```

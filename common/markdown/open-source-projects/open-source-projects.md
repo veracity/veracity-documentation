@@ -18,25 +18,22 @@ Links to content
 
 
 # Machine Learning automation
-When considering data quality, we deal a lot with concept of Machine Learning. Thanks to advanced algorithms we can go through user data, test it against a number of metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.
-Microsoft provides a platform called Azure Machine Learning. Undeniable advantage of AML is that it exists in Azure environment so it is put as close to user data as possible. And it provides easy to use API for managing this data.
-In this solution, we are trying to provide code samples about how we can automate parts of Machine Learning workflow.
-In particular we are focusing on consuming and retraining AML Web Service with usage of Azure Functions. 
-The following code description applies to the .NET implementation as it is the base platform used for that tool.
+When considering data quality, we deal a lot with the concept of Machine Learning. Thanks to advanced algorithms we can go through data, test it against a number of metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.
+
+Microsoft provides a platform called Azure Machine Learning. Undeniable advantage of AML is that it exists in Azure environment so it is put as close to the data as possible in Veracity. Further it provides easy to use API for managing this data. In this solution, we provide code samples on how to automate parts of Machine Learning workflow. In particular we focus on consuming and retraining AML Web Service with usage of Azure Functions. The following code description applies to the .NET implementation, as it is the base platform used for the tool.
 
 ## Implementation and usage
-Solution contains several projects covering functionalities like consuming AML Web Service and retraining AML Web Service. Additionally, there is sample Azure Function code showing how to use retraining code in specific scenario. 
-There is an assumption that AML Web Service with retraining experiment is already setup and published. More information about how to create retraining experiment and publish in Azure, please have a look [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
+The solution contains several projects, covering functionalities like consuming AML Web Service and retraining AML Web Service. Further, there is sample Azure Function code showing how to use retraining code in a specific scenario. The description assume that AML Web Service with retraining experiment is already setup and deployed to Azure. For information on how to deploy the AML, visit the [Analytics](https://developer.veracity.com/doc/analytics) documentattion. For additional information about how to create retraining experiment and publish in Azure, you may also have a look [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-Source code described in detail below is available [here](https://github.com/veracity/veracity-machinelearning-automation).
+Source code described in detail below is available on [GitHub](https://github.com/veracity/veracity-machinelearning-automation).
 
 ### Consuming AML Web Service
-One of the standard operations executed while working with Machine Learning is asking Web Service via REST API for predictions giving some input data. At this stage model is already trained and will expect only particular set of input data.
+One of the standard operations executed while working with Machine Learning is asking Web Service via REST API for predictions given some input data. At this stage model is already trained and will expect only particular set of input data.
 Here we will focus on how to send data and receive predictions in real-time. 
 
 There is also possible to consume Web Service in batch mode. This will be covered when describing retraining algorithm as it uses this approach.
 
-WebServiceConsumer class is the one responsible for sending the scoring request and receiving predictions from AML Web Service. To setup it correctly we need to set two properties via constructor:
+The WebServiceConsumer class is the one responsible for sending the scoring request and receiving predictions from AML Web Service. To setup it correctly we need to set two properties via the constructor:
 ```csharp
 public WebServiceConsumer(string webServiceUrl, string apiKey)
 {
@@ -44,11 +41,12 @@ public WebServiceConsumer(string webServiceUrl, string apiKey)
     ApiKey = apiKey;
 }
 ```
-All this data is available from AML Studio. API Key is available directly after choosing right Web Service, ServiceUrl is available after choosing what kind of request we want to make.
-As mentioned in introduction there are two possibilities. Single request-response action and batch mode. 
-In this example, we use url for single request-response action.
+All this data is available from AML Studio. API Key is available directly after choosing the right Web Service. ServiceUrl is available after choosing what kind of request we want to make.
 
-Main method for communication with Web Service is like below:
+As mentioned in the introduction, there are two possibilities. Single request-response action, and batch mode. 
+In the following example, we use url for single request-response action.
+
+Main method for communication with Web Service is shown below:
 ```csharp
 public async Task<Tuple<string, string>> RequestScore(Request scoreRequest)
 {
@@ -63,7 +61,7 @@ public async Task<Tuple<string, string>> RequestScore(Request scoreRequest)
 }
 ```
 
-We use here HttpClient from System.Net.Http to send request and retrieve response. Note that original service url should be extended with
+We then use the HttpClient from System.Net.Http to send request and retrieve response. Note that original service url should be extended with
 ```csharp
 "/execute?api-version=2.0&details=true"
 ```
@@ -100,8 +98,7 @@ _scoreRequest = new Request
     GlobalParameters = new Dictionary<string, string>()
 };
 ```
-Structure of the request can be found also in AML Studio after choosing proper Web Service and proper action. In this case, single request-response action.
-As we can see, we can have several inputs as its represented as dictionary. Single input needs to provide name and a structure called StringTable.
+The structure of the request can also be found in AML Studio, after choosing proper Web Service and proper action. In this case, single request-response action. As we can see, we can have several inputs as its represented as dictionary. Single input needs to provide name and a structure called StringTable.
 ```csharp
 public class StringTable
 {
@@ -109,19 +106,21 @@ public class StringTable
     public string[,] Values { get; set; }
 }
 ```
-This structure contains one dimensional array of string for column names and two-dimensional array of strings for values. Each dimension needs to have same number of values as number of columns.
+This structure contains a one-dimensional array of type string, for column names and a two-dimensional array of type string for values. Each dimension needs to have same number of values as number of columns.
 
-As output, we receive JSON string formatted like input structure with this difference that additionally to values in array we receive also predictions.
+As output, we receive JSON string formatted like the input structure, with the difference that there are to additionall values containing the predictions.
 
 ### Retraining AML Azure Function
-When working with Machine Learning, just next to standard usage its required time to time to update Machine Learning model. The operation is called retraining and can be executed via Web Service REST API.
-Code available [here](https://github.com/veracity/veracity-machinelearning-automation/tree/master/MachineLearningRetrain) provides a usage sample of how step by step we can retrain our Model.
-There are two main classes
+When working with Machine Learning, you will find the need to update the Machine Learning model from time to time. The operation is called retraining, and can be executed via Web Service REST API.
+
+Code for how to do the retraining is availeble [here](https://github.com/veracity/veracity-machinelearning-automation/tree/master/MachineLearningRetrain). The code include all steps needed to retrain the Model.
+
+There are two main classes to be concerned about.
 - [WebServiceRetrainer](#Web-Service-Retrainer-class)
 - [WebServiceUpdater](#Web-Service-Updater-class)
 
 #### Web Service Retrainer class
-Just like in WebServiceConsumer we need to provide two properties via constructor when initializing class.
+Just like in WebServiceConsumer we need to provide two properties via the constructor when initializing class.
 ```csharp
 public WebServiceRetrainer(string serviceUrl, string apiKey)
 {
@@ -129,9 +128,11 @@ public WebServiceRetrainer(string serviceUrl, string apiKey)
     ApiKey = apiKey;
 }
 ```
-All this data is available from AML Studio. API Key is available directly after choosing right Web Service, ServiceUrl is available after choosing batch mode.
-As we are using batch mode, we need to create special kind of request message that will send to Web Service later.
-Message for our purpose is created in method PrepareRequest.
+The parameters are both awailable from AML Studio. The API Key is available directly after choosing the correct Web Service, and the ServiceUrl is available after choosing batch mode.
+
+As we are using batch mode, we need to create a special kind of request message, that we will send to Web Service later.
+
+The message we need is created in the method PrepareRequest.
 ```csharp
 private BatchExecutionRequest PrepareRequest(AzureStorageData inputdata, AzureStorageData outputData)
 {
@@ -163,11 +164,12 @@ private BatchExecutionRequest PrepareRequest(AzureStorageData inputdata, AzureSt
     };
 }
 ```
-Our request message contains corresponding collections of input and output data. Input is a location where data for retraining is stored. We need to provide Data Connection String to Azure Storage Account, container and blob name.
-As output from retraining we get .ilearner file. It’s our new retrained model. We need to store it somewhere and later update our predictive model using WebServiceUpdater class.
-We can use the same Azure Storage Account but it’s not required so we need to specify it here as well. We need to provide container and blob name.
+Our request message contains the collection of inputs and corresponding output data. Input is a location where data for retraining is stored. We need to provide a Data Connection String to Azure Storage Account. 
+
+As an output from retraining, we get an .ilearner file. It’s our new retrained model. We need to store it somewhere and later update our predictive model using WebServiceUpdater class. We can use the same Azure Storage Account but it’s not required, so we need to specify it. We need to provide container and blob name information to the storage.
 
 With request data prepared like this we can use HttpClient from System.Net.Http and send it via REST API
+
 ```csharp
 public async Task<Tuple<string, IEnumerable<AzureBlobDataReference>>> Retrain(AzureStorageData inputStorageData, AzureStorageData outputStorageData)
 {
@@ -196,19 +198,18 @@ For HttpClient we need to provide authentication header:
 ```csharp
 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
 ```
-Once the request is sent correctly we receive a Job ID created for our request. Next step is to execute that job.
+Once the request is sent correctly, we receive a Job ID created for our request. Next step is to execute that job.
 We do that by sending:
 ```csharp
 response = await client.PostAsync(ServiceJobsUrl + "/" + jobId + "/start?api-version=2.0", null);
 ```
 
-Now job starts. As this is not simple request-response action we will not get the result immediately. 
+Now we have started the the training process. As this is not simple request-response action we will not get the result immediately. 
 The last line of Retrain method is about monitoring how this job evaluates and what is the progress. 
 
-In MonitorProgress method we have a loop which asks WebService for our job and based on response status, prepares result if finished, prepares error message if faulted or just waits and repeats if job is still in progress.
+In the MonitorProgress method we have a loop which asks WebService for the status on our job.
 
-
-After job is completed we receive location of our .ilearner file.
+After the job is completed, we receive location of our .ilearner file. The file will be used by WebServiceUpdater to update the predictive model.
 ```csharp
 public class AzureBlobDataReference
 {
@@ -229,22 +230,19 @@ public class AzureBlobDataReference
 }
 ```
 
-This file will be used by WebServiceUpdater to update our predictive model.
+
 
 #### Web Service Updater class
-When initializing updater class, we need to provide WebService url and Api key
+When initializing the updater class, we need to provide WebService url and Api key
         public WebServiceUpdater(string serviceEndPointUrl, string endpointApiKey)
         {
             ServiceEndpointUrl = serviceEndPointUrl;
             EndpointApiKey = endpointApiKey;
         }
 
-Web Service url needs to point to Web Service with predictive model.
-Note that api key is not taken from default Web Service endpoint. We need to create special endpoint used only for updates.
-More about adding new endpoint and updating trainer model you can find [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-a-classic-web-service).
+Web Service url needs to point to the Web Service with the predictive model. Note that the api key is not taken from default Web Service endpoint. We need to create special endpoint used only for the updates. More about adding new endpoint and updating trainer model you can find [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-a-classic-web-service).
 
-UpdateModel method is the one that takes .ilearner file created while retraining and updates predictive model.
-As input to the method we pass collection of AzureBlobDataReference objects
+The UpdateModel method is the method that takes the .ilearner file we created while retraining, and is used to update the predictive model. As input to the method we pass a collection of AzureBlobDataReference objects.
 ```csharp
 public class AzureBlobDataReference
 {
@@ -264,9 +262,8 @@ public class AzureBlobDataReference
     public string SasBlobToken { get; set; }
 }
 ```
-This class contains information where .ilearner file is stored.
 
-And then, using HttpClient from System.Net.Http we send PATCH request.
+Now, using HttpClient from System.Net.Http we send PATCH request.
 ```csharp
 using (var client = new HttpClient())
 {

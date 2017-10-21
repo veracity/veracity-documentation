@@ -795,19 +795,19 @@ The below examples illustrates three common scenarios, copying one file, copying
 We assume you have obtained the appropriate access keys as described in a previous section.
 
 (1) Copying one local file to a BLOB container:
-```batch
+```
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:myfile.csv
 ```
 When copying from a BLOB container to a local computer, the option /SourceKey has to be used.
 
 (2) Copying multiple local files to a BLOB container using a file mask:
-```batch
+```
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:my /S
 ```
 This will copy all files starting with "my". Use option /S to copy more than one file.
 
 (3) Copying a local folder to a BLOB container:
-```batch
+```
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /S
 ```
  

@@ -18,12 +18,12 @@ Links to content
 
 
 # Machine Learning automation
-When considering data quality, we deal a lot with the concept of Machine Learning. Thanks to advanced algorithms we can go through data, test it against a number of metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.
+When considering data quality, we deal a lot with the concept of Machine Learning. Thanks to advanced algorithms we can go through data, test it againstseveral metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.
 
 Microsoft provides a platform called Azure Machine Learning. Undeniable advantage of AML is that it exists in Azure environment so it is put as close to the data as possible in Veracity. Further it provides easy to use API for managing this data. In this solution, we provide code samples on how to automate parts of Machine Learning workflow. In particular we focus on consuming and retraining AML Web Service with usage of Azure Functions. The following code description applies to the .NET implementation, as it is the base platform used for the tool.
 
 ## Implementation and usage
-The solution contains several projects, covering functionalities like consuming AML Web Service and retraining AML Web Service. Further, there is sample Azure Function code showing how to use retraining code in a specific scenario. The description assume that AML Web Service with retraining experiment is already setup and deployed to Azure. For information on how to deploy the AML, visit the [Analytics](https://developer.veracity.com/doc/analytics) documentattion. For additional information about how to create retraining experiment and publish in Azure, you may also have a look [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
+The solution contains several projects, covering functionalities like consuming AML Web Service and retraining AML Web Service. Further, there is sample Azure Function code showing how to use retraining code in a specific scenario. The tutorial assumes that AML Web Service with retraining experiment is already setup and deployed to Azure. For information on how to deploy the AML, visit the [Analytics](https://developer.veracity.com/doc/analytics) documentattion. For additional information about how to create retraining experiment and publish in Azure, you may also have a look [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
 Source code described in detail below is available on [GitHub](https://github.com/veracity/veracity-machinelearning-automation).
 
@@ -108,12 +108,12 @@ public class StringTable
 ```
 This structure contains a one-dimensional array of type string, for column names and a two-dimensional array of type string for values. Each dimension needs to have same number of values as number of columns.
 
-As output, we receive JSON string formatted like the input structure, with the difference that there are to additionall values containing the predictions.
+As output, we receive JSON string formatted like the input structure, with the difference that there are to additional values containing the predictions.
 
 ### Retraining AML Azure Function
 When working with Machine Learning, you will find the need to update the Machine Learning model from time to time. The operation is called retraining, and can be executed via Web Service REST API.
 
-Code for how to do the retraining is availeble [here](https://github.com/veracity/veracity-machinelearning-automation/tree/master/MachineLearningRetrain). The code include all steps needed to retrain the Model.
+Code for how to do the retraining is available [here](https://github.com/veracity/veracity-machinelearning-automation/tree/master/MachineLearningRetrain). The code include all steps needed to retrain the Model.
 
 There are two main classes to be concerned about.
 - [WebServiceRetrainer](#Web-Service-Retrainer-class)
@@ -128,7 +128,7 @@ public WebServiceRetrainer(string serviceUrl, string apiKey)
     ApiKey = apiKey;
 }
 ```
-The parameters are both awailable from AML Studio. The API Key is available directly after choosing the correct Web Service, and the ServiceUrl is available after choosing batch mode.
+The parameters are both available from AML Studio. The API Key is available directly after choosing the correct Web Service, and the ServiceUrl is available after choosing batch mode.
 
 As we are using batch mode, we need to create a special kind of request message, that we will send to Web Service later.
 
@@ -204,7 +204,7 @@ We do that by sending:
 response = await client.PostAsync(ServiceJobsUrl + "/" + jobId + "/start?api-version=2.0", null);
 ```
 
-Now we have started the the training process. As this is not simple request-response action we will not get the result immediately. 
+Now we have started the training process. As this is not simple request-response action we will not get the result immediately. 
 The last line of Retrain method is about monitoring how this job evaluates and what is the progress. 
 
 In the MonitorProgress method we have a loop which asks WebService for the status on our job.
@@ -285,4 +285,4 @@ using (var client = new HttpClient())
 
 We need to remember to provide proper authentication header value just like for WebServiceConsumer and WebServiceRetrainer classes.
 
-After successful response we have new retrained and updated predictive model.
+After successful response, we have new retrained and updated predictive model.

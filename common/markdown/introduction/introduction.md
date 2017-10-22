@@ -2,12 +2,13 @@
 Title : "Introduction"
 ---
 
-# Introduction to Veracity Developer 
+# Welcome to Veracity for Developers
 
-Welcome to Veracity’s developer community!
 
-Those who seek to work on Veracity can use Veracity's Developer Community as an opportunity to evaluate its potential through information, inspiration and collaboration. Developers community is intended to encourage participation by engaging providers and consumers. 
+Veracity is designed to help companies unlock, qualify, combine and prepare data for analytics and benchmarking. We are not looking to own data, but to help our customers leverage the ever-increasing amount of data they own. 
+On the platform’s marketplace, asset owners will get access to industrial applications and data analytics services that can help them make better use of their data to optimize performance. These apps will be provided not only be DNV GL, but by a host of other qualified providers of data, data analytics and digital solutions. Veracity for Developers is design to support both the IT Pro’s and developers at the data provider side, and the developer, data analysts and IT Pro’s at the data consumer side.
 
-Veracity's Developer Community will assist in leading you towards the services and data you are seeking by providing easy navigation to services, tutorials, training and inspirational articles. We seek to continuously improve our platform so it is easy to use, appealing and promotes self-service.
+# Where do I start?
+With all the new opportunities Veracity enables for both the asset owners and the service providers, it can be a daunting task to figure out which services you need to support in your solution architecture. This section highlights the Veracity services that developers commonly use, and where to start.
 
-On the front page you will find quick links to documentation on Veracity. To get a quick overview with key information of each documentation, please see [this](https://developer.veracity.com/docs). 
+## Veracity architecture

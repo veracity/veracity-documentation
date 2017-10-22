@@ -3,13 +3,13 @@ Title : "Open Source Projects"
 ---
 # Overview 
 
-Veracity embrace open source. Veracity utilize open source in the development of the platform, and we feel it is coorect to contribute back. We both contribute dirrectly in open source projects, but also share whatever usefull code we create on [GitHub](https://www.github.com/Veracity). 
+Veracity embrace open source. Veracity utilize open source in the development of the platform, and we feel it is correct to contribute back. We both contribute directly in open source projects, but also share whatever useful code we create on [GitHub](https://www.github.com/Veracity). 
 
 There are two main categories of content. First there are [veracity-quickstart-samples](https://github.com/veracity/veracity-quickstart-samples) that are supporting code for how to work with veracity. These are shared under [apache 2.0](https://github.com/veracity/veracity-quickstart-samples/blob/master/LICENSE) license. 
 
-Second there are projects that we develop that we believe users may find usefull, even if it may not be a direct link to how to interact with Veracity. One such project is the [Machine Learning Automation](https://github.com/veracity/veracity-machinelearning-automation) project that we will adress further in this document.
+Second there are projects that we develop that we believe users may find useful, even if it may not be a direct link to how to interact with Veracity. One such project is the [Machine Learning Automation](https://github.com/veracity/veracity-machinelearning-automation) project that we will address further in this document.
 
-Veracity will accept contributions to all content we publish on [GitHub](https://www.github.com/veracity), and you may find the [CONTRIBUTING.md](https://github.com/veracity/veracity-quickstart-samples/blob/master/CONTRIBUTING.md) file usefulle. With respect to contributions, we accept both small changes and largers contributions like complete quickstart samples, if they are evaluated as a fit to Veracity. Al pull requests are evaluated by a developer from the Veracity Developer.
+Veracity will accept contributions to all content we publish on [GitHub](https://www.github.com/veracity), and you may find the [CONTRIBUTING.md](https://github.com/veracity/veracity-quickstart-samples/blob/master/CONTRIBUTING.md) file useful. With respect to contributions, we accept both small changes and larger contributions like complete quickstart samples, if they are evaluated as a fit to Veracity. All pull requests are evaluated by a developer from the Veracity Developer.
 
 
 Links to content

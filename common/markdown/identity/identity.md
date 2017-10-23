@@ -16,13 +16,18 @@ Tutorials:
 
 
 # Tutorial
+The verrcity-quickstart-samples on [GitHub](https://www.github.com/Veracity) hold the complete running samples for these tutorials. Please feel free to clone or fork the repo, and get started using them. We will in the tutorialt to follow go through the code step-by-step, so that you will be able to ether do the integration in a clean app, or  include it into your existing applications.
+
 
 ## Web Apps
+The first section of these tutorials will be focusing on Web Apps. 
+
+
 
 ### ASP.NET implementation
-This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi)
+This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi), and you can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
 
-We will assume that the application is already created, and do not contain any form of setup for AD B2C authentification. First we will need to add some nuget packages. 
+For the rest of the tutorial on ASP.NET implementation, we will assume that the application is already created, and do not contain any form of setup for AD B2C authentification. First we will need to add some nuget packages. 
 
 ```xml
 Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 4.0.0-alpha1

@@ -1,5 +1,6 @@
 ---
 Title: Service API
+Author: "Brede Børhaug"
 ---
 
 # Overview 

@@ -1,5 +1,6 @@
 ---
 Title : "Data Fabric API"
+Author: "Brede Børhaug"
 ---
 
 # Overview

@@ -498,3 +498,11 @@ public static async Task<AuthenticationResult> SignIn()
 ```
 AuthenticationResult object contains AccessToken property where Bearer Key is stored. This can then be used to e.g. call the Veracity Data Fabric API's.
 
+## GitHub  
+Follow our open projects related to identity on https://github.com/veracity
+
+## Stack Overflow
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
+
+[Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
+

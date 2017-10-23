@@ -1,5 +1,6 @@
 ---
 Title : "Data Fabric Egest"
+Author: "Brede Børhaug"
 ---
 
 # Overview

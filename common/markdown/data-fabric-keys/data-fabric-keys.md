@@ -71,7 +71,6 @@ As a data storage owner, you may share the data with other. When you share a key
 When your applications use a SAS key from veracity, it is recommended to build in to your application to always call the Veracity API for renewal of key, prior to the accessing of the data. In this way you will always have the latest valid key. 
 
 
-# References 
 
 # GitHub  
 Follow our open projects related to Veracity data fabric keys on https://github.com/veracity

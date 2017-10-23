@@ -819,7 +819,7 @@ In this section we will give theoretical and practical recommendations on how to
 
 
 ## GitHub  
-Follow our open projects related to Veracity data fabric ingest on https://github.com/veracity
+Follow our open projects related to Veracity data fabric egest on https://github.com/veracity
 
 ## Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.

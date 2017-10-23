@@ -297,7 +297,7 @@ For more information about how the protocols work in this scenario and other sce
 In order to develop using this code you may need to set up you computer to trust the IIS Express SSL certificate. 
 
 When integrating towards our Azure AD B2C tenant, you will need the following information frovided by the Veracity team, as part of the onboarding process:
-```info
+```xml
 Tenant - tenant name from Azure Portal (Active Directory)
 ClientId - Application ID from your Native app registration
 PolicySignUpSignIn - sign in policy created during app registration
@@ -369,7 +369,7 @@ namespace azure_ad_b2c
 Then we go into the program.cs file and add the following:
 
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;

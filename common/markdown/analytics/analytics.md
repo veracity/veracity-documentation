@@ -195,15 +195,6 @@ Note that if the subfolder “output_test” does not exist, it will be created 
  
  
 
-
-# References
-
-
-# Pattern & Practices 
-In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
- 
-# References 
-
 ## GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
 
@@ -214,17 +205,6 @@ Stack Overflow is the largest, most trusted online community for developers to l
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
 
 
- 
-### Video 
-Link to videos related to Ingest
 
- 
-# Resources  
-In this section we have added resources that may provide you with additional learning.  
 
-Wiki 
-Link 
-
- 
-# FAQ 
 

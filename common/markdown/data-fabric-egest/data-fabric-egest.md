@@ -816,28 +816,15 @@ int main()
 # Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
  
-# References 
+
 
 ## GitHub  
-Follow our open projects related to ingest on https://github.com/veracity
+Follow our open projects related to Veracity data fabric ingest on https://github.com/veracity
 
 ## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity
- 
-[Visit Stack Overflow](https://stackoverflow.com/search?q=Veracity+egest)
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
-
- 
-### Video 
-Link to videos related to Egest
-
- 
-# Resources  
-In this section we have added resources that may provide you with additional learning.  
-
-Wiki 
-Link 
-
+[Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
  
 # FAQ 
 
@@ -851,8 +838,6 @@ Q: I attempt to use the SAS key in Azure Storage Explorer a second time and get 
 A: This is a known bug in Azure Storage Explorer. This will occure if you did not detatch the storage before you tried to reconnect using the same ket. You will need to access the storage under the "(SAS-Attatched Services)" storage account in Azure Storage Explorer. The storage should still be mapped there. The Microsoft Azure team will need to resolve this bug, and Veracity is not able to contrtibute to that. Pleas continiue to update your Azure Storage Explorer when new realeases are awailable.
  
  
-# Price model 
-The prosess of ingesting data is at the moment not subject to cost. Storage does have cost related to it, and you may find additional information HERE  
- 
+
  
  

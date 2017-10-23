@@ -1,5 +1,6 @@
 ---
 Title : "Introduction"
+Author: "Brede Børhaug"
 ---
 
 # Welcome to Veracity for Developers

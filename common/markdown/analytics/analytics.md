@@ -1,5 +1,6 @@
 ---
 Title : "Analytics"
+Author: "Brede Børhaug"
 ---
 
 # Overview

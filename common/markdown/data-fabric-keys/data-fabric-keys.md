@@ -74,16 +74,11 @@ When your applications use a SAS key from veracity, it is recommended to build i
 # References 
 
 # GitHub  
-Follow our open projects related to keys on https://github.com/veracity
+Follow our open projects related to Veracity data fabric keys on https://github.com/veracity
 
 # Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity
- 
-[Visit Stack Oerflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
- 
-# Resources  
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
- 
-# FAQ 
+[Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
 
  

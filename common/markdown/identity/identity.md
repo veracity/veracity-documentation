@@ -2,24 +2,25 @@
 Title : "Identity"
 ---
 # Overview 
-Review state added
+When onboarding as a service provider there are some mandatory and some optional requirements. A key mandatory requirement for onboarding Veracity is the the service provider integrates with our identity provider, enable the Single Sign On (SSO) experience in Veracity. Veracity cloud identity provider is Azure AD B2C. It is a highly available global service that scales to hundreds of millions of identities. Built on an enterprise-grade secure platform, Azure AD B2C keeps your applications, your business, and your customers protected.
 
+Your integration towards Veracity will be towards and Enterprise Accounts (using open standard protocol OpenID Connect). For the documentation on Azure AD B2C visit [Microsoft Azure](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview).
+
+Tutorials:
+- [Web Apps](#web-aps)
+    - [ASP.NET](#aspnet-implementation)
+    - [nodeJs - pending review]()
+- [Mobile and desktop Apps](#mobile-and-desktop-apps)
+    - [.NET implementation](#net-implementation)
+    
 
 
 # Tutorial
 
+## Web Apps
 
-## Azure AD B2C
-Azure AD B2C is a cloud identity management solution for your web and mobile applications. It is a highly available global service that scales to hundreds of millions of identities. Built on an enterprise-grade secure platform, Azure AD B2C keeps applications, business, and customers protected.
-
-Below code describes how to connect to Azure AD B2C and get authentication token used later to request Veracity Data Fabric API. Important is to register new app in Azure Active Directory in accordence with the application you create. This process is part of the Veracity service onboarding. Contact Veracity support for additional details.
-
-
-### .NET implementation
-When your application is registered with Azure AD B2C tenant, you will recieve some information, among others the app ID together with tenant, and we will use that to obtain authentication key. Code is available [here](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-identity/azure-ad-b2c/azure-ad-b2c-net).
-
-#### Web application
-We will first demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi)
+### ASP.NET implementation
+This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi)
 
 We will assume that the application is already created, and do not contain any form of setup for AD B2C authentification. First we will need to add some nuget packages. 
 
@@ -276,7 +277,8 @@ public ActionResult Claims()
 ```
 Happy coding.
 
-#### Native App
+## Mobile and Desktop Apps
+### .NET Implementation
 
 Data required to continue with below code:
 ```

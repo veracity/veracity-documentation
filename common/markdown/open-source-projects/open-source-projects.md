@@ -1,5 +1,7 @@
 ---
 Title : "Open Source Projects"
+Author: "Brede Børhaug"
+Contributors: "Pawel Lehmann"
 ---
 # Overview 
 

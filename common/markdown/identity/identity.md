@@ -283,46 +283,217 @@ public ActionResult Claims()
 Happy coding.
 
 ## Mobile and Desktop Apps
-### .NET Implementation
+In this section of these tutorials will be focusing on mobile and desktop Apps. 
 
-Data required to continue with below code:
-```
+### .NET Implementation
+This sample demonstrates a .Net WPF application calling a web API that is secured using Azure AD. The .Net application uses the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol. The access token is sent to the web API to authenticate the user.
+
+The tutorial is based on the [Azure Samlples](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop/).
+
+
+For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414) at Microsoft.
+
+In order to develop using this code you may need to set up you computer to trust the IIS Express SSL certificate. 
+
+When integrating towards our Azure AD B2C tenant, you will need the following information frovided by the Veracity team, as part of the onboarding process:
+```info
 Tenant - tenant name from Azure Portal (Active Directory)
 ClientId - Application ID from your Native app registration
 PolicySignUpSignIn - sign in policy created during app registration
 ApiScopes - scopes available for given api
 ```
-For user identification we use class PublicClientApplication available in namespace Microsoft.Identity.Client.
-You can include it as NuGet package, currently in preview mode.
-```csharp
-public static PublicClientApplication PublicClientApp { get; } =
-    new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
+For user identification we will use the class PublicClientApplication available in namespace Microsoft.Identity.Client. For that reason you will need to install the package like this:
+```xml
+Install-Package Microsoft.Identity.Client -Version 1.1.0-preview
 ```
+Please note that the package is currently in preview state, but you will be able to use it.
 
-Authority is an url:
-```
-"https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
-```
-where tenant and policy are replaced with proper values from app registration.
-
-To sign in, AcquireTokenAsync method from PublicClientApplication is used.
+First we will need to create a TokenCasheHelper class in the root directory. Create the file and add the following code:
 ```csharp
-public static async Task<AuthenticationResult> SignIn()
+using System.IO;
+using Microsoft.Identity.Client;
+
+namespace azure_ad_b2c
 {
-    try
+    /// <summary>
+    /// Class taken from sample from Microsoft available here:
+    /// https://azure.microsoft.com/en-us/resources/samples/active-directory-b2c-dotnet-desktop/
+    /// </summary>
+    static class TokenCacheHelper
     {
-        return await PublicClientApp.AcquireTokenAsync(ApiScopes,
-            GetUserByPolicy(PublicClientApp.Users, PolicySignUpSignIn), UIBehavior.SelectAccount, string.Empty,
-            null, Authority);
+        /// <summary>
+        /// Path to the token cache
+        /// </summary>
+        public static string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + "msalcache.txt";
+        private static readonly object FileLock = new object();
+        private static TokenCache _usertokenCache;
+        /// <summary>
+        /// Get the user token cache
+        /// </summary>
+        /// <returns></returns>
+        public static TokenCache GetUserCache()
+        {
+            if (_usertokenCache != null) return _usertokenCache;
+            _usertokenCache = new TokenCache();
+            _usertokenCache.SetBeforeAccess(BeforeAccessNotification);
+            _usertokenCache.SetAfterAccess(AfterAccessNotification);
+            return _usertokenCache;
+        }
+        public static void BeforeAccessNotification(TokenCacheNotificationArgs args)
+        {
+            lock (FileLock)
+            {
+                args.TokenCache.Deserialize(File.Exists(CacheFilePath)
+                    ? File.ReadAllBytes(CacheFilePath)
+                    : null);
+            }
+        }
+        public static void AfterAccessNotification(TokenCacheNotificationArgs args)
+        {
+            // if the access operation resulted in a cache update
+            if (args.TokenCache.HasStateChanged)
+            {
+                lock (FileLock)
+                {
+                    // reflect changesgs in the persistent store
+                    File.WriteAllBytes(CacheFilePath, args.TokenCache.Serialize());
+                    // once the write operationtakes place restore the HasStateChanged bit to filse
+                    args.TokenCache.HasStateChanged = false;
+                }
+            }
+        }
     }
-    catch (Exception ex)
+}
+```
+Then we go into the program.cs file and add the following:
+
+
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Identity.Client;
+
+namespace azure_ad_b2c
+{
+    public class Program
     {
-        Console.WriteLine(
-            $"Users:{string.Join(",", PublicClientApp.Users.Select(u => u.Identifier))}{Environment.NewLine}Error Acquiring Token:{Environment.NewLine}{ex}");
-        return null;
+        /// <summary>
+        /// Active Directory Tenent where app is registered
+        /// </summary>
+        private const string Tenant = "<tenant name goes here - format: <some name>.onmicrosoft.com>";
+        /// <summary>
+        /// Id of registered app. App needs to be registered in tenant.
+        /// </summary>
+        private const string ClientId = "< id from registered app goes here>";
+        /// <summary>
+        /// Policy for authentication
+        /// </summary>
+        public static string PolicySignUpSignIn = "< signup policy goes here >";
+        /// <summary>
+        /// List of scopes for tenant
+        /// openid and offline_access added by default, no need to repeat
+        /// </summary>
+        public static string[] ApiScopes =
+        {
+            "< api scope goes here >"
+        };
+        /// <summary>
+        /// Template url where authentication will take place. 
+        /// {tenant} and {policy} to be replaced by proper values
+        /// </summary>
+        private static string BaseAuthority =
+            "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
+        /// <summary>
+        /// Propert url where authentication will take place.
+        /// </summary>
+        public static string Authority =
+            BaseAuthority.Replace("{tenant}", Tenant).Replace("{policy}", PolicySignUpSignIn);
+        /// <summary>
+        /// Identity object performing authentication and recieving access token
+        /// </summary>
+        public static PublicClientApplication PublicClientApp { get; } =
+            new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
+        /// <summary>
+        /// Main method. Executes sign in and shows result.
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
+        {
+            var authResult = SignIn();
+            authResult.Wait();
+            DisplayBasicTokenInfo(authResult.Result);
+            Console.ReadLine();
+        }
+        /// <summary>
+        /// Tries to connect to Authority with given Scopes and Policies.
+        /// Results with separate dialog where user needs to specify credentials.
+        /// </summary>
+        /// <returns>Authentication result containing access token</returns>
+        public static async Task<AuthenticationResult> SignIn()
+        {
+            try
+            {
+                return await PublicClientApp.AcquireTokenAsync(ApiScopes,
+                    GetUserByPolicy(PublicClientApp.Users, PolicySignUpSignIn), UIBehavior.SelectAccount, string.Empty,
+                    null, Authority);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(
+                    $"Users:{string.Join(",", PublicClientApp.Users.Select(u => u.Identifier))}{Environment.NewLine}Error Acquiring Token:{Environment.NewLine}{ex}");
+                return null;
+            }
+        }
+        /// <summary>
+        /// Small summary of authentication result object
+        /// </summary>
+        /// <param name="authResult"></param>
+        private static void DisplayBasicTokenInfo(AuthenticationResult authResult)
+        {
+            if (authResult == null) return;
+            Console.WriteLine("Autorization token info: ");
+            Console.WriteLine($"Name: {authResult.User.Name}");
+            Console.WriteLine($"Token Expires: {authResult.ExpiresOn.ToLocalTime()}");
+            Console.WriteLine($"Access Token: {authResult.AccessToken}");
+        }
+        /// <summary>
+        /// Finds users according to given policy
+        /// </summary>
+        /// <param name="users"></param>
+        /// <param name="policy"></param>
+        /// <returns></returns>
+        private static IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)
+        {
+            foreach (var user in users)
+            {
+                string userIdentifier = Base64UrlDecode(user.Identifier.Split('.')[0]);
+                if (userIdentifier.EndsWith(policy.ToLower())) return user;
+            }
+            return null;
+        }
+        /// <summary>
+        /// Decodes url
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private static string Base64UrlDecode(string s)
+        {
+            s = s.Replace('-', '+').Replace('_', '/');
+            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
+            var byteArray = Convert.FromBase64String(s);
+            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
+            return decoded;
+        }
     }
 }
 ```
 
-AuthenticationResult object contains AccessToken property where Bearer Key is stored.
+In the Program-.cs, we see that the AcquireTokenAsync method from PublicClientApplication is used to sign in.
+```csharp
+public static async Task<AuthenticationResult> SignIn()
+```
+AuthenticationResult object contains AccessToken property where Bearer Key is stored. This can then be used to e.g. call the Veracity Data Fabric API's.
 

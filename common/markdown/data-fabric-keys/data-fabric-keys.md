@@ -11,9 +11,9 @@ Keys are only possible to share with other platform users, and the SAS key may o
 Short links:
 - [Security](#security)
 - [Write key](#write-key)
-- [Read and list](#read-and-list)
-- [Read, write and list](#read-write-and-list)
-- [Read, write, list and delete](#read-write-list-and-delete)
+- [Read and list](#read-and-list-key)
+- [Read, write and list](#read-write-and-list-key)
+- [Read, write, list and delete](#read-write-list-and-delete-key)
 
 
 # Security

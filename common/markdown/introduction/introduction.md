@@ -13,11 +13,8 @@ On the platform’s marketplace, asset owners will get access to industrial appl
 With all the new opportunities Veracity enables for both the asset owners and the service providers, it can be a daunting task to figure out which services you need to support in your solution architecture. This section highlights the Veracity services that developers commonly use, and where to start.
 
 ### Veracity high-level architecture
-Veracity is built together Microsoft Azure, and key partners in the industry, enabling Big Data capability on a global scale. Veracity run a hybrid solution, where parts of the infrastructure is hosted by DNV GL, and the Veracity data fabric and some additional services are hosted in Microsft Azure.
+The Veracity infrastructure is based on Microsoft Azure, and supplemented by key partners in the industry, enabling Big Data capability on a global scale.
 
-The Veracity platform consist of
-
-TO BE ADDED
 
 
 ### Veracity security
@@ -31,8 +28,13 @@ The Marketplace within Veracity is an Oracle based E-Commerce solution which all
 
 #### Veracity service API's
 
+
+
 #### Veracity Data Fabric - private preview
+The data sharing and data analytics part of Veracity lets you analyze, share and combine data in a trusted eco-system.
 
+This is where you will manage access and control of your data. You can perform your own analytics or invite others to perform analytics on your data.
 
+You can even combine your own data with other data sets available for purchase or subscription in the marketplace to create new insights and solutions.
 
 

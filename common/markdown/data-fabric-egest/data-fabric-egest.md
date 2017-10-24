@@ -1,6 +1,7 @@
 ---
 Title : "Data Fabric Egest"
 Author: "Brede Børhaug"
+Contributor: "Rachel Hassall"
 ---
 
 # Overview

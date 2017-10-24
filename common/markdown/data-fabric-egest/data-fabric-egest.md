@@ -813,7 +813,59 @@ int main()
     return 0;
 }
 ```
- 
+
+## Egest data using AzCopy
+AzCopy is a command line tool used to upload and download data to or from  BLOB containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same locations.
+However, it can also be used to download data from a local computer or between any BLOBs in any subscriptions and locations.
+AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from for example Windows Powershell.
+
+The basic AzCopy command looks like this:
+
+```batch
+AzCopy /Source:\<source\> /Dest:\<Destination\> \[Options\]
+```
+
+The below examples illustrates three common scenarios, copying one file, copying several files using a mask and copying entire folders.
+We assume you have obtained the appropriate access keys as described in a previous section.
+
+(1) Copying one BLOB file in specific container to local file:
+```batch
+AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceKey:key /Dest:C:\MyLocalFolder /Pattern:myfile.csv 
+```
+When copying file from BLOB container to a local computer, the option /SourceKey has to be used.
+
+(2) Copying multiple files from BLOB container:
+```batch
+AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceKey:key /Dest:C:\MyLocalFolder /Pattern:my  /S
+```
+This will copy all files starting with "my". Use option /S to copy more than one file.
+
+(3) Copying a folder from a BLOB container:
+```batch
+AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceKey:key /Dest:C:\MyLocalFolder /S
+```
+
+Additionally insteady of using access keys you are able to use SAS tokens for specific container. 
+
+Below examples similar to above but with SAS token usage.
+
+(1) Copying one BLOB file in specific container to local file:
+```batch
+AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceSAS:sasToken /Dest:C:\MyLocalFolder /Pattern:myfile.csv 
+```
+When copying file from BLOB container to a local computer, the option /SourceKey has to be used.
+
+(2) Copying multiple files from BLOB container:
+```batch
+AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceSAS:sasToken /Dest:C:\MyLocalFolder /Pattern:my  /S
+```
+This will copy all files starting with "my". Use option /S to copy more than one file.
+
+(3) Copying a folder from a BLOB container:
+```batch
+AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceSAS:sasToken /Dest:C:\MyLocalFolder /S
+```
+
 # Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
  

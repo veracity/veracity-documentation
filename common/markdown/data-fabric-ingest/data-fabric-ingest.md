@@ -811,7 +811,28 @@ This will copy all files starting with "my". Use option /S to copy more than one
 ```batch
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /S
 ```
- 
+
+Additionally insteady of using access keys you are able to use SAS tokens for specific container. 
+
+Below examples similar to above but with SAS token usage.
+
+(1) Copying one local file to a BLOB container:
+```batch
+AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:myfile.csv
+```
+When copying from a BLOB container to a local computer, the option /SourceKey has to be used.
+
+(2) Copying multiple local files to a BLOB container using a file mask:
+```batch
+AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:my /S
+```
+This will copy all files starting with "my". Use option /S to copy more than one file.
+
+(3) Copying a local folder to a BLOB container:
+```batch
+AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /S
+```
+
 # Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
  

@@ -11,7 +11,6 @@ The Veracity Data Platform brings people with data closer to those who can help 
 In order to fully utilize what is described in this document you will need a Microsoft Azure subscription.
 
 
-
 # Tutorial
 
 ## Data Science Virtual Machine 

@@ -13,7 +13,9 @@ On the platform’s marketplace, asset owners will get access to industrial appl
 With all the new opportunities Veracity enables for both the asset owners and the service providers, it can be a daunting task to figure out which services you need to support in your solution architecture. This section highlights the Veracity services that developers commonly use, and where to start.
 
 ### Veracity high-level architecture
-Veracity is built together Microsoft Azure, and key partners in the industry, enabling Big Data capability on a global scale.
+Veracity is built together Microsoft Azure, and key partners in the industry, enabling Big Data capability on a global scale. Veracity run a hybrid solution, where parts of the infrastructure is hosted by DNV GL, and the Veracity data fabric and some additional services are hosted in Microsft Azure.
+
+The Veracity platform consist of
 
 TO BE ADDED
 

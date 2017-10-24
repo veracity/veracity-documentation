@@ -784,26 +784,27 @@ AzCopy is a command line tool used to upload and download data to or from  blob 
 
 The basic AzCopy command looks like this:
 
-```batch
-AzCopy /Source:\<source\> /Dest:\<Destination\> \[Options\]
+```ps
+AzCopy /Source:C:\Dev /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:myfile.csv
 ```
+
 The below examples illustrate three common scenarios: copying one file, copying several files using a mask and copying entire folders. We assume you have obtained the appropriate access keys as described in a previous section.
 
 (1) Copying one local file to a blob container:
-```batch
+```ps
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:myfile.csv
 ```
 When copying from a blob container to a local computer, the option /SourceKey must be used.
 
 (2) Copying multiple local files to a blob container using a file mask:
-```batch
-AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:my /S
+```ps
+AzCopy /Source:C:\Dev /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:my /S
 ```
 This will copy all files starting with "my". Use option /S to copy more than one file.
 
 (3) Copying a local folder to a blob container:
-```batch
-AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /S
+```ps
+AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /S
 ```
  
 ## GitHub  

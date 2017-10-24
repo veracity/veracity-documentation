@@ -3,17 +3,14 @@ Title: "Data Fabric Ingest"
 Author: "Brede Børhaug"
 ---
 # Overview
-Data ingestion is the action of importing data to a data storage, for either immediate use or for use later. There are various ways to ingest data to Veracity. The best direction for you will depend on your technical ability as well your intention for using Veracity.   
+Data ingestion is the action of importing data to a data storage container, for either immediate or later use. There are various ways to ingest data to Veracity. The best method for you will depend on both your technical ability and your intended purpose within Veracity.
 
-
-This guide will show you how into ingest your data into Azure cloud. To proceed with your data ingest, you will need to be set up with a Veracity account. If you are not already set up with an account, please click here. 
-
-
+This guide will show you how into ingest your data into the Veracity data fabric. To proceed with ingesting data, you will need to have a Veracity account. If you do not already have an account, please click [here](https://mystag.dnvgl.com/Register).
 
 Quick-Start:
 
 - [Ingest using Azure Storage Explorer (one time data load)](#Ingest-using-Azure-storage-explorer)
-- [Programmatically ingest data](#programmatically-ingest-data)
+- [Ingest data programmatically ](#ingest-data-programmatically)
 	- [.NET implementation](#net-implementation)
 	- [Java Implementation](#java-implementation) 
 	- [NodeJs Implementation](#nodejs-implementation)
@@ -26,26 +23,25 @@ Quick-Start:
 
 # Quick start 
 ## Ingest using Azure storage explorer
-When doing a manual ingest to Veracity, we recommend using Azure Storage Explorer. This independent application from Microsoft allows you to manually upload, view and interact with your data. This tool allows you to access any Veracity storage container. Azure Storage Explorer is available through Windows, macOS and Linux. 
+When doing a manual ingest to Veracity, we recommend using Azure Storage Explorer. This is an independent application from Microsoft which allows you to manually upload, view and interact with your data. Azure Storage Explorer allows you to access any Veracity storage container and is available through Windows, macOS and Linux.
 
 ### Download and install Azure Storage Explorer 
-Download Azure Storage Explorer from http://storageexplorer.com/. Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically. Do not use an outdated version from the Codeplex repository, as these are most likely the versions which are shown on the screen when you use BING to search for "Azure Storage Explorer".
+Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexplorer.com/). Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically. 
 
 ### Connect to a Veracity container using your key
-The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Daya](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. To to the [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
+The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Daya](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
 
-In Azure Storage Explorer connect to a new storage, and click the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
+In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-02.png "Connect to Azure Storage Explorer")
 
-The key you have received from Veracity is in the form of a SAS URI, select the radio button labeled "Use a SAS URI" and paste the key into the field that is now available, you may now click next, and the Azure Storage Explorer will attempt to connect to the container.
+The key you have received from Veracity is in the form of a SAS URI. Select the radio button labeled "Use a SAS URI" and paste the key into the field that is now available, you may now click next, and the Azure Storage Explorer will attempt to connect to the container.
 
-If you have previously opened Azure Storage Explorer on your machine, you can connect to a new storage container by clicking the connection icon in the black menu on the left. It has been marked with a blue square in the picture below. Once you have clicked this
-button, you may follow the steps listed above. 
+If you have previously opened Azure Storage Explorer on your machine, you can connect to a new storage container by clicking the connection icon in the black menu on the left. It has been marked with a blue square in the picture below. Once you have clicked this button, you can connect to your data container in Veracity using your SAS token by following the steps listed above.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-03.png "Azure Storage Explorer")
 
-You should now have access to the container that your key unlocks. You can find it in the hierarchy by using the search feature, in the upper left corner of the application, as shown in the picture below.
+You should now have access to the container that your key unlocks. You can find your container in the hierarchy by using the search feature, in the upper left corner of the application, as shown in the picture below.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-04.png "Azure Storage Explorer")
 
@@ -54,30 +50,31 @@ create and/or delete data-sets from the container.
 
 
 ### Working with Azure Storage Explorer
-When working with files in Azure Storage Explorer, you are working directly with the data stored within the container. This means that once you have modified the file, it is modified for everyone using the data. Therefore, we recommend using a read-only key for any work that does not require you to make other changes to the data.
+When working with files in Azure Storage Explorer, you are working directly with the data stored within the container. This means that once you have modified the file, it is modified for everyone using the data. We recommend using a read-only key for any work that does not require you to make other changes to the data.
 
-In some cases, you may find it useful to do curation on the data from a user interface. If you are doing manual work, such as cleaning or transformation of the data, you may want to lock the data set to prevent others from accessing it while you are uploading a new version. This can be accomplished by acquiring a lease on the given file, as shown below.
+In some cases, you may find it useful to do curation on the data from a user interface. If you are doing manual data work, such as cleaning or transformation, you may want to lock the data set to prevent others from accessing it whilst you are uploading a new version. This can be accomplished by acquiring a lease on the given file, as shown below.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-01.png "Working with Azure Storage Explorer")
 
-A lease will prevent anyone from modifying the file until you release the file. The lease acquired through Azure Storage Explorer is permanent, which means it is critical that you break the lease as soon as possible. As a lease is bound to your current key, you must break the lease before the key expires to ensure that the file is not locked permanently. This is shown in the picture below.
+A lease will prevent anyone from modifying the file until you release it. The lease acquired through Azure Storage Explorer is permanent, which means it is critical that you break the lease as soon as possible. A lease is bound to your current key, so you must break the lease before the key expires to ensure that the file is not locked permanently. This is shown in the picture below.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-02.png "Working with Azure Storage Explorer")
 
 ### Common pitfalls
-Authentication Error. The specified signed resource is not allowed for this resource level. 
+
+#### Authentication Error
 When looking for your container in the hierarchy, you might see an item ending with (SAS), if you try to expand this node, you may get an error stating: "Authentication Error. The specified signed resource is not allowed for this resource level." In this case, you are attempting to expand a sub-node that is not supported by the SAS URI's for containers. Instead, look for your container in the node labeled (SAS-Attached-Services).
 
 #### Proxy Configuration
-Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy:
+Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy, as shown below.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-pitfalls-proxy-01.png "Working with Azure Storage Explorer")
 
 
 
-## Programmatically ingest data
+## Ingest data programmatically
 
-These applications allow you to programmatically view/interact with your data. This quick guide will show you how to do this using some common languages. For details on how the code work consult the readme file in the HelloWorld applications or the tutorials on each language in the next sections. 
+This quick guide will show you how to view and interact with your data using some common programming languages. For details on how the code work consult the readme file in the HelloWorld applications or the tutorials on each language in the next sections.
 
 Implementations:
 - [.NET implementation](#net-implementation)
@@ -87,13 +84,15 @@ Implementations:
 - [Cpp Implementation](#cpp-implementation)
 
 ### .NET implementation
-We will in this quick start look at how to programaticaly write data to Veracity using a .NET Framework application. On Github you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-ingest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our github Repo and create a local emulated storage container. 
+We will explain how to programmatically write data to Veracity using a .NET Framework application in this quick guide. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-ingest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage container.
+In this sample we use the following NuGet package:
+ 
 
 In this sample we use the following nuget packages:
 - Microsoft.WindowsAzure.Storage (client library enables working with the Microsoft Azure storage services)
 
 
-First we need to create a .Net Framework application. Then add the constant holding the SAS key provided by Veracity to the Main method.
+Firstly, we need to create a .Net Framework application and add the constant holding SAS key provided by Veracity to the Main method.
 
 ```csharp
 static void Main(string[] args)
@@ -117,7 +116,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-Then we need to create a method that can interact with the container. We add functionality to both write, but also read so that we can verify that the write operation succeded.
+We now need to create a method that can interact with the container. We add functionality to both write, but also read so that we can verify that the write operation has succeeded.
 
 
 ```csharp
@@ -193,7 +192,7 @@ Then we need to create a method that can interact with the container. We add fun
         }
 ```
 
-Finaly we then need to call the method from the main method in the program. Your main method should then look like this.
+Finally, we call the UseContainerSAS method from the main method in the program. Your main method should now look like this.
 
 ```csharp
         static void Main(string[] args)
@@ -210,7 +209,7 @@ Finaly we then need to call the method from the main method in the program. Your
         }
 ```
 ### Java implementation
-We will in this quick start look at how to programaticaly read data from Veracity using a Java. On Github you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our github Repo and create a local emulated storage.
+We will now look at how to programmatically read data from Veracity using Java. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Java and use the [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). 
 
@@ -222,15 +221,16 @@ The samples are written in Java and use the [Azure Storage SDK for Java](https:/
 * (Optional) SLF4J binding is used to associate a specific logging framework with SLF4J.
 * (Optional) Maven
 
-The two dependencies, Jackson-Core and SLF4J, will be added automatically if Maven is used. Otherwise, please download the jars and add them to your build path.
+The two essential dependencies, Jackson-Core and SLF4J, will be added automatically if Maven is used. Otherwise, please download the jar files, and add them to your build path.
 
-SLF4J is only needed if you enable logging through the OperationContext class. If you plan to use logging, please also download an SLF4J binding which will link the SLF4J API with the logging implementation of your choice. Simple is a good default. See the SLF4J user manual for more information.
+SLF4J is only needed if you enable logging through the OperationContext class. If you plan to use logging, please also download a SLF4J binding which will link the SLF4J API with the logging implementation of your choiceSee the SLF4J user manual for more information.
 
-In this sample we are using Maven project and reference following dependencies:
+In this sample we are using Maven project, and reference following dependencies:
 
 - Microsoft Azure Storage Client SDK
 
-You can download it from Maven repositories or add dependency directly in pom.xml file:
+You can download the dependencies from Maven repositories or add a dependency directly in pom.xml file:
+
 ```xml
 <dependencies>
   <dependency>
@@ -241,7 +241,7 @@ You can download it from Maven repositories or add dependency directly in pom.xm
 </dependencies>
 ```
 
-Next step is to add proper imports to project:
+Next step is to add imports to project:
 ```java
 import java.net.URI;
 import java.util.ArrayList;
@@ -250,17 +250,17 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.blob.*;
 ```
 
-We now basically need to do three things. We first need to get a reference to the container using a SAS key
+You can download the dependencies from Maven repositories or add a dependency directly in pom.xml file:
 ```java
     CloudBlobContainer container = new CloudBlobContainer(new StorageUri(new URI(veracityContainerSAS)));
 ```
 
-Get the blob URI's using the SAS URI for the container,
+Now, get the blob URI's using the SAS URI for the container,
 
 ```java
     CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
 ```
-And finaly read the content of the blob
+Now, get the blob URI's using the SAS URI for the container,
 
 ```java
     CloudBlockBlob blockBlob = container.getBlockBlobReference(blobList.get(0).getName());
@@ -269,20 +269,20 @@ And finaly read the content of the blob
     System.out.println("Content: " + content);
 ```
 
-We can also write content to blob
+We can also write content to the blob
 ```java
     CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
     String blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
     blob.uploadText(blobContent);
 ```
 
-Or delete blob if it's not needed anymore
+or delete the blob if it's not needed anymore.
 ```java
     CloudBlockBlob blockBlobToDelete = container.getBlockBlobReference(blobList.get(0).getName());
     blockBlobToDelete.delete();
 ```
 
-Finally we should wrap it in try..catch block to handle exceptions. Complete code is like below
+It is good practice to wrap it in a try..catch block to handle exceptions. The complete code is below.
 ```java
     try {
 	    final String veracityContainerSAS = "< your SAS key go here >";
@@ -333,13 +333,13 @@ Finally we should wrap it in try..catch block to handle exceptions. Complete cod
 ```
 
 ### NodeJs implementation
-We will in this quick start look at how to programaticaly read data from Veracity using a Node.js. On Github you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our github Repo and create a local emulated storage.
+In this quick start guide we will look at how to programmatically read data from Veracity using a Node.js. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Node.js and use the [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node). 
 
-To obtain the package use Node Package Manager (NPM) from command line or from wizard via Visual Studio. 
-When using command line type
-```
+To obtain the package use Node Package Manager (NPM) from the command line or from wizard via Visual Studio. 
+When using the command line, enter the following:
+```ps
 npm install azure-storage
 ```
 
@@ -347,12 +347,12 @@ Add the below entry in to the js file
 ```js
 var azure = require('azure-storage');
 ```
-We now basically need to get a reference to the container using a SAS key
+Now we must get a reference to the container using a SAS key.
 ```js
 var sharedBlobSvc = azure.createBlobServiceWithSas(hostUri, blobSas);
 ```
 
-And we are ready to perform write operation
+We are ready to perform the write operation.
 ```js
     sharedBlobSvc.createAppendBlobFromText(
         containerName,
@@ -388,8 +388,7 @@ We can also list existing blobs
         }
     );
 ```
-
-And read blob content 
+and read blob content 
 ```js
     sharedBlobSvc.getBlobToText(
         containerName,
@@ -405,7 +404,7 @@ And read blob content
         }
     );
 ```
-Finally we can delete blob if its not needed anymore
+Finally, we can delete the blob if it’s not needed anymore.
  ```js
     sharedBlobSvc.deleteBlob(containerName, blobName, function (error, response) {
         if (error) {
@@ -416,7 +415,7 @@ Finally we can delete blob if its not needed anymore
     });
 ```
 
-Complete sample is like below:
+The complete sample is as below:
  ```js
 function performAzureOperations() {
 
@@ -479,26 +478,26 @@ function performAzureOperations() {
 ```
 
 ### Python implementation
-We will in this quick start look at how to programaticaly read data from Veracity using a Python. On Github you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our github Repo and create a local emulated storage.
+We will now look at how to programmatically read data from Veracity using a Python. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Python and use the [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 In your python environment you need to add package
- ```
+ ```ps
 azure-storage
  ```
 
-And import BlockBlobService
+and import BlockBlobService
 ```python
 from azure.storage.blob import BlockBlobService
  ```
-We create some variables that will come in handy
+We create some variables that will come in handy.
 ```python
 accountName = "<storage account name>"
 veracityContainerSAS = "< your sas key without question mark'?' >"
 containerName = "< container name reference>"
 ```
-If you are using the Veracity portal to get hold of the SAS key, and not the Veracity API, you will need to pick the different pieces from the SAS Uri for eache variable above. If we use the following SAS token as an example:
+If you are using the Veracity portal to get hold of the SAS key, and not the Veracity API, you will need to pick different parts of the SAS URI for each of the variable above. If we use the following SAS token as an example:
 
 ```html
 https://ns4dnvglfstspus00001.blob.core.windows.net/devcontainer9ae56656-bd3a-4d6e-b257-cfbb6241b1ea?sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl
@@ -510,7 +509,7 @@ accountName = "ns4dnvglfstspus00001"
 veracityContainerSAS = "sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl"
 containerName = "devcontainer-12312325"
 ```
-We now basically need to create a reference to the container using the SAS key and account name.
+We must create a reference to the container using the SAS key and account name, it’s good practice to do this within a try..catch block. 
 
 ```python
 try:
@@ -519,9 +518,9 @@ except Exception as e:
     print("There was an error during SAS service creation. Details: {0}".format(e))
 ```
 
-And we are ready to perform write operations to the blob. At this point you should consult the documentation of the library azure.storage.blob. You may use the create_blob_from_path, create_blob_from_stream, create_blob_from_bytes or create_blob_from_text methods.
+We are ready to perform write operations to the blob. At this point, you should consult the documentation of the library azure.storage.blob to select the correct method. You may use the create_blob_from_path, create_blob_from_stream, create_blob_from_bytes or create_blob_from_text methods.
 
-We first try the create_blob_from_path, which will upload some blob to the storage. Note that you then will need to include the azure.storage.blob import ContentSetting. We then get
+We first try the create_blob_from_path, which will upload some blob to the storage. Note that you will then need to include the azure.storage.blob import ContentSetting. 
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -537,9 +536,9 @@ try:
 except Exception as e:
     print("There was an error during blob uploading. Details: {0}".format(e))
 ```
-We now have uploaded the file sensorData.csv into Veracity and it is stored under the blob blobName. 
+We now have uploaded the file sensorData.csv into Veracity and it is stored under the blob “blobName”.
 
-We can also try to write a text string directly into the blob. Lets add a variable for a container name and use the create_blob_from_text. We then get
+We can also try to write a text string directly into the blob. Let’s add a variable for a container name and use the create_blob_from_text. 
 
 ```python
 blobName = " < blob name > "
@@ -549,9 +548,9 @@ try:
 except Exception as e:
     print("There was an error during blob uploading. Details: {0}".format(e))
 ```
-We now basically have written a text string and stored it in the container. 
+We have written a text string and stored it in the container.
 
-We can also list existing blobs to check what we have done
+We can also list existing blobs to check what we have done:
 
 ```python
 try:
@@ -562,8 +561,7 @@ except Exception as e:
     print("There was an error during blobs listing. Details: {0}".format(e))
 ```
 
-
-Complete sample is as below:
+A complete code sample is as below:
 
 ```python
 from azure.storage.blob import BlockBlobService
@@ -611,26 +609,26 @@ except Exception as e:
 
  ```
 ### Cpp implementation
-We will in this quick start look at how to programaticaly read data from Veracity using a Cpp. On Github you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our github Repo and create a local emulated storage.
+We will in this quick start look at how to programmatically read data from Veracity using a Cpp. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Cpp and use the [Azure Storage SDK for Cpp](https://github.com/Azure/azure-storage-cpp). 
 
 With NuGet Package Manager install Azure Storage Client Library. Use Package Manager Console and type
-```cpp
+```ps
 Install-Package wastorage
 ```
 
-At the top of Cpp file add following include statements
+At the top of Cpp file add following include statements:
 ```cpp
 #include <was/storage_account.h>
 #include <was/blob.h>
 ```
-We now basically need to get a reference to the container using a SAS key
+We now need to get a reference to the container using a SAS key.
 ```cpp
 azure::storage::cloud_blob_container container = azure::storage::cloud_blob_container::cloud_blob_container(azure::storage::storage_uri(veracity_container_sas));
 azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
 ```
-And we are ready to perform write operation
+and we are ready to perform the write operation:
 ```cpp
 try
 {
@@ -643,7 +641,7 @@ catch (const std::exception e)
 }
 ```
 
-We can also list existing blobs
+We can also list existing blobs:
 ```cpp
 try
 {
@@ -668,7 +666,7 @@ catch (const std::exception e)
 }
 ```
 
-And read blob content 
+and read blob content:
 ```cpp
 try
 {
@@ -682,7 +680,7 @@ catch (const std::exception e)
     std::wcout << U("There was an error during blob downloading: ") << e.what() << std::endl;
 }
 ```
-Finally we can delete blob if its not needed anymore
+Finally, we can delete the blob if it’s not needed anymore.
  ```cpp
 try
 {
@@ -782,62 +780,32 @@ int main()
 ```
 
 ## Ingest data using AzCopy
-AzCopy is a command line tool used to upload and download data to or from  BLOB containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same locations.
-However, it can also be used to upload data from a local computer or between any BLOBs in any subscriptions and locations.
-AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from for example Windows Powershell.
+AzCopy is a command line tool used to upload and download data to or from  blob containers and to transfer data between blob containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same location. However, it can also be used to upload data from a local computer or between any BLOBs in any subscription and location. AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows, it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from, for example, Windows PowerShell.
 
 The basic AzCopy command looks like this:
 
 ```batch
 AzCopy /Source:\<source\> /Dest:\<Destination\> \[Options\]
 ```
+The below examples illustrate three common scenarios: copying one file, copying several files using a mask and copying entire folders. We assume you have obtained the appropriate access keys as described in a previous section.
 
-The below examples illustrates three common scenarios, copying one file, copying several files using a mask and copying entire folders.
-We assume you have obtained the appropriate access keys as described in a previous section.
-
-(1) Copying one local file to a BLOB container:
+(1) Copying one local file to a blob container:
 ```batch
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:myfile.csv
 ```
-When copying from a BLOB container to a local computer, the option /SourceKey has to be used.
+When copying from a blob container to a local computer, the option /SourceKey must be used.
 
-(2) Copying multiple local files to a BLOB container using a file mask:
+(2) Copying multiple local files to a blob container using a file mask:
 ```batch
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:my /S
 ```
 This will copy all files starting with "my". Use option /S to copy more than one file.
 
-(3) Copying a local folder to a BLOB container:
+(3) Copying a local folder to a blob container:
 ```batch
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /S
 ```
-
-Additionally insteady of using access keys you are able to use SAS tokens for specific container. 
-
-Below examples similar to above but with SAS token usage.
-
-(1) Copying one local file to a BLOB container:
-```batch
-AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:myfile.csv
-```
-When copying from a BLOB container to a local computer, the option /SourceKey has to be used.
-
-(2) Copying multiple local files to a BLOB container using a file mask:
-```batch
-AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:my /S
-```
-This will copy all files starting with "my". Use option /S to copy more than one file.
-
-(3) Copying a local folder to a BLOB container:
-```batch
-AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /S
-```
-
-# Pattern & Practices 
-In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
  
-# References 
-
 ## GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
 

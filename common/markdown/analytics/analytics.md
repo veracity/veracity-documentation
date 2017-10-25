@@ -187,12 +187,13 @@ Now:
 3.	On the left side of the screen, select the “Data Input and Output” tab and drag the “Export Data” module into the experiment canvas
 4.	Connect the output port of the dataset module to the input port of the “Export Data” module.
 5.	Select the “Export Data” module, and fill in the information on the right panel:
-a.	Set Azure Blob Storage as your data destination
-b.	Set “SAS” as “Authentication type”
-c.	Under “SAS URL”, you must enter the path to the file you want to upload. This path is obtained by modifying the SAS URL you received so that it points to the container and possible subfolder you are interested into.
-Let's now assume that we want to upload our dataset, naming it file_test_SAS.csv, into a folder named “output_test”, to be stored in the container “container-test” which is hosted on the storage account. You can then write the URL as:
-https://veracitydeveloper.blob.core.windows.net/container-developer-test/output_test/file_test_SAS.csv?st=2017-08-28T16%3A03%3A00Z&se=2017-08-29T16%3A03%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=9ibuxt04shaWDxwZB2WmeL8wUkYpaswRKKe%2FUoP3qvQ%3D
-Note that if the subfolder “output_test” does not exist, it will be created in the process.
+    a.	Set Azure Blob Storage as your data destination
+    b.	Set “SAS” as “Authentication type”
+    c.	Under “SAS URL”, you must enter the path to the file you want to upload. This path is obtained by modifying the SAS URL you         received so that it points to the container and possible subfolder you are interested into.
+    Let's now assume that we want to upload our dataset, naming it file_test_SAS.csv, into a folder named “output_test”, to be stored in    the container “container-test” which is hosted on the storage account.
+    You can then write the URL as:
+    https://veracitydeveloper.blob.core.windows.net/container-developer-test/output_test/file_test_SAS.csv?st=2017-08-28T16%3A03%3A00Z&se=2017-08-29T16%3A03%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=9ibuxt04shaWDxwZB2WmeL8wUkYpaswRKKe%2FUoP3qvQ%3D
+    Note that if the subfolder “output_test” does not exist, it will be created in the process.
 6.	Run the experiment:
 
 ## GitHub  

@@ -9,7 +9,7 @@ The Service API provides a consistent interface for accessing data about the use
 
 ## Authentication
 
-Authentication is performed through OAuth2 bearer tokens.
+Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
 ## View-points
 

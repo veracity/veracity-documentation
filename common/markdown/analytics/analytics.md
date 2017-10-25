@@ -10,17 +10,14 @@ The Veracity Data Platform brings people with data closer to those who can help 
 
 In order to fully utilize what is described in this document you will need a Microsoft Azure subscription.
 
-
 # Tutorial
 
 ## Data Science Virtual Machine 
 To get quickly started with analytics, a good option can be to create a Virtual Machine (VM) in Azure. To simplify this, we have created two handy buttons for you. Pick your favourite:
 
-
-Linux (Ubuntu): [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Linux%2Fdeployazure.json)
-
-Windows 2016: [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Windows%2Fazuredeploy.json)
-
+|Ubuntu |Windows Server 2016 |
+| ------------- |:-------------:|
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Linux%2Fdeployazure.json) |[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Windows%2Fazuredeploy.json)
 
 ### Data Science Virtual Machine Linux (Ubuntu)
 The Data Science VM's come bundled with lots of nice tools pre-installed for you. The highlights are:
@@ -62,8 +59,6 @@ The Data Science VM's come bundled with lots of nice tools pre-installed for you
     7. Blob storage
     8. ML & Data Science tutorials as Jupyter notebooks
 
-
-
 ## Big Data analytics using HDInsight
 
 ## Analytics using Azure Machine Learning Studio
@@ -102,7 +97,6 @@ An easy way to upload and manage data on your storage is to use Microsoft Azure 
 
 Additional details can be found under [here](https://developer.veracity.com/doc/ingest)
 
-
 ###	Open your machine learning workspace in Azure Machine Learning Studio
 We now want to perform some machine learning and data analytics using our data. Having set up a Machine Learning Workspace, proceed as follows:
 1.	Log in into [https://portal.azure.com/](https://portal.azure.com/)
@@ -126,20 +120,30 @@ You normally want to import data in your experiment. At this point, it can get i
 1.	Access your experiment in ML Studio
 2.	Under “Data Input and Output”, locate the “Import Data” module and drag it into the experiment sheet. Select the block and then “Launch Import Data Wizard”  
 3.	Select the “Web URL via HTTP” in the Launch Import Data Wizard, and then the “next” arrow 
-4.	You now have to provide a data source URL, which is (almost) the SAS URL you received. Note that, for the Import Data module to work the SAS URL must refer to a specific file and not to a folder or to a container. If you received an SAS URL pointing directly to the dataset file you want to import (and not to its container), simply copy and paste that URL into the “Data source URL” field of the Data Import Wizard. If your URL points to the container, you first have to modify the SAS URL so that it refers directly to the file of interest. For example, you may receive an SAS URL of the following form: 
-```html
+4.	You now have to provide a data source URL, which is (almost) the SAS URL you received. Note that, for the Import Data module to work the SAS URL must refer to a specific file and not to a folder or to a container. If you received an SAS URL pointing directly to the dataset file you want to import (and not to its container), simply copy and paste that URL into the “Data source URL” field of the Data Import Wizard. If your URL points to the container, you first have to modify the SAS URL so that it refers directly to the file of interest. For example, you may receive an SAS URL of the following form:
+
+```url
 https://veracitydeveloper.blob.core.windows.net/container-developer-test?st=2017-08-08T13%3A42%3A00Z&se=2017-08-09T13%3A42%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=PlIPcYzFQHGPXJith1vIZ%2FMuLWDQAJSFUDsDbP4ItMw%3D
+
+https://  <-- Protocol
+  veracitydeveloper  <-- Storage name
+  .blob.core.windows.net  <-- Blob host
+  
+  /container-developer-test  <-- Container
+    ?st=2017-08-08T13...  <-- SAS token
 ```
+
 From analyzing the above URL, we can understand that it refers to a container named “container-developer-test”, hosted in storage named “veracitydeveloper”. The last part of the URL (following the container name) is the SAS token that grants you access to the storage for a limited time frame. Let us now assume that the container hosts a folder named “folder_test” and a file named “file_test.csv” which you want to import in your machine learning experiment. You can then modify the URL as:
-```html
+
+```url
 https://veracitydeveloper.blob.core.windows.net/container-developer-test/folder_test/file_test.csv?st=2017-08-08T13%3A42%3A00Z&se=2017-08-09T13%3A42%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=PlIPcYzFQHGPXJith1vIZ%2FMuLWDQAJSFUDsDbP4ItMw%3D
 ```
+
 By analysing the above URL, you can see that the SAS token has not been modified, while we have added the path to the desired csv file in between the container name and the SAS token portions of the URL.
 You can now use the modified URL in the Import Data module.
  
 5.	Select the “next” arrow to terminate the Import Data module setup. 
 6.	To actually import the data contained in the specified file into your machine learning experiment, you have to run the experiment. You can also run the Import Data module only and not the entire experiment by right clicking on the module and select “Run Selected”.
- 
 7.	Once the file is imported, you can save the data by clicking on the output node of the Import Data block and selecting “Save as Dataset”, so that you can easily access the data it in the future:
  
 It is advisable to save the dataset after having imported it, otherwise you will have to run the import data module every time you re-open the experiment. This can be very time (and resource) consuming, depending on the size of the dataset.
@@ -190,19 +194,11 @@ Let's now assume that we want to upload our dataset, naming it file_test_SAS.csv
 https://veracitydeveloper.blob.core.windows.net/container-developer-test/output_test/file_test_SAS.csv?st=2017-08-28T16%3A03%3A00Z&se=2017-08-29T16%3A03%3A00Z&sp=rwdl&sv=2015-12-11&sr=c&sig=9ibuxt04shaWDxwZB2WmeL8wUkYpaswRKKe%2FUoP3qvQ%3D
 Note that if the subfolder “output_test” does not exist, it will be created in the process.
 6.	Run the experiment:
- 
- 
 
 ## GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
-
 
 ## Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
-
-
-
-
-

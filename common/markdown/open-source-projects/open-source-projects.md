@@ -7,14 +7,14 @@ Contributors: "Pawel Lehmann, Rachel Hassall"
 
 Veracity embraces open source. Veracity utilizes open source in the development of the platform, and we feel it is correct to contribute back. We contribute both directly in open source projects, but also share whatever useful code we create on [GitHub](https://www.github.com/Veracity). 
 
-There are two main categories of content. Firstly, there are [veracity-quickstart-samples](https://github.com/veracity/veracity-quickstart-samples) that are supporting code for how to work with veracity. These are shared under [apache 2.0](https://github.com/veracity/veracity-quickstart-samples/blob/master/LICENSE) license. 
+There are two main categories of content. Firstly, there are [veracity-quickstart-samples](https://github.com/veracity/veracity-quickstart-samples) that consist of supporting code for how to work with veracity. These are shared under [apache 2.0](https://github.com/veracity/veracity-quickstart-samples/blob/master/LICENSE) license. 
 
 Secondly, there are projects that we develop that we believe users may find useful, even if it may not be directly linked to how to interact with Veracity. One such project is the [Machine Learning Automation](https://github.com/veracity/veracity-machinelearning-automation) project that we will address further on in this document.
 
-Veracity will accept contributions to all content we publish on [GitHub](https://www.github.com/veracity), and you may find the [CONTRIBUTING.md](https://github.com/veracity/veracity-quickstart-samples/blob/master/CONTRIBUTING.md) file useful. With respect to contributions, we accept both small changes and larger contributions like complete quickstart samples, if they are evaluated as a fit to Veracity. All pull requests are evaluated by a developer from the Veracity Development group.
+Veracity will accept contributions to all content we publish on [GitHub](https://www.github.com/veracity), and you may find the [contributing.md](https://github.com/veracity/veracity-quickstart-samples/blob/master/CONTRIBUTING.md) file useful. With respect to contributions, we accept both small changes and larger contributions, like complete quickstart samples, if they are evaluated as a fit to Veracity. All pull requests are evaluated by a developer from the Veracity Development group.
 
 
-Links to content
+Links to content:
 
 - [Machine Learning automation](#machine-learning-automation)
 
@@ -30,7 +30,7 @@ The solution contains several projects, covering functionalities like consuming 
 Source code described in detail below is available on [GitHub](https://github.com/veracity/veracity-machinelearning-automation).
 
 ### Consuming AML Web Service
-One of the standard operations executed whilst working with Machine Learning is asking the Web Service via REST API for predictions given some input data. At this stage, the model is already trained and will expect only a particular set of input data.
+One of the standard operations executed whilst working with Machine Learning is asking the Web Service via the REST API for predictions given some input data. At this stage, the model is already trained and will expect only a particular set of input data.
 Here, we will focus on how to send data and receive predictions in real-time. 
 
 There is also the possibility to consume Web Service in batch mode, this will be covered when describing the retraining algorithm, as it uses this approach.

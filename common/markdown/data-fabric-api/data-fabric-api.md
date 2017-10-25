@@ -7,12 +7,19 @@ Contributors: "Rachel Hassall"
 # Overview
 Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs: 
 
-- Data API - The Veracity Data Platform Data API is an API where developers and applications can get information on data containers, get their key to a data container or share a key with another Veracity Data Platform user.
-- Provisioning API - The Veracity Data Platform Provision API is an API that enables developers and applications to generate data containers, as a user of the platform. The Veracity web application is currently the main consumer of this API, as it integrates to this API to generate data containers in the portal.
-- Metadata API - The Veracity Data Platform Metadata API is an API where developers and applications can both get and post information on data containers. The Veracity web application integrates to this API to visually represent the data containers in the portal.
+- Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform user.
+- Provisioning API - The Veracity Provision API is an API that enables developers and applications to create data containers. 
+- Metadata API - The Veracity Metadata API is an API that can both get and post information on data containers. The API enables you to add meta data to the containers both to visually represent the data containers in the portal, and make it more easy to search in the data catalog.
 
-# API Reference
-This document will provide you with everything you will need to get going with the Veracity API. If you want more information, you can visit [https://api-portal.dnvgl.com/](https://api-portal.dnvgl.com/).
+# Authentication
+
+Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
+
+# View-points
+
+The API define......
+
+TO ADD.....
 
 # Tutorial
 Veracity uses API Management. In order to get access, you will need to:

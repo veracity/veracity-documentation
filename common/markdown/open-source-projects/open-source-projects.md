@@ -36,78 +36,86 @@ Here, we will focus on how to send data and receive predictions in real-time.
 There is also the possibility to consume Web Service in batch mode, this will be covered when describing the retraining algorithm, as it uses this approach.
 
 The WebServiceConsumer class is the one responsible for sending the scoring request and receiving predictions from the AML Web Service. To setup it correctly we need to set two properties via the constructor:
+
 ```csharp
 public WebServiceConsumer(string webServiceUrl, string apiKey)
 {
-    ServiceUrl = webServiceUrl;
-    ApiKey = apiKey;
+  ServiceUrl = webServiceUrl;
+  ApiKey = apiKey;
 }
 ```
+
 All this data is available from AML Studio. The API Key is available directly after choosing the correct Web Service. ServiceUrl is available after choosing what kind of request we want to make.
 
 As mentioned in the introduction, there are two possibilities: single request-response action and batch mode. 
 In the following example, we use the url for single request-response action.
 
 The main method for communication with the Web Service is shown below:
+
 ```csharp
 public async Task<Tuple<string, string>> RequestScore(Request scoreRequest)
 {
-    using (var client = new HttpClient())
-    {
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
-        var response = await client.PostAsJsonAsync(ServiceUrl + "/execute?api-version=2.0&details=true", scoreRequest);
-        if (response.IsSuccessStatusCode)
-            return new Tuple<string, string>("Request executed successfully.", await response.Content.ReadAsStringAsync());
-        return new Tuple<string, string>(await GetFailedResponse(response), null);
-    }
+  using (var client = new HttpClient())
+  {
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
+    var response = await client.PostAsJsonAsync(ServiceUrl + "/execute?api-version=2.0&details=true", scoreRequest);
+    if (response.IsSuccessStatusCode)
+      return new Tuple<string, string>("Request executed successfully.", await response.Content.ReadAsStringAsync());
+    return new Tuple<string, string>(await GetFailedResponse(response), null);
+  }
 }
 ```
 
 We then use the Http Client from System.Net.Http to send the request and retrieve response. Note that the original service url should be extended with
+
 ```csharp
 "/execute?api-version=2.0&details=true"
 ```
 The API key is used for authorization and set as the default request header:
+
 ```csharp
 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
 ```
 Our input data is represented here as a Request class.
+
 ```csharp
 _scoreRequest = new Request
 {
-    Inputs = new Dictionary<string, StringTable>
+  Inputs = new Dictionary<string, StringTable>
+  {
     {
+      "input1",
+      new StringTable
+      {
+        ColumnNames = new[]
         {
-            "input1",
-            new StringTable
-            {
-                ColumnNames = new[]
-                {
-                    "col1", "col2"
-                },
-                Values = new[,]
-                {
-                    {
-                        "0", "value"
-                    },
-                    {
-                        "0", "value"
-                    }
-                }
-            }
+          "col1", "col2"
+        },
+        Values = new[,]
+        {
+          {
+            "0", "value"
+          },
+          {
+            "0", "value"
+          }
         }
-    },
-    GlobalParameters = new Dictionary<string, string>()
+      }
+    }
+  },
+  GlobalParameters = new Dictionary<string, string>();
 };
 ```
 The structure of the request can also be found in AML Studio, after choosing the proper Web Service and proper action. In this case, single request-response action. As we can see, we can have several inputs as it is represented as a dictionary. The single input needs to provide a name and a structure called StringTable.
+
 ```csharp
 public class StringTable
 {
-    public string[] ColumnNames { get; set; }
-    public string[,] Values { get; set; }
+  public string[] ColumnNames { get; set; }
+  public string[,] Values { get; set; }
 }
 ```
+
 This structure contains a one-dimensional array of type string, for column names, and a two-dimensional array of type string for values. Each dimension needs to have the same number of values as the number of columns.
 
 As output, we receive JSON string formatted like the input structure, but with the difference that there are two additional values containing the predictions.
@@ -126,8 +134,8 @@ Just like in WebServiceConsumer we need to provide two properties via the constr
 ```csharp
 public WebServiceRetrainer(string serviceUrl, string apiKey)
 {
-    ServiceJobsUrl = serviceUrl;
-    ApiKey = apiKey;
+  ServiceJobsUrl = serviceUrl;
+  ApiKey = apiKey;
 }
 ```
 Both parameters are available from AML Studio. The API Key is available directly after choosing the correct Web Service, and the ServiceUrl is available after choosing batch mode.
@@ -138,32 +146,32 @@ The message we need is created in the method PrepareRequest.
 ```csharp
 private BatchExecutionRequest PrepareRequest(AzureStorageData inputdata, AzureStorageData outputData)
 {
-    return new BatchExecutionRequest
+  return new BatchExecutionRequest
+  {
+    Inputs = new Dictionary<string, AzureBlobDataReference>
     {
-        Inputs = new Dictionary<string, AzureBlobDataReference>
+      {
+        "input2",
+        new AzureBlobDataReference
         {
-            {
-                "input2",
-                new AzureBlobDataReference
-                {
-                    ConnectionString = inputdata.DataConnectionString,
-                    RelativeLocation = $"{inputdata.ContainerName}/{inputdata.BlobName}"
-                }
-            },
-        },
-        Outputs = new Dictionary<string, AzureBlobDataReference>
+          ConnectionString = inputdata.DataConnectionString,
+          RelativeLocation = $"{inputdata.ContainerName}/{inputdata.BlobName}"
+        }
+      },
+    },
+    Outputs = new Dictionary<string, AzureBlobDataReference>
+    {
+      {
+        "output2",
+        new AzureBlobDataReference
         {
-            {
-                "output2",
-                new AzureBlobDataReference
-                {
-                    ConnectionString = outputData.DataConnectionString,
-                    RelativeLocation = $"{outputData.ContainerName}/{outputData.BlobName}"
-                }
-            }
-        },
-        GlobalParameters = new Dictionary<string, string>()
-    };
+          ConnectionString = outputData.DataConnectionString,
+          RelativeLocation = $"{outputData.ContainerName}/{outputData.BlobName}"
+        }
+      }
+    },
+    GlobalParameters = new Dictionary<string, string>()
+  };
 }
 ```
 Our request message contains the collection of inputs and corresponding output data. Input is a location where data for retraining is stored. We need to provide a Data Connection String to Azure Storage Account. 
@@ -175,33 +183,37 @@ With request data prepared like this we can use HttpClient from System.Net.Http 
 ```csharp
 public async Task<Tuple<string, IEnumerable<AzureBlobDataReference>>> Retrain(AzureStorageData inputStorageData, AzureStorageData outputStorageData)
 {
-    var request = PrepareRequest(inputStorageData, outputStorageData);
-    using (var client = new HttpClient())
-    {
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
-        // submit
-        var response = await client.PostAsJsonAsync(ServiceJobsUrl + "?api-version=2.0", request);
-        if (!response.IsSuccessStatusCode)
-            return new Tuple<string, IEnumerable<AzureBlobDataReference>>(await Utilities.GetFailedResponse(response), null);
-                
-        var jobId = await response.Content.ReadAsAsync<string>();
-        var jobLocation = ServiceJobsUrl + "/" + jobId + "?api-version=2.0";
+  var request = PrepareRequest(inputStorageData, outputStorageData);
+  using (var client = new HttpClient())
+  {
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
+    // submit
+    var response = await client.PostAsJsonAsync(ServiceJobsUrl + "?api-version=2.0", request);
+    if (!response.IsSuccessStatusCode)
+      return new Tuple<string, IEnumerable<AzureBlobDataReference>>(await Utilities.GetFailedResponse(response), null);
 
-        // if submitted correctly, start retraining job
-        response = await client.PostAsync(ServiceJobsUrl + "/" + jobId + "/start?api-version=2.0", null);
-        if (!response.IsSuccessStatusCode)
-            return new Tuple<string, IEnumerable<AzureBlobDataReference>>(await Utilities.GetFailedResponse(response), null);
+    var jobId = await response.Content.ReadAsAsync<string>();
+    var jobLocation = ServiceJobsUrl + "/" + jobId + "?api-version=2.0";
 
-        return await MonitorProgress(client, jobId, jobLocation);
-    }
+    // if submitted correctly, start retraining job
+    response = await client.PostAsync(ServiceJobsUrl + "/" + jobId + "/start?api-version=2.0", null);
+    if (!response.IsSuccessStatusCode)
+      return new Tuple<string, IEnumerable<AzureBlobDataReference>>(await Utilities.GetFailedResponse(response), null);
+
+    return await MonitorProgress(client, jobId, jobLocation);
+  }
 }
 ```
+
 For HttpClient we need to provide authentication header:
+
 ```csharp
 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
 ```
+
 Once the request is sent correctly, we receive a Job ID created for our request. The next step is to execute that job.
 We do that by sending:
+
 ```csharp
 response = await client.PostAsync(ServiceJobsUrl + "/" + jobId + "/start?api-version=2.0", null);
 ```
@@ -212,76 +224,80 @@ The last line of the Retrain method is about monitoring how this job evaluates a
 In the MonitorProgress method we have a loop which asks WebService for the status of our job.
 
 After the job is completed, we receive the location of our .ilearner file. The file will be used by WebServiceUpdater to update the predictive model.
+
 ```csharp
 public class AzureBlobDataReference
 {
-    // Storage connection string used for regular blobs. It has the following format:
-    // DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY
-    // It's not used for shared access signature blobs.
-    public string ConnectionString { get; set; }
+  // Storage connection string used for regular blobs. It has the following format:
+  // DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY
+  // It's not used for shared access signature blobs.
+  public string ConnectionString { get; set; }
 
-    // Relative uri for the blob, used for regular blobs as well as shared access 
-    // signature blobs.
-    public string RelativeLocation { get; set; }
+  // Relative uri for the blob, used for regular blobs as well as shared access 
+  // signature blobs.
+  public string RelativeLocation { get; set; }
 
-    // Base url, only used for shared access signature blobs.
-    public string BaseLocation { get; set; }
+  // Base url, only used for shared access signature blobs.
+  public string BaseLocation { get; set; }
 
-    // Shared access signature, only used for shared access signature blobs.
-    public string SasBlobToken { get; set; }
+  // Shared access signature, only used for shared access signature blobs.
+  public string SasBlobToken { get; set; }
 }
 ```
 
-
-
 #### Web Service Updater class
 When initializing the updater class, we need to provide the WebService URL and API key
-        public WebServiceUpdater(string serviceEndPointUrl, string endpointApiKey)
-        {
-            ServiceEndpointUrl = serviceEndPointUrl;
-            EndpointApiKey = endpointApiKey;
-        }
+
+```csharp
+public WebServiceUpdater(string serviceEndPointUrl, string endpointApiKey)
+{
+  ServiceEndpointUrl = serviceEndPointUrl;
+  EndpointApiKey = endpointApiKey;
+}
+```
 
 The Web Service URL needs to point to the Web Service with the predictive model. Note that the API key is not taken from the default Web Service endpoint. We need to create a special endpoint used only for the updates. You can find out more about adding new endpoints and updating the trainer model [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-a-classic-web-service).
 
 The UpdateModel method is the method that takes the .ilearner file we created while retraining, and is used to update the predictive model. As input to the method we pass a collection of AzureBlobDataReference objects.
+
 ```csharp
 public class AzureBlobDataReference
 {
-    // Storage connection string used for regular blobs. It has the following format:
-    // DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY
-    // It's not used for shared access signature blobs.
-    public string ConnectionString { get; set; }
+  // Storage connection string used for regular blobs. It has the following format:
+  // DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY
+  // It's not used for shared access signature blobs.
+  public string ConnectionString { get; set; }
 
-    // Relative uri for the blob, used for regular blobs as well as shared access 
-    // signature blobs.
-    public string RelativeLocation { get; set; }
+  // Relative uri for the blob, used for regular blobs as well as shared access 
+  // signature blobs.
+  public string RelativeLocation { get; set; }
 
-    // Base url, only used for shared access signature blobs.
-    public string BaseLocation { get; set; }
+  // Base url, only used for shared access signature blobs.
+  public string BaseLocation { get; set; }
 
-    // Shared access signature, only used for shared access signature blobs.
-    public string SasBlobToken { get; set; }
+  // Shared access signature, only used for shared access signature blobs.
+  public string SasBlobToken { get; set; }
 }
 ```
 
 Now, using the HttpClient from System.Net.Http we send a PATCH request.
+
 ```csharp
 using (var client = new HttpClient())
 {
-    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", EndpointApiKey);
+  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", EndpointApiKey);
 
-    using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), ServiceEndpointUrl))
-    {
-        request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations),
-            Encoding.UTF8, "application/json");
-        var response = await client.SendAsync(request);
+  using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), ServiceEndpointUrl))
+  {
+    request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations),
+      Encoding.UTF8, "application/json");
+    var response = await client.SendAsync(request);
 
-        if (!response.IsSuccessStatusCode)
-            results.Add(await Utilities.GetFailedResponse(response));
-        else
-            results.Add($"Web Service updated successfully with {reference.RelativeLocation}");
-    }
+    if (!response.IsSuccessStatusCode)
+      results.Add(await Utilities.GetFailedResponse(response));
+    else
+      results.Add($"Web Service updated successfully with {reference.RelativeLocation}");
+  }
 }
 ```
 

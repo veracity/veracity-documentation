@@ -243,7 +243,7 @@ You need to authorize Veracity with code and copy the Bearer Token to your reque
 
 It's best practice to always get a new token before a request. 
 
-```
+```ps
 curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={boolean}&owned={boolean}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 -H "Authorization: Bearer {token}"
@@ -257,7 +257,7 @@ The below code in .NET shows how to programmatically get the Bearer Key. This co
 
 Firstly, input data is required:
 
-```
+```ps
 Tenant - tenant name from Azure Portal (Active Directory)
 ClientId - Application ID from your Native app registration
 PolicySignUpSignIn - sign in policy created during app registration

@@ -4,40 +4,36 @@ Author: "Brede Børhaug"
 Contributors: "Rachel Hassall"
 ---
 
-# Overview
+## Overview
 Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs: 
 
 - Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform user.
 - Provisioning API - The Veracity Provision API is an API that enables developers and applications to create data containers. 
 - Metadata API - The Veracity Metadata API is an API that can both get and post information on data containers. The API enables you to add meta data to the containers both to visually represent the data containers in the portal, and make it more easy to search in the data catalog.
 
-# Authentication
+## Authentication
 
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
-# View-points
+## End-points
 
-The API define......
-
-TO ADD.....
-
-# Tutorial
+## Tutorial
 Veracity uses API Management. In order to get access, you will need to:
 - Register at [https://api-portal.dnvgl.com/](https://api-portal.dnvgl.com/)
 - Subscribe to the Veracity Platform API – Product, this will give you access to our DataAPI and ProvisionAPI with a subscription ID
 
 NB! The endpoint URLs might be changed/refactored during private preview period to further enhance the developer experience. We will try to inform users of the API before such changes take place.
 
-## Standard structure of API Call
+### Standard structure of API Call
 
-### Call header:
+#### Call header:
 - **Ocp-Apim-Subscription-Key** - this header attribute is for API Management authentication
 - **Authorization** - this header attribute needs to contain the Bearer Token that is received through authorization on Veracity
 
-### Query parameters:
+#### Query parameters:
 Depending on end-point
 
-### Authorization snippet (for developers)
+#### Authorization snippet (for developers)
 You need to authorize Veracity with code and copy the Bearer Token to your requests (which we will provide more info on later). Swagger UI can be used for now. The Bearer Token is usually valid for one hour, after that you need to request a new one.
 
 It's best practice to always get a new token before a request. 
@@ -48,7 +44,7 @@ curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={bool
 -H "Authorization: Bearer {token}"
 
 
-## Azure Active Directory (AD) B2C
+### Azure Active Directory (AD) B2C
 To acquire the Bearer Token needed for API requests it is possible to authenticate with the code below. It's important to register any new app in the Azure Active Directory as a Native App. 
 This App ID, together with the tenant name from Azure AD will be used to obtain an authentication key.
 
@@ -101,20 +97,20 @@ The AuthenticationResult object contains the property AccessToken, which is wher
 
 This key is to be used in the following code samples to properly authenticate API requests.
 
-## Data API
+### Data API
 The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers and get their key to a data container or share a key with another Veracity Data Platform user.
 
 Implementations:
 - [.NET implementation](#net-implementation)
 
 
-### .NET implementation
+#### .NET implementation
 The below sample assumes that the user has a Subscription Key from the Veracity Portal and a Bearer Key. For now the Bearer Key can be obtained from Swagger UI, as desribed in the previous section. You also need to know the URI to the Data API service.
 
 We are going to access the Data API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
 Below each GET and POST request implementation available in the API is described.
 
-#### GET current user
+##### GET current user
 
 Based on Subscription Key and Bearer Key you can ask DataApi service for current user data.
 
@@ -145,7 +141,7 @@ public class User
 ```
 In this way we can get the ID for the current user used in other API requests. We recieve also a company ID that the user is assigned to, as well as the role of the current user.
 
-#### GET user
+##### GET user
 
 If you have the user ID you can ask the Data API service for other information about that user.
 
@@ -165,7 +161,7 @@ public async Task<Tuple<string, User>> RequestUser(string userId)
 As a result from this method you get a tuple containing a string message and an object model deserialized from the Json response.
 The string message is empty if the operation was successful. If the operation failed, there is an error message. The response Json is similar to that of the previous example.
 
-#### GET company
+##### GET company
 If you have the company ID you can ask the Data API for other information about the corresponding company.
 
 ```csharp
@@ -192,7 +188,7 @@ public class Company
 }
 ```
 
-#### GET Key Templates
+##### GET Key Templates
 This method returns the template for different types of key that you can generate. Blob Storage is the only storage type supported at the moment.
 Supported access types for Blob Storage are as follows:
 1. Write key
@@ -234,7 +230,7 @@ public class StorageKeyTemplate
 
 From the description property you know what the rights of the key template are.
 
-#### GET Resources
+##### GET Resources
 Every user has the possibility to store their data in resources within the Veracity platform. Use this API request to list the resources that are owned or shared by the user.
 
 ```csharp
@@ -286,7 +282,7 @@ public class SharedResource
 }
 ```
 
-#### GET Accesses for resource
+##### GET Accesses for resource
 
 With this query you can get all accesses provided for a given resource.
 
@@ -342,7 +338,7 @@ public class Access
 }
 ```
 
-#### POST Share Access
+##### POST Share Access
 
 If you want to share access to a specific resource with other users you can use this post request.
 
@@ -372,7 +368,7 @@ public class ShareAccessResponse
 }
 ```
 
-#### GET Fetch Key for storage container
+##### GET Fetch Key for storage container
 
 To get access to a storage container you need to get a SAS token. You can execute the below method giving access using the sharing id from the previous step as an input parameter.
 
@@ -407,19 +403,19 @@ public class SasData
 The object model contains the SAS URI and SAS key that give us access to a specified resource.
 
 
-## Provision API
+### Provision API
 The Veracity Data Platform ProvisioningAPI is an API where developers and applications can create data containers.
 
 Implementations:
 - [.NET implementation](#provisionapi-net-implementation)
 
 
-### ProvisionAPI .NET implementation
+#### ProvisionAPI .NET implementation
 The below sample assumes that the user has a Subscription Key from the Veracity Portal, as well as a Bearer Key. For now, the Bearer Key can be obtained from the Swagger UI. User must also know the URI to Data API service.
 
 We are going to access the Provision API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
 
-#### POST ProvisionContainer
+##### POST ProvisionContainer
 Whilst having a Subscription Key and a Bearer Key for authentication, the user is able to provision a data container.
 You are required to choose a storage location from these available options:
 1. Unknown,
@@ -450,15 +446,210 @@ It is important that in addition to the URL parameters, the user needs to create
 As a result, we expect to get string information about the success or failure of our operation.
 The provisioning of the container can take up to 10 minutes, this means there is a time delay needed between requesting a container and performing operations on that container.
 
-## Metadata API
+### Metadata API
 
-# Pattern & Practices 
+The API defines two primary end-points from which you can access metadata information. The base url for requests is:
+
+***[TODO NOT VERIFIED FINAL URLS]***
+```url
+https://veracitymetadatatest.azurewebsites.net/v1/[end-point]
+
+e.g.:
+https://veracitymetadatatest.azurewebsites.net/v1/global-tags
+```
+
+These are:
+
+|End-point|Path|Description|
+|:---------|:-------|:----------|
+|Resources|`/resources`|Manage metadata for resources that you own or are shared with you.|
+|Global-tags|`/global-tags`|Manage global tags.|
+
+The response status code describes whether the request succeeded or not. Currently the following status codes may be returned
+
+|HTTP Status|Name|Description|
+|:----------|:---|:----------|
+|200|OK|Your request was processed correctly. View content for response.|
+|400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
+|401|Unauthorized|You do not have permission to access the end-point.|
+|403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
+|404|Not Found|The requested end-point was not found or is not known.|
+|409|Conflict|The resource you requested is stale or an older version. [TODO not clear what this means]|
+|500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
+
+The response type for all end-points that return data will be JSON (`application/json`).
+
+#### Resources
+
+This end-point can be used to manage metadata for resources that you own or have access to.
+
+|Action|Method|Description|
+|:-----|:----:|:----------|
+|`/resources`|`GET`, `POST`|Get metadata about all resources you have access to or update metadatada about a specific resource.|
+|`/resources/{id}`|`GET`|Get metadata about a specific resource.|
+|`/global-tags`|`GET`, `POST`|Get all global tags or create new global tags.|
+|`/global-tags/{id}`|`PUT`, `DELETE`|Update or delete specific tags.|
+
+##### `/resources`
+
+Using `GET` will return information about all resources you currently have access to
+
+Using `POST` along with body data updates metadata about a specific resource.
+
+Request format (* required):
+```
+{
+  resourceId:	string *($uuid) Resource Id
+  title:	string * Resource title
+  description:	string * Resource description
+  icon:	Icon{
+    id:	string * Pick ID from the Icons id list below
+    backgroundColor:	string * default: 'Blue' The background color of the svg icon (choose from list below).
+  }
+  tags:	[Tag{
+    title:	string *
+    tag title.
+    type:	string *
+    default: personal
+    Tag type Enum: [ global, personal ]
+  }] *
+}
+
+Icons: 
+  Automatic_Information_Display,
+  Dangerous_Cargo,
+  Fairplay,
+  Operational_Vessel_Data,
+  Statistics_Of_Accidents,
+  Wave,
+  Wind
+
+Colors: 
+  { name: 'Cyan', hex: ‘#009fda’ },
+  { name: 'Green', hex: ‘#36842d’ },
+  { name: 'Blue', hex: ‘#003591’ },
+  { name: 'Violet', hex: ‘#6e5091’ },
+  { name: 'Red', hex: ‘#c4262e’ },
+  { name: 'Orange', hex: ‘#e98300’ },
+  { name: 'Yellow', hex: ‘#fecb00’ },
+  { name: 'Grey', hex: ‘#988f86’ }
+```
+
+Response format `application/json`:
+
+```
+[
+  ResourceMetadata{
+    resourceUrl:	string ($url)
+    resourceRegion:	string
+    keyExpired:	boolean
+    resourceId:	string *($uuid)
+    Resource Id
+
+    isOwner:	boolean
+    keyAvailable:	boolean
+    autoRefreshed:	boolean
+    ownerId:	string ($uuid)
+    title:	string *
+    Resource title
+
+    tags:	[...]*
+    icon:	Icon{
+      id:	string *
+      backgroundColor:	string *
+    }
+    activeKey:	boolean
+    resourceName:	string
+    description:	string *
+    Resource description
+
+    lastModified:	string ($dateTime)
+  },
+  ...
+]
+```
+
+##### `/resources/{resourceId}`
+
+Returns information on the specific resource. To update a resource with information use `POST` the endpoint `/resources` with a body containing the changes as well as the id of the resouce you wish to update.
+
+Response format `application/json`:
+
+```
+ResourceMetadata{
+  resourceUrl:	string ($url)
+  resourceRegion:	string
+  keyExpired:	boolean
+  resourceId:	string *($uuid)
+  Resource Id
+
+  isOwner:	boolean
+  keyAvailable:	boolean
+  autoRefreshed:	boolean
+  ownerId:	string ($uuid)
+  title:	string *
+  Resource title
+
+  tags:	[...]*
+  icon:	Icon{
+    id:	string *
+    backgroundColor:	string *
+  }
+  activeKey:	boolean
+  resourceName:	string
+  description:	string *
+  Resource description
+
+  lastModified:	string ($dateTime)
+}
+```
+
+##### `/global-tags`
+
+Using `GET` will return all global tags.
+
+Using `POST` along with body data adds a new tag. The id of the tag is automatically generated.
+
+Request format (* required):
+```
+{
+  title:	string *
+}
+```
+
+Response format `application/json`:
+
+```
+[
+  {
+    id:	string ($uuid)
+    title:  string
+  }
+]
+```
+
+##### `/global-tags/{globalTagId}`
+
+Using `PUT` updates a specific tag
+
+Using `DELETE` removes a specific tag
+
+Request format (* required):
+```
+{
+  title:	string *
+}
+```
+
+#### Global tags
+
+## Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
 
-# GitHub  
+## GitHub  
 Follow our open projects related to Veracity data fabric API on https://github.com/veracity
 
-# Stack Overflow
+## Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

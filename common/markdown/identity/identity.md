@@ -1,12 +1,12 @@
 ---
 Title : "Identity"
 Author: "Brede Børhaug"
-Contributors: "Pawel Lehmann"
+Contributors: "Pawel Lehmann, Rachel Hassall"
 ---
 # Overview 
-When onboarding as a service provider there are some mandatory and some optional requirements. A key mandatory requirement for onboarding Veracity is the the service provider integrates with our identity provider, enable the Single Sign On (SSO) experience in Veracity. Veracity cloud identity provider is Azure AD B2C. It is a highly available global service that scales to hundreds of millions of identities. Built on an enterprise-grade secure platform, Azure AD B2C keeps your applications, your business, and your customers protected.
+The Veracity onboarding process has some mandatory and optional requirements for service providers. A key mandatory requirement is that the service provider integrates with our identity provider, enabling the Single Sign On (SSO) experience in Veracity. The Veracity cloud identity provider is Azure AD B2C. It is a highly available global service that scales to hundreds of millions of identities and is built on an enterprise-grade secure platform. Azure AD B2C keeps your applications, your business and your customers protected.
 
-Your integration towards Veracity will be towards and Enterprise Accounts (using open standard protocol OpenID Connect). For the documentation on Azure AD B2C visit [Microsoft Azure](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview).
+Your Veracity integration will be through Enterprise Accounts (using open standard protocol OpenID Connect). For the documentation on Azure AD B2C visit [Microsoft Azure](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview).
 
 Tutorials:
 - [Web Apps](#web-aps)
@@ -18,18 +18,18 @@ Tutorials:
 
 
 # Tutorial
-The verrcity-quickstart-samples on [GitHub](https://www.github.com/Veracity) hold the complete running samples for these tutorials. Please feel free to clone or fork the repo, and get started using them. We will in the tutorialt to follow go through the code step-by-step, so that you will be able to ether do the integration in a clean app, or  include it into your existing applications.
+The verrcity-quickstart-samples on [GitHub](https://www.github.com/Veracity) hold the complete running samples for these tutorials. Please feel free to clone or fork the repository, and get started using them. In the tutorial we will follow the code step-by-step, so that you will be able to do the integration in a clean app, or  include it into your existing applications.
 
 
 ## Web Apps
-The first section of these tutorials will be focusing on Web Apps. 
+The first section of the tutorial will focus on Web Apps. 
 
 
 
 ### ASP.NET implementation
-This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi), and you can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
+This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and the Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi). You can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
 
-For the rest of the tutorial on ASP.NET implementation, we will assume that the application is already created, and do not contain any form of setup for AD B2C authentification. First we will need to add some nuget packages. 
+For the rest of the tutorial on ASP.NET implementation, we will assume that the application has already been created, and does not contain any form of setup for AD B2C authentification. First, we will need to add some NuGet packages. 
 
 ```xml
 Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 4.0.0-alpha1
@@ -38,11 +38,11 @@ Install-Package Microsoft.Owin.Host.SystemWeb -Version 4.0.0-alpha1
 Update-package Microsoft.IdentityModel.Protocol.Extensions
 ```
 
-The package “Microsoft.Owin.Security.OpenIdConnect” contains the middleware used to protect web apps with OpenId Connect, this package contains the logic for the heavy lifting happens when our MVC App will talk with Azure B2C tenant to request tokens and validate them.
+The package “Microsoft.Owin.Security.OpenIdConnect” contains the middleware used to protect web apps with OpenId Connect, this package contains the logic for the heavy lifting needed when our MVC App talks with Azure B2C tenant to request tokens and validate them.
 
-The package “Microsoft.IdentityModel.Protocol.Extension” contains classes which represent OpenID Connect constants and messages, lastly the package “Microsoft.Owin.Security.Cookies” will be used to create a cookie based session after obtaining a valid token from our Azure AD B2C tenant. This cookie will be sent from the browser to the server with each subsequent request and get validate by the cookie middleware.
+The package “Microsoft.IdentityModel.Protocol.Extension” contains classes which represent OpenID Connect constants and messages and lastly the package “Microsoft.Owin.Security.Cookies” will be used to create a cookie based session after obtaining a valid token from our Azure AD B2C tenant. This cookie will be sent from the browser to the server with each subsequent request and gets validated by the cookie middleware.
 
-From the package install we also got some new keys added to the web.config that needs the correct information. This information will be provided when you register your application with Veracity.
+From the package install we also added some new keys to the web.config that need the correct information. This information will be provided when you register your application with Veracity.
 
 ```xml
 <add key="ida:Tenant" value="Tenant name from Azure Portal (Active Directory)"/>
@@ -53,7 +53,7 @@ From the package install we also got some new keys added to the web.config that 
 <add key="ida:SignUpSignInPolicyId" value="sign in policy created during app registration" />
 ```
 
-Since we assume a default MVC template structure, there will not be any "Startup" class located at the root directory of your application. We need to configure the OWIN OpenID Connect middleware at the start of our Web App. To fix this you will create a new class located at the root, named “Startup”. In the newly cleated class, we add the following.
+Since we assume a default MVC (Model View Controller) template structure, there will not be any "Startup" class located at the root directory of your application. We need to configure the OWIN OpenID Connect middleware at the start of our Web App, you will create a new class located at the root, named “Startup”. In the newly created class, we add the following:
 
 ```csharp
 using Microsoft.Owin;
@@ -73,7 +73,8 @@ namespace aad_b2c_web_net
 }
 ```
 
-Your IDE may complaine that the ConfigureAuth does not exist, but ignore that for now. We will fix that now. We will configure the authentication middelware, and you do that in the following way. Open the file App_Start\Startup.Auth.cs and implement the ConfigureAuth(...) method. If Startup.Auth.cs does not exist you just create it. The parameters you provide in OpenIdConnectAuthenticationOptions serve as coordinates for your app to communicate with Azure AD B2C. If you do not specify certain parameters, it will use the default value. For example, we do not specify the ResponseType in the sample, so the default value code id_token will be used in each outgoing request to Azure AD B2C. Note also that we need to set up cookie authentication. The OpenID Connect middleware uses cookies to maintain user sessions, among other things.
+Your IDE may complain that the ConfigureAuth does not exist, but you can ignore that for now as we will configure the authentication middleware. Open the file App_Start\Startup.Auth.cs and implement the ConfigureAuth(...) method. If Startup.Auth.cs does not exist you can go ahead and create it. The parameters you provide in OpenIdConnectAuthenticationOptions serve as coordinates for your app to communicate with Azure AD B2C. If you do not specify certain parameters, it will use the default value. For example, we do not specify the ResponseType in the sample, so the default value code id_token will be used in each outgoing request to Azure AD B2C. Note that we need to set up cookie authentication, the OpenID Connect middleware uses cookies to maintain user sessions, amongst other things.
+
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -226,9 +227,9 @@ namespace aad_b2c_web_net
 }
 ```
 
-In OpenIdConnectAuthenticationOptions above, we define a set of callback functions for specific notifications that are received by the OpenID Connect middleware. These behaviors are defined using a OpenIdConnectAuthenticationNotifications object and stored into the Notifications variable. In our sample, we define three different callbacks depending on the event.
+In OpenIdConnectAuthenticationOptions above, we define a set of callback functions for specific notifications that are received by the OpenID Connect middleware. These behaviours are defined using an OpenIdConnectAuthenticationNotifications object and stored into the Notifications variable. In our sample, we define three different callbacks depending on the event.
 
-Now we need to configure out Web App to invoke the policies we created. We do this by adding a new controller named “AccountController”, so add it and paste the code below:
+Now we need to configure out Web App to invoke the policies we created. We do this by adding a new controller named “AccountController”, you can add it and paste the code below:
 
 ```csharp
 using System.Collections.Generic;
@@ -269,11 +270,11 @@ namespace aad_b2c_web_net.Controllers
 }
 ```
 
-Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol. OWIN manages the details of crafting authentication messages, validating tokens from Azure AD B2C, and maintaining user session. All that remains is to initiate each user's flow.
+Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol. OWIN manages the details of crafting authentication messages, validating tokens from Azure AD B2C, and maintaining user sessions. All that remains is to initiate each user's flow.
 
-When a user selects Sign up/Sign in, or Sign Out in the web app, the associated action is invoked in Controllers\AccountController.cs:
+When a user selects Sign up/Sign in or Sign Out in the web app, the associated action is invoked in Controllers\AccountController.cs.
 
-When you authenticate users by using OpenID Connect, Azure AD B2C returns an ID token to the app that contains claims. You can access user claims in your controllers via the ClaimsPrincipal.Current security principal object. If you e.g would like to get the name of the loged in user and return that to the view, you can do the following:
+When you authenticate users by using OpenID Connect, Azure AD B2C returns an ID token to the app that contains claims. You can access user claims in your controllers via the ClaimsPrincipal.Current security principal object. If you would like to get the name of the logged in user and return that to the view, you can do the following:
 
 ```csharp
 [Authorize]
@@ -289,7 +290,7 @@ public ActionResult Claims()
 Happy coding.
 
 ## Mobile and Desktop Apps
-In this section of these tutorials will be focusing on mobile and desktop Apps. 
+In this section of the tutorial we will be focussing on mobile and desktop Apps. 
 
 ### .NET Implementation
 This sample demonstrates a .Net WPF application calling a web API that is secured using Azure AD. The .Net application uses the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol. The access token is sent to the web API to authenticate the user.
@@ -299,9 +300,10 @@ The tutorial is based on the [Azure Samlples](https://github.com/Azure-Samples/a
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414) at Microsoft.
 
-In order to develop using this code you may need to set up you computer to trust the IIS Express SSL certificate. 
+In order to develop this code you may need to set up your computer to trust the IIS Express SSL certificate. 
 
-When integrating towards our Azure AD B2C tenant, you will need the following information frovided by the Veracity team, as part of the onboarding process:
+
+When integrating towards our Azure AD B2C tenant, you will need the following information provided by the Veracity team, as part of the onboarding process:
 
 ```xml
 Tenant - tenant name from Azure Portal (Active Directory)
@@ -310,7 +312,7 @@ PolicySignUpSignIn - sign in policy created during app registration
 ApiScopes - scopes available for given api
 ```
 
-For user identification we will use the class PublicClientApplication available in namespace Microsoft.Identity.Client. For that reason you will need to install the package like this:
+For user identification we will use the class PublicClientApplication available in namespace Microsoft.Identity.Client. For this reason, you'll need to install the package like this:
 
 ```xml
 Install-Package Microsoft.Identity.Client -Version 1.1.0-preview
@@ -318,7 +320,8 @@ Install-Package Microsoft.Identity.Client -Version 1.1.0-preview
 
 Please note that the package is currently in preview state, but you will be able to use it.
 
-First we will need to create a TokenCasheHelper class in the root directory. Create the file and add the following code:
+
+Firstly, we need to create a TokenCasheHelper class in the root directory. Create the file and add the following code:
 
 ```csharp
 using System.IO;
@@ -376,6 +379,9 @@ namespace azure_ad_b2c
   }
 }
 ```
+
+Then go into the program.cs file and add the following:
+
 
 Then we go into the program.cs file and add the following:
 
@@ -508,12 +514,12 @@ In the Program-.cs, we see that the AcquireTokenAsync method from PublicClientAp
 public static async Task<AuthenticationResult> SignIn()
 ```
 
-AuthenticationResult object contains AccessToken property where Bearer Key is stored. This can then be used to e.g. call the Veracity Data Fabric API's.
+The AuthenticationResult object contains the AccessToken property where the Bearer Key is stored. This can then be used to, for example, call the Veracity Data Fabric API's.
 
 ## GitHub  
 Follow our open projects related to identity on https://github.com/veracity
 
 ## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

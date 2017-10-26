@@ -3,15 +3,15 @@ Title: Service API
 Author: "Brede Børhaug"
 ---
 
-# Overview 
- 
+## Overview 
+
 The Service API provides a consistent interface for accessing data about the user and the Veracity platform in general. At its heart it is a REST service built up of "view-points" where you can read, write and update information. Authentication is handled through Azure B2C OAuth 2.
 
-# Authentication
+### Authentication
 
-Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
+Authentication is performed through OAuth2 bearer tokens.
 
-# View-points
+### View-points
 
 The API defines three primary view-points from which you can access more detailed information. The base url for requests is:
 
@@ -33,7 +33,7 @@ These are:
 
 The view-points themselves do not provide information directly, instead you interact with them through defined **actions**. An action is just a string that you append to the end of the view-point path in order to perform a request. The actions follow normal usage of HTTP verbs with some minor exceptions.
 
-## Responses
+#### Responses
 
 Each response provides all or most of these headers:
 
@@ -60,7 +60,7 @@ The response status code describes whether the request succeeded or not. Current
 |500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
 |501|Not Implemented|The view-point or action is not currently implemented, but may be in the future.|
 
-### Response format
+##### Response format
 
 The API supports formatting the response body according to the mime type provided in your requests `Accept` header. Currently the following mime types are supported:
 
@@ -69,11 +69,11 @@ The API supports formatting the response body according to the mime type provide
 - `application/xml`
 - `text/xml`
 
-## Discover
+#### Discover
 
 The primary purpose of the **Discover** view-point is to provide information about your "surroundings". Using it you can get information about companies, services and users in the system. [TODO correct?]
 
-### Actions
+##### Actions
 
 The following actions are supported on the `/discover` view-point. Parameters in urls are indicated by `{}` and should be replaced when using the action.
 
@@ -90,7 +90,7 @@ The following actions are supported on the `/discover` view-point. Parameters in
 |`/discover/users/{id}/services`|`GET`|Get services the user is subscribed to.|
 |`/discover/users/{userid}/services/{serviceid}`|`GET`|Get the role a specific user has with regard to a specific service [TODO correct?]|
 
-### `/discover/companies/{id}`
+##### `/discover/companies/{id}`
 
 Response format:
 
@@ -112,7 +112,7 @@ CompanyInfo {
 }
 ```
 
-### `/discover/companies/{id}/users`
+##### `/discover/companies/{id}/users`
 
 This action returns a paged result. You must provide a page number as well as a page size as query parameters to this request.
 
@@ -135,7 +135,7 @@ Response format:
 ]
 ```
 
-### `/discover/services/{id}`
+##### `/discover/services/{id}`
 
 Response format:
 
@@ -160,7 +160,7 @@ ServiceInfo {
 }
 ```
 
-### `/discover/services/{id}/users`
+##### `/discover/services/{id}/users`
 
 This action returns a paged result. You must provide a page number as well as a page size as query parameters to this request.
 
@@ -183,7 +183,7 @@ Response format:
 ]
 ```
 
-### `/discover/users/email?email={email}`
+##### `/discover/users/email?email={email}`
 
 Response format:
 
@@ -199,7 +199,7 @@ Response format:
 ]
 ```
 
-### `/discover/users/{id}`
+##### `/discover/users/{id}`
 
 Response format:
 
@@ -225,7 +225,7 @@ CompanyReference {
 }
 ```
 
-### `/discover/users`
+##### `/discover/users`
 
 The body of this request should be a list of user IDs. Example:
 
@@ -274,7 +274,7 @@ CompanyReference {
 }
 ```
 
-### `/discover/users/{id}/companies`
+##### `/discover/users/{id}/companies`
 
 Response format:
 
@@ -290,7 +290,7 @@ Response format:
 ]
 ```
 
-### `/discover/users/{id}/services`
+##### `/discover/users/{id}/services`
 
 Response format:
 
@@ -306,7 +306,7 @@ Response format:
 ]
 ```
 
-### `/discover/users/{userid}/services/{serviceid}`
+##### `/discover/users/{userid}/services/{serviceid}`
 
 Response format:
 
@@ -336,11 +336,11 @@ RoleReference {
 }
 ```
 
-## My
+#### My
 
 The `/my` view-point provides information from the point of view of the currently logged in user.
 
-### Actions
+##### Actions
 
 The following actions are supported on the `/my` view-point. Parameters in urls are indicated by `{}` and should be replaced when using the action. 
 
@@ -354,7 +354,7 @@ The following actions are supported on the `/my` view-point. Parameters in urls 
 |`/my/policies/validate()`|`GET`|Validates all myDNVGL policies and returns a list of the policies that need validation.|
 |`/my/services`|`GET`|Get all services the user is subscribed to.|
 
-### `/my/profile`
+##### `/my/profile`
 
 Response format:
 
@@ -382,7 +382,7 @@ CompanyReference {
 }
 ```
 
-### `/my/messages/count`
+##### `/my/messages/count`
 
 Response format:
 
@@ -390,7 +390,7 @@ Response format:
 Int32
 ```
 
-### `/my/messages`
+##### `/my/messages`
 
 Response format:
 
@@ -405,7 +405,7 @@ Response format:
 ]
 ```
 
-### `/my/companies`
+##### `/my/companies`
 
 Response format:
 
@@ -420,19 +420,19 @@ Response format:
 ]
 ```
 
-### `/my/policies/{serviceId}/validate()`
+##### `/my/policies/{serviceId}/validate()`
 
 Response format:
 
 [TODO missing response format information in (https://myapiv3test.dnvgl.com/swagger/ui/index#!/My/My_MyServices)]
 
-### `/my/policies/validate()`
+##### `/my/policies/validate()`
 
 Response format:
 
 [TODO missing response format information in (https://myapiv3test.dnvgl.com/swagger/ui/index#!/My/My_MyServices)]
 
-### `/my/services`
+##### `/my/services`
 
 Response format:
 
@@ -448,7 +448,7 @@ Response format:
 ]
 ```
 
-## This
+#### This
 
 `/this` is the service/applications point of view and provides information from the context of a service or application. Authenticate using a service account before using these actions.
 
@@ -462,7 +462,7 @@ Response format:
 |`/this/user`|`POST`|Create a user in myDNVGL|
 |`/this/users`|`POST`|Create multiple users in myDNVGL|
 
-### `/this/services`
+##### `/this/services`
 
 This action returns a paged result. You must provide a page number as well as a page size as query parameters to this request.
 
@@ -484,7 +484,7 @@ Response format:
 ]
 ```
 
-### `/this/subscribers`
+##### `/this/subscribers`
 
 **warning**: This action may return `300 Ambiguous` if the service account you are authenticated with is linked to multiple services.
 
@@ -508,7 +508,7 @@ Response format:
 ]
 ```
 
-### `/this/services/{serviceId}/subscribers`
+##### `/this/services/{serviceId}/subscribers`
 
 This action returns a paged result. You must provide a page number as well as a page size as query parameters to this request.
 
@@ -530,7 +530,7 @@ Response format:
 ]
 ```
 
-### `/this/subscribers/{userId}`
+##### `/this/subscribers/{userId}`
 
 **warning**: This action may return `300 Ambiguous` if the service account you are authenticated with is linked to multiple services.
 
@@ -552,7 +552,7 @@ The following request body types are supported:
 - `text/xml`
 - `application/x-www-form-urlencoded`
 
-### `/this/services/{serviceId}/subscribers/{userId}`
+##### `/this/services/{serviceId}/subscribers/{userId}`
 
 Adds or removes subscribers to the service. Add by using the HTTP verb `PUT` and remove by using `DELETE`.
 
@@ -572,7 +572,7 @@ The following request body types are supported:
 - `text/xml`
 - `application/x-www-form-urlencoded`
 
-### `/this/user`
+##### `/this/user`
 
 Request format:
 ```
@@ -599,7 +599,7 @@ The following request body types are supported:
 - `text/xml`
 - `application/x-www-form-urlencoded`
 
-### `/this/users`
+##### `/this/users`
 
 Request format:
 ```
@@ -628,13 +628,10 @@ The following request body types are supported:
 - `text/xml`
 - `application/x-www-form-urlencoded`
 
-
-# Tutorial
-
-# GitHub  
+### GitHub  
 Follow our open projects related to Veracity Services API on https://github.com/veracity
 
-# Stack Overflow
+### Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

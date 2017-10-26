@@ -4,7 +4,7 @@ Author: "Brede Børhaug"
 ---
 
 # Overview 
-
+ 
 The Service API provides a consistent interface for accessing data about the user and the Veracity platform in general. At its heart it is a REST service built up of "view-points" where you can read, write and update information. Authentication is handled through Azure B2C OAuth 2.
 
 # Authentication

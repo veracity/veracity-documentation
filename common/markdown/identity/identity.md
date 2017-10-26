@@ -19,7 +19,7 @@ Tutorials:
 
 
 ## Tutorial
-The verrcity-quickstart-samples on [GitHub](https://www.github.com/Veracity) hold the complete running samples for these tutorials. Please feel free to clone or fork the repository, and get started using them. In the tutorial we will follow the code step-by-step, so that you will be able to do the integration in a clean app, or  include it into your existing applications.
+The veracity-quickstart-samples on [GitHub](https://www.github.com/Veracity) hold the complete running samples for this tutorial. Please feel free to clone or fork the repository, and get started using them. In the tutorial we will follow the code step-by-step, so that you will be able to do the integration in a clean app, or  include it into your existing applications.
 
 
 ### Web Apps
@@ -28,10 +28,10 @@ The first section of the tutorial will focus on Web Apps.
 
 
 #### ASP.NET implementation
-This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and the Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi). You can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
+This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application, the Microsoft tutorial is available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi). You can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
 
 
-For the rest of the tutorial on ASP.NET implementation, we will assume that the application has already been created, and does not contain any form of setup for AD B2C authentification. First, we will need to add some NuGet packages. 
+For the rest of the tutorial on ASP.NET implementation, we will assume that the application has already been created, and does not contain any form of setup for AD B2C authentification. Firstly, we will need to add some NuGet packages. 
 
 ```xml
 Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 4.0.0-alpha1
@@ -75,7 +75,7 @@ namespace aad_b2c_web_net
 }
 ```
 
-Your IDE may complain that the ConfigureAuth does not exist, but you can ignore that for now as we will configure the authentication middleware. Open the file App_Start\Startup.Auth.cs and implement the ConfigureAuth(...) method. If Startup.Auth.cs does not exist you can go ahead and create it. The parameters you provide in OpenIdConnectAuthenticationOptions serve as coordinates for your app to communicate with Azure AD B2C. If you do not specify certain parameters, it will use the default value. For example, we do not specify the ResponseType in the sample, so the default value code id_token will be used in each outgoing request to Azure AD B2C. Note that we need to set up cookie authentication, the OpenID Connect middleware uses cookies to maintain user sessions, amongst other things.
+Your IDE may complain that the ConfigureAuth does not exist, but you can ignore that for now as we will configure the authentication middleware. Open the file App_Start\Startup.Auth.cs and implement the ConfigureAuth(...) method. If Startup.Auth.cs doesn't exist you can go ahead and create it. The parameters you provide in OpenIdConnectAuthenticationOptions serve as coordinates for your app to communicate with Azure AD B2C. If you don't specify certain parameters, it will use the default value. For example, we don't specify the ResponseType in the sample, so the default value code id_token will be used in each outgoing request to Azure AD B2C. Note that we need to set up cookie authentication, the OpenID Connect middleware uses cookies to maintain user sessions, amongst other things.
 
 
 ```csharp
@@ -272,7 +272,7 @@ namespace aad_b2c_web_net.Controllers
 }
 ```
 
-Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol. OWIN manages the details of crafting authentication messages, validating tokens from Azure AD B2C, and maintaining user sessions. All that remains is to initiate each user's flow.
+Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol. OWIN manages the details of crafting authentication messages, validating tokens from Azure AD B2C and maintaining user sessions. All that remains is to initiate each user's flow.
 
 When a user selects Sign up/Sign in or Sign Out in the web app, the associated action is invoked in Controllers\AccountController.cs.
 
@@ -321,10 +321,10 @@ For user identification we will use the class PublicClientApplication available 
 Install-Package Microsoft.Identity.Client -Version 1.1.0-preview
 ```
 
-Please note that the package is currently in preview state, but you will be able to use it.
+Please note that the package is currently in preview state, but you will still be able to use it.
 
 
-Firstly, we need to create a TokenCasheHelper class in the root directory. Create the file and add the following code:
+Firstly, we need to create a TokenCacheHelper class in the root directory. Create the file and add the following code:
 
 ```csharp
 using System.IO;
@@ -382,9 +382,6 @@ namespace azure_ad_b2c
   }
 }
 ```
-
-Then go into the program.cs file and add the following:
-
 
 Then we go into the program.cs file and add the following:
 
@@ -511,7 +508,7 @@ namespace azure_ad_b2c
 }
 ```
 
-In the Program-.cs, we see that the AcquireTokenAsync method from PublicClientApplication is used to sign in.
+In the program.cs, we see that the AcquireTokenAsync method from PublicClientApplication is used to sign in.
 
 ```csharp
 public static async Task<AuthenticationResult> SignIn()

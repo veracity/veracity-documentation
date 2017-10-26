@@ -1,7 +1,7 @@
 ---
 Title : "Data Fabric API"
 Author: "Brede Børhaug"
-Contributors: "Rachel Hassall"
+Contributors: "Rachel Hassall, Thomas Rudfoss"
 ---
 
 ## Overview

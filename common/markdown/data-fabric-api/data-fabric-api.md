@@ -15,11 +15,8 @@ Veracity's Application Programming Interfaces (APIs) enable data providers and c
 
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
-## View-points
 
-The API define......
-
-TO ADD.....
+## End-points
 
 ## Tutorial
 Veracity uses API Management. In order to get access, you will need to:
@@ -451,6 +448,203 @@ As a result, we expect to get string information about the success or failure of
 The provisioning of the container can take up to 10 minutes, this means there is a time delay needed between requesting a container and performing operations on that container.
 
 ### Metadata API
+
+
+The API defines two primary end-points from which you can access metadata information. The base url for requests is:
+
+***[TODO NOT VERIFIED FINAL URLS]***
+```url
+https://veracitymetadatatest.azurewebsites.net/v1/[end-point]
+
+e.g.:
+https://veracitymetadatatest.azurewebsites.net/v1/global-tags
+```
+
+These are:
+
+|End-point|Path|Description|
+|:---------|:-------|:----------|
+|Resources|`/resources`|Manage metadata for resources that you own or are shared with you.|
+|Global-tags|`/global-tags`|Manage global tags.|
+
+The response status code describes whether the request succeeded or not. Currently the following status codes may be returned
+
+|HTTP Status|Name|Description|
+|:----------|:---|:----------|
+|200|OK|Your request was processed correctly. View content for response.|
+|400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
+|401|Unauthorized|You do not have permission to access the end-point.|
+|403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
+|404|Not Found|The requested end-point was not found or is not known.|
+|409|Conflict|The resource you requested is stale or an older version. [TODO not clear what this means]|
+|500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
+
+The response type for all end-points that return data will be JSON (`application/json`).
+
+#### Resources
+
+This end-point can be used to manage metadata for resources that you own or have access to.
+
+|Action|Method|Description|
+|:-----|:----:|:----------|
+|`/resources`|`GET`, `POST`|Get metadata about all resources you have access to or update metadatada about a specific resource.|
+|`/resources/{id}`|`GET`|Get metadata about a specific resource.|
+|`/global-tags`|`GET`, `POST`|Get all global tags or create new global tags.|
+|`/global-tags/{id}`|`PUT`, `DELETE`|Update or delete specific tags.|
+
+##### `/resources`
+
+Using `GET` will return information about all resources you currently have access to
+
+Using `POST` along with body data updates metadata about a specific resource.
+
+Request format (* required):
+```
+{
+  resourceId:	string *($uuid) Resource Id
+  title:	string * Resource title
+  description:	string * Resource description
+  icon:	Icon{
+    id:	string * Pick ID from the Icons id list below
+    backgroundColor:	string * default: 'Blue' The background color of the svg icon (choose from list below).
+  }
+  tags:	[Tag{
+    title:	string *
+    tag title.
+    type:	string *
+    default: personal
+    Tag type Enum: [ global, personal ]
+  }] *
+}
+
+Icons: 
+  Automatic_Information_Display,
+  Dangerous_Cargo,
+  Fairplay,
+  Operational_Vessel_Data,
+  Statistics_Of_Accidents,
+  Wave,
+  Wind
+
+Colors: 
+  { name: 'Cyan', hex: ‘#009fda’ },
+  { name: 'Green', hex: ‘#36842d’ },
+  { name: 'Blue', hex: ‘#003591’ },
+  { name: 'Violet', hex: ‘#6e5091’ },
+  { name: 'Red', hex: ‘#c4262e’ },
+  { name: 'Orange', hex: ‘#e98300’ },
+  { name: 'Yellow', hex: ‘#fecb00’ },
+  { name: 'Grey', hex: ‘#988f86’ }
+```
+
+Response format `application/json`:
+
+```
+[
+  ResourceMetadata{
+    resourceUrl:	string ($url)
+    resourceRegion:	string
+    keyExpired:	boolean
+    resourceId:	string *($uuid)
+    Resource Id
+
+    isOwner:	boolean
+    keyAvailable:	boolean
+    autoRefreshed:	boolean
+    ownerId:	string ($uuid)
+    title:	string *
+    Resource title
+
+    tags:	[...]*
+    icon:	Icon{
+      id:	string *
+      backgroundColor:	string *
+    }
+    activeKey:	boolean
+    resourceName:	string
+    description:	string *
+    Resource description
+
+    lastModified:	string ($dateTime)
+  },
+  ...
+]
+```
+
+##### `/resources/{resourceId}`
+
+Returns information on the specific resource. To update a resource with information use `POST` the endpoint `/resources` with a body containing the changes as well as the id of the resouce you wish to update.
+
+Response format `application/json`:
+
+```
+ResourceMetadata{
+  resourceUrl:	string ($url)
+  resourceRegion:	string
+  keyExpired:	boolean
+  resourceId:	string *($uuid)
+  Resource Id
+
+  isOwner:	boolean
+  keyAvailable:	boolean
+  autoRefreshed:	boolean
+  ownerId:	string ($uuid)
+  title:	string *
+  Resource title
+
+  tags:	[...]*
+  icon:	Icon{
+    id:	string *
+    backgroundColor:	string *
+  }
+  activeKey:	boolean
+  resourceName:	string
+  description:	string *
+  Resource description
+
+  lastModified:	string ($dateTime)
+}
+```
+
+##### `/global-tags`
+
+Using `GET` will return all global tags.
+
+Using `POST` along with body data adds a new tag. The id of the tag is automatically generated.
+
+Request format (* required):
+```
+{
+  title:	string *
+}
+```
+
+Response format `application/json`:
+
+```
+[
+  {
+    id:	string ($uuid)
+    title:  string
+  }
+]
+```
+
+##### `/global-tags/{globalTagId}`
+
+Using `PUT` updates a specific tag
+
+Using `DELETE` removes a specific tag
+
+Request format (* required):
+```
+{
+  title:	string *
+}
+```
+
+#### Global tags
+
 
 ## Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 

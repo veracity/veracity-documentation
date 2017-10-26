@@ -4,40 +4,40 @@ Author: "Brede Børhaug"
 Contributors: "Rachel Hassall"
 ---
 
-# Overview
+## Overview
 Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs: 
 
 - Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform user.
 - Provisioning API - The Veracity Provision API is an API that enables developers and applications to create data containers. 
 - Metadata API - The Veracity Metadata API is an API that can both get and post information on data containers. The API enables you to add meta data to the containers both to visually represent the data containers in the portal, and make it more easy to search in the data catalog.
 
-# Authentication
+## Authentication
 
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
-# View-points
+## View-points
 
 The API define......
 
 TO ADD.....
 
-# Tutorial
+## Tutorial
 Veracity uses API Management. In order to get access, you will need to:
 - Register at [https://api-portal.dnvgl.com/](https://api-portal.dnvgl.com/)
 - Subscribe to the Veracity Platform API – Product, this will give you access to our DataAPI and ProvisionAPI with a subscription ID
 
 NB! The endpoint URLs might be changed/refactored during private preview period to further enhance the developer experience. We will try to inform users of the API before such changes take place.
 
-## Standard structure of API Call
+### Standard structure of API Call
 
-### Call header:
+#### Call header:
 - **Ocp-Apim-Subscription-Key** - this header attribute is for API Management authentication
 - **Authorization** - this header attribute needs to contain the Bearer Token that is received through authorization on Veracity
 
-### Query parameters:
+#### Query parameters:
 Depending on end-point
 
-### Authorization snippet (for developers)
+#### Authorization snippet (for developers)
 You need to authorize Veracity with code and copy the Bearer Token to your requests (which we will provide more info on later). Swagger UI can be used for now. The Bearer Token is usually valid for one hour, after that you need to request a new one.
 
 It's best practice to always get a new token before a request. 
@@ -48,7 +48,7 @@ curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={bool
 -H "Authorization: Bearer {token}"
 
 
-## Azure Active Directory (AD) B2C
+### Azure Active Directory (AD) B2C
 To acquire the Bearer Token needed for API requests it is possible to authenticate with the code below. It's important to register any new app in the Azure Active Directory as a Native App. 
 This App ID, together with the tenant name from Azure AD will be used to obtain an authentication key.
 
@@ -101,20 +101,20 @@ The AuthenticationResult object contains the property AccessToken, which is wher
 
 This key is to be used in the following code samples to properly authenticate API requests.
 
-## Data API
+### Data API
 The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers and get their key to a data container or share a key with another Veracity Data Platform user.
 
 Implementations:
 - [.NET implementation](#net-implementation)
 
 
-### .NET implementation
+#### .NET implementation
 The below sample assumes that the user has a Subscription Key from the Veracity Portal and a Bearer Key. For now the Bearer Key can be obtained from Swagger UI, as desribed in the previous section. You also need to know the URI to the Data API service.
 
 We are going to access the Data API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
 Below each GET and POST request implementation available in the API is described.
 
-#### GET current user
+##### GET current user
 
 Based on Subscription Key and Bearer Key you can ask DataApi service for current user data.
 
@@ -145,7 +145,7 @@ public class User
 ```
 In this way we can get the ID for the current user used in other API requests. We recieve also a company ID that the user is assigned to, as well as the role of the current user.
 
-#### GET user
+##### GET user
 
 If you have the user ID you can ask the Data API service for other information about that user.
 
@@ -165,7 +165,7 @@ public async Task<Tuple<string, User>> RequestUser(string userId)
 As a result from this method you get a tuple containing a string message and an object model deserialized from the Json response.
 The string message is empty if the operation was successful. If the operation failed, there is an error message. The response Json is similar to that of the previous example.
 
-#### GET company
+##### GET company
 If you have the company ID you can ask the Data API for other information about the corresponding company.
 
 ```csharp
@@ -192,7 +192,7 @@ public class Company
 }
 ```
 
-#### GET Key Templates
+##### GET Key Templates
 This method returns the template for different types of key that you can generate. Blob Storage is the only storage type supported at the moment.
 Supported access types for Blob Storage are as follows:
 1. Write key
@@ -234,7 +234,7 @@ public class StorageKeyTemplate
 
 From the description property you know what the rights of the key template are.
 
-#### GET Resources
+##### GET Resources
 Every user has the possibility to store their data in resources within the Veracity platform. Use this API request to list the resources that are owned or shared by the user.
 
 ```csharp
@@ -286,7 +286,7 @@ public class SharedResource
 }
 ```
 
-#### GET Accesses for resource
+##### GET Accesses for resource
 
 With this query you can get all accesses provided for a given resource.
 
@@ -342,7 +342,7 @@ public class Access
 }
 ```
 
-#### POST Share Access
+##### POST Share Access
 
 If you want to share access to a specific resource with other users you can use this post request.
 
@@ -372,7 +372,7 @@ public class ShareAccessResponse
 }
 ```
 
-#### GET Fetch Key for storage container
+##### GET Fetch Key for storage container
 
 To get access to a storage container you need to get a SAS token. You can execute the below method giving access using the sharing id from the previous step as an input parameter.
 
@@ -407,19 +407,19 @@ public class SasData
 The object model contains the SAS URI and SAS key that give us access to a specified resource.
 
 
-## Provision API
+### Provision API
 The Veracity Data Platform ProvisioningAPI is an API where developers and applications can create data containers.
 
 Implementations:
 - [.NET implementation](#provisionapi-net-implementation)
 
 
-### ProvisionAPI .NET implementation
+#### ProvisionAPI .NET implementation
 The below sample assumes that the user has a Subscription Key from the Veracity Portal, as well as a Bearer Key. For now, the Bearer Key can be obtained from the Swagger UI. User must also know the URI to Data API service.
 
 We are going to access the Provision API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
 
-#### POST ProvisionContainer
+##### POST ProvisionContainer
 Whilst having a Subscription Key and a Bearer Key for authentication, the user is able to provision a data container.
 You are required to choose a storage location from these available options:
 1. Unknown,
@@ -450,15 +450,15 @@ It is important that in addition to the URL parameters, the user needs to create
 As a result, we expect to get string information about the success or failure of our operation.
 The provisioning of the container can take up to 10 minutes, this means there is a time delay needed between requesting a container and performing operations on that container.
 
-## Metadata API
+### Metadata API
 
-# Pattern & Practices 
+## Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
 
-# GitHub  
+## GitHub  
 Follow our open projects related to Veracity data fabric API on https://github.com/veracity
 
-# Stack Overflow
+## Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

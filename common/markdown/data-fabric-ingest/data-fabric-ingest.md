@@ -3,7 +3,7 @@ Title: "Data Fabric Ingest"
 Author: "Brede Børhaug"
 Contributor: "Rachel Hassall"
 ---
-# Overview
+## Overview
 Data ingestion is the action of importing data to a data storage container, for either immediate or later use. There are various ways to ingest data to Veracity. The best method for you will depend on both your technical ability and your intended purpose within Veracity.
 
 This guide will show you how into ingest your data into the Veracity data fabric. To proceed with ingesting data, you will need to have a Veracity account. If you do not already have an account, please click [here](https://mystag.dnvgl.com/Register).
@@ -19,14 +19,14 @@ Quick-Start:
 	- [Cpp Implementation](#cpp-implementation)
 - [Use AzCopy to ingest data](#ingest-data-using-azcopy)
 
-# Quick start 
-## Ingest using Azure storage explorer
+## Quick start 
+### Ingest using Azure storage explorer
 When doing a manual ingest to Veracity, we recommend using Azure Storage Explorer. This is an independent application from Microsoft which allows you to manually upload, view and interact with your data. Azure Storage Explorer allows you to access any Veracity storage container and is available through Windows, macOS and Linux.
 
-### Download and install Azure Storage Explorer 
+#### Download and install Azure Storage Explorer 
 Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexplorer.com/). Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically. 
 
-### Connect to a Veracity container using your key
+#### Connect to a Veracity container using your key
 The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Daya](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
 
 In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
@@ -47,7 +47,7 @@ Depending on the type of key you have been provided, you may now browse, read,
 create and/or delete data-sets from the container.
 
 
-### Working with Azure Storage Explorer
+#### Working with Azure Storage Explorer
 When working with files in Azure Storage Explorer, you are working directly with the data stored within the container. This means that once you have modified the file, it is modified for everyone using the data. We recommend using a read-only key for any work that does not require you to make other changes to the data.
 
 In some cases, you may find it useful to do curation on the data from a user interface. If you are doing manual data work, such as cleaning or transformation, you may want to lock the data set to prevent others from accessing it whilst you are uploading a new version. This can be accomplished by acquiring a lease on the given file, as shown below.
@@ -58,19 +58,19 @@ A lease will prevent anyone from modifying the file until you release it. The le
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-02.png "Working with Azure Storage Explorer")
 
-### Common pitfalls
+#### Common pitfalls
 
-#### Authentication Error
+##### Authentication Error
 When looking for your container in the hierarchy, you might see an item ending with (SAS), if you try to expand this node, you may get an error stating: "Authentication Error. The specified signed resource is not allowed for this resource level." In this case, you are attempting to expand a sub-node that is not supported by the SAS URI's for containers. Instead, look for your container in the node labeled (SAS-Attached-Services).
 
-#### Proxy Configuration
+##### Proxy Configuration
 Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy, as shown below.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-pitfalls-proxy-01.png "Working with Azure Storage Explorer")
 
 
 
-## Ingest data programmatically
+### Ingest data programmatically
 
 This quick guide will show you how to view and interact with your data using some common programming languages. For details on how the code work consult the readme file in the HelloWorld applications or the tutorials on each language in the next sections.
 
@@ -81,7 +81,7 @@ Implementations:
 - [Python Implementation](#python-implementation)
 - [Cpp Implementation](#cpp-implementation)
 
-### .NET implementation
+#### .NET implementation
 We will explain how to programmatically write data to Veracity using a .NET Framework application in this quick guide. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-ingest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage container.
 In this sample we use the following NuGet package:
  
@@ -202,12 +202,12 @@ static void Main(string[] args)
   Console.ReadLine();
 }
 ```
-### Java implementation
+#### Java implementation
 We will now look at how to programmatically read data from Veracity using Java. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Java and use the [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). 
 
-#### Minimum Requirements
+##### Minimum Requirements
 
 * Java 1.6+
 * Jackson-Core is used for JSON parsing.
@@ -331,7 +331,7 @@ catch (Exception e) {
 }
 ```
 
-### NodeJs implementation
+#### NodeJs implementation
 In this quick start guide we will look at how to programmatically read data from Veracity using a Node.js. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Node.js and use the [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node). 
@@ -481,7 +481,7 @@ function performAzureOperations() {
 }
 ```
 
-### Python implementation
+#### Python implementation
 We will now look at how to programmatically read data from Veracity using a Python. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Python and use the [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
@@ -583,14 +583,14 @@ accountName = "<storage account name>"
 veracityContainerSAS = "< your sas key without question mark'?' >"
 containerName = "< container name >"
 
-# create service and keep reference to SAS container
+## create service and keep reference to SAS container
 print("Creating SAS service with {0} account".format(accountName))
 try:
     sas_service = BlockBlobService(account_name=accountName, sas_token=veracityContainerSAS)
 except Exception as e:
     print("There was an error during SAS service creation. Details: {0}".format(e))
 
-# uploading a file from path 
+## uploading a file from path 
 
 blobName = " < blob name > "
 loacalFile = "sensorData.csv"
@@ -602,7 +602,7 @@ sas_service.create_blob_from_path(
     content_settings=ContentSettings(content_type='sensor/csv')
 )
 
-# upload text blob to container
+## upload text blob to container
 blobName = "blobCreatedViaSAS.txt"
 print("Uploading {0} blob to {1} container...".format(blobName, containerName))
 try:
@@ -610,7 +610,7 @@ try:
 except Exception as e:
     print("There was an error during blob uploading. Details: {0}".format(e))
 
-# list blobs in container
+## list blobs in container
 print("Blobs in container: ")
 try:
     generator = sas_service.list_blobs(containerName)
@@ -621,7 +621,7 @@ except Exception as e:
 
 ```
 
-### Cpp implementation
+#### Cpp implementation
 We will in this quick start look at how to programmatically read data from Veracity using a Cpp. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Cpp and use the [Azure Storage SDK for Cpp](https://github.com/Azure/azure-storage-cpp). 
@@ -635,8 +635,8 @@ Install-Package wastorage
 At the top of Cpp file add following include statements:
 
 ```cpp
-#include <was/storage_account.h>
-#include <was/blob.h>
+##include <was/storage_account.h>
+##include <was/blob.h>
 ```
 We now need to get a reference to the container using a SAS key.
 
@@ -717,9 +717,9 @@ catch (const std::exception e)
 Complete sample is as below:
 
 ```cpp
-#include "stdafx.h"
-#include <was/storage_account.h>
-#include <was/blob.h>
+##include "stdafx.h"
+##include <was/storage_account.h>
+##include <was/blob.h>
 
 int main()
 {
@@ -801,7 +801,7 @@ int main()
 }
 ```
 
-## Ingest data using AzCopy
+### Ingest data using AzCopy
 AzCopy is a command line tool used to upload and download data to or from  blob containers and to transfer data between blob containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same location. However, it can also be used to upload data from a local computer or between any BLOBs in any subscription and location. AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows, it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from, for example, Windows PowerShell.
 
 The basic AzCopy command looks like this:
@@ -832,16 +832,16 @@ This will copy all files starting with "my". Use option /S to copy more than one
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /S
 ```
  
-## GitHub  
+### GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
 
-## Stack Overflow
+### Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
 
  
-# FAQ 
+## FAQ 
 Q: I am using Ubuntu Linux and I have issues running storage explorer 
 
 A: Some users have reported issues with running storage explorer. We tested it successfully with the Windows desktop operation systems: Windows 7, Windows 8, Windows 10 and with the server operations systems Windows server 2008 and windows server 2012. The test failed with Ubuntu Linux 17.04 

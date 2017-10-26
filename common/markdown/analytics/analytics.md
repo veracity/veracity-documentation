@@ -200,6 +200,6 @@ Now:
 Follow our open projects related to ingest on https://github.com/veracity
 
 ### Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
+Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform. 
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

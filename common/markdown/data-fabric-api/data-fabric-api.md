@@ -247,7 +247,7 @@ It's best practice to always get a new token before a request.
 curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={boolean}&owned={boolean}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 -H "Authorization: Bearer {token}"
-
+```
 
 ### Azure Active Directory (AD) B2C
 To acquire the Bearer Token needed for API requests it is possible to authenticate with the code below. It's important to register any new app in the Azure Active Directory as a Native App. 

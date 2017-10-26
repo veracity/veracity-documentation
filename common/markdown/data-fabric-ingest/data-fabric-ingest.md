@@ -3,7 +3,7 @@ Title: "Data Fabric Ingest"
 Author: "Brede Børhaug"
 Contributor: "Rachel Hassall"
 ---
-# Overview
+## Overview
 Data ingestion is the action of importing data to a data storage container, for either immediate or later use. There are various ways to ingest data to Veracity. The best method for you will depend on both your technical ability and your intended purpose within Veracity.
 
 This guide will show you how into ingest your data into the Veracity data fabric. To proceed with ingesting data, you will need to have a Veracity account. If you do not already have an account, please click [here](https://mystag.dnvgl.com/Register).
@@ -19,17 +19,14 @@ Quick-Start:
 	- [Cpp Implementation](#cpp-implementation)
 - [Use AzCopy to ingest data](#ingest-data-using-azcopy)
 
-
-
-
-# Quick start 
-## Ingest using Azure storage explorer
+## Quick start 
+### Ingest using Azure storage explorer
 When doing a manual ingest to Veracity, we recommend using Azure Storage Explorer. This is an independent application from Microsoft which allows you to manually upload, view and interact with your data. Azure Storage Explorer allows you to access any Veracity storage container and is available through Windows, macOS and Linux.
 
-### Download and install Azure Storage Explorer 
+#### Download and install Azure Storage Explorer 
 Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexplorer.com/). Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically. 
 
-### Connect to a Veracity container using your key
+#### Connect to a Veracity container using your key
 The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Daya](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
 
 In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
@@ -50,7 +47,7 @@ Depending on the type of key you have been provided, you may now browse, read,
 create and/or delete data-sets from the container.
 
 
-### Working with Azure Storage Explorer
+#### Working with Azure Storage Explorer
 When working with files in Azure Storage Explorer, you are working directly with the data stored within the container. This means that once you have modified the file, it is modified for everyone using the data. We recommend using a read-only key for any work that does not require you to make other changes to the data.
 
 In some cases, you may find it useful to do curation on the data from a user interface. If you are doing manual data work, such as cleaning or transformation, you may want to lock the data set to prevent others from accessing it whilst you are uploading a new version. This can be accomplished by acquiring a lease on the given file, as shown below.
@@ -61,19 +58,19 @@ A lease will prevent anyone from modifying the file until you release it. The le
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-02.png "Working with Azure Storage Explorer")
 
-### Common pitfalls
+#### Common pitfalls
 
-#### Authentication Error
+##### Authentication Error
 When looking for your container in the hierarchy, you might see an item ending with (SAS), if you try to expand this node, you may get an error stating: "Authentication Error. The specified signed resource is not allowed for this resource level." In this case, you are attempting to expand a sub-node that is not supported by the SAS URI's for containers. Instead, look for your container in the node labeled (SAS-Attached-Services).
 
-#### Proxy Configuration
+##### Proxy Configuration
 Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy, as shown below.
 
 ![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-pitfalls-proxy-01.png "Working with Azure Storage Explorer")
 
 
 
-## Ingest data programmatically
+### Ingest data programmatically
 
 This quick guide will show you how to view and interact with your data using some common programming languages. For details on how the code work consult the readme file in the HelloWorld applications or the tutorials on each language in the next sections.
 
@@ -84,7 +81,7 @@ Implementations:
 - [Python Implementation](#python-implementation)
 - [Cpp Implementation](#cpp-implementation)
 
-### .NET implementation
+#### .NET implementation
 We will explain how to programmatically write data to Veracity using a .NET Framework application in this quick guide. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-ingest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage container.
 In this sample we use the following NuGet package:
  
@@ -97,16 +94,15 @@ Firstly, we need to create a .Net Framework application and add the constant hol
 
 ```csharp
 static void Main(string[] args)
-    {
-    // Create the constant holding the key provided by Veracity. Add your key.
-    const string veracityContainerSAS = " < your SAS key go here >";
+  {
+  // Create the constant holding the key provided by Veracity. Add your key.
+  const string veracityContainerSAS = " < your SAS key go here >";
 
-    // Add some methods under this line
+  // Add some methods under this line
 
-
-    // Hold the consol
-    Console.ReadLine();
-    }
+  // Hold the consol
+  Console.ReadLine();
+  }
 ```
 
 Add the following packages to the program:
@@ -119,102 +115,99 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 We now need to create a method that can interact with the container. We add functionality to both write, but also read so that we can verify that the write operation has succeeded.
 
-
 ```csharp
-        static void UseContainerSAS(string sas)
-        {
-            // We try to performe operations with the SAS provided.
+static void UseContainerSAS(string sas)
+{
+  // We try to performe operations with the SAS provided.
 
-            //Return a reference to the container using the SAS URI.
-            CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
+  //Return a reference to the container using the SAS URI.
+  CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
 
-            //Create a list to store blob URIs returned by a listing operation on the container.
-            List<ICloudBlob> blobList = new List<ICloudBlob>();
+  //Create a list to store blob URIs returned by a listing operation on the container.
+  List<ICloudBlob> blobList = new List<ICloudBlob>();
 
-            //Write operation: write a new blob to the container.
-            try
-            {
-                CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
-                string blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
-                blob.UploadText(blobContent);
+  //Write operation: write a new blob to the container.
+  try
+  {
+    CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
+    string blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
+    blob.UploadText(blobContent);
 
-                Console.WriteLine("We where able to write to a blob using this SAS key");
-                Console.WriteLine();
-            }
-            catch (StorageException e)
-            {
-                Console.WriteLine("Write operation failed using this SAS key");
-                Console.WriteLine("Additional error information: " + e.Message);
-                Console.WriteLine();
-            }
+    Console.WriteLine("We where able to write to a blob using this SAS key");
+    Console.WriteLine();
+  }
+  catch (StorageException e)
+  {
+    Console.WriteLine("Write operation failed using this SAS key");
+    Console.WriteLine("Additional error information: " + e.Message);
+    Console.WriteLine();
+  }
 
-            //List operation: List the blobs in the container.
-            try
-            {
-                foreach (ICloudBlob blob in container.ListBlobs())
-                {
-                    blobList.Add(blob);
-                }
-                Console.WriteLine("List operation succeeded for SAS key");
-                Console.WriteLine();
-            }
-            catch (StorageException e)
-            {
-                Console.WriteLine("List operation failed for this SAS key");
-                Console.WriteLine("Additional error information: " + e.Message);
-                Console.WriteLine();
-            }
+  //List operation: List the blobs in the container.
+  try
+  {
+    foreach (ICloudBlob blob in container.ListBlobs())
+    {
+      blobList.Add(blob);
+    }
+    Console.WriteLine("List operation succeeded for SAS key");
+    Console.WriteLine();
+  }
+  catch (StorageException e)
+  {
+    Console.WriteLine("List operation failed for this SAS key");
+    Console.WriteLine("Additional error information: " + e.Message);
+    Console.WriteLine();
+  }
 
-            // To verify that the content was written to the blob, we grab the blob, and try to readd the content
+  // To verify that the content was written to the blob, we grab the blob, and try to readd the content
 
-            //Read operation: Get a reference to one of the blobs in the container and read it.
-            try
-            {
-                CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
-                MemoryStream msRead = new MemoryStream();
-                msRead.Position = 0;
-                using (msRead)
-                {
-                    blob.DownloadToStream(msRead);
-                    msRead.Position = 0;
-                    // Just checking that we can read the buffer we retrieved
-                    Console.WriteLine(System.Text.Encoding.UTF8.GetString(msRead.GetBuffer()));
-                }
-                Console.WriteLine("Read operation succeeded for SAS ");
-                Console.WriteLine();
-            }
-            catch (StorageException e)
-            {
-                Console.WriteLine("Read operation failed for SAS ");
-                Console.WriteLine("Additional error information: " + e.Message);
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-        }
+  //Read operation: Get a reference to one of the blobs in the container and read it.
+  try
+  {
+    CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
+    MemoryStream msRead = new MemoryStream();
+    msRead.Position = 0;
+    using (msRead)
+    {
+      blob.DownloadToStream(msRead);
+      msRead.Position = 0;
+      // Just checking that we can read the buffer we retrieved
+      Console.WriteLine(System.Text.Encoding.UTF8.GetString(msRead.GetBuffer()));
+    }
+    Console.WriteLine("Read operation succeeded for SAS ");
+    Console.WriteLine();
+  }
+  catch (StorageException e)
+  {
+    Console.WriteLine("Read operation failed for SAS ");
+    Console.WriteLine("Additional error information: " + e.Message);
+    Console.WriteLine();
+  }
+  Console.WriteLine();
+}
 ```
 
 Finally, we call the UseContainerSAS method from the main method in the program. Your main method should now look like this.
 
 ```csharp
-        static void Main(string[] args)
-        {
-            // Create the constant holding the key provided by Veracity. Add your key.
-            const string veracityContainerSAS = " < your SAS key go here >";
+static void Main(string[] args)
+{
+  // Create the constant holding the key provided by Veracity. Add your key.
+  const string veracityContainerSAS = " < your SAS key go here >";
 
-            // Add some methods under this line
-            UseContainerSAS(veracityContainerSAS);
-            // Hold the consol
-            Console.ReadLine();
-
-
-        }
+  // Add some methods under this line
+  UseContainerSAS(veracityContainerSAS);
+  // Hold the consol
+  Console.ReadLine();
+}
 ```
-### Java implementation
+#### Java implementation
 We will now look at how to programmatically read data from Veracity using Java. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Java and use the [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). 
 
-#### Minimum Requirements
+##### Minimum Requirements
 
 * Java 1.6+
 * Jackson-Core is used for JSON parsing.
@@ -243,6 +236,7 @@ You can download the dependencies from Maven repositories or add a dependency di
 ```
 
 Next step is to add imports to project:
+
 ```java
 import java.net.URI;
 import java.util.ArrayList;
@@ -252,257 +246,272 @@ import com.microsoft.azure.storage.blob.*;
 ```
 
 You can download the dependencies from Maven repositories or add a dependency directly in pom.xml file:
+
 ```java
-    CloudBlobContainer container = new CloudBlobContainer(new StorageUri(new URI(veracityContainerSAS)));
+  CloudBlobContainer container = new CloudBlobContainer(new StorageUri(new URI(veracityContainerSAS)));
 ```
 
 Now, get the blob URI's using the SAS URI for the container,
 
 ```java
-    CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
+  CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
 ```
 Now, get the blob URI's using the SAS URI for the container,
 
 ```java
-    CloudBlockBlob blockBlob = container.getBlockBlobReference(blobList.get(0).getName());
-    String content = blockBlob.downloadText("UTF-8", null, null, null);
-    System.out.println("Read operation succeeded for SAS ");
-    System.out.println("Content: " + content);
+  CloudBlockBlob blockBlob = container.getBlockBlobReference(blobList.get(0).getName());
+  String content = blockBlob.downloadText("UTF-8", null, null, null);
+  System.out.println("Read operation succeeded for SAS ");
+  System.out.println("Content: " + content);
 ```
 
 We can also write content to the blob
+
 ```java
-    CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
-    String blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
-    blob.uploadText(blobContent);
+  CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
+  String blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
+  blob.uploadText(blobContent);
 ```
 
 or delete the blob if it's not needed anymore.
+
 ```java
     CloudBlockBlob blockBlobToDelete = container.getBlockBlobReference(blobList.get(0).getName());
     blockBlobToDelete.delete();
 ```
 
 It is good practice to wrap it in a try..catch block to handle exceptions. The complete code is below.
+
 ```java
-    try {
-	    final String veracityContainerSAS = "< your SAS key go here >";
+try {
+  final String veracityContainerSAS = "< your SAS key go here >";
 
-        // Container name must be lower case.
-        CloudBlobContainer container = new CloudBlobContainer(new StorageUri(new URI(veracityContainerSAS)));
+  // Container name must be lower case.
+  CloudBlobContainer container = new CloudBlobContainer(new StorageUri(new URI(veracityContainerSAS)));
 
-        //Write operation: write a new blob to the container.
-        CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
-        String blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
-        blob.uploadText(blobContent);
+  //Write operation: write a new blob to the container.
+  CloudBlockBlob blob = container.getBlockBlobReference("blobCreatedViaSAS.txt");
+  String blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
+  blob.uploadText(blobContent);
 
-        System.out.println("We where able to write to a blob using this SAS key");
-        System.out.println();
+  System.out.println("We where able to write to a blob using this SAS key");
+  System.out.println();
 
-        //Create a list to store blob URIs returned by a listing operation on the container.
-        ArrayList<CloudBlob> blobList = new ArrayList<CloudBlob>();
-        for (ListBlobItem blobItem : container.listBlobs()) {
-            if (blobItem instanceof CloudBlob) {
-                blobList.add((CloudBlob)blobItem);
-            }
-        }
-        System.out.println("List operation succeeded for SAS key");
-        System.out.println();
-
-        //Read operation: Get a reference to one of the blobs in the container and read it.
-        CloudBlockBlob blockBlob = container.getBlockBlobReference(blobList.get(0).getName());
-        String content = blockBlob.downloadText("UTF-8", null, null, null);
-        System.out.println("Read operation succeeded for SAS ");
-        System.out.println("Content: " + content);
-        System.out.println();
-            
-        //Delete operation: Delete a blob in the container.
-        CloudBlockBlob blockBlobToDelete = container.getBlockBlobReference(blobList.get(0).getName());
-        blockBlobToDelete.delete();
-        System.out.println("Delete operation succeeded for SAS ");
+  //Create a list to store blob URIs returned by a listing operation on the container.
+  ArrayList<CloudBlob> blobList = new ArrayList<CloudBlob>();
+  for (ListBlobItem blobItem : container.listBlobs()) {
+    if (blobItem instanceof CloudBlob) {
+      blobList.add((CloudBlob)blobItem);
     }
-    catch (StorageException storageException) {
-        System.out.print("StorageException encountered: ");
-        System.out.println(storageException.getMessage());
-        System.exit(-1);
-    }
-    catch (Exception e) {
-        System.out.print("Exception encountered: ");
-        System.out.println(e.getMessage());
-        System.exit(-1);
-    }
+  }
+  System.out.println("List operation succeeded for SAS key");
+  System.out.println();
+
+  //Read operation: Get a reference to one of the blobs in the container and read it.
+  CloudBlockBlob blockBlob = container.getBlockBlobReference(blobList.get(0).getName());
+  String content = blockBlob.downloadText("UTF-8", null, null, null);
+  System.out.println("Read operation succeeded for SAS ");
+  System.out.println("Content: " + content);
+  System.out.println();
+    
+  //Delete operation: Delete a blob in the container.
+  CloudBlockBlob blockBlobToDelete = container.getBlockBlobReference(blobList.get(0).getName());
+  blockBlobToDelete.delete();
+  System.out.println("Delete operation succeeded for SAS ");
+}
+catch (StorageException storageException) {
+  System.out.print("StorageException encountered: ");
+  System.out.println(storageException.getMessage());
+  System.exit(-1);
+}
+catch (Exception e) {
+  System.out.print("Exception encountered: ");
+  System.out.println(e.getMessage());
+  System.exit(-1);
+}
 ```
 
-### NodeJs implementation
+#### NodeJs implementation
 In this quick start guide we will look at how to programmatically read data from Veracity using a Node.js. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Node.js and use the [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node). 
 
 To obtain the package use Node Package Manager (NPM) from the command line or from wizard via Visual Studio. 
 When using the command line, enter the following:
+
 ```ps
 npm install azure-storage
 ```
 
 Add the below entry in to the js file
+
 ```js
-var azure = require('azure-storage');
+let azure = require('azure-storage');
 ```
 Now we must get a reference to the container using a SAS key.
+
 ```js
-var sharedBlobSvc = azure.createBlobServiceWithSas(hostUri, blobSas);
+let sharedBlobSvc = azure.createBlobServiceWithSas(hostUri, blobSas);
 ```
 
 We are ready to perform the write operation.
 ```js
-    sharedBlobSvc.createAppendBlobFromText(
-        containerName,
-        blobName,
-        text,
-        function(error, result, response) {
-            if (error) {
-                console.log("There was an error while doing blob upload.");
-                console.error(error);
-            } else {
-                console.log("We where able to write to a blob using this SAS key");
-            }
-        }
-    );
+sharedBlobSvc.createAppendBlobFromText(
+  containerName,
+  blobName,
+  text,
+  function(error, result, response) {
+    if (error) {
+      console.log("There was an error while doing blob upload.");
+      console.error(error);
+    } else {
+      console.log("We where able to write to a blob using this SAS key");
+    }
+  }
+);
 ```
 
 We can also list existing blobs
 ```js
-    sharedBlobSvc.listBlobsSegmented(
-        containerName,
-        null,
-        function(error, result, response) {
-            if (error) {
-                console.log("There was an error during listing blobs in container %s", containerName);
-                console.error(error);
-            } else {
-                console.log('%s blobs: ', containerName);
-                var index;
-                for (index = 0; index < result.entries.length; index++) {
-                    console.log(result.entries[index].name);
-                }
-            }
-        }
-    );
+sharedBlobSvc.listBlobsSegmented(
+  containerName,
+  null,
+  function(error, result, response) {
+    if (error) {
+      console.log("There was an error during listing blobs in container %s", containerName);
+      console.error(error);
+    } else {
+      console.log('%s blobs: ', containerName);
+      var index;
+      for (index = 0; index < result.entries.length; index++) {
+        console.log(result.entries[index].name);
+      }
+    }
+  }
+);
 ```
-and read blob content 
+and read blob content
+
 ```js
-    sharedBlobSvc.getBlobToText(
-        containerName,
-        blobName,
-        function(error, blobContent, blob) {
-            if (error) {
-                console.error("Couldn't download blob %s", blobName);
-                console.error(error);
-            } else {
-                console.log("Sucessfully downloaded blob %s", blobName);
-                console.log(blobContent);
-            }
-        }
-    );
+sharedBlobSvc.getBlobToText(
+  containerName,
+  blobName,
+  function(error, blobContent, blob) {
+    if (error) {
+      console.error("Couldn't download blob %s", blobName);
+      console.error(error);
+    } else {
+      console.log("Sucessfully downloaded blob %s", blobName);
+      console.log(blobContent);
+    }
+  }
+);
 ```
 Finally, we can delete the blob if it’s not needed anymore.
+
  ```js
-    sharedBlobSvc.deleteBlob(containerName, blobName, function (error, response) {
-        if (error) {
-            console.log("There was an error during deletion of blob  %s", blobName);
-            console.error(error);
-        } else
-            console.log("%s blob deleted sucessfully", blobName);
-    });
+sharedBlobSvc.deleteBlob(containerName, blobName, function (error, response) {
+  if (error) {
+    console.log("There was an error during deletion of blob  %s", blobName);
+    console.error(error);
+  } else
+    console.log("%s blob deleted sucessfully", blobName);
+});
 ```
 
 The complete sample is as below:
+
  ```js
 function performAzureOperations() {
+  // writing test to blob
+  sharedBlobSvc.createAppendBlobFromText(
+    containerName,
+    blobName,
+    text,
+    function(error, result, response) {
+      if (error) {
+        console.log("There was an error while doing blob upload.");
+        console.error(error);
+      } else {
+        console.log("We where able to write to a blob using this SAS key");
 
-    // writing test to blob
-    sharedBlobSvc.createAppendBlobFromText(
-        containerName,
-        blobName,
-        text,
-        function(error, result, response) {
+        // listing blobs in container
+        sharedBlobSvc.listBlobsSegmented(
+          containerName,
+          null,
+          function(error, result, response) {
             if (error) {
-                console.log("There was an error while doing blob upload.");
-                console.error(error);
+              console.log("There was an error during listing blobs in container %s", containerName);
+              console.error(error);
             } else {
-                console.log("We where able to write to a blob using this SAS key");
+              console.log('%s blobs: ', containerName);
+              var index;
+              for (index = 0; index < result.entries.length; index++) {
+                console.log(result.entries[index].name);
+              }
+              console.log("We where able to write list blobs using SAS key");
 
-                // listing blobs in container
-                sharedBlobSvc.listBlobsSegmented(
-                    containerName,
-                    null,
-                    function(error, result, response) {
-                        if (error) {
-                            console.log("There was an error during listing blobs in container %s", containerName);
-                            console.error(error);
-                        } else {
-                            console.log('%s blobs: ', containerName);
-                            var index;
-                            for (index = 0; index < result.entries.length; index++) {
-                                console.log(result.entries[index].name);
-                            }
-                            console.log("We where able to write list blobs using SAS key");
+              // downloading blob to text
+              sharedBlobSvc.getBlobToText(
+                containerName,
+                blobName,
+                function(error, blobContent, blob) {
+                  if (error) {
+                    console.error("Couldn't download blob %s", blobName);
+                    console.error(error);
+                  } else {
+                    console.log("Sucessfully downloaded blob %s", blobName);
+                    console.log(blobContent);
 
-                            // downloading blob to text
-                            sharedBlobSvc.getBlobToText(
-                                containerName,
-                                blobName,
-                                function(error, blobContent, blob) {
-                                    if (error) {
-                                        console.error("Couldn't download blob %s", blobName);
-                                        console.error(error);
-                                    } else {
-                                        console.log("Sucessfully downloaded blob %s", blobName);
-                                        console.log(blobContent);
-
-                                        // deleting a blob
-                                        sharedBlobSvc.deleteBlob(containerName, blobName, function (error, response) {
-                                            if (error) {
-                                                console.log("There was an error during deletion of blob  %s", blobName);
-                                                console.error(error);
-                                            } else
-                                                console.log("%s blob deleted sucessfully", blobName);
-                                        });
-                                    }
-                                });
-                        }
+                    // deleting a blob
+                    sharedBlobSvc.deleteBlob(containerName, blobName, function (error, response) {
+                      if (error) {
+                        console.log("There was an error during deletion of blob  %s", blobName);
+                        console.error(error);
+                      } else
+                        console.log("%s blob deleted sucessfully", blobName);
                     });
-
+                  }
+                });
             }
-        });
+          });
+
+      }
+    });
 }
 ```
 
-### Python implementation
+#### Python implementation
 We will now look at how to programmatically read data from Veracity using a Python. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Python and use the [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 In your python environment you need to add package
+
  ```ps
 azure-storage
  ```
 
 and import BlockBlobService
+
 ```python
 from azure.storage.blob import BlockBlobService
  ```
+
 We create some variables that will come in handy.
+
 ```python
 accountName = "<storage account name>"
 veracityContainerSAS = "< your sas key without question mark'?' >"
 containerName = "< container name reference>"
 ```
+
 If you are using the Veracity portal to get hold of the SAS key, and not the Veracity API, you will need to pick different parts of the SAS URI for each of the variable above. If we use the following SAS token as an example:
 
-```html
+```url
 https://ns4dnvglfstspus00001.blob.core.windows.net/devcontainer9ae56656-bd3a-4d6e-b257-cfbb6241b1ea?sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl
 ```
+
 We have the SAS key as the parameter, and we have the account name as the subdomain. We then get the following:
 
 ```python
@@ -510,6 +519,7 @@ accountName = "ns4dnvglfstspus00001"
 veracityContainerSAS = "sv=2017-04-17&sr=c&sig=BPRAohaQyrwW4%2FCQt22BdJW%2FtVpv3qEH0LvQBbcZFJI%3D&st=2017-10-12T18%3A06%3A28Z&se=2017-10-12T20%3A06%3A01Z&sp=rwl"
 containerName = "devcontainer-12312325"
 ```
+
 We must create a reference to the container using the SAS key and account name, it’s good practice to do this within a try..catch block. 
 
 ```python
@@ -537,6 +547,7 @@ try:
 except Exception as e:
     print("There was an error during blob uploading. Details: {0}".format(e))
 ```
+
 We now have uploaded the file sensorData.csv into Veracity and it is stored under the blob “blobName”.
 
 We can also try to write a text string directly into the blob. Let’s add a variable for a container name and use the create_blob_from_text. 
@@ -572,14 +583,14 @@ accountName = "<storage account name>"
 veracityContainerSAS = "< your sas key without question mark'?' >"
 containerName = "< container name >"
 
-# create service and keep reference to SAS container
+## create service and keep reference to SAS container
 print("Creating SAS service with {0} account".format(accountName))
 try:
     sas_service = BlockBlobService(account_name=accountName, sas_token=veracityContainerSAS)
 except Exception as e:
     print("There was an error during SAS service creation. Details: {0}".format(e))
 
-# uploading a file from path 
+## uploading a file from path 
 
 blobName = " < blob name > "
 loacalFile = "sensorData.csv"
@@ -591,7 +602,7 @@ sas_service.create_blob_from_path(
     content_settings=ContentSettings(content_type='sensor/csv')
 )
 
-# upload text blob to container
+## upload text blob to container
 blobName = "blobCreatedViaSAS.txt"
 print("Uploading {0} blob to {1} container...".format(blobName, containerName))
 try:
@@ -599,7 +610,7 @@ try:
 except Exception as e:
     print("There was an error during blob uploading. Details: {0}".format(e))
 
-# list blobs in container
+## list blobs in container
 print("Blobs in container: ")
 try:
     generator = sas_service.list_blobs(containerName)
@@ -608,179 +619,189 @@ try:
 except Exception as e:
     print("There was an error during blobs listing. Details: {0}".format(e))
 
- ```
-### Cpp implementation
+```
+
+#### Cpp implementation
 We will in this quick start look at how to programmatically read data from Veracity using a Cpp. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Cpp and use the [Azure Storage SDK for Cpp](https://github.com/Azure/azure-storage-cpp). 
 
 With NuGet Package Manager install Azure Storage Client Library. Use Package Manager Console and type
+
 ```ps
 Install-Package wastorage
 ```
 
 At the top of Cpp file add following include statements:
+
 ```cpp
-#include <was/storage_account.h>
-#include <was/blob.h>
+##include <was/storage_account.h>
+##include <was/blob.h>
 ```
 We now need to get a reference to the container using a SAS key.
+
 ```cpp
 azure::storage::cloud_blob_container container = azure::storage::cloud_blob_container::cloud_blob_container(azure::storage::storage_uri(veracity_container_sas));
 azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
 ```
+
 and we are ready to perform the write operation:
+
 ```cpp
 try
 {
-    blockBlob.upload_text(U("This Veracity blob was created with a shared access signature granting write permissions to the container."));
-    std::wcout << U("We where able to write to a blob using this SAS key") << std::endl;
+  blockBlob.upload_text(U("This Veracity blob was created with a shared access signature granting write permissions to the container."));
+  std::wcout << U("We where able to write to a blob using this SAS key") << std::endl;
 }
 catch (const std::exception e)
 {
-    std::wcout << U("There was an error during blob writing: ") << e.what() << std::endl;
+  std::wcout << U("There was an error during blob writing: ") << e.what() << std::endl;
 }
 ```
 
 We can also list existing blobs:
+
 ```cpp
 try
 {
-    azure::storage::list_blob_item_iterator end_of_results;
-    for (auto i = container.list_blobs(); i != end_of_results; ++i)
+  azure::storage::list_blob_item_iterator end_of_results;
+  for (auto i = container.list_blobs(); i != end_of_results; ++i)
+  {
+    if (i->is_blob())
     {
-        if (i->is_blob())
-        {
-            std::wcout << U("Blob: ") << i->as_blob().uri().primary_uri().to_string() << std::endl;
-        }
-        else
-        {
-            // just a check if we have a directory in container
-            std::wcout << U("Directory: ") << i->as_directory().uri().primary_uri().to_string() << std::endl;
-        }
+      std::wcout << U("Blob: ") << i->as_blob().uri().primary_uri().to_string() << std::endl;
     }
-    std::wcout << U("List operation succeeded for SAS key") << std::endl;
+    else
+    {
+      // just a check if we have a directory in container
+      std::wcout << U("Directory: ") << i->as_directory().uri().primary_uri().to_string() << std::endl;
+    }
+  }
+  std::wcout << U("List operation succeeded for SAS key") << std::endl;
 }
 catch (const std::exception e)
 {
-    std::wcout << U("There was an error during blob listing: ") << e.what() << std::endl;
+  std::wcout << U("There was an error during blob listing: ") << e.what() << std::endl;
 }
 ```
 
 and read blob content:
+
 ```cpp
 try
 {
-    azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
-    utility::string_t text = text_blob.download_text();
-    std::wcout << U("Read operation succeeded for SAS , content: ") << std::endl;
-    std::wcout << text << std::endl;
+  azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
+  utility::string_t text = text_blob.download_text();
+  std::wcout << U("Read operation succeeded for SAS , content: ") << std::endl;
+  std::wcout << text << std::endl;
 }
 catch (const std::exception e)
 {
-    std::wcout << U("There was an error during blob downloading: ") << e.what() << std::endl;
+  std::wcout << U("There was an error during blob downloading: ") << e.what() << std::endl;
 }
 ```
 Finally, we can delete the blob if it’s not needed anymore.
  ```cpp
 try
 {
-    azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
-    blockBlob.delete_blob();
-    std::wcout << U("Delete blob operation succeeded for SAS");
+  azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
+  blockBlob.delete_blob();
+  std::wcout << U("Delete blob operation succeeded for SAS");
 }
 catch (const std::exception e)
 {
-    std::wcout << U("There was an error during blob deletion: ") << e.what() << std::endl;
+  std::wcout << U("There was an error during blob deletion: ") << e.what() << std::endl;
 }
 ```
+
 Complete sample is as below:
+
 ```cpp
-#include "stdafx.h"
-#include <was/storage_account.h>
-#include <was/blob.h>
+##include "stdafx.h"
+##include <was/storage_account.h>
+##include <was/blob.h>
 
 int main()
 {
-    //Return a reference to the container using the SAS URI.
-    const utility::string_t veracity_container_sas(U("..."));
-    azure::storage::cloud_blob_container container;
-    azure::storage::cloud_block_blob blockBlob;
-    try
-    {
-        container = azure::storage::cloud_blob_container::cloud_blob_container(azure::storage::storage_uri(veracity_container_sas));
-        blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
-    }
-    catch (const std::exception e)
-    {
-        std::wcout << U("There was an error during blob referencing vis SAS: ") << e.what() << std::endl;
-    }
-    //Write operation: write a new blob to the container.
-    try
-    {
-        blockBlob.upload_text(U("This Veracity blob was created with a shared access signature granting write permissions to the container."));
-        std::wcout << U("We where able to write to a blob using this SAS key") << std::endl;
-    }
-    catch (const std::exception e)
-    {
-        std::wcout << U("There was an error during blob writing: ") << e.what() << std::endl;
-    }
+  //Return a reference to the container using the SAS URI.
+  const utility::string_t veracity_container_sas(U("..."));
+  azure::storage::cloud_blob_container container;
+  azure::storage::cloud_block_blob blockBlob;
+  try
+  {
+    container = azure::storage::cloud_blob_container::cloud_blob_container(azure::storage::storage_uri(veracity_container_sas));
+    blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
+  }
+  catch (const std::exception e)
+  {
+    std::wcout << U("There was an error during blob referencing vis SAS: ") << e.what() << std::endl;
+  }
+  //Write operation: write a new blob to the container.
+  try
+  {
+    blockBlob.upload_text(U("This Veracity blob was created with a shared access signature granting write permissions to the container."));
+    std::wcout << U("We where able to write to a blob using this SAS key") << std::endl;
+  }
+  catch (const std::exception e)
+  {
+    std::wcout << U("There was an error during blob writing: ") << e.what() << std::endl;
+  }
 
-    //List operation: List the blobs in the container.
-    try
+  //List operation: List the blobs in the container.
+  try
+  {
+    azure::storage::list_blob_item_iterator end_of_results;
+    for (auto i = container.list_blobs(); i != end_of_results; ++i)
     {
-        azure::storage::list_blob_item_iterator end_of_results;
-        for (auto i = container.list_blobs(); i != end_of_results; ++i)
-        {
-            if (i->is_blob())
-            {
-                std::wcout << U("Blob: ") << i->as_blob().uri().primary_uri().to_string() << std::endl;
-            }
-            else
-            {
-                // just a check if we have a directory in container
-                std::wcout << U("Directory: ") << i->as_directory().uri().primary_uri().to_string() << std::endl;
-            }
-        }
-        std::wcout << U("List operation succeeded for SAS key") << std::endl;
+      if (i->is_blob())
+      {
+        std::wcout << U("Blob: ") << i->as_blob().uri().primary_uri().to_string() << std::endl;
+      }
+      else
+      {
+        // just a check if we have a directory in container
+        std::wcout << U("Directory: ") << i->as_directory().uri().primary_uri().to_string() << std::endl;
+      }
     }
-    catch (const std::exception e)
-    {
-        std::wcout << U("There was an error during blob listing: ") << e.what() << std::endl;
-    }
+    std::wcout << U("List operation succeeded for SAS key") << std::endl;
+  }
+  catch (const std::exception e)
+  {
+    std::wcout << U("There was an error during blob listing: ") << e.what() << std::endl;
+  }
 
-    //Read operation: Get a reference to one of the blobs in the container and read it.
-    try
-    {
-        azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
-        utility::string_t text = text_blob.download_text();
-        std::wcout << U("Read operation succeeded for SAS , content: ") << std::endl;
-        std::wcout << text << std::endl;
-    }
-    catch (const std::exception e)
-    {
-        std::wcout << U("There was an error during blob downloading: ") << e.what() << std::endl;
-    }
+  //Read operation: Get a reference to one of the blobs in the container and read it.
+  try
+  {
+    azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
+    utility::string_t text = text_blob.download_text();
+    std::wcout << U("Read operation succeeded for SAS , content: ") << std::endl;
+    std::wcout << text << std::endl;
+  }
+  catch (const std::exception e)
+  {
+    std::wcout << U("There was an error during blob downloading: ") << e.what() << std::endl;
+  }
 
-    //Delete operation: Delete a blob in the container.
-    try
-    {
-        azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
-        blockBlob.delete_blob();
-        std::wcout << U("Delete blob operation succeeded for SAS");
-    }
-    catch (const std::exception e)
-    {
-        std::wcout << U("There was an error during blob deletion: ") << e.what() << std::endl;
-    }
+  //Delete operation: Delete a blob in the container.
+  try
+  {
+    azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("blobCreatedViaSAS.txt"));
+    blockBlob.delete_blob();
+    std::wcout << U("Delete blob operation succeeded for SAS");
+  }
+  catch (const std::exception e)
+  {
+    std::wcout << U("There was an error during blob deletion: ") << e.what() << std::endl;
+  }
 
-    std::string str;
-    std::getline(std::cin, str);
-    return 0;
+  std::string str;
+  std::getline(std::cin, str);
+  return 0;
 }
 ```
 
-## Ingest data using AzCopy
+### Ingest data using AzCopy
 AzCopy is a command line tool used to upload and download data to or from  blob containers and to transfer data between blob containers and to transfer data between BLOB containers. It is designed to give high performance and works particularly well when copying data between containers in the same location. However, it can also be used to upload data from a local computer or between any BLOBs in any subscription and location. AzCopy can be downloaded and installed for both Windows and Linux. After installation on Windows, it is important to add the AZCopy.exe path to your system path. AZCopy can then be run either from the command prompt or from, for example, Windows PowerShell.
 
 The basic AzCopy command looks like this:
@@ -792,32 +813,35 @@ AzCopy /Source:C:\Dev /Dest:https ://myblob.blob.core.windows.net/MyContainer /D
 The below examples illustrate three common scenarios: copying one file, copying several files using a mask and copying entire folders. We assume you have obtained the appropriate access keys as described in a previous section.
 
 (1) Copying one local file to a blob container:
+
 ```ps
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestKey:key /Pattern:myfile.csv
 ```
 When copying from a blob container to a local computer, the option /SourceKey must be used.
 
 (2) Copying multiple local files to a blob container using a file mask:
+
 ```ps
 AzCopy /Source:C:\Dev /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /Pattern:my /S
 ```
 This will copy all files starting with "my". Use option /S to copy more than one file.
 
 (3) Copying a local folder to a blob container:
+
 ```ps
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /S
 ```
  
-## GitHub  
+### GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
 
-## Stack Overflow
+### Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
 
  
-# FAQ 
+## FAQ 
 Q: I am using Ubuntu Linux and I have issues running storage explorer 
 
 A: Some users have reported issues with running storage explorer. We tested it successfully with the Windows desktop operation systems: Windows 7, Windows 8, Windows 10 and with the server operations systems Windows server 2008 and windows server 2012. The test failed with Ubuntu Linux 17.04 

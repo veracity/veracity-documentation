@@ -3,7 +3,7 @@ Title : "Open Source Projects"
 Author: "Brede Børhaug"
 Contributors: "Pawel Lehmann, Rachel Hassall"
 ---
-# Overview 
+## Overview 
 
 Veracity embraces open source. Veracity utilizes open source in the development of the platform, and we feel it is correct to contribute back. We contribute both directly in open source projects, but also share whatever useful code we create on [GitHub](https://www.github.com/Veracity). 
 
@@ -19,17 +19,17 @@ Links to content:
 - [Machine Learning automation](#machine-learning-automation)
 
 
-# Machine Learning automation
+## Machine Learning automation
 When considering data quality, we deal a lot with the concept of Machine Learning. Thanks to advanced algorithms we can go through data, test it against several metrics and provide different data transformations. Additionally, we can draw conclusions not visible at first glance.
 
 Microsoft provides a platform called Azure Machine Learning (AML). The undeniable advantage of AML is that it exists in an Azure environment, so is as close to the data as possible within Veracity. It provides an easy to use API for managing this data. In this solution, we provide code samples on how to automate parts of the Machine Learning workflow. In particular, we focus on consuming and retraining the AML Web Service with usage of Azure Functions. The following code description applies to the .NET implementation, as it is the base platform used for the tool.
 
-## Implementation and usage
+### Implementation and usage
 The solution contains several projects, covering functionalities like consuming AML Web Service and retraining the AML Web Service. There is sample Azure Function code showing how to use retraining code in a specific scenario. The tutorial assumes that AML Web Service with a retraining experiment is already setup and deployed to Azure. For information on how to deploy the AML, visit the [Analytics](https://developer.veracity.com/doc/analytics) documentation. For additional information about how to create a retraining experiment and publish in Azure you can also look [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
 Source code described in detail below is available on [GitHub](https://github.com/veracity/veracity-machinelearning-automation).
 
-### Consuming AML Web Service
+#### Consuming AML Web Service
 One of the standard operations executed whilst working with Machine Learning is asking the Web Service via the REST API for predictions given some input data. At this stage, the model is already trained and will expect only a particular set of input data.
 Here, we will focus on how to send data and receive predictions in real-time. 
 
@@ -120,7 +120,7 @@ This structure contains a one-dimensional array of type string, for column names
 
 As output, we receive JSON string formatted like the input structure, but with the difference that there are two additional values containing the predictions.
 
-### Retraining AML Azure Function
+#### Retraining AML Azure Function
 When working with Azure Machine Learning, you will find the need to update the AML model from time to time. This operation is called retraining, and can be executed via the Web Service REST API.
 
 Code for how to do the retraining is available [here](https://github.com/veracity/veracity-machinelearning-automation/tree/master/MachineLearningRetrain). The code includes all the steps needed to retrain the Model.
@@ -129,7 +129,7 @@ There are two main classes to be concerned about.
 - [WebServiceRetrainer](#Web-Service-Retrainer-class)
 - [WebServiceUpdater](#Web-Service-Updater-class)
 
-#### Web Service Retrainer class
+##### Web Service Retrainer class
 Just like in WebServiceConsumer we need to provide two properties via the constructor when initializing the class.
 ```csharp
 public WebServiceRetrainer(string serviceUrl, string apiKey)
@@ -245,7 +245,7 @@ public class AzureBlobDataReference
 }
 ```
 
-#### Web Service Updater class
+##### Web Service Updater class
 When initializing the updater class, we need to provide the WebService URL and API key
 
 ```csharp
@@ -305,10 +305,10 @@ We need to remember to provide a proper authentication header value just like fo
 
 After a successful response, we have new retrained and updated the predictive model.
 
-## GitHub  
+### GitHub  
 Follow our open projects related to open source on https://github.com/veracity
 
-## Stack Overflow
+### Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

@@ -3,7 +3,7 @@ Title : "Identity"
 Author: "Brede Børhaug"
 Contributors: "Pawel Lehmann"
 ---
-# Overview 
+## Overview 
 When onboarding as a service provider there are some mandatory and some optional requirements. A key mandatory requirement for onboarding Veracity is the the service provider integrates with our identity provider, enable the Single Sign On (SSO) experience in Veracity. Veracity cloud identity provider is Azure AD B2C. It is a highly available global service that scales to hundreds of millions of identities. Built on an enterprise-grade secure platform, Azure AD B2C keeps your applications, your business, and your customers protected.
 
 Your integration towards Veracity will be towards and Enterprise Accounts (using open standard protocol OpenID Connect). For the documentation on Azure AD B2C visit [Microsoft Azure](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview).
@@ -17,16 +17,16 @@ Tutorials:
     
 
 
-# Tutorial
+## Tutorial
 The verrcity-quickstart-samples on [GitHub](https://www.github.com/Veracity) hold the complete running samples for these tutorials. Please feel free to clone or fork the repo, and get started using them. We will in the tutorialt to follow go through the code step-by-step, so that you will be able to ether do the integration in a clean app, or  include it into your existing applications.
 
 
-## Web Apps
+### Web Apps
 The first section of these tutorials will be focusing on Web Apps. 
 
 
 
-### ASP.NET implementation
+#### ASP.NET implementation
 This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application and Microsoft tutorial available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi), and you can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
 
 For the rest of the tutorial on ASP.NET implementation, we will assume that the application is already created, and do not contain any form of setup for AD B2C authentification. First we will need to add some nuget packages. 
@@ -288,10 +288,10 @@ public ActionResult Claims()
 
 Happy coding.
 
-## Mobile and Desktop Apps
+### Mobile and Desktop Apps
 In this section of these tutorials will be focusing on mobile and desktop Apps. 
 
-### .NET Implementation
+#### .NET Implementation
 This sample demonstrates a .Net WPF application calling a web API that is secured using Azure AD. The .Net application uses the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol. The access token is sent to the web API to authenticate the user.
 
 The tutorial is based on the [Azure Samlples](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop/).
@@ -510,10 +510,10 @@ public static async Task<AuthenticationResult> SignIn()
 
 AuthenticationResult object contains AccessToken property where Bearer Key is stored. This can then be used to e.g. call the Veracity Data Fabric API's.
 
-## GitHub  
+### GitHub  
 Follow our open projects related to identity on https://github.com/veracity
 
-## Stack Overflow
+### Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

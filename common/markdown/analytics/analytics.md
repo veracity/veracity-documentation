@@ -4,22 +4,22 @@ Author: "Brede Børhaug"
 Contributors: "Rachel Hassall"
 ---
 
-# Overview
+## Overview
 
 The Veracity Data Platform brings people with data closer to those who can help bring knowledge and value out of that data. In this section you can read about some of the tools that you can use to help you analyse data on Veracity. In the tutorial section you have access to comprehensive guides that describe how to do this.
 
 In order to fully utilize what is described in this document you will need a Microsoft Azure subscription.
 
-# Tutorial
+## Tutorial
 
-## Data Science Virtual Machine 
+### Data Science Virtual Machine 
 To get quickly started with analytics, a good option can be to create a Virtual Machine (VM) in Azure. To simplify this, we have created two handy buttons for you. Pick your favourite:
 
 |Ubuntu|Windows Server 2016|
 |:-------------:|:-------------:|
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Linux%2Fdeployazure.json) |[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-data-science-virtual-machine%2Fdata-science-virtual-machine-Windows%2Fazuredeploy.json) 
 
-### Data Science Virtual Machine Linux (Ubuntu)
+#### Data Science Virtual Machine Linux (Ubuntu)
 The Data Science VM's come bundled with lots of nice tools pre-installed for you. The highlights are:
 
 - Microsoft R Server 9.1 with Microsoft R Open 3.3.3
@@ -36,7 +36,7 @@ The Data Science VM's come bundled with lots of nice tools pre-installed for you
 
 For the complete list, check out this [link](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
 
-### Data Science Virtual Machine Windows 2016
+#### Data Science Virtual Machine Windows 2016
 The Data Science VM's come bundled with lots of nice tools pre-installed for you. The highlights are:
 
 - Microsoft R Server - Dev. Ed. (Scalable R)
@@ -59,9 +59,9 @@ The Data Science VM's come bundled with lots of nice tools pre-installed for you
     7. Blob storage
     8. ML & Data Science tutorials as Jupyter notebooks
 
-## Big Data analytics using HDInsight
+### Big Data analytics using HDInsight
 
-## Analytics using Azure Machine Learning Studio
+### Analytics using Azure Machine Learning Studio
 This section is a basic tutorial on how to set up a Machine Learning experiment on Microsoft Machine Learning Studio and use data stored in your Veracity data container as input.
 
 In particular, you will find some guidance on:
@@ -70,7 +70,7 @@ In particular, you will find some guidance on:
 -	how to incorporate custom Python scripts into a ML experiment on Microsoft Machine Learning Studio
 -	how to export data back into Veracity once you have performed your data analytics with Microsoft Machine Learning Studio
 
-### Create a machine learning workspace
+#### Create a machine learning workspace
 In order to start using Microsoft Machine learning studio, you need to create a machine learning workspace. You do that in two ways. You could just press this button:
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-azure-machine-learning-studio-workspace%2Fdeployazure.json) 
@@ -84,7 +84,7 @@ or you can do it in the following way:
 
 NOTE: It will reduce cost and latency if the machine learning workspace is created in the same region as where the data you will work with is located. You can check My Data to verify the location of your data.
 
-###	Upload data into your storage account
+####	Upload data into your storage account
 If you have data that you want to upload to your storage account, you can proceed as follows using Azure storage explorer.
 
 An easy way to upload and manage data on your storage is to use Microsoft Azure Storage Explorer application. Download and install the explorer from: https://azure.microsoft.com/en-us/features/storage-explorer/
@@ -97,14 +97,14 @@ An easy way to upload and manage data on your storage is to use Microsoft Azure 
 
 Additional details can be found under [here](https://developer.veracity.com/doc/ingest)
 
-###	Open your machine learning workspace in Azure Machine Learning Studio
+####	Open your machine learning workspace in Azure Machine Learning Studio
 We now want to perform some machine learning and data analytics using our data. Having set up a Machine Learning Workspace, proceed as follows:
 1.	Log in into [https://portal.azure.com/](https://portal.azure.com/)
 2.	Under “All resources”, locate and select the Machine Learning Workspace that you previously created, then select “Overview”
 3.	Click on “Launch Machine Learning Studio”
 4.	On the new webpage, select “my experiments”, this will launch the Machine Learning Web Studio app
 
-### Create and access experiments in machine learning studio
+#### Create and access experiments in machine learning studio
 In Machine Learning Studio, an experiment is the virtual space in which you can perform your data analytics. To perform any machine learning we first have to create an experiment.
 
 1.	In the lower part of the Machine Learning Studio webpage, select “+NEW” and then “Experiment” and then “Blank Experiment”
@@ -112,10 +112,10 @@ In Machine Learning Studio, an experiment is the virtual space in which you can 
 3.	Remember to save your experiment, this is done using the save option in the lower part of the screen
 4.	Once created, you can access the experiment from the “Experiments” tab on the left part of the screen
 
-### Import data into your machine learning experiment
+#### Import data into your machine learning experiment
 You normally want to import data in your experiment. At this point, it can get interesting depending on where in the world your target data is stored. It is worth bearing in mind that there is less cost related to moving data within a region, than transferring over large distances. This is particularly important when the data is of TB or PB size.
 
-#### Import data from Veracity.
+##### Import data from Veracity.
 
 1.	Access your experiment in ML Studio
 2.	Under “Data Input and Output”, locate the “Import Data” module and drag it into the experiment sheet. Select the block and then “Launch Import Data Wizard”  
@@ -148,13 +148,13 @@ You can now use the modified URL in the Import Data module.
  
 It is advisable to save the dataset after having imported it, otherwise you will have to run the import data module every time you re-open the experiment. This can be very time (and resource) consuming, depending on the size of the dataset.
  
-#### Import data into your experiment from a previously saved dataset
+##### Import data into your experiment from a previously saved dataset
 All your saved datasets will be available under the “Saved Datasets” tab. To use them in your project, simply drag and drop the dataset on the Experiment canvas:
 1.	Access your experiment
 2.	On the left side of the screen, select “Saved Dataset”
 3.	Select the dataset you are interested into and drag and drop it on the Experiment canvas.
 
-### Perform data analytics
+#### Perform data analytics
 You can now use the imported data as input for your machine learning experiment.
 
 Different options exist as to how to execute your analytics, it's possible to:
@@ -171,10 +171,10 @@ For including a custom Python script into your experiment, follow these 5 steps:
 4.	To enter your code, select the “Execute Python Script”. Then, on the right panel which appears, click on the “Pop-out the screen editor” icon.
 5. You can now enter your code in the popped-out window.
 
-### Save the results as a dataset in Machine Larning Studio
+#### Save the results as a dataset in Machine Larning Studio
 The output of every module can be saved as a dataset and then re-used in an other experiment. To do so, simply right click on the output port and select “Save as Dataset”. This dataset can now be used in another experiment.
 
-### Upload a dataset from Machine Learning Studio to Veracity
+#### Upload a dataset from Machine Learning Studio to Veracity
 You may want to upload your resultant dataset from your analysis back to the Veracity Storage Account associated with your machine learning Workspace.
 To do so, you can use the “Export Data” module.
 
@@ -196,10 +196,10 @@ Now:
     Note that if the subfolder “output_test” does not exist, it will be created in the process.
 6.	Run the experiment:
 
-## GitHub  
+### GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
 
-## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
+### Stack Overflow
+Stack Overflow is the largest, most trusted online community for developers to learn and share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform. 
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

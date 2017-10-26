@@ -15,6 +15,7 @@ Veracity's Application Programming Interfaces (APIs) enable data providers and c
 
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
+
 ## End-points
 
 ## Tutorial
@@ -448,6 +449,7 @@ The provisioning of the container can take up to 10 minutes, this means there is
 
 ### Metadata API
 
+
 The API defines two primary end-points from which you can access metadata information. The base url for requests is:
 
 ***[TODO NOT VERIFIED FINAL URLS]***
@@ -642,6 +644,7 @@ Request format (* required):
 ```
 
 #### Global tags
+
 
 ## Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 

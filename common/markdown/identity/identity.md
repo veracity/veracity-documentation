@@ -4,7 +4,7 @@ Author: "Brede Børhaug"
 Contributors: "Pawel Lehmann, Rachel Hassall"
 ---
 
-## Overview
+## Overview  
 The Veracity onboarding process has some mandatory and optional requirements for service providers. A key mandatory requirement is that the service provider integrates with our identity provider, enabling the Single Sign On (SSO) experience in Veracity. The Veracity cloud identity provider is Azure AD B2C. It is a highly available global service that scales to hundreds of millions of identities and is built on an enterprise-grade secure platform. Azure AD B2C keeps your applications, your business and your customers protected.
 
 Your Veracity integration will be through Enterprise Accounts (using open standard protocol OpenID Connect). For the documentation on Azure AD B2C visit [Microsoft Azure](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview).

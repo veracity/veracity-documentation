@@ -1,11 +1,12 @@
 ---
 Title: Service API
 Author: "Brede Børhaug"
+Contributors: "Rachel Hassall"
 ---
 
 ## Overview 
 
-The Service API provides a consistent interface for accessing data about the user and the Veracity platform in general. At its heart it is a REST service built up of "view-points" where you can read, write and update information. Authentication is handled through Azure B2C OAuth 2.
+The Service API provides a consistent interface for accessing data about the user, as well as the Veracity platform in general. At its core is a REST service built up of "view-points" where you can read, write and update information. Authentication is handled through Azure B2C OAuth 2.
 
 ## Authentication
 
@@ -27,7 +28,7 @@ These are:
 
 |View-point|Path|Description|
 |:---------|:-------|:----------|
-|Discover|`/discover`|Information about different masterdata and resources with in myDNVGL. The main categories are: Services, Users and companies.|
+|Discover|`/discover`|Information about different master data and resources with in myDNVGL. The main categories are: services, users and companies.|
 |My|`/my`|Provides information about the currently logged in user.|
 |This|`/this`|Provides information from the service or applications point of view, its capabilities and metadata.|
 
@@ -35,7 +36,7 @@ The view-points themselves do not provide information directly, instead you inte
 
 ### Responses
 
-Each response provides all or most of these headers:
+Each response provides all, or most, of these headers:
 
 |Header|Type|Description|
 |:-----|:--:|:----------|
@@ -47,7 +48,7 @@ Each response provides all or most of these headers:
 |x-view-point|string|The name of the current view-point.|
 |x-actor|GUID|The user id of the actor/service account. [TODO describe better]|
 
-The response status code describes whether the request succeeded or not. Currently the following status codes may be returned
+The response status code describes whether or not the request succeeded. Currently,the following status codes may be returned:
 
 |HTTP Status|Name|Description|
 |:----------|:---|:----------|
@@ -227,7 +228,7 @@ CompanyReference {
 
 #### `/discover/users`
 
-The body of this request should be a list of user IDs. Example:
+The body of this request should be a list of user IDs. For example:
 
 ```json
 [
@@ -580,11 +581,11 @@ UserRegistration {
   firstName (string, optional),
   lastName (string, optional),
   email (string, optional),
-  options (RegistrationOptions, optional): Specify additional creation controll options, this is not mandatory
+  options (RegistrationOptions, optional): Specify additional creation control options, this is not mandatory
 }
 
 RegistrationOptions {
-  sendMail (boolean, optional): Set this to false to take responsibillity of sending the registration email to the user. ,
+  sendMail (boolean, optional): Set this to false to take responsibility of sending the registration email to the user. ,
   createSubscription (boolean, optional): Make the service create a default subscription for the newly created user ,
   serviceId (string, optional): The service id to create subscription for ,
   role (string, optional): Specify the accessLevel/role the user should have with the new subscription. Optional
@@ -608,12 +609,12 @@ Request format:
     firstName (string, optional),
     lastName (string, optional),
     email (string, optional),
-    options (RegistrationOptions, optional): Specify additional creation controll options, this is not mandatory
+    options (RegistrationOptions, optional): Specify additional creation control options, this is not mandatory
   }
 ]
 
 RegistrationOptions {
-  sendMail (boolean, optional): Set this to false to take responsibillity of sending the registration email to the user. ,
+  sendMail (boolean, optional): Set this to false to take responsibility of sending the registration email to the user. ,
   createSubscription (boolean, optional): Make the service create a default subscription for the newly created user ,
   serviceId (string, optional): The service id to create subscription for ,
   role (string, optional): Specify the accessLevel/role the user should have with the new subscription. Optional
@@ -632,6 +633,6 @@ The following request body types are supported:
 Follow our open projects related to Veracity Services API on https://github.com/veracity
 
 ## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

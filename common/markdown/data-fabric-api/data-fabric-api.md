@@ -656,9 +656,6 @@ The provisioning of the container can take up to 10 minutes, this means there is
 
 
 
-## Pattern & Practices 
-In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
-
 ## GitHub  
 Follow our open projects related to Veracity data fabric API on https://github.com/veracity
 

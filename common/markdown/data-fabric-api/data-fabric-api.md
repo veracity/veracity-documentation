@@ -15,17 +15,262 @@ Veracity's Application Programming Interfaces (APIs) enable data providers and c
 
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
-
 ## End-points
 
 ### Data API
 
+This API provides end-points for managing access and 
+
+***[TODO NOT VERIFIED FINAL URLS]***
+```url
+https://testapi.dnvgl.com/DataAPI/api/[end-point]
+```
+
+|End-point|Path|Method|Description|
+|:---------|:-------|:--:|:----------|
+|KeyTemplates_GetStorageKeyTemplate|`/keytemplates`|`GET`|Get all supported key templates for generating access keys.|
+|ProviderAccess|`/resources/{resourceId}/accesses`|`GET`, `POST`|Get list of providers with access to a given storage item or grant access.|
+|FetchKeyForStorageContainer|`/resources/{resourceId}/keys`|`GET`|Get a SAS key to access a storage item shared with you.|
+|GetAllResources|`/resources`|`GET`|Get a list of all resources you can claim keys for.|
+|Users|`/users/{userId}`|`GET`|Get information about a user.|
+
+For all requests to this end-point you need to provide the `Ocp-Apim-Subscription-Key` header. It must contain your subscription key found in your profile.
+
+#### `/keytemplates`
+
+Response format:
+```
+[
+  {
+    id: UUID,
+    name: string,
+    totalHours: int32,
+    isSystemKey: boolean,
+    description: string,
+    attribute1: boolean,
+    attribute2: boolean,
+    attribute3: boolean,
+    attribute4: boolean,
+    ...
+  }
+]
+```
+
+#### `/resources/{resourceId}/accesses`
+
+When reading this end-point using `GET` you must provide a page number as well as a page size as query parameters to this request.
+
+The `{resourceId}` parameter must be the UUID of the resource.
+
+E.g.:
+```url
+/this/services?pageNo=1&pageSize=15
+```
+
+Request format:
+```
+{
+  userId: UUID,
+  accessKeyTemplateId: UUID, see /keytemplates end-point
+}
+```
+
+The following request body types are supported:
+
+- `application/json`
+- `text/json`
+- `application/xml`
+- `text/xml`
+- `application/x-www-form-urlencoded`
+
+Response format:
+```
+{
+  results: [
+    {
+      providerEmail: string,
+      userId: UUID,
+      ownerId: UUID,
+      accessSharingId: UUID,
+      keyCreated: boolean,
+      autoRefreshed: boolean,
+      keyCreatedTimeUTC: string,
+      keyExpiryTimeUTC: string,
+      resourceType: string,
+      accessHours: int32,
+      accessKeyTemplateId: UUID,
+      attribute1: boolean,
+      attribute2: boolean,
+      attribute3: boolean,
+      attribute4: boolean,
+      resourceId: UUID
+    },
+    ...
+  ],
+  page: 0,
+  resultsPerPage: 0,
+  totalPages: 0,
+  totalResults: 0
+}
+```
+
+#### `/resources/{resourceId}/keys`
+
+This request requires an `accessSharingId` query parameter defining the id of the key you want to return:
+
+```url
+https://testapi.dnvgl.com/platform-Test/DataAPI/api/resources/{resourceId}/keys?accessSharingId={accessSharingId}
+```
+
+Response format:
+
+```
+{
+  sasKey: string,
+  sasuRi: string,
+  fullKey: string,
+  sasKeyExpiryTimeUTC: string,
+  isKeyExpired: boolean,
+  autoRefreshed: boolean
+}
+```
+
+#### `/resources`
+
+This end-point also provides two optional `boolean` query parameters `shared` and `owned` to return shared or owned resources. By default only owned resources are returned:
+
+```url
+https://testapi.dnvgl.com/platform-Test/DataAPI/api/resources?shared=false&owned=true
+```
+
+Response format:
+
+```
+{
+  ownedResources: [
+    {
+      resourceId: UUID,
+      resourceName: string,
+      resourceUrl: string,
+      lastModifiedUTC: string,
+      ownerId: UUID,
+      consumerName: string,
+      resourceType: string,
+      resourceRegion: string
+    }
+  ],
+  sharedResources: [
+    {
+      storageItem: {
+        resourceId: UUID,
+        resourceName: string,
+        resourceUrl: string,
+        lastModifiedUTC: string,
+        ownerId: UUID,
+        consumerName: string,
+        resourceType: string,
+        resourceRegion: string
+      },
+      accessDescription: string,
+      accessKeyCreated: boolean,
+      accessKeyEndDateUTC: string,
+      accessKeyTemplateId: UUID,
+      accessSharingId: UUID,
+      autoRefreshed: boolean
+    }
+  ]
+}
+```
+
+#### `/users/{userId}`
+
+This end-point requires either a `{userId}` or the literal `me`. The former returns information about the specific user while the latter returns information about the current user.
+
+Response format:
+
+```
+{
+  userId: UUID,
+  companyId: UUID,
+  role: string
+}
+```
+
 ### Provisioning API
+
+This API provides an end-point for provisioning new Azure Blob Containers. The base url for requests is:
+
+***[TODO NOT VERIFIED FINAL URLS]***
+```url
+https://testapi.dnvgl.com/provisionAPI/api/[end-point]
+```
+
+|End-point|Path|Method|Description|
+|:--------|:---|:-----:|:----------|
+|Container|`/container`|`POST`|Provisions a new blob storage container|
+
+|HTTP Status|Name|Description|
+|:----------|:---|:----------|
+|200|OK|Your request was processed correctly. View content for response.|
+|400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
+|401|Unauthorized|You do not have permission to access the end-point.|
+|403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
+|404|Not Found|The requested end-point was not found or is not known.|
+|409|Conflict|The request cannot be completed as it conflicts with an existing resource.|
+|500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
+|502|Bad Gateway|The request was not processed correctly by a dependent service of the API.|
+
+#### Response format
+
+The API supports formatting the response body according to the mime type provided in your requests `Accept` header. Currently the following mime types are supported:
+
+- `application/json`
+- `text/json`
+- `application/xml`
+- `text/xml`
+
+#### `/container`
+
+The provision api supports `POST` requests that provision new Azure Blob Storage containers on the Veracity platform.
+
+You need to provide the `Ocp-Apim-Subscription-Key` header on all requests using this end-point. It must contain your subscription key found in your profile.
+
+An HTTP response of type `202 Accepted` means the request was accepted and is currently processing. It may take up to 15 minutes for a container to be completed.
+
+An HTTP response of type `409 Conflict` means that there already exists a blob container using the same short name. Please choose another.
+
+Request body format (* required):
+```
+{
+  storageLocation: string ["Unknown"|"NorthEurope"|"EastUs1"],
+  requestCode: string, A unique string is needed to track each provision request, if you use the same code more than twice in a given timespan the second request is rejected
+  containerShortName: string, 5-32 character short name
+  title: string,
+  description: string,
+  icon: {
+    id: string,
+    backgroundColor: string (Hex color)
+  },
+  tags: [
+    {
+      title: string,
+      type: string
+    }
+  ]
+}
+```
+
+The following request body types are supported:
+
+- `application/json`
+- `text/json`
+- `application/xml`
+- `text/xml`
+- `application/x-www-form-urlencoded`
 
 ### Metadata API
 
-
-The API defines two primary end-points from which you can access metadata information. The base url for requests is:
+This API defines two primary end-points from which you can access metadata information. The base url for requests is:
 
 ***[TODO NOT VERIFIED FINAL URLS]***
 ```url

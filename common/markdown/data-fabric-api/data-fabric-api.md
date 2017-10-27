@@ -21,9 +21,9 @@ Authentication is performed through OAuth2 bearer tokens. To learn how to set up
 
 This API provides end-points for managing access and 
 
-***[TODO NOT VERIFIED FINAL URLS]***
+
 ```url
-https://testapi.dnvgl.com/DataAPI/api/[end-point]
+https://api.dnvgl.com/DataAPI/api/[end-point]
 ```
 
 |End-point|Path|Method|Description|
@@ -119,7 +119,7 @@ Response format:
 This request requires an `accessSharingId` query parameter defining the id of the key you want to return:
 
 ```url
-https://testapi.dnvgl.com/platform-Test/DataAPI/api/resources/{resourceId}/keys?accessSharingId={accessSharingId}
+https://api.dnvgl.com/DataAPI/api/resources/{resourceId}/keys?accessSharingId={accessSharingId}
 ```
 
 Response format:
@@ -140,7 +140,7 @@ Response format:
 This end-point also provides two optional `boolean` query parameters `shared` and `owned` to return shared or owned resources. By default only owned resources are returned:
 
 ```url
-https://testapi.dnvgl.com/platform-Test/DataAPI/api/resources?shared=false&owned=true
+https://api.dnvgl.com/DataAPI/api/resources?shared=false&owned=true
 ```
 
 Response format:
@@ -200,9 +200,8 @@ Response format:
 
 This API provides an end-point for provisioning new Azure Blob Containers. The base url for requests is:
 
-***[TODO NOT VERIFIED FINAL URLS]***
 ```url
-https://testapi.dnvgl.com/provisionAPI/api/[end-point]
+https://api.dnvgl.com/provisionAPI/api/[end-point]
 ```
 
 |End-point|Path|Method|Description|
@@ -272,12 +271,11 @@ The following request body types are supported:
 
 This API defines two primary end-points from which you can access metadata information. The base url for requests is:
 
-***[TODO NOT VERIFIED FINAL URLS]***
 ```url
-https://veracitymetadata.azurewebsites.net/v1/[end-point]
+https://api.dnvgl.com/MetadataAPI/api/[end-point]
 
 e.g.:
-https://veracitymetadata.azurewebsites.net/v1/global-tags
+https://api.dnvgl.com/MetadataAPI/api/global-tags
 ```
 
 These are:

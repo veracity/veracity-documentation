@@ -35,20 +35,22 @@ The first time you open Azure Storage Explorer, you will see a window as shown b
 
 In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
 
-![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-02.png "Connect to Azure Storage Explorer")
+![](https://veracityprod.blob.core.windows.net/static-documentation/ingest-ase-step-1.png "Connect to Azure Storage Explorer")
+
+![](https://veracityprod.blob.core.windows.net/static-documentation/ingest-ase-step-2.png "Connect to Azure Storage Explorer")
 
 The key you have received from Veracity is in the form of a SAS URI. Select the radio button labeled "Use a SAS URI" and paste the key into the field that is now available, you may now click next, and the Azure Storage Explorer will attempt to connect to the container.
 
 If you have previously opened Azure Storage Explorer on your machine, you can connect to a new storage container by clicking the connection icon in the black menu on the left. It has been marked with a blue square in the picture below. Once you have clicked this button, you can connect to your data container in Veracity using your SAS token by following the steps listed above.
 
-![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-03.png "Azure Storage Explorer")
+![](https://veracityprod.blob.core.windows.net/static-documentation/ingest-ase-step-3.png "Azure Storage Explorer")
 
 You should now have access to the container that your key unlocks. You can find your container in the hierarchy by using the search feature, in the upper left corner of the application, as shown in the picture below.
 
-![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-connect-04.png "Azure Storage Explorer")
+![](https://veracityprod.blob.core.windows.net/static-documentation/ingest-ase-step-4.png "Azure Storage Explorer")
 
 Depending on the type of key you have been provided, you may now browse, read,
-create and/or delete data-sets from the container.
+create and/or delete data from the container.
 
 
 #### Working with Azure Storage Explorer
@@ -56,11 +58,11 @@ When working with files in Azure Storage Explorer, you are working directly with
 
 In some cases, you may find it useful to do curation on the data from a user interface. If you are doing manual data work, such as cleaning or transformation, you may want to lock the data set to prevent others from accessing it whilst you are uploading a new version. This can be accomplished by acquiring a lease on the given file, as shown below.
 
-![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-01.png "Working with Azure Storage Explorer")
+![](https://veracityprod.blob.core.windows.net/static-documentation/ingest-ase-work-1.png "Working with Azure Storage Explorer")
 
 A lease will prevent anyone from modifying the file until you release it. The lease acquired through Azure Storage Explorer is permanent, which means it is critical that you break the lease as soon as possible. A lease is bound to your current key, so you must break the lease before the key expires to ensure that the file is not locked permanently. This is shown in the picture below.
 
-![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-working-02.png "Working with Azure Storage Explorer")
+![](https://veracityprod.blob.core.windows.net/static-documentation/ingest-ase-work-2.png "Working with Azure Storage Explorer")
 
 #### Common pitfalls
 
@@ -68,10 +70,7 @@ A lease will prevent anyone from modifying the file until you release it. The le
 When looking for your container in the hierarchy, you might see an item ending with (SAS), if you try to expand this node, you may get an error stating: "Authentication Error. The specified signed resource is not allowed for this resource level." In this case, you are attempting to expand a sub-node that is not supported by the SAS URI's for containers. Instead, look for your container in the node labeled (SAS-Attached-Services).
 
 ##### Proxy Configuration
-Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy, as shown below.
-
-![](https://veracitydevtest.blob.core.windows.net/static-documentation/ingest-ase-pitfalls-proxy-01.png "Working with Azure Storage Explorer")
-
+Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy accoring to your proxy.
 
 
 ### Ingest data programmatically

@@ -42,10 +42,3 @@ The data sharing and data analytics part of Veracity is currently in a private p
 
 More functionality, services, and providers will be added based on feedback from our private preview customers and providers. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for additional questions. 
 
-##### Data fabric security
-
-The Veracity System Key is never shared with the Veracity storage owner or other customers. Vercity does not store your Veracity storage system key or SAS Token hash-code in any database or storage – it's all in a Azure Key Vault. Azure Key Vault traffic is encrypted, the secrets and keys are encrypted in Azure Key Vault at rest. For additional details on keys, you may consult the [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) documentation.
-
-Our ledger keeps a history of all operations done on a storage container by all users with access to the container. It also keeps track of sharing and claiming keys in the system. 
-
-The shared access signature (SAS) URI that is shared with you is your private key – users should treat it as a key to their home. All usage of SAS URIs is the user's responsibility. Veracity will never email the SAS URI to any user. Veracity will only email notification that a key is available to you, and a link to where you can retrieve the key.

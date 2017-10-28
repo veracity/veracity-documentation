@@ -6,22 +6,21 @@ Author: "Brede Børhaug"
 
 Veracity is an open neutral platform that will allow services to be offered by both internal and external providers. There is no need for a direct affiliation with DNVGL, however there is an integration process which will have mandatory requirements to ensure quality of product and service provided.
 
-Marketplace allows purchases to be made by businesses and authorised individual users only. Purchases can be made via a registered Veracity account or by guests if sufficient mandatory information is provided. Registering a Veracity account can offer convience of purchase in the future as credentials can be stored. 
+To get started you need to know about:
+1. How to do integration towards our identity provider
+2. How to best present your product in the Marketplace
+3. How the Veracity data fabric work
+4. 
 
-Purchases can be made via electronic invoice and in the near future it will be possible to make purchases using credit card.
+## Marketplace
+Marketplace allows purchases to be made by businesses and authorised individual users only. Purchases can be made via a registered Veracity account or by guests if sufficient mandatory information is provided. Registering a Veracity account can offer convience of purchase in the future as credentials can be stored.
 
-## Veracity the right place for your
-
-It is no secret that a service will perform better when complemented by the right platform and vice versa. Veracity intends to facilitate services that meet customers expectations, both in quality of the service and focus of segment. We have put together a self-assessment tool that you should complete if you are planing to onboard as a service provider. The purpose of this self-assessment is to create a profile of the proposal, enabling a smoother onboarding process.
-
-Link to self assesment will soon be awailable at this site.
-
-
-## Onboarding as a service provider
+Purchases are made via the Veracity E-comerce solution, which is an integrated part of the Marketplace.
 
 
-## Marketplace 
-Services will be presented in the Veracity marketplace. You may consult the [guideline for product presentation on the Marketplace](https://groups.dnvgl.com/sites/DCC/Shared%20Documents/ServiceContentGuideline.pdf) to get started drafting your entry.
+## Veracity data fabric
+The data sharing and data analytics part of Veracity is currently in a private preview phase, meaning that we will work together with a selection of leading customers and providers. We will verify the design and functionality of these elements of the platform, and explore how value can be best created for asset owners and analytic providers. More functionality, services, and providers will be added based on feedback from our private preview customers and providers.
+
+If you are interested in joining this private preview phase please reach out to your current DNV GL business contact and we will carefully assess if we can on-board you already now.
 
 
- 

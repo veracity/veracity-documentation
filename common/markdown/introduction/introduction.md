@@ -29,12 +29,7 @@ Veracoty consist of multiple main components. The marketplace and my services, w
 The Marketplace within Veracity is an Oracle based E-Commerce solution which allows external customers to browse, enquire and purchase digital services that are offered by both DNV GL and external providers. Veracity is an open neutral platform, and for that reason we will allow services to be offered by both internal and external providers. There is no need for a direct affiliation with DNV GL , however there is an integration process which has mandatory requirements to ensure the quality of product and service provided. To get going with this process, please reach out to Veracity team and we will help you get started. Also check out the [Onboarding a Service](https://developer.veracity.com/doc/onboarding-a-service) documentation for more technical detail.
 
 #### My services
-My services 
-
-
-
-#### Service API's
-[TO BE UPDATED]
+TO BE ADDED
 
 
 #### Data fabric - private preview

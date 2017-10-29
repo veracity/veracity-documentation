@@ -59,8 +59,6 @@ The Data Science VM's come bundled with lots of nice tools pre-installed for you
     7. Blob storage
     8. ML & Data Science tutorials as Jupyter notebooks
 
-### Big Data analytics using HDInsight
-
 ### Analytics using Azure Machine Learning Studio
 This section is a basic tutorial on how to set up a Machine Learning experiment on Microsoft Machine Learning Studio and use data stored in your Veracity data container as input.
 

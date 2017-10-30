@@ -23,13 +23,16 @@ With all the new opportunities Veracity enables for both asset owners and servic
 
 
 ### Veracity high-level architecture
-Veracity consists of multiple main components. The marketplace and my services, with accompanying APIs enable you to create, market and sell services or data, together with an E-commerce solution. Further to this, the Veracity data fabric enables you to share and combine data in a trusted environment. The Veracity data fabric is built in partnership with Microsoft Azure, and supplemented by key partners in the industry, enabling Big Data capability on a global scale. 
+Veracity consists of multiple high-level components. The marketplace and my services, with accompanying APIs enable you to create, market and sell services or data, together with an E-commerce solution. Further to this, the Veracity data fabric enables you to share and combine data in a trusted environment. The Veracity data fabric is built in partnership with Microsoft Azure, and supplemented by key partners in the industry, enabling Big Data capability on a global scale. 
+
+![](https://veracityprod.blob.core.windows.net/static-documentation/developerillustration%402x.png)
 
 #### Marketplace
-The Marketplace within Veracity is an Oracle based E-Commerce solution which allows external customers to browse, enquire and purchase digital services that are offered by both DNV GL and external 3rd party providers. Veracity is an open neutral platform, and for that reason we allow services to be offered by both internal and external providers. There is no need for a direct affiliation with DNV GL , however there is an integration process which has mandatory requirements to ensure the quality of product and service provided. To get going with this process, please reach out to the Veracity team and we'll help you get started. Also check out the [Onboarding a Service](https://developer.veracity.com/doc/onboarding-a-service) documentation for more technical detail.
+The Marketplace within Veracity is an Oracle based E-Commerce solution which allows external customers to browse, enquire and purchase digital services and data that are offered by both DNV GL and external 3rd party providers. Veracity is an open neutral platform, and for that reason we allow services and data to be offered by both internal and external providers. There is no need for a direct affiliation with DNV GL , however there is an integration process which has mandatory requirements to ensure the quality of product and service provided. To get going with this process, please reach out to the Veracity team and we'll help you get started. Also check out the [Onboarding a Service](https://developer.veracity.com/doc/onboarding-a-service) documentation for more technical detail.
+
 
 #### My services
-TO BE ADDED
+Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use the digital services without additional log in as it is a prerequisite for service providers to integrate their digital services with the DNV GL identity provider. Consumers will buy the services on the Marketplace and when the service is purchased it will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API.
 
 
 #### Data fabric - currently in private preview phase

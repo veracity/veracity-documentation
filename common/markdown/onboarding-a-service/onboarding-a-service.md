@@ -13,7 +13,7 @@ To get started you need to know about:
 3. [How My services works and how you integrate](#my-services-and-the-service-api)
 3. [How to best present your product on the Marketplace](#how-to-best-present-your-product-in-the-marketplace)
 
-In addition to exploring this documentation, you will need to contact the Veracity team to start the onboarding process. In general terms, the prosess involve the following steps:
+In addition to exploring this documentation, you will need to contact the Veracity team to start the onboarding process. In general terms, the process involve the following steps:
 
 ![](https://veracityprod.blob.core.windows.net/static-documentation/onboarding-1.png)
 
@@ -37,7 +37,7 @@ Marketplace allows purchases to be made by businesses and authorised individual 
 Purchases are made via the Veracity E-commerce solution, which is an integrated part of the Marketplace.
 
 ### How to best present your product in the Marketplace
-Your product's blurb on the marketplace is your primary salespitch towards 100,000+ Veracity users. Veracity will take care of presenting your information, but you will need to provide the text, images, links and optional videos. Your product will be presented in the following way:
+Your product's blurb on the marketplace is your primary sales pitch towards 100,000+ Veracity users. Veracity will take care of presenting your information, but you will need to provide the text, images, links and optional videos. Your product will be presented in the following way:
 
 ![](https://veracityprod.blob.core.windows.net/static-documentation/marketplace-1.png)
 
@@ -58,7 +58,7 @@ It is possible to create a maximum of 5 paragraphs. That said, balance how much 
 ![](https://veracityprod.blob.core.windows.net/static-documentation/marketplace-3.png)
 
 9. **Testimony from customer** Here you may provide testimonial from a customer highlighting the beneﬁts of the product/service. Provide name and company/role/ photo if available.(This content is optional).
-10. **Additional services/tools** Here you may state 2-4 additional service/tools available when buying the product. You may also state addtional content/activity around the product or service life. (This content is optional).
+10. **Additional services/tools** Here you may state 2-4 additional service/tools available when buying the product. You may also state additional content/activity around the product or service life. (This content is optional).
 11. **Product/Service provider logo and short description** You should provide the product/service provider logo and a short description about the provider. The description may be up to 400 characters maximum (with space). 
 12. **Related products**. You may list related other product you or your partners sell but these must be relevant to the current product. This content is optional.
 

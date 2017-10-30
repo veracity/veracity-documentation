@@ -17,8 +17,8 @@ Link to Quick-Start:
 	- [Java Implementation](#java-implementation) 
 	- [NodeJs Implementation](#nodejs-implementation)
 	- [Python Implementation](#python-implementation)
-	- [C++ Implementation](#c++-implementation)
-
+	- [C++ Implementation](#c-implementation)
+- [Use AzCopy to egest data](#egest-data-using-azcopy)
 
 ## Quick start 
 

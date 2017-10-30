@@ -28,10 +28,10 @@ The first section of the tutorial will focus on Web Apps.
 
 
 #### ASP.NET implementation
-This part of the tutorial will demonstrate how to add authentification to a MVC .NET application. The code in this tutorial is based on the default VisualStudio template for web application, the Microsoft tutorial is available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi). You can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our Github repo [here](https://github.com/veracity/veracity-quickstart-samples).
+This part of the tutorial will demonstrate how to add authentication to a MVC .NET application. The code in this tutorial is based on the default Visual Studio template for web application, the Microsoft tutorial is available [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi). You can find our [veracity-quickstart-sample](https://github.com/veracity/) for .NET on our GitHub repo [here](https://github.com/veracity/veracity-quickstart-samples).
 
 
-For the rest of the tutorial on ASP.NET implementation, we will assume that the application has already been created, and does not contain any form of setup for AD B2C authentification. Firstly, we will need to add some NuGet packages. 
+For the rest of the tutorial on ASP.NET implementation, we will assume that the application has already been created, and does not contain any form of setup for AD B2C authentication. Firstly, we will need to add some NuGet packages. 
 
 ```xml
 Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 4.0.0-alpha1
@@ -229,7 +229,7 @@ namespace aad_b2c_web_net
 }
 ```
 
-In OpenIdConnectAuthenticationOptions above, we define a set of callback functions for specific notifications that are received by the OpenID Connect middleware. These behaviours are defined using an OpenIdConnectAuthenticationNotifications object and stored into the Notifications variable. In our sample, we define three different callbacks depending on the event.
+In OpenIdConnectAuthenticationOptions above, we define a set of call-back functions for specific notifications that are received by the OpenID Connect middleware. These behaviours are defined using an OpenIdConnectAuthenticationNotifications object and stored into the Notifications variable. In our sample, we define three different call-backs depending on the event.
 
 Now we need to configure out Web App to invoke the policies we created. We do this by adding a new controller named “AccountController”, you can add it and paste the code below:
 
@@ -298,7 +298,7 @@ In this section of the tutorial we will be focussing on mobile and desktop Apps.
 #### .NET Implementation
 This sample demonstrates a .Net WPF application calling a web API that is secured using Azure AD. The .Net application uses the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol. The access token is sent to the web API to authenticate the user.
 
-The tutorial is based on the [Azure Samlples](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop/).
+The tutorial is based on the [Azure Samples](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop/).
 
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414) at Microsoft.

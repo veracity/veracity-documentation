@@ -7,9 +7,9 @@ Contributors: "Rachel Hassall, Thomas Rudfoss"
 ## Overview
 Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs: 
 
-- Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform user.
+- Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform users.
 - Provisioning API - The Veracity Provision API is an API that enables developers and applications to create data containers. 
-- Metadata API - The Veracity Metadata API is an API that can both get and post information on data containers. The API enables you to add meta data to the containers both to visually represent the data containers in the portal, and make it more easy to search in the data catalog.
+- Metadata API - The Veracity Metadata API is an API that can both get and post information on data containers. The API enables you to add meta data to the containers both to visually represent the data containers in the portal, and make it easier to search in the data catalogue.
 
 ## Authentication
 
@@ -391,7 +391,7 @@ Response format `application/json`:
 
 ##### `/resources/{resourceId}`
 
-Returns information on the specific resource. To update a resource with information use `POST` the endpoint `/resources` with a body containing the changes as well as the id of the resouce you wish to update.
+Returns information on the specific resource. To update a resource with information use `POST` the endpoint `/resources` with a body containing the changes as well as the id of the resource you wish to update.
 
 Response format `application/json`:
 
@@ -553,7 +553,7 @@ Implementations:
 
 
 #### .NET implementation
-The below sample assumes that the user has a Subscription Key from the Veracity Portal and a Bearer Key. For now the Bearer Key can be obtained from Swagger UI, as desribed in the previous section. You also need to know the URI to the Data API service.
+The below sample assumes that the user has a Subscription Key from the Veracity Portal and a Bearer Key. For now the Bearer Key can be obtained from Swagger UI, as described in the previous section. You also need to know the URI to the Data API service.
 
 We are going to access the Data API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
 Below each GET and POST request implementation available in the API is described.
@@ -587,7 +587,7 @@ public class User
   public string Role { get; set; }
 }
 ```
-In this way we can get the ID for the current user used in other API requests. We recieve also a company ID that the user is assigned to, as well as the role of the current user.
+In this way we can get the ID for the current user used in other API requests. We also receive a company ID that the user is assigned to, as well as the role of the current user.
 
 ##### GET user
 
@@ -833,7 +833,7 @@ public async Task<Tuple<string, SasData>> FetchKeyForStorageContainer(string res
 } 
 ```
 
-As a result of the method we get a tuple containing a string message and an oject model deserialized from the Json response. The string message is empty if the operation was successful. If the operation failed, there is an error message.
+As a result of the method we get a tuple containing a string message and an object model deserialized from the Json response. The string message is empty if the operation was successful. If the operation failed, there is an error message.
 The resulting Json is like below.
 
 ```csharp
@@ -890,7 +890,7 @@ public async Task<string> ProvisionContainer(StorageLocations storageLocation, s
 }
 ```
 
-It is important that in addition to the URL parameters, the user needs to create a Json with these same paraemters and send this Json request.
+It is important that in addition to the URL parameters, the user needs to create a Json with these same parameters and send this Json request.
 As a result, we expect to get string information about the success or failure of our operation.
 The provisioning of the container can take up to 10 minutes, this means there is a time delay needed between requesting a container and performing operations on that container.
 

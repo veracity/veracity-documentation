@@ -12,7 +12,21 @@ To get started you need to know about:
 2. [How to best present your product on the Marketplace](#how-to-best-present-your-product-in-the-marketplace)
 3. [How the Veracity data fabric works](#veracity-data-fabric)
 
-In addition to exploring this documentation, you will need to contact the Veracity team to start the onboarding process.
+In addition to exploring this documentation, you will need to contact the Veracity team to start the onboarding process. In general terms, the prosess involve the following steps:
+
+![](https://veracityprod.blob.core.windows.net/static-documentation/onboarding-1.png)
+
+
+
+## Veracity data fabric
+The data sharing and data analytics part of Veracity is currently in a private preview phase, meaning that we will work together with a selection of leading customers and providers. We will verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. More functionality, services, and providers will be added based on feedback from our private preview phase.
+
+If you are interested in joining this private preview phase, please reach out to your current DNV GL business contact and we will carefully assess if we can on-board you now.
+
+Feel free to start investigating the documentation on the [data fabric API](https://developer.veracity.com/doc/data-fabric-api), [data fabric in general](https://developer.veracity.com/docs), and sample code on [GitHub](https://www.github.com/veracity) to get a feeling for what opportunities the data fabric enables. 
+
+## My services and API
+Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use the digital services without additional log in as it is a prerequisite for service providers to integrate their digital services with the DNV GL identity provider. Consumers will buy the services on the Marketplace and when the service is purchased it will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API. 
 
 ## Marketplace
 Marketplace allows purchases to be made by businesses and authorised individual users only. Purchases can be made via a registered Veracity account or by guests, if sufficient mandatory information is provided. Registering a Veracity account offers the convenience that credentials can be stored for future purchases. Both digital services and data can be sold through the Marketplace. 
@@ -44,14 +58,4 @@ It is possible to create a maximum of 5 paragraphs. That said, balance how much 
 10. **Additional services/tools** Here you may state 2-4 additional service/tools available when buying the product. You may also state addtional content/activity around the product or service life. (This content is optional).
 11. **Product/Service provider logo and short description** You should provide the product/service provider logo and a short description about the provider. The description may be up to 400 characters maximum (with space). 
 12. **Related products**. You may list related other product you or your partners sell but these must be relevant to the current product. This content is optional.
-
-
-
-## Veracity data fabric
-The data sharing and data analytics part of Veracity is currently in a private preview phase, meaning that we will work together with a selection of leading customers and providers. We will verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. More functionality, services, and providers will be added based on feedback from our private preview phase.
-
-If you are interested in joining this private preview phase, please reach out to your current DNV GL business contact and we will carefully assess if we can on-board you now.
-
-Feel free to start investigating the documentation on the [data fabric API](https://developer.veracity.com/doc/data-fabric-api), [data fabric in general](https://developer.veracity.com/docs), and sample code on [GitHub](https://www.github.com/veracity) to get a feeling for what opportunities the data fabric enables. 
-
 

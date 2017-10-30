@@ -16,7 +16,7 @@ Quick-Start:
 	- [Java Implementation](#java-implementation) 
 	- [NodeJs Implementation](#nodejs-implementation)
 	- [Python Implementation](#python-implementation)
-	- [Cpp Implementation](#cpp-implementation)
+	- [C++ Implementation](#c-implementation)
 - [Use AzCopy to ingest data](#ingest-data-using-azcopy)
 
 ## Quick start 
@@ -624,10 +624,10 @@ except Exception as e:
 
 ```
 
-#### Cpp implementation
-We will in this quick start look at how to programmatically read data from Veracity using a Cpp. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
+#### C++ implementation
+We will in this quick start look at how to programmatically read data from Veracity using a C++. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
-The samples are written in Cpp and use the [Azure Storage SDK for Cpp](https://github.com/Azure/azure-storage-cpp). 
+The samples are written in C++ and use the [Azure Storage SDK for C++](https://github.com/Azure/azure-storage-cpp). 
 
 With NuGet Package Manager install Azure Storage Client Library. Use Package Manager Console and type
 

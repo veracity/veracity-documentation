@@ -88,7 +88,7 @@ The following actions are supported on the `/discover` view-point. Parameters in
 |`/discover/users`|`POST`|Get full profile information for multiple users.|
 |`/discover/users/{id}/companies`|`GET`|Get companies the user is affiliated to.|
 |`/discover/users/{id}/services`|`GET`|Get services the user is subscribed to.|
-|`/discover/users/{userid}/services/{serviceid}`|`GET`|Get the role a specific user has with regard to a specific service|
+|`/discover/users/{userid}/services/{serviceid}`|`GET`|Get the subscription details for a given user, with regard to a specific service|
 
 #### `/discover/companies/{id}`
 

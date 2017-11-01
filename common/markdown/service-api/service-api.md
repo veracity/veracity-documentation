@@ -16,7 +16,6 @@ Authentication is performed through OAuth2 bearer tokens.
 
 The API defines three primary view-points from which you can access more detailed information. The base url for requests is:
 
-***[TODO NOT VERIFIED FINAL URLS]***
 ```url
 https://myapiv3.dnvgl.com/[view-point]
 
@@ -42,11 +41,11 @@ Each response provides all, or most, of these headers:
 |:-----|:--:|:----------|
 |x-supportcode|GUID|Provides a unified way of correlating log entries accross all system components.|
 |x-serviceversion|string|The api build number.|
-|x-timer|int|The time spent on the server producing the response in milliseconds. [TODO is this correct?]|
+|x-timer|int|The time spent on the server producing the response in milliseconds. |
 |x-region|string|The Azure service region serving the request.|
 |x-principal|-|The user the request was executed on behalf of.|
 |x-view-point|string|The name of the current view-point.|
-|x-actor|GUID|The user id of the actor/service account. [TODO describe better]|
+|x-actor|GUID|The user id of the actor/service account. |
 
 The response status code describes whether or not the request succeeded. Currently,the following status codes may be returned:
 
@@ -72,7 +71,7 @@ The API supports formatting the response body according to the mime type provide
 
 ### Discover
 
-The primary purpose of the **Discover** view-point is to provide information about your "surroundings". Using it you can get information about companies, services and users in the system. [TODO correct?]
+The primary purpose of the **Discover** view-point is to provide information about your "surroundings". Using it you can get information about companies, services and users in the system. 
 
 #### Actions
 
@@ -89,7 +88,7 @@ The following actions are supported on the `/discover` view-point. Parameters in
 |`/discover/users`|`POST`|Get full profile information for multiple users.|
 |`/discover/users/{id}/companies`|`GET`|Get companies the user is affiliated to.|
 |`/discover/users/{id}/services`|`GET`|Get services the user is subscribed to.|
-|`/discover/users/{userid}/services/{serviceid}`|`GET`|Get the role a specific user has with regard to a specific service [TODO correct?]|
+|`/discover/users/{userid}/services/{serviceid}`|`GET`|Get the role a specific user has with regard to a specific service|
 
 #### `/discover/companies/{id}`
 
@@ -351,7 +350,7 @@ The following actions are supported on the `/my` view-point. Parameters in urls 
 |`/my/messages/count`|`GET`|Get the number of unread messages of the currently logged in user.|
 |`/my/messages`|`GET`|Get all messages for the currently logged in user.|
 |`/my/companies`|`GET`|Get companies the currently logged in user is affiliated with.|
-|`/my/policies/{serviceId}/validate()`|`GET`|Validates all myDNVGL policies for a specific service and returns a list of the policies that need validation. [TODO |
+|`/my/policies/{serviceId}/validate()`|`GET`|Validates all myDNVGL policies for a specific service and returns a list of the policies that need validation. |
 |`/my/policies/validate()`|`GET`|Validates all myDNVGL policies and returns a list of the policies that need validation.|
 |`/my/services`|`GET`|Get all services the user is subscribed to.|
 

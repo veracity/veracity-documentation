@@ -49,7 +49,7 @@ A SAS key may be granted for a limited time, options for Veracity are:
     - 8 hours
     - 1, 2, 3, 4, 5 and 6 months
     
-Note that when a key is shared one share the right to claim a key. The person who has received the key may claim the key at any time, once it has been claimed the timer will start. It is strongly recommended that the duration of the key is limited. There is a repeat/recurring option, enabling the client to reclaim the key if necessary.
+Note that one share the right to claim a key. The person the key is shared with, may claim the key at any time after the key is shared. The timer will start only once the key has been claimed though the portal or though the provisioning API. It is strongly recommended that the duration of the key is limited. There is a repeat/recurring option, enabling the client to reclaim the key if necessary.
 
 ### Recurring keys
 All keys can be given a repeating property, which means the key is automatically renewed until the owner of the container revokes it. Enabling this option allows for a much lower duration on keys, which increases the security. The client who has been granted a SAS key would need to reclaim the key after the duration expire. This can either be done through the Veracity MyData, or through the Veracity API.

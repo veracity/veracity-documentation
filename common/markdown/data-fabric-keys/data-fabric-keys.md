@@ -40,7 +40,7 @@ A SAS key is a string of characters, and a SAS URI also contain a protocol. An e
 ```ps
 https://ne1gnvdltasfsus00001.blob.core.windows.net/devcontainer9ae56656-bd3a-4d6e-b257-cfbb6241b1ea?sv=2017-04-17&sr=c&sig=HkIguyFkms26jwP420X8Rfu3q%2B9fuwO8Ob5Aeth7UfM%3D&st=2017-10-27T20%3A29%3A55Z&se=2017-10-27T22%3A30%3A02Z&sp=rwdl
 ```
-You should treat this information as you would treat a key to your home. It is personal, and do not share the key. A uniqe key will be generated for each individual user you choose to share with.
+You should treat this information as you would treat a key to your home. It is personal, and do not share the key. A unique key will be generated for each individual user you choose to share with.
 
 ### Key duration
 A SAS key may be granted for a limited time, options for Veracity are:

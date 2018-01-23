@@ -1,5 +1,10 @@
-﻿
-# Overview 
+﻿---
+Title : "Template"
+Author: "YOUR NAME"
+Contributors: ""
+---
+
+## Overview 
 Some text
 
 Quick-Start 
@@ -8,7 +13,9 @@ Quick-Start
 - some list
 
 
-# Quick start 
+## Quick start 
+
+
 ## Some header
 Some text
 
@@ -20,34 +27,34 @@ Some text
 
  
  
-# Tutorial 
+## Tutorial 
 In this section you will find a collection of materials that will provide a deeper understanding and insight on how to ingest your data to a data storage.  
  
-# Pattern & Practices 
+## Pattern & Practices 
 In this section we will give theoretical and practical recommendations on how to best develop, design and implement your service 
  
-# References 
+## References 
 
 ## GitHub  
 Follow our open projects related to ingest on https://github.com/veracity
 
 ## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity
- 
-[Visit Stack Oerflow](https://stackoverflow.com/questions/tagged/veracity?mode=all)
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
-### Video 
+[Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
+
+## Video 
 Some video....
  
-# Resources  
+## Resources  
 In this section we have added resources that may provide you with additional learning.  
 
 
  
-# FAQ 
+## FAQ 
 Some text 
  
-# Price model 
+## Price model 
 Some text
  
  

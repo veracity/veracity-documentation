@@ -28,9 +28,9 @@ https://api.dnvgl.com/DataAPI/api/[end-point]
 
 |End-point|Path|Method|Description|
 |:---------|:-------|:--:|:----------|
-|KeyTemplates_GetStorageKeyTemplate|`/keytemplates`|`GET`|Get all supported key templates for generating access keys.|
+|KeyTemplates_&#8203;GetStorage&#8203;KeyTemplate|`/keytemplates`|`GET`|Get all supported key templates for generating access keys.|
 |ProviderAccess|`/resources/{resourceId}/accesses`|`GET`, `POST`|Get list of providers with access to a given storage item or grant access.|
-|FetchKeyForStorageContainer|`/resources/{resourceId}/keys`|`GET`|Get a SAS key to access a storage item shared with you.|
+|FetchKeyFor&#8203;StorageContainer|`/resources/{resourceId}/keys`|`GET`|Get a SAS key to access a storage item shared with you.|
 |GetAllResources|`/resources`|`GET`|Get a list of all resources you can claim keys for.|
 |Users|`/users/{userId}`|`GET`|Get information about a user.|
 

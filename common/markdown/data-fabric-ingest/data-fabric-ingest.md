@@ -31,7 +31,7 @@ Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexp
 **IMPORTANT**: Some users have reported problems uploading data using the version 0.9.1 version of Storage Explorer. If you experience the same, upgrade if a new version is available, or get the 0.8.16 version from this [link](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-relnotes).
 
 #### Connect to a Veracity container using your key
-The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Daya](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
+The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My data](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
 
 In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
 
@@ -85,7 +85,7 @@ Implementations:
 - [Cpp Implementation](#cpp-implementation)
 
 #### .NET implementation
-We will explain how to programmatically write data to Veracity using a .NET Framework application in this quick guide. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-ingest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage container.
+We will explain how to programmatically write data to Veracity using a .NET Framework application in this quick guide. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-ingest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/100-developer-storage-manager) sample from our GitHub repository and create local emulated storage container.
 In this sample we use the following NuGet package:
  
 
@@ -206,7 +206,7 @@ static void Main(string[] args)
 }
 ```
 #### Java implementation
-We will now look at how to programmatically read data from Veracity using Java. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/) sample from our GitHub repository and create local emulated storage.
+We will now look at how to programmatically read data from Veracity using Java. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/100-developer-storage-manager/) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Java and use the [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). 
 
@@ -335,7 +335,7 @@ catch (Exception e) {
 ```
 
 #### NodeJs implementation
-In this quick start guide we will look at how to programmatically read data from Veracity using a Node.js. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager) sample from our GitHub repository and create local emulated storage.
+In this quick start guide we will look at how to programmatically read data from Veracity using a Node.js. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/100-developer-storage-manager) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Node.js and use the [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node). 
 
@@ -485,7 +485,7 @@ function performAzureOperations() {
 ```
 
 #### Python implementation
-We will now look at how to programmatically read data from Veracity using a Python. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
+We will now look at how to programmatically read data from Veracity using a Python. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/100-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in Python and use the [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
@@ -625,7 +625,7 @@ except Exception as e:
 ```
 
 #### C++ implementation
-We will in this quick start look at how to programmatically read data from Veracity using a C++. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
+We will in this quick start look at how to programmatically read data from Veracity using a C++. On GitHub you will find the [sample code](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-egest-data) for this application. If you do not have access to a Veracity data container, you may grab the [Veracity-Storage-Manager](https://github.com/veracity/veracity-quickstart-samples/tree/master/100-developer-storage-manager/developer_storage) sample from our GitHub repository and create local emulated storage.
 
 The samples are written in C++ and use the [Azure Storage SDK for C++](https://github.com/Azure/azure-storage-cpp). 
 

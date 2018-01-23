@@ -78,7 +78,8 @@ When the clientID and clientSecret are correctly added, go to the terminal and w
 npm start
 ```
 
-Go to your browser of choice, and visit [https://localhost:3000](https://localhost:3000), and check out your app.
+
+Now, go to your browser of choice, and visit [https://localhost:3000](https://localhost:3000), and check out your app.
 
 
 

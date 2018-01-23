@@ -4,7 +4,7 @@ Author: "Tong, Xiao Gang Tony"
 Contributors: "Brede Børhaug"
 ---
 
-## What is a notification?
+## Introduction
 A notification is a short message to a customer telling him that you have some new information that you think is relevant for him or her to know. The notification can have links to further information or an action you want the customer to do but it should not be a lengthy text.
 
 Examples:

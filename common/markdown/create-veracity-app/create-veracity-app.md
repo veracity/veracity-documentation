@@ -12,7 +12,7 @@ To make life easy for you, Veracity have created a Yeoman generator to get you s
 
 Create your application:
 - [Set up your dev environment](#set-up-your-dev-environment)
-- Install and update the Veracity application generator
+- [Install and update the Veracity application generator](#install-the-veracity-application-generator)
 - [NodeJS application](#nodejs-application)
 - .NET application
 

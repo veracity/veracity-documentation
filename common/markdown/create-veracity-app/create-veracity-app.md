@@ -7,10 +7,10 @@ Contributors:
 
 
 ## Overview 
-To make life easy for you, Veracity have created a Yeoman generator to get you started with your applications. The generator require Node to be installed in order to run. You may pick your language of choise for the Veracity application in the generator.
+To make life easy for you, we in Veracity have created a Yeoman generator to get you started with your applications. The generator requires Node to be installed in order to run. You may pick your language of choice for the Veracity application in the generator.
 
 
-Create your application:
+To create your application:
 - [Set up your dev environment](#set-up-your-dev-environment)
 - [Install and update the Veracity application generator](#install-the-veracity-application-generator)
 - [NodeJS application](#nodejs-application)
@@ -24,7 +24,7 @@ Create your application:
 To set up your dev environment to run the Veracity application generator, you first need to install Node on your computer. If NodeJs is not installed, go to [Nodejs.org](https://nodejs.org/en/download/) and get the latest stable version. When you are all done, you may go ahead and install the Veracity application generator. 
 
 ### Install the Veracity application generator
-The Veracity application generator is based on Yeoman, and design to get you started developing on Veracity. The source code for the generator is located at [GitHub](https://www.github.com/veracity) and published as a package on [npm](https://www.npmjs.com/package/@veracity/generator-veracity). The first thing you need to do to install the generator is to install Yeoman on your system. You do that in the following way:
+The Veracity application generator is based on Yeoman, and designed to get you started developing on Veracity. The source code for the generator is located at [GitHub](https://www.github.com/veracity) and published as a package on [npm](https://www.npmjs.com/package/@veracity/generator-veracity). The first thing you need to do to install the generator is to install Yeoman on your system. You do that in the following way:
 
 ```ps
 npm install -g yo
@@ -87,7 +87,7 @@ Now, go to your browser of choice, and visit [https://localhost:3000](https://lo
 Follow our open projects related to ingest on https://github.com/veracity
 
 ## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
 

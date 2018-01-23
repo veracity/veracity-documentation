@@ -870,10 +870,10 @@ This will copy all files starting with "my". Use option /S to copy more than one
 AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceSAS:sasToken /Dest:C:\MyLocalFolder /S
 ```
 
-### GitHub  
+## GitHub  
 Follow our open projects related to Veracity data fabric egest on https://github.com/veracity
 
-### Stack Overflow
+## Stack Overflow
 Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)

@@ -3,9 +3,8 @@ Title: Notification service
 Author: "Tong, Xiao Gang Tony"
 Contributors: "Brede Børhaug"
 ---
-## Notification Service
 
-### What is a notification?
+## What is a notification?
 A notification is a short message to a customer telling him that you have some new information that you think is relevant for him or her to know. The notification can have links to further information or an action you want the customer to do but it should not be a lengthy text.
 
 Examples:
@@ -16,7 +15,7 @@ A notification is not an action/task but some notifications could be notifying y
 
 A notification should not be used as general information newsletters or for marketing purposes. 
 
-### How does it work? 
+## How does it work? 
 
 When your customers are using your digital service, they can also subcribe to notifications related to your digital service if the service is offering notifications.The customers can set their notification preferences. The preferences to set are:
 
@@ -37,20 +36,20 @@ Based on the customers preferences on how they want the notification delivered, 
 
 If a digital service are offering different kind of notifications, these can be set up as separate notification channels so that the customer can subscribe to them independently.
 
-### How to send notification through Notification Service
+## How to send notification through Notification Service
 
 Service API has provided the API methods to use the notification service, you can find the details [here](https://developer.veracity.com/doc/service-api).
 
-### How to develop mobile apps to use push notification
+## How to develop mobile apps to use push notification
 
 Notification Service can support to send push notification to native mobile apps in all kinds of different devices like Android, iOS, Windows phone etc. To be able to use the push notification from Veracity, you need to do below two things:
 
 -  In your native app, register notification template in Veracity Service notification hub when the app starts, and implement the display of notification if the notification is received while the app is active.
 - In your back-end application which is supposed to send notification, it needs to call Notification API to send broadcast notification to all users of the app or notification to specified users
 
-#### How to connect your app to Veracity notification hub
+### How to connect your app to Veracity notification hub
 
-##### iOS development
+#### iOS development
 
 1. If you have no experience with Notification Hub and iOS development, please read through this  [guide](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started) on how to develop an mobile app on iOS to register notification template and receive notification.
 
@@ -88,7 +87,7 @@ result = [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNS
   
 6. How to show the notification when it's received while the app is active, you need to implement the method didReceiveRemoteNotification on AppDelegate.m as the demo application.
 
-##### Android development
+#### Android development
 
 1. If you are not familiar with Notification Hub and Android development, please read through this [guide](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-chrome-push-notifications-get-started) on how to develop an mobile app on Android to register notification template and receive notification.
 
@@ -142,5 +141,5 @@ public void subscribeToCategories(final Set<String> categories) {
 
 6. How to show the notification when it's received while the app is active, you need to implement the method onReceive on MyHandler.java as the demo application.
 
-#### How to send notification through your back-end application
+### How to send notification through your back-end application
 It needs to call Send Message API to send notification, please refer [Service API](https://developer.veracity.com/doc/service-api) for Notification. 

@@ -7,7 +7,7 @@ Contributors:
 
 
 ## Overview 
-To make life easy for you, Veracity have create a Yeoman generator to get you started with your applications. The generator require Node to be installed in order to run. You may pick your language of choise for the Veracity application in the generator.
+To make life easy for you, Veracity have created a Yeoman generator to get you started with your applications. The generator require Node to be installed in order to run. You may pick your language of choise for the Veracity application in the generator.
 
 
 Create your application:
@@ -50,7 +50,7 @@ The usage of the Veracity generator is given in the following way:
 yo @veracity/veracity:app [options]
 ```
 
-To list the latest apps awailable in the generator, write the following:
+To list the latest apps available in the generator, write the following:
 
 ```ps
 yo --help

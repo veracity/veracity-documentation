@@ -31,7 +31,7 @@ Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexp
 **IMPORTANT**: Some users have reported problems uploading data using the version 0.9.1 version of Storage Explorer. If you experience the same, upgrade if a new version is available, or get the 0.8.16 version from this [link](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-relnotes).
 
 #### Connect to a Veracity container using your key
-The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Daya](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
+The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Data](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
 
 In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
 
@@ -70,7 +70,7 @@ A lease will prevent anyone from modifying the file until you release it. The le
 When looking for your container in the hierarchy, you might see an item ending with (SAS), if you try to expand this node, you may get an error stating: "Authentication Error. The specified signed resource is not allowed for this resource level." In this case, you are attempting to expand a sub-node that is not supported by the SAS URI's for containers. Instead, look for your container in the node labeled (SAS-Attached-Services).
 
 ##### Proxy Configuration
-Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy accoring to your proxy.
+Working with the Azure Storage Explorer requires direct access to the Internet on Port 443. If your Internet Access is going via a Proxy, you need to click on the menu "Edit->Configure Proxy" to set up the proxy according to your proxy.
 
 ### Egest data programmatically
 This quick start guide will show you how to view and interact with your data using some common programming languages. For details on how the code works consult the readme file in the HelloWorld applications or the tutorials on each language in the next sections.
@@ -102,7 +102,7 @@ static void Main(string[] args)
 
   // Add some methods under this line  
 
-  // Hold the consol
+  // Hold the console
   Console.ReadLine();
 }
 ```
@@ -166,7 +166,7 @@ static void UseContainerSAS(string sas)
     string blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
     blob.UploadText(blobContent);
 
-    Console.WriteLine("We where able to write to a blob using this SAS key");
+    Console.WriteLine("We were able to write to a blob using this SAS key");
     Console.WriteLine();
   }
   catch (StorageException e)
@@ -244,7 +244,7 @@ static void Main(string[] args)
 
   // Add some methods under this line
   UseContainerSAS(veracityContainerSAS);
-  // Hold the consol
+  // Hold the console
   Console.ReadLine();
 }
 ```
@@ -341,7 +341,7 @@ try {
   String blobContent = "This Veracity blob was created with a shared access signature granting write permissions to the container.";
   blob.uploadText(blobContent);
 
-  System.out.println("We where able to write to a blob using this SAS key");
+  System.out.println("We were able to write to a blob using this SAS key");
   System.out.println();
 
   //Create a list to store blob URIs returned by a listing operation on the container.
@@ -409,7 +409,7 @@ sharedBlobSvc.createAppendBlobFromText(
       console.log("There was an error while doing blob upload.");
       console.error(error);
     } else {
-      console.log("We where able to write to a blob using this SAS key");
+      console.log("We were able to write to a blob using this SAS key");
     }
   }
 );
@@ -476,7 +476,7 @@ function performAzureOperations() {
         console.log("There was an error while doing blob upload.");
         console.error(error);
       } else {
-        console.log("We where able to write to a blob using this SAS key");
+        console.log("We were able to write to a blob using this SAS key");
 
         // listing blobs in container
         sharedBlobSvc.listBlobsSegmented(
@@ -492,7 +492,7 @@ function performAzureOperations() {
               for (index = 0; index < result.entries.length; index++) {
                 console.log(result.entries[index].name);
               }
-              console.log("We where able to write list blobs using SAS key");
+              console.log("We were able to write list blobs using SAS key");
 
               // downloading blob to text
               sharedBlobSvc.getBlobToText(
@@ -657,7 +657,7 @@ We are ready to perform write operation.
 try
 {
   blockBlob.upload_text(U("This Veracity blob was created with a shared access signature granting write permissions to the container."));
-  std::wcout << U("We where able to write to a blob using this SAS key") << std::endl;
+  std::wcout << U("We were able to write to a blob using this SAS key") << std::endl;
 }
 catch (const std::exception e)
 {
@@ -747,7 +747,7 @@ int main()
   try
   {
     blockBlob.upload_text(U("This Veracity blob was created with a shared access signature granting write permissions to the container."));
-    std::wcout << U("We where able to write to a blob using this SAS key") << std::endl;
+    std::wcout << U("We were able to write to a blob using this SAS key") << std::endl;
   }
   catch (const std::exception e)
   {
@@ -874,7 +874,7 @@ AzCopy /Source:https ://myblob.blob.core.windows.net/MyContainer /SourceSAS:sasT
 Follow our open projects related to Veracity data fabric egest on https://github.com/veracity
 
 ## Stack Overflow
-Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forumposts that include the tag Veracity Platform.
+Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge. The Veracity developer team monitor Stack Overflow forum posts that include the tag Veracity Platform.
 
 [Visit Stack Overflow](https://stackoverflow.com/questions/tagged/veracity+platform?mode=all)
  
@@ -882,14 +882,9 @@ Stack Overflow is the largest, most trusted online community for developers to l
 
 Q: I am using Ubuntu Linux and I have issues running storage explorer 
 
-A: Some users have reported issues with running storage explorer. We tested it successfully with the Windows desktop operation systems: Windows 7, Windows 8, Windows 10 and with the server operations systems Windows server 2008 and windows server 2012. The test failed with Ubuntu Linux 17.04 
+A: Some users have reported issues with running storage explorer. We tested it successfully with the Windows desktop operating systems: Windows 7, Windows 8, Windows 10 and with the server operating systems Windows Server 2008 and Windows Server 2012. The test failed with Ubuntu Linux 17.04.
 
 
 Q: I attempt to use the SAS key in Azure Storage Explorer a second time and get the Authentication Error: The specific signed resource is not allowed for this resource level
 
-A: This is a known bug in Azure Storage Explorer. This will occure if you did not detatch the storage before you tried to reconnect using the same ket. You will need to access the storage under the "(SAS-Attatched Services)" storage account in Azure Storage Explorer. The storage should still be mapped there. The Microsoft Azure team will need to resolve this bug, and Veracity is not able to contrtibute to that. Pleas continiue to update your Azure Storage Explorer when new realeases are awailable.
- 
- 
-
- 
- 
+A: This is a known bug in Azure Storage Explorer. This will occur if you did not detach the storage before you tried to reconnect using the same key. You will need to access the storage under the "(SAS-Attached Services)" storage account in Azure Storage Explorer. The storage should still be mapped there. The Microsoft Azure team will need to resolve this bug, and Veracity is not able to contribute to that. Please continue to update your Azure Storage Explorer when new releases are available.

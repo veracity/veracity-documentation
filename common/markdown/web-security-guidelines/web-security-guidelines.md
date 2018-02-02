@@ -1,7 +1,6 @@
 ---
 Title : "Web Security Guidelines"
 Author: "Thomas Haugland Rudfoss"
-Contributors: ""
 ---
 
 ## Overview
@@ -58,21 +57,21 @@ This header controls whether the browser will attempt to protect users against c
 
 ### Headers that should be removed
 
-Some headers are sent by default for new setups of certain 
+Depending on the type of technology stack you have the default configuration may reveal unwanted information about your application. For instance expressjs will by default return the header `X-Powered-By` wich contains information about express itself potentially including the version number. This type of information could help attackers know that your system may be vulnerable and should not be surfaces if it can be avoided. You should therefore always remove these headers from your responses.
 
 - `X-Powered-By`<br>This header usually contains information about the server software used to serve the request. This header should not be sent as it reveals information about the underlying technology stack that may be used by hackers to target your application. If you are running on an older version of software it may contain known security vulnerabilities that may be advertised to the world if this header is set.
-- `Server`<br>The Server header is sometimes included 
+- `Server`<br>The Server header sometimes include IPs or other identifying information for the server you are running.
 
 
 ## Tools and more information
 
 There are several useful tools both online and available for download that help you detect and prevent security issues with your application. Below is a short description of some of these.
 
-## NodeJs and Express
+### NodeJs and Express
 
 If you are building services using NodeJS and Express you should read their [Production Best Practices: Security](https://expressjs.com/en/advanced/best-practice-security.html) documentation. It describes many useful and relatively simple techniques that will dramatically improve the security of your application.
 
-## Online tools
+### Online tools
 
 There are several useful tools online for testing whether your site conforms to common security best-practices. Try using these regularly to ensure your application follows these practices.
 
@@ -84,4 +83,4 @@ There are several useful tools online for testing whether your site conforms to 
 
 ## Disclaimer
 
-Veracity does not endores or promote any links within this document. Use at your own risk (?)
+Veracity does not endores or promote any links within this document. Use at your own risk.

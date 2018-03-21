@@ -14,8 +14,9 @@ To create your application:
 - [Set up your dev environment](#set-up-your-dev-environment)
 - [Install and update the Veracity application generator](#install-the-veracity-application-generator)
 - [NodeJS application](#nodejs-application)
-- .NET application
+- [.NET application](#.NET-application)
 
+Updated after release : 0.1.7
 
 ## Quick start 
 
@@ -81,6 +82,41 @@ npm start
 
 Now, go to your browser of choice, and visit [https://localhost:3000](https://localhost:3000), and check out your app.
 
+### .NET application
+The usage of the Veracity generator is given in the following way:
+```ps
+yo @veracity/veracity:app [options]
+```
+
+To list the latest apps available in the generator, write the following:
+
+```ps
+yo --help
+```
+
+#### .NET core application
+To install and run the .NET core application, you do the following steps.
+
+Open your terminal or powershell and navigate to an empty folder where you want to store your project. To create an empty folder, do the following:
+
+```ps
+mkdir MyNewFolderName
+```
+Then go ahead and create the demo application by typing in:
+
+```ps
+yo @veracity/veracity:netcore-webapp
+```
+
+When the application is installed, go to the terminal and write:
+
+```ps
+dotnet run
+```
+
+Now, go to your browser of choice, and visit [https://localhost:3000](https://localhost:3000), and check out your app.
+
+Check out the readme.md in the root folder for additional details.
 
 
 ## GitHub  

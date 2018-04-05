@@ -71,7 +71,7 @@ In particular, you will find some guidance on:
 #### Create a machine learning workspace
 In order to start using Microsoft Machine learning studio, you need to create a machine learning workspace. You do that in two ways. You could just press this button:
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-azure-machine-learning-studio-workspace%2Fdeployazure.json) 
+[![Deploy to Azure](https://veracityprod.blob.core.windows.net/cdn/assets/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVeracity%2Fveracity-quickstart-samples%2Fmaster%2F101-azure-machine-learning-studio-workspace%2Fdeployazure.json) 
 
 or you can do it in the following way:
 

@@ -31,19 +31,19 @@ The Veracity application generator is based on Yeoman, and designed to get you s
 npm install -g yo
 ```
 
-You should now have Yeoman installen on your systemm. To install the Veracity application, put the following into your terminal/powershell:
+You should now have Yeoman installen on your system. To install the Veracity application, enter the following into your terminal/powershell:
 ```ps
 yo install -g @veracity/generator-veracity
 ```
 
 Now Veracity application generator is installed on your system. You may procede to create your application. 
 
-We encurrage you to periodically check for updates to the generator, to make sure you get the latest and greatest. In order to update the generator, you do the following:
+We encourage you to periodically check for updates to the generator, to make sure you get the latest and greatest. In order to update the generator, you do the following:
 
 ```ps
 yo
 ```
-Then select update generator, and then the @veracity/generator-veracity. You should then be updated to the latest.
+Then select update generator, and then the @veracity/generator-veracity. You should then be updated to the latest version.
 
 ### NodeJs application
 The usage of the Veracity generator is given in the following way:
@@ -80,7 +80,7 @@ npm start
 ```
 
 
-Now, go to your browser of choice, and visit [https://localhost:3000](https://localhost:3000), and check out your app.
+Now, go to your browser of choice, visit [https://localhost:3000](https://localhost:3000), and check out your app.
 
 ### .NET application
 The usage of the Veracity generator is given in the following way:

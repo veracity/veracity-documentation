@@ -33,7 +33,7 @@ npm install -g yo
 
 You should now have Yeoman installen on your system. To install the Veracity application, enter the following into your terminal/powershell:
 ```ps
-yo install -g @veracity/generator-veracity
+npm install -g @veracity/generator-veracity
 ```
 
 Now Veracity application generator is installed on your system. You may procede to create your application. 

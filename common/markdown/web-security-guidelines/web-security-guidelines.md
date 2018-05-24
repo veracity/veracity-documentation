@@ -31,27 +31,27 @@ Any HTTP/HTTPS response contains headers providing details about what is being s
 
 Note that defining these headers will not stop attackers from visiting your site, but it will greatly enhance the security of regular users using browsers that understand them.
 
-### `Content-Security-Policy`
+### Content-Security-Policy
 
 The Content-Security-Policy or CSP header defines a whitelist of sources the client may load different types of data from. For instance you can limit the client to only allow loading of script files from your own domain which will prevent many cross-site-scripting (XSS) vectors. The CSP header should be set to the most restrictive configuration you can while still allowing your website or service to operate properly. Read more about this header on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) and [OWASP](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#csp).
 
-### `Strict-Transport-Security`
+### Strict-Transport-Security
 
 This header tells clients that your website supports HTTPS connections and that if the user types your address or visists your site from a link it should try to fetch it using a secure connection first. This is *not* a substitute for redirecting HTTP connections to HTTPS though as first-time users do not know of the header until they load your page. However once they have their browser will cache this information and future requests to your application will always be performed using a secure connection. Read more about this header on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security).
 
-### `X-Frame-Options`
+### X-Frame-Options
 
 This header defines how your website can be embedded either as an iframe or other mechanisms. Most browsers will prevent pages on different domains from communicating with each other even when the page is embedded, but there are other attack vectors that may be utilized such as [clickjacking](https://en.wikipedia.org/wiki/Clickjacking) even if no communication is allowed. You should set this header as restrictive as possible for your application. Read more about this header on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options).
 
-### `X-Content-Type-Options`
+### X-Content-Type-Options
 
 The `Content-Type` header describes the [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the payload of a response from the server. If the header is missing the browser can attempt to "sniff" out the correct content type in order to handle the content correctly. An image should be displayed as an image while a JavaScript may execute. A problem and potential security issue occurs when the browser sniffs for the content type and ends up interpreting something as something else. Your server application should *always* report the correct content type to begin with, but the `X-Content-Type-Options` header can additionally define whether the browser should even try to sniff for content types. Read more about this header on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options).
 
-### `Referrer-Policy`
+### Referrer-Policy
 
 When a user clicks a link on a site that takes them to another one the browser can include information about the previous site in the `Referer` (yes, it's [misspelled](https://en.wikipedia.org/wiki/HTTP_referer)) header. In some cases you may not wish to reveal where the user comes from. The `Referrer-Policy` heaader allows you to do this by restricting where the browser will add the `Referer` header. Read more about it on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy).
 
-### `X-XSS-Protection`
+### X-XSS-Protection
 
 This header controls whether the browser will attempt to protect users against cross-site-scripting (XSS) attacks. It is not respected by all browsers and covers mostly the same issues as the `Content-Security-Policy` header, but is still a useful security mechanism that should be enabled if supported. Read more about the header on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).
 

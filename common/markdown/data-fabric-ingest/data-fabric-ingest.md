@@ -3,7 +3,7 @@ Title: "Data Fabric Ingest"
 Author: "Brede Børhaug"
 Contributor: "Rachel Hassall"
 ---
-## Overview - Private preview
+## Overview
 Data ingestion is the action of importing data to a data storage container, for either immediate or later use. There are various ways to ingest data to Veracity. The best method for you will depend on both your technical ability and your intended purpose within Veracity.
 
 This guide will show you how into ingest your data into the Veracity data fabric. To proceed with ingesting data, you will need to have a Veracity account. If you do not already have an account, please click [here](https://mystag.dnvgl.com/Register).

@@ -23,7 +23,7 @@ This API provides end-points for managing access and
 
 
 ```url
-https://api.dnvgl.com/DataAPI/api/[end-point]
+https://api.veracity.com/veracity/datafabric/data/api/[end-point]
 ```
 
 |End-point|Path|Method|Description|
@@ -119,7 +119,7 @@ Response format:
 This request requires an `accessSharingId` query parameter defining the id of the key you want to return:
 
 ```url
-https://api.dnvgl.com/DataAPI/api/resources/{resourceId}/keys?accessSharingId={accessSharingId}
+https://api.veracity.com/veracity/datafabric/data/api/resources/{resourceId}/keys?accessSharingId={accessSharingId}
 ```
 
 Response format:
@@ -140,7 +140,7 @@ Response format:
 This end-point also provides two optional `boolean` query parameters `shared` and `owned` to return shared or owned resources. By default only owned resources are returned:
 
 ```url
-https://api.dnvgl.com/DataAPI/api/resources?shared=false&owned=true
+https://api.veracity.com/veracity/datafabric/data/api/resources?shared=false&owned=true
 ```
 
 Response format:
@@ -201,7 +201,7 @@ Response format:
 This API provides an end-point for provisioning new Azure Blob Containers. The base url for requests is:
 
 ```url
-https://api.dnvgl.com/provisionAPI/api/[end-point]
+https://api.veracity.com/veracity/datafabric/data/api/[end-point]
 ```
 
 |End-point|Path|Method|Description|
@@ -272,10 +272,10 @@ The following request body types are supported:
 This API defines two primary end-points from which you can access metadata information. The base url for requests is:
 
 ```url
-https://api.dnvgl.com/MetadataAPI/api/[end-point]
+https://api.veracity.com/veracity/datafabric/data/api/[end-point]
 
 e.g.:
-https://api.dnvgl.com/MetadataAPI/api/global-tags
+https://api.veracity.com/veracity/datafabric/data/api/global-tags
 ```
 
 These are:
@@ -467,10 +467,10 @@ Request format (* required):
 
 ## Tutorial
 Veracity uses API Management. In order to get access, you will need to:
-- Register at [https://api-portal.dnvgl.com/](https://api-portal.dnvgl.com/)
+- Register at [https://api-portal.veracity.com/](https://api-portal.veracity.com/)
 - Subscribe to the Veracity Platform API – Product, this will give you access to our DataAPI and ProvisionAPI with a subscription ID
 
-NB! The endpoint URLs might be changed/refactored during private preview period to further enhance the developer experience. We will try to inform users of the API before such changes take place.
+NB! The endpoint URLs might be changed/refactored during public preview period to further enhance the developer experience. We will try to inform users of the API before such changes take place.
 
 ### Standard structure of API Call
 

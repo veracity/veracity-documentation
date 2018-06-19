@@ -38,25 +38,25 @@ The cluster may take up to 10 min to be provisioned.
 
 - First get a key to your container from the [https://data.veracity.com](Data Fabric)
 - In the first line, you need to set up the connection:
-'''python
+```python
 spark.conf.set(
   "fs.azure.sas.{YOUR CONTAINER NAME}.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net",
   "{COMPLETE QUERY STRING OF YOUR SAS FOR THE CONTAINER}")
-'''
+```
 
 Do NOT include the curly braces { } in the container or storage account name in the above.  Container names look like "nameyoupickede5b7213560-bd24-4293-b7f0-87cde3e7c8ea". The storage account name looks like "eu1dnvglpstgcus0000b". Veracity storage account access keys begin with sv and end with rl, rwdl, etc. depending on the type of key.
 
 - In next cell, read data from Veracity storage. In the following example, we read csv files:
-'''python
+```python
 %python
 df=spark.read.format("csv").option("inferSchema", "true").option("header", "true").load("wasbs://<here-write-container-reference>@ne1dnvglpstgcus0000b.blob.core.windows.net/<file-location>")
-'''
+```
 If your account key grants write permission, you can also write parquet files for faster loading later after reading the csv:
 
-'''python
+```python
 %python
 df.write.parquet("wasbs://<here-write-container-reference>@ne1dnvglpstgcus0000b.blob.core.windows.net/<file-location>"
-'''
+```
  
 ## GitHub  
 Follow our open projects related to ingest on https://github.com/veracity

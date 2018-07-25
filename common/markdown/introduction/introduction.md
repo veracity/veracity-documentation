@@ -36,7 +36,7 @@ Consumers will find all the digital services they have access to on the Veracity
 
 
 #### Data fabric - currently in private preview phase
-The data sharing and data analytics part of Veracity is currently in a private preview phase, meaning that we are working together with a selection of leading customers and providers. We will verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. 
+The data sharing and data analytics part of Veracity is currently in a public preview phase, so anyone can request to join data fabric. We will verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. 
 
-More functionality, services, and providers will be added based on the feedback from our private preview customers and providers. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for any additional questions. 
+More functionality, services, and providers will be added based on the feedback from customers and providers. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for any additional questions. 
 

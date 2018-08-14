@@ -16,7 +16,7 @@ With all the new opportunities Veracity enables for both asset owners and servic
 - **Can anybody sell data or a service in the marketplace?** Yes! Veracity is an open B2B platform, and we allow complementary services and competing services on to the platform. 
 - **How do we get paid when selling a product on Veracity?** Through Veracity. We provide an E-Commerce solution, in cooperation with Oracle, on Veracity.
 - **Where can I find code samples to get started?** All code samples are open source, and on our [GitHub](https://www.github.com/Veracity) account. Fork our repositories and follow the tutorials in the documentation [here](https://developer.veracity.com/docs) on Veracity for developers.  
-- **How can I test out the [data fabric](#data-fabric-currently-in-private-preview-phase)?** The data sharing and data analytics part of Veracity is currently in a private preview phase, meaning that we will work together with a selection of leading customers and providers. We will verify the design and functionality of these elements of the platform, and explore how value can be best created for asset owners and analytic providers. If you are interested in joining this private preview phase then please reach out to your current DNV GL business contact and we will carefully assess if we can on-board you now.
+- **How can I test out the [data fabric](#data-fabric-currently-in-public-preview-phase)?** The data sharing and data analytics part of Veracity is currently in a public preview phase. If you would like to get access, you can request it from the [product page](https://store.veracity.com/8ad08065-7fa8-475f-9055-83067132c022). We continue to work with leading customers and providers to verify the design and functionality of these elements of the platform, and explore how value can be best created for asset owners and analytic providers. 
 - **Is there a Veracity developer program?** The Veracity developer program will be announced in the near future.
 - **I want to contribute to open source, is this possible?** Great, yes! We embrace open source, you are more than welcome to do a pull request on any of our public repositories - please read the contributor guidelines in the repositories on GitHub. We not only share open source, but we also contribute with developer's code. We have some projects already on GitHub. Feel free to join.
 
@@ -35,8 +35,10 @@ The Marketplace within Veracity is an Oracle based E-Commerce solution which all
 Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use these digital services without additional log in, as it is a prerequisite for service providers to integrate their digital services with the DNV GL identity provider. Consumers will buy the services on the Marketplace and when the service is purchased it will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API.
 
 
-#### Data fabric - currently in private preview phase
-The data sharing and data analytics part of Veracity is currently in a public preview phase, so anyone can request to join data fabric. We will verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. 
 
-More functionality, services, and providers will be added based on the feedback from customers and providers. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for any additional questions. 
+#### Data fabric - currently in public preview phase
+The data sharing and data analytics part of Veracity is currently in a public preview phase, where users can request access to test out the existing functionality. We still continue to work together with a selection of leading customers and providers to verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. 
+
+More functionality, services, and providers will be added based on the feedback from our public preview customers and providers. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for any additional questions. 
+
 

@@ -35,8 +35,10 @@ The Marketplace within Veracity is an Oracle based E-Commerce solution which all
 Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use these digital services without additional log in, as it is a prerequisite for service providers to integrate their digital services with the DNV GL identity provider. Consumers will buy the services on the Marketplace and when the service is purchased it will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API.
 
 
+
 #### Data fabric - currently in public preview phase
 The data sharing and data analytics part of Veracity is currently in a public preview phase, where users can request access to test out the existing functionality. We still continue to work together with a selection of leading customers and providers to verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. 
 
 More functionality, services, and providers will be added based on the feedback from our public preview customers and providers. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for any additional questions. 
+
 

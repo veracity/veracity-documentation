@@ -8,26 +8,44 @@ Contributors: "Rachel Hassall"
 
 The Service API provides a consistent interface for accessing data about the user, as well as the Veracity platform in general. At its core is a REST service built up of "view-points" where you can read, write and update information. Authentication is handled through Azure B2C OAuth 2.
 
+## Api Management
+
+You can access documentation and try out the api through the Api Management catalogue [Veracity Api management](https://api-test-portal.veracity.com/).
+Note to existing Veracity developers, we will sunset the direct access to the api and you will only be allowed to access it through  https://api.veracity.com/platform
+
+## Versioning
+
+We are committed to keep 2 versions alive at any given time. We will only make a new version when we need to introduce breaking changes to our service, while extentions to the api will be released without adding a new version.
+
+### Examples of changes without introducing a new version:
+
+- adding a new action 
+- adding new properties to the existing responses
+
 ## Authentication
 
 Authentication is performed through OAuth2 bearer tokens.
+
+### Service api subscription
+
+To access the service you need to register your application in our api management catalogue [Veracity Api management](https://api-test-portal.veracity.com/) and pass your subscription key through the `Ocp-Apim-Subscription-Key` header.
 
 ## View-points
 
 The API defines three primary view-points from which you can access more detailed information. The base url for requests is:
 
 ```url
-https://myapiv3.dnvgl.com/[view-point]
+https://api.veracity.com/platform/[view-point]
 
 e.g.:
-https://myapiv3.dnvgl.com/my/profile
+https://api.veracity.com/platform/my/profile
 ```
 
 These are:
 
 |View-point|Path|Description|
 |:---------|:-------|:----------|
-|Discover|`/discover`|Information about different master data and resources with in myDNVGL. The main categories are: services, users and companies.|
+|Directory|`/directory`|Information about different master data and resources with in myDNVGL. The main categories are: services, users and companies. This view point is reserved for advances services and require more priviledges|
 |My|`/my`|Provides information about the currently logged in user.|
 |This|`/this`|Provides information from the service or applications point of view, its capabilities and metadata.|
 
@@ -39,11 +57,11 @@ Each response provides all, or most, of these headers:
 
 |Header|Type|Description|
 |:-----|:--:|:----------|
-|x-supportcode|GUID|Provides a unified way of correlating log entries accross all system components.|
+|x-supportcode|string|Provides a unified way of correlating log entries accross all system components.|
 |x-serviceversion|string|The api build number.|
 |x-timer|int|The time spent on the server producing the response in milliseconds. |
 |x-region|string|The Azure service region serving the request.|
-|x-principal|-|The user the request was executed on behalf of.|
+|x-principal|string|The user the request was executed on behalf of.|
 |x-view-point|string|The name of the current view-point.|
 |x-actor|GUID|The user id of the actor/service account. |
 
@@ -56,6 +74,7 @@ The response status code describes whether or not the request succeeded. Current
 |300|Ambiguous|Your request could point to multiple resources. You should augment it with additional identifying information.|
 |400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
 |403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
+|406|Not Acceptable|Returned from the validate policy actions, the error body wil contain the url to the veracity accept terms page|
 |404|Not Found|The requested resource/view-point/action was not found or is not known.|
 |500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
 |501|Not Implemented|The view-point or action is not currently implemented, but may be in the future.|
@@ -69,28 +88,31 @@ The API supports formatting the response body according to the mime type provide
 - `application/xml`
 - `text/xml`
 
-### Discover
+### Directory
 
-The primary purpose of the **Discover** view-point is to provide information about your "surroundings". Using it you can get information about companies, services and users in the system. 
+The primary purpose of the **Directory** view-point is to provide information about your "surroundings". Using it you can get information about companies, services and users in the system. 
 
 #### Actions
 
-The following actions are supported on the `/discover` view-point. Parameters in urls are indicated by `{}` and should be replaced when using the action.
+The following actions are supported on the `/directory` view-point. Parameters in urls are indicated by `{}` and should be replaced when using the action.
 
 |Action|Method|Description|
 |:-----|:----:|:----------|
-|`/discover/companies/{id}`|`GET`|Get details about a specific company.|
-|`/discover/companies/{id}/users`|`GET`|Get users affiliated with a specific company.|
-|`/discover/services/{id}`|`GET`|Get details about a specific service.|
-|`/discover/services/{id}/users`|`GET`|Get users subscribed with a specific service.|
-|`/discover/users/email?email={email}`|`GET`|Get information about all users associated with a specific email address.|
-|`/discover/users/{id}`|`GET`|Get the full profile for a specific user.|
-|`/discover/users`|`POST`|Get full profile information for multiple users.|
-|`/discover/users/{id}/companies`|`GET`|Get companies the user is affiliated to.|
-|`/discover/users/{id}/services`|`GET`|Get services the user is subscribed to.|
-|`/discover/users/{userid}/services/{serviceid}`|`GET`|Get the subscription details for a given user, with regard to a specific service|
+|`/directory/companies/{id}`|`GET`|Get details about a specific company.|
+|`/directory/companies/{id}/users`|`GET`|Get users affiliated with a specific company.|
+|`/directory/services/{id}/datacontainers`|`GET`|List the service's datacontainers|
+|`/directory/services/{id}/datacontainers/{containerId}`|`PUT` `DELETE`|Add or Remove a datacontainer reference for a service|
+|`/directory/services/{id}`|`GET`|Get details about a specific service.|
+|`/directory/services/{id}/users`|`GET`|Get users subscribed with a specific service.|
+|`/directory/services/{serviceId}/administrators/{userId}`|`GET`|Check if the user is an administrator of the service.|
+|`/directory/users/email?email={email}`|`GET`|Get information about all users associated with a specific email address.|
+|`/directory/users/{id}`|`GET`|Get the full profile for a specific user.|
+|`/directory/users`|`POST`|Get full profile information for multiple users.|
+|`/directory/users/{id}/companies`|`GET`|Get companies the user is affiliated to.|
+|`/directory/users/{id}/services`|`GET`|Get services the user is subscribed to.|
+|`/directory/users/{userid}/services/{serviceid}`|`GET`|Get the subscription details for a given user, with regard to a specific service|
 
-#### `/discover/companies/{id}`
+#### `/directory/companies/{id}`
 
 Response format:
 
@@ -112,13 +134,13 @@ CompanyInfo {
 }
 ```
 
-#### `/discover/companies/{id}/users`
+#### `/directory/companies/{id}/users`
 
 This action returns a paged result. You must provide a page number as well as a page size as query parameters to this request.
 
 E.g.:
 ```url
-/discover/companies/{id}/users?page=1&pageSize=15
+/directory/companies/{id}/users?page=1&pageSize=15
 ```
 
 Response format:
@@ -135,7 +157,7 @@ Response format:
 ]
 ```
 
-#### `/discover/services/{id}`
+#### `/directory/services/{id}`
 
 Response format:
 
@@ -160,7 +182,7 @@ ServiceInfo {
 }
 ```
 
-#### `/discover/services/{id}/users`
+#### `/directory/services/{id}/users`
 
 This action returns a paged result. You must provide a page number as well as a page size as query parameters to this request.
 
@@ -183,7 +205,7 @@ Response format:
 ]
 ```
 
-#### `/discover/users/email?email={email}`
+#### `/directory/users/email?email={email}`
 
 Response format:
 
@@ -199,7 +221,7 @@ Response format:
 ]
 ```
 
-#### `/discover/users/{id}`
+#### `/directory/users/{id}`
 
 Response format:
 
@@ -225,7 +247,7 @@ CompanyReference {
 }
 ```
 
-#### `/discover/users`
+#### `/directory/users`
 
 The body of this request should be a list of user IDs. For example:
 
@@ -274,7 +296,7 @@ CompanyReference {
 }
 ```
 
-#### `/discover/users/{id}/companies`
+#### `/directory/users/{id}/companies`
 
 Response format:
 
@@ -290,7 +312,7 @@ Response format:
 ]
 ```
 
-#### `/discover/users/{id}/services`
+#### `/directory/users/{id}/services`
 
 Response format:
 
@@ -306,7 +328,7 @@ Response format:
 ]
 ```
 
-#### `/discover/users/{userid}/services/{serviceid}`
+#### `/directory/users/{userid}/services/{serviceid}`
 
 Response format:
 
@@ -422,15 +444,57 @@ Response format:
 
 #### `/my/policies/{serviceId}/validate()`
 
+Validates the platform terms and services spesific terms.
+
+Headers: 
+
+returnUrl: the absolute url to the page in your service you want the user to be redirected to after accepting the terms
+
 Response format:
 
-[TODO missing response format information in (https://myapiv3test.dnvgl.com/swagger/ui/index#!/My/My_MyServices)]
+204 - No validation errors
+
+406 - Policy violations, redirect the user to the policy approval page.
+
+```JSON
+{
+  "url": "urlToAcceptTermsPage",
+  "violatedPolicies": [
+    "string"
+  ],
+  "message": "string",
+  "information": "string",
+  "subCode": 0,
+  "supportCode": "string"
+}
+```
 
 #### `/my/policies/validate()`
 
+Validates the platform terms.
+
+Headers: 
+
+returnUrl: the absolute url to the page in your service you want the user to be redirected to after accepting the terms
+
 Response format:
 
-[TODO missing response format information in (https://myapiv3test.dnvgl.com/swagger/ui/index#!/My/My_MyServices)]
+204 - No validation errors
+
+406 - Policy violations, redirect the user to the policy approval page.
+
+```JSON
+{
+  "url": "urlToAcceptTermsPage",
+  "violatedPolicies": [
+    "List of violated policies"
+  ],
+  "message": "string",
+  "information": "string",
+  "subCode": 0,
+  "supportCode": "string"
+}
+```
 
 #### `/my/services`
 
@@ -459,8 +523,10 @@ Response format:
 |`/this/services/{serviceId}/subscribers`|`GET`|Get all users currently subscribed to a specific service the current service account is associated with.|
 |`/this/subscribers/{userId}`|`PUT`, `DELETE`|Add or remove service subscriptions for a specifc user.|
 |`/this/services/{serviceId}/subscribers/{userId}`|`PUT`, `DELETE`|Add or remove service subscriptions for a specifc user.|
+|`/this/user/resolve({email})`|`GET`|Use this to verify that a user with the specified email address exists in Veracity|
 |`/this/user`|`POST`|Create a user in myDNVGL|
 |`/this/users`|`POST`|Create multiple users in myDNVGL|
+|`/this/services/{serviceId}/notification`|`POST`|Send a notification to the user through the Veracity notification services (web or email at the moment, but we are investigating the possibillity to add push notifications through the browser or native app)|
 
 #### `/this/services`
 

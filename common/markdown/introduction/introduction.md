@@ -36,7 +36,7 @@ Consumers will find all the digital services they have access to on the Veracity
 
 
 
-#### Data fabric - currently in public preview phase
+#### Data fabric
 The data sharing and data analytics part of Veracity is now in general availability, where users can get request access. We still continue to work together with customers and providers to understand future requirements for the product and take these into the roadmap.
 
 More functionality, services, and providers will be continuously added. You may investigate the code samples and documentation related to the data fabric, and feel free to reach out to the Veracity team for any additional questions. 

@@ -5,10 +5,12 @@ Contributors: "Rachel Hassall, Thomas Rudfoss"
 ---
 
 ## Overview
-Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 2 main Veracity APIs:
+Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs:
 
 - Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform users.
 - Provisioning API - The Veracity Provision API is an API that enables developers and applications to create,update and delete data containers.
+- Service API - The Service API provides a consistent interface for accessing data about the user, as well as the Veracity platform in general, [click here for more information](https://developer.veracity.com/doc/service-api)
+
 
 ## Authentication
 

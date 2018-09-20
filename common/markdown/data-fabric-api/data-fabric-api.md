@@ -159,8 +159,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/a
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | Azure resource|
 | autoRefreshed | query  | boolean | required | Should a renewed key be issued to the shared party after it expires |
 
@@ -198,8 +199,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/a
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | Azure resource|
 | accessId | path  | string | required | Access ID| 
 
@@ -289,8 +291,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/application/{application
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | applicationId | path  | string | required | AAD B2C Application Id |
 
 **Return**
@@ -320,8 +323,9 @@ _Note: Need to be owner or data steward to perform this action_
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type | Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | The Id of the resource |
 
  **Return**
@@ -354,8 +358,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/o
 **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | The Id of the resource |
 | userId | path  | string | required | The Id of the user with role of Data Manager that ownership will be transfered to. |
 
@@ -405,8 +410,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/d
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | The Id of the resource |
 | userId | path  | string | required | The Id of the data steward who will be removed. |
  **Return**
@@ -426,8 +432,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/d
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | The Id of the resource |
 | userId | path  | string | required |A Data Steward user Id |
 
@@ -506,8 +513,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resource/{resourceId}/le
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | The Id of the resource |
 
  **Return**
@@ -605,8 +613,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}
 **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | resourceId | path  | string | required | The Id of the resource |
 
  **Return**
@@ -655,8 +664,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/tags
  **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | includeDeleted | query  | string | required | The Id of the resource |
 | includeNonVeracityApproved | query  | string | required | The Id of the resource |
 
@@ -760,9 +770,8 @@ This API provides end-points for managing access and:
 https://api.veracity.com/veracity/datafabric/provisioning/api/1/[end-point]
 ```
 
-Actions
-| Action |Path|Method|Description|
-|:---------|:---------|:-------|:--:|:----------|
+| Action | Path | Method | Description |
+|:---------|:---------|:-------|:----------|
 |V1.0 Container | `/container` | `POST` | Provision a blob storage container, requires a short name and storage container. |
 |V1.0 Container | `/container/{id}/metadata` | `PATCH` | Update container metadata. |
 |V1.0 Container | `/container{id}` | `DELETE` | Delete a azure storage container |
@@ -849,8 +858,9 @@ https://api.veracity.com/veracity/datafabric/provisioning/api/1/container/{id}/m
 **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | id | path  | string | required | The Id of the resource |
 
 
@@ -910,8 +920,9 @@ https://api.veracity.com/veracity/datafabric/provisioning/api/1/container/{id}
 **Input**
 
 `Parameters`
-| Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
+
+| Parameter | Parameter Type | Data Type | required | Description |
+|:----------|:--------------|:----------|:---------|:----------|
 | id | path  | string | required | The Id of the resource |
 
 #### V1.0 Regions

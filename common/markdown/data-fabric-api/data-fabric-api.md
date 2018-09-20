@@ -95,9 +95,9 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/a
 
 `Parameters`
 | Parameter |Parameter Type	| Data Type | required |Description|
-|:---------|:---------|:-------|:--:|:----------|
-| resourceId | path  | string | required | Azure resource|
-| pageNo | query  | int32 | optional | Page number. Defaults to 1|
+|:----------|:--------------|:----------|:---------|:----------|
+| resourceId | path  | string | required | Azure resource |
+| pageNo | query  | int32 | optional | Page number. Defaults to 1 |
 | pageSize | query  | int32 | optional |  Number of results per page. Defaults to 50. If this is a negative number, all results will be fetched |
 
 

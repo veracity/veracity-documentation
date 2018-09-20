@@ -5,495 +5,1065 @@ Contributors: "Rachel Hassall, Thomas Rudfoss"
 ---
 
 ## Overview
-Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs: 
+Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 2 main Veracity APIs:
 
 - Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform users.
-- Provisioning API - The Veracity Provision API is an API that enables developers and applications to create data containers. 
-- Metadata API - The Veracity Metadata API is an API that can both get and post information on data containers. The API enables you to add meta data to the containers both to visually represent the data containers in the portal, and make it easier to search in the data catalogue.
+- Provisioning API - The Veracity Provision API is an API that enables developers and applications to create,update and delete data containers.
 
 ## Authentication
 
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
-## End-points
+## API usage
+For all requests you need to provide the `Ocp-Apim-Subscription-Key` header. It must contain your subscription key found in your [profile](https://api-portal.veracity.com/developer).
 
-### Data API
+All request also requires a Authorization token, a guide on how to acquire the token can be found [here](https://developer.veracity.com/doc/identity)
 
-This API provides end-points for managing access and 
-
-
-```url
-https://api.veracity.com/veracity/datafabric/data/api/[end-point]
-```
-
-|End-point|Path|Method|Description|
-|:---------|:-------|:--:|:----------|
-|KeyTemplates_&#8203;GetStorage&#8203;KeyTemplate|`/keytemplates`|`GET`|Get all supported key templates for generating access keys.|
-|ProviderAccess|`/resources/{resourceId}/accesses`|`GET`, `POST`|Get list of providers with access to a given storage item or grant access.|
-|FetchKeyFor&#8203;StorageContainer|`/resources/{resourceId}/keys`|`GET`|Get a SAS key to access a storage item shared with you.|
-|GetAllResources|`/resources`|`GET`|Get a list of all resources you can claim keys for.|
-|Users|`/users/{userId}`|`GET`|Get information about a user.|
-
-For all requests to this end-point you need to provide the `Ocp-Apim-Subscription-Key` header. It must contain your subscription key found in your profile.
-
-#### `/keytemplates`
-
-Response format:
-```
-[
-  {
-    id: UUID,
-    name: string,
-    totalHours: int32,
-    isSystemKey: boolean,
-    description: string,
-    attribute1: boolean,
-    attribute2: boolean,
-    attribute3: boolean,
-    attribute4: boolean,
-    ...
-  }
-]
-```
-
-#### `/resources/{resourceId}/accesses`
-
-When reading this end-point using `GET` you must provide a page number as well as a page size as query parameters to this request.
-
-The `{resourceId}` parameter must be the UUID of the resource.
-
-E.g.:
-```url
-/this/services?pageNo=1&pageSize=15
-```
-
-Request format:
-```
-{
-  userId: UUID,
-  accessKeyTemplateId: UUID, see /keytemplates end-point
-}
-```
-
-The following request body types are supported:
+The following request body types are supported on all requests:
 
 - `application/json`
 - `text/json`
 - `application/xml`
 - `text/xml`
-- `application/x-www-form-urlencoded`
 
-Response format:
+Example http request:
+
+```http request
+GET https://api.veracity.com/veracity/datafabric/data/api/1/users/me HTTP/1.1
+Host: api.veracity.com
+Content-Type: application/json
+Ocp-Apim-Subscription-Key: {subscription-Key}
+Authorization: Bearer {token}
+```
+
+## End-points
+
+### Data API
+
+This API provides end-points for managing access and:
+
+```url
+https://api.veracity.com/veracity/datafabric/data/api/1/[end-point]
+```
+
+Actions
+| Action |Path|Method|Description|
+|:---------|:---------|:-------|:--:|:----------|
+|V1.0 Access | `/resources/{resourceId}/accesses` | `GET` | Retrieves a list of Providers that have access to a specified resource.
+|V1.0 Access | `/resources/{resourceId}/accesses` | `POST` | Share access to another user for the specified resource
+|V1.0 Access | `/resources/{resourceId}/accesses/{accessId}` | `PUT` | Revoke an users ability to refresh keys on a resource
+|V1.0 Access | `/resources/{resourceId}/accesses/{accessId}/key` | `PUT` | Fetch a SAS key to access the storage item shared with you
+|v1.0 Application | `/application` | `GET` |  Returns information about the current application
+|v1.0 Application | `/application` | `POST` |  Add a new application to Veracity data fabric.
+|v1.0 Application | `/application/{applicationId}` | `GET` | Gets information about an application in Veracity data fabric.
+|v1.0 Application | `/application/{applicationId}` | `PUT` |  Update role of a application on Veracity data fabric.
+|v1.0 DataStewards | `/resources/{resourceId}/datastewards` | `GET` |Retrieve a list of data stewards for the resource
+|v1.0 DataStewards | `/resources/{resourceId}/owner` | `PUT` | Transfer the ownership of the Azure resource to a specified user
+|v1.0 DataStewards | `/resources/{resourceId}/datastewards/{userId}` | `DELETE` | Delete a data stewards
+|v1.0 DataStewards | `/resources/{resourceId}/datastewards/{userId}` | `POST` | Delegate the rights to use the Azure resource to another Veracity user.
+|v1.0 KeyTemplates | `/keytemplates` | `GET` | Returns the templates for the different types of keys you can generate
+|v1.0 Ledger |  `/resource/{resourceId}/ledger` | `GET`  | Returns a list of ledger records
+|v1.0 Resources |  `/resources` | `GET`  | Fetches all storage resources that you can claim keys for
+|v1.0 Resources | `/resources/{resourceId}` | `GET` | Returns a single resource
+|V1.0 Tags | `/tags` | `GET` | Retrive metadata tags in Veracity
+|v1.0 Tags | `/tags` | `POST` | Inserts tags and returns the inserted new inserted tags with ID's
+|v1.0 Users | `/users/me` | `GET`  | Returns information about the current user 
+|v1.0 Users | `/users/{userId}` | `GET` | Gets information about an user
+
+#### V1.0 Access
+
+##### GET /resources/{resourceId}/accesses
+
+Get a list of users/applications with access (keys) to the specific resource.
+
+Endpoint will list your own accesses.
+
+The endpoint will return a list active and expired accesses.
+
+Need to be owner or data steward of container to see access of other users/applications in the results.
+
+_Note the variable keyCreatedTimeUTC is the time the SAS key generated is valid from, this is set one hour in the past from the time created this to avoid azure time skew issues._
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/accesses
+
+`With query parameters:`
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/accesses?pageNo=1&pageSize=200
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | Azure resource|
+| pageNo | query  | int32 | optional | Page number. Defaults to 1|
+| pageSize | query  | int32 | optional |  Number of results per page. Defaults to 50. If this is a negative number, all results will be fetched |
+
+
+ **Return**
+
+`Response code: 200 OK:`
 ```
 {
-  results: [
+  "results": [
     {
-      providerEmail: string,
-      userId: UUID,
-      ownerId: UUID,
-      accessSharingId: UUID,
-      keyCreated: boolean,
-      autoRefreshed: boolean,
-      keyCreatedTimeUTC: string,
-      keyExpiryTimeUTC: string,
-      resourceType: string,
-      accessHours: int32,
-      accessKeyTemplateId: UUID,
-      attribute1: boolean,
-      attribute2: boolean,
-      attribute3: boolean,
-      attribute4: boolean,
-      resourceId: UUID
+      "userId": UUID
+      "ownerId": UUID
+      "grantedById": UUID
+      "accessSharingId": UUID
+      "keyCreated": boolean
+      "autoRefreshed": boolean
+      "keyCreatedTimeUTC": string
+      "keyExpiryTimeUTC": string
+      "resourceType": string
+      "accessHours": int32
+      "accessKeyTemplateId": UUID
+      "attribute1": boolean
+      "attribute2": boolean
+      "attribute3": boolean
+      "attribute4": boolean
+      "resourceId": UUID
+      "ipRange": {
+        "startIp": string
+        "endIp": string
+      }
+    }
+  ],
+  "page": int32
+  "resultsPerPage": int32
+  "totalPages": int32
+  "totalResults": int32
+}
+```
+
+##### POST /resources/{resourceId}/accesses
+
+Share access to another user for a resource.
+
+You can also share with yourself by providing your own user/application id.
+
+Value for "accessKeyTemplateId"(In JSON payload) can be found [here](#GETkeytemplates)
+
+The endpoint returns a "accessSharingId" this is can be used to claim the SAS key. To do this, see (PUT /resources/{resourceId}/accesses/{accessId}/key).
+
+The autoRefreshed parameter allows the other user/application to fetch a new SAS key when the old has expired.
+
+_note: autoRefreshed is required_
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/accesses?autoRefreshed=true
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | Azure resource|
+| autoRefreshed | query  | boolean | required | Should a renewed key be issued to the shared party after it expires |
+
+`JSON payload`
+```
+{
+  "userId": UUID #The other user/applications id.
+  "accessKeyTemplateId": UUID #See GET /keytemplates for value
+  "ipRange": { #This is optional
+    "startIp": string
+    "endIp": string
+  }
+}
+```
+
+ **Return**
+
+`Response code: 200 OK:`
+
+```
+{
+  "accessSharingId": UUID
+}
+```
+
+##### PUT /resources/{resourceId}/accesses/{accessId}
+ Revoke the ability to fetch new keys on a resource when the old one expires.
+
+_Note: needs to be owner or data steward to revoke_
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/accesses/{accessId}
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | Azure resource|
+| accessId | path  | string | required | Access ID|
+
+ **Return**
+
+`Response code: 200 OK`
+
+##### PUT /resources/{resourceId}/accesses/{accessId}/key
+Fetch the SAS key to a resource shared with you
+
+To find the accessId use (GET /resources/{resourceId}/accesses), if you are unsure about the resource id, see (GET /resources)
+
+The SAS key is used to gain access to a container, [read more](https://developer.veracity.com/doc/data-fabric-ingest).
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/accesses/{accessId}/key
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | Azure resource|
+| accessId | path  | string | required | Access ID|
+
+**Return**
+
+`Response code: 200 OK:`
+
+```
+{
+  "sasKey": string
+  "sasuRi": string
+  "fullKey": string
+  "sasKeyExpiryTimeUTC": string
+  "isKeyExpired": boolean
+  "autoRefreshed": boolean
+  "ipRange": {
+    "startIp": string
+    "endIp": string
+  }
+}
+```
+
+
+#### V1.0 Application
+
+##### GET /application
+
+Returns information about the current logged (based on the Bearer token) in application.
+
+Use [this](https://developer.veracity.com/doc/service-api#directory) to check company information
+
+Returns a 404 Not Found if a user tries to run the endpoint
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/application
+
+ **Input**
+
+ None
+
+ **Return**
+
+`Response code: 200 OK:`
+
+```
+{
+  "id": UUID
+  "companyId": UUID
+  "role": string
+}
+```
+
+##### GET /application/{applicationId}
+
+Gets information about an application in Veracity data fabric.
+
+Use [this](https://developer.veracity.com/doc/service-api#directory) to check company information
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/application/{applicationId}
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| applicationId | path  | string | required | AAD B2C Application Id |
+
+**Return**
+
+`Response code: 200 OK:`
+
+```
+{
+  "id": UUID
+  "companyId": UUID
+  "role": string
+}
+```
+
+#### V1.0 DataStewards
+
+##### GET /resources/{resourceId}/datastewards
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/datastewards
+
+Retrieve a list of data stewards for the resource
+
+_Note: Need to be owner or data steward to perform this action_
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type | Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | The Id of the resource |
+
+ **Return**
+
+`Response code: 200 OK:`
+
+```
+[
+  {
+    "grantedBy": UUID
+    "userId": UUID
+    "resourceId": UUID
+  }
+]
+```
+
+##### PUT /resources/{resourceId}/owner
+Transfer the ownership of the Azure resource to a different user/application
+
+The other user/application needs to have the role Data Manager.
+
+_Note: Needs to be owner of the container to perform this_
+
+_Returns the Azure resource with updated OwnerId field._
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/owner
+
+**Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | The Id of the resource |
+| userId | path  | string | required | The Id of the user with role of Data Manager that ownership will be transfered to. |
+
+**Return**
+
+`Response code: 200 OK:`
+
+```
+{
+  "resourceId": UUID
+  "resourceName": string
+  "resourceUrl": string
+  "lastModifiedUTC": string
+  "ownerId": UUID
+  "resourceType": string
+  "resourceRegion": string
+  "mayContainPersonalData": boolean
+  "metadata": {
+    "title": string
+    "description": string
+    "icon": {
+      "id": string
+      "backgroundColor": string
     },
-    ...
-  ],
-  page: 0,
-  resultsPerPage: 0,
-  totalPages: 0,
-  totalResults: 0
+    "tags": [
+      {
+        "id": UUID
+        "title": string
+      }
+    ]
+  }
 }
 ```
 
-#### `/resources/{resourceId}/keys`
+##### DELETE /resources/{resourceId}/datastewards/{userId}
 
-This request requires an `accessSharingId` query parameter defining the id of the key you want to return:
+This endpoint allows you to remove a data steward.
 
-```url
-https://api.veracity.com/veracity/datafabric/data/api/resources/{resourceId}/keys?accessSharingId={accessSharingId}
-```
+All accesses shared by the data steward will still be active.
 
-Response format:
+_The user must be the owner of the resource to be able to delete datastewards_
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/datastewards/{userId}
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | The Id of the resource |
+| userId | path  | string | required | The Id of the data steward who will be removed. |
+ **Return**
+
+`Response code: 200 OK`
+
+##### POST /resources/{resourceId}/datastewards/{userId}
+
+Add a new data steward.
+
+A data steward has the possibilities to share keys(access) to the container on your behalf.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/datastewards/{userId}
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | The Id of the resource |
+| userId | path  | string | required |A Data Steward user Id |
+
+ **Return**
+
+`Response code: 200 OK:`
 
 ```
 {
-  sasKey: string,
-  sasuRi: string,
-  fullKey: string,
-  sasKeyExpiryTimeUTC: string,
-  isKeyExpired: boolean,
-  autoRefreshed: boolean
+  "grantedBy": UUID
+  "userId": UUID
+  "resourceId": UUID
 }
 ```
 
-#### `/resources`
+#### V1.0 KeyTemplates
 
-This end-point also provides two optional `boolean` query parameters `shared` and `owned` to return shared or owned resources. By default only owned resources are returned:
+##### GET /keytemplates
 
-```url
-https://api.veracity.com/veracity/datafabric/data/api/resources?shared=false&owned=true
+Returns the template for the different types of keys you can generate. Blob Storage is the only storage type supported at the moment.
+
+Supported access types for the Blob Storage types are as follows:
+```
+1. Write key
+2. Read and list key
+3. Read, write and list key
+4. Read, write, delete and list key
 ```
 
-Response format:
+For Each access type there are key templates that lasts 1 h, 8 h, 1 month, 2 months, 3 months, 4 months, 5 months and 6 months.
+
+Note : "IsSystemKey" field in the result data is not relevant for the functionality currently supported. Please ignore that field.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/keytemplates
+
+**Input**
+None
+**Return**
+Response Class (Status 200):
+```
+[
+  {
+    "id": UUID
+    "name": string
+    "totalHours": int32
+    "isSystemKey": boolean
+    "description": string
+    "attribute1": boolean
+    "attribute2": boolean
+    "attribute3": boolean
+    "attribute4": boolean
+  }
+]
+```
+
+#### V1.0 Ledger
+
+##### GET /resource/{resourceId}/ledger
+
+Endpoint returns a list of ledger records.
+
+A ledger record is any action done to a container, ex; creating/reading/deleting a file, sharing/claiming a key and more.
+
+Some of the content in the ledger might take some time before it shows up in this endpoint
+
+The endpoint returns the last 200 entries, upto 14 days in the past.
+
+_Note: You can only get the ledger for a container you are owner for_
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resource/{resourceId}/ledger
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | The Id of the resource |
+
+ **Return**
+
+Response Class (Status 200):
+```
+[
+  {
+    "entityId": string #The user/application id who did the action
+    "entityType": [user, application]
+    "companyId": string
+    "containerName": string
+    "dateOfEvent": string
+    "category": string
+    "ledgerSubCategory": string
+    "description": string
+    "region": string
+    "affectedEntityId": string
+    "affectedEntityType": string
+    "affectedCompanyId": string
+    "fileName": string #Only if there is a file operation
+    "ipAddress": string #Only when there is a unknown user
+  }
+]
+```
+
+#### V1.0 Resources
+
+##### GET /resources
+
+Returns a list of all resources you have a relationship with.
+
+The list contains resources you are data steward for, these resources are marked by accessLevel : dataSteward
+
+The list contains resources you can claim keys for, these resources are marked by keyStatus : available
+
+List of all key statuses:
 
 ```
-{
-  ownedResources: [
-    {
-      resourceId: UUID,
-      resourceName: string,
-      resourceUrl: string,
-      lastModifiedUTC: string,
-      ownerId: UUID,
-      consumerName: string,
-      resourceType: string,
-      resourceRegion: string
-    }
-  ],
-  sharedResources: [
-    {
-      storageItem: {
-        resourceId: UUID,
-        resourceName: string,
-        resourceUrl: string,
-        lastModifiedUTC: string,
-        ownerId: UUID,
-        consumerName: string,
-        resourceType: string,
-        resourceRegion: string
+ ['noKeys', 'expired', 'available', 'active']
+```
+List of all access levels:
+```
+['owner', 'dataSteward', 'consumer']
+```
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources
+
+ **Input**
+
+_None_
+
+**Return**
+
+```
+[
+  {
+    "id": UUID
+    "reference": string
+    "url": string
+    "lastModifiedUTC": string
+    "ownerId": UUID
+    "accessLevel":  ['owner', 'dataSteward', 'consumer']
+    "region": string
+    "keyStatus": ['noKeys', 'expired', 'available', 'active']
+    "mayContainPersonalData": boolean,
+    "metadata": {
+      "title": string
+      "description": string
+      "icon": {
+        "id": string
+        "backgroundColor": string
       },
-      accessDescription: string,
-      accessKeyCreated: boolean,
-      accessKeyEndDateUTC: string,
-      accessKeyTemplateId: UUID,
-      accessSharingId: UUID,
-      autoRefreshed: boolean
+      "tags": [
+        {
+          "id": UUID
+          "title": string
+        }
+      ]
     }
-  ]
-}
+  }
+]
 ```
 
-#### `/users/{userId}`
+##### GET /resources/{resourceId}
 
-This end-point requires either a `{userId}` or the literal `me`. The former returns information about the specific user while the latter returns information about the current user.
+Returns a single resource.
 
-Response format:
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}
+
+**Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| resourceId | path  | string | required | The Id of the resource |
+
+ **Return**
 
 ```
 {
-  userId: UUID,
-  companyId: UUID,
-  role: string
+    "id": UUID
+    "reference": string
+    "url": string
+    "lastModifiedUTC": string
+    "ownerId": UUID
+    "accessLevel":  ['owner', 'dataSteward', 'consumer']
+    "region": string
+    "keyStatus": ['noKeys', 'expired', 'available', 'active']
+    "mayContainPersonalData": boolean,
+    "metadata": {
+      "title": string
+      "description": string
+      "icon": {
+        "id": string
+        "backgroundColor": string
+      },
+      "tags": [
+        {
+          "id": UUID
+          "title": string
+        }
+      ]
+    }
+  }
+  ```
+
+#### V1.0 Tags
+
+##### GET /tags
+
+Retrieve the metadata tags in Data fabric
+Default returns approved and non deleted tags.
+
+Use Query parameters to include non approved and deleted _(needs to be DataAdmin to perform this action)_
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/tags
+
+ **Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| includeDeleted | query  | string | required | The Id of the resource |
+| includeNonVeracityApproved | query  | string | required | The Id of the resource |
+
+ **Return**
+
+```
+[
+  {
+    "id": UUID
+    "title": string
+  }
+]
+```
+
+##### POST /tags
+
+Insert new tags to Data Fabric, this is also automatically done when you use the Provision APIs endpoints.
+
+The endpoint returns the inserted tags with a Id.
+
+Tags with the same name will get the same Id
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/tags
+
+**Input**
+
+`JSON payload`
+
+```
+[
+  {
+    "title": string
+  }
+]
+```
+
+**Return**
+```
+[
+  {
+    "id": UUID
+    "title": string
+  }
+]
+```
+
+#### V1.0 Users
+
+##### GET /users/me
+
+Returns information about the current (based on the Bearer token) logged in user.
+
+Use [this](https://developer.veracity.com/doc/service-api#directory) to check company information
+
+Returns a 404 Not Found if a application tries to run the endpoint
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/users/me
+
+**Return**
+```
+{
+  "userId": UUID
+  "companyId": UUID
+  "role": string
+}
+```
+
+##### GET /users/{userId}
+
+Gets information about an user
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/users/{userId}
+
+**Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| userId | path  | string | required | My DNV GL Id |
+
+**Return**
+```
+{
+  "userId": UUID
+  "companyId": UUID
+  "role": string
 }
 ```
 
 ### Provisioning API
 
-This API provides an end-point for provisioning new Azure Blob Containers. The base url for requests is:
+This API provides end-points for managing access and:
 
 ```url
-https://api.veracity.com/veracity/datafabric/data/api/[end-point]
+https://api.veracity.com/veracity/datafabric/provisioning/api/1/[end-point]
 ```
 
-|End-point|Path|Method|Description|
-|:--------|:---|:-----:|:----------|
-|Container|`/container`|`POST`|Provisions a new blob storage container|
+Actions
+| Action |Path|Method|Description|
+|:---------|:---------|:-------|:--:|:----------|
+|V1.0 Container | `/container` | `POST` | Provision a blob storage container, requires a short name and storage container. |
+|V1.0 Container | `/container/{id}/metadata` | `PATCH` | Update container metadata. |
+|V1.0 Container | `/container{id}` | `DELETE` | Delete a azure storage container |
+|V1.0 Regions | `/regions` | `GET` | Get all supported regions |
 
-|HTTP Status|Name|Description|
-|:----------|:---|:----------|
-|200|OK|Your request was processed correctly. View content for response.|
-|400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
-|401|Unauthorized|You do not have permission to access the end-point.|
-|403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
-|404|Not Found|The requested end-point was not found or is not known.|
-|409|Conflict|The request cannot be completed as it conflicts with an existing resource.|
-|500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
-|502|Bad Gateway|The request was not processed correctly by a dependent service of the API.|
 
-#### Response format
+#### V1.0 Container
 
-The API supports formatting the response body according to the mime type provided in your requests `Accept` header. Currently the following mime types are supported:
+##### POST /container
 
-- `application/json`
-- `text/json`
-- `application/xml`
-- `text/xml`
+An HTTP response of type 202 Accepted means the request was accepted and is currently processing. It may take up to 15 minutes for a container to be completed.
 
-#### `/container`
+An HTTP response of type 409 Conflict means that there already exists a blob container using the same short name. Please choose another.
 
-The provision api supports `POST` requests that provision new Azure Blob Storage containers on the Veracity platform.
+A valid location can be found by using the GET /regions endpoint
 
-You need to provide the `Ocp-Apim-Subscription-Key` header on all requests using this end-point. It must contain your subscription key found in your profile.
+**Url**
 
-An HTTP response of type `202 Accepted` means the request was accepted and is currently processing. It may take up to 15 minutes for a container to be completed.
+https://api.veracity.com/veracity/datafabric/provisioning/api/1/container
 
-An HTTP response of type `409 Conflict` means that there already exists a blob container using the same short name. Please choose another.
+**Input**
 
-Request body format (* required):
+`JSON payload`
+
 ```
 {
-  storageLocation: string ["Unknown"|"NorthEurope"|"EastUs1"],
-  requestCode: string, A unique string is needed to track each provision request, if you use the same code more than twice in a given timespan the second request is rejected
-  containerShortName: string, 5-32 character short name
-  title: string,
-  description: string,
-  icon: {
-    id: string,
-    backgroundColor: string (Hex color)
+  "storageLocation": string #A valid location can be found by using the GET /regions endpoint
+  "containerShortName": string
+  "mayContainPersonalData": boolean
+  "title": string #
+  "description": string #Max length is 500
+  "icon": { #optional, this is used the Veracity frontend
+    "id": string
+    "backgroundColor": string
   },
-  tags: [
+  "tags": [ #optional, this is used the Veracity frontend
     {
-      title: string,
-      type: string
+      "title": string
     }
   ]
 }
 ```
 
-The following request body types are supported:
 
-- `application/json`
-- `text/json`
-- `application/xml`
-- `text/xml`
-- `application/x-www-form-urlencoded`
+**Return**
+`Response code: 202 OK`
 
-### Metadata API
+A 202 means the storage container will be created.
 
-This API defines two primary end-points from which you can access metadata information. The base url for requests is:
+##### PATCH /container/{id}/metadata
 
-```url
-https://api.veracity.com/veracity/datafabric/data/api/[end-point]
+JSON [Patch](https://tools.ietf.org/html/rfc6902) defines a JSON document structure for expressing a sequence of operations to apply to a JavaScript Object Notation (JSON) document; it is suitable for use with the HTTP PATCH method.
 
-e.g.:
-https://api.veracity.com/veracity/datafabric/data/api/global-tags
+The "application/json-patch+json" media type is used to identify such patch documents.
+
+Example in this case:
+
+```json
+{
+  "value": "My new container name",
+  "path": "Title",
+  "op": "replace"
+}
 ```
+This operation would replace the title
 
-These are:
+A other example for update of tags (NOTE: remember to update the list of tags with all the tags) 
 
-|End-point|Path|Description|
-|:---------|:-------|:----------|
-|Resources|`/resources`|Manage metadata for resources that you own or are shared with you.|
-|Global-tags|`/global-tags`|Manage global tags.|
+```json
+{
+  "value": [ { "Title" :"First tag" }, { "Title" : "Second tag" }],
+  "path": "Tags",
+  "op": "replace"
+}
+```
+ This operation would replace the tags
 
-The response status code describes whether the request succeeded or not. Currently the following status codes may be returned
+The metadata is used by the veracity frontend
 
-|HTTP Status|Name|Description|
-|:----------|:---|:----------|
-|200|OK|Your request was processed correctly. View content for response.|
-|400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
-|401|Unauthorized|You do not have permission to access the end-point.|
-|403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
-|404|Not Found|The requested end-point was not found or is not known.|
-|409|Conflict|The resource you requested is stale or an older version. [TODO not clear what this means]|
-|500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
+**Url**
 
-The response type for all end-points that return data will be JSON (`application/json`).
+https://api.veracity.com/veracity/datafabric/provisioning/api/1/container/{id}/metadata
 
-#### Resources
+**Input**
 
-This end-point can be used to manage metadata for resources that you own or have access to.
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| id | path  | string | required | The Id of the resource |
 
-|Action|Method|Description|
-|:-----|:----:|:----------|
-|`/resources`|`GET`, `POST`|Get metadata about all resources you have access to or update metadatada about a specific resource.|
-|`/resources/{id}`|`GET`|Get metadata about a specific resource.|
-|`/global-tags`|`GET`, `POST`|Get all global tags or create new global tags.|
-|`/global-tags/{id}`|`PUT`, `DELETE`|Update or delete specific tags.|
 
-##### `/resources`
+`JSON payload`
 
-Using `GET` will return information about all resources you currently have access to
-
-Using `POST` along with body data updates metadata about a specific resource.
-
-Request format (* required):
 ```
 {
-  resourceId:	string *($uuid) Resource Id
-  title:	string * Resource title
-  description:	string * Resource description
-  icon:	Icon{
-    id:	string * Pick ID from the Icons id list below
-    backgroundColor:	string * default: 'Blue' The background color of the svg icon (choose from list below).
-  }
-  tags:	[Tag{
-    title:	string *
-    tag title.
-    type:	string *
-    default: personal
-    Tag type Enum: [ global, personal ]
-  }] *
+  "value": object #value of change
+  "path": string #The path
+  "op": "replace"
 }
-
-Icons: 
-  Automatic_Information_Display,
-  Dangerous_Cargo,
-  Fairplay,
-  Operational_Vessel_Data,
-  Statistics_Of_Accidents,
-  Wave,
-  Wind
-
-Colors: 
-  { name: 'Cyan', hex: ‘#009fda’ },
-  { name: 'Green', hex: ‘#36842d’ },
-  { name: 'Blue', hex: ‘#003591’ },
-  { name: 'Violet', hex: ‘#6e5091’ },
-  { name: 'Red', hex: ‘#c4262e’ },
-  { name: 'Orange', hex: ‘#e98300’ },
-  { name: 'Yellow', hex: ‘#fecb00’ },
-  { name: 'Grey', hex: ‘#988f86’ }
 ```
 
-Response format `application/json`:
+**Return**
 
 ```
-[
-  ResourceMetadata{
-    resourceUrl:	string ($url)
-    resourceRegion:	string
-    keyExpired:	boolean
-    resourceId:	string *($uuid)
-    Resource Id
-
-    isOwner:	boolean
-    keyAvailable:	boolean
-    autoRefreshed:	boolean
-    ownerId:	string ($uuid)
-    title:	string *
-    Resource title
-
-    tags:	[...]*
-    icon:	Icon{
-      id:	string *
-      backgroundColor:	string *
+{
+    "id": UUID
+    "reference": string
+    "url": string
+    "lastModifiedUTC": string
+    "ownerId": UUID
+    "accessLevel":  ['owner', 'dataSteward', 'consumer']
+    "region": string
+    "keyStatus": ['noKeys', 'expired', 'available', 'active']
+    "mayContainPersonalData": boolean,
+    "metadata": {
+      "title": string
+      "description": string
+      "icon": {
+        "id": string
+        "backgroundColor": string
+      },
+      "tags": [
+        {
+          "id": UUID
+          "title": string
+        }
+      ]
     }
-    activeKey:	boolean
-    resourceName:	string
-    description:	string *
-    Resource description
-
-    lastModified:	string ($dateTime)
-  },
-  ...
-]
-```
-
-##### `/resources/{resourceId}`
-
-Returns information on the specific resource. To update a resource with information use `POST` the endpoint `/resources` with a body containing the changes as well as the id of the resource you wish to update.
-
-Response format `application/json`:
-
-```
-ResourceMetadata{
-  resourceUrl:	string ($url)
-  resourceRegion:	string
-  keyExpired:	boolean
-  resourceId:	string *($uuid)
-  Resource Id
-
-  isOwner:	boolean
-  keyAvailable:	boolean
-  autoRefreshed:	boolean
-  ownerId:	string ($uuid)
-  title:	string *
-  Resource title
-
-  tags:	[...]*
-  icon:	Icon{
-    id:	string *
-    backgroundColor:	string *
   }
-  activeKey:	boolean
-  resourceName:	string
-  description:	string *
-  Resource description
-
-  lastModified:	string ($dateTime)
-}
 ```
 
-##### `/global-tags`
+##### DELETE /container/{id}
 
-Using `GET` will return all global tags.
+Delete the azure container.
+You need to be the owner of the resource to be able to delete the container.
+What happens when the container is deleted:
 
-Using `POST` along with body data adds a new tag. The id of the tag is automatically generated.
+- All active keys will stop working.
+- All content on the container will be deleted and this action is not reversible
 
-Request format (* required):
-```
-{
-  title:	string *
-}
-```
+**Url**
 
-Response format `application/json`:
+https://api.veracity.com/veracity/datafabric/provisioning/api/1/container/{id}
+
+**Input**
+
+`Parameters`
+| Parameter |Parameter Type	| Data Type | required |Description|
+|:---------|:---------|:-------|:--:|:----------|
+| id | path  | string | required | The Id of the resource |
+
+#### V1.0 Regions
+
+##### POST /regions
+A list of active regions supported by veracity
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/provisioning/api/1/regions
+
+**Input**
+
+_None_
+
+**Return**
+`Response code: 200 OK`
 
 ```
 [
   {
-    id:	string ($uuid)
-    title:  string
+    "shortName": string
+    "fullName": string
+    "location": string
+    "azureName": string #This is the name you should use as input when creating a new storage container
+    "displayName": string
+    "groupName": string
   }
 ]
 ```
 
-##### `/global-tags/{globalTagId}`
-
-Using `PUT` updates a specific tag
-
-Using `DELETE` removes a specific tag
-
-Request format (* required):
-```
-{
-  title:	string *
-}
-```
-
-#### Global tags
-
-
-
 ## Tutorial
 Veracity uses API Management. In order to get access, you will need to:
+
 - Register at [https://api-portal.veracity.com/](https://api-portal.veracity.com/)
 - Subscribe to the Veracity Platform API – Product, this will give you access to our DataAPI and ProvisionAPI with a subscription ID
-
-NB! The endpoint URLs might be changed/refactored during public preview period to further enhance the developer experience. We will try to inform users of the API before such changes take place.
 
 ### Standard structure of API Call
 
 #### Call header:
+
 - **Ocp-Apim-Subscription-Key** - this header attribute is for API Management authentication
 - **Authorization** - this header attribute needs to contain the Bearer Token that is received through authorization on Veracity
 
-#### Query parameters:
-Depending on end-point
+Example:
 
-#### Authorization snippet (for developers)
-You need to authorize Veracity with code and copy the Bearer Token to your requests (which we will provide more info on later). Swagger UI can be used for now. The Bearer Token is usually valid for one hour, after that you need to request a new one.
-
-It's best practice to always get a new token before a request. 
-
-```ps
-curl -v -X GET "https://api.dnvgl.com/platform/Mydata/api/resources?shared={boolean}&owned={boolean}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
--H "Authorization: Bearer {token}"
+```http request
+GET https://api.veracity.com/veracity/datafabric/data/api/1/users/me HTTP/1.1
+Host: api.veracity.com
+Ocp-Apim-Subscription-Key: {subscription-Key}
+Authorization: Bearer {token}
 ```
 
-### Azure Active Directory (AD) B2C
-To acquire the Bearer Token needed for API requests it is possible to authenticate with the code below. It's important to register any new app in the Azure Active Directory as a Native App. 
+C# example:
+
+```csharp
+var httpClient = new System.Net.Http.HttpClient();
+var request = new HttpRequestMessage(httpMethod, "https://api.veracity.com/veracity/datafabric/data/api/1/users/me");
+request.Headers.Add("Ocp-Apim-Subscription-Key", "{Subscription-Key}");
+request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "{accessToken}");
+
+var response = await httpClient.SendAsync(request);
+```
+
+### Authorization snippet
+
+The Bearer Token is usually valid for one hour, after that you need to request a new one.
+
+It's best practice to check the expire date of the token and get a new token before it expires a request.
+
+##### Application (AAD B2C)
+
+Make sure your AAD B2C application is onboarded and added to Data Fabric before you proceed with this guide.
+
+Information you need to acquire before you start :
+
+```ps
+ClientId - Application ID from your Native app registration
+ClientSecret - Application secret
+Full Data Fabric Resource url
+AAD Tenant id - Azure AD Tenant Id
+```
+To get a access token:
+
+Example Http request:
+
+```http request
+POST https://login.microsoftonline.com/{tenantId/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+grant_type=client_credentials&resource={Full Data fabric resource url}f&client_id={ClientId}&client_secret={ClientSecret}
+```
+
+_Note: Remember to url encode the form content_
+
+Example C#
+
+This example requires:
+- [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
+
+Aad Token class:
+
+```csharp
+public class Token
+    {
+        [JsonProperty("token_type")]
+        public string TokenType { get; set; }
+
+        [JsonProperty("expires_in")]
+        public string ExpiresIn { get; set; }
+
+        [JsonProperty("ext_expires_in")]
+        public string ExtExpiresIn { get; set; }
+
+        [JsonProperty("expires_on")]
+        public string ExpiresOn { get; set; }
+
+        [JsonProperty("not_before")]
+        public string NotBefore { get; set; }
+
+        [JsonProperty("resource")]
+        public string Resource { get; set; }
+
+        [JsonProperty("access_token")]
+        public string AccessToken { get; set; }
+    }
+```
+
+Retrieve the access token:
+
+```csharp
+var clientId = "{clientId}";
+var clientSecret = "{clientSecret";
+var tokenEndpoint = "https://login.microsoftonline.com/{tenantId}/oauth2/token";
+var resource = "{Data fabric resource url}";
+
+using (var client = new System.Net.Http.HttpClient())
+{
+    var content =
+        new StringContent(
+            $"grant_type=client_credentials&client_id={clientId}&resource={resource}&client_secret={HttpUtility.UrlEncode(clientSecret)}",
+            Encoding.UTF8, "application/x-www-form-urlencoded");
+
+    var response = await client.PostAsync(tokenEndpoint, content);
+    var result = JsonConvert.DeserializeObject<Token>(await response.Content.ReadAsStringAsync());
+
+    var accessToken = result.AccessToken;
+}
+```
+
+##### User
+
+To acquire the Bearer Token needed for the API requests it is possible to authenticate with the code below. It's important to register any new app in the Azure Active Directory as a Native App.
 This App ID, together with the tenant name from Azure AD will be used to obtain an authentication key.
 
 The below code in .NET shows how to programmatically get the Bearer Key. This code is also available [here](https://github.com/veracity/veracity-quickstart-samples/tree/master/101-veracity-api/veracity-api-net).
@@ -506,20 +1076,22 @@ ClientId - Application ID from your Native app registration
 PolicySignUpSignIn - sign in policy created during app registration
 ApiScopes - scopes available for given api
 ```
-For user identification we use the class PublicClientApplication which is available in the namespace Microsoft.Identity.Client.
-You can include it as a NuGet package, currently in preview mode.
-```csharp
-public static PublicClientApplication PublicClientApp { get; } =
-  new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
-```
 
+For user identification we use the class PublicClientApplication which is available in the namespace [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client).
+You can include it as a NuGet package, currently in preview mode.
+
+```csharp
+public static PublicClientApplication PublicClientApp { get; } = new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
+```
 
 The Authority field is the following URL, where {tenant} and {policy} are replaced with proper values from the app registration.:
-```
+
+```url
 "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
 ```
 
 To sign in, the AcquireTokenAsync method from PublicClientApplication is used.
+
 ```csharp
 public static async Task<AuthenticationResult> SignIn()
 {
@@ -545,7 +1117,25 @@ The AuthenticationResult object contains the property AccessToken, which is wher
 
 This key is to be used in the following code samples to properly authenticate API requests.
 
-### Data API
+### Data fabric Quick start
+
+This is a quick start on how to use the Data Fabrics API.
+
+This guide will cover this:
+1st scenario:
+
+- Authenticate
+- Create container
+- Create a key for your self
+- Push Data to your new container
+- Share key to a other user.
+
+2nd scenario:
+
+- Find Resource
+- Claim key and read content
+
+
 The Veracity Data Platform DataAPI is an API where developers and applications can get information on data containers and get their key to a data container or share a key with another Veracity Data Platform user.
 
 Implementations:
@@ -553,351 +1143,549 @@ Implementations:
 
 
 #### .NET implementation
-The below sample assumes that the user has a Subscription Key from the Veracity Portal and a Bearer Key. For now the Bearer Key can be obtained from Swagger UI, as described in the previous section. You also need to know the URI to the Data API service.
+The below sample assumes that the user has a Subscription Key from the Veracity Portal.
 
-We are going to access the Data API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
-Below each GET and POST request implementation available in the API is described.
+We are going to access the Data API service via http requests and in our implementation we will use a custom HttpClient based on from System.Net.Http.
 
-##### GET current user
+This example requires:
+- [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
+- [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/9.3.2)
 
-Based on Subscription Key and Bearer Key you can ask DataApi service for current user data.
+We will also reuse the authentication code (for application) from [here](#Authorization-snippet)
+
+To make communication with the Data fabric apis, we have created a sample helper to use:
+```csharp
+   public class DataFabricClient
+        {
+
+            public async Task<T> Handle<T>(HttpMethod httpMethod, string uri, object content = null)
+            {
+                //Same TokenProvider from previous step (from Authorization snippet)
+                //Recommended to add caching of token.
+                var tokenProvider = new TokenProvider();
+                var token = await tokenProvider.GetToken();
+
+                //Set your subscription key, best practice is to not hard code it. So remember to get it from app settings or other places
+                var subscriptionKey = "{subscriptionKey}";
+
+                //Best practice from microsoft is to have a global httpclient registered in dependency config(Lifestyle: Singleton).
+                var httpClient = new System.Net.Http.HttpClient();
+
+                //We add the subscription key to the header
+                httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+                var request = new HttpRequestMessage(httpMethod, uri);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
+
+                //If we have content we want to be apart of the request, we want to Serialize it to json
+                if (content != null)
+                {
+                    var jsonContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+                    request.Content = jsonContent;
+                }
+
+                var response = await httpClient.SendAsync(request);
+
+                // This will throw an exception if it's an unexpected response (not 2xx series codes)
+                response.EnsureSuccessStatusCode();
+
+                return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+            }
+        }
+```
+This client gets the bearer token(from the TokenProvider provided in the first example).
+
+To view all classes/models used, see [here](#models)
+##### 1st scenario:
+
+A prerequisite for this scenario is an already registered AAD application  (you can also use [User authentication](#User))
+
+I will recommend you create a new blank Console program, to follow the examples
+
+This fist scenario will cover:
+
+- Authenticate (with an application)
+- Create container
+- Create a key for your self
+- Push Data to your new container
+- Share key to another user.
+
+###### Authenticate (with an application)
+
+The code below will authenticate the application and return a instance of "Token". The token will contain "AccessToken", this accesstoken can later be used to do authenticated calls to the Data fabric apis.
+
+Replace the values of:
+
+- {clientId}
+- {clientSecret}
+- {Data fabric resource url}
+- {tenantId}
+
+With values provided from developer portal.
 
 ```csharp
-public async Task<Tuple<string, User>> RequestCurrentUser()
-{
-  var uri = $"{_baseDataApiUrl}users/me?";
+public class TokenProvider {
+        /// <summary>
+        /// Object based on https://tools.ietf.org/html/rfc6750
+        /// </summary>
+        public class Token
+        {
+            [JsonProperty("token_type")]
+            public string TokenType { get; set; }
 
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, User>("", JsonConvert.DeserializeObject<User>(responseContent))
-    : new Tuple<string, User>(responseContent, null);
+            [JsonProperty("expires_in")]
+            public string ExpiresIn { get; set; }
+
+            [JsonProperty("ext_expires_in")]
+            public string ExtExpiresIn { get; set; }
+
+            [JsonProperty("expires_on")]
+            public string ExpiresOn { get; set; }
+
+            [JsonProperty("not_before")]
+            public string NotBefore { get; set; }
+
+            [JsonProperty("resource")]
+            public string Resource { get; set; }
+
+            [JsonProperty("access_token")]
+            public string AccessToken { get; set; }
+        }
+
+        /// <summary>
+        /// Returns a access token.
+        /// Throws exception if the request is invalid
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Token> GetToken()
+        {
+            string clientId = "{clientId}";
+            string clientSecret = "{clientSecret}";
+            string tokenEndpoint = "https://login.microsoftonline.com/{tenantId}/oauth2/token";
+            string resource = "{Data fabric resource url}";
+
+
+            using (var client = new System.Net.Http.HttpClient())
+            {
+                var content =
+                    new StringContent(
+                        $"grant_type=client_credentials&client_id={clientId}&resource={resource}&client_secret={HttpUtility.UrlEncode(clientSecret)}",
+                        Encoding.UTF8, "application/x-www-form-urlencoded");
+
+                var response = await client.PostAsync(tokenEndpoint, content);
+
+                response.EnsureSuccessStatusCode();//This will throw an exception, so it should be handled
+
+                var result = JsonConvert.DeserializeObject<Token>(await response.Content.ReadAsStringAsync());
+                return result;
+            }
+        }
 }
 ```
 
-Notice the URL that was additionally to the base address provided by user has an additional path to users.
-As a result of the method you get a tuple containing a string message and an object model deserialized from the Json response.
-The string message is empty if the operation was successful. If the operation failed, there is an error message. The Json object model for the User is represented by the below class.
+###### Create container
+
+This will show you how to create a new container in data fabric.
+
+The "StorageLocation" can be found by using the "GET /api/1/regions" endpoint, by default the North Europe(northeurope) and East Us(eastus) regions are active.
+
+Container creation can take up to 2 min. So you should add some retry logic if the container does not appear the first time.
 
 ```csharp
-public class User
-{
-  public string UserId { get; set; }
-  public string CompanyId { get; set; }
-  public string Role { get; set; }
-}
+            var client = new DataFabricClient();
+
+            var provisionApiBaseUrl = "{provisionApiBaseUrl}";
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            var containerInput = new ContainerInput()
+            {
+                ContainerShortName = "firstcontainer",
+                StorageLocation = "northeurope",
+                MayContainPersonalData = false
+            };
+
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            if (identity.Role != "DataFabricManager")
+                throw new Exception("You do not have the correct rights to provision a new container");
+
+            //If all is okay, we can provision a container
+            await client.Handle<string>(HttpMethod.Post, $"{provisionApiBaseUrl}/api/1/container", containerInput);
+
+            //This operation might take up to 2 min, so we wait 30 sec before we continue
+            Thread.Sleep(30000);
+
+            //Retrieve all your resources
+            var containers = await client.Handle<List<Resource>>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources");
+
+            //Find your new container
+            var container = containers
+                 .OrderByDescending(resource => resource.LastModifiedUTC) // Order by Date so you are sure to get the last container you created
+                 .FirstOrDefault(resource => resource.Reference.StartsWith(containerInput.ContainerShortName));
+
+            if (container != null)
+            {
+                //You have your container, you can now do more logic here
+            }
+
+            //If there is no container, you should retry retrieve the containers, and check again
 ```
-In this way we can get the ID for the current user used in other API requests. We also receive a company ID that the user is assigned to, as well as the role of the current user.
 
-##### GET user
+###### Create a key for your self
 
-If you have the user ID you can ask the Data API service for other information about that user.
+After your container is created, it's time to give yourself access to the container.
+
+Replace the {resourceId} with container id from last step
+
+To see what each attribute of a key template is, read more [here](#GET/keytemplates)
+
+This will create a "AccessSharingId" the id will later be used to fetch the SAS token.
 
 ```csharp
-public async Task<Tuple<string, User>> RequestUser(string userId)
-{
-  var uri = $"{_baseDataApiUrl}users/{userId}";
+    var client = new DataFabricClient();
 
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, User>("", JsonConvert.DeserializeObject<User>(responseContent))
-    : new Tuple<string, User>(responseContent, null);
-}
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            var resourceId = "{resourceId}";
+
+            //retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            //Find the key template you want to create a key with
+            var keyTemplates = await client.Handle<List<KeyTemplate>>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/keytemplates");
+
+            //Find the first key template with all access (See documentation on key template endpoint to see what each attribute is):
+            var keytemplate = keyTemplates.FirstOrDefault(template =>
+                  template.Attribute1 && template.Attribute2 && template.Attribute3 && template.Attribute4);
+
+            if (keytemplate == null)
+                throw new Exception("No Key template found");
+
+            var keyInput = new SharingResourceInputData
+            {
+                AccessKeyTemplateId = keytemplate.Id, // Use the id of the key template we found
+                UserId = identity.Id // Share it with your own Id
+            };
+
+            //This will create a "AccessSharingId" this id can be used to fetch the key
+            var accessSharing = await client.Handle<ShareResourceVM>(HttpMethod.Post,
+                $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses?autoRefreshed=true", keyInput);
+
+            if (accessSharing == null)
+                throw new Exception("Could not share key");
+
+            //You have now created a accessSharing
 ```
 
-As a result from this method you get a tuple containing a string message and an object model deserialized from the Json response.
-The string message is empty if the operation was successful. If the operation failed, there is an error message. The response Json is similar to that of the previous example.
+###### Push Data to your new container
 
-##### GET company
-If you have the company ID you can ask the Data API for other information about the corresponding company.
+Now it's time to get your SAS token and use it!
+
+[For more information on SAS tokens](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+
+Use the accessSharingId you retrieved from the last step and replace {accessSharingId}.
 
 ```csharp
-public async Task<Tuple<string, Company>> RequestCompany(string companyId)
-{
-  var uri = $"{_baseDataApiUrl}companies/{companyId}";
+            var client = new DataFabricClient();
 
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, Company>("", JsonConvert.DeserializeObject<Company>(responseContent))
-    : new Tuple<string, Company>(responseContent, null);
-}
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            var resourceId = "{resourceId}";
+            var accessSharingId = "{accessSharingId}";
+
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            //Get your SAS token from data fabric by using your accessSharingId from the last step
+            var key = await client.Handle<SASToken>(HttpMethod.Put,
+                $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses/{accessSharingId}/key");
+
+            if (key == null)
+                throw new Exception("Could not claim key");
+
+            //Use your claimed SAS Key (fullKey) to access the container
+            var container = new CloudBlobContainer(new Uri(key.FullKey));
+
+            //Get the blob reference
+            var blob = container.GetBlockBlobReference("first_folder/first_file.txt");
+
+            //The library will automatically create the file for you.
+            await blob.UploadTextAsync("Hello Container! \n This is my first data");
+
+           //You have now uploaded a simple text to your container
 ```
 
-As a result from this method you get a tuple containing a string message and an object model deserialized from the Json response.
-The string message is empty if the operation was successful. If the operation failed, there is an error message. The resulting object model from the Json response is as below.
+###### Share key to another user.
+
+It's time to share your amazing container with other people.
+
+For simplicity we use the same keytemplateId as the last time.
 
 ```csharp
-public class Company
-{
-  public string CompanyId { get; set; }
-  public string AzureId { get; set; }
-}
+            var client = new DataFabricClient();
+
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            var resourceId = "{resourceId}";
+            var otherUserId = "{otherUserId}";
+
+            var keytemplateId = "{keytemplateId}";
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            var keyInput = new SharingResourceInputData
+            {
+                AccessKeyTemplateId = Guid.Parse(keytemplateId), // Use the id of the key template we found before
+                UserId = Guid.Parse(otherUserId)// Share it with the other user id
+            };
+
+            var accessSharing = await client.Handle<ShareResourceVM>(HttpMethod.Post,
+                $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses?autoRefreshed=true", keyInput);
+
+            //You have now shared access to your container
 ```
 
-##### GET Key Templates
-This method returns the template for different types of key that you can generate. Blob Storage is the only storage type supported at the moment.
-Supported access types for Blob Storage are as follows:
-1. Write key
-2. Read and list key
-3. Read, write and list key
-4. Read, write, delete and list key
+##### 2nd scenario:
+
+This seccond scenario will continue and build upon the steps from the first scenario.
+
+This scenario  will cover:
+
+- Find Resource
+- Claim key and read content
+
+###### Find Resource
+
+It's now time to find out if someone (or you) has given you access to their container.
 
 ```csharp
-public async Task<Tuple<string, List<StorageKeyTemplate>>> RequestStorageKeyTemplates()
-{
-  var uri = $"{_baseDataApiUrl}keytemplates";
+            var client = new DataFabricClient();
 
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, List<StorageKeyTemplate>>("", JsonConvert.DeserializeObject<List<StorageKeyTemplate>>(responseContent))
-    : new Tuple<string, List<StorageKeyTemplate>>(responseContent, null);
-}
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            //Retrieve all your resources
+            var containers = await client.Handle<List<Resource>>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources");
+
+            //Find an resource where you have an key available
+            var resource = containers
+                .FirstOrDefault(r =>
+                    r.KeyStatus == KeyStatus.Available);
+
+            if (resource == null)
+                throw new Exception("Found no resource where you could claim key");
 ```
 
-From the method you get a tuple containing a string message and an object model deserialized from the Json response.
-The string message is empty if the operation was successful. If the operation failed, there is an error message.
-The resulting Json is represented by an object model, like below.
+###### Claim key and read content
 
 ```csharp
-public class StorageKeyTemplate
-{
-  public string Id { get; set; }
-  public string Name { get; set; }
-  public int TotalHours { get; set; }
-  public bool IsSystemKey { get; set; }
-  public string Description { get; set; }
-  public bool Attribute1 { get; set; }
-  public bool Attribute2 { get; set; }
-  public bool Attribute3 { get; set; }
-  public bool Attribute4 { get; set; }
-}
+            var client = new DataFabricClient();
+
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            var resourceId = "{resourceId}";
+
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            //Make sure the resource exist
+            var container = await client.Handle<Resource>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources/{resourceId}");
+            if (container == null)
+                throw new Exception("Can't find/access resource");
+
+            //Find your accessSharingId on the container
+            var accesses = await client.Handle<ProviderAccessResult>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses");
+
+            var access = accesses.Results.FirstOrDefault(a =>
+                a.Attribute1 && a.Attribute2 && a.Attribute3 && a.Attribute4);
+
+            if (access == null)
+                throw new Exception("No valid access for this scenario");
+
+            //Get your SAS token from data fabric
+            var key = await client.Handle<SASToken>(HttpMethod.Put,
+                $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses/{access.AccessSharingId}/key");
+
+            //You can now use key.FullKey to access the container 
+            var storageContainer = new CloudBlobContainer(new Uri(key.FullKey));
+
+            //Get the blob reference
+            var blob = storageContainer.GetBlockBlobReference("first_folder/first_file.txt");
+
+            //Check if the file exist
+            if (await blob.ExistsAsync())
+            {
+                using (var stream = await blob.OpenReadAsync())
+                {
+                    var reader = new StreamReader(stream);
+
+                    //read the content of the blob
+                    var content = await reader.ReadToEndAsync();
+                }
+            }
 ```
+##### Models
 
-From the description property you know what the rights of the key template are.
-
-##### GET Resources
-Every user has the possibility to store their data in resources within the Veracity platform. Use this API request to list the resources that are owned or shared by the user.
-
+All the models used in the quick guide
 ```csharp
-public async Task<Tuple<string, Resources>> RequestAllResources(bool shared, bool owned)
-{
-  var queryString = HttpUtility.ParseQueryString(string.Empty);
-  queryString["shared"] = shared.ToString();
-  queryString["owned"] = owned.ToString();
+   public class ProviderAccessResult
+        {
+            [JsonProperty("results")]
+            public List<ProviderAccess> Results { get; set; }
+        }
 
-  var uri = $"{_baseDataApiUrl}resources?{queryString}";
+        public class ProviderAccess
+        {
+            [JsonProperty("accessSharingId")]
+            public Guid AccessSharingId { get; set; }
 
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, Resources>("", JsonConvert.DeserializeObject<Resources>(responseContent))
-    : new Tuple<string, Resources>(responseContent, null);
-}
+            [JsonProperty("attribute1")]
+            public bool Attribute1 { get; set; }
+
+            [JsonProperty("attribute2")]
+            public bool Attribute2 { get; set; }
+
+            [JsonProperty("attribute3")]
+            public bool Attribute3 { get; set; }
+
+            [JsonProperty("attribute4")]
+            public bool Attribute4 { get; set; }
+        }
+
+
+        public class SASToken
+        {
+            public string SASKey { get; set; }
+            public string SASURi { get; set; }
+
+            public string FullKey => SASURi + SASKey;
+
+            public DateTime SASKeyExpiryTimeUTC { get; set; }
+            public bool IsKeyExpired { get; set; }
+
+            public bool AutoRefreshed { get; set; }
+        }
+
+        public class SharingResourceInputData
+        {
+            public Guid UserId { get; set; }
+            public Guid AccessKeyTemplateId { get; set; }
+        }
+
+        public class ShareResourceVM
+        {
+            /// <summary>
+            /// Sharing id for the container
+            /// </summary>
+            public Guid AccessSharingId { get; set; }
+        }
+
+        public class KeyTemplate
+        {
+            public Guid Id { get; set; }
+            public byte AccessType { get; set; }
+            public string Name { get; set; }
+            public short TotalHours { get; set; }
+            public bool IsSystemKey { get; set; }
+            public string Description { get; set; }
+            public bool Attribute1 { get; set; }
+            public bool Attribute2 { get; set; }
+            public bool Attribute3 { get; set; }
+            public bool Attribute4 { get; set; }
+            public bool Deleted { get; set; }
+        }
+
+        public class Resource
+        {
+            /// <summary>
+            /// Container ID
+            /// </summary>
+            public Guid Id { get; set; }
+
+            /// <summary>
+            /// The name of the container in Azure. 
+            /// <example>
+            /// my-container5e1b021a-d3dc-4cdd-ba1e-7399db38ecf4
+            /// </example>
+            /// </summary>
+            public string Reference { get; set; }
+
+            /// <summary>
+            /// The full container url in Azure. 
+            /// <example>
+            /// https://ne1dnvgltstgcus0000f.blob.core.windows.net/my-container5e1b021a-d3dc-4cdd-ba1e-7399db38ecf4
+            /// </example>
+            /// </summary>
+            public string Url { get; set; }
+
+            public DateTime LastModifiedUTC { get; set; }
+            public Guid OwnerId { get; set; }
+            public AccessLevel AccessLevel { get; set; }
+
+
+            /// <summary>
+            /// Which region the resource was created in. Valid values: "USA" | "Europe"
+            /// </summary>
+            public string Region { get; set; }
+
+            /// <summary>
+            /// <see cref="KeyStatus"/>
+            /// </summary>
+            public KeyStatus KeyStatus { get; set; }
+
+        }
+
+        /// <summary>
+        /// Shows information about what type of keys are available for that resource
+        /// </summary>
+        public enum KeyStatus
+        {
+            NoKeys = 0,
+            Expired = 1,
+            Available = 2,
+            Active = 3
+        }
+
+        /// <summary>
+        /// Access level for container
+        /// </summary>
+        public enum AccessLevel
+        {
+            Owner = 2,
+            DataSteward = 1,
+            Consumer = 0
+        }
+
+
+        public class Identity
+        {
+            public Guid Id { get; set; }
+            public Guid CompanyId { get; set; }
+            public string Role { get; set; }
+        }
+
+        public class ContainerInput
+        {
+            /// <summary>
+            /// The Location which a storage container will be provisioned. Containers can only be created in supported regions
+            /// </summary>
+
+            public string StorageLocation { get; set; }
+
+            /// <summary>
+            /// 5-32 character short name used to distinguish between storage containers. The name needs to be lowercase and alphanumeric. The full name of the container will comprise of this shortname plus a unique Guid genarated by the system. Note - storage containers can not be renamed
+            /// </summary>
+            public string ContainerShortName { get; set; }
+
+            /// <summary>
+            /// Indicates whether the user has accepted that the container will not contain personal data. Required to be true for a user to upload a container
+            /// </summary>
+            public bool MayContainPersonalData { get; set; }
+        }
 ```
-
-The input parameters are two bool properties in which you can specify if you want to list owned or shared resources.
-The result from this method is a tuple containing a string message and an object model deserialized from the Json response. The string message is empty if the operation was successful. If the operation failed, there is an error message.
-Successful output from the method consists of two collections of resources in an object model like below.
-
-```csharp
-public class Resources
-{
-  public List<Resource> OwnedResources { get; set; }
-  public List<SharedResource> SharedResources { get; set; }
-}
-public class Resource
-{
-  public string ResourceId { get; set; }
-  public string ResourceName { get; set; }
-  public string ResourceUrl { get; set; }
-  public string LastModifiedUTC { get; set; }
-  public string OwnerId { get; set; }
-  public string ConsumerName { get; set; }
-  public string ResourceType { get; set; }
-}
-public class SharedResource
-{
-  public Resource StorageItem { get; set; }
-  public string AccessDescription { get; set; }
-  public bool AccessKeyCreated { get; set; }
-  public string AccessKeyEndDateUTC { get; set; }
-  public string AccessKeyTemplateId { get; set; }
-  public string AccessSharingId { get; set; }
-  public bool AutoRefreshed { get; set; }
-}
-```
-
-##### GET Accesses for resource
-
-With this query you can get all accesses provided for a given resource.
-
-```csharp
-public async Task<Tuple<string, Accesses>> RequestAccesses(string resourceId, int pageNo, int pageSize)
-{
-  var queryString = HttpUtility.ParseQueryString(string.Empty);
-  queryString["pageNo"] = pageNo.ToString();
-  queryString["pageSize"] = pageSize.ToString();
-
-  var uri = $"{_baseDataApiUrl}resources/{resourceId}/accesses?" + queryString;
-
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, Accesses>("", JsonConvert.DeserializeObject<Accesses>(responseContent))
-    : new Tuple<string, Accesses>(responseContent, null);
-}
-```
-
-As input arguments, next to the resourceId that you are interested in, specify the page number and page size (if you expect to have a lot of results).
-As a result of the method you get a tuple containing a string message and an object model deserialized from the Json response.
-A string message is empty if the operation was successful. If the operation failed, there is an error message.
-The resulting Json is like below.
-
-```csharp
-public class Accesses
-{
-  public List<Access> Results { get; set; }
-  public int Page { get; set; }
-  public int ResultsPerPage { get; set; }
-  public int TotalPages { get; set; }
-  public int TotalResults { get; set; }
-}
-public class Access
-{
-  public string ProviderEmail { get; set; }
-  public string UserId { get; set; }
-  public string OwnerId { get; set; }
-  public string AccessSharingId { get; set; }
-  public bool KeyCreated { get; set; }
-  public bool AutoRefreshed { get; set; }
-  public string KeyCreatedTimeUTC { get; set; }
-  public string KeyExpiryTimeUTC { get; set; }
-  public string ResourceType { get; set; }
-  public int AccessHours { get; set; }
-  public string AccessKeyTemplateId { get; set; }
-  public bool Attribute1 { get; set; }
-  public bool Attribute2 { get; set; }
-  public bool Attribute3 { get; set; }
-  public bool Attribute4 { get; set; }
-  public string ResourceId { get; set; }
-}
-```
-
-##### POST Share Access
-
-If you want to share access to a specific resource with other users you can use this post request.
-
-```csharp
-public async Task<Tuple<string, ShareAccessResponse>> ShareAccess(string resourceId, bool autoRefreshed,
-  string userToShareId, string shareTemplateId)
-{
-  var uri = $"{_baseDataApiUrl}resources/{resourceId}/accesses?autoRefreshed={autoRefreshed}";
-  var body = JsonConvert.SerializeObject(new { UserId = userToShareId, AccessKeyTemplateId = shareTemplateId });
-
-  var response = await _httpClient.PostAsync(uri, new StringContent(body, Encoding.UTF8, "application/json"));
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, ShareAccessResponse>("", JsonConvert.DeserializeObject<ShareAccessResponse>(responseContent))
-    : new Tuple<string, ShareAccessResponse>(responseContent, null);
-}
-```
-
-It's important to note that in addition to the defined URL, you need to send Json content with the resource ID that you want to share and the user id of whom you want to share the resource with. Also needed is the shared template id describing what access type the user will have to your resource.
-The shared template ID can be obtained by executing the RequestStorageKeyTemplates method and choosing the key that fits best to your needs. As a result of the method we get a tuple containing a string message and an object model deserialized from the Json response. The string message is empty if the operation was successful. If the operation failed, there is an error message.
-As result we get the access sharing ID.
-
-```csharp
-public class ShareAccessResponse
-{
-  public string AccessSharingId { get; set; }
-}
-```
-
-##### GET Fetch Key for storage container
-
-To get access to a storage container you need to get a SAS token. You can execute the below method giving access using the sharing id from the previous step as an input parameter.
-
-```csharp
-public async Task<Tuple<string, SasData>> FetchKeyForStorageContainer(string resourceId, string accessSharingId)
-{
-  var uri = $"{_baseDataApiUrl}resources/{resourceId}/keys?accessSharingId={accessSharingId}";
-
-  var response = await _httpClient.GetAsync(uri);
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode
-    ? new Tuple<string, SasData>("", JsonConvert.DeserializeObject<SasData>(responseContent))
-    : new Tuple<string, SasData>(responseContent, null);
-} 
-```
-
-As a result of the method we get a tuple containing a string message and an object model deserialized from the Json response. The string message is empty if the operation was successful. If the operation failed, there is an error message.
-The resulting Json is like below.
-
-```csharp
-public class SasData
-{
-  public string SasKey { get; set; }
-  public string SasUri { get; set; }
-  public string FillKey { get; set; }
-  public string SasKeyExpiryTimeUTC { get; set; }
-  public bool IsKeyExpired { get; set; }
-  public bool AutoRefreshed { get; set; }
-}
-```
-
-The object model contains the SAS URI and SAS key that give us access to a specified resource.
-
-
-### Provision API
-The Veracity Data Platform ProvisioningAPI is an API where developers and applications can create data containers.
-
-Implementations:
-- [.NET implementation](#provisionapi-net-implementation)
-
-
-#### ProvisionAPI .NET implementation
-The below sample assumes that the user has a Subscription Key from the Veracity Portal, as well as a Bearer Key. For now, the Bearer Key can be obtained from the Swagger UI. User must also know the URI to Data API service.
-
-We are going to access the Provision API service via http requests and in our implementation we will use HttpClient from System.Net.Http.
-
-##### POST ProvisionContainer
-Whilst having a Subscription Key and a Bearer Key for authentication, the user is able to provision a data container.
-You are required to choose a storage location from these available options:
-1. Unknown,
-2. NorthEurope,
-3. EastUs1
-
-You can also specify the container name, but this parameter is optional.
-
-```csharp
-public async Task<string> ProvisionContainer(StorageLocations storageLocation, string containerShortName = null)
-{
-  var queryString = HttpUtility.ParseQueryString(string.Empty);
-  if(!string.IsNullOrEmpty(containerShortName))
-    queryString["containerShortName"] = containerShortName;
-
-  var requestCode = Guid.NewGuid().ToString();
-
-  var uri = $"{_baseProvisioningApiUrl}container?storageLocation={storageLocation}&requestCode={requestCode}&{queryString}";
-  var body = JsonConvert.SerializeObject(new { StorageLocation = storageLocation.ToString(), RequestCode = requestCode, ContainerShortName = containerShortName });
-
-  var response = await _httpClient.PostAsync(uri, new StringContent(body, Encoding.UTF8, "application/json"));
-  var responseContent = await response.Content.ReadAsStringAsync();
-  return response.IsSuccessStatusCode ? response.ReasonPhrase : responseContent;
-}
-```
-
-It is important that in addition to the URL parameters, the user needs to create a Json with these same parameters and send this Json request.
-As a result, we expect to get string information about the success or failure of our operation.
-The provisioning of the container can take up to 10 minutes, this means there is a time delay needed between requesting a container and performing operations on that container.
-
-### Metadata API
-
-
-
 
 ## GitHub  
 Follow our open projects related to Veracity data fabric API on https://github.com/veracity

@@ -10,7 +10,7 @@ The Service API provides a consistent interface for accessing data about the use
 
 ## Api Management
 
-You can access documentation and try out the api through the Api Management catalogue [Veracity Api management](https://api-test-portal.veracity.com/).
+You can access documentation and try out the api through the Api Management catalogue [Veracity Api management](https://api-portal.veracity.com/).
 Note to existing Veracity developers, we will sunset the direct access to the api and you will only be allowed to access it through  https://api.veracity.com/platform
 
 ## Versioning

@@ -20,11 +20,13 @@ In addition to exploring this documentation, you will need to contact the Veraci
 
 
 ## Veracity data fabric
-The data sharing and data analytics part of Veracity is currently in a private preview phase, meaning that we will work together with a selection of leading customers and providers. We will verify the design and functionality of these elements of the platform, and explore how value can best be created for asset owners and analytic providers. More functionality, services, and providers will be added based on feedback from our private preview phase.
+Veracity Data Fabric provides data management functionality for cloud and on-premise for an improved data visibility, insights, access control and security.
 
-If you are interested in joining this private preview phase, please reach out to your current DNV GL business contact and we will carefully assess if we can on-board you now.
+We support two roles: Data Manager, create and manage data lake; Data Consumer, read only access to data lake.
 
-Feel free to start investigating the documentation on the [data fabric API](https://developer.veracity.com/doc/data-fabric-api), [data fabric in general](https://developer.veracity.com/docs), and sample code on [GitHub](https://www.github.com/veracity) to get a feeling for what opportunities the data fabric enables. 
+Data managers can takes advantage of the Veracity ecosystem whereby they can combine their datasets with others available from Veracity Marketplace to enrich their own data to create new insights and solutions.
+
+Documentation on the [data fabric API](https://developer.veracity.com/doc/data-fabric-api), [data fabric in general](https://developer.veracity.com/docs), and sample code on [GitHub](https://www.github.com/veracity) to get a feeling for what opportunities the data fabric enables. 
 
 ## My services and the service API
 Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use the digital services without additional log in as it is a prerequisite for service providers to integrate their digital services with the DNV GL identity provider. Consumers will buy services on the Marketplace, and once purchased the service will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API. 

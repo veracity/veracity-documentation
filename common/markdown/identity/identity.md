@@ -33,7 +33,7 @@ This part of the tutorial will demonstrate how to add authentication to a MVC .N
 
 For the rest of the tutorial on ASP.NET implementation, we will assume that the application has already been created, and does not contain any form of setup for AD B2C authentication. Firstly, we will need to add some NuGet packages. 
 
-```xml
+```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 4.0.0-alpha1
 Install-Package Microsoft.Owin.Security.Cookies -Version 4.0.0-alpha1
 Install-Package Microsoft.Owin.Host.SystemWeb -Version 4.0.0-alpha1
@@ -308,7 +308,7 @@ In order to develop this code you may need to set up your computer to trust the 
 
 When integrating towards our Azure AD B2C tenant, you will need the following information provided by the Veracity team, as part of the onboarding process:
 
-```xml
+```powershell
 Tenant - tenant name from Azure Portal (Active Directory)
 ClientId - Application ID from your Native app registration
 PolicySignUpSignIn - sign in policy created during app registration
@@ -317,7 +317,7 @@ ApiScopes - scopes available for given api
 
 For user identification we will use the class PublicClientApplication available in namespace Microsoft.Identity.Client. For this reason, you'll need to install the package like this:
 
-```xml
+```powershell
 Install-Package Microsoft.Identity.Client -Version 1.1.0-preview
 ```
 

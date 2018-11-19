@@ -1,9 +1,3 @@
-Title : "Create Veracity App"
-Author: "Brede Børhaug"
-Contributors: 
-Ming Derek Wang
-
-
 
 ## Overview 
 To make life easy for you, we in Veracity have created a Yeoman generator to get you started with your applications. The generator requires Node to be installed in order to run. You may pick your language of choice for the Veracity application in the generator.

@@ -1,4 +1,3 @@
----
 Title : "Create Veracity App"
 Author: "Brede Børhaug"
 Contributors: 

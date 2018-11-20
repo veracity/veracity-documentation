@@ -12,7 +12,7 @@ On the platform’s marketplace, asset owners can access industrial applications
 ### Where do I start?
 With all the new opportunities Veracity enables for both asset owners and service providers, it can be a daunting task to figure out which services you need to support in your solution architecture. Here are some quick tips and links.
 
-- **How do I create a service on Veracity** : We are happy to start working with 3rd party providers to onboard new services. The end-to-end process is still under construction, but you can start reading up on the [onboarding a service](https://developer.veracity.com/doc/onboarding-a-service) documentation and reach out to the Veracity team for further info.
+- **How do I create a service on Veracity**: We are happy to start working with 3rd party providers to onboard new services. The end-to-end process is still under construction, but you can start reading up on the [onboarding a service](https://developer.veracity.com/doc/onboarding-a-service) documentation and reach out to the Veracity team for further info.
 - **Can anybody sell data or a service in the marketplace?** Yes! Veracity is an open B2B platform, and we allow complementary services and competing services on to the platform. 
 - **How do we get paid when selling a product on Veracity?** Through Veracity. We provide an E-Commerce solution, in cooperation with Oracle, on Veracity.
 - **Where can I find code samples to get started?** All code samples are open source, and on our [GitHub](https://www.github.com/Veracity) account. Fork our repositories and follow the tutorials in the documentation [here](https://developer.veracity.com/docs) on Veracity for developers.  

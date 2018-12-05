@@ -19,7 +19,7 @@ In the old days of the internet aquiring and maintaining certificates was an exp
 
 Websites are public facing and respond to requests crafted by users. Most often these requests are done by a browser that follows the specification and send properly formatted requests, but there is nothing stopping anyone from building a malicious payload and sending it directly to your application or even tampering with your client-side javascript in order to try to gain access or steal information. When building application (and especially single-page web applications) you should follow these guidelines:
 
-- Treat andy data from the user as suspect until you sanitize and validate it. Injection attacks are still the [number 1 security threat online](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
+- Treat any data from the user as suspect until you sanitize and validate it. Injection attacks are still the [number 1 security threat online](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
 - Secure your REST endpoints as if they are the first contact point for your users even if you have implemented security client-side.
 - Do not expose secret configuration parameters in client-side javascript.
 - Remember anything your server sends out can be read by attackers.

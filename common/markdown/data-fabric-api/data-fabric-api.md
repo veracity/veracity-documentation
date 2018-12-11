@@ -50,26 +50,32 @@ https://api.veracity.com/veracity/datafabric/data/api/1/[end-point]
 
 | Action | Path | Method | Description |
 |:---------|:---------|:-------|:---------|
-| V1.0 Access | `/resources/{resourceId}/accesses` | `GET` | Retrieves a list of Providers that have access to a specified resource. |
-| V1.0 Access | `/resources/{resourceId}/accesses` | `POST` | Share access to another user for the specified resource. |
-| V1.0 Access | `/resources/{resourceId}/accesses/{accessId}` | `PUT` | Revoke an users ability to refresh keys on a resource |
-| V1.0 Access | `/resources/{resourceId}/accesses/{accessId}/key` | `PUT` | Fetch a SAS key to access the storage item shared with you |
-| v1.0 Application | `/application` | `GET` |  Returns information about the current application |
-| v1.0 Application | `/application` | `POST` |  Add a new application to Veracity data fabric. |
-| v1.0 Application | `/application/{applicationId}` | `GET` | Gets information about an application in Veracity data fabric. |
-| v1.0 Application | `/application/{applicationId}` | `PUT` |  Update role of a application on Veracity data fabric. |
-| v1.0 DataStewards | `/resources/{resourceId}/datastewards` | `GET` |Retrieve a list of data stewards for the resource |
-| v1.0 DataStewards | `/resources/{resourceId}/owner` | `PUT` | Transfer the ownership of the Azure resource to a specified user |
-| v1.0 DataStewards | `/resources/{resourceId}/datastewards/{userId}` | `DELETE` | Delete a data stewards |
-| v1.0 DataStewards | `/resources/{resourceId}/datastewards/{userId}` | `POST` | Delegate the rights to use the Azure resource to another Veracity user. |
-| v1.0 KeyTemplates | `/keytemplates` | `GET` | Returns the templates for the different types of keys you can generate |
-| v1.0 Ledger |  `/resource/{resourceId}/ledger` | `GET`  | Returns a list of ledger records |
-| v1.0 Resources |  `/resources` | `GET`  | Fetches all storage resources that you can claim keys for |
-| v1.0 Resources | `/resources/{resourceId}` | `GET` | Returns a single resource |
-| V1.0 Tags | `/tags` | `GET` | Retrive metadata tags in Veracity |
-| v1.0 Tags | `/tags` | `POST` | Inserts tags and returns the inserted new inserted tags with ID's  |
-| v1.0 Users | `/users/me` | `GET`  | Returns information about the current user  |
-| v1.0 Users | `/users/{userId}` | `GET` | Gets information about an user |
+| V1.0 Access       | `/resources/{resourceId}/accesses`                | `GET`     | Retrieves a list of Providers that have access to a specified resource. |
+| V1.0 Access       | `/resources/{resourceId}/accesses`                | `POST`    | Share access to another user for the specified resource. |
+| V1.0 Access       | `/resources/{resourceId}/accesses/{accessId}`     | `PUT`     | Revoke an users ability to refresh keys on a resource |
+| V1.0 Access       | `/resources/{resourceId}/accesses/{accessId}/key` | `PUT`     | Fetch a SAS key to access the storage item shared with you |
+| V1.0 Application  | `/application`                                    | `GET`     | Returns information about the current application |
+| V1.0 Application  | `/application`                                    | `POST`    | Add a new application to Veracity data fabric. |
+| V1.0 Application  | `/application/{applicationId}`                    | `GET`     | Gets information about an application in Veracity data fabric. |
+| V1.0 Application  | `/application/{applicationId}`                    | `PUT`     | Update role of a application on Veracity data fabric. |
+| V1.0 DataStewards | `/resources/{resourceId}/datastewards`            | `GET`     | Retrieve a list of data stewards for the resource |
+| V1.0 DataStewards | `/resources/{resourceId}/owner`                   | `PUT`     | Transfer the ownership of the Azure resource to a specified user |
+| V1.0 DataStewards | `/resources/{resourceId}/datastewards/{userId}`   | `DELETE`  | Delete a data stewards |
+| V1.0 DataStewards | `/resources/{resourceId}/datastewards/{userId}`   | `POST`    | Delegate the rights to use the Azure resource to another Veracity user. |
+| V1.0 KeyTemplates | `/keytemplates`                                   | `GET`     | Returns the templates for the different types of keys you can generate |
+| V1.0 Ledger       | `/resource/{resourceId}/ledger`                   | `GET`     | Returns a list of ledger records |
+| V1.0 Resources    | `/resources`                                      | `GET`     | Fetches all storage resources that you can claim keys for |
+| V1.0 Resources    | `/resources/{resourceId}`                         | `GET`     | Returns a single resource |
+| V1.0 Tags         | `/tags`                                           | `GET`     | Retrive metadata tags in Veracity |
+| V1.0 Tags         | `/tags`                                           | `POST`    | Inserts tags and returns the inserted new inserted tags with ID's  |
+| V1.0 Users        | `/users/me`                                       | `GET`     | Returns information about the current user  |
+| V1.0 Users        | `/users/{userId}`                                 | `GET`     | Gets information about an user |
+| V1.0 Groups       | `/groups`                                         | `GET`     | Returns all the groups that you have created. |
+| V1.0 Groups       | `/groups`                                         | `POST`    | Create a grouping for a set of resources. | 
+| V1.0 Groups       | `/groups/{id}`                                    | `GET`     | Returns the group with the given id. |
+| V1.0 Groups       | `/groups/{id}`                                    | `PUT`     | Update the group with the given id. |
+| V1.0 Groups       | `/groups/{id}`                                    | `DELETE`  | Deletes the group with the given id. |
+
 
 #### V1.0 Access
 
@@ -763,6 +769,167 @@ https://api.veracity.com/veracity/datafabric/data/api/1/users/{userId}
   "role": string
 }
 ```
+
+
+#### V1.0 Groups
+##### POST /groups
+Creates a group for a set of container. A group is a group of resources, as the name indicates, a way to order a set of resources together.
+
+Creating a group with resources that belong to an existing group will move them to this newly created group.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/groups
+
+**Input**
+
+`Parameters`
+| Parameter     | Parameter Type	| Data Type                     | Required    | Description            | 
+|:--------------|:----------------|:------------------------------|:------------|:-----------------------|
+| input         | Body            | GroupCreationInputParameters  | Yes         | Input parameters       |
+
+`GroupCreationInputParameters`
+```
+{
+  "title": "string" # Required title for the group
+  "description": "string" # Optional description for the group
+  "resourceIds": [ # Required, list of resource IDs
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "sortingOrder": 0 # Floating point, optional (default 0), can be used to order groups relative to eachother
+}
+```
+
+**Return**
+
+`Response code: 201 Created`
+```
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "title": "string",
+  "description": "string",
+  "resourceIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "sortingOrder": 0.0
+}
+```
+`Response code: 400 Bad Request` Resource ID not found.
+
+##### GET /groups
+Retrieves the list of groups for the user.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/groups
+
+**Return**
+
+`Response code: 200 OK`
+```
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "title": "string",
+    "description": "string",
+    "resourceIds": [
+      "00000000-0000-0000-0000-000000000000"
+    ],
+    "sortingOrder": 0
+  }
+]
+```
+
+##### GET /groups/{Id}
+Retrieves the group with the given id.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/groups/{Id}
+
+**Input**
+
+`Parameters`
+| Parameter     | Parameter Type	| Data Type     | Required    | Description    | 
+|:--------------|:----------------|:--------------|:------------|:---------------|
+| Id            | Path            | Guid          | Yes         | Group Id       | 
+
+
+
+**Return**
+
+`Response code: 200 OK`
+```
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "title": "string",
+  "description": "string",
+  "resourceIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "sortingOrder": 0.0
+}
+```
+`Response code: 404 Not Found` Group with given ID not found.
+
+##### PUT /groups/{Id}
+Updates the given group. In order to remove a resource, omit it from the request resources array. In order to add a resource, add it to the request resources array.
+
+Note that adding a resource that belongs to another Group will move it to this group.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/groups/{Id}
+
+**Input**
+
+`Parameters`
+| Parameter     | Parameter Type	| Data Type                     | Required    | Description            | 
+|:--------------|:----------------|:------------------------------|:------------|:-----------------------|
+| Id            | Path            | Guid                          | Yes         | Id of the group        |
+| input         | Body            | GroupCreationInputParameters  | Yes         | Input parameters       |
+
+`GroupCreationInputParameters`
+```
+{
+  "title": "string",
+  "description": "string",
+  "resourceIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "sortingOrder": 0
+}
+```
+
+**Return**
+
+`Response code: 200 OK` Group successfully updated.
+`Response code: 400 Bad Request` Resource Id(s) not found.
+`Response code: 404 Not Found ` Group not found.
+
+##### DELETE /groups/{Id}
+Deletes the given group. Does not delete resources, just removes them from the group.
+
+**Url**
+
+https://api.veracity.com/veracity/datafabric/data/api/1/groups/{Id}
+
+**Input**
+
+`Parameters`
+| Parameter     | Parameter Type	| Data Type     | Required    | Description    | 
+|:--------------|:----------------|:--------------|:------------|:---------------|
+| Id            | Path            | Guid          | Yes         | Group Id       | 
+
+**Return**
+
+`Response code: 204 No Content` Successfully deleted group.
+`Response code: 404 Not Found` Group not found.
+
+
+
+
+
 
 ### Provisioning API
 

@@ -231,6 +231,7 @@ https://api.veracity.com/veracity/datafabric/data/api/1/resources/{resourceId}/a
  **Input**
 
 `Parameters`
+
 | Parameter |Parameter Type	| Data Type | required |Description|
 |:---------|:---------|:-------|:--:|:----------|
 | resourceId | path  | string | required | Azure resource|
@@ -757,6 +758,7 @@ https://api.veracity.com/veracity/datafabric/data/api/1/users/{userId}
 **Input**
 
 `Parameters`
+
 | Parameter |Parameter Type	| Data Type | required |Description|
 |:---------|:---------|:-------|:--:|:----------|
 | userId | path  | string | required | My DNV GL Id |
@@ -784,9 +786,11 @@ https://api.veracity.com/veracity/datafabric/data/api/1/groups
 **Input**
 
 `Parameters`
+
 | Parameter     | Parameter Type	| Data Type                     | Required    | Description            | 
 |:--------------|:----------------|:------------------------------|:------------|:-----------------------|
 | input         | Body            | GroupCreationInputParameters  | Yes         | Input parameters       |
+
 
 `GroupCreationInputParameters`
 ```
@@ -850,6 +854,7 @@ https://api.veracity.com/veracity/datafabric/data/api/1/groups/{Id}
 **Input**
 
 `Parameters`
+
 | Parameter     | Parameter Type	| Data Type     | Required    | Description    | 
 |:--------------|:----------------|:--------------|:------------|:---------------|
 | Id            | Path            | Guid          | Yes         | Group Id       | 
@@ -884,6 +889,7 @@ https://api.veracity.com/veracity/datafabric/data/api/1/groups/{Id}
 **Input**
 
 `Parameters`
+
 | Parameter     | Parameter Type	| Data Type                     | Required    | Description            | 
 |:--------------|:----------------|:------------------------------|:------------|:-----------------------|
 | Id            | Path            | Guid                          | Yes         | Id of the group        |
@@ -917,6 +923,7 @@ https://api.veracity.com/veracity/datafabric/data/api/1/groups/{Id}
 **Input**
 
 `Parameters`
+
 | Parameter     | Parameter Type	| Data Type     | Required    | Description    | 
 |:--------------|:----------------|:--------------|:------------|:---------------|
 | Id            | Path            | Guid          | Yes         | Group Id       | 

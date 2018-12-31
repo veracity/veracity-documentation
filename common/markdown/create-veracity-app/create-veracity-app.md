@@ -80,7 +80,7 @@ npm start
 Now, go to your browser of choice, visit [https://localhost:3000](https://localhost:3000), and check out your app.
 
 ### .NET application
-Coming soon
+Please refer [https://github.com/veracity/Veracity.Authentication.OpenIDConnect.AspNet](https://github.com/veracity/Veracity.Authentication.OpenIDConnect.AspNet) for recommendation and usage guideline. 
 
 #### .NET core application
 To install and run the .NET core application, you do the following steps.

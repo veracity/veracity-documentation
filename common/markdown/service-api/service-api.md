@@ -45,7 +45,6 @@ These are:
 
 |View-point|Path|Description|
 |:---------|:-------|:----------|
-|Directory|`/directory`|Information about different master data and resources with in myDNVGL. The main categories are: services, users and companies. This view point is reserved for advances services and require more priviledges. The most common use case, get user id form email to verify that the email belongs ot a Veracity user is now included in the 'This' view point (GET '/this/user/resolve({email})'). We will not go into more details on this view point in this document|
 |My|`/my`|Provides information about the currently logged in user.|
 |This|`/this`|Provides information from the service or applications point of view, its capabilities and metadata.|
 

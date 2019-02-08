@@ -1,10 +1,7 @@
 ---
 Title : "Create Veracity App"
 Author: "Brede Børhaug"
-Contributors: 
 ---
-
-
 
 ## Overview 
 To make life easy for you, we in Veracity have created a Yeoman generator to get you started with your applications. The generator requires Node to be installed in order to run. You may pick your language of choice for the Veracity application in the generator.
@@ -16,7 +13,7 @@ To create your application:
 - [NodeJS application](#nodejs-application)
 - [.NET application](#net-application)
 
-Updated after release : 0.1.7
+Updated after release : 2.0.1
 
 ## Quick start 
 
@@ -83,16 +80,7 @@ npm start
 Now, go to your browser of choice, visit [https://localhost:3000](https://localhost:3000), and check out your app.
 
 ### .NET application
-The usage of the Veracity generator is given in the following way:
-```ps
-yo @veracity/veracity:app [options]
-```
-
-To list the latest apps available in the generator, write the following:
-
-```ps
-yo --help
-```
+Please refer [https://github.com/veracity/Veracity.Authentication.OpenIDConnect.AspNet](https://github.com/veracity/Veracity.Authentication.OpenIDConnect.AspNet) for recommendation and usage guideline. 
 
 #### .NET core application
 To install and run the .NET core application, you do the following steps.

@@ -20,18 +20,16 @@ Link to Quick-Start:
 	- [C++ Implementation](#c-implementation)
 - [Use AzCopy to egest data](#egest-data-using-azcopy)
 
-## Quick start 
+## Quick start
 
 ### Egest using Azure Storage Explorer
 When doing a manual egest of data from Veracity, we recommend using Azure Storage Explorer. This independent application from Microsoft allows you to manually retrieve, view and interact with the data. This tool allows you to access any Veracity storage container you have been granted access to. Azure Storage Explorer is available through Windows, macOS and Linux.
 
 #### Download and install Azure Storage Explorer 
-Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexplorer.com/). Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically. 
-
-**IMPORTANT**: Some users have reported problems uploading data using the version 0.9.1 version of Storage Explorer. If you experience the same, upgrade if a new version is available, or get the 0.8.16 version from this [link](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-relnotes).
+Download Azure Storage Explorer from [www.storageexplorer.com](http://storageexplorer.com/). Select what type of operative system you are using (Windows, Mac or Linux) and the client download will start automatically.
 
 #### Connect to a Veracity container using your key
-The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Data](https://www.veracity.com/mydata) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
+The first time you open Azure Storage Explorer, you will see a window as shown below. If you do not already have a key from Veracity, go to [My Data](https://data.veracity.com) to open your data access page and retrieve a key. The keys provided by Veracity are known as Shared Access Signature Tokens, or SAS. The token is generated uniquely for you, and is used to monitor the access to each container respectively. Go to [data fabric keys](https://developer.veracity.com/doc/data-fabric-keys) to read more about keys.
 
 In Azure Storage Explorer click “connect to a new storage account”, and then the radio button labeled "Use a shared access signature (SAS) URI or connection string" as shown below. Then click next.
 

@@ -1910,26 +1910,26 @@ To view a SAS Key, navigate to User management tab in Access. Here you can get a
 You can see the keys you own by clicking on View key for any key.
 
 ###### How to handle SAS key expired situation ?
-By default SAS keys are created with a specified duration and that duration starts by redeeming the sharing/access and redeeming is done by clicking on the Acess Key for the target key in User management. Once it is clicked, a SAS key is generated for the sharing/access and the key is expired after the specified duration time. The owner of the Access will lose his/her access to the container once the SAS key is expired.
+By default SAS keys are created with a specified duration and that duration starts by redeeming the sharing/access and redeeming is done by clicking on the Access Key for the target key in User management. Once it is clicked, a SAS key is generated for the sharing/access and the key is expired after the specified duration time. The owner of the Access will lose his/her access to the container once the SAS key is expired.
 
-On the other hand, when you create a Access share in Share access,  there is an option called Set key as recurring.  If this option is specified, the owner of the Access wil lbe able to re-generate a new SAS key after the key generated previously is expired.
+On the other hand, when you create a Access share in Share access,  there is an option called Set key as recurring.  If this option is specified, the owner of the Access will be able to re-generate a new SAS key after the key generated previously is expired.
 
 Selecting which duration when creating and Access Share is important for the recurring keys. If you set it as 6 months, even if you Revoke that Access, the last generated SAS key will keep
 Being valid for that duration.
 
 ###### How to create container in my application ?
-This can be acvieved with and onboarded application. You can use the client credentials flow. Your API/application can make the call as the application. Please see the Provisioning API reference for details.
+This can be achieved with and on-boarded application. You can use the client credentials flow. Your API/application can make the call as the application. Please see the Provisioning API reference for details.
 
 ###### How to share access of my containers in my application ?
-This can be acvieved with and onboarded application. You can use the client credentials flow. Your API/application can make the call as the application. Please see the Data API reference for details.
+This can be achieved with and on-boarded application. You can use the client credentials flow. Your API/application can make the call as the application. Please see the Data API reference for details.
 
 
 ###### How to get access token when I want to sync files with my container in my server without human login ?
-You need to first onboard your application into Veracity.
-For that your application should be registered in AAD B2C v1(Client Credentials grant) with premissions to the Data/Provisioning APIs.
+You need to first on-board your application into Veracity.
+For that your application should be registered in AAD B2C v1(Client Credentials grant) with permissions to the Data/Provisioning APIs.
 
 Once this is ready, you can make POST requests to the OAuth2 token endpoint of the tenant.
 
-###### How to deal with the case that I want to use DF as file storage, the web app can handle the file no matter who login to the app ?
-This can be acvieved with and onboarded application. You can use the client credentials flow. Your API can make the call as the application. Internal Identity is managed by your App is not relevant in that case.
+###### How to deal with the case that I want to use DF as file storage, the web application can handle the file no matter who login to the application ?
+This can be achieved with and on-boarded application. You can use the client credentials flow. Your API can make the call as the application. Internal Identity is managed by your App is not relevant in that case.
 

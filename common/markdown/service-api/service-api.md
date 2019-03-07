@@ -28,7 +28,7 @@ Authentication is performed through OAuth2 bearer tokens.
 
 ### Service api subscription
 
-To access the service you need to register your application in our api management catalogue [Veracity Api management](https://api-test-portal.veracity.com/) and pass your subscription key through the `Ocp-Apim-Subscription-Key` header.
+To access the service you need to register your application in our api management catalogue [Veracity Api management](https://api-portal.veracity.com/) and pass your subscription key through the `Ocp-Apim-Subscription-Key` header.
 
 ## View-points
 

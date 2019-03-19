@@ -1,7 +1,7 @@
 ---
 Title : "Identity"
 Author: "Brede Børhaug"
-Contributors: "Pawel Lehmann, Rachel Hassall"
+Contributors: "Pawel Lehmann, Rachel Hassall, Jonas Syrstad"
 ---
 
 ## Overview  

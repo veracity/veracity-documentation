@@ -1,7 +1,7 @@
 ---
 Title: Service API
 Author: "Brede Børhaug"
-Contributors: "Rachel Hassall"
+Contributors: "Rachel Hassall, Jonas Syrstad"
 ---
 
 ## Release notes:

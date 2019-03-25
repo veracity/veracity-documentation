@@ -1,8 +1,15 @@
 ---
 Title: Service API
 Author: "Brede Børhaug"
-Contributors: "Rachel Hassall"
+Contributors: "Rachel Hassall, Jonas Syrstad"
 ---
+
+## Release notes:
+
+### build: 2019.03.21.1
+   - added contactEmail and contactName for create user(s)
+   - Updated access right requirements for create user and Add/Remove service subscription, now the service OR the user needs 'Manage Service Subscriptions'. If the service account has 'Manage Service Subscriptions' you are responsible for maintaining authorization for this feature.
+
 
 ## Overview 
 
@@ -11,7 +18,7 @@ The Service API provides a consistent interface for accessing data about the use
 ## Api Management
 
 You can access documentation and try out the api through the Api Management catalogue [Veracity Api management](https://api-portal.veracity.com/).
-Note to existing Veracity developers, we will sunset the direct access to the api and you will only be allowed to access it through  https://api.veracity.com/platform
+Note to existing Veracity developers, we will sunset the direct access to the api and you will only be allowed to access it through  https://api.veracity.com/veracity/services/ (latest) or https://api.veracity.com/veracity/services/V3/ (for version 3)
 
 ## Versioning
 
@@ -35,10 +42,10 @@ To access the service you need to register your application in our api managemen
 The API defines three primary view-points from which you can access more detailed information. The base url for requests is:
 
 ```url
-https://api.veracity.com/platform/[view-point]
+https://api.veracity.com/veracity/services/[view-point]
 
 e.g.:
-https://api.veracity.com/platform/my/profile
+https://api.veracity.com/veracity/services/my/profile
 ```
 
 These are:
@@ -246,6 +253,10 @@ Response format:
 
 `/this` is the service/applications point of view and provides information from the context of a service or application. Authenticate using a service account before using these actions.
 
+Authorization models
+User and Service needs 'Read Service' right to read service subscriptions.
+User or Service nedds 'Manage Service Subscriptions' to create service subscriptions.
+
 |Action|Method|Description|
 |:-----|:----:|:----------|
 |`/this/services`|`GET`|Get all services the service principal has access to.|
@@ -383,7 +394,9 @@ RegistrationOptions {
   sendMail (boolean, optional): Set this to false to take responsibility of sending the registration email to the user. ,
   createSubscription (boolean, optional): Make the service create a default subscription for the newly created user ,
   serviceId (string, optional): The service id to create subscription for ,
-  role (string, optional): Specify the accessLevel/role the user should have with the new subscription. Optional
+  role (string, optional): Specify the accessLevel/role the user should have with the new subscription. Optional,
+  contactEmail (string, optional): The email address to use as the "invited by" field in the invitation mail. Optional,
+  contactName (string, optional): The Name to use as the "invited by" field in the invitation mail. Optional
 }
 ```
 
@@ -412,9 +425,13 @@ RegistrationOptions {
   sendMail (boolean, optional): Set this to false to take responsibility of sending the registration email to the user. ,
   createSubscription (boolean, optional): Make the service create a default subscription for the newly created user ,
   serviceId (string, optional): The service id to create subscription for ,
-  role (string, optional): Specify the accessLevel/role the user should have with the new subscription. Optional
+  role (string, optional): Specify the accessLevel/role the user should have with the new subscription. Optional,
+  contactEmail (string, optional): The email address to use as the "invited by" field in the invitation mail. Optional,
+  contactName (string, optional): The Name to use as the "invited by" field in the invitation mail. Optional
 }
 ```
+
+
 
 The following request body types are supported:
 
@@ -423,6 +440,30 @@ The following request body types are supported:
 - `application/xml`
 - `text/xml`
 - `application/x-www-form-urlencoded`
+
+### `/this/services/{serviceId}/notification`
+
+Send a notification to users or channels. This is a great way to inform your users about important events in your application. 
+
+Request format:
+
+```JSON
+
+NotificationMessage {
+message (Message, optional): The Message details,
+recipients (Array[string], optional): A list of recipients (Veracity user id) if null all users within the channel will get the nootification,
+HighPriority (boolean): set to true if this is an important message, in normal cases set to false
+}
+Message {
+name (string, optional): the title/header/subject of the notification,
+content (string, optional): the message content, allows limited html formatting,
+id (string, optional): the message id, if not provided one will be generated in Veracity,
+timeStamp (string, optional),
+channelId (string, optional): not in use, send channel id in the header,
+type (integer): GatewayInbox = 1, SMS = 2, Email = 3, Push = 4
+}
+```
+
 
 ## GitHub  
 Follow our open projects related to Veracity Services API on https://github.com/veracity

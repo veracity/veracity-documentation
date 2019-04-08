@@ -18,5 +18,3 @@ Author: Thomas Rudfoss
 ####### Heading 1_2_3_4_5_6_7
 
 ## Heading 2_2
-
-#### Heading 2_4

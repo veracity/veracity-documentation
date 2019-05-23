@@ -18,6 +18,8 @@ Quick-Start:
 	- [Python Implementation](#python-implementation)
 	- [C++ Implementation](#c-implementation)
 - [Use AzCopy to ingest data](#ingest-data-using-azcopy)
+- [Use AzCopy to synchronize data](#Synchronize-data-using-AzCopy)
+
 
 ## Quick start 
 ### Ingest using Azure storage explorer
@@ -832,6 +834,16 @@ This will copy all files starting with "my". Use option /S to copy more than one
 ```ps
 AzCopy /Source:C:\MyLocalFolder /Dest:https ://myblob.blob.core.windows.net/MyContainer /DestSAS:sasToken /S
 ```
+
+### Synchronize data using AzCopy
+Starting with AzCopy v10, the tool can also be used to synchronize data between a source and a destination, which means you can use it to keep your container (destination) up-to-date with files on your local machine (source) or vice-versa.
+In the example below we use the `access key` for our container obtained from the `Access` page of containers at [data.veracity.com](https://data.veracity.com/containers). This will synchronize the container so that every file from `mylocalfolder` is also in the container.
+
+```ps
+.\azcopy.exe sync "C:\mylocalfolder" "<access key>" --recursive=true
+```
+
+For full documentation on this functionality, refer to [docs.microsoft.com](https://docs.microsoft.com/nb-no/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#sync-incremental-copy-and-delete-blob-storage-only)
  
 ### GitHub  
 Follow our open projects related to ingest on https://github.com/veracity

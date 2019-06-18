@@ -12,11 +12,18 @@ Your Veracity integration will be through Enterprise Accounts (using open standa
 ## Common settings:
 |Setting                |Value                                                                                |
 |-----------------------|-------------------------------------------------------------------------------------|
-|Tenant                 |"a68572e3-63ce-4bc1-acdc-b64943502e9d" or "dnvglb2cprod.onmicrosoft.com"             |
-|AadInstance            |https://login.microsoftonline.com/tfp/{0}/{1}/v2.0/.well-known/openid-configuration" |
-|SignUpSignInPolicyId   |B2C_1A_SignInWithADFSIdp                                                             |
+|Tenant                 |`a68572e3-63ce-4bc1-acdc-b64943502e9d` or `dnvglb2cprod.onmicrosoft.com`             |
+|AadInstance            |`https://login.microsoftonline.com/tfp/{0}/{1}/v2.0/.well-known/openid-configuration`
+|SignUpSignInPolicyId   |`B2C_1A_SignInWithADFSIdp`                                                             |
 |ClientId               |Provided by Veracity in encrypted mail or in Veracity for Developers                 |
 |ClientSecret           |Provided by Veracity in encrypted mail or in Veracity for Developers                 |
+
+To be able to authenticate correclty and get a valid access token you will need to provide the correct scope as part of the configuration sent to Veracity upon authentication. The scopes differ for each service and should be:
+
+Service|Scope
+-|-
+Services API|`https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation`
+Data Fabric API|[tbd]
 
 You will also receive a serviceId, this id is the unique identifier for your application. This is primarily used with the [Services API](https://developer.veracity.com/doc/service-api) 
 

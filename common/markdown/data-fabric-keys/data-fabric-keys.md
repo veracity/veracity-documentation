@@ -75,10 +75,19 @@ Read, write, list and delete keys give the user full access to the content of yo
 ## Pattern & Practices 
 
 ### Best practices when sharing keys
-As a data storage owner, you may share the data with others. When you share a key, it is best practice to choose as short a duration as possible for the key. If access to storage is going to be used over a prolonged period it is recommended that you choose the recurring key option, this means the key will need to be renewed by the user after the duration expires. The renewal of the key can be done either through the Veracity MyData page, or programmatically using the Veracity API.  
+A data storage owner or a data steward may share the data in their containers with other users. When they share a key, it is best practice to choose as short a duration as possible for the key. 
+
+In general the following should be taken into consideration when sharing keys:
+
+- Give only the access the user requires to your data, if they just need to read your data, don't give the user write/delete permissions as well.
+- If access to storage is going to be used over a prolonged period it is recommended that you choose the recurring key option
+- The recurring key option forces the user to renew the key when it expires, which is more secure than long duration keys
+- The renewal of the key can be done either through the Veracity MyData Page (under access settings on container) or programmatically using the Veracity Data API.
+
 
 ### Best practices when using keys
-When your application uses a SAS key from Veracity it is recommended that you build a call to the Veracity API for renewal of the key, prior to the accessing of the data, into your application. In this way you will always have the latest valid key. 
+- When your application uses a SAS key from Veracity it is recommended that you build a call to the Veracity API for renewal of the key, prior to the accessing of the data, into your application. In this way you will always have the latest valid key. 
+- When retrieving a key, treat it like any other secret and store it securely.
 
 
 

@@ -3,13 +3,11 @@
 
 Every project starts with an empty development environment. In this tutorial we will build our application using Microsofts excellent [Visual Studio Code](https://code.visualstudio.com/) as our Interactive Development Environment (IDE). It has full support for TypeScript and Git out of the box which is ideal for our project. Allthough this tutorial will use Visual Studio Code (VSCode) you are free to use any IDE you want (including notepad if you are so inclined). The code will work regardless.
 
-Before we begin lets list the essential features our application will provide:
+Before we begin let's list the essential features our development environment should support:
 
-- Allow users to authenticate and view basic information about themselves.
-- Call the Veracity services API to get additional information.
-- Handle single-sign-out correctly when users log out.
-- Written with type safety using TypeScript.
-- Bundled for production as a vanilla JavaScript application.
+- Write TypeScript and export it to vanilla JavaScript we can run on node.
+- Debugging with breakpoints and inspection.
+- Linting our code so that structure and basic formatting is consistent and small errors are avoided.
 
 To set up our IDE we first download and install VSCode from [https://code.visualstudio.com/](https://code.visualstudio.com/). Then we must install NodeJS from [https://nodejs.org/](https://nodejs.org/).
 
@@ -64,10 +62,11 @@ In addition we need a few tools to facilitate development. Such dependencies are
 - `typescript` - In order to write and compile TypeScript we need to install it.
 - `node-forge` - SSL implementation in node. We will only use this for generating self-signed certificates during development.
 - `ts-node` - A utility that allows us to run TypeScript files directly from the command line. We will use this for debugging our application.
+- `tslint` - Tool for linting our code. The linter will show us common errors and formatting issues and can automatically fix certain issues for us when we save a file.
 
 Run this command to install the development dependencies
 ```
-npm i -D typescript node-forge ts-node
+npm i -D typescript node-forge ts-node tslint
 ```
 
 Now we have all the utilities we need. Next we must configure TypeScript so it can transpile our application. In most of the TypeScript tutorials you find online you will probably see them install TypeScript as a global dependency. This allows you to use the command line utility `tsc` from any folder on your machine. Allthough this may be convenient it "hides" the dependency from the project itself since `typescript` will not be listed in `package.json`. Also, if you have multiple projects using different versions of TypeScript you will have to install it on a per-project basis anyway. For these reasons we recommend that you install TypeScript as a devDependency within your project directly. You can still use the `tsc` command through a small utility that comes with `npm` called `npx`. This is how we will use `tsc` for the reaminder of this tutorial.
@@ -97,13 +96,66 @@ For now we'll update the file to suit our project. Open it and apply the followi
     "esModuleInterop": true
   },
   "exclude": [
-    "dist",
-    "scripts"
+    "scripts",
+    "dist"
   ]
 }
 ```
 
-Now our environment is almost complete. We have all the tools needed and our `package.json` file should look very close to this:
+Now we need to set up `tslint`. It requires its own configuration file called `tslint.json` as well as an extension simply called `TSLint` for VSCode. For other editors there are probably equivalent extensions available. Create this file in the root directory and add this content:
+```json
+{
+	"defaultSeverity": "error",
+	"extends": [
+			"tslint:latest"
+	],
+	"linterOptions": {
+		"exclude": [
+			"**/*.json",
+			"**/*.js"
+		]
+	},
+	"jsRules": {},
+	"rules": {
+		"indent": [true, "tabs", 2],
+		"variable-name": [true, "allow-leading-underscore", "ban-keywords", "check-format", "allow-pascal-case"],
+		"curly": [true, "ignore-same-line"],
+		"trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+		"semicolon": [true, "never"],
+		"no-submodule-imports": [false],
+		"object-literal-sort-keys": [false],
+		"whitespace": [true, "check-module"],
+		"no-implicit-dependencies": [false],
+		"no-var-requires": [false],
+		"ordered-imports": [true],
+		"no-empty-interface": [false],
+		"no-console": [false]
+	}
+}
+```
+
+To install the extension open the extension palette and search for `TSLint`. Reload the workspace when you are done.
+
+This will address a lot of common coding issues. Here are some of the essential features:
+- Tab indenting (you can fight in the comments)
+- No semicolons
+- Ordered imports
+- Consistent whitespaces
+- ++
+
+The linter is able to automatically fix certain things like indentation, import order and remove semicolons when we save a file. To enable this feature we need to change the local workspace settings in VSCode.
+1. Open the command palette and search for `open workspace settings`.
+2. Search for the setting `code actions on save` and click "Edit in settings.json". This should create a new `settings.json` file within the `.vscode` directory.
+3. Add the following setting and save the file:
+```json
+"editor.codeActionsOnSave": {
+  "source.fixAll.tslint": true
+}
+```
+
+The linter will now automatically correct any errors that do not affect the implementation whenever you save a `.ts` file.
+
+Our environment is almost complete. We have all the tools needed and our `package.json` file should look very close to this:
 
 ```json
 {
@@ -135,6 +187,7 @@ Now our environment is almost complete. We have all the tools needed and our `pa
   "devDependencies": {
     "node-forge": "^0.8.5",
     "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
     "typescript": "^3.5.3"
   }
 }
@@ -194,6 +247,6 @@ You can now switch between the `TS Node` and `TS Node start.js` configurations a
 	<figcaption>Open launch.json to configure how the debugger starts up.</figcaption>
 </figure>
 
-Now we are finally ready to begin development.
+Now we are ready to begin development.
 
-[Previous - Introduction](1-introduction.md) --- [Next - Application Structure](3-application-structure.md)
+[Previous - Introduction](1-introduction.md) --- [Next - 3. Express webserver](3-express-webserver.md)

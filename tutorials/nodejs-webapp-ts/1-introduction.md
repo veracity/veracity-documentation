@@ -14,12 +14,11 @@ This tutorial uses TypeScript to write all code. TypeScript gives us type safety
 ## Content
 1. Introduction **<- You are here**
 2. [Development Environment](2-development-environment.md)
-3. [Application Structure](3-application-structure.md)
-4. [ExpressJS as a web server](4-express-webserver.md)
-5. [Authentication](4-express-webserver.md)
-6. [Calling APIs](5-calling-apis.md)
-7. [Bundling for production](6-bundle-for-production.md)
-8. [Summary](8-summary.md)
+3. [Express Webserver](3-express-webserver.md)
+4. [Authentication](4-authentication.md)
+5. [Calling APIs](5-calling-apis.md)
+6. [Transpiling for production](6-transpiling-for-production.md)
+8. [Summary](7-summary.md)
 
 Now, lets start building our application!
 

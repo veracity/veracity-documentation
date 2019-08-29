@@ -132,11 +132,6 @@ Finally we create our server and give it our app and a port to listen on, in thi
 
 With all this in place you should now be able to start your application and see it running. Make sure the `start.ts` file has focus and hit the F5 key. This will start the debugger for this file. Now open your browser, visit [https://localhost:3000](https://localhost:3000) and you should see "OK". Congratulations! You have a working web application in Node!
 
-<figure>
-	<img src="assets/server-initial-file.png"/>
-	<figcaption>Start the debugger in start.ts to test your application.</figcaption>
-</figure>
-
 Next up we'll set up authentication using the `@veracity/node-auth` library to help us.
 
 [Previous - 2. Development environment](2-development-environment.md) --- [Next - 4. Authentication](4-authentication.md)

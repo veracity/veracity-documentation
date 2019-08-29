@@ -27,7 +27,7 @@ Notice that VSCode will complain about a few things before you save the file:
 
 Let's have a closer look at these errors:
 
-- **Line 1** - This is a TypeScript issue. Allthough the `https` module is a core part of node and can be imported, TypeScript does not know of the typing information for this module and therefore complains that it cannot find it. To fix this we must install the types for node. In the terminal run `npm i -D @types/node` Once installed you should see this error disappear. We'll need to install types for multiple other libraries later.
+- **Line 1** - This is a TypeScript issue. Although the `https` module is a core part of node and can be imported, TypeScript does not know of the typing information for this module and therefore complains that it cannot find it. To fix this we must install the types for node. In the terminal run `npm i -D @types/node` Once installed you should see this error disappear. We'll need to install types for multiple other libraries later.
 - **Line 3-5** - This is the linter notifying us that we have an empty block of code. For us this is not a problem since we will be implementing it momentarily, but it's useful to highlight these in general as it prevents us from saving and committing useless code.
 - **Line 7** - This is also the linter complaining that our file does not end with a newline. Read more about the rule here: [https://eslint.org/docs/rules/eol-last](https://eslint.org/docs/rules/eol-last)
 
@@ -74,7 +74,7 @@ export const createServer = (
 }
 ```
 Now we define our function. It should be exported as we intend it to be used from code outside of this file. The function takes two arguments:
-- `requestListener` - The request listener is a function that will be called upon every incomming server request. Our code will simply pass the express application instance as this argument as it is a valid `RequestListener` function.
+- `requestListener` - The request listener is a function that will be called upon every incoming server request. Our code will simply pass the express application instance as this argument as it is a valid `RequestListener` function.
 - `portOrSocket` - Defines the port or socket our server will open and listen on.
 
 ```typescript

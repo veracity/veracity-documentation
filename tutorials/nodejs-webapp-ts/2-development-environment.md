@@ -18,7 +18,7 @@ The website provides us with two versions to choose from.
 	<figcaption>Node gives us two choices for version: Safe, long term, or cutting edge.</figcaption>
 </figure>
 
-Allthough the differences are minimal we will choose the LTS version. LTS stands for Long Term Support wich means it will be actively maintained for longer. This is also usually the version running in hosting environments (such as Azure or Google Cloud Platform) which means we will have a local environment that matches production as much as possible. If you know where you want to host your application you should check with the provider which version of Node is installed and install the same one locally. This will avoid potential headaces from version differences.
+Although the differences are minimal we will choose the LTS version. LTS stands for Long Term Support which means it will be actively maintained for longer. This is also usually the version running in hosting environments (such as Azure or Google Cloud Platform) which means we will have a local environment that matches production as much as possible. If you know where you want to host your application you should check with the provider which version of Node is installed and install the same one locally. This will avoid potential headaches from version differences.
 
 Now that we have the IDE and runtime we create a folder to hold our project and open it in Visual Studio Code. You may also wish to initialize git or another source control system within this folder so that you are able to track code changes and collaborate. To initialize git open the folder in a terminal and type `git init`
 
@@ -69,7 +69,7 @@ Run this command to install the development dependencies
 npm i -D typescript node-forge ts-node tslint
 ```
 
-Now we have all the utilities we need. Next we must configure TypeScript so it can transpile our application. In most of the TypeScript tutorials you find online you will probably see them install TypeScript as a global dependency. This allows you to use the command line utility `tsc` from any folder on your machine. Allthough this may be convenient it "hides" the dependency from the project itself since `typescript` will not be listed in `package.json`. Also, if you have multiple projects using different versions of TypeScript you will have to install it on a per-project basis anyway. For these reasons we recommend that you install TypeScript as a devDependency within your project directly. You can still use the `tsc` command through a small utility that comes with `npm` called `npx`. This is how we will use `tsc` for the reaminder of this tutorial.
+Now we have all the utilities we need. Next we must configure TypeScript so it can transpile our application. In most of the TypeScript tutorials you find online you will probably see them install TypeScript as a global dependency. This allows you to use the command line utility `tsc` from any folder on your machine. Although this may be convenient it "hides" the dependency from the project itself since `typescript` will not be listed in `package.json`. Also, if you have multiple projects using different versions of TypeScript you will have to install it on a per-project basis anyway. For these reasons we recommend that you install TypeScript as a devDependency within your project directly. You can still use the `tsc` command through a small utility that comes with `npm` called `npx`. This is how we will use `tsc` for the remainder of this tutorial.
 
 With TypeScript installed we can now initialize our `tsconfig.json` file. This file tells TypeScript how to convert our project into vanilla JavaScript through a process called *transpilation*. Run this command:
 ```
@@ -178,7 +178,7 @@ Our environment is almost complete. We have all the tools needed and our `packag
   },
   "homepage": "https://github.com/veracity/tutorial-nodejs-webapp-ts#readme",
   "dependencies": {
-    "@veracity/node-auth": "^0.3.0-beta",
+    "@veracity/node-auth": "^0.3.1-beta",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
@@ -232,7 +232,7 @@ Save the file and click the debug icon in VSCode. You should now see `TS Node` i
 	"name": "TS Node start.ts",
 	"type": "node",
 	"request": "launch",
-	"args": ["${workspaceRoot}/start.ts"],
+	"args": ["${workspaceRoot}/src/start.ts"],
 	"runtimeArgs": ["-r", "ts-node/register"],
 	"cwd": "${workspaceRoot}",
 	"protocol": "inspector",

@@ -9,7 +9,7 @@ Welcome to this tutorial on building Node powered web applications with Veraicty
 The source for this tutorial is available on GitHub for download and review. If you have any questions feel free to open an issue there.
 
 ## Note on TypeScript
-This tutorial uses TypeScript to write all code. TypeScript gives us type safety and aids in documenting our code. Allthough the syntax is slightly different from vanilla JavaScript you should still be able to follow the tutorial. Simply ignore the typing syntax.
+This tutorial uses TypeScript to write all code. TypeScript gives us type safety and aids in documenting our code. Although the syntax is slightly different from vanilla JavaScript you should still be able to follow the tutorial. Simply ignore the typing syntax.
 
 ## Content
 1. Introduction **<- You are here**

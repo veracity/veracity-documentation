@@ -13,6 +13,7 @@ Your Veracity integration will be through Enterprise Accounts (using open standa
 |Setting                |Value                                                                                |
 |-----------------------|-------------------------------------------------------------------------------------|
 |Tenant                 |`a68572e3-63ce-4bc1-acdc-b64943502e9d` or `dnvglb2cprod.onmicrosoft.com`             |
+|B2C Metadata Endpoint  |`https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp`
 |AadInstance            |`https://login.microsoftonline.com/tfp/{0}/{1}/v2.0/.well-known/openid-configuration`
 |SignUpSignInPolicyId   |`B2C_1A_SignInWithADFSIdp`                                                             |
 |ClientId               |Provided by Veracity in encrypted mail or in Veracity for Developers                 |

@@ -6,6 +6,7 @@
 		"leafItem": {
 			"description": "A single link without any children",
 			"type": "object",
+			"additionalProperties": false,
 			"required": [
 				"text",
 				"href"
@@ -25,8 +26,9 @@
 			}
 		},
 		"parentItem": {
-			"description": "A link in the table-of-contents that must contain at least one child",
+			"description": "A link in the table-of-contents that must contain at least one child.",
 			"type": "object",
+			"additionalProperties": false,
 			"required": [
 				"text",
 				"items"
@@ -39,12 +41,15 @@
 					"type": "string"
 				},
 				"items": {
-					"minItems": 1,
+					"description": "Add one or more items to the table of content below this item.",
 					"type": "array",
-					"oneOf": [
-						{ "$ref": "#/definitions/parentItem" },
-						{ "$ref": "#/definitions/leafItem" }
-					]
+					"items": {
+						"minItems": 1,
+						"anyOf": [
+							{ "$ref": "#/definitions/parentItem" },
+							{ "$ref": "#/definitions/leafItem" }
+						]
+					}
 				}
 			}
 		}
@@ -58,7 +63,7 @@
 			"type": "array",
 			"items": {
 				"minItems": 1,
-				"oneOf": [
+				"anyOf": [
 					{ "$ref": "#/definitions/parentItem" },
 					{ "$ref": "#/definitions/leafItem" }
 				]

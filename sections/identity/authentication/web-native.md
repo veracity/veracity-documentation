@@ -37,7 +37,7 @@ With this information you can now construct the URLs needed to authenticate and 
 
 ```
 # Format 
-https://login.microsoftonline.com/{tenant id}/v2.0/.well-known/openid-configuration?p={policy}
+https://login.microsoftonline.com/{tenantid}/v2.0/.well-known/openid-configuration?p={policy}
 
 # Veracity Metadata URL
 https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
@@ -178,8 +178,13 @@ Once you have the parameters you need to construct an HTTPS `POST` request from 
 
 It contains some information about the token as well as the requested access token itself. The access token will allow your application to perform authorized requests on behalf of the user against the requested API endpoints (defined by the scopes option from earlier). You now need to validate the access token and as you did with the identity token earler and store it away safely within your application. You should also have received a refresh token (if you requested the scope `offline_access` earlier). This token can be used to ask for a new access token later should the current one expire. It cannot be used to access any services itself. Veracity does not directly disclose the lifetime for either the access token or refresh token as it may be changed without warning in response to security changes. Your application must know how to deal with both an expired access token and refresh token and prompt the user to log in once more if the latter expires.
 
-Now that you have the access token you are able to make requests to the API you specified a scope for earlier. Simply construct an HTTPS request to the relevant endpoint and make sure you add the token in the `Authorization` header as a bearer token.
+Now that you have the access token you are able to make requests to the API you specified a scope for earlier. Simply construct an HTTPS request to the relevant endpoint and make sure you add the token in the `Authorization` header as a bearer token as well as your subscription key for the intended API. Here is an example of a request to the `/my/profile` endpoint of the Services API.
 
 ```
+GET https://api.veracity.com/Veracity/Services/V3/my/profile HTTP/1.1
+Host: api.veracity.com
+Ocp-Apim-Subscription-Key: [subscription-key]
 Authorization: Bearer [token]
 ```
+
+This concludes the necessary steps needed to authenticate with Veracity (IDP) and exchanging an authorization code for an access token in order to communicate with Veraicty APIs.

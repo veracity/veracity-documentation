@@ -6,20 +6,25 @@
 			"href": "identity.md"
 		},
 		{
-			"text": "Quick start",
-			"href": "quick-start.md"
+			"text": "Overview",
+			"href": "overview.md"
 		},
 		{
 			"text": "Authentication",
-			"href": "authentication.md"
+			"items": [
+				{
+					"text": "Web and Native Applications",
+					"href": "authentication/web-native.md"
+				},
+				{
+					"text": "APIs",
+					"href": "authentication/api.md"
+				}
+			]
 		},
 		{
-			"text": "Policy Services",
-			"href": "policy-services.md"
-		},
-		{
-			"text": "Protocols",
-			"href": "protocols.md"
+			"text": "Policy Service",
+			"href": "policy-service.md"
 		},
 		{
 			"text": "NodeJS Webapp Tutorial",

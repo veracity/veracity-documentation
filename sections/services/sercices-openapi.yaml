@@ -21,7 +21,7 @@ info:
     url: https://developer.veracity.com/docs
     email: contact@veracity.com
 servers:
-- url: https://api-test.veracity.com/veracity/services/v3
+- url: https://api.veracity.com/veracity/services/v3
 paths:
   /my/companies:
     get:

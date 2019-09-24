@@ -5,6 +5,8 @@ The Policy Service consists of two API endpoints in the Services API that check 
 
 To call the Policy API you will need an access token for the Services API as well as a reply url that users can be redirected back to once they approve the policy. This means that the user must be authenticated first, then your application should check the policy endpoint for any outstanding policies. If the user returns without approving an outstanding policy they should not be allowed to authenticate.
 
+## Requests
+
 To validate general Veracity policies call this URL:
 ```url
 https://api.veracity.com/veracity/services/v3/my/policies/validate()
@@ -16,3 +18,6 @@ To validate policies specific to a service call this URL:
 https://api.veracity.com/veracity/services/v3/my/policies/{serviceId}/validate()
 ```
 The service ID is the id you have been provided for your service. If you do not use custom policies for your service you do not need to call this endpoint.
+
+## Responses
+The Policy Service has two normal responses in addition to generic errors. If the response status code is `204` (no content) that means the user has no outstanding policies that require approval. If the response code is `406` (not acceptible) that means the user **has** some outstanding policies that require approval. Inspect the body of the response for details.

@@ -1,5 +1,5 @@
 # Tutorial: Building a Node.JS application with Veracity
-Welcome to this tutorial on building Node powered web applications with Veraicty. In this tutorial you will learn how to:
+Welcome to this tutorial on building Node powered web applications with Veraicty. Here you will learn how to:
 
 - build basic web applications with Node and ExpressJs.
 - use TypeScript to ensure type safety within your node application.

@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Describes the required authentication mechanism for APIs provided with a bearer token
+---
+
 # Authentication for APIs
 In contrast to [web and native application](web-native.md) authentication for APIs do not involve any kind of user interaction yet they still need to be able to validate the users identity in order to trust that the user is who they claim to be. It is important to also note that *authorization* (the act of determining if the user is allowed to perform an operation) is **not** handled by the Veracity Identity Provider (IDP) which means your API needs to perform this step internally.
 

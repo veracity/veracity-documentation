@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: How to transpile code for production in the NodeJS Webapp tutorial.
+---
+
 # 6. Transpiling for production
 [Previous - 5. Calling APIs](5-calling-apis.md)
 

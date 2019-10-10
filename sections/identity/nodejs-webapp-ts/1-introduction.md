@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Introduction to the NodeJS Webapp tutorial on Veraicty.
+---
+
 # Tutorial: Building a Node.JS application with Veracity
 Welcome to this tutorial on building Node powered web applications with Veraicty. Here you will learn how to:
 

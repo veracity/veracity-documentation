@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Detailed description of how authentication with the Veracity IDP works for a web apps.
+---
+
 # Authentication for Web and Native Applications
 Authenticating users is usually the first step any application needs to do before it can be used. Performing authentication with the Veracity IDP is done using the industry standard protocol *OpenID Connect* built on top of [OAuth 2.0](https://auth0.com/docs/protocols/oidc) flows. This ensures compatibility with a wide range of services accross the internet. In this document we'll go through the steps needed to authenticate with Veracity as a web application or native application. These use cases only differ in the parameters that are sent so they have been combined into one single document.
 

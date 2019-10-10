@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Gives an overview of the Veracity Identity services and related components.
+---
+
 # Overview of the Veracity Identity Provider
 The Veracity Identity Provider allows applications to securely authenticate users as well as verify that they are who they claim to be. Authentication is performed using the OpenID Connect protocol and will result in a verifiable JSON Web Token containing some basic information about the user. During the OpenID Connect operation you may also ask for an access token that will give the application access to core Veracity APIs (such as the Services API) which in turn can provide additional user information or allow your applcation to execute operations on the users behalf.
 

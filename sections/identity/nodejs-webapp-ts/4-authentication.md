@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Describes how to perform authentication with the Veracity IDP.
+---
+
 # 4. Authentication
 [Previous - 3. Express webserver](3-express-webserver.md)
 

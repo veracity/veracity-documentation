@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Describes how to set up a basic ExpressJS web server in the NodeJS Webapp tutorial.
+---
+
 # 3. Express webserver
 [Previous - 2. Development environment](2-development-environment.md)
 

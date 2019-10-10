@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: The summary of the NodeJS Webapp tutorial.
+---
+
 # 7. Summary
 [Previous - 6. Transpiling for production](6-transpiling-for-production.md)
 

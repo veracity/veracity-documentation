@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Describes how to interact with the Veracity Policy Service
+---
+
 # Veracity Policy Service
 The Policy Service is a small API that allows third-party applications to verify that the user has approved both the generic Veracity Terms of Service as well as any other such policies specific to your service. It is not directly associated with the Veracity Identity Provider (IDP), but they are usually used together during the authentication process.
 

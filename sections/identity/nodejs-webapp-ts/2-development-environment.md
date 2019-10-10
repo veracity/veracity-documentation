@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Describes how to set up a basic dev environment for the NodeJS Webapp tutorial.
+---
+
 # 2. Development environment
 [Previous - Introduction](1-introduction.md)
 

@@ -28,7 +28,6 @@
 		},
 		{
 			"text": "NodeJS Webapp Tutorial",
-			"href": "nodejs-webapp-ts/1-introduction.md",
 			"items": [
 				{
 					"text": "1. Introduction",

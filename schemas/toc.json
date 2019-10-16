@@ -37,9 +37,6 @@
 				"text": {
 					"type": "string"
 				},
-				"href": {
-					"type": "string"
-				},
 				"items": {
 					"description": "Add one or more items to the table of content below this item.",
 					"type": "array",

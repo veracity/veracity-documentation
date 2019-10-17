@@ -4,7 +4,7 @@ description: Give a general description of the Veracity Identity Service.
 ---
 
 # Veracity Identity
-Veracity Identity is the Identity Provider (IDP) for the Veracity Platform. It provides a secure authentication mechansim for 1st and 3rd party services as well as authorization for 1st parties. The service is built upon Microsoft Azure B2C and uses common industry standards such as **OpenID Connect** and **Authorization code flow** to handle authenticate users.
+Veracity Identity is the Identity Provider (IDP) for the Veracity Platform. It provides a secure authentication mechansim for 1st and 3rd party services as well as authorization for 1st parties. The service is built upon Microsoft Azure B2C and uses common industry standards such as **OpenID Connect** and **Authorization code flow** to authenticate users.
 
 The Veracity Identity Provider (IDP) also provides federation services other industry leading companies in order to allow single-sign-on for users accross the sector. Using the Veracity IDP allows you not only to securely authenticate your own users, but you can also instantly provide access to users of other companies federated with Veracity.
 

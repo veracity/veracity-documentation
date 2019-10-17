@@ -17,11 +17,6 @@
 				},
 				"href": {
 					"type": "string"
-				},
-				"openAPI": {
-					"type": "boolean",
-					"description": "If true AND the href points to a yaml file treats the endpoint as an OpenAPI specification and loads UI to view it.",
-					"default": false
 				}
 			}
 		},

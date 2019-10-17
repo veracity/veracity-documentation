@@ -58,6 +58,10 @@
 					"href": "nodejs-webapp-ts/7-summary.md"
 				}
 			]
+		},
+		{
+			"text": "Services API Reference",
+			"href": "services-openapi.yaml"
 		}
 	]
 }

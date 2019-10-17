@@ -1,0 +1,65 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Table-of-Content file for documentation subsection",
+	"additionalProperties": false,
+	"definitions": {
+		"leafItem": {
+			"description": "A single link without any children",
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"text",
+				"href"
+			],
+			"properties": {
+				"text": {
+					"type": "string"
+				},
+				"href": {
+					"type": "string"
+				}
+			}
+		},
+		"parentItem": {
+			"description": "A link in the table-of-contents that must contain at least one child.",
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"text",
+				"items"
+			],
+			"properties": {
+				"text": {
+					"type": "string"
+				},
+				"items": {
+					"description": "Add one or more items to the table of content below this item.",
+					"type": "array",
+					"items": {
+						"minItems": 1,
+						"anyOf": [
+							{ "$ref": "#/definitions/parentItem" },
+							{ "$ref": "#/definitions/leafItem" }
+						]
+					}
+				}
+			}
+		}
+	},
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+		"items": {
+			"description": "Add one or more items to the table of contents.",
+			"type": "array",
+			"items": {
+				"minItems": 1,
+				"anyOf": [
+					{ "$ref": "#/definitions/parentItem" },
+					{ "$ref": "#/definitions/leafItem" }
+				]
+			}
+		}
+	}
+}

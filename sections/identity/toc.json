@@ -1,0 +1,67 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Veracity Identity",
+			"href": "identity.md"
+		},
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "Authentication",
+			"items": [
+				{
+					"text": "Web and Native Applications",
+					"href": "authentication/web-native.md"
+				},
+				{
+					"text": "APIs",
+					"href": "authentication/api.md"
+				}
+			]
+		},
+		{
+			"text": "Policy Service",
+			"href": "policy-service.md"
+		},
+		{
+			"text": "NodeJS Webapp Tutorial",
+			"items": [
+				{
+					"text": "1. Introduction",
+					"href": "nodejs-webapp-ts/1-introduction.md"
+				},
+				{
+					"text": "2. Development environment",
+					"href": "nodejs-webapp-ts/2-development-environment.md"
+				},
+				{
+					"text": "3. Express webserver",
+					"href": "nodejs-webapp-ts/3-express-webserver.md"
+				},
+				{
+					"text": "4. Authentication",
+					"href": "nodejs-webapp-ts/4-authentication.md"
+				},
+				{
+					"text": "5. Calling APIs",
+					"href": "nodejs-webapp-ts/5-calling-apis.md"
+				},
+				{
+					"text": "6. Transpiling for production",
+					"href": "nodejs-webapp-ts/6-transpiling-for-production.md"
+				},
+				{
+					"text": "7. Summary",
+					"href": "nodejs-webapp-ts/7-summary.md"
+				}
+			]
+		},
+		{
+			"text": "Services API Reference",
+			"href": "services-openapi.yaml"
+		}
+	]
+}

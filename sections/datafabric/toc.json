@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Veracity Data fabric",
+			"href": "datafabric.md"
+		},
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "Data Fabric API Reference",
+			"href": "datafabric-openapi.yaml"
+		}
+	]
+}

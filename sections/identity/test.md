@@ -13,3 +13,8 @@ This documentation contains information about how the Veracity IDP works, how to
 If you want to jump straight into implementations you can find a detailed tutorial in the [tutorials section](nodejs-webapp-ts/1-introduction.md) as well as helpful libraries on our [Veracity GitHub page](https://github.com/veracity).
 
 If you are a customer with Veracity and are having issues with authentication you can email support at [support@veracity.com](mailto:support.veracity.com)
+
+<figure>
+	<img src="assets/basic-oidc-authentication.png"/>
+	<figcaption>An application with direct user interaction can redirect the user to the login page to authenticate them.</figcaption>
+</figure>

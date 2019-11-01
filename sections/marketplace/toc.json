@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Veracity Marketplace",
+			"href": "marketplace.md"
+		},
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "Marketplace API Reference",
+			"href": "marketplace-openapi.yaml"
+		}
+	]
+}

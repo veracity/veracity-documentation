@@ -13,7 +13,7 @@ Folder|Description
 ## Sections
 All documentation is grouped into sections. A section is a distinct set of documentation resources describing a service, topic or other logically groupable entity within Veracity. Within a section you can write documentation as markdown files, place assets that are used by said files and define a table-of-contents to describe what can be found within the section. These are the rules for a root folder within the `sections` folder (such as `identity`):
 
-1. Must conntain a single toc.json file matching the schema `toc.json` from the `schemas` folder.
+1. Must contain a single toc.json file matching the schema `toc.json` from the `schemas` folder.
 2. Must contain 1 or more markdown files.
 3. Can contain an `assets` folder (name must match exactly).
 4. `assets` folder can contain 0 or more assets (images, videos, pdfs ++) that can be linked to from the markdown files.

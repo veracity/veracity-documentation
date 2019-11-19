@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Veracity Notification",
+			"href": "notification.md"
+		},
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "Notification API Reference",
+			"href": "notification-openapi.yaml"
+		}
+	]
+}

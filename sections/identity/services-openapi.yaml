@@ -3480,8 +3480,6 @@ paths:
             text/xml:
               schema:
                 $ref: '#/components/schemas/ErrorDetail'
-
-    get:
       tags:
       - Directory
       operationId: UsersDirectory_GetUserSubscriptionDetails

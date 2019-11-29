@@ -1,0 +1,941 @@
+openapi: 3.0.1
+info:
+  title: Veracity Notifications API
+  description: "The Veracity Notification API provides information with respect to the users notifications, and the option for the service to send notifications to a single user, or multpile users.
+  \n Notification API is connected to the Veracity Identity API and Veracity Service API, and you can find additional information on these at [Veracity for developers](https://developer.veracity.com/).
+  \n\n ## Grouping
+  \n The API is grouped into 2 distinct sections, each with their own intent.
+  \n - **My**: Return information about the notifications of the currently logged in used as defined by their access token.
+  \n - **Options**: These endpoints are for maintenance purposes. Do not use.
+    \n\n As the API requires the use of an access token unique to a user, the endpoints will include information specific to that user. E.g.: the `/my/messages/count` endpoint will return information about the unread messages of that user without any additional query parameters as the users is identified by their access token.
+    \n ## Multiple root urls
+    \n The API is versioned in order to provide a consistent contract for your application to call. You can decide yourself if you want to use one or the other. The APIs describe on this page will always be the latest version.
+    \n\n - `https://api.veracity.com/veracity/services/v3`
+    \n\n - `https://api.veracity.com/veracity/services`
+    \n This is the rolling version endpoint. It will always contain the latest version of the API and may be subject to breaking changes.
+    \n\n Veracity commits to actively support the latest version of the API as well as the next previous version. This currently means **v3 and v2** of the Veracity APIs."
+  version: '3.0'
+  contact:
+    name: Veracity for Developers
+    url: https://developer.veracity.com/docs
+    email: contact@veracity.com
+servers:
+- url: https://api.veracity.com/veracity/services/v3
+paths:
+  /my/messages:
+    get:
+      tags:
+      - My
+      summary: Current user messages
+      description: Get a list of all unread messages sent to the current user.
+      operationId: My_GetMessagesAsync
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        description: Provide the API subscription key for your application. This can be found on [https://developer.veracity.com/projects](https://developer.veracity.com/projects)
+        schema:
+          type: string
+      - name: x-supportCode
+        in: header
+        description: Provide a correlation token for log lookup. This is optional.
+        schema:
+          type: string
+      - name: all
+        in: query
+        description: If true returns both read and unread messages.
+        required: true
+        schema:
+          type: boolean
+          nullable: false
+      responses:
+        200:
+          description: OK
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageReference'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageReference'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageReference'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageReference'
+        400:
+          description: Bad request, check formatting and missing parameters
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        401:
+          description: Unauthorized
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        403:
+          description: Forbidden
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        404:
+          description: Not found
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        500:
+          description: Unexpected error
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        502:
+          description: Dependency call failure
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+  /my/messages/count:
+    get:
+      tags:
+      - My
+      summary: Current users number of unread messages
+      description: Get the number of un read messages for the current user.
+      operationId: My_GetMessageCount
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        description: Provide the API subscription key for your application. This can be found on [https://developer.veracity.com/projects](https://developer.veracity.com/projects)
+        schema:
+          type: string
+      - name: x-supportCode
+        in: header
+        description: Provide a correlation token for log lookup. This is optional.
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+                nullable: false
+            text/json:
+              schema:
+                type: integer
+                format: int32
+                nullable: false
+            application/xml:
+              schema:
+                type: integer
+                format: int32
+                nullable: false
+            text/xml:
+              schema:
+                type: integer
+                format: int32
+                nullable: false
+        400:
+          description: Bad request, check formatting and missing parameters
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        401:
+          description: Unauthorized
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        403:
+          description: Forbidden
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        404:
+          description: Not found
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        500:
+          description: Unexpected error
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        502:
+          description: Dependency call failure
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+  /my/messages/{messageId}:
+    get:
+      tags:
+      - My
+      operationId: My_GetMessageAsync
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        description: Provide the API subscription key for your application. This can be found on [https://developer.veracity.com/projects](https://developer.veracity.com/projects)
+        schema:
+          type: string
+      - name: x-supportCode
+        in: header
+        description: Provide a correlation token for log lookup. This is optional.
+        schema:
+          type: string
+      - name: messageId
+        in: path
+        required: true
+        schema:
+          type: string
+          nullable: true
+      responses:
+        200:
+          description: OK
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Message'
+        400:
+          description: Bad request
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        401:
+          description: Unauthorized
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        403:
+          description: Forbidden
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        404:
+          description: Not found
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        500:
+          description: Unexpected error
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        502:
+          description: Dependency call failure
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+
+  /cache/invalidate/{id}:
+    get:
+      tags:
+      - Options
+      description: Invalidate the cached item with the provided id
+      operationId: Options_InvalidateCache
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        description: Provide the API subscription key for your application. This can be found on [https://developer.veracity.com/projects](https://developer.veracity.com/projects)
+        schema:
+          type: string
+      - name: x-supportCode
+        in: header
+        description: Provide a correlation token for log lookup. This is optional.
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          nullable: true
+      responses:
+        204:
+          description: No Content
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content: {}
+        400:
+          description: Bad request, check formatting and missing parameters
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        401:
+          description: Unauthorized
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        403:
+          description: Forbidden
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        404:
+          description: Not found
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        500:
+          description: Unexpected error
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        502:
+          description: Dependency call failure
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+  /status:
+    get:
+      tags:
+      - Options
+      description: Get the status of the service container.
+      operationId: Options_ServiceStatus
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        description: Provide the API subscription key for your application. This can be found on [https://developer.veracity.com/projects](https://developer.veracity.com/projects)
+        schema:
+          type: string
+      - name: x-supportCode
+        in: header
+        description: Provide a correlation token for log lookup. This is optional.
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+                  nullable: true
+                nullable: true
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+                  nullable: true
+                nullable: true
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+                  nullable: true
+                nullable: true
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+                  nullable: true
+                nullable: true
+        400:
+          description: Bad request, check formatting and missing parameters
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        401:
+          description: Unauthorized
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        403:
+          description: Forbidden
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        404:
+          description: Not found
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        500:
+          description: Unexpected error
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+        502:
+          description: Dependency call failure
+          headers:
+            x-supportCode:
+              description: correlation token for log lookup.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+components:
+  schemas:
+    AuthError:
+      type: object
+      properties:
+        Message:
+          type: string
+          nullable: true
+      nullable: true
+      x-nullable: true
+    ErrorDetail:
+      required:
+      - subCode
+      type: object
+      properties:
+        message:
+          type: string
+          nullable: true
+        information:
+          type: string
+          nullable: true
+        subCode:
+          type: integer
+          format: int32
+          nullable: false
+        supportCode:
+          type: string
+          nullable: true
+      nullable: true
+      x-nullable: true
+    Message:
+      required:
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        content:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        timeStamp:
+          type: string
+          nullable: true
+        channelId:
+          type: string
+          nullable: true
+        type:
+          type: integer
+          format: int32
+          nullable: false
+      nullable: true
+      x-nullable: true
+    MessageReference:
+      type: object
+      properties:
+        identity:
+          type: string
+          nullable: true
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      nullable: true
+      x-nullable: true
+    NotificationMessage:
+      required:
+      - HighPriority
+      type: object
+      properties:
+        message:
+          $ref: '#/components/schemas/Message'
+        recipients:
+          type: array
+          nullable: true
+          items:
+            type: string
+            nullable: true
+        HighPriority:
+          type: boolean
+          nullable: false
+      nullable: true
+      x-nullable: true
+    ValidationError:
+      required:
+      - subCode
+      type: object
+      properties:
+        url:
+          type: string
+          nullable: true
+        violatedPolicies:
+          type: array
+          nullable: true
+          items:
+            type: string
+            nullable: true
+        message:
+          type: string
+          nullable: true
+        information:
+          type: string
+          nullable: true
+        subCode:
+          type: integer
+          format: int32
+          nullable: false
+        supportCode:
+          type: string
+          nullable: true
+      nullable: true
+      x-nullable: true
+  securitySchemes:
+    vidpBearer:
+      type: http
+      scheme: bearer
+      description: Provide the access token for the user in order to make requests. OpenID Connect is used to retrieve the access token.
+      bearerFormat: JWT
+      # type: oauth2
+      # description: OpenID Connect for Veracity IDP
+      # flows:
+      #   implicit:
+      #     authorizationUrl: https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize
+      #     scopes:
+      #       openid: performs sign-in
+      #       offline_access: Give the app access to resources on behalf of the user for an extended time
+      #       https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation: Allow the service to act on behalf of the user
+security:
+  - vidpBearer:
+    - openid
+    - https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation

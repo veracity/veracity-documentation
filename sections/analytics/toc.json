@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Veracity Analytics",
+			"href": "analytics.md"
+		},
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "Analytics API Reference",
+			"href": "analytics-openapi.yaml"
+		}
+	]
+}

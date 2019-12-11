@@ -2,14 +2,14 @@
 
 This is a quick start on how to use the Data Fabrics API.
 
-This guide will cover this: 1st scenario:
+**This guide will cover this: 1st scenario:**
 * Authenticate
 * Create container
 * Create a key for your self
 * Push Data to your new container
 * Share key to a other user.
 
-2nd scenario:
+**2nd scenario:**
 * Find Resource
 * Claim key and read content
 
@@ -71,7 +71,7 @@ This client gets the bearer token(from the TokenProvider provided in the first e
 
 To view all classes/models used, see here
 
-1st scenario:
+## 1st scenario:
 
 A prerequisite for this scenario is an already registered AAD application (you can also [use User authentication](https://developer.veracity.com/doc/data-fabric-api#User))
 
@@ -154,7 +154,7 @@ With values provided from developer portal.
             }
     }  
 
-## Create container
+### Create container
 
 This will show you how to create a new container in data fabric.
 
@@ -202,7 +202,7 @@ Container creation can take up to 2 min. So you should add some retry logic if t
 
             //If there is no container, you should retry retrieve the containers, and check again
 
-Create a key for your self
+### Create a key for your self
 
 After your container is created, it's time to give yourself access to the container.
 
@@ -247,7 +247,7 @@ This will create a "AccessSharingId" the id will later be used to fetch the SAS 
             //You have now created a accessSharing
 
 
-## Push Data to your new container
+### Push Data to your new container
 
 Now it's time to get your SAS token and use it!
 
@@ -283,7 +283,7 @@ Use the accessSharingId you retrieved from the last step and replace {accessShar
 
            //You have now uploaded a simple text to your container  
 
-## Share key to another user.
+### Share key to another user.
 
 It's time to share your amazing container with other people.
 
@@ -311,6 +311,245 @@ For simplicity we use the same keytemplateId as the last time.
                 $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses?autoRefreshed=true", keyInput);
 
             //You have now shared access to your container
+
+## 2nd scenario:
+
+This seccond scenario will continue and build upon the steps from the first scenario.
+
+This scenario will cover:
+* Find Resource
+* Claim key and read content
+
+### Find Resource
+
+It's now time to find out if someone (or you) has given you access to their container.  
+
+            var client = new DataFabricClient();
+
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            //Retrieve all your resources
+            var containers = await client.Handle<List<Resource>>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources");
+
+            //Find an resource where you have an key available
+            var resource = containers
+                .FirstOrDefault(r =>
+                    r.KeyStatus == KeyStatus.Available);
+
+            if (resource == null)
+                throw new Exception("Found no resource where you could claim key");
+
+### Claim key and read content
+
+            var client = new DataFabricClient();
+
+            var dataApiBaseUrl = "{dataApiBaseUrl}";
+
+            var resourceId = "{resourceId}";
+
+            //Retrieve your user/application information, just to test if your setup is working
+            var identity = await client.Handle<Identity>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/application");
+
+            //Make sure the resource exist
+            var container = await client.Handle<Resource>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources/{resourceId}");
+            if (container == null)
+                throw new Exception("Can't find/access resource");
+
+            //Find your accessSharingId on the container
+            var accesses = await client.Handle<ProviderAccessResult>(HttpMethod.Get, $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses");
+
+            var access = accesses.Results.FirstOrDefault(a =>
+                a.Attribute1 && a.Attribute2 && a.Attribute3 && a.Attribute4);
+
+            if (access == null)
+                throw new Exception("No valid access for this scenario");
+
+            //Get your SAS token from data fabric
+            var key = await client.Handle<SASToken>(HttpMethod.Put,
+                $"{dataApiBaseUrl}/api/1/resources/{resourceId}/accesses/{access.AccessSharingId}/key");
+
+            //You can now use key.FullKey to access the container 
+            var storageContainer = new CloudBlobContainer(new Uri(key.FullKey));
+
+            //Get the blob reference
+            var blob = storageContainer.GetBlockBlobReference("first_folder/first_file.txt");
+
+            //Check if the file exist
+            if (await blob.ExistsAsync())
+            {
+                using (var stream = await blob.OpenReadAsync())
+                {
+                    var reader = new StreamReader(stream);
+
+                    //read the content of the blob
+                    var content = await reader.ReadToEndAsync();
+                }
+            }
+
+### Models
+
+All the models used in the quick guide  
+
+        public class ProviderAccessResult
+        {
+            [JsonProperty("results")]
+            public List<ProviderAccess> Results { get; set; }
+        }
+
+        public class ProviderAccess
+        {
+            [JsonProperty("accessSharingId")]
+            public Guid AccessSharingId { get; set; }
+
+            [JsonProperty("attribute1")]
+            public bool Attribute1 { get; set; }
+
+            [JsonProperty("attribute2")]
+            public bool Attribute2 { get; set; }
+
+            [JsonProperty("attribute3")]
+            public bool Attribute3 { get; set; }
+
+            [JsonProperty("attribute4")]
+            public bool Attribute4 { get; set; }
+        }
+
+
+        public class SASToken
+        {
+            public string SASKey { get; set; }
+            public string SASURi { get; set; }
+
+            public string FullKey => SASURi + SASKey;
+
+            public DateTime SASKeyExpiryTimeUTC { get; set; }
+            public bool IsKeyExpired { get; set; }
+
+            public bool AutoRefreshed { get; set; }
+        }
+
+        public class SharingResourceInputData
+        {
+            public Guid UserId { get; set; }
+            public Guid AccessKeyTemplateId { get; set; }
+        }
+
+        public class ShareResourceVM
+        {
+            /// <summary>
+            /// Sharing id for the container
+            /// </summary>
+            public Guid AccessSharingId { get; set; }
+        }
+
+        public class KeyTemplate
+        {
+            public Guid Id { get; set; }
+            public byte AccessType { get; set; }
+            public string Name { get; set; }
+            public short TotalHours { get; set; }
+            public bool IsSystemKey { get; set; }
+            public string Description { get; set; }
+            public bool Attribute1 { get; set; }
+            public bool Attribute2 { get; set; }
+            public bool Attribute3 { get; set; }
+            public bool Attribute4 { get; set; }
+            public bool Deleted { get; set; }
+        }
+
+        public class Resource
+        {
+            /// <summary>
+            /// Container ID
+            /// </summary>
+            public Guid Id { get; set; }
+
+            /// <summary>
+            /// The name of the container in Azure. 
+            /// <example>
+            /// my-container5e1b021a-d3dc-4cdd-ba1e-7399db38ecf4
+            /// </example>
+            /// </summary>
+            public string Reference { get; set; }
+
+            /// <summary>
+            /// The full container url in Azure. 
+            /// <example>
+            /// https://ne1dnvgltstgcus0000f.blob.core.windows.net/my-container5e1b021a-d3dc-4cdd-ba1e-7399db38ecf4
+            /// </example>
+            /// </summary>
+            public string Url { get; set; }
+
+            public DateTime LastModifiedUTC { get; set; }
+            public Guid OwnerId { get; set; }
+            public AccessLevel AccessLevel { get; set; }
+
+
+            /// <summary>
+            /// Which region the resource was created in. Valid values: "USA" | "Europe"
+            /// </summary>
+            public string Region { get; set; }
+
+            /// <summary>
+            /// <see cref="KeyStatus"/>
+            /// </summary>
+            public KeyStatus KeyStatus { get; set; }
+
+        }
+
+        /// <summary>
+        /// Shows information about what type of keys are available for that resource
+        /// </summary>
+        public enum KeyStatus
+        {
+            NoKeys = 0,
+            Expired = 1,
+            Available = 2,
+            Active = 3
+        }
+
+        /// <summary>
+        /// Access level for container
+        /// </summary>
+        public enum AccessLevel
+        {
+            Owner = 2,
+            DataSteward = 1,
+            Consumer = 0
+        }
+
+
+        public class Identity
+        {
+            public Guid Id { get; set; }
+            public Guid CompanyId { get; set; }
+            public string Role { get; set; }
+        }
+
+        public class ContainerInput
+        {
+            /// <summary>
+            /// The Location which a storage container will be provisioned. Containers can only be created in supported regions
+            /// </summary>
+
+            public string StorageLocation { get; set; }
+
+            /// <summary>
+            /// 5-32 character short name used to distinguish between storage containers. The name needs to be lowercase and alphanumeric. The full name of the container will comprise of this shortname plus a unique Guid genarated by the system. Note - storage containers can not be renamed
+            /// </summary>
+            public string ContainerShortName { get; set; }
+
+            /// <summary>
+            /// Indicates whether the user has accepted that the container will not contain personal data. Required to be true for a user to upload a container
+            /// </summary>
+            public bool MayContainPersonalData { get; set; }
+        }
+
+
+
 
 
 

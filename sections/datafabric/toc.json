@@ -22,7 +22,7 @@
 			"items": [
 				{
 					"text": "Acessing APIs",
-					"href": "acessing-apis.md"
+					"href": "authentication/acessing-apis.md"
 				}
 			]
 		},

@@ -31,11 +31,11 @@
 			"items": [
 				{
 					"text": "Overview",
-					"href": "overview.md"
+					"href": "keys/overview.md"
 				},
 				{
 					"text": "Security",
-					"href": "security.md"
+					"href": "keys/security.md"
 				}
 			]
 		},
@@ -44,15 +44,15 @@
 			"items": [
 				{
 					"text": "Introduction",
-					"href": "introduction.md"
+					"href": "tutorials/introduction.md"
 				},
 				{
 					"text": "Authorization Snippet",
-					"href": "authorization-snippet.md"
+					"href": "tutorials/authorization-snippet.md"
 				},
 				{
 					"text": "Quick Start",
-					"href": "quick-start-snippet.md"
+					"href": "tutorials/quick-start-snippet.md"
 				}
 			]
 		},

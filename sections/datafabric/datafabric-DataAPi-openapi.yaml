@@ -1,0 +1,879 @@
+openapi: 3.0.1
+info:
+  title: Data API
+  version: '1.0'
+servers:
+  - url: https://api.veracity.com/veracity/datafabric/data
+paths:
+  '/api/1/resources/{resourceId}/accesses':
+    get:
+      tags:
+        - v1.0 Access
+      summary: Retrieves a list of Providers that have access to a specified resource.
+      description: "Get a list of all providers with accesses for a given storage item per page, using a page number and page size.\r\nNote the variable keyCreatedTimeUTC is the time the SAS key generated is valid from,\r\nthis is set one hour in the past from the time created this to avoid azure time skew issues."
+      operationId: v1-0Access_Get
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Azure resource
+          required: true
+          schema:
+            type: string
+        - name: pageNo
+          in: query
+          description: Format - int32. Page number. Defaults to 1.
+          schema:
+            type: integer
+        - name: pageSize
+          in: query
+          description: 'Format - int32. Number of results per page. Defaults to 50. If this is a negative number, all results will be fetched'
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+    post:
+      tags:
+        - v1.0 Access
+      summary: Share access to another user for the specified resource
+      description: Share access to another user for the specified resource
+      operationId: v1-0Access_Post
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Azure resource
+          required: true
+          schema:
+            type: string
+        - name: autoRefreshed
+          in: query
+          description: Should a renewed key be issued to the shared party after it expires
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        description: ''
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: BadRequest
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource was not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}/accesses/{accessId}':
+    put:
+      tags:
+        - v1.0 Access
+      summary: Revoke an users ability to refresh keys on a resource
+      description: Revoke an users ability to refresh keys on a resource
+      operationId: v1-0Access_Put
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Azure resource
+          required: true
+          schema:
+            type: string
+        - name: accessId
+          in: path
+          description: Format - uuid. Access ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: User is not the owner or a data steward
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource or access is not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}/accesses/{accessId}/key':
+    put:
+      tags:
+        - v1.0 Access
+      summary: Fetch a SAS key to access the storage item shared with you
+      description: Fetch a SAS key to access the storage item shared with you
+      operationId: v1-0Access_ClaimKey
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Resource Id
+          required: true
+          schema:
+            type: string
+        - name: accessId
+          in: path
+          description: Format - uuid. Access Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource or access sharing not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/application:
+    get:
+      tags:
+        - v1.0 Application
+      summary: Returns information about the current application.
+      description: Returns information about the current application.
+      operationId: v1-0Application_Me
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: NotFound
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    post:
+      tags:
+        - v1.0 Application
+      summary: Add a new application to Veracity data fabric.
+      description: Needs to have the role "DataAdmin" to perform this action
+      operationId: v1-0Application_Create
+      requestBody:
+        description: ''
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '200':
+          description: The application is created
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: BadRequest
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '409':
+          description: A application with this ID already exist in veracity
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/application/{applicationId}':
+    get:
+      tags:
+        - v1.0 Application
+      summary: Gets information about an application in Veracity data fabric.
+      description: Gets information about an application in Veracity data fabric.
+      operationId: v1-0Application_Get
+      parameters:
+        - name: applicationId
+          in: path
+          description: Format - uuid. AAD B2C Application Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: The application was not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    put:
+      tags:
+        - v1.0 Application
+      summary: Update role of a application on Veracity data fabric.
+      description: Needs to have the role "DataAdmin" to perform this action
+      operationId: v1-0Application_UpdateRole
+      parameters:
+        - name: applicationId
+          in: path
+          description: Format - uuid. AAD B2C Application Id
+          required: true
+          schema:
+            type: string
+        - name: role
+          in: query
+          description: Role name
+          required: true
+          schema:
+            enum:
+              - none
+              - manager
+              - consumer
+              - fullAll
+              - identity
+              - dataAdmin
+            type: string
+      responses:
+        '200':
+          description: Role is updated
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Application was not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}/datastewards':
+    get:
+      tags:
+        - v1.0 DataStewards
+      summary: Retrieve a list of data stewards for the resource
+      description: Retrieve a list of data stewards for the resource
+      operationId: v1-0DataStewards_GetDataStewardsByResourceId
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. The Id of the resource
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: ''
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}/owner':
+    put:
+      tags:
+        - v1.0 DataStewards
+      summary: "Transfer the ownership of the Azure resource to a specified user. \r\nBoth previous and the new owner should be affiliated with the same company."
+      description: Returns the Azure resource with updated OwnerId field.
+      operationId: v1-0DataStewards_TransferOwnership
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. The Id of the resource
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: query
+          description: Format - uuid. The Id of the user with role of Data Manager that ownership will be transfered to.
+          required: true
+          schema:
+            type: string
+        - name: keepAccessAsDataSteward
+          in: query
+          description: 'The endpoint specified below will be updated with an Input flag. When the "SetPreviousOwnerAsDataSteward" flag is set to true. If it is false, then the previous owner will not be assigned as Data Steward.'
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: 'During the validation none of the users were set as the new Owner of the resource. The reasons can be following: the resource doesn''t exist in Veracity system, you don''t have the ownership of the resource, you provided the same userId that owns the resource (yourself), provided user doesn''t have a role of Data Manager or provided user doesn''t exist in the Veracity Identity System'
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}/datastewards/{userId}':
+    post:
+      tags:
+        - v1.0 DataStewards
+      summary: Delegate the rights to use the Azure resource to another Veracity user.
+      description: "If a DataSteward with this user id exist on this resource, it will be updated.\r\nReturns the Users that DataSteward for the provided resource was assigned to."
+      operationId: v1-0DataStewards_Post
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. The Id of the resource
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          description: Format - uuid. A Data Steward user Id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Data-stewardship optional details
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: 'During the validation the users were not saved as the Data Steward for the provided Azure Resource.The reasons can be following: the resource doesn''t exist in Veracity system, you don''t have the ownership of the resource, user already is a Data Steward for this container, user is an owner of the resource (yourself), or user doesn''t exist in the Veracity Identity System'
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    delete:
+      tags:
+        - v1.0 DataStewards
+      summary: Delete a data stewards
+      description: The user must be the owner of the resource to be able to delete datastewards
+      operationId: v1-0DataStewards_Delete
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. The Id of the resource
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          description: Format - uuid.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Datasteward is deleted
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: If the user is not the owner of the resource
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: If resource or datasteward was not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/keytemplates:
+    get:
+      tags:
+        - v1.0 KeyTemplates
+      summary: Returns the templates for the different types of keys you can generate.
+      description: "Returns the template for the different types of keys you can generate.\r\nBlob Storage is the only storage type supported at the moment.\r\n            \r\nSupported access types for the Blob Storage types are as follows:\r\n    1. Write key\r\n    2. Read and list key\r\n    3. Read, write and list key\r\n    4. Read, write, delete and list key\r\nFor Each access type there are key templates that lasts 1 h, 8 h, 1 month, 2 months, 3 months, 4 months, 5 months and 6 months.\r\n            \r\nNote : \"IsSystemKey\" field in the result data is not relevant for the functionality currently supported. Please ignore that field."
+      operationId: v1-0KeyTemplates_GetStorageKeyTemplates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resource/{resourceId}/ledger':
+    get:
+      tags:
+        - v1.0 Ledger
+      summary: Returns a list of ledger records
+      description: "Endpoint returns a list of ledger records.\r\nA ledger record is an action done to a container, ex; creating a file, sharing a key."
+      operationId: v1-0Ledger_Get
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Veracity resource id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a list ledger records
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: Not owner of container
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource was not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '500':
+          description: Unexpected server error
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/resources:
+    get:
+      tags:
+        - v1.0 Resources
+      summary: Fetches all storage resources that you can claim keys for
+      description: Fetches all storage resources that you can claim keys for
+      operationId: v1-0Resources_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}':
+    get:
+      tags:
+        - v1.0 Resources
+      summary: Returns a single resource
+      description: Returns a single resource.
+      operationId: v1-0Resources_GetById
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Resource Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a single resource
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: Missing the correct access to view the resource
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource was not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/resources/{resourceId}/keys':
+    get:
+      tags:
+        - v1.0 Resources
+      summary: "Fetch a SAS key to access a storage item shared with you\r\nDeprecated. Please use PUT /api/resources/{resourceId}/accesses/{accessId}/key"
+      description: "Fetch a SAS key to access a storage item shared with you\r\nDeprecated. Please use PUT /api/resources/{resourceId}/accesses/{accessId}/key"
+      operationId: v1-0Resources_FetchKeyForStorageContainer
+      parameters:
+        - name: resourceId
+          in: path
+          description: Format - uuid. Storage resource Id
+          required: true
+          schema:
+            type: string
+        - name: accessSharingId
+          in: query
+          description: Format - uuid. The Id for the key you want to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource or access sharing not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/tags:
+    get:
+      tags:
+        - v1.0 Tags
+      summary: Retrieve metadata tags in Veracity.
+      description: "Default returns approved and non deleted tags.\r\nUse Query parameters to includes non approved and deleted (needs to be DataAdmin to perform this action)"
+      operationId: v1-0Tags_GetTags
+      parameters:
+        - name: includeDeleted
+          in: query
+          schema:
+            type: boolean
+        - name: includeNonVeracityApproved
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Returns a list of tags
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: Missing correct role to perform this action
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    post:
+      tags:
+        - v1.0 Tags
+      summary: "Inserts tags and returns the inserted new inserted tags with ID's\r\n<remarks>\r\nId is not required for the input\r\n</remarks>"
+      description: "Inserts tags and returns the inserted new inserted tags with ID's\r\n<remarks>\r\nId is not required for the input\r\n</remarks>"
+      operationId: v1-0Tags_InsertTags
+      requestBody:
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '200':
+          description: Returns a list of tags
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/users/me:
+    get:
+      tags:
+        - v1.0 Users
+      summary: Returns information about the current user.
+      description: Returns information about the current user.
+      operationId: v1-0Users_Me
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: NotFound
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/users/{userId}':
+    get:
+      tags:
+        - v1.0 Users
+      summary: Gets information about an user.
+      description: Gets information about an user.
+      operationId: v1-0Users_Get
+      parameters:
+        - name: userId
+          in: path
+          description: Format - uuid. My DNV GL Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: The user was not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/groups:
+    get:
+      tags:
+        - v1.0 Groups
+      summary: Retrieve a list of all groups for the User.
+      description: Retrieve a list of all groups for the User.
+      operationId: v1-0Groups_Get
+      responses:
+        '200':
+          description: List of groups for this user.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    post:
+      tags:
+        - v1.0 Groups
+      summary: Creates a Group from the input parameters for User.
+      description: Creates a Group from the input parameters for User.
+      operationId: v1-0Groups_Post
+      requestBody:
+        description: ''
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '201':
+          description: Group created successfully
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: Resource ID not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/groups/{Id}':
+    get:
+      tags:
+        - v1.0 Groups
+      summary: Retrieve Group by Id for the User.
+      description: Retrieve Group by Id for the User.
+      operationId: v1-0Groups_GetById
+      parameters:
+        - name: Id
+          in: path
+          description: Format - uuid. The GUID of the group.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Group with given Id found for user.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Group with given Id not found for user
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    put:
+      tags:
+        - v1.0 Groups
+      summary: Updates the given group with the parameters from the request body.
+      description: Updates the given group with the parameters from the request body.
+      operationId: v1-0Groups_Put
+      parameters:
+        - name: Id
+          in: path
+          description: Format - uuid. The GUID of the Group
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The group parameters.
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '200':
+          description: Successfully updated group.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: Resource ID not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Group with given ID not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+    delete:
+      tags:
+        - v1.0 Groups
+      summary: 'Will delete the Users given group, and remove references to resources, will NOT delete resources.'
+      description: 'Will delete the Users given group, and remove references to resources, will NOT delete resources.'
+      operationId: v1-0Groups_Delete
+      parameters:
+        - name: Id
+          in: path
+          description: Format - uuid. The GUID of the group.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully deleted group.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Specified group was not found.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/users/ResourceDistributionList:
+    get:
+      tags:
+        - v1.0 Users
+      summary: Get the list of the users with whom storage accounts shared.
+      description: Get the list of the users with whom storage accounts shared.
+      operationId: v1-0Users_ResourceDistributionList
+      parameters:
+        - name: userId
+          in: query
+          description: Format - uuid. My DNV GL Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: Not allowed to access the list.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
+x-ms-export-notes:
+  - 'The exported API contains schemas that aren''t of content type ''application/vnd.oai.openapi.components+json'', and are hence not exported as OpenAPI components.'

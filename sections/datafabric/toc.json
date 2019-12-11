@@ -10,8 +10,55 @@
 			"href": "overview.md"
 		},
 		{
-			"text": "Data Fabric API Reference",
-			"href": "datafabric-openapi.yaml"
+			"text": "Data Fabric Data API Reference",
+			"href": "datafabric-DataAPi-openapi.yaml"
+		},
+		{
+			"text": "Data Fabric Provision API Reference",
+			"href": "datafabric-ProvisionAPi-openapi.yaml"
+		},
+		{
+			"text": "Authentication",
+			"items": [
+				{
+					"text": "Acessing APIs",
+					"href": "acessing-apis.md"
+				}
+			]
+		},
+		{
+			"text": "Keys",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "overview.md"
+				},
+				{
+					"text": "Security",
+					"href": "security.md"
+				}
+			]
+		},
+		{
+			"text": "Tutorials",
+			"items": [
+				{
+					"text": "Introduction",
+					"href": "introduction.md"
+				},
+				{
+					"text": "Authorization Snippet",
+					"href": "authorization-snippet.md"
+				},
+				{
+					"text": "Quick Start",
+					"href": "quick-start-snippet.md"
+				}
+			]
+		}
+		{
+			"text": "FAQ",
+			"href": "faq.md"
 		}
 	]
 }

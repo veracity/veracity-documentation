@@ -1,0 +1,211 @@
+openapi: 3.0.1
+info:
+  title: Provision API
+  version: '1.0'
+servers:
+  - url: https://api.veracity.com/veracity/datafabric/provisioning
+paths:
+  /api/1/container:
+    post:
+      tags:
+        - v1.0 Container
+      summary: 'Provision a blob storage container, requires a short name and storage container'
+      description: To retrieve correct values for "StorageLocation" use GET api/regions and use the "azureName"
+      operationId: v1-0Container_ProvisionAzureBlobContainer
+      requestBody:
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '202':
+          description: Request accepted for processing. Note that provisioning can take up to 15 minutes. Please check DataApi to verify container was created.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: BadRequest
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '409':
+          description: ''
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '502':
+          description: Request to Identity API was unsuccessful.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/container/{id}/metadata':
+    patch:
+      tags:
+        - v1.0 Container
+      summary: Update metadata
+      description: " JSON Patch (https://tools.ietf.org/html/rfc6902) defines a JSON document structure for expressing a sequence of operations to apply to a JavaScript Object Notation (JSON) document; it is suitable for use with the HTTP PATCH method. The \"application/json-patch+json\" media type is used to identify such patch documents.\r\n\r\n Example in this case:\r\n{\r\n \"value\": \"My new container name\",\r\n \"path\": \"Title\",\r\n \"op\": \"replace\"\r\n },\r\n This operation would replace the title\r\n\r\n \r\n A other example for update of tags (NOTE: remember to update the list of tags with all the tags)\r\n\t{\r\n \"value\": [\r\n {\r\n \"Title\" :\"First tag\"\r\n },\r\n {\r\n \"Title\" : \"Second tag\"\r\n }\r\n \r\n ],\r\n \"path\": \"Tags\",\r\n \"op\": \"replace\"\r\n }\r\n This operation would replace the tags"
+      operationId: v1-0Container_UpdateMetadata
+      parameters:
+        - name: id
+          in: path
+          description: Format - uuid.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '200':
+          description: Metadata was updated
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: Not resource owner
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource was not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '500':
+          description: Container metadata was not updated
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  '/api/1/container/{id}':
+    delete:
+      tags:
+        - v1.0 Container
+      summary: Delete a azure storage container.
+      description: "Delete the azure container.<br /> \r\nYou need to be the owner of the resource to be able to delete the container.<br /> \r\nWhat happens when the container is deleted: All active keys will stop working.<br /> \r\nAll content on the container will be deleted and this action is not reversible <br />"
+      operationId: v1-0Container_DeleteAzureBlobContainer
+      parameters:
+        - name: id
+          in: path
+          description: Format - uuid. Resource id (GUID)
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: 'Request accepted for processing: Azure Storage container will be deleted'
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '403':
+          description: Not resource owner
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource was not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '500':
+          description: Container not deleted
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/regions:
+    get:
+      tags:
+        - v1.0 Regions
+      summary: Returns the list of active regions supported by veracity
+      description: Returns the list of active regions supported by veracity
+      operationId: v1-0Regions_Get
+      responses:
+        '200':
+          description: A list of active regions supported by veracity
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+  /api/1/container/copycontainer:
+    post:
+      tags:
+        - v1.0 Container
+      summary: "Copies a given Container with its content with access sharing ID. \r\nFor successful requests, Returns 202 Accepted without waiting for container create or content copy is finished."
+      description: "Copies a given Container with its content with access sharing ID. \r\nFor successful requests, Returns 202 Accepted without waiting for container create or content copy is finished."
+      operationId: v1-0Container_CopyContainer
+      parameters:
+        - name: accessId
+          in: query
+          description: Format - uuid. Access Id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Values required to copy a container.
+        content:
+          application/json: { }
+          text/json: { }
+          application/xml: { }
+          text/xml: { }
+          application/x-www-form-urlencoded: { }
+      responses:
+        '202':
+          description: Request accepted for processing. Note that provisioning can take up to 15 minutes. Content copy may take longer depends on the size of the container.
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '400':
+          description: BadRequest
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
+x-ms-export-notes:
+  - 'The exported API contains schemas that aren''t of content type ''application/vnd.oai.openapi.components+json'', and are hence not exported as OpenAPI components.'

@@ -1,4 +1,4 @@
-## Accessing APIs
+# Accessing APIs
 
 For all request you need to provide **authorization** header with OAuth2 bearer token and **Ocp-Apim-Subscription-Key**  header with your subscription key  
   

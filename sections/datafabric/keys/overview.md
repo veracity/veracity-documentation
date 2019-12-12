@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Description of overview
+---
+
 # Overview
 
 The data protection and keys associated with access to storage in Veracity are built around shared access signature (SAS) tokens. This enables the sharing of data, the granting of policy based access, and the revoking of granted access at any time. Activity related to data within Veracity can, in this way, be tracked and reviewed by the container owner.

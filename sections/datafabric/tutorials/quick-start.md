@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Description of quick start section
+---
+
 # Data fabric Quick start
 
 This is a quick start on how to use the Data Fabrics API.

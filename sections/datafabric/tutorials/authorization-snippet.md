@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Description of authorization section
+---
+
 # Authorization snippet
 
 The Bearer Token is usually valid for one hour, after that you need to request a new one.

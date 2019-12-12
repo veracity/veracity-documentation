@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Description of introduction section
+---
+
 # Introduction
 
 Veracity uses API Management. In order to get access, you will need to:

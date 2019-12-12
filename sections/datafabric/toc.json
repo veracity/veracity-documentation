@@ -11,11 +11,11 @@
 		},
 		{
 			"text": "Data Fabric Data API Reference",
-			"href": "datafabric-DataAPi-openapi.yaml"
+			"href": "datafabric-dataapi-openapi.yaml"
 		},
 		{
 			"text": "Data Fabric Provision API Reference",
-			"href": "datafabric-ProvisionAPi-openapi.yaml"
+			"href": "datafabric-provisionapi-openapi.yaml"
 		},
 		{
 			"text": "Authentication",

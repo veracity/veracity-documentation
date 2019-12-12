@@ -10,6 +10,10 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "Get started",
+			"href": "get-started.md"
+		},
+		{
 			"text": "Notification API Reference",
 			"href": "notification-openapi.yaml"
 		}

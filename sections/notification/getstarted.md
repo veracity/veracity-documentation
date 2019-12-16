@@ -34,15 +34,15 @@ Notification Service can support to send push notification to native mobile apps
 
 3. Notification Service uses templates to send platform-agnostic notifications targeting all devices across platforms. For this reason you need to define your notification template that you would like to use for your app users, here's an example:
 
-    ```
-    NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(Message)\", \"action\":\"$(action)\", \"type\":\"$(type)\"}}";
-    ```
+```java
+NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(Message)\", \"action\":\"$(action)\", \"type\":\"$(type)\"}}";
+```
 
-    When you send notification through Veracity Notification API, you can provide the value for those template parameters.
+When you send notification through Veracity Notification API, you can provide the value for those template parameters.
 
 4. For broadcast notification, you need to get the Channel Id from your service admin. Then you need to use the Channel Id ("channel:<GUID>") as tags when registering the template in the notification hub. Here's an example:
 
-    ```
+```java
     NSMutableArray* catArray = [[NSMutableArray alloc] init];
     for(NSString *category in categories.allObjects)
     {
@@ -52,7 +52,7 @@ Notification Service can support to send push notification to native mobile apps
     }
     NSSet *tags = [NSSet setWithArray:catArray];
     result = [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" jsonBodyTemplate:templateBodyAPNS expiryTemplate:@"0" tags:tags error:&error];
-    ```
+```
 
 5. For sending a notification to specified users, you need to register the user id after the user logs into your app. Then you can register the user id ("user:<GUID>") as an additional tag on Channel Id.
 
@@ -70,17 +70,17 @@ Notification Service can support to send push notification to native mobile apps
 
 3. Notification Service uses templates to send platform-agnostic notifications targeting all devices across platforms and we can push notifications by using tags. On android side you should define template to accept the message:
 
-    ```
-     String templateBodyGCM = "{\"data\":{\"message\":\"$(message)\",\"open_type\":\"$(open_type)\"}}";  
-    ```
+```java
+String templateBodyGCM = "{\"data\":{\"message\":\"$(message)\",\"open_type\":\"$(open_type)\"}}";  
+```
 
-    When you send notification through Veracity Notification API, you can provide the value for those template parameters.
+When you send notification through Veracity Notification API, you can provide the value for those template parameters.
 
 4. For broadcast notification, you need to get the Channel Id which you need to ask from your service admin. Veracity can register this channel id ("channel:<GUID>") as a basic tag for receiving broadcast notifications
 
 5. For sending a notification to specified users, you need to register the user id after the user logs into your app. Then you can register the user id ("user:<GUID>") as an additional tag on Channel Id.
 
-    ```
+```java
     public void subscribeToCategories(final Set<String> categories) {
         new AsyncTask<Object, Object, Object>() {
         @Override
@@ -107,9 +107,9 @@ Notification Service can support to send push notification to native mobile apps
         }
         }.execute(null, null, null);
     }
-    ```
+```
 
-    6. How to show the notification when it's received while the app is active, you need to implement the method onReceive on MyHandler.java as the demo application.
+6. How to show the notification when it's received while the app is active, you need to implement the method onReceive on MyHandler.java as the demo application.
 
 ## How to send notification through your back-end application
-It needs to call Send Message API to send notification, please refer [Service API](https://developer.veracity.com/doc/service-api) for Notification.
+It needs to call Send Message API to send notification, please refer [Notification API](https://developer.veracity.com/docs/section/notification/notification-openapi) for Notification.

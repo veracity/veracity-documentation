@@ -6,7 +6,7 @@ description: Give an description on how to get started with the Veracity Notific
 # Get started
 
 ## How to send notification through Notification Service
-Service API has provided the API methods to use the notification service, you can find the details [here](https://developer.veracity.com/doc/service-api).
+Service API has provided the API methods to use the notification service, you can find the details [here](https://developer.veracity.com/docs/section/notification/notification-openapi).
 
 ## How to develop mobile apps to use push notification
 Notification Service can support to send push notification to native mobile apps in all kinds of different devices like Android, iOS, Windows phone etc. To be able to use the push notification from Veracity, you need to do the two things below:

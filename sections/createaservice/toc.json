@@ -10,23 +10,23 @@
 			"items": [
 				{
 					"text": "Introductio",
-					"href": "/generator/generator.md"
+					"href": "generator/generator.md"
 				},
 				{
 					"text": "Setup your dev environment",
-					"href": "/generator/setupdevenvironment.md"
+					"href": "generator/setupdevenvironment.md"
                 },
                 {
 					"text": "Install generator",
-					"href": "/generator/installgenerator.md"
+					"href": "generator/installgenerator.md"
                 },
                 {
 					"text": "NodeJs application",
-					"href": "/generator/nodejsapp.md"
+					"href": "generator/nodejsapp.md"
                 },
                 {
 					"text": ".NET application",
-					"href": "/generator/dotnet.md"
+					"href": "generator/dotnet.md"
                 }
 			]
 		}

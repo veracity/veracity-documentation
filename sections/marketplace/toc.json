@@ -10,6 +10,14 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "Fully digital",
+			"href": "FullyDigital.md"
+		},
+				{
+			"text": "Purchase Processes",
+			"href": "purchaseprocesses.md"
+		},
+		{
 			"text": "Marketplace API Reference",
 			"href": "marketplace-openapi.yaml"
 		}

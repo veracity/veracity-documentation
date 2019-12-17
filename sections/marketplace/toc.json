@@ -10,12 +10,17 @@
 			"href": "overview.md"
 		},
 		{
-			"text": "Fully digital",
-			"href": "fullydigital.md"
-		},
+			"text": "Purchase processes",
+			"items": [
 				{
-			"text": "Purchase Processes",
-			"href": "purchaseprocesses.md"
+					"text": "Purchase processes overview",
+					"href": "purchaseprocesses.md"
+				},
+				{
+					"text": "Fully digital sales process",
+					"href": "fullydigital.md"
+				}
+			]
 		},
 		{
 			"text": "Marketplace API Reference",

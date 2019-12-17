@@ -8,7 +8,7 @@ description: Description of Fully digital sales process.
 ## Visualizing license options
 In order to use a fully digital sales process you will need to visualize your prices on the product page. We currently have 2 layouts for showing prices for your services.
 ### Standard service
-This option is best suited when you have one standard service or perhaps two variants of the service. 
+This option is best suited when you have one standard service or perhaps two variants of the service.
 
 In the example below they sell either a package with access to all documents or access to one specific document. In addition they have one product variant that is access to all documents but priced differently for Academic institutions.
 Within the variant "Access to all documents" they offer several price plans in this case it is based on the number of users who can access the service.

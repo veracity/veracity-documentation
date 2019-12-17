@@ -10,7 +10,7 @@
 			"items": [
 				{
 					"text": "Introductio",
-					"href": "generator/generator.md"
+					"href": "generator/introduction.md"
 				},
 				{
 					"text": "Setup your dev environment",

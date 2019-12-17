@@ -2,7 +2,7 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Create a service",
+			"text": "Introduction",
 			"href": "createaservice.md"
 		},
 		{
@@ -10,7 +10,7 @@
 			"items": [
 				{
 					"text": "Introductio",
-					"href": "generator/introduction.md"
+                    "href": "generator/introduction.md"
 				},
 				{
 					"text": "Setup your dev environment",

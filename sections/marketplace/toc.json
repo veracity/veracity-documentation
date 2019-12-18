@@ -21,10 +21,6 @@
 					"href": "fullydigital.md"
 				}
 			]
-		},
-		{
-			"text": "Marketplace API Reference",
-			"href": "marketplace-openapi.yaml"
 		}
 	]
 }

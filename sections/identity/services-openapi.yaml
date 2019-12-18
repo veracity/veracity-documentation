@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Veracity Services API
-  description: "The Veracity Services API provides information about the currently logged in user (`my`) and your application in general (`this`). To call these APIs you need to have an **access token** for the current user as well as a **subscription key**. The former can be retrieved once a user authenticates with your application while the latter can be found in the Veracity for Developers resource portal. Head over to [https://developer.veracity.com/projects](https://developer.veracity.com/projects) and create an Application resource there to create a subscription key for your application. You can read more about how to authenticate users from your application in the [Identity documentation](https://developer.veracity.com/docs/identity).
+  description: "The Veracity Services API provides information about the currently logged in user (`my`) and your application in general (`this`). To call these APIs you need to have an **access token** for the current user as well as a **subscription key**. The former can be retrieved once a user authenticates with your application while the latter can be found in the Veracity for Developers resource portal. Head over to [https://developer.veracity.com/projects](https://developer.veracity.com/projects) and create an Application resource there to create a subscription key for your application. You can read more about how to authenticate users from your application in the [Identity documentation](https://developer.veracity.com/docs/identity/identity).
   \n\n ## Grouping
   \n The API is grouped into 4 distinct sections, each with their own intent.
   \n - **My**: Return information about the currently logged in used as defined by their access token.
@@ -13,7 +13,7 @@ info:
     \n\n - `https://api.veracity.com/veracity/services/v3`
     \n\n - `https://api.veracity.com/veracity/services`
     \n This is the rolling version endpoint. It will always contain the latest version of the API and may be subject to breaking changes.
-    \n\n Veracity commits to actively support the latest version of the API as well as the next previous version. This currently means **v3 and v2** of the Veracity Services API."
+    \n\n Veracity commits to actively support the latest version of the AP as well as the next previous version. This currently means **v3 and v2** of the Veracity Services API."
   version: '3.0'
   contact:
     name: Veracity for Developers

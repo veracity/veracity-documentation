@@ -10,6 +10,10 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "Product presentation",
+			"href": "productpresentation.md"
+		},
+		{
 			"text": "Purchase processes",
 			"items": [
 				{
@@ -19,6 +23,10 @@
 				{
 					"text": "Fully digital sales process",
 					"href": "fullydigital.md"
+				},
+				{
+					"text": "Capturing leads for your service",
+					"href": "leadsprocess.md"
 				}
 			]
 		}

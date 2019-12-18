@@ -10,6 +10,19 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "Purchase processes",
+			"items": [
+				{
+					"text": "Purchase processes overview",
+					"href": "purchaseprocesses.md"
+				},
+				{
+					"text": "Fully digital sales process",
+					"href": "fullydigital.md"
+				}
+			]
+		},
+		{
 			"text": "Marketplace API Reference",
 			"href": "marketplace-openapi.yaml"
 		}

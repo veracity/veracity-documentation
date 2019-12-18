@@ -66,6 +66,7 @@ This will install `request` with promise support as well as the necessary type d
 Now let's create some small helper functions that will ensure we can construct proper requests to the API.
 ```typescript
 // Put your subscription key here
+
 const subscriptionKey = ""
 
 const getAccessTokenForScope = (req: Request, apiScope: string) => {

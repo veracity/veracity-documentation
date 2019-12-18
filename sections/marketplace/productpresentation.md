@@ -2,7 +2,7 @@
 author: Veracity
 description: Give a general description of the Veracity Marketplace Service.
 ---
-## Presenting your product on the Marketplace
+# Presenting your product on the Marketplace
 Please download the attachment below for the information/content that you need to provide in order to present a product on the Veracity Marketplace.
 
 <a href="assets/Veracity_Marketplace_ServiceContentForm_oct 2019.docx" download>Click to Download</a>

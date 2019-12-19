@@ -4,7 +4,9 @@ description: Gives an overview of the Veracity Data Fabric services and related 
 ---
 
 # Overview of the Veracity Data fabric
+Veracity Data Fabric provides data management functionality for cloud and on-premise for an improved data visibility, insights, access control and security.
 Data Fabric support two roles: Data Manager, create and manage data lake; Data Consumer, read only access to data lake.
+
 Data managers can takes advantage of the Veracity ecosystem whereby they can combine their datasets with others available from Veracity Marketplace to enrich their own data to create new insights and solutions.
 
 ## Combine data with world class analytics tools

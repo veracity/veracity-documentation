@@ -10,4 +10,4 @@ Veracity currenty cover 3 main journeys related to purchases
 2. Giving access to free services
 3. Capturing leads for your service
 
-We wil cover each one of these in more detail
+We will cover each one of these in more detail

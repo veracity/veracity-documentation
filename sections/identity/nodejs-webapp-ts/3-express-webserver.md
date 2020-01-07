@@ -14,13 +14,13 @@ We'll start with the setup of our core server. In order to be able to authentica
 
 Create a file in the `src` folder called `server.ts`. This file will be responsible for configuring your https server. Add the following:
 ```typescript
-import https from "https"
+import https from "https";
 
 export const createServer = () => {
 
-}
+};
 
-export default createServer
+export default createServer;
 ```
 
 Notice that VSCode will complain about a few things before you save the file:

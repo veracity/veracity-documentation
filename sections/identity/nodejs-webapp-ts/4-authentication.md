@@ -228,7 +228,7 @@ Let's add an endpoint that will dump our user information if the user is authent
 You should now be able to authenticate with Veracity using your application. Let's test it out by running our start file in debug mode. Open your browser to [https://localhost:3000/login?returnTo=/user](https://localhost:3000/login?returnTo=/user). You should be prompted for your credentials and then after some round trips returned back to `/user` in your application. Neat!
 
 <video controls loop>
-	<source src="assets/authentication-working.webm">
+	<source src="assets/authentication-working.mp4">
 </video>
 
 That's it for authentication. Next up, calling apis in order to get additional user information.

@@ -154,7 +154,7 @@ createServer(app, 3000)
 Now we are ready to test our code. Launch the debugger, open your browser and log in. Now let's visit [https://localhost:3000/info](https://localhost:3000/info) and inspect the result.
 
 <video controls loop>
-	<source src="assets/calling-external-api.webm">
+	<source src="assets/calling-external-api.mp4">
 </video>
 
 Great! We are getting data directly from the API on behalf of the user. We can use this to display some information about them in the UI or we can add additional calls to get more information. Let's implement another endpoint and see if our helper functions work as expected. This time we'll request the users list of services.

@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Veracity adapter for Power BI",
+			"href": "vap.md"
+		},
+		{
+			"text": "Product presentation",
+			"href": "productpresentation.md"
+		},
+		{
+			"text": "Purchase processes",
+			"items": [
+				{
+					"text": "Purchase processes overview",
+					"href": "purchaseprocesses.md"
+				},
+				{
+					"text": "Fully digital sales process",
+					"href": "fullydigital.md"
+				},
+				{
+					"text": "Capturing leads for your service",
+					"href": "leadsprocess.md"
+				},
+				{
+					"text": "Giving access to free services",
+					"href": "freeaccess.md"
+				}
+			]
+		}
+	]
+}

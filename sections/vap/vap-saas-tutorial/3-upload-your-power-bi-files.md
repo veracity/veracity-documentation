@@ -9,7 +9,7 @@ description: VAP tutorial - Upload your Power BI files
 
 Every section of this tutorial onwards consists of two main parts—one explaining the details of each feature covered, and one part is a step-by-step guide. If you complete the whole tutorial, you will end up with both a fundamental understanding of the feature set and a fully functional VAP service example that you may play around with, and use as a template for you to set up your projects. 
 
-1. [Manage files](##Manage-Files)
+1. [Manage files introduction](##Manage-Files)
 2. [Step-by-step guide](##Step-by-step-guide)
 
 We will now start by looking at the <i>Manage Files</i> feature, and explain all the bits and pieces.
@@ -46,7 +46,7 @@ Finally, you can click save, and the file with metadata will be loaded into the 
 In the list view all files in your service are listed. 
 <figure>
 	<img src="assets/ListViewDelete.png"/>
-	<figcaption>VAP - upload a new file</figcaption>
+	<figcaption>VAP - File list view with one file listed</figcaption>
 </figure>
 In the list view, all files in your service are listed.  The main things to note are the title, the Used in reports, Power BI Version, and Connection type. 
 
@@ -59,6 +59,24 @@ The final item in the rows is the delete button. It may be wise to note that "Us
 
 
 ## Step-by-step guide
+We will now go through a step-by-step guide that starts by uploading files and end with you having a fully functional demo service that an end-user can use, and you may base your future projects on.
+
+We have created a demo file for you to use during this guide, and you can download the latest version here:
+
+[Demo-PowerBI-report.pbix](Demo-PowerBI-report.pbix)
+
+### Upload your demo file
+First, you go to the admin tab on the menu bar. Click on the Manage files, and then Upload File.
+
+Fill in the fields, as shown in the image below. When done, click the next button.
+<figure>
+	<img src="assets/step-by-step-upload-files.png"/>
+	<figcaption>Step-by-step guide: Upload file</figcaption>
+</figure>
+
+You should now have loaded the demo file into VAP, and ready to proceed to the next step.
+
+
 Now, lets learn how to mange your reports.
 
 [Next](4-manage-reports.md)

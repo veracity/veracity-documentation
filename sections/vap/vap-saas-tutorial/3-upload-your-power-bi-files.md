@@ -18,7 +18,7 @@ We will now start by looking at the <i>Manage Files</i> feature, and explain all
 The Manage Files section is all about loading your local files into the VAP solution. In most cases, this is where you start, as most other feature depends on the existence of these files. The file types supported are Power BI files (.pbix), PDF's and some image file types (.png .jpeg and .gif). 
 
 <figure>
-	<img src="assets/manageFilesEmpty.png"/>
+	<img src="assets/ManageFilesEmpty.png"/>
 	<figcaption>VAP Manage Files list view</figcaption>
 </figure>
 In this view, you have a list of all the files currently referenced in your VAP service, across all project. The Power BI files themself are not stored within VAP but securely stored within the Microsoft Power BI capacity. From this list view, you may also delete files, which will remove them from the view and trigger removal from the Microsoft storage associated with your service.

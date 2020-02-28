@@ -6,27 +6,23 @@
 			"href": "vap.md"
 		},
 		{
-			"text": "Product presentation",
-			"href": "productpresentation.md"
-		},
-		{
-			"text": "Purchase processes",
+			"text": "Tutorial",
 			"items": [
 				{
-					"text": "Purchase processes overview",
-					"href": "purchaseprocesses.md"
+					"text": "Introduction",
+					"href": "1-introduction.md"
 				},
 				{
-					"text": "Fully digital sales process",
-					"href": "fullydigital.md"
+					"text": "Basic setup",
+					"href": "2-how-to-set-up-your-service.md"
 				},
 				{
-					"text": "Capturing leads for your service",
-					"href": "leadsprocess.md"
+					"text": "Upload your Power BI Files",
+					"href": "3-upload-your-power-bi-files.md"
 				},
 				{
-					"text": "Giving access to free services",
-					"href": "freeaccess.md"
+					"text": "Manage reports",
+					"href": "4-manage-reports.md"
 				}
 			]
 		}

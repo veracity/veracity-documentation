@@ -1,6 +1,6 @@
 ---
 author: Veracity adapter for Power BI
-description: VAP tutorial - how to set up your service
+description: VAP introduction - how to set up your service
 ---
 
 # How to set up your service

@@ -1,33 +1,22 @@
 ---
 author: Veracity adapter for Power BI
-description: VAP tutorial
+description: VAP introdduction
 ---
 
-# Tutorial: How to use your VAP service
+# Introduction: How to use your VAP service
 
 
-Welcome to this tutorial on how to use your VAP service. Here you will learn how to:
+Welcome to this tutorial on how to use your VAP service. Here we will go through a step-by-step guide, starting with an empty VAP service, and ending up with a fully functional demo service, on which, you can base your future service. The tutorial consists of the following steps.
 
-- How to set up your service.
-- Upload your Power BI and other files.
-- Manage reports.
-- Understand and manage entities.
-- How to do users management
-
-The source for this tutorial is available on GitHub for download and review. If you have any questions feel free to open an issue there.
-
-
-## Content
 1. Introduction **<- You are here**
-2. [How to set up your service](2-how-to-set-up-your-service.md)
-3. [Upload your Power BI files](3-upload-your-power-bi-files.md)
-4. [Manage reports](4-manage-reports.md)
-5. [Understand and manage entities](5-understand-and-manage-entities.md)
-6. [How to do users management](6-how-to-do-users-management.md)
-7. [Advanced settings](7-advanced-settings.md)
-8. [Summary](8-summary.md)
+2. [Manage files](2-manage-files.md)
+3. [Manage reports](3-manage-reports.md)
+4. [Manage entities](4-manage-entities.md)
+5. [Manage users](5-manageme-users.md)
+6. [Advanced settings](6-advanced-settings.md)
+7. [Summary](7-summary.md)
 
-Now, lets start to use your service!
+Now, lets start the tutorial!
 
-[Next](2-how-to-set-up-your-service.md)
+[Next](2-manage-files.md)
 

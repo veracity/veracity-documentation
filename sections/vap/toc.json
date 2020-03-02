@@ -6,39 +6,72 @@
 			"href": "vap.md"
 		},
 		{
-			"text": "Tutorial",
+			"text": "User manual",
+			"items": [
+				{
+					"text": "Introduction",
+					"href": "vap-saas-introduction/1-introduction.md"
+				},
+				{
+					"text": "Basic setup",
+					"href": "vap-saas-introduction/2-how-to-set-up-your-service.md"
+				},
+				{
+					"text": "Upload your Power BI Files",
+					"href": "vap-saas-introduction/3-upload-your-power-bi-files.md"
+				},
+				{
+					"text": "Manage reports",
+					"href": "vap-saas-introduction/4-manage-reports.md"
+				},
+				{
+					"text": "Understand and manage entities",
+					"href": "vap-saas-introduction/5-understand-and-manage-entities.md"
+				},
+				{
+					"text": "How to do user management",
+					"href": "vap-saas-introduction/6-how-to-do-users-management.md"
+				},
+				{
+					"text": "Advanced settings",
+					"href": "vap-saas-introduction/7-advanced-settings.md"
+				},
+				{
+					"text": "Summary",
+					"href": "vap-saas-introduction/8-summary.md"
+				}
+			]
+		},
+		{
+			"text": "Quick guide",
 			"items": [
 				{
 					"text": "Introduction",
 					"href": "vap-saas-tutorial/1-introduction.md"
 				},
 				{
-					"text": "Basic setup",
-					"href": "vap-saas-tutorial/2-how-to-set-up-your-service.md"
-				},
-				{
-					"text": "Upload your Power BI Files",
-					"href": "vap-saas-tutorial/3-upload-your-power-bi-files.md"
+					"text": "Manage files",
+					"href": "vap-saas-tutorial/2-manage-files.md"
 				},
 				{
 					"text": "Manage reports",
-					"href": "vap-saas-tutorial/4-manage-reports.md"
+					"href": "vap-saas-tutorial/3-manage-reports.md"
 				},
 				{
-					"text": "Understand and manage entities",
-					"href": "vap-saas-tutorial/5-understand-and-manage-entities.md"
+					"text": "Manage entities",
+					"href": "vap-saas-tutorial/4-manage-entities.md"
 				},
 				{
-					"text": "How to do user management",
-					"href": "vap-saas-tutorial/6-how-to-do-users-management.md"
+					"text": "Manage users",
+					"href": "vap-saas-tutorial/5-manage-users.md"
 				},
 				{
 					"text": "Advanced settings",
-					"href": "vap-saas-tutorial/7-advanced-settings.md"
+					"href": "vap-saas-tutorial/6-advanced-settings.md"
 				},
 				{
 					"text": "Summary",
-					"href": "vap-saas-tutorial/8-summary.md"
+					"href": "vap-saas-tutorial/7-summary.md"
 				}
 			]
 		}

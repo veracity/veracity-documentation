@@ -11,4 +11,5 @@ Whats next.
 
 - How to create good content that customers will pay for
 - How to create content that create value to you
+- Tips on business of digital service/digital sale
 - Advanced settings

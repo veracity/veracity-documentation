@@ -6,7 +6,7 @@ description: VAP introdduction
 # Introduction: How to use your VAP service
 
 
-Welcome to this tutorial on how to use your VAP service. Here we will go through a step-by-step guide, starting with an empty VAP service, and ending up with a fully functional demo service, on which, you can base your future service. The tutorial consists of the following steps.
+Welcome to this quick-start on how to use your VAP service. Here we will go through a step-by-step guide, starting with an empty VAP service, and ending up with a fully functional demo service, on which, you can base your future service. The tutorial consists of the following steps.
 
 1. Introduction **<- You are here**
 2. [Manage files](2-manage-files.md)

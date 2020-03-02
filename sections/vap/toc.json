@@ -6,6 +6,39 @@
 			"href": "vap.md"
 		},
 		{
+			"text": "Quick start",
+			"items": [
+				{
+					"text": "Introduction",
+					"href": "vap-saas-tutorial/1-introduction.md"
+				},
+				{
+					"text": "Manage files",
+					"href": "vap-saas-tutorial/2-manage-files.md"
+				},
+				{
+					"text": "Manage reports",
+					"href": "vap-saas-tutorial/3-manage-reports.md"
+				},
+				{
+					"text": "Manage entities",
+					"href": "vap-saas-tutorial/4-manage-entities.md"
+				},
+				{
+					"text": "Manage users",
+					"href": "vap-saas-tutorial/5-manage-users.md"
+				},
+				{
+					"text": "Advanced settings",
+					"href": "vap-saas-tutorial/6-advanced-settings.md"
+				},
+				{
+					"text": "Summary",
+					"href": "vap-saas-tutorial/7-summary.md"
+				}
+			]
+		},
+		{
 			"text": "User manual",
 			"items": [
 				{
@@ -39,39 +72,6 @@
 				{
 					"text": "Summary",
 					"href": "vap-saas-introduction/8-summary.md"
-				}
-			]
-		},
-		{
-			"text": "Quick guide",
-			"items": [
-				{
-					"text": "Introduction",
-					"href": "vap-saas-tutorial/1-introduction.md"
-				},
-				{
-					"text": "Manage files",
-					"href": "vap-saas-tutorial/2-manage-files.md"
-				},
-				{
-					"text": "Manage reports",
-					"href": "vap-saas-tutorial/3-manage-reports.md"
-				},
-				{
-					"text": "Manage entities",
-					"href": "vap-saas-tutorial/4-manage-entities.md"
-				},
-				{
-					"text": "Manage users",
-					"href": "vap-saas-tutorial/5-manage-users.md"
-				},
-				{
-					"text": "Advanced settings",
-					"href": "vap-saas-tutorial/6-advanced-settings.md"
-				},
-				{
-					"text": "Summary",
-					"href": "vap-saas-tutorial/7-summary.md"
 				}
 			]
 		}

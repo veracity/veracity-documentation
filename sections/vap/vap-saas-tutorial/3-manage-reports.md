@@ -1,6 +1,6 @@
 ---
 author: Veracity adapter for Power BI
-description: VAP tutorial - Upload your Power BI files
+description: VAP tutorial - Manage your Power BI reports
 ---
 
 # Manage reports

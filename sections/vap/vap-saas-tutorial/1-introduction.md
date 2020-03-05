@@ -12,9 +12,9 @@ Welcome to this quick-start on how to use your VAP service. Here we will go thro
 2. [Manage files](2-manage-files.md)
 3. [Manage reports](3-manage-reports.md)
 4. [Manage entities](4-manage-entities.md)
-5. [Manage users](5-manageme-users.md)
-6. [Advanced settings](6-advanced-settings.md)
-7. [Summary](7-summary.md)
+5. [Manage users](5-manage-users.md)
+6. [Summary and next steps](6-summary.md)
+7. [Advanced settings](7-advanced-settings.md)
 
 Now, lets start the tutorial!
 

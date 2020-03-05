@@ -18,10 +18,12 @@ It is now time to look at some critical next steps for you. These are:
 - Ensure a scalable setup of your service
 
 ## How to create content that creates value to you and your organization
-
+Build reports with rich data visualisations that help everyone make decisions based on facts, not instinct. Use VAP to share significant insights for an even bigger impact. Ensure that all features you chose to pursue in your reports are based on problems to solve for the end-user. Make sure to focus on the outcome rather than output.
 
 ## How to create great and engaging Power BI content that customers will pay real money for.
+Create a data-driven culture throughout your organisation together with your customers. Easily share and collaborate on interactive data visualisations using a combination of Veracity Adapter for Power BI with data in Veracity Date Fabric and build reports in Power BI. You, your organisation or customers gets self-service analytics.
 
+Let you customer upload their data in Veracity Data Fabric. Build reports with Power BI to unlock the value in the data. Combined that with VAP and share access to users to drill down and interact with your analytics. Make sure you build your report to always be up to date with the latest data you client upload. 
 
 ## Ensure that your business model is geared towards a digital service delivery
 It is vital to ensure that you have a robust business model for your service and that the business model takes advantage of the opportunities that come with a digital service. 

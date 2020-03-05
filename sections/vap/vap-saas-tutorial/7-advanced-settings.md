@@ -4,7 +4,7 @@ description: VAP tutorial - Advanced settings
 ---
 
 # Configuration
-[Previous - Manage users](5-manage-users.md)
+[Previous - Summary and next steps](6-summary.md)
 
 
 
@@ -16,5 +16,4 @@ description: VAP tutorial - Advanced settings
 
 Lets look at the end result and some details.
 
-[Next](7-summary.md)
 

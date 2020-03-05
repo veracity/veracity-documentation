@@ -1,6 +1,6 @@
 ---
 author: Veracity adapter for Power BI
-description: VAP tutorial - Upload your Power BI files
+description: VAP tutorial - Summary and next steps
 ---
 
 
@@ -13,3 +13,6 @@ Whats next.
 - How to create content that create value to you
 - Tips on business of digital service/digital sale
 - Advanced settings
+
+
+[Next](7-advanced-settings.md)

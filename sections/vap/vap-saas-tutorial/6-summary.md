@@ -40,4 +40,4 @@ Within larger organisations, you often need to develop reporting that goes up th
 To make sure people see only what they are allowed to see, you can create one model and use row-level security instead of having to develop ten different reports. This obviously works really well for security purposes. But it’s also useful for privacy. To understand the oportunities row-level security provides, read more in the VAP manual, or visit [Power BI website](https://docs.microsoft.com/en-gb/power-bi/service-admin-rls).
 
 
-[Next](7-advanced-settings.md)
+[Explore advanced settings in VAP](7-advanced-settings.md)

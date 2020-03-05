@@ -32,7 +32,10 @@ Next, we encourage you to read through all of the content on the [Marketplace se
 One of the main benefits of Power BI is that it enables you to unify data from many sources to create interactive, immersive dashboards and reports. You will in this way provide your organization, or your external customers, with the most up to date information, on which business-critical decisions can be taken. Be sure to utilize the capabilities in VAP and Power BI, so that you always have the most accurate information at hand. See the VAP manual for details on how to do this. 
 
 ## Ensure a scalable setup of your service
+Scalability is the key to success for almost any digital service or tool, independently of end-user being internal or an external customer. In order to achieve this, you will need to transform from projects to products, single uploads to dynamic reports.
 
+Within larger organisations, you often need to develop reporting that goes up the chain, but only certain levels should be able to see certain things.
+To make sure people see only what they are allowed to see, you can create one model and use row-level security instead of having to develop ten different reports. This obviously works really well for security purposes. But it’s also useful for privacy. To understand the oportunities row-level security provides, read more in the VAP manual, or visit [Power BI website](https://docs.microsoft.com/en-gb/power-bi/service-admin-rls).
 
 
 [Next](7-advanced-settings.md)

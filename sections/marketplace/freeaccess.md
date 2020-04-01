@@ -31,3 +31,7 @@ In some egde cases you might want to have an approval process before you give ac
 
 Giving free access can be used as an entry level for getting customers to start using a service. 
 Premium versions or add-om modules can then be sold as separate products on the Veracity marketplace
+
+## Customer journey
+For details on how the journey will be for the customer have a look at this customer journey
+<a href="assets/UserJourneyFreeProducts.png" download>Click to Download</a>

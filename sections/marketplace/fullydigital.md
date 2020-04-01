@@ -4,7 +4,7 @@ description: Description of Fully digital sales process.
 ---
 
 # Fully digital sales process
-
+Exactly how Veracity can help you regarding the possibilities for fully digital sales processes depends on what type of service you are offering, where the intellectual property resides and other parameters, so get in touch with us for a discussion on the options for your case.
 ## Visualizing license options
 In order to use a fully digital sales process you will need to visualize your prices on the product page. We currently have 2 layouts for showing prices for your services.
 ### Standard service
@@ -67,3 +67,7 @@ For digital services/apps there are several options for how access to the servic
 - A manual process can be set up to give access
 
 Giving access to the service itself is in many cases not sufficient as there are needs to set-up access levels inside the service as well. We do have some options for giving messages to initiate this process as well. 
+
+## Customer journey
+For details on how the journey will be for the customer have a look at this customer journey
+<a href="assets/UserJourneyPurchasableProducts.png" download>Click to Download</a>

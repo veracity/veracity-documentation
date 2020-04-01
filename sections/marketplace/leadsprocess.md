@@ -18,3 +18,7 @@ When the potential customers have completed the form you will get a mail with al
 The Contact provider button will be available on all product pages so that the potential customer can get more information about the product if needed.
 
 The Get a price quote button will not be available if the product is sold in a fully digital sales process and displays the prices.  
+
+## Customer journey
+For details on how the journey will be for the customer have a look at this customer journey
+<a href="assets/UserJourneyLeadsProcess.png" download>Click to Download</a>

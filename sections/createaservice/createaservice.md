@@ -27,13 +27,13 @@ A resource group is used to collect a set of resources. Currently the resource g
 
 
 <figure>
-	<img src="sections/createaservice/ProjectStructure.png"/>
+	<img src="/ProjectStructure.png"/>
 	<figcaption>Example of a project structure</figcaption>
 </figure>
 
 ## Next steps
 
-[Sign up](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials. Already done it? Use our [generator](https://developer.veracity.com/docs/section/createaservice/generator/installgenerator)to kick start the development of your application. 
+[Sign up ](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials. Already done it? Use our [generator](https://developer.veracity.com/docs/section/createaservice/generator/installgenerator)to kick start the development of your application. 
 
 Check out our documentation to understand how to integrate use our platform services.
 Create your service from scratch using any language you want. 

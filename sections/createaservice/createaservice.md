@@ -27,7 +27,7 @@ A resource group is used to collect a set of resources. Currently the resource g
 
 
 <figure>
-	<img src="/ProjectStructure.png"/>
+	<img src="sections/createaservice/ProjectStructure.png"/>
 	<figcaption>Example of a project structure</figcaption>
 </figure>
 

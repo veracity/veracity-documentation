@@ -25,6 +25,12 @@ Some of the resources you can provision self-service,  part of a project by defa
 
 A resource group is used to collect a set of resources. Currently the resource group will be labeled with environments, such as “devtest”, “test”, “staging or “production”. 
 
+
+<figure>
+	<img src="/ProjectStructure.png"/>
+	<figcaption>Example of a project structure</figcaption>
+</figure>
+
 ## Next steps
 
 [Sign up](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials. Already done it? Use our [generator](https://developer.veracity.com/docs/section/createaservice/generator/installgenerator)to kick start the development of your application. 

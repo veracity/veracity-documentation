@@ -9,7 +9,7 @@
 			"text": "Veracity application generator",
 			"items": [
 				{
-					"text": "Introductio",
+					"text": "Introduction",
                     "href": "generator/introduction.md"
 				},
 				{

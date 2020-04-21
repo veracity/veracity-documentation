@@ -3,7 +3,7 @@ author: Veracity
 description: The instruction document for the Veracity application generator
 ---
 
-# Veracit application generator 
+# Veracity application generator 
 To make life easy for you, we in Veracity have created a Yeoman generator to get you started with your applications. The generator requires NodeJs to be installed to run. You may pick your language of choice for the Veracity application in the generator.
 
 This section is divided into four separate sections

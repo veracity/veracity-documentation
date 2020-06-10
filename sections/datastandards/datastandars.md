@@ -7,7 +7,7 @@ description: Description of Data Standards in Veracity
 
 ## Why do we use data standards?
 
-The purpose of a standard is to provide a reliable basis allowing people to share similar expectations of a product or service. This helps to facilitate trade, through providing a framework for achieving economies. It also realises efficiencies and interoperability through enhancing consumer protection and confidence.
+The purpose of a standard is to provide a reliable basis allowing people to share similar expectations of a product or service. This helps to facilitate trade, through providing a framework for achieving economies. It also improves efficiency and interoperability through enhancing consumer protection and confidence.
 
 Once a standard has been established it can be used to:
 

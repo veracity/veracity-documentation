@@ -3,7 +3,7 @@ author: Veracity
 description: Description of the Vessel Information System (VIS)
 ---
 
-# Vessel Information System (VIS) and GMOD
+# Vessel Information System (VIS) and Generic Predict Model (GPM)
 
 VIS is an abbreviation for Vessel Information Systems, which has been used in DNV GLs production tools for classification of vessels since 2005. VIS contains a hierarchy of functions and libraries of equipment, where a name and code is defined for each item. The coding is based on the Universal Decimal Classification (UDC) numbering system.
 
@@ -15,7 +15,7 @@ Since VIS has been refined and maintained for more than 15 years, it has become 
 
 <figure>
 	<img src="assets/VIS_GMOD.png"/>
-	<figcaption>Vessel Information System and </figcaption>
+	<figcaption>Vessel Information System and GMOD </figcaption>
 </figure>
 
 As GMOD provides a rich language and functional structure of a vessel, it can be used for other purposes than classification. In ISO 19848, the VIS/GMOD is used as “codebooks” to provide unique identification strings for IoT sensors and data sources on ships. See DNVGL-VIS Naming rule defined in Annex C of ISO 19848.  

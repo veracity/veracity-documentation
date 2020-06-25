@@ -31,7 +31,7 @@ Standards can be developed by public or private actors. Within some areas standa
 In 2017, DNV GL issued a position paper that discussed the role of standards and how they could be used to improve data flows and enable digitalisation in the maritime field.  It addressed some of the challenges experienced in digital pilot projects such as incompatible tagging schemes and lack of meta data, in turn leading to reduced data quality and not being able to utilise the data effectively. The paper concluded that these problems could be alleviated by introducing standards and systematics into the processes of collection, storage and exchange of data.
 
 <figure>
-	<img src="assets/Sensor_data_value_chain.png"/>
+	<img src="assets/sensor-data-value-chain-image.png"/>
 	<figcaption>Sensor Data Value Chain (McKinsey)</figcaption>
 </figure>
 

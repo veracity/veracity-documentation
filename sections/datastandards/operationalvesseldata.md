@@ -15,4 +15,4 @@ The OVD interface file is a CSV file and its simple structure makes it easy to p
 
 On Veractiy APIs exist for import and export of OVD files. The import API can validate the data on record level and supports logging and archiving. Updating and deletion of records are supported by the Veracity API too. The OVD standard is actively developed by DNV GL and StormGeo and has a history since 2014. You can download the latest OVD interface description here.
 
-<a href="assets/OVD-2-5-flatfile interface description.xlsx" download>Download Operational Vessel Data 2.5 - Flatfile Interface Description</a>
+<a href="assets/ovd-2--5-flatfile interface description.xlsx>Download Operational Vessel Data 2.5 - Flatfile Interface Description</a>

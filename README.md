@@ -2,7 +2,7 @@
 Welcome to the open source documentation for [Veracity for Developers](https://developer.veracity.com/docs). Here you will find all the source files for the documentation on Veracity for Developers.
 
 ## Making changes to the documentation
-It's free for all to propose changes to the Veracity documentation. [See how to contribute here](./CONTRIBUTE.md)
+Everyone can propose changes to the Veracity documentation. [Learn how to make changes to the documentation here](./CONTRIBUTE.md)
 
 ## File structure
 The documentation is organized into sections where each section can define not only which document should be contained within it, but also where it can be found. The root of the repository defines a set of known folders in which documentation can be placed:

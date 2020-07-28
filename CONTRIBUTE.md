@@ -1,8 +1,8 @@
 # Contribute to Veracity developer documentation
 In this article, you will find a step-by-step guide on how to add documentation to the Veracity for Developers GitHub repository.
 
-*Step 1:* Cloning the documentation repository in GitHub
-*Step 2:* Creating and editing pages
+[*Step 1:* Cloning the documentation repository in GitHub](#user-content-step-1-cloning-the-documentation-repository-in-github)
+[*Step 2:* Creating and editing pages](#user-content-step-2-creating-and-editing-pages)
 
 1. Creating a new section
 2. Setting up a folder for images, downloads, and other assets
@@ -12,7 +12,7 @@ In this article, you will find a step-by-step guide on how to add documentation 
   c. From markdown to Veracity for Developers
 4. Set up a table of contents
 
-*Step 3:* Publishing pages by creating a pull request
+[*Step 3:* Publishing pages by creating a pull request](#user-content-step-3-publishing-pages-with-pull-requests)
 
 ## Step 1: Cloning the documentation repository in GitHub
 All documentation happens trough the GitHub pages repository. You have to do some simple steps to actually be able to edit this repository. You will need a GitHub user and a code editor.

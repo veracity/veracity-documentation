@@ -1,11 +1,11 @@
 ---
 author: Veracity
-description: If your product/service is not ready for selling digitally, you can still present your service in order to get leads.
+description: If your product/service is not ready for selling digitally, you can still present your service to get leads.
 ---
 
 # Leads generating services
 
-Even if your product/service is not ready for selling digitally, you can still present your service in order to get leads.​ A lead is any potential customer who indicates interest in your product or service.​
+Even if your product/service is not ready for selling digitally, you can still present your service to get leads.​ A lead is any potential customer who indicates interest in your product or service.​
 ​
 
 

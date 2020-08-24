@@ -10,23 +10,31 @@
 			"href": "productpresentation.md"
 		},
 		{
-			"text": "Purchase processes",
+			"text": "Choosing your pricing model",
+			"href": "choosingyourpricingmodel.md"
+		},
+		{
+			"text": "Selling your product",
 			"items": [
 				{
-					"text": "Purchase processes overview",
-					"href": "purchaseprocesses.md"
+					"text": "Overview",
+					"href": "sellingyourproductoverview.md"
 				},
 				{
-					"text": "Fully digital sales process",
-					"href": "fullydigital.md"
+					"text": "Paid services",
+					"href": "paidservices.md"
 				},
 				{
-					"text": "Capturing leads for your service",
-					"href": "leadsprocess.md"
+					"text": "Leads generating services",
+					"href": "leadsgeneratingservices.md"
 				},
 				{
-					"text": "Giving access to free services",
-					"href": "freeaccess.md"
+					"text": "Free services",
+					"href": "freeservices.md"
+				},
+				{
+					"text": "Hybrid solution of service",
+					"href": "hybridsolutions.md"
 				}
 			]
 		}

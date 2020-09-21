@@ -18,7 +18,7 @@ There are some additional mechanisms that can be considered when offering subscr
 Setting the price for the top tier offering for large enterprises could be difficult. You might keep this tier negotiable and leave the option for the potential customer to request a price quote.
 
 <figure>
-	<img src="assets/PowerBI.png"/>
+	<img src="assets/PowerBI.PNG"/>
 	<figcaption>Example from Veracity Adapter for Power BI (VAP)​</figcaption>
 </figure>
 

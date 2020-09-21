@@ -9,13 +9,13 @@ Choosing the right pricing model for your product can be challenging. There are 
 
 ## Subscription model
 
-Subscription is a well-known model and it’s easily understandable for customers. A subscription model can be set up to be just one single subscription in which case you might not capture the entire revenue potential of your service, so using a tiered subscription is advised. When making a tiered subscription you should not make too many tiers as this will make it difficult for the customers to select the one most suitable for them.​
+Subscription is a well-known model and is easy for customers to understand. A subscription model can be set up to be just one single subscription in which case you might not capture the entire revenue potential of your service, so using a tiered subscription is advised. When making a tiered subscription you should not make too many tiers as this will make it difficult for the customers to select the one most suitable for them.​​
 
-Subscription models make the cost predictable for the customer and the revenue predictable for you as the provider of the service.​
+Subscription models makes the cost predictable for the customer and the revenue predictable for you as the provider of the service.​
 
-Some additional mechanisms can be considered when offering subscriptions; can you offer your customers a limited trial period? Why not let your customers try out what you can offer?​
+There are some additional mechanisms that can be considered when offering subscriptions; can you offer your customers a limited trial period? Why not let your customers try out what you can offer?
 
-Setting the price for the top tier offering for large enterprises could be difficult so you might keep this tier negotiable and making it possible for potential customers to request a price quote here.
+Setting the price for the top tier offering for large enterprises could be difficult. You might keep this tier negotiable and leave the option for the potential customer to request a price quote.
 
 <figure>
 	<img src="assets/PowerBI.png"/>
@@ -24,13 +24,11 @@ Setting the price for the top tier offering for large enterprises could be diffi
 
 ## Consumption model (pay-as-you-go)​
 
-The advantages of a consumption model are that the customers only pay for what they use. The cost for the customers will not be predictable and they will need some easily measurable consumption parameters to predict their cost.​
+A consumption price model is a solution where customers only pay for what they use. ​For the provider, the model allows easy coverage of the costs.
 
-From the provider side, this model makes it easy to ensure that the consumption price covers your cost. However sporadic use by customers may make revenue unpredictable.​
+One of the challenges with the model is that the cost will not be predictable. For the customers, this means they will need some measurable consumption parameters to evaluate their cost. For the provider, a sporadic use by the customers may make revenue unpredictable.
 
-The price customers will pay is unpredictable and likewise, the revenue of your service will be unpredictable​
-
-Some might combine a subscription model with a consumption model where you have some included consumption in the subscription but charge overage use according to consumption.​
+A solution that allows the provider to have better control of revenue, could be to combine a subscription price model with a consumption price model. The user will then have limited capacity included in the subscription and be charged over this capacity, according to consumption.
 
 ## Freemium model​
 

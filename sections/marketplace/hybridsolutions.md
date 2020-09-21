@@ -22,6 +22,11 @@ This last option should be used when the final client needs a customizable price
 	<figcaption>Example from "WindFarmer Analyst".​</figcaption>
 </figure>
 
+<figure>
+	<img src="assets/HybridHorizontal2.png"/>
+	<figcaption>Example from "DNV GL Noble Denton".​</figcaption>
+</figure>
+
 For comparable plans, we can display more detailed what the user gets as a free plan, compared to the paid plan.​ More specifications about time limitation for the free access can be added in the top description of the pricing plan/variant
 
 <figure>

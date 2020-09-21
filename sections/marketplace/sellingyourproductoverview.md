@@ -11,6 +11,6 @@ On the marketplace, we also offer hybrid solutions, that for example include bot
 In the following paragraph, we will cover each of the different solutions in detail on how to present your content and pricing most optimally.
 
 1. [Paid services](./paidservices.md)​
-1. [Leads generating services​](./leadsgeneratingservices.md)​
-1. [Free services​​](./freeservices​.md)​
-1. [Hybrid solution of service](./hybridsolutions​.md)​
+2. [Leads generating services​](./leadsgeneratingservices.md)​
+3. [Free services​​](./freeservices​.md)​
+4. [Hybrid solution of service](./hybridsolutions​.md)​

@@ -18,12 +18,12 @@ This last option should be used when the final client needs a customizable price
 * "Customize button" - can link to an external link
 
 <figure>
-	<img src="assets/HybridHorizontal.png"/>
+	<img src="assets/HybridHorizontal.PNG"/>
 	<figcaption>Example from "WindFarmer Analyst".​</figcaption>
 </figure>
 
 <figure>
-	<img src="assets/HybridHorizontal2.png"/>
+	<img src="assets/HybridHorizontal2.PNG"/>
 	<figcaption>Example from "DNV GL Noble Denton".​</figcaption>
 </figure>
 

@@ -19,7 +19,7 @@ When naming a specific variant, please try to be short and to the point in what 
 * Subscription type (one-time, recurrent, yearly, monthly, support duration, etc.)​
 
 <figure>
-	<img src="assets/DPCA.png"/>
+	<img src="assets/DPCA.PNG"/>
 	<figcaption>Example from Dynamic Positioning Capability Assessment</figcaption>
 </figure>
 
@@ -40,6 +40,6 @@ Typical examples of product features can be:​
 As a rule, when choosing this price plan, we suggest that you describe most of your product offerings in the descriptive paragraphs in the centre of the page. When you come to text in the pricing plan, you shall try to summarize and be specific to what the customer gets.
 
 <figure>
-	<img src="assets/Datafabric.png"/>
+	<img src="assets/Datafabric.PNG"/>
 	<figcaption>Example from Veracity Data Fabric</figcaption>
 </figure>

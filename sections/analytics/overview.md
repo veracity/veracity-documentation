@@ -36,7 +36,7 @@ Through recordings of visitor behaviour, it is possible to get an even deeper un
 Are they not scrolling down to your key value proposition? Consider moving the paragraphs. Not clicking the link to your demo? Consider making it available in the banner area or as a clickable paragraph image.
 
 <figure>
-	<img src="assets/hotjar.jpg"/>
+	<img src="assets/Hotjar.jpg"/>
 	<figcaption>Example from Hotjar</figcaption>
 </figure>
 

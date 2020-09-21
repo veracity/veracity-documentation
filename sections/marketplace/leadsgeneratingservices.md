@@ -24,6 +24,6 @@ After the customer completes the form with details and message, you will get an 
 These buttons are available also in the bottom part in the pricing plans, with some exceptions and rules. You can read more in the “hybrid solutions" paragraph.​
 
 <figure>
-	<img src="assets/MyQRA.png"/>
+	<img src="assets/MyQRA.PNG"/>
 	<figcaption>Example from MyQRA</figcaption>
 </figure>

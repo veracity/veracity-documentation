@@ -1,4 +1,4 @@
---
+---
 author: Veracity
 description: An overview of the different paid pricing models you can use for your product.
 ---

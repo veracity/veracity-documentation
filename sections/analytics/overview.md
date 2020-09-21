@@ -24,8 +24,8 @@ Behind the scenes, we have put Google Tag Manager and Google Analytics to work. 
 In the checkout process you can see the number and percentage of people proceeding to the next step in the funnel. E.g. the number of people accepting or rejecting terms and conditions, proceeded through the personal, company and payment steps, and all the way to a – hopefully – confirmed purchase.
 
 <figure>
-	<img src="assets/FunnelReport.JPG"/>
-	<figcaption>​</figcaption>
+	<img src="assets/FunnelReport.jpg"/>
+	<figcaption>Example of a sales funnel</figcaption>
 </figure>
 
 ## Complementing insights through Hotjar
@@ -37,7 +37,7 @@ Are they not scrolling down to your key value proposition? Consider moving the p
 
 <figure>
 	<img src="assets/hotjar.JPG"/>
-	<figcaption>​</figcaption>
+	<figcaption>Example from Hotjar</figcaption>
 </figure>
 
 ## Sales and subscriptions report
@@ -53,7 +53,7 @@ With the Service Provider Report you're able to;
 
 <figure>
 	<img src="assets/ProviderReport.JPG"/>
-	<figcaption>​</figcaption>
+	<figcaption>Example of a dashboard in the Service Provider Report</figcaption>
 </figure>
 
 ## Report availability

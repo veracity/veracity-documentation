@@ -12,11 +12,11 @@ New:"iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0
 ### Apps using Client Credentials grant type
 If your app is using Client Credentials grant type (used for service-to-service scenarios where no user login happens), you must continue to use login.microsoftonline.com.
 
-### Apps using the .net Veracity.IDP
-If your app is using the the .net package for handling authentication, you must update your config in the following way [TODO]
+### Apps using the .net Veracity package - WIP
+If your app is using the the .net package for handling authentication, you must update your config in the following way
 
 ### Apps using npm package @veracity/node-auth
 If your app is using the NPM pacakge @veracity/node-auth, you must update it to either version `1.0.7` or `2.0.7`.
 
-### Other scenarios
-If your app is using another way of authenticating, you must make sure that you update the login URL to: [TODO]
+### Other scenarios - WIP
+If your app is using another way of authenticating, you must make sure that you update the login URL to: 

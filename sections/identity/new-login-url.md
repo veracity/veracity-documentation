@@ -9,10 +9,22 @@ Old: "iss": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502
 New:"iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/", 
 
 ## What does this mean for me?
+All services in Veracity trusting B2C PROD (the dnvglb2cprod tenant) must change from login.microsoftonline.com to "dnvglb2cprod.b2clogin.com" 
+When this is changed, all issued tokens will get a new issuer value: 
+* Old: "iss": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/", 
+* New:"iss": "https://dnvglb2cprod.b2clogin.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/", 
+This means that if your service involves APIs, you need to make sure that your API can support this new issuer before the client apps that call the API are updated 
+All Veracity Platform APIs will support the new issuer from   Oct 12th, 2020 
+
+Deadline: 
+In order to keep Single Sign On (SSO) for your service, you need to perform the above change before Nov 15st, 2020 
+After this date we plan to change to a new logon page using Azure AD B2C, and services still using login.microsoftonline.com will see issues after this change. 
+
+## Changes required in different scenarios:
 ### Apps using Client Credentials grant type
 If your app is using Client Credentials grant type (used for service-to-service scenarios where no user login happens), you must continue to use login.microsoftonline.com.
 
-### Apps using the .net Veracity package - WIP
+### Apps using the .net Veracity package
 If your app is using the the .net package for handling authentication, you must update your config in the following way
 
 ### Apps using npm package @veracity/node-auth

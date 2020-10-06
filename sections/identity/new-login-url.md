@@ -16,7 +16,7 @@ When this is changed, all issued tokens will get a new issuer value:
 This means that if your service involves APIs, you need to make sure that your API can support this new issuer before the client apps that call the API are updated 
 All Veracity Platform APIs will support the new issuer from Oct 12th, 2020 
 
-Deadline: 
+## Deadline
 In order to keep Single Sign On (SSO) for your service, you need to perform the above change before Nov 15st, 2020 
 After this date we plan to change to a new logon page using Azure AD B2C, and services still using login.microsoftonline.com will see issues after this change. 
 
@@ -29,6 +29,3 @@ If your app is using the the Veraciy .net package for handling authentication, [
 
 ### Apps using the NPM package @veracity/node-auth
 If your app is using the NPM pacakge @veracity/node-auth, you must update it to version `1.0.7` or greater, or version `2.0.7` or greater.
-
-### Other scenarios
-If your app is using another way of authenticating, you must make sure that you update the login URL to:

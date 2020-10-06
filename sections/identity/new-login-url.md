@@ -24,8 +24,8 @@ After this date we plan to change to a new logon page using Azure AD B2C, and se
 ### Apps using Client Credentials grant type
 If your app is using Client Credentials grant type (used for service-to-service scenarios where no user login happens), you must continue to use login.microsoftonline.com.
 
-### Apps using the .net Veracity package
-If your app is using the the .net package for handling authentication, you must update your config in the following way
+### Apps using the Veracity .net package
+If your app is using the the Veraciy .net package for handling authentication, [update according to the documentation](https://github.com/veracity/Veracity-Identity-and-Services-Api).
 
 ### Apps using npm package @veracity/node-auth
 If your app is using the NPM pacakge @veracity/node-auth, you must update it to either version `1.0.7` or `2.0.7`.

@@ -5,8 +5,8 @@ description: Transition to new login URL in B2C
 
 # New Login Url
 Microsoft will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants Dec 4th, 2020. All services in Veracity trusting B2C PROD (the dnvglb2cprod tenant) must change from login.microsoftonline.com to login.veracity.com. When this is changed, all issued tokens will get a new issuer value:<br/>
-*Old*: "iss": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/" <br/>
-*New*: "iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/"
+**Old**: "iss": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/" <br/>
+**New**: "iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/"
 
 ## What does this mean for me?
 All services in Veracity trusting B2C PROD (the dnvglb2cprod tenant) must change from login.microsoftonline.com to "dnvglb2cprod.b2clogin.com" 

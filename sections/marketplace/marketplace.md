@@ -5,7 +5,7 @@ description: Give a general description of the Veracity Marketplace Service.
 
 # Veracity Marketplace
 
-Reduced cost of selling your digital services, data or APIs on a platform with global reach maritime and energy sectors. 
+Reduce the cost of selling your digital services, data or APIs on a platform with global reach within the maritime and energy sectors.
 
 Veracity Marketplace will help you:
 - Reach a rapidly growing user base within relevant markets

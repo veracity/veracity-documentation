@@ -3,9 +3,7 @@ author: Veracity
 description: Gives an overview of the Veracity Analytics services and related components.
 ---
 
-# Data-driven reasons to make your service available on the Veracity marketplace
-
-## Get insights on your customers’ sales journey through the Veracity analytics reports.
+# Get insights on your customers’ sales journey through the Veracity analytics reports.
 
 How many visitors are interested in my services? How many converts to a lead or a digital sale? Which of my marketing efforts paid off? Where are we losing prospects?
 

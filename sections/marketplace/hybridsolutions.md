@@ -10,12 +10,13 @@ In both the standard horizontal and comparable vertical price plans, we offer th
 ​
 As shown in the picture, we have 3 options for buttons configurations:​
 
-* “Free access – button" (read more in ”Free services” article)​
+* “Free access button". You can read more about this in the ["Free services"](freeservices.md) article
 
-* “Contact provider” or “Request quote” buttons.​
-This last option should be used when the final client needs a customizable price for the package/service.  (read more in the ”leads generating service” article)​
+* "Customized button". These can link to an external website.
 
-* "Customize button" - can link to an external link
+* “Contact provider” or “Request quote” buttons.​ This option should be used when the customer needs a customizable price for the package or service.  (read more in the ["leads generating service"](leadsgeneratingservices.md) article)​
+
+
 
 <figure>
 	<img src="assets/HybridHorizontal.png"/>

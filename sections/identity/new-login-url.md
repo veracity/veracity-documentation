@@ -29,3 +29,6 @@ If your app is using the the Veraciy .net package for handling authentication, [
 
 ### Apps using the NPM package @veracity/node-auth
 If your app is using the NPM pacakge @veracity/node-auth, you must update it to version `1.0.7` or greater, or version `2.0.7` or greater.
+
+## Need help?
+If you have questions or need help, [use this form to contact support](https://services.veracity.com/form/SupportAnonymous).

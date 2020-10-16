@@ -3,7 +3,7 @@ author: Veracity
 description: We offer the provider to configure a combination of variants of their product, enabling hybrid solutions.
 ---
 
-# Hybrid solutions
+# Combinations
 
 In both the standard horizontal and comparable vertical price plans, we offer the provider to configure a combination of variants of their product.​
 

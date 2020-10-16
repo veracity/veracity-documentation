@@ -13,4 +13,4 @@ In the following paragraph, we will cover each of the different solutions in det
 1. [Paid services](./paidservices.md)​
 2. [Leads generating services​](./leadsgeneratingservices.md)​
 3. [Free services​​](./freeservices​.md)​
-4. [Hybrid solution of service](./hybridsolutions​.md)​
+4. [Combinations](./hybridsolutions​.md)​

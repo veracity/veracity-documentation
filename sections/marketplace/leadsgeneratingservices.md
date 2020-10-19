@@ -27,3 +27,7 @@ These buttons are available also in the bottom part in the pricing plans, with s
 	<img src="assets/MyQRA.PNG"/>
 	<figcaption>Example from MyQRA</figcaption>
 </figure>
+
+## Customer journey
+For details on how the journey will be for the customer, have a look at this  
+<a href="assets/UserJourneyLeadsProcess.png" download>customer journey</a>

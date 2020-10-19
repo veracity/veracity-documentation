@@ -4,11 +4,9 @@ description: If your product/service is not ready for selling digitally, you can
 ---
 
 # Lead generating services
-
+## Capturing leads
 Even if your product/service is not ready for selling digitally, you can still present your service to get leads.​ A lead is any potential customer who indicates interest in your product or service.​
 ​
-
-
 To reach these customers we have two types of interactions available in the upper part of the page:​
 
 1. A “Get a price quote” button that allows potential customers to get a specific price quote for their needs.​

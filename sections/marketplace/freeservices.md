@@ -22,10 +22,10 @@ Veracity can also handle the immediate delivery of data sets. The data will then
 
 In some edge cases, you might want to have an approval process before you give access to the free service. We do have an approval process that is available for applications. However, we do recommend to give immediate access to the service.
 
-## Free services as an entry-level with upselling
+## Free services as an entry-level with upsell possibilities
 
 Giving free access can be used as an entry-level for getting customers to start using a service. 
-Premium versions or add-om modules can then be sold as separate products on the Veracity marketplace
+Premium versions or add-on modules can then be sold as separate products on the Veracity marketplace. 
 
 ## Customer journey
 For details on how the journey will be for the customer, have a look at this  

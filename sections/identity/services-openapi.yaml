@@ -11,9 +11,7 @@ info:
     \n ## Multiple root urls
     \n The API is versioned in order to provide a consistent contract for your application to call. You can decide yourself if you want to use one or the other. The APIs describe on this page will always be the latest version.
     \n\n - `https://api.veracity.com/veracity/services/v3`
-    \n\n - `https://api.veracity.com/veracity/services`
-    \n This is the rolling version endpoint. It will always contain the latest version of the API and may be subject to breaking changes.
-    \n\n Veracity commits to actively support the latest version of the AP as well as the next previous version. This currently means **v3 and v2** of the Veracity Services API."
+    \n\n Veracity commits to actively support the latest version of the API as well as the next previous version. This currently means **v3 and v2** of the Veracity Services API."
   version: '3.0'
   contact:
     name: Veracity for Developers

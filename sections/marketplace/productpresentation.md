@@ -5,7 +5,7 @@ description: Give a general description of the Veracity Marketplace Service.
 # Presenting your product on the Marketplace
 Please download the attachment below for the information/content that you need to provide in order to present a product on the Veracity Marketplace.
 
-<a href="assets/veracity_marketplace_servicecontentform_march_2020.docx" download>Click to Download</a>
+<a href="assets/veracity_marketplace_servicecontentform_october_2020.docx" download>Click to Download</a>
 
 Familiarize yourself by looking at some product presentations at store.veracity.com
 

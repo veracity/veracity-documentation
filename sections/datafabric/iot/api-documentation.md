@@ -1,9 +1,9 @@
 ---
-author: Veracity
+author: Benedikte Kallåk
 description: Description of quick start section
 ---
 
-#Veracity IoT Api
+# Veracity IoT Api
 
 Only users that has access to an asset can access data from this asset.
 
@@ -13,9 +13,11 @@ https://api-portal.veracity.com/docs/services/DataFabric-TimeSeriesAPI/
 
 Group by Tag for readability.
 
-##Api endpoints
+## Api endpoints
 
 Base url: https://api.veracity.com/veracity/timeseries/
+
+To sort the endpoints in similar matter as the table below, select the "group by tag" button.
 
 <table>
     <thead>
@@ -26,29 +28,60 @@ Base url: https://api.veracity.com/veracity/timeseries/
       </tr>
     </thead>
     <tbody>
-        <tr>
-		    <td>"Asset"</td>               
+        <tr rowspan>
+		    <td colspan=3>"Asset"</td>               
         </tr>
         <tr>
 		    <td>GET</td>
             <td>..api/v1/Assets</td>
-            <td>Returns all of the assets you have access to, for which timeseries data is available</td>            
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contains an id; use this id in asset specific requests</td>            
         </tr>
 		 <tr>
-            <td>"XML HTTP request"</td>
-            <td>pascalCase</td>            
+            <td>GET</td>
+            <td>..api/v1/Assets{id}</td>
+            <td>Returns the assets with id given if user has access to it and timeseries data is available.</td>                 
+        </tr>
+		 <tr rowspan>
+		    <td colspan=3>"DataChannelList"</td>               
         </tr>
         <tr>
-            <td>"new customer ID"</td>
-            <td>camelCase</td>            
+           <td>GET</td>
+            <td>..api/v1/DataChannelList{id}</td>
+            <td>Returns the taglist of the asst as a list of data channels with metadata. when requesting timeseries data for selected datachannles use either shortid or UUID</td>                 
+              
+        </tr>
+		 <tr rowspan>
+		    <td colspan=3>"DaraQuality"</td>               
         </tr>
 		 <tr>
-            <td>"XML HTTP request"</td>
-            <td>pascalCase</td>            
+            <td>POST</td>
+            <td>..api/v1/Assets</td>
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                               
         </tr>
         <tr>
-            <td>"new customer ID"</td>
-            <td>camelCase</td>            
+            <td>POST</td>
+            <td>..api/v1/Assets</td>
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
+        </tr>
+		  <tr>
+            <td>POST</td>
+            <td>..api/v1/Assets</td>
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
+        </tr>
+		  <tr>
+            <td>POST</td>
+            <td>..api/v1/Assets</td>
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
+        </tr>
+		  <tr>
+            <td>POST</td>
+            <td>..api/v1/Assets</td>
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
+        </tr>
+		  <tr>
+            <td>POST</td>
+            <td>..api/v1/Assets</td>
+            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
     </tbody>
   </table>
@@ -140,7 +173,7 @@ Can be used to set up special queries	Custom by Veracity administrators
 	
 
 
-##Subscribe to API
+## Subscribe to API
 
 Our API is managed by Azure API management and hence you need 
 1.	Ingested data can be accessed using Veracity IOT api.
@@ -152,7 +185,7 @@ Our API is managed by Azure API management and hence you need
 7.	After subscription, your access keys are available from
  
  
-##Test api from portal.	
+## Test api from portal.	
 
 1.  Go to https://api-portal.veracity.com/
 2.	Sign in

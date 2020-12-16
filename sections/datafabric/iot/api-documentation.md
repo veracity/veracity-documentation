@@ -23,79 +23,125 @@ To sort the endpoints in similar matter as the table below, select the "group by
     <thead>
       <tr>	  
 	    <th>GET/POST</th>
-        <th>Endpoint</th>
-        <th>Comment</th>       
+        <th>Asset endpoint</th>        
       </tr>
     </thead>
-    <tbody>
-        <tr >
-		    <td colspan=3>Asset</td>               
-        </tr>
+    <tbody>      
         <tr>
 		    <td>GET</td>
-            <td>/v1/Assets</td>
-            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contains an id; use this id in asset specific requests</td>            
-        </tr>
-		 <tr>
-            <td>GET</td>
-            <td>/v1/Assets{id}</td>
-            <td>Returns the assets with assetguid specified if user has access to it and timeseries data is available.</td>                 
-        </tr>
-		 <tr >
-		    <td colspan=3>"DataChannelList"</td>               
-        </tr>
-        <tr>
-           <td>GET</td>
-            <td>/v1/DataChannelList{id}</td>
-            <td>List all metadata for all channels registered for this asset. When requesting timeseries data for selected datachannles use either shortid or UUID. </td>                               
-        </tr>
-		 <tr>
-		    <td colspan=3>DataQuality</td>               
-        </tr>
-		 <tr>
-            <td>POST</td>
-            <td>/v1/DataQuality/.timeseriesdata</td>
-            <td>Returns dataquality measures for channels for selected time periode</td>                               
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/v1/DataQuality/aggregate/.score</td>
-            <td>Returns aggregated dataquality score for assets for given time period</td>                          
+            <td>/v1/Assets</td>                   
         </tr>
 		  <tr>
-            <td>POST</td>
-            <td>/v1/DataQuality/aggregate/.rulescore</td>
-            <td>Returns aggregated dataquality score per data quality metric for selected period</td>                          
+		    <td>GET</td>
+            <td>/v1/Assets</td>                  
         </tr>
+		 <tr>           
+            <td colspan=2>Returns the assets with assetguid specified if user has access to it and timeseries data is available.</td>                 
+        </tr>
+		  </tbody>
+  </table>
+  
+  <table border="1" width="100">
+    <thead>
+      <tr>	  
+	    <th>GET/POST</th>
+        <th>DataChannelList endpoint</th>        
+      </tr>
+    </thead>
+    <tbody>      
+        <tr>
+		    <td>GET</td>
+            <td>/v1/DataChannelList{id}</td>                       
+        </tr>		 
+		 <tr>           
+            <td colspan=2>List all metadata for all channels registered for this asset. When requesting timeseries data for selected datachannles use either shortid or UUID. </td>                 
+        </tr>
+		  </tbody>
+  </table>
+  
+  
+  <table border="1" width="100">
+    <thead>
+      <tr>	  
+	    <th>GET/POST</th>
+        <th>DataQuality endpoint</th>        
+      </tr>
+    </thead>
+    <tbody>      
+       		 <tr>
+            <td>POST</td>
+            <td>/v1/DataQuality/.timeseriesdata</td>                                        
+        </tr>
+		 <tr>           
+            <td colspan=2>Returns dataquality measures for channels for selected time periode</td>                 
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/v1/DataQuality/aggregate/.score</td>                          
+        </tr>
+		 <tr>           
+            <td colspan=2>Returns aggregated dataquality score for assets for given time period</td>                 
+        </tr>
+		
+		  <tr>
+            <td>POST</td>
+            <td>/v1/DataQuality/aggregate/.rulescore</td>          
+        </tr>
+		 <tr>           
+            <td colspan=2>Returns aggregated dataquality score per data quality metric for selected period</td>                        
+        </tr>
+		
 		  <tr>
             <td>POST</td>
             <td>/v1/DataQuality/aggregate/.channelscore</td>
-            <td>Returns aggregated dataquality score per channel per data quality metric for selected period</td>                          
+                            
         </tr>
+		 <tr>           
+            <td colspan=2>Returns aggregated dataquality score per channel per data quality metric for selected period</td>                    
+        </tr>
+		
 		  <tr>
             <td>POST</td>
             <td>/v1/DataQuality/trend/.score</td>
-            <td>Returns aggregations per week for data quality score in selected periode</td>                          
+            
         </tr>
+		 <tr>           
+            <td colspan=2>Returns aggregations per week for data quality score in selected periode</td>                 
+        </tr>
+		
+		
 		  <tr>
             <td>POST</td>
             <td>/v1/DataQuality/trend/.rulescore</td>
-            <td><pre>Returns aggregations per week for
-			each dataquality metric in selected period.</pre></td>                          
+                                 
         </tr>
+		 <tr>           
+            <td colspan=2><pre>Returns aggregations per week for
+			each dataquality metric in selected period.</pre></td>             
+        </tr>
+		
 		 <tr>
-            <td></td>
-            <td>Payload</td>
-            <td><pre>
+           <td colspan=2><pre>
 			Start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
 			End: End of period using format YYYY-MM-DDTHH:mm:ss.SSSZ
 			Assetid: arrays of asset guids
 			IncludePrevisousPeriod: returns rulescore for previous period (period with same length as specified)
 			</pre></td>                          
         </tr>
-		 <tr>
-		    <td colspan=3>TimeSeriesData</td>               
-        </tr>
+  </tbody>
+  </table>
+  
+  
+<table border="1" width="100">
+    <thead>
+      <tr>	  
+	    <th>GET/POST</th>
+        <th>TimeSeriesData endpoint</th>   
+  <th>div</th>   		
+      </tr>
+    </thead>
+    <tbody>      
+		
 		 <tr>
             <td>GET</td>
             <td>/v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getRawData</td>
@@ -153,27 +199,53 @@ To sort the endpoints in similar matter as the table below, select the "group by
             <td>..api/v1/TimeSeriesData/.time_range</td>
             <td>Returns min date and max date for received datapoints for selected channels</td>
 	     </tr>		  
-		  <tr>
-		    <td colspan=3>StoredProcedure</td>               
-        </tr>
+		   </tbody>
+  </table>
+  
+   <table border="1" width="100">
+    <thead>
+      <tr>	  
+	    <th>GET/POST</th>
+        <th>Workspaces endpoint</th>    	
+      </tr>
+    </thead>
+    <tbody>      		 
+		 
 		 <tr>
-            <td>GET</td>
-            <td>/v1/StoredProcedure/{name}</td>
-            <td>Stored procedures can be used for custom queries.</td>
-	     </tr>
-		  <tr>
-		    <td colspan=3>Workspaces</td>               
-        </tr>
-		 <tr>
-            <td>GET</td>
+            <td>GET</td>			 
             <td>/v1/Workspaces</td>
-            <td>Returns Asset Connect workspaces user has access to</td>
+	    </tr>     
+		 <tr>
+		    <td colspan=2>Returns Asset Connect workspaces user has access to</td>
 	     </tr>
 		  <tr>
             <td>GET</td>
             <td>/v1/Workspaces/{workspaceid}</td>
-            <td>Returns the workspace by id, and the assets (if any) in the workspace which have IoT Data enabled.</td>
+			   </tr>     
+		 <tr>
+		    <td colspan=2>Returns the workspace by id, and the assets (if any) in the workspace which have IoT Data enabled.</td>
 	     </tr>
+    </tbody>
+  </table>
+  
+  <table border="1" width="100">
+    <thead>
+      <tr>	  
+	    <th>GET/POST</th>
+        <th>Stored procedure endpoint</th>   
+  <th>div</th>   		
+      </tr>
+    </thead>
+    <tbody>      
+		 
+		 <tr>
+            <td>GET</td>
+            <td>/v1/StoredProcedure/{name}</td>
+         
+	     </tr>
+		  <tr>
+		    <td colspan=2>Stored procedures can be used for custom queries.</td>               
+        </tr>
     </tbody>
   </table>
   

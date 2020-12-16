@@ -15,11 +15,11 @@ https://api-portal.veracity.com/docs/services/DataFabric-TimeSeriesAPI/
 
 ## Api endpoints
 
-Base url: https://api.veracity.com/veracity/timeseries/
+Base url: https://api.veracity.com/veracity/timeseries/api
 
 To sort the endpoints in similar matter as the table below, select the "group by tag" button.
 
-<table width="60%">
+<table width: 80%>
     <thead>
       <tr>	  
 	    <th>GET/POST</th>
@@ -33,12 +33,12 @@ To sort the endpoints in similar matter as the table below, select the "group by
         </tr>
         <tr>
 		    <td>GET</td>
-            <td>..api/v1/Assets</td>
+            <td>/v1/Assets</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contains an id; use this id in asset specific requests</td>            
         </tr>
 		 <tr>
             <td>GET</td>
-            <td>..api/v1/Assets{id}</td>
+            <td>/v1/Assets{id}</td>
             <td>Returns the assets with assetguid specified if user has access to it and timeseries data is available.</td>                 
         </tr>
 		 <tr >
@@ -46,7 +46,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
         </tr>
         <tr>
            <td>GET</td>
-            <td>..api/v1/DataChannelList{id}</td>
+            <td>/v1/DataChannelList{id}</td>
             <td>List all metadata for all channels registered for this asset. When requesting timeseries data for selected datachannles use either shortid or UUID. </td>                               
         </tr>
 		 <tr>
@@ -59,17 +59,17 @@ To sort the endpoints in similar matter as the table below, select the "group by
         </tr>
         <tr>
             <td>POST</td>
-            <td>..api/v1/dataquality</td>
+            <td>/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>
             <td>POST</td>
-            <td>..api/v1/dataquality</td>
+            <td>/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>
             <td>POST</td>
-            <td>..api/v1/dataquality</td>
+            <td>/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>

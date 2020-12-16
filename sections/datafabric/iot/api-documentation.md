@@ -19,7 +19,7 @@ Base url: https://api.veracity.com/veracity/timeseries/
 
 To sort the endpoints in similar matter as the table below, select the "group by tag" button.
 
-<table>
+<table width="60%">
     <thead>
       <tr>	  
 	    <th>GET/POST</th>
@@ -89,82 +89,52 @@ To sort the endpoints in similar matter as the table below, select the "group by
             <td>POST</td>
             <td>..api/v1/TimeSeriesData/.getTimeSeriesData</td>
             <td>Returns timeseries data for a vessel or set of vessels</td>
-	    	</tr>   
-			<tr>
+	      </tr>   
+		  <tr>
             <td></td>
             <td>Payload description:</td>
-            <td>downScaleInt: specify downscaling interval. Set to null if no downscaling. ISO8601 duration format. I.e. PT30S, PT1H, PT10M, PT60S
-			<pre>start, end: date format using ISO8601 format YYYY-MM-DDThh:mm:ss. For example, "2007-04-05T14:30Z"</pre>
-			<pre>Dimension: set null if not used in ingest. </pre>
-			<pre>dataChannelIdType: Set ShortId or UUID based on type of channelid used in dataChannelIds </pre>
-			<pre> dataChannelIds: Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"
-			<pre>limit </pre>
-			<pre>includeStartBoundary/includeEndBoundary : Set true/false depending of whether timestamps for boundaries should be included</pre>
-			<pre>assetIds: array of guid of asset, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" </pre>
-			<pre>limit: Max number of datapoints to be returned. System max limit is 200 000. </pre>
-			<pre>typeOption: sddData or Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
-
-</td>               
-</tr>           
-        
-		<tr>
+            <td><pre><var>downScaleInt</var> specify downscaling interval. Set to null if no downscaling. ISO8601 duration format. I.e. PT30S, PT1H, PT10M, PT60S
+			  <var>start, end</var> date format using ISO8601 format YYYY-MM-DDThh:mm:ss. For example, "2007-04-05T14:30Z"
+		      <var>Dimension</var> set null if not used in ingest. 
+			  <var>dataChannelIdType</var> Are you requesting channels by ShortId or DataChannelUuid </pre>
+			  <var>dataChannelIds</var> Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"			 
+			  <var>includeStartBoundary/includeEndBoundary</var> Set true/false depending of whether timestamps for boundaries should be included
+			  <var>assetIds</var> array of guid of asset, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
+			  <var>limit</var> Max number of datapoints to be returned. System max limit is 200 000. 
+			  <var>typeOption</var> sddData or Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
+            </td>               
+          </tr>                   
+		  <tr>
             <td>POST</td>
             <td>..api/v1/TimeSeriesData/.latest</td>
             <td>Get the latest n-received values for given channels</td>
-	</tr>
+	     </tr>
+		  <tr>
+            <td></td>
+            <td>Payload description:</td>
+            <td><pre><var>Dimension</var> set null if not used in ingest. 
+			  <var>dataChannelIdType</var>Are you requesting channels by ShortId or DataChannelUuid </pre>
+			  <var>dataChannelIds</var> Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"			 			
+			  <var>assetIds</var> array of guid of asset, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
+			  <var>latestNValues</var> Max number of datapoints to be returned. 
+			  <var>typeOption</var> sddData or Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
+            </td>               
+          </tr>          
+           <tr>
+            <td>POST</td>
+            <td>..api/v1/TimeSeriesData/.time_range</td>
+            <td>Returns min date and max date for received datapoints for selected channels</td>
+	     </tr>		  
     </tbody>
   </table>
   
   
   
 
-Returns timeseries data for a vessel or set of vessels
-Data is downscaled to interval specified in Post message
 
-•	downScaleInt: Use  ISO8601 timespan for downscale interval
-•	start: from date
-•	end: to date
-•	dimensions: Only to be used when this is configured in ingest. Default “” (empty string)
-•	limit: max nr of datarows to get
-•	dataChannelIdType: Are you requesting channels by ShortId or DataChannelUuid
-•	includeStartBoundary: from and including start date
-•	includeEndBoundary: Until and including end date
-•	assetsIds: If more than one use , (“1212”, “3243”)
-•	dataChannelIds: shortId or Uuid
-•	typeOption: 
-Sdd: metadataonly
-sddData: metadata and data
-Data: data only
 
-POST
-https://api.veracity.com/veracity/timeseries/api/v1/TimeSeriesData/.latest
 
-{
-  "dimension": "",
-  "latestNValues": 50,
-  "dataChannelIdType": "ShortId",
-  "assetIds": [
-    "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724"
-  ],
-  "dataChannelIds": [
-    "AI030206"
-  ],
-  "typeOption": "Data"
-}	Get the latest received values for given channels
 
-•	dimensions: Only to be used when this is configured in ingest. Default “” (empty string)
-•	latestNValues: no of latest values
-•	dataChannelIdType: Are you requesting channels by ShortId or DataChannelUuid
-•	assetsIds: If more than one use , (“1212”, “3243”)
-•	dataChannelIds: shortId or Uuid
-•	typeOption: 
-Sdd: metadataonly
-sddData: metadata and data
-Data: data only
-
-POST
-v1/TimeSeriesData/.time_range	Returns min date and max date for received data for a channel
-Currently only to be used when dimensions is used in ingest
 Stored Procedures	
 Can be used to set up special queries	Custom by Veracity administrators
 	
@@ -172,14 +142,13 @@ Can be used to set up special queries	Custom by Veracity administrators
 
 ## Subscribe to API
 
-Our API is managed by Azure API management and hence you need 
-1.	Ingested data can be accessed using Veracity IOT api.
-2.	Go to Veracity api portal: https://api-portal.veracity.com/
-3.	Sign in
-4.	Select Product
-5.	Select Veracity Platform API. This api contains all the Veracity platform APIs which allow you to integrate with platform and enjoy the platform features by calling related API, it contains all the legacy "My service API" and "Data fabric API".
-6.	Select Subscribe
-7.	After subscription, your access keys are available from
+data can be accessed uoing veracity IoT api. The API is managed by Azure API management and hence you need a subscription. 
+1.	Go to Veracity api portal: https://api-portal.veracity.com/
+2.	Sign in
+3.	Select Product
+4.	Select Veracity Platform API. This api contains all the Veracity platform APIs which allow you to integrate with platform and enjoy the platform features by calling related API, it contains all the legacy "My service API" and "Data fabric API".
+5.	Select Subscribe
+6.	After subscription, your access keys are available from Products
  
  
 ## Test api from portal.	
@@ -193,6 +162,17 @@ Our API is managed by Azure API management and hence you need
 7.	Select Try It
 8.	If you are  signed in Ocp-Apim keys are filled out.  This is the key you can get from subscription key described above
 9.	Select Authorization code from Authorization 
+10. Fill in required parameters in payload and select SEND
+
+## Use api from application
+
+You need client credentials from Veracity for this.
+
+### C# SDK
+Our SDK 
+
+### Python SDK
+
 
 
 

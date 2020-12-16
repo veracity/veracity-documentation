@@ -19,7 +19,7 @@ Base url: https://api.veracity.com/veracity/timeseries/api
 
 To sort the endpoints in similar matter as the table below, select the "group by tag" button.
 
-<table width=1000px>
+<table border="1" width="100">
     <thead>
       <tr>	  
 	    <th>GET/POST</th>

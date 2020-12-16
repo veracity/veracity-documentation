@@ -88,24 +88,23 @@ To sort the endpoints in similar matter as the table below, select the "group by
 		  <tr>
             <td>POST</td>
             <td>..api/v1/TimeSeriesData/.getTimeSeriesData</td>
-            <td>Returns timeseries data for a vessel or set of vessels
-			payload: {
-  "downScaleInt": "PT30S",
-  "start": "2020-06-29T14:34:00.000Z",
-  "end": "2020-06-30T17:10:00.000Z",
-  "dimension": null,
-  "limit": 5000,
-  "dataChannelIdType": "ShortId",
-  "includeStartBoundary": true,
-  "includeEndBoundary": true,
-  "assetIds": [
-    "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724"
-  ],
-  "dataChannelIds": [
-    "AI030206", "AI030207", "AI030701"
-  ],
-  "typeOption": "SddData"
-}</td>               
+            <td>Returns timeseries data for a vessel or set of vessels</td>
+	    	</tr>   
+			<tr>
+            <td></td>
+            <td>Payload description:</td>
+            <td>downScaleInt: specify downscaling interval. Set to null if no downscaling. ISO8601 duration format. I.e. PT30S, PT1H, PT10M, PT60S
+			<pre>start, end: date format using ISO8601 format YYYY-MM-DDThh:mm:ss. For example, "2007-04-05T14:30Z"</pre>
+			<pre>Dimension: set null if not used in ingest. </pre>
+			<pre>dataChannelIdType: Set ShortId or UUID based on type of channelid used in dataChannelIds </pre>
+			<pre> dataChannelIds: Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"
+			<pre>limit </pre>
+			<pre>includeStartBoundary/includeEndBoundary : Set true/false depending of whether timestamps for boundaries should be included</pre>
+			<pre>assetIds: array of guid of asset, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" </pre>
+			<pre>limit: Max number of datapoints to be returned. System max limit is 200 000. </pre>
+			<pre>typeOption: sddData or Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
+
+</td>               
 </tr>           
         
 		<tr>

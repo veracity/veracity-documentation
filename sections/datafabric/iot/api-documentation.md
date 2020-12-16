@@ -11,7 +11,7 @@ The api is accessible from api-portal: https://api-portal.veracity.com/
 
 https://api-portal.veracity.com/docs/services/DataFabric-TimeSeriesAPI/
 
-Group by Tag for readability.
+
 
 ## Api endpoints
 
@@ -28,7 +28,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
       </tr>
     </thead>
     <tbody>
-        <tr rowspan>
+        <tr >
 		    <td colspan=3>"Asset"</td>               
         </tr>
         <tr>
@@ -39,78 +39,62 @@ To sort the endpoints in similar matter as the table below, select the "group by
 		 <tr>
             <td>GET</td>
             <td>..api/v1/Assets{id}</td>
-            <td>Returns the assets with id given if user has access to it and timeseries data is available.</td>                 
+            <td>Returns the assets with assetguid specified if user has access to it and timeseries data is available.</td>                 
         </tr>
-		 <tr rowspan>
+		 <tr >
 		    <td colspan=3>"DataChannelList"</td>               
         </tr>
         <tr>
            <td>GET</td>
             <td>..api/v1/DataChannelList{id}</td>
-            <td>Returns the taglist of the asst as a list of data channels with metadata. when requesting timeseries data for selected datachannles use either shortid or UUID</td>                 
-              
+            <td>List all metadata for all channels registered for this asset. When requesting timeseries data for selected datachannles use either shortid or UUID. </td>                               
         </tr>
-		 <tr rowspan>
-		    <td colspan=3>"DaraQuality"</td>               
+		 <tr>
+		    <td colspan=3>"DataQuality"</td>               
         </tr>
 		 <tr>
             <td>POST</td>
-            <td>..api/v1/Assets</td>
-            <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                               
+            <td>..api/v1/dataquality</td>
+            <td>Returns aggregated dataquality calculations for requested assets</td>                               
         </tr>
         <tr>
             <td>POST</td>
-            <td>..api/v1/Assets</td>
+            <td>..api/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>
             <td>POST</td>
-            <td>..api/v1/Assets</td>
+            <td>..api/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>
             <td>POST</td>
-            <td>..api/v1/Assets</td>
+            <td>..api/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>
             <td>POST</td>
-            <td>..api/v1/Assets</td>
+            <td>..api/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
 		  <tr>
             <td>POST</td>
-            <td>..api/v1/Assets</td>
+            <td>..api/v1/dataquality</td>
             <td>Returns all of the assets you have access to, for which timeseries data is available. The response contians an id; use this id in asset specific requests</td>                          
         </tr>
-    </tbody>
-  </table>
-  
-  
-  
-Assets	
-GET:
-v1/Assets	Returns all assets with IOT data that you have access to
-
-Get asset id from this response
-GET
-/v1/Assets/{id}	Use asset id as query parameter
-DataChannelList	
-GET
-/v1/DataChannelList/{assetId}
-
-	List all metadata for all channels registered for this asset 
-Use asset id as query parameter
-TimeSeriesData	
-POST
-/v1/TimeSeriesData/.getTimeSeriesData
-
-{
+		 <tr>
+		    <td colspan=3>"TimeSeriesData"</td>               
+        </tr>
+		  <tr>
+            <td>POST</td>
+            <td>..api/v1/TimeSeriesData/.getTimeSeriesData</td>
+            <td>Returns timeseries data for a vessel or set of vessels
+			payload: {
   "downScaleInt": "PT30S",
   "start": "2020-06-29T14:34:00.000Z",
   "end": "2020-06-30T17:10:00.000Z",
-  "dimension": "",
-  "limit": 1000,
+  "dimension": null,
+  "limit": 5000,
   "dataChannelIdType": "ShortId",
   "includeStartBoundary": true,
   "includeEndBoundary": true,
@@ -121,7 +105,21 @@ POST
     "AI030206", "AI030207", "AI030701"
   ],
   "typeOption": "SddData"
-}	Returns timeseries data for a vessel or set of vessels
+}</td>               
+</tr>           
+        
+		<tr>
+            <td>POST</td>
+            <td>..api/v1/TimeSeriesData/.latest</td>
+            <td>Get the latest n-received values for given channels</td>
+	</tr>
+    </tbody>
+  </table>
+  
+  
+  
+
+Returns timeseries data for a vessel or set of vessels
 Data is downscaled to interval specified in Post message
 
 •	downScaleInt: Use  ISO8601 timespan for downscale interval

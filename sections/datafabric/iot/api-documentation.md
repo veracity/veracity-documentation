@@ -38,7 +38,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
             <td colspan=2>Returns the assets with assetguid specified if user has access to it and timeseries data is available.</td>                 
         </tr>
 		
-		<tr style="background-color:orange">           
+		<tr >           
             <td colspan=2>DataChannelList</td>                 
         </tr>		
         <tr>
@@ -49,7 +49,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
             <td colspan=2>List all metadata for all channels registered for this asset. When requesting timeseries data for selected datachannles use either shortid or UUID. </td>                 
         </tr>
 		
-		 <tr style="background-color:orange">           
+		 <tr >           
             <td colspan=2>DataQuality endpoint </td>                 
         </tr>	  
   		 <tr>
@@ -101,7 +101,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
 			</pre></td>                          
         </tr>
         
-		<tr style="background-color:orange">           
+		<tr >           
             <td colspan=2>TimeSeriesData</td>                 
         </tr> 
 
@@ -158,7 +158,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
 		  <td colspan = 2>Returns min date and max date for received datapoints for selected channels</td>
 		 </tr>
 		 
-		<tr style="background-color:orange">           
+		<tr>           
             <td colspan=2>Workspaces</td>                 
         </tr> 
 
@@ -177,8 +177,8 @@ To sort the endpoints in similar matter as the table below, select the "group by
 		    <td colspan=2>Returns the workspace by id, and the assets (if any) in the workspace which have IoT Data enabled.</td>
 	     </tr>		 
 		 
-     	<tr style="background-color:orange">           
-            <td colspan=2>StoredProcedure</td>                 
+     	<tr >           
+            <td colspan=2 style="background-color:orange">StoredProcedure</td>                 
         </tr> 
 
 		  <tr>

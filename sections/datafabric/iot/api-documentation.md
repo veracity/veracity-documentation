@@ -27,7 +27,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
       </tr>
     </thead>
     <tbody>      
-        <tr style="background-color:orange">		   
+        <tr>		   
             <td colspan=2>Assets</td>                   
         </tr>
 		<tr>
@@ -87,24 +87,17 @@ To sort the endpoints in similar matter as the table below, select the "group by
         </tr>
 		 <tr>           
             <td colspan=2>Returns aggregations per week for data quality score in selected periode</td>                 
-        </tr>
-		
-		
-		  <tr>
+        </tr>	
+		 <tr>
             <td>POST</td>
-            <td>/v1/DataQuality/trend/.rulescore</td>
-                                 
+            <td>/v1/DataQuality/trend/.rulescore</td>                                 
         </tr>
 		 <tr>           
-            <td colspan=2><pre>Returns aggregations per week for each dataquality metric in selected period.</pre></td>             
-        </tr>
-		
-		 <tr>
-           <td colspan=2><pre>
-			Start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
-			End: End of period using format YYYY-MM-DDTHH:mm:ss.SSSZ
-			Assetid: arrays of asset guids
-			IncludePrevisousPeriod: returns rulescore for previous period (period with same length as specified)
+            <td colspan=2><pre>Returns aggregations per week for each dataquality metric in selected period.        
+-Start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
+-End: End of period using format YYYY-MM-DDTHH:mm:ss.SSSZ
+-Assetid: arrays of asset guids
+-IncludePrevisousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
 			</pre></td>                          
         </tr>
         
@@ -132,40 +125,38 @@ To sort the endpoints in similar matter as the table below, select the "group by
 	     </tr>
 		 <tr>
             <td colspan=2><pre>Returns timeseries data for a vessel or set of vessels.
-			downScaleInt: specify downscaling interval. Set to null if no downscaling.ISO8601 duration format.I.e. PT30S, PT1H, PT10M, PT60S
-			start, end: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
-		    Dimension: set null if not used in ingest. 
-			dataChannelIdType: Are you requesting channels by ShortId or DataChannelUuid 
-			dataChannelIds: Array of channel ids. Use type specified in dataChannelIdType.  I.e. "AI030206", "AI030207", "AI030701"			 
-			includeStartBoundary/includeEndBoundary: Set true/false depending of whether timestamps for boundaries should be included
-			assetIds: array asset guids, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
-			limit: Max number of datapoints to be returned. System max limit is 200 000. 
-			  -<var>typeOption</var> sddData/Data. 
-			  sddData returns datapoints and metadata.
-			  Data returs datapoints only </pre>
+-downScaleInt: specify downscaling interval. Set to null if no downscaling.ISO8601 duration format.I.e. PT30S, PT1H, PT10M, PT60S
+-start, end: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
+-Dimension: set null if not used in ingest. 
+-dataChannelIdType: Are you requesting channels by ShortId or DataChannelUuid 
+-dataChannelIds: Array of channel ids. Use type specified in dataChannelIdType.  I.e. "AI030206", "AI030207", "AI030701"			 
+-includeStartBoundary/includeEndBoundary: Set true/false depending of whether timestamps for boundaries should be included
+-assetIds: array asset guids, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
+-limit: Max number of datapoints to be returned. System max limit is 200 000. 
+-<var>typeOption</var> sddData/Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
             </td>               
           </tr>                   
 		  <tr>
             <td>POST</td>
-            <td>/v1/TimeSeriesData/.latest</td>
-            <td>Get the latest n-received values for given channels</td>
+            <td>/v1/TimeSeriesData/.latest</td>           
 	     </tr>
-		  <tr>
-            <td></td>
-            <td>Payload description:</td>
-            <td><pre><var>Dimension</var> set null if not used in ingest. 
-			  <var>dataChannelIdType</var>Are you requesting channels by ShortId or DataChannelUuid </pre>
-			  <var>dataChannelIds</var> Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"			 			
-			  <var>assetIds</var> array of guid of asset, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
-			  <var>latestNValues</var> Max number of datapoints to be returned. 
-			  <var>typeOption</var> sddData or Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
+		  <tr>         
+            <td colspan=2><pre>Get the latest n-received values for given channels
+-<var>Dimension</var> set null if not used in ingest. 
+-<var>dataChannelIdType</var>Are you requesting channels by ShortId or DataChannelUuid </pre>
+-<var>dataChannelIds</var> Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"			 			
+-<var>assetIds</var> array of guid of asset, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
+-<var>latestNValues</var> Max number of datapoints to be returned. 
+-<var>typeOption</var> sddData or Data. sddData returns datapoints and metadata, Data returs datapoints only </pre>
             </td>               
           </tr>          
            <tr>
             <td>POST</td>
-            <td>..api/v1/TimeSeriesData/.time_range</td>
-            <td>Returns min date and max date for received datapoints for selected channels</td>
+            <td>..api/v1/TimeSeriesData/.time_range</td>           
 	     </tr>		  
+		 <tr>
+		  <td colspan = 2>Returns min date and max date for received datapoints for selected channels</td>
+		 </tr>
 		 
 		<tr style="background-color:orange">           
             <td colspan=2>Workspaces</td>                 

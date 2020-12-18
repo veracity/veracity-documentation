@@ -228,20 +228,17 @@ Datapoits will be provided as tabularData with max, min and average if downscali
             <td>/v1/StoredProcedure/{name}</td>         
 	     </tr>
 		  <tr>
-		    <td colspan=2>Stored procedures can be used for custom queries.</td>               
+		    <td colspan=2>Stored procedures can be used for custom queries. Must me managed by Veracity administrators</td>               
         </tr>
 		   </tbody>
   </table>   
   
-
-Stored Procedures	
-Can be used to set up special queries	Custom by Veracity administrators
 	
 
 
 ## Subscribe to API
 
-data can be accessed uoing veracity IoT api. The API is managed by Azure API management and hence you need a subscription. 
+Data can be accessed using Veracity IoT api. The API is managed by Azure API management and hence you need a subscription. 
 1.	Go to Veracity api portal: https://api-portal.veracity.com/
 2.	Sign in
 3.	Select Product
@@ -265,13 +262,78 @@ data can be accessed uoing veracity IoT api. The API is managed by Azure API man
 
 ## Use api from application
 
-You need client credentials from Veracity for this.
+You will receive credentials for your service app:
+•	Client Id
+•	Client secret
+•	APIM subscription key
+
+The service app is granted access to the asset(s).
+
+
 
 ### C# SDK
-Our SDK 
+Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard.
+https://www.nuget.org/packages/Veracity.IoT.SDK.Models/
+https://www.nuget.org/packages/Veracity.IoT.SDK.Client/
+https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/
+
+Nuget Packages:
+-Veracity.IOT.SDK.Models: models used for ingest of data and output of data queries
+-Veracity.IOT.SDK.Client: To create HTTTP client to access API
+--Include Veracity.IOT.SDK.Models
+-Veracity.IOT.SDK.Client.Extensions: For dependency injections
+--Include Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client  
+
+
+#### Code example
+<code>string baseUrl = "https://api.veracity.com/veracity/timeseries/api/v1/";
+var tokenProvider = new ClientCredentialsTokenProvider(ClientId, ClientSecret);
+IVeracityIoTTimeSeriesClient clientConfig = new VeracityIoTTimeSeriesClient(tokenProvider, baseUrl, ApiSubscriptionkey);</code>
+
+Create payload for requesting timeseries data
+
+            <code>
+            DefaultQueryPayload payload = new DefaultQueryPayload()
+            {
+                AssetIds = new System.Collections.Generic.List<Guid>() { assetGuid }
+            };
+
+            DateTime start = new DateTime(2020, 09, 25);
+            DateTime end = new DateTime(2020, 10, 05);
+            payload.Start = new DateTimeOffset(start);
+            payload.End = new DateTimeOffset(end);      //max date for Timestamp
+            payload.Limit = 1000;  //i.e.  datapoints 
+			payload.DownScaleInt = "PT4H";  //downscale to 4 hours
+
+            //request data on channels based on their shortid or channelUUID (guid)
+            payload.DataChannelIdType = DataChannelIdTypeEnum.DataChannelUuid;
+            payload.DataChannelIds = new System.Collections.Generic.List<string>();
+            //datachannels was received from requesting datachanneøs for asset
+            foreach (var ch in dataChannels)
+                payload.DataChannelIds.Add(ch.DataChannelId.UUID.ToString());
+
+            //Alternative use shortId - ie
+            //payload.DataChannelIdType = DataChannelIdTypeEnum.ShortId;
+            //payload.DataChannelIds = new System.Collections.Generic.List<string>() { "Voltage", "ActiveEnergy", "ActivePower", "Frequency" };
+
+            payload.TypeOption = TypeOption.SddData;  //both data and metadata
+			
+			
+            var result2 = await clientConfig.GetTimeSeriesData(payload);
+            //datapoints are delivered as Tabular data  when downscaling is used, and values only in Average, max and min (value is null)
+            var eventdata = result2.Package.TimeSeriesData.TabularData.DataSet;
+				
+				
+		    payload.DownScaleInt = null;  //get raw data
+			//datapoints are delivered as Event data 
+			var result = await clientConfig.GetTimeSeriesData(payload);  						
+			</code>
+            
+			
+
 
 ### Python SDK
-
+SDK for Python: https://github.com/veracity/Python-Sample-to-Connect-to-Veracity-Service
 
 
 

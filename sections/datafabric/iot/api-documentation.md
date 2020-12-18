@@ -290,7 +290,7 @@ Veracity IOT SDK can be used to connect to API from .NET application. Veracity I
 #### Code example
 This code snippet shows how to instantiate a VeracityHTMLClient, create pauyloads  and invoke api's for requesting timeseries data
 
-   ```C#
+   ```cs
          string baseUrl = "https://api.veracity.com/veracity/timeseries/api/v1/";
          var tokenProvider = new ClientCredentialsTokenProvider(ClientId, ClientSecret);
          IVeracityIoTTimeSeriesClient clientConfig = new VeracityIoTTimeSeriesClient(tokenProvider, baseUrl, ApiSubscriptionkey);
@@ -330,7 +330,7 @@ This code snippet shows how to instantiate a VeracityHTMLClient, create pauyload
 ```            
 payload when requesting the n-latest values received (in this example 10)
 
-  ```C#
+  ```cs
             LatestQueryPayload payload = new LatestQueryPayload()
             {
                 AssetIds = new System.Collections.Generic.List<Guid>() { assetGuid },

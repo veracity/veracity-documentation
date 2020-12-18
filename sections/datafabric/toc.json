@@ -10,6 +10,28 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "Veracity IoT",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "iot/overview.md"
+				},
+				{
+					"text": "API",
+					"href": "iot/api-documentation.md"
+				},
+				{
+					"text": "Ingest data",
+					"href": "iot/ingest-data.md"
+				},
+				
+				{
+					"text": "Power BI Connector",
+					"href": "iot/powerbi-connector.md"
+				}
+			]
+		},
+		{
 			"text": "Data Fabric Data API Reference",
 			"href": "datafabric-dataapi-openapi.yaml"
 		},

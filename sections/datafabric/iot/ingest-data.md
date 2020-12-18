@@ -92,7 +92,8 @@ When sending from an edge device on asset, the Header section can be removed. He
 The ISO Message allows for either EventData or TabularData format. The difference between the two is that EventData allows for datapoints not occurring regularly. This means that EventData can report values on different timestamps for different tag id’s, whereas TabularData only reports values on the same timestamp for all tag id’s. 
 
 ### Example of EventData
-<pre>
+
+```JSON
 
 {
    "Header":
@@ -116,14 +117,12 @@ The ISO Message allows for either EventData or TabularData format. The differenc
 		}
 	}
 }
-
-</pre>
+```
 
 ### Example of tabular data
 You can send several datapoints with minimal overhead.  A data channel id is the tag id. You can add as many datasets as you want in “a package”. 
 For the TabularData format ,the index of each value in the Value list must correspond to same index associated with the given value in the DataChannelId list. 
-
-<pre>
+```JSON
 {
 "Header":
   {"ShipId":"12345"},
@@ -149,7 +148,7 @@ For the TabularData format ,the index of each value in the Value list must corre
 		 }
 	}
 }	
-</pre>		   
+```	   
 	   
 	
 
@@ -161,8 +160,7 @@ Connection string to IOT hub is received by Encrypted email.
 
 This code snippet shows how to use Microsoft.Azure.Devices.Client to send messages to IOT hub
 
-<pre>
-<code>
+```C#
   using Microsoft.Azure.Devices.Client;
   using Newtonsoft.Json;
   using Veracity.IoT.SDK.Models.Input.ISO;
@@ -181,8 +179,8 @@ This code snippet shows how to use Microsoft.Azure.Devices.Client to send messag
  //max payload size is 256KB for Azure IOT hub
  await device.SendEventAsync(message);
  await device.CloseAsync();
-</code>
-</pre>
+ 
+```
 
 ## Protocols
 IoT Hub and the device SDKs support the following protocols for connecting devices:
@@ -193,5 +191,5 @@ IoT Hub and the device SDKs support the following protocols for connecting devic
 - MQTT over WebSockets
 
 If your solution cannot use the device libraries, devices can use the MQTT v3.1.1, HTTPS 1.1, or AMQP 1.0 protocols to connect natively to your hub.
-1.	SDK: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks
-2.	Communicate with your IoT hub using the MQTT protocol: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support
+- SDK: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks
+- Communicate with your IoT hub using the MQTT protocol: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support

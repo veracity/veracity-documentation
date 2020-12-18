@@ -264,9 +264,9 @@ Data can be accessed using Veracity IoT api. The API is managed by Azure API man
 ## Use api from application
 
 You will receive credentials for your service app:
-•	Client Id
-•	Client secret
-•	APIM subscription key
+- Client Id
+- Client secret
+- APIM subscription key
 
 The service app is granted access to the asset(s).
 
@@ -274,11 +274,11 @@ The service app is granted access to the asset(s).
 
 ### C# SDK
 Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard.
-<ul>
-  <li>https://www.nuget.org/packages/Veracity.IoT.SDK.Models/</li>
-  <li>https://www.nuget.org/packages/Veracity.IoT.SDK.Client/</li>
-  <li>https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/</li>
-</ul>
+
+- [model](https://www.nuget.org/packages/Veracity.IoT.SDK.Models/)
+- [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/)
+- [externtions](https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/)
+
 
 <ul>
 <li>Veracity.IOT.SDK.Models: models used for ingest of data and output of data queries</li>
@@ -290,7 +290,7 @@ Veracity IOT SDK can be used to connect to API from .NET application. Veracity I
 #### Code example
 This code snippet shows how to instantiate a VeracityHTMLClient, create pauyloads  and invoke api's for requesting timeseries data
 
-         <code>
+   ```C#
          string baseUrl = "https://api.veracity.com/veracity/timeseries/api/v1/";
          var tokenProvider = new ClientCredentialsTokenProvider(ClientId, ClientSecret);
          IVeracityIoTTimeSeriesClient clientConfig = new VeracityIoTTimeSeriesClient(tokenProvider, baseUrl, ApiSubscriptionkey);
@@ -326,11 +326,11 @@ This code snippet shows how to instantiate a VeracityHTMLClient, create pauyload
 	  //request raw data - datapoints are delivered as Event data			
 		 payload.DownScaleInt = null;  //get raw data
 	     var result = await clientConfig.GetTimeSeriesData(payload);  						
-	 </code>
-            
+
+```            
 payload when requesting the n-latest values received (in this example 10)
 
-       <code>
+  ```C#
             LatestQueryPayload payload = new LatestQueryPayload()
             {
                 AssetIds = new System.Collections.Generic.List<Guid>() { assetGuid },
@@ -340,7 +340,7 @@ payload when requesting the n-latest values received (in this example 10)
 				DataChannelIds = <list of channels>
             };
 
-    	</code>
+ ```
 			
 
 

@@ -20,8 +20,8 @@ Before data can be ingested to Veracity the following must be done:
 
 ## Data chanel list
 
-A channel list is an overview of all the tags/meassure poits that will provide data togehter with its metadata. 
-Download excel template 
+A channel list is an overview of all the tags/datachannles that will provide data with its metadata. 
+An excel template consists of the following columns:
 
 <table border="1" width="100%">
     <thead>

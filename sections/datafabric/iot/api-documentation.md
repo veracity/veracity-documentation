@@ -7,9 +7,9 @@ description: This section describes the different endpoints of the IoT Api
 
 Only users that has access to an asset can access data from this asset.
 
-The api is accessible from api-portal: https://api-portal.veracity.com/
+The api is accessible from [api-portal](https://api-portal.veracity.com/)
 
-https://api-portal.veracity.com/docs/services/DataFabric-TimeSeriesAPI/
+[api](https://api-portal.veracity.com/docs/services/DataFabric-TimeSeriesAPI/)
 
 
 
@@ -19,6 +19,7 @@ Base url: https://api.veracity.com/veracity/timeseries/api
 
 To sort the endpoints in similar matter as the table below, select the "group by tag" button.
 
+<div style="overflow-x: scroll;">
 <table border="1" width="100%">
     <thead>
       <tr>	  
@@ -233,14 +234,14 @@ Datapoits will be provided as tabularData with max, min and average if downscali
         </tr>
 		   </tbody>
   </table>   
-  
+  </div>
 	
 
 
 ## Subscribe to API
 
 Data can be accessed using Veracity IoT api. The API is managed by Azure API management and hence you need a subscription. 
-1.	Go to Veracity api portal: https://api-portal.veracity.com/
+1.	Go to Veracity api portal:[api-portal](https://api-portal.veracity.com/)
 2.	Sign in
 3.	Select Product
 4.	Select Veracity Platform API. This api contains all the Veracity platform APIs which allow you to integrate with platform and enjoy the platform features by calling related API, it contains all the legacy "My service API" and "Data fabric API".
@@ -250,12 +251,12 @@ Data can be accessed using Veracity IoT api. The API is managed by Azure API man
  
 ## Test api from portal.	
 
-1.  Go to https://api-portal.veracity.com/
+1.  Go to [api-portal](https://api-portal.veracity.com/)
 2.	Sign in
 3.	Select API
 4.	Select Data Fabric Time Series API
 5.	Select Group  by Tag
-6.	Select an endpoint – i.e https://api.veracity.com/veracity/timeseries/api/v1/Assets
+6.	Select an endpoint – i.e [api](https://api.veracity.com/veracity/timeseries/api/v1/Assets)
 7.	Select Try It
 8.	If you are  signed in Ocp-Apim keys are filled out.  This is the key you can get from subscription key described above
 9.	Select Authorization code from Authorization 
@@ -345,7 +346,7 @@ payload when requesting the n-latest values received (in this example 10)
 
 
 ### Python SDK
-SDK for Python: https://github.com/veracity/Python-Sample-to-Connect-to-Veracity-Service
+SDK for Python: [Python](https://github.com/veracity/Python-Sample-to-Connect-to-Veracity-Service)
 
 
 

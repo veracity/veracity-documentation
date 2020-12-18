@@ -93,8 +93,7 @@ The ISO Message allows for either EventData or TabularData format. The differenc
 
 ### Example of EventData
 
-```JSON
-
+```json
 {
    "Header":
       {"ShipId":"12345"},
@@ -122,7 +121,7 @@ The ISO Message allows for either EventData or TabularData format. The differenc
 ### Example of tabular data
 You can send several datapoints with minimal overhead.  A data channel id is the tag id. You can add as many datasets as you want in “a package”. 
 For the TabularData format ,the index of each value in the Value list must correspond to same index associated with the given value in the DataChannelId list. 
-```JSON
+```json
 {
 "Header":
   {"ShipId":"12345"},
@@ -160,7 +159,7 @@ Connection string to IOT hub is received by Encrypted email.
 
 This code snippet shows how to use Microsoft.Azure.Devices.Client to send messages to IOT hub
 
-```C#
+```cs
   using Microsoft.Azure.Devices.Client;
   using Newtonsoft.Json;
   using Veracity.IoT.SDK.Models.Input.ISO;

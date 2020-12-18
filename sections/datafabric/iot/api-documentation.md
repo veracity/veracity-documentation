@@ -86,7 +86,8 @@ Data is listed as EventData.
 -<var>includeOffsetBoundary</var>: True/False. Include offset in query. Default is true
 -<var>limit</var>: Max datapoints to retun. System limit is 200,000
 -<var>header</var>: true/false. Set to true if metadata is to be returned together with datapoins. Default is false.
--<var>downScaleInterval</var>: specify downscaling interval,  Set to null if no downscaling.ISO8601 duration format.I.e. PT30S, PT1H, PT10M, PT60S</pre></td>
+-<var>downScaleInterval</var>: specify downscaling interval,  Set to null if no downscaling.
+ISO8601 duration format. I.e. PT30S, PT1H, PT10M, PT60S</pre></td>
 	      </tr>   
 		  <tr>
             <td>POST</td>
@@ -286,11 +287,14 @@ Nuget Packages:
 
 
 #### Code example
-<code>string baseUrl = "https://api.veracity.com/veracity/timeseries/api/v1/";
-var tokenProvider = new ClientCredentialsTokenProvider(ClientId, ClientSecret);
-IVeracityIoTTimeSeriesClient clientConfig = new VeracityIoTTimeSeriesClient(tokenProvider, baseUrl, ApiSubscriptionkey);</code>
+This code snippet shows how to instantiate a VeracityHTMLClient, create pauyloads  and invoke api's for requesting timeseries data
 
-Create payload for requesting timeseries data
+         <code>
+         string baseUrl = "https://api.veracity.com/veracity/timeseries/api/v1/";
+         var tokenProvider = new ClientCredentialsTokenProvider(ClientId, ClientSecret);
+         IVeracityIoTTimeSeriesClient clientConfig = new VeracityIoTTimeSeriesClient(tokenProvider, baseUrl, ApiSubscriptionkey);
+         </code>
+
 
             <code>
             DefaultQueryPayload payload = new DefaultQueryPayload()
@@ -329,6 +333,19 @@ Create payload for requesting timeseries data
 			var result = await clientConfig.GetTimeSeriesData(payload);  						
 			</code>
             
+payload when requesting the n-latest values received (in this example 10)
+           <code>
+            LatestQueryPayload payload = new LatestQueryPayload()
+            {
+                AssetIds = new System.Collections.Generic.List<Guid>() { assetGuid },
+                LatestNValues = 10,
+				TypeOption = TypeOption.Data,
+				DataChannelIdType = DataChannelIdTypeEnum.DataChannelUuid
+            };
+
+           //Set channelids
+            payload.DataChannelIds = <list of channels>
+			</code>
 			
 
 

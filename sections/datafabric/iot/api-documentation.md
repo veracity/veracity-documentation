@@ -64,7 +64,7 @@ When requesting timeseries data for selected datachannles use either shortid or 
 	     </tr>
          <tr>
 		     <td colspan=2><pre>Returns raw data for given datachannel for given time periode defined by before or after offset.
-Data is listed as EventData.
+Response data is listed as EventData.
 -<var>id</var>: asset guid
 -<var>dataChannelId</var>: shortId of DataChannelUuid of datachannel.
 -<var>offset</var>: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
@@ -111,7 +111,7 @@ Datapoits will be provided as tabularData with max, min and average if downscali
             <td>/v1/TimeSeriesData/.latest</td>           
 	     </tr>
 		  <tr>         
-            <td colspan=2><pre>Get the latest n-received values for given channels. Data is listed as EventData.
+            <td colspan=2><pre>Get the latest n-received values for given channels. datapoints in the response are listed as EventData.
 -<var>dimension</var> set null if not used in ingest. 
 -<var>dataChannelIdType</var>: Are you requesting channels by ShortId or DataChannelUuid
 -<var>dataChannelIds</var>: Array of channel ids. Use type specified in dataChannelIdType. I.e. "AI030206", "AI030207", "AI030701"			 			
@@ -274,16 +274,17 @@ The service app is granted access to the asset(s).
 
 ### C# SDK
 Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard.
-https://www.nuget.org/packages/Veracity.IoT.SDK.Models/
-https://www.nuget.org/packages/Veracity.IoT.SDK.Client/
-https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/
+<ul>
+  <li>https://www.nuget.org/packages/Veracity.IoT.SDK.Models/</li>
+  <li>https://www.nuget.org/packages/Veracity.IoT.SDK.Client/</li>
+  <li>https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/</li>
+</ul>
 
-Nuget Packages:
--Veracity.IOT.SDK.Models: models used for ingest of data and output of data queries
--Veracity.IOT.SDK.Client: To create HTTTP client to access API
---Include Veracity.IOT.SDK.Models
--Veracity.IOT.SDK.Client.Extensions: For dependency injections
---Include Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client  
+<ul>
+<li>Veracity.IOT.SDK.Models: models used for ingest of data and output of data queries</li>
+<li>Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models</li>
+<li>Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client  </li>
+</ul>
 
 
 #### Code example
@@ -293,59 +294,53 @@ This code snippet shows how to instantiate a VeracityHTMLClient, create pauyload
          string baseUrl = "https://api.veracity.com/veracity/timeseries/api/v1/";
          var tokenProvider = new ClientCredentialsTokenProvider(ClientId, ClientSecret);
          IVeracityIoTTimeSeriesClient clientConfig = new VeracityIoTTimeSeriesClient(tokenProvider, baseUrl, ApiSubscriptionkey);
-         </code>
-
-
-            <code>
-            DefaultQueryPayload payload = new DefaultQueryPayload()
-            {
+        
+         DefaultQueryPayload payload = new DefaultQueryPayload()
+         {
                 AssetIds = new System.Collections.Generic.List<Guid>() { assetGuid }
-            };
+         };
 
-            DateTime start = new DateTime(2020, 09, 25);
-            DateTime end = new DateTime(2020, 10, 05);
-            payload.Start = new DateTimeOffset(start);
-            payload.End = new DateTimeOffset(end);      //max date for Timestamp
-            payload.Limit = 1000;  //i.e.  datapoints 
-			payload.DownScaleInt = "PT4H";  //downscale to 4 hours
+         DateTime start = new DateTime(2020, 09, 25);
+         DateTime end = new DateTime(2020, 10, 05);
+         payload.Start = new DateTimeOffset(start);
+         payload.End = new DateTimeOffset(end);      //max date for Timestamp
+         payload.Limit = 1000;  //i.e. max no of datapoints 
+	     payload.DownScaleInt = "PT4H";  //i.e. downscale to 4 hours
 
-            //request data on channels based on their shortid or channelUUID (guid)
-            payload.DataChannelIdType = DataChannelIdTypeEnum.DataChannelUuid;
-            payload.DataChannelIds = new System.Collections.Generic.List<string>();
-            //datachannels was received from requesting datachanneøs for asset
-            foreach (var ch in dataChannels)
-                payload.DataChannelIds.Add(ch.DataChannelId.UUID.ToString());
+         //request data on channels based on their shortid or channelUUID (guid)
+         payload.DataChannelIdType = DataChannelIdTypeEnum.DataChannelUuid;
+         payload.DataChannelIds = new System.Collections.Generic.List<string>();
+         //datachannels was received from requesting datachanneøs for asset
+         foreach (var ch in dataChannels)
+         payload.DataChannelIds.Add(ch.DataChannelId.UUID.ToString());
 
-            //Alternative use shortId - ie
-            //payload.DataChannelIdType = DataChannelIdTypeEnum.ShortId;
-            //payload.DataChannelIds = new System.Collections.Generic.List<string>() { "Voltage", "ActiveEnergy", "ActivePower", "Frequency" };
+        //Alternative use shortId - ie
+        //payload.DataChannelIdType = DataChannelIdTypeEnum.ShortId;
+        //payload.DataChannelIds = new System.Collections.Generic.List<string>() { "Voltage", "ActiveEnergy" };
 
-            payload.TypeOption = TypeOption.SddData;  //both data and metadata
+        payload.TypeOption = TypeOption.SddData;  //both data and metadata			
 			
-			
-            var result2 = await clientConfig.GetTimeSeriesData(payload);
-            //datapoints are delivered as Tabular data  when downscaling is used, and values only in Average, max and min (value is null)
-            var eventdata = result2.Package.TimeSeriesData.TabularData.DataSet;
-				
-				
-		    payload.DownScaleInt = null;  //get raw data
-			//datapoints are delivered as Event data 
-			var result = await clientConfig.GetTimeSeriesData(payload);  						
-			</code>
+       var result2 = await clientConfig.GetTimeSeriesData(payload);
+       //datapoints are delivered as Tabular data  when downscaling is used, and values only in Average, max and min (value is null)
+       
+	  //request raw data - datapoints are delivered as Event data			
+		 payload.DownScaleInt = null;  //get raw data
+	     var result = await clientConfig.GetTimeSeriesData(payload);  						
+	 </code>
             
 payload when requesting the n-latest values received (in this example 10)
-           <code>
+
+       <code>
             LatestQueryPayload payload = new LatestQueryPayload()
             {
                 AssetIds = new System.Collections.Generic.List<Guid>() { assetGuid },
                 LatestNValues = 10,
 				TypeOption = TypeOption.Data,
-				DataChannelIdType = DataChannelIdTypeEnum.DataChannelUuid
+				DataChannelIdType = DataChannelIdTypeEnum.DataChannelUuid, 
+				DataChannelIds = <list of channels>
             };
 
-           //Set channelids
-            payload.DataChannelIds = <list of channels>
-			</code>
+    	</code>
 			
 
 

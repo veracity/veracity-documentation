@@ -17,7 +17,7 @@ CSV reader.
 Access your data directly from our REST api.
 
 ## Contextualization
-Sensor data is contextualized with meta datadefined for the sensor as well as a location in an asset functional hierarchy. For maritime assets; DNVGL VIS structure is being used.
+Sensor data is contextualized with meta data defined for the sensor as well as a location in an asset functional hierarchy. For maritime assets; DNVGL VIS structure is being used.
 
 ## ISO 19848 format
 

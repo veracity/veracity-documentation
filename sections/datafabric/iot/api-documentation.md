@@ -31,6 +31,7 @@ When requesting timeseries data for selected datachannles use either shortid or 
 ### TimeSeriesData
 #### /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getRawData
 Returns raw data for given datachannel for given time periode defined by before or after offset. Response data is listed as EventData.
+<pre>
 -<var>id</var>: asset guid
 -<var>dataChannelId</var>: shortId of DataChannelUuid of datachannel.
 -<var>offset</var>: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
@@ -38,6 +39,7 @@ Returns raw data for given datachannel for given time periode defined by before 
 -<var>includeOffsetBoundary</var>: True/False. Include offset in query. Default is true
 -<var>limit</var>: Max datapoints to retun. System limit is 200,000
 -<var>header</var>: true/false. Set to true if metadata is to be returned together with datapoins. Default is false.
+</pre>
 
 
 

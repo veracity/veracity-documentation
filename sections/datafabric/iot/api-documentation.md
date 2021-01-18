@@ -16,8 +16,30 @@ The api is accessible from [api-portal](https://api-portal.veracity.com/)
 ## Api endpoints
 
 Base url: https://api.veracity.com/veracity/timeseries/api
-
 To sort the endpoints in similar matter as the table below, select the "group by tag" button.
+
+### Assets
+
+#### GET /v1/Assets/{id}
+Returns all of the assets you have access to, for which timeseries data is available
+
+### DataChannelList
+#### GET /v1/DataChannelList/{id}
+List all metadata for all channels registered for this asset.
+When requesting timeseries data for selected datachannles use either shortid or UUID.
+
+### TimeSeriesData
+#### /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getRawData
+Returns raw data for given datachannel for given time periode defined by before or after offset. Response data is listed as EventData.
+-<var>id</var>: asset guid
+-<var>dataChannelId</var>: shortId of DataChannelUuid of datachannel.
+-<var>offset</var>: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
+-<var>before</var>: true/false. Are you requesting data before or after the offset. Default is true
+-<var>includeOffsetBoundary</var>: True/False. Include offset in query. Default is true
+-<var>limit</var>: Max datapoints to retun. System limit is 200,000
+-<var>header</var>: true/false. Set to true if metadata is to be returned together with datapoins. Default is false.
+
+
 
 <div style="overflow-x: scroll;">
 <table border="1" width="100%">

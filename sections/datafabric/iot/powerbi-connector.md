@@ -52,19 +52,19 @@ You may get a popup warning about a script error, this can be safely ignored (cl
 ### Functions
 A short description of the functions available through the connector follows, for full documentation refer to the section below on functions, and you can find more information at our [developer portal](https://developer.veracity.com/docs/section/datafabric/iot/overview).
 
-**DataChannels** - Returns the list of data channels that are available for the given asset (parameter) and which you have access to.
+**[DataChannels](#datachannels)** - Returns the list of data channels that are available for the given asset (parameter) and which you have access to.
 
-**DownSampledChannel**  - Returns the timeseries data available for the given channel over the requested time window, which is downsampled (binned) by the rate given (parameter).
+**[DownSampledChannel](#downsampledchannel)**  - Returns the timeseries data available for the given channel over the requested time window, which is downsampled (binned) by the rate given (parameter).
 
-**DownSampledChannels** - Returns the timeseries data available for the given *channels* over the requested time window, which are downsampled (binned) by the rate given (parameter). Can as input take one or more channels, the return from this function (at the time of writing this guide) is a `Record` type and must be unpacked for the timeseries data.
+**[DownSampledChannels](#downsampledchannels)** - Returns the timeseries data available for the given *channels* over the requested time window, which are downsampled (binned) by the rate given (parameter). Can as input take one or more channels, the return from this function (at the time of writing this guide) is a `Record` type and must be unpacked for the timeseries data.
 
-**LatestChannel** - Returns the latest `N` timeseries available for the given channel, the data is not downsampled.
+**[LatestChannel](#latestchannel)** - Returns the latest `N` timeseries available for the given channel, the data is not downsampled.
 
-**MyAssets** - Returns the list of assets you have access to, and for which timeseries data is available.
+**[MyAssets](#myassets)** - Returns the list of assets you have access to, and for which timeseries data is available.
 
-**RawChannel** - Returns the timeseries available for the given channel over the requested timewindow, the data is not downsampled.
+**[RawChannel](#rawchannel)** - Returns the timeseries available for the given channel over the requested timewindow, the data is not downsampled.
 
-**RawChannels** - Returns the timeseries available for the given *channels* over the requested timewindow, the data is not downsampled.
+**[RawChannels](#rawchannels)** - Returns the timeseries available for the given *channels* over the requested timewindow, the data is not downsampled.
 
 
 ## Functions

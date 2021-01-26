@@ -18,7 +18,7 @@ Before data can be ingested to Veracity the following must be done:
 3.	You must receive connection string for connection to Veracity IOT hub for streaming data
 
 
-## Data chanel list
+## Data channel list
 
 A channel list is an overview of all the tags/datachannles that will provide data with its metadata. 
 An excel template consists of the following columns:
@@ -45,7 +45,7 @@ An excel template consists of the following columns:
         </tr>
 		<tr>
 		    <td>Path</td>
-            <td>Path to breakdownstructure used fo rasset. I.e VIS path according to ISO 19848. Can be mapped using ML (specify /Unm</td>                  
+            <td>Path to breakdownstructure used for asset. I.e VIS path according to ISO 19848. Can be mapped using ML </td>                  
         </tr>
 		<tr>
 		    <td>LowerLimit</td>
@@ -53,7 +53,7 @@ An excel template consists of the following columns:
         </tr>
 		<tr>
 		    <td>UpperLimit</td>
-            <td>Boundariess</td>                  
+            <td>Boundaries</td>                  
         </tr>
 		<tr>
 		    <td>Quantity</td>

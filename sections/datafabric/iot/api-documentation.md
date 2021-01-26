@@ -9,7 +9,7 @@ Only users that has access to an asset can access data from this asset.
 
 The api is accessible from [api-portal](https://api-portal.veracity.com/)
 
-[/v1/Assets](#get-/v1/assets)
+[/v1/Assets](#get-v1assets)
 
 
 
@@ -29,7 +29,7 @@ To sort the endpoints in similar matter as the table below, select the "group by
     <tbody>            
 		<tr>
 		    <td>GET</td>
-            <td>[/v1/Assets](#get-/v1/assets)</td>                  
+            <td>[/v1/Assets](#get-v1assets)</td>                  
         </tr>
 		<tr>
 		    <td>GET</td>
@@ -117,10 +117,10 @@ When requesting timeseries data for selected datachannles use either shortid or 
 
 #### /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getRawData
 Returns raw data for given datachannel for given time periode defined by before or after offset. Response data is listed as EventData.
-*id: asset guid
-*dataChannelId: shortId of DataChannelUuid of datachannel.
-*offset: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
--<var>before</var>: true/false. Are you requesting data before or after the offset. Default is true
+ * id: asset guid
+ * dataChannelId: shortId of DataChannelUuid of datachannel.
+ * offset: date format using ISO8601 format YYYY-MM-DDThh:mm:ss.  For example, "2007-04-05T14:30Z"
+ ' before: true/false. Are you requesting data before or after the offset. Default is true
 -<var>includeOffsetBoundary</var>: True/False. Include offset in query. Default is true
 -<var>limit</var>: Max datapoints to retun. System limit is 200,000
 -<var>header</var>: true/false. Set to true if metadata is to be returned together with datapoins. Default is false.

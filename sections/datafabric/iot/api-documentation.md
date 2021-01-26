@@ -2,20 +2,32 @@
 author: Benedikte Kallåk
 description: This section describes the different endpoints of the IoT Api
 ---
-
 # Veracity IoT Api
-
-Only users that has access to an asset can access data from this asset.
-
 The api is accessible from [api-portal](https://api-portal.veracity.com/)
 
-[GET /v1/Assets](#get-v1assets)
-[GET /v1/Assets/{id}](#get-get-v1assetsid)
-[GET /v1/DataChannelList/{id}](#get-v1datachannellistid)
-[GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getRawData](#v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-
+## Security Model
+Only users that has access to an asset can access data from this asset.
 
 ## Api endpoints
+
+* [GET /v1/Assets](#get-v1assets)
+* [GET /v1/Assets/{id}](#get-get-v1assetsid)
+* [GET /v1/DataChannelList/{id}](#get-v1datachannellistid)
+* [GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getRawData](#v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
+* [GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/.getDownSampledData]()
+* [POST /v1/TimeSeriesData/.getTimeSeriesData](#v1timeseriesdatagettimeseriesdata)
+* [POST /v1/TimeSeriesData/.latest](#v1timeseriesdatalatest)
+* [POST ]()
+* [POST ]()
+* [POST ]()
+* [POST ]()
+* [POST ]()
+* [POST ]()
+* [POST ]()
+* [POST ]()
+* [POST ]()
+
+
 
 Base url: https://api.veracity.com/veracity/timeseries/api
 To sort the endpoints in similar matter as the table below, select the "group by tag" button.

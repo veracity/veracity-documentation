@@ -4,7 +4,7 @@ description: Gives an overview of the Veracity IoT services and related componen
 ---
 
 # Overview of  Veracity IoT
-Veracity IoT is a managed service for handling IoT data. It consits of ingest pipeline, storage, api for access, data quality service and and timeseries visualization.
+Veracity IoT is a managed service for handling IoT data. It consits of ingest pipeline, storage, api for access, data quality service and timeseries visualization.
 
 ## Ingest sensor data
 Veracity IoT can ingest JSON messages sent from edge or other platform to our IOT-hub.

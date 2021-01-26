@@ -17,8 +17,12 @@
 					"href": "iot/overview.md"
 				},
 				{
-					"text": "API",
+					"text": "API endpoint"
 					"href": "iot/api-documentation.md"
+				},
+				{
+					"text": "Use api from application"
+					"href": "iot/sdk.md"
 				},
 				{
 					"text": "Ingest data",

@@ -27,7 +27,7 @@ Data can be accessed using Veracity IoT api. The API is managed by Azure API man
 2.	Sign in
 3.	Select API
 4.	Select Data Fabric Time Series API
-5.	Select Group  by Tag
+5.	Select Group-by Tag
 6.	Select an endpoint – i.e [api](https://api.veracity.com/veracity/timeseries/api/v1/Assets)
 7.	Select Try It
 8.	If you are  signed in Ocp-Apim keys are filled out.  This is the key you can get from subscription key described above
@@ -52,12 +52,9 @@ Veracity IOT SDK can be used to connect to API from .NET application. Veracity I
 - [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/)
 - [externtions](https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/)
 
-
-<ul>
-<li>Veracity.IOT.SDK.Models: models used for ingest of data and output of data queries</li>
-<li>Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models</li>
-<li>Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client  </li>
-</ul>
+- Veracity.IOT.SDK.Models: models used for data ingest and output of data queries
+- Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models
+- Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client
 
 
 ## Code example

@@ -11,42 +11,56 @@ The Veracity IoT API is a core platform offering on Veracity that services reque
 
 The API is ip-firewalled in higher environments to only service requests inbound from API Management. The API also requires a valid bearer token issued for the user, which it validates and authenticates before serving the user data. The user request for data is scoped down only to the assets / channels the user has access to.
 
-In addition the API can also service requests from applications. Applications get a bearer token from the IDP (B2C) using client credentials grant. The API does the same validation and authentication checks on these calls as well and will only service data which the application has access to (assets and channels).
+In addition, the API can also service requests from applications. Applications get a bearer token from the IDP (B2C) using client credentials grant. The API does the same validation and authentication checks on these calls as well and will only service data which the application has access to (assets and channels).
 
 ## IoT API Authentication
-In order to fetch data from the IoT API incoming requests must contain a bearer token. This token is issed by the identity provider (Azure B2C) using one of the supported oauth2 flows on Veracity, either implicit flow, authorization code flow or client credentials.
+In order to fetch data from the IoT API incoming requests must contain a bearer token. This token is issued by the identity provider (Azure B2C) using one of the supported oauth2 flows on Veracity, either implicit flow, authorization code flow or client credentials.
 
 
 # Veracity IoT Power BI Connector User Guide
 
 ## Installation
 ### Installing the mez file
-The Veracity IoT Power BI Connector will be delivered to you as a .mez file. In order to install it for use with Power BI Desktop you must put the file under `Documents/Power BI Desktop/Custom Connectors`. If the folder(s) do not exist you must create them.
-See below 
+The Veracity IoT Power BI Connector will be delivered to you as a .mez file. In order to install it for use with Power BI Desktop you must put the file under `Documents/Power BI Desktop/Custom Connectors`. If the folder(s) do not exist, you must create them.
 
-![Installing the connector](userguide/connectorfolder.png)
+<figure>
+	<img src="userguide/connectorfolder.png"/>
+	<figcaption>Installing the connector</figcaption>
+</figure>
+
 
 ### Enabling custom connectors
-Since the iot connector is as of yet not certified by Microsoft, in order to use you must enable the usage of custom connectors in Power BI Desktop.
+Since the iot connector is -- as of yet -- not certified by Microsoft, in order to use you must enable the usage of custom connectors in Power BI Desktop.
 In Power BI Desktop, go to `options and settings` -> `options` -> `Security` then under `Data Extensions` make sure `Allow any extension to load without validation or warning` is selected then press `Ok` to persist the change in settings.
-See below
 
-![Enabling the connector](userguide/connectorenable.png)
+<figure>
+	<img src="userguide/connectorenable.png"/>
+	<figcaption>Enabling the connector</figcaption>
+</figure>
 
 ## Using the connector
 ### Finding the connector
 Once installed and enabled you can fetch data from the Veracity IoT API by either making a direct m query (see below) or by clicking the `Get Data` ribbon and selecting `Veracity IoT (beta)` under `All` or `Other` or alternatively just searching for Veracity
 
-![Connecting](userguide/connectorconnect.png)
+<figure>
+	<img src="userguide/connectorconnect.png"/>
+	<figcaption>Connecting</figcaption>
+</figure>
+
 
 ### Login
 Once connected to Veracity IoT you will be presented with a set of functions for importing data. If you are not logged in or it has been 60 minutes since your last login you will be presented with the login screen for the connector. To proceed click `Sign in as different users`. This will take you to the Veracity login where you will be providing your Veracity user credentials in order to proceed.
 
-![Login](userguide/connectorlogin.png)
+<figure>
+	<img src="userguide/connectorlogin.png"/>
+	<figcaption>Login</figcaption>
+</figure>
 
-You may get a popup warning about a script error, this can be safely ignored (click yes), and is caused by a script issue by the microsoft login service.
-
-![Login Credentials](userguide/connectorlogincredentials.png)
+You may get a popup warning about a script error, this can be safely ignored (click yes), and is caused by a script issue by the Microsoft login service.
+<figure>
+	<img src="userguide/connectorlogincredentials.png"/>
+	<figcaption>Login Credentials</figcaption>
+</figure>
 
 
 ### Functions
@@ -71,7 +85,7 @@ A short description of the functions available through the connector follows, fo
 The functions available in the connector, with detailed input description
 
 ### DataChannels
-Returns the list of data channels that are available for the given asset, which you have access to, unaccessible channels are filtered out.
+Returns the list of data channels that are available for the given asset, which you have access to, inaccessible channels - due to defined permissions - are filtered out.
 
 Parmeters:
 - assetid: text, UUID (GUID) of the asset we are requesting metadata for
@@ -80,7 +94,7 @@ Return:
 - Table of the metadata (channel list) available for the input parameter asset.
 
 ### DownSampledChannel
-Ïf high resolution of data is not required or can be traded off for less dense data (and performance benefits) this is the recommended way of getting timeseries. Essentially the timeseries is binned by the duration specified in the parameter and the min/max/average of the data per bin is returned.
+If high resolution of data is not required or can be traded off for less dense data (and performance benefits) this is the recommended way of getting timeseries. Essentially the timeseries is binned by the duration specified in the parameter and the min/max/average of the data per bin is returned.
 
 Parameters:
 - assetid: text, UUID (GUID) of the asset we are requesting timeseries data for.
@@ -100,7 +114,7 @@ Batch version of `DownSampledChannel`, allows for requesting data for multiple c
 
 Parameters:
 - assetid: text, UUID (GUID) of the asset we are requesting timeseries data for.
-- channels: text, UUIDs or ShortIds, comma seperated, of the channel(s) we are requesting timeseries for. Note that all the channels must be specified by UUID or ShortId, cannot combine the two types.
+- channels: text, UUIDs or ShortIds, comma separated, of the channel(s) we are requesting timeseries for. Note that all the channels must be specified by UUID or ShortId, cannot combine the two types.
 - start: datetime, start timestamp for window
 - end: datetime, end timestamp for window
 - limit: number, number of datapoints to take from start of window.
@@ -158,7 +172,7 @@ Bulk version of `RawChannel`, supports multiple channels in the same request, re
 
 Parameters:
 - assetid: text, UUID (GUID) of the asset we are requesting timeseries data for.
-- channels: text, UUIDs or ShortIds, comma seperated, of the channel(s) we are requesting timeseries for. Note that all the channels must be specified by UUID or ShortId, cannot combine the two types.
+- channels: text, UUIDs or ShortIds, comma separated, of the channel(s) we are requesting timeseries for. Note that all the channels must be specified by UUID or ShortId, cannot combine the two types.
 - start: datetime, start timestamp for window
 - end: datetime, end timestamp for window
 - limit: number, number of datapoints to take from start of window.

@@ -6,21 +6,22 @@ description: Description of quick start section
 # Ingest IoT data to Veracity
 
 Data is ingested into Veracity IOT hub from edge solution or from another data platform. 
-The data format supoorted are:
- - ISO 19848
- - Veracity 
- - Trisense 
+The data format supported are:
+ - [ISO 19848](#iso19848-message-format)
+ - [Veracity ](#veracity-message)
+ - [Trisense](#trisense-message)
 
 ## Setup
 Before data can be ingested to Veracity the following must be done:
-1.	Vessel must be registered by Veracity IOT administrator
+1.	Vessel must be registered by Veracity administrator
 2.	Channel list must be imported by Veracity administrator
-3.	You must receive connection string for connection to Veracity IOT hub for streaming data
+3.	You must receive connection string for connection to Veracity IOT hub for streaming data. If data is to be uploaded as CSV files to data fabric container you will receive access to such container.
 
+[Submit JSON message to IOT hub](#submit-json--to-iot-hub)
 
 ## Data channel list
 
-A channel list is an overview of all the tags/datachannles that will provide data with its metadata. 
+A channel list is an overview of all the tags/datachannels with its metadata. 
 An excel template consists of the following columns:
 
 <table border="1" width="100%">
@@ -33,7 +34,7 @@ An excel template consists of the following columns:
     <tbody>             
 		<tr>
 		    <td>ShortId</td>
-            <td>Tag id used by system on asset </td>
+            <td>Tag id used by system on asset. Tag used to identify datapoint at ingest </td>
         </tr>
 		<tr>
 		    <td>Name</td>
@@ -45,11 +46,11 @@ An excel template consists of the following columns:
         </tr>
 		<tr>
 		    <td>Path</td>
-            <td>Path to breakdownstructure used for asset. I.e VIS path according to ISO 19848. Can be mapped using ML </td>                  
+            <td>Path to breakdownstructure used for asset. I.e. VIS path according to ISO 19848. Can be mapped using ML </td>                  
         </tr>
 		<tr>
 		    <td>LowerLimit</td>
-            <td>/v1/Assets</td>                  
+            <td>Boundaries</td>                  
         </tr>
 		<tr>
 		    <td>UpperLimit</td>
@@ -65,7 +66,7 @@ An excel template consists of the following columns:
         </tr>	
 		<tr>
 		    <td>DataFormat</td>
-            <td>format of data received; String, Descimal,Boolean</td>                  
+            <td>Format of data received; String, Decimal,Boolean</td>                  
         </tr>	
 		<tr>
 		    <td>Alias</td>
@@ -79,7 +80,7 @@ An excel template consists of the following columns:
 ## ISO19848 Message format
 
 The Veracity Ingest SDK contains utility classes for how to generate ISO19848-format messages.
-Veracity SDK is available as nuget package:
+Veracity SDK is available as Nuget package:
 
 https://www.nuget.org/packages/Veracity.IoT.SDK.Models/
 
@@ -89,7 +90,8 @@ ShipId is IMO nr or DNVGL unique asset identifier.
 
 When sending from an edge device on asset, the Header section can be removed. Hence, the connection string is unique per asset.
 
-The ISO Message allows for either EventData or TabularData format. The difference between the two is that EventData allows for datapoints not occurring regularly. This means that EventData can report values on different timestamps for different tag id’s, whereas TabularData only reports values on the same timestamp for all tag id’s. 
+The ISO Message allows for either EventData or TabularData format. The difference between the two is that EventData allows for datapoints not occurring regularly. 
+This means that EventData can report values on different timestamps for different channels, whereas TabularData reports values using same timestamp for all datapoints in requested dataset. 
 
 ### Example of EventData
 
@@ -119,8 +121,8 @@ The ISO Message allows for either EventData or TabularData format. The differenc
 ```
 
 ### Example of tabular data
-You can send several datapoints with minimal overhead.  A data channel id is the tag id. You can add as many datasets as you want in “a package”. 
-For the TabularData format ,the index of each value in the Value list must correspond to same index associated with the given value in the DataChannelId list. 
+You can send several datapoints with minimal overhead.  A data channel id is the tag id. You can add as many datasets as you want in “a package”. A dateset is a timestamp with values for all datachannels defined in set DataChannelId.
+For the TabularData format, the index of each value in the Value list must correspond to same index associated with the given value in the DataChannelId list. 
 ```json
 {
 "Header":
@@ -129,7 +131,7 @@ For the TabularData format ,the index of each value in the Value list must corre
     {
 	   "TabularData":
 	     {		
-		  "DataChannelId":["Tag1","Tagy","Tagx"],
+		  "DataChannelId":["Tag1","TagY","TagX"],
 		   "DataSet": [
 		      {
 			   "TimeStamp":"2020-12-18T11:24:12Z",
@@ -149,9 +151,52 @@ For the TabularData format ,the index of each value in the Value list must corre
 }	
 ```	   
 	   
+## Veracity Message
+In a Veracity message several datapoints can be sent in same message.
 	
+```json
+{  
+  "MessageId": "1234",
+  "sentTimestamp": "2020-12-18T11:24:12Z",
+  "messages": [
+  {
+      "id":"1234454",
+	  "assetId":"345",
+	  "tagId":"Tag1",
+	  "value":"12.21",
+      "timestamp":"2020-12-18T11:24:12Z",	  
+	  "dimension":"C12"    
+  }
+  {
+      "id":"1234454",
+	  "assetId":"345",
+	  "tagId":"TagY",
+	  "value":"13.4"    
+	   "timestamp":"2020-12-18T11:24:12Z"	  
+  }
+  ]
+}
+```	   
+*Id: can be used to group tags together in a serie
+*assetId: guid of asset or IMO nr
+*tagId: shortid of channel
+*value: value of datapoint
+*dimension: Optional - can be used to relate datapoint to component
+*sentTimestamp: Timestamp, UTC, 
 
-## Submit JSON  to IoT Hub
+## Trisense Message
+	
+```json
+{  
+  "deviceId": "db:xx:yy:zz",
+  "TMP": 8,
+  "HUM": 69,
+  "CHRG": 5865,
+  "WAP": 421
+}
+```	   
+
+# Submit JSON  to IoT Hub
 
 Once the JSON is obtained, the MS SDK provides an easy way of sending the JSON to the IOT Hub using Microsoft.Azure.Devices.Client; as demonstrated in the code example below:
 

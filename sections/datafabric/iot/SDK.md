@@ -5,10 +5,8 @@ description: This section describes the different endpoints of the IoT Api
 
 # Veracity IoT Api
 
-Only users that has access to an asset can access data from this asset.
-
+Only users that has access to an asset as well as given permission to datachannel-datasets can access iot data from this asset.
 The api is accessible from [api-portal](https://api-portal.veracity.com/)
-
 
 # Subscribe to API
 
@@ -19,7 +17,7 @@ Data can be accessed using Veracity IoT api. The API is managed by Azure API man
 4.	Select Veracity Platform API. This api contains all the Veracity platform APIs which allow you to integrate with platform and enjoy the platform features by calling related API, it contains all the legacy "My service API" and "Data fabric API".
 5.	Select Subscribe
 6.	After subscription, your access keys are available from Products
- 
+
  
 # Test api from portal.	
 
@@ -43,19 +41,12 @@ You will receive credentials for your service app:
 
 The service app is granted access to the asset(s).
 
-
-
 ## C# SDK
 Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard.
 
-- [model](https://www.nuget.org/packages/Veracity.IoT.SDK.Models/)
-- [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/)
-- [externtions](https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/)
-
-- Veracity.IOT.SDK.Models: models used for data ingest and output of data queries
-- Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models
-- Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client
-
+- [model](https://www.nuget.org/packages/Veracity.IoT.SDK.Models/): Veracity.IOT.SDK.Models: models used for data ingest and output of data queries
+- [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/): Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models
+- [extentions](https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/): Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client
 
 ## Code example
 This code snippet shows how to instantiate a VeracityHTMLClient, create pauyloads  and invoke api's for requesting timeseries data

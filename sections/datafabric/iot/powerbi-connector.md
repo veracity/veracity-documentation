@@ -28,7 +28,6 @@ The Veracity IoT Power BI Connector will be delivered to you as a .mez file. In 
 	<figcaption>Installing the connector</figcaption>
 </figure>
 
-
 ### Enabling custom connectors
 Since the iot connector is -- as of yet -- not certified by Microsoft, in order to use you must enable the usage of custom connectors in Power BI Desktop.
 In Power BI Desktop, go to `options and settings` -> `options` -> `Security` then under `Data Extensions` make sure `Allow any extension to load without validation or warning` is selected then press `Ok` to persist the change in settings.
@@ -46,7 +45,6 @@ Once installed and enabled you can fetch data from the Veracity IoT API by eithe
 	<img src="assets/connectorconnect.png"/>
 	<figcaption>Connecting</figcaption>
 </figure>
-
 
 ### Login
 Once connected to Veracity IoT you will be presented with a set of functions for importing data. If you are not logged in or it has been 60 minutes since your last login you will be presented with the login screen for the connector. To proceed click `Sign in as different users`. This will take you to the Veracity login where you will be providing your Veracity user credentials in order to proceed.

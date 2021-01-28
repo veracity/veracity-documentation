@@ -4,4 +4,4 @@ description: Gives an overview of the Veracity Data Fabric services and related 
 ---
 
 # Overview
-This is the documentation for APIs bought through Marketplace.
+This page contains the documentation for APIs bought through the Veracity Marketplace.

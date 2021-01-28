@@ -1,0 +1,1583 @@
+openapi: 3.0.1
+info:
+  title: FatFree REST Api
+  description: FATIGUE ANALYSIS OF FREE SPANNING PIPELINES
+  version: v1
+servers:
+  - url: https://api.veracity.com/ext/dnvgl/fatfree/v1
+paths:
+  /api/Fatigue/F105:
+    post:
+      tags:
+        - F105
+      summary: Calculates damage and fatigue life for standard single location span definitions.
+      description: "This endpoint accepts all input combinations available in the FatFree 13 desktop application when the\r\nResopnse data option is set to any other value than 'User defined'.\r\n\r\nSchema: F105Input\r\n\r\nKey input options:\r\n            \r\nMetocean:\r\n<u1><li>Current input:     Weibull, Rpv and Histogram</li><li>Wave input:        Weibull, Rpv, Histogram, Scatter tables and NoWave</li></u1>\r\n\r\nBoundary conditions: F105 Span, Pinned-Pinned, Pinned-Fixed, Fixed-Fixed\r\n\r\nSoil (damping and stiffness): 10 pre-defined soils as well as direct specification of values\r\n\r\nSN curves (root and cap): 18 pre-defined curves as well as direct specification\r\n            \r\n\r\nAll of the above examples are given as separate json objects inside the main F105Input schema. Consult the\r\nexamples and schema descriptions for details."
+      operationId: post-api-fatigue-f105
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/F105Input'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/F105Input'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/F105Input'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/F105Input'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FatigueLifeResults'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /api/Fatigue/MultiLocationModeShape:
+    post:
+      tags:
+        - MultiLocationModeShape
+      summary: Calculates damage and fatigue life for multi-location F105 span definitions given modes shape as input.
+      description: "This endpoint accepts all input combinations available in the FatFree 13 desktop application when the\r\nResponse data option is set to 'User defined' and the MultiMode calculation option is set to\r\n'Mode shape input only'.\r\n\r\nSchema: MultiLocationModeShapeInput\r\n\r\nKey input options:\r\n            \r\nMetocean:\r\n<u1><li>Current input:     Weibull, Rpv and Histogram</li><li>Wave input:        Weibull, Rpv, Histogram, Scatter tables and NoWave</li></u1>\r\n\r\nSoil (damping): 10 pre-defined soils as well as direct specification of values. Note that soil stiffness\r\nis not used for the multi-location calculations.\r\n            \r\nLocation array (x-axis of each modeshape array)\r\n            \r\nModeshape arrays (two-dimensional, one modeshape per row)\r\n            \r\nFrequency array (single-dimensional), each element matching the associated modeshape\r\n\r\nSN curves (root and cap): 18 pre-defined curves as well as direct specification\r\n            \r\n\r\nAll of the above examples are given as separate json objects or json arrays inside the main\r\nMultiLocationModeShapeInput schema. Consult the examples and schema descriptions for details."
+      operationId: post-api-fatigue-multilocationmodeshape
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ModeShapeInput'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModeShapeInput'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ModeShapeInput'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ModeShapeInput'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /api/Fatigue/MultiLocationStressAmplitude:
+    post:
+      tags:
+        - MultiLocationStressAmplitude
+      summary: Calculates damage and fatigue life for multi-location F105 span definitions given unit diameter stress amplitudes as input.
+      description: "This endpoint accepts all input combinations available in the FatFree 13 desktop application when the\r\nResponse data option is set to 'User defined' and the MultiMode calculation option is set to\r\n'Direct stress amplitude input'.\r\n\r\nSchema: MultiLocationStressAmplitudeInput\r\n\r\nKey input options:\r\n            \r\nMetocean:\r\n<u1><li>Current input:     Weibull, Rpv and Histogram</li><li>Wave input:        Weibull, Rpv, Histogram, Scatter tables and NoWave</li></u1>\r\n\r\nSoil (damping): 10 pre-defined soils as well as direct specification of values. Note that soil stiffness\r\nis not used for the multi-location calculations.\r\n            \r\nLocation array (x-axis of the stress amplitude arrays for each mode)\r\n            \r\nUnit diameter stress amplitude array (two-dimensional, one row per mode)\r\n            \r\nFrequency array (single-dimensional), each element matching the associated stress amplitude array\r\n\r\nSN curves (root and cap): 18 pre-defined curves as well as direct specification\r\n            \r\n\r\nAll of the above examples are given as separate json objects or json arrays inside the main\r\nMultiLocationStressAmplitudeInput schema. Consult the examples and schema descriptions for details."
+      operationId: post-api-fatigue-multilocationstressamplitude
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/StressAmplitudeInput'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StressAmplitudeInput'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/StressAmplitudeInput'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/StressAmplitudeInput'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+        '500':
+          description: Calculation error. Unhandled exceptions.
+components:
+  schemas:
+    BoundaryCondition:
+      enum:
+        - Rpf105
+        - PinnedPinned
+        - FixedFixed
+        - PinnedFixed
+      type: string
+    DirectionalityOption:
+      enum:
+        - CurrentDirectional
+        - WaveDirectional
+      type: string
+    F105Input:
+      required:
+        - coatingDensity
+        - coatingLayerThickness
+        - concreteConstructionStrength
+        - concreteDensity
+        - concreteLayerThickness
+        - concreteStiffnessFactor
+        - currentData
+        - DirectionalityOption
+        - effectiveResidualLayTension
+        - fluidDensityExternal
+        - fluidDensityInternal
+        - fluidPressureInternal
+        - hydrodynamicDampingRatio
+        - pipeSurfaceRoughness
+        - ResponseData
+        - safetyCategory
+        - safetyClass
+        - snCurveCap
+        - snCurveRoot
+        - soilDamping
+        - soilStiffness
+        - spanAngle
+        - spanGap
+        - spanLength
+        - steelCoefficientOfThermalExpansion
+        - steelDensity
+        - steelEmodulus
+        - steelOuterDiameter
+        - steelPoissonsRatio
+        - steelWallThickness
+        - structuralDampingRatio
+        - temperatureDifferenceAsLaid
+        - trenchDepth
+        - waterDepth
+        - waveData
+      type: object
+      properties:
+        soilStiffness:
+          type: object
+          description: 'JSon schema: Either PreDefinedSoil or SoilStiffnessUserDefined'
+          nullable: true
+        ResponseData:
+          $ref: '#/components/schemas/BoundaryCondition'
+        spanLength:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        waterDepth:
+          maximum: 11034.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanGap:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        trenchDepth:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanAngle:
+          maximum: 360.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        pipeSurfaceRoughness:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        fluidDensityInternal:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        temperatureDifferenceAsLaid:
+          maximum: 1000.0
+          minimum: -1000.0
+          type: number
+          format: double
+          nullable: true
+        fluidDensityExternal:
+          maximum: 2000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        fluidPressureInternal:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        effectiveResidualLayTension:
+          maximum: 10000000.0
+          minimum: -10000000.0
+          type: number
+          format: double
+          nullable: true
+        snCurveRoot:
+          type: object
+          description: 'JSon schema: Either PreDefinedSnCurve or SnCurveUserDefined'
+          nullable: true
+        snCurveCap:
+          type: object
+          description: 'JSon schema: Either PreDefinedSnCurve or SnCurveUserDefined'
+          nullable: true
+        soilDamping:
+          type: object
+          description: 'JSon schema: Either PreDefinedSoil or SoilDampingUserDefined'
+          nullable: true
+        structuralDampingRatio:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        hydrodynamicDampingRatio:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelOuterDiameter:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelWallThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelDensity:
+          maximum: 20000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelEmodulus:
+          maximum: 100000000000000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelCoefficientOfThermalExpansion:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelPoissonsRatio:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        coatingLayerThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        coatingDensity:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteLayerThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteDensity:
+          maximum: 4000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteConstructionStrength:
+          maximum: 1000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteStiffnessFactor:
+          maximum: 100.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        safetyClass:
+          type: string
+          nullable: true
+        safetyCategory:
+          type: string
+          nullable: true
+        currentData:
+          type: object
+          description: 'JSon schema: One, and only one, of the following schemas: CurrentRawDataWeibull, CurrentRawDataHistogram, CurrentRawDataRpv'
+          nullable: true
+        waveData:
+          type: object
+          description: 'JSon schema: {} for turning off Wave simulation, or one, and only one, of the following schemas: WaveRawDataWeibull, WaveRawDataHistogram, WaveRawDataRpv, WaveRawDataScatter'
+          nullable: true
+        DirectionalityOption:
+          $ref: '#/components/schemas/DirectionalityOption'
+      additionalProperties: false
+      example: "{\n\t\"ResponseData\": \"Rpf105\",\n\t\"SpanLength\": 18.513,\n\t\"WaterDepth\": 45.0,\n\t\"SpanGap\": 4.0,\n\t\"TrenchDepth\": 0.0,\n\t\"SpanAngle\": 60.0,\n\t\"PipeSurfaceRoughness\": 0.01,\n\t\"FluidDensityInternal\": 823.0,\n\t\"TemperatureDifferenceAsLaid\": 0.0,\n\t\"FluidDensityExternal\": 1027.0,\n\t\"FluidPressureInternal\": 0.0,\n\t\"EffectiveResidualLayTension\": 41000.0,\n\t\"SnCurveRoot\": {\n\t\t\"CurveName\": \"F1Air\",\n\t\t\"Scf\": 1.0\n\t},\n\t\"SnCurveCap\": {\n\t\t\"CurveName\": \"DSeaWaterCp\",\n\t\t\"Scf\": 1.4\n\t},\n\t\"SoilStiffness\": {\n\t\t\"SoilName\": \"ClayVerySoft\"\n\t},\n\t\"SoilDamping\": {\n\t\t\"SoilName\": \"ClayVerySoft\"\n\t},\n\t\"StructuralDampingRatio\": 0.005,\n\t\"HydrodynamicDampingRatio\": 0.0,\n\t\"SteelOuterDiameter\": 0.1683,\n\t\"SteelWallThickness\": 0.0112,\n\t\"SteelDensity\": 7850.0,\n\t\"SteelEmodulus\": 207000000000.0,\n\t\"SteelCoefficientOfThermalExpansion\": 1.17E-05,\n\t\"SteelPoissonsRatio\": 0.3,\n\t\"CoatingLayerThickness\": 0.006,\n\t\"CoatingDensity\": 1300.0,\n\t\"ConcreteLayerThickness\": 0.0,\n\t\"ConcreteDensity\": 2250.0,\n\t\"ConcreteConstructionStrength\": 42.0,\n\t\"ConcreteStiffnessFactor\": 0.25,\n\t\"SafetyClass\": \"MediumRisk\",\n\t\"SafetyCategory\": \"WellDefined\",\n\t\"CurrentData\": {\n\t\t\"Directions\": [\n\t\t\t0\n\t\t],\n\t\t\"SectorProbabilities\": [\n\t\t\t1\n\t\t],\n\t\t\"WeibullCoefficients\": [\n\t\t\t[\n\t\t\t\t2.159,\n\t\t\t\t0.1428,\n\t\t\t\t0\n\t\t\t]\n\t\t],\n\t\t\"TurbulenceIntensity\": 0.04,\n\t\t\"ReferenceHeight\": 3.0,\n\t\t\"OnBottomRoughness\": 5E-06,\n\t\t\"TimeBetweenEvents\": 1.0,\n\t\t\"UcCount\": 40\n\t},\n\t\"WaveData\": {\n\t\t\"Directions\": [\n\t\t\t0.0\n\t\t],\n\t\t\"HsBins\": [\n\t\t\t0.375,\n\t\t\t0.75,\n\t\t\t1.5,\n\t\t\t2.25,\n\t\t\t3.0,\n\t\t\t3.75,\n\t\t\t4.5,\n\t\t\t5.25,\n\t\t\t6.0,\n\t\t\t6.75,\n\t\t\t7.5,\n\t\t\t8.25,\n\t\t\t9.0,\n\t\t\t9.75,\n\t\t\t10.5\n\t\t],\n\t\t\"Histograms\": [\n\t\t\t[\n\t\t\t\t0.0022,\n\t\t\t\t0.2047,\n\t\t\t\t0.27370000000000005,\n\t\t\t\t0.19540000000000002,\n\t\t\t\t0.12830000000000003,\n\t\t\t\t0.08149999999999999,\n\t\t\t\t0.050800000000000005,\n\t\t\t\t0.028299999999999995,\n\t\t\t\t0.015200000000000002,\n\t\t\t\t0.007699999999999999,\n\t\t\t\t0.005,\n\t\t\t\t0.0038000000000000004,\n\t\t\t\t0.0019000000000000002,\n\t\t\t\t0.0009000000000000001,\n\t\t\t\t0.0006\n\t\t\t]\n\t\t],\n\t\t\"PeakednessParameter\": 0.0,\n\t\t\"SpreadingParameter\": 8.0,\n\t\t\"TpMultiplier\": 7.5,\n\t\t\"TpExponent\": 0.3,\n\t\t\"TimeBetweenEvents\": 3.0,\n\t\t\"MinWaveVelocity\": 0.0001\n\t},\n\t\"DirectionalityOption\": \"WaveDirectional\"\n}"
+    DamagePerHs:
+      type: object
+      properties:
+        hs:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineRm:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        crossFlow:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineFm:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineCombined:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    DamagePerDirection:
+      type: object
+      properties:
+        inLineRm:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        crossFlow:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineFm:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineCombined:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    DamagePerLocation:
+      type: object
+      properties:
+        inLineRm:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        crossFlow:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineFm:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        inLineCombined:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        indexOfMaxValInLineRm:
+          type: integer
+          format: int32
+          readOnly: true
+        indexOfMaxValCrossFlow:
+          type: integer
+          format: int32
+          readOnly: true
+        indexOfMaxValInLineFm:
+          type: integer
+          format: int32
+          readOnly: true
+        indexOfMaxValInLineCombined:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    Damage:
+      type: object
+      properties:
+        perHs:
+          $ref: '#/components/schemas/DamagePerHs'
+        perDirection:
+          $ref: '#/components/schemas/DamagePerDirection'
+        perLocation:
+          $ref: '#/components/schemas/DamagePerLocation'
+      additionalProperties: false
+    FatigueLifeResults:
+      type: object
+      properties:
+        damage:
+          $ref: '#/components/schemas/Damage'
+        inLineRm:
+          type: number
+          format: double
+          readOnly: true
+        crossFlow:
+          type: number
+          format: double
+          readOnly: true
+        inLineFm:
+          type: number
+          format: double
+          readOnly: true
+        inLineCombined:
+          type: number
+          format: double
+          readOnly: true
+      additionalProperties: false
+    ModeShapeInput:
+      required:
+        - coatingDensity
+        - coatingLayerThickness
+        - concreteConstructionStrength
+        - concreteDensity
+        - concreteLayerThickness
+        - concreteStiffnessFactor
+        - currentData
+        - DirectionalityOption
+        - effectiveResidualLayTension
+        - fluidDensityExternal
+        - fluidDensityInternal
+        - fluidPressureInternal
+        - frequenciesCrossFlow
+        - frequenciesInLine
+        - hydrodynamicDampingRatio
+        - locations
+        - modeShapesCrossFlow
+        - modeShapesInLine
+        - pipeSurfaceRoughness
+        - safetyCategory
+        - safetyClass
+        - snCurveCap
+        - snCurveRoot
+        - soilDamping
+        - spanAngle
+        - spanGap
+        - spanLength
+        - steelCoefficientOfThermalExpansion
+        - steelDensity
+        - steelEmodulus
+        - steelOuterDiameter
+        - steelPoissonsRatio
+        - steelWallThickness
+        - structuralDampingRatio
+        - temperatureDifferenceAsLaid
+        - trenchDepth
+        - waterDepth
+        - waveData
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        frequenciesInLine:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        frequenciesCrossFlow:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        modeShapesInLine:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        modeShapesCrossFlow:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        spanLength:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        waterDepth:
+          maximum: 11034.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanGap:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        trenchDepth:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanAngle:
+          maximum: 360.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        pipeSurfaceRoughness:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        fluidDensityInternal:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        temperatureDifferenceAsLaid:
+          maximum: 1000.0
+          minimum: -1000.0
+          type: number
+          format: double
+          nullable: true
+        fluidDensityExternal:
+          maximum: 2000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        fluidPressureInternal:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        effectiveResidualLayTension:
+          maximum: 10000000.0
+          minimum: -10000000.0
+          type: number
+          format: double
+          nullable: true
+        snCurveRoot:
+          type: object
+          description: 'JSon schema: Either PreDefinedSnCurve or SnCurveUserDefined'
+          nullable: true
+        snCurveCap:
+          type: object
+          description: 'JSon schema: Either PreDefinedSnCurve or SnCurveUserDefined'
+          nullable: true
+        soilDamping:
+          type: object
+          description: 'JSon schema: Either PreDefinedSoil or SoilDampingUserDefined'
+          nullable: true
+        structuralDampingRatio:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        hydrodynamicDampingRatio:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelOuterDiameter:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelWallThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelDensity:
+          maximum: 20000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelEmodulus:
+          maximum: 100000000000000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelCoefficientOfThermalExpansion:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelPoissonsRatio:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        coatingLayerThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        coatingDensity:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteLayerThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteDensity:
+          maximum: 4000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteConstructionStrength:
+          maximum: 1000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteStiffnessFactor:
+          maximum: 100.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        safetyClass:
+          type: string
+          nullable: true
+        safetyCategory:
+          type: string
+          nullable: true
+        currentData:
+          type: object
+          description: 'JSon schema: One, and only one, of the following schemas: CurrentRawDataWeibull, CurrentRawDataHistogram, CurrentRawDataRpv'
+          nullable: true
+        waveData:
+          type: object
+          description: 'JSon schema: {} for turning off Wave simulation, or one, and only one, of the following schemas: WaveRawDataWeibull, WaveRawDataHistogram, WaveRawDataRpv, WaveRawDataScatter'
+          nullable: true
+        DirectionalityOption:
+          $ref: '#/components/schemas/DirectionalityOption'
+      additionalProperties: false
+      example: "{\n\t\"SteelOuterDiameter\": 0.1683,\n\t\"SteelWallThickness\": 0.0112,\n\t\"SteelDensity\": 7850.0,\n\t\"SteelEmodulus\": 2.07E+11,\n\t\"SteelCoefficientOfThermalExpansion\": 1.17E-05,\n\t\"SteelPoissonsRatio\": 0.3,\n\t\"CoatingLayerThickness\": 0.006,\n\t\"CoatingDensity\": 1300.0,\n\t\"ConcreteLayerThickness\": 0.0,\n\t\"ConcreteDensity\": 2250,\n\t\"ConcreteConstructionStrength\": 42.0,\n\t\"ConcreteStiffnessFactor\": 0.25,\n\t\"FluidDensityInternal\": 823.0,\n\t\"TemperatureDifferenceAsLaid\": 0.0,\n\t\"FluidDensityExternal\": 1027,\n\t\"FluidPressureInternal\": 0.0,\n\t\"WaterDepth\": 45.0,\n\t\"SpanGap\": 4.0,\n\t\"SpanLength\": 18.513,\n\t\"SpanAngle\": 60.0,\n\t\"TrenchDepth\": 0.0,\n\t\"PipeSurfaceRoughness\": 0.01,\n\t\"EffectiveResidualLayTension\": 41000.0,\n\t\"SnCurveRoot\": {\n\t\t\"m1\": 3,\n\t\t\"m2\": 5,\n\t\t\"logA1\": 11.699,\n\t\t\"logA2\": 14.832,\n\t\t\"scf\": 1.4\n\t},\n\t\"SnCurveCap\": {\n\t\t\"curveName\": \"D  (seawater cp)\",\n\t\t\"scf\": 1.4\n\t},\n\t\"SoilDamping\": {\n\t\t\"soilName\": \"Clay - Very soft\"\n\t},\n\t\"HydrodynamicDampingRatio\": 0.0,\n\t\"StructuralDampingRatio\": 0.005,\n\t\"CurrentData\": {\n\t\t\"Directions\": [\n\t\t\t13,\n\t\t\t103,\n\t\t\t193,\n\t\t\t283\n\t\t],\n\t\t\"SectorProbabilities\": [\n\t\t\t0.435,\n\t\t\t0.303,\n\t\t\t0.147,\n\t\t\t0.115\n\t\t],\n\t\t\"WeibullCoefficients\": [\n\t\t\t[\n\t\t\t\t2.159,\n\t\t\t\t0.1428,\n\t\t\t\t0\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.819,\n\t\t\t\t0.1196,\n\t\t\t\t0\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.35,\n\t\t\t\t0.0748,\n\t\t\t\t0.0103\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.3,\n\t\t\t\t0.0675,\n\t\t\t\t0.0079\n\t\t\t]\n\t\t],\n\t\t\"TurbulenceIntensity\": 0.04,\n\t\t\"ReferenceHeight\": 3.0,\n\t\t\"OnBottomRoughness\": 5E-06,\n\t\t\"TimeBetweenEvents\": 1.0,\n\t\t\"UcCount\": 40\n\t},\n\t\"WaveData\": {\n\t\t\"Directions\": [\n\t\t\t13,\n\t\t\t103,\n\t\t\t193,\n\t\t\t283\n\t\t],\n\t\t\"SectorProbabilities\": [\n\t\t\t0.435,\n\t\t\t0.303,\n\t\t\t0.147,\n\t\t\t0.115\n\t\t],\n\t\t\"weibullCoefficients\": [\n\t\t\t[\n\t\t\t\t1.219,\n\t\t\t\t1.67,\n\t\t\t\t0.928\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.172,\n\t\t\t\t1.495,\n\t\t\t\t0.85\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.083,\n\t\t\t\t0.738,\n\t\t\t\t0.81\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.076,\n\t\t\t\t0.779,\n\t\t\t\t0.84\n\t\t\t]\n\t\t],\n\t\t\"PeakednessParameter\": 0.0,\n\t\t\"SpreadingParameter\": 8.0,\n\t\t\"TpMultiplier\": 7.5,\n\t\t\"TpExponent\": 0.3,\n\t\t\"TimeBetweenEvents\": 3.0,\n\t\t\"HsCount\": 40,\n\t\t\"MinWaveVelocity\": 0.0001\n\t},\n\t\"SafetyCategory\": \"WellDefined\",\n\t\"SafetyClass\": \"MediumRisk\",\n\t\"FrequenciesInLine\": [\n\t\t2.0,\n\t\t4.0,\n\t\t6.0,\n\t\t10.0\n\t],\n\t\"FrequenciesCrossFlow\": [\n\t\t3.0,\n\t\t6.0,\n\t\t9.0\n\t],\n\t\"Locations\": [\n\t\t0.0,\n\t\t0.92565000000000008,\n\t\t1.8513000000000002,\n\t\t2.7769500000000003,\n\t\t3.7026000000000003,\n\t\t4.62825,\n\t\t5.5539000000000005,\n\t\t6.4795500000000006,\n\t\t7.4052000000000007,\n\t\t8.3308500000000016,\n\t\t9.2565,\n\t\t10.182150000000002,\n\t\t11.107800000000001,\n\t\t12.03345,\n\t\t12.959100000000001,\n\t\t13.884750000000002,\n\t\t14.810400000000001,\n\t\t15.73605,\n\t\t16.661700000000003,\n\t\t17.58735,\n\t\t18.513\n\t],\n\t\"ModeShapesInLine\": [\n\t\t[\n\t\t\t0.0,\n\t\t\t0.15643446504023087,\n\t\t\t0.3090169943749474,\n\t\t\t0.4539904997395468,\n\t\t\t0.58778525229247314,\n\t\t\t0.70710678118654746,\n\t\t\t0.80901699437494745,\n\t\t\t0.89100652418836779,\n\t\t\t0.95105651629515353,\n\t\t\t0.98768834059513777,\n\t\t\t1.0,\n\t\t\t0.98768834059513766,\n\t\t\t0.95105651629515353,\n\t\t\t0.8910065241883679,\n\t\t\t0.80901699437494745,\n\t\t\t0.70710678118654757,\n\t\t\t0.58778525229247325,\n\t\t\t0.45399049973954686,\n\t\t\t0.30901699437494712,\n\t\t\t0.15643446504023098,\n\t\t\t0.0\n\t\t],\n\t\t[\n\t\t\t0.0,\n\t\t\t0.3090169943749474,\n\t\t\t0.58778525229247314,\n\t\t\t0.80901699437494745,\n\t\t\t0.95105651629515353,\n\t\t\t1.0,\n\t\t\t0.95105651629515353,\n\t\t\t0.80901699437494745,\n\t\t\t0.58778525229247325,\n\t\t\t0.30901699437494712,\n\t\t\t1.22514845490862E-16,\n\t\t\t-0.30901699437494773,\n\t\t\t-0.58778525229247336,\n\t\t\t-0.80901699437494734,\n\t\t\t-0.95105651629515353,\n\t\t\t-1.0,\n\t\t\t-0.95105651629515364,\n\t\t\t-0.80901699437494756,\n\t\t\t-0.58778525229247258,\n\t\t\t-0.30901699437494762,\n\t\t\t0.0\n\t\t],\n\t\t[\n\t\t\t0.0,\n\t\t\t0.4539904997395468,\n\t\t\t0.80901699437494745,\n\t\t\t0.98768834059513777,\n\t\t\t0.95105651629515353,\n\t\t\t0.70710678118654757,\n\t\t\t0.30901699437494751,\n\t\t\t-0.15643446504023073,\n\t\t\t-0.58778525229247336,\n\t\t\t-0.89100652418836823,\n\t\t\t-1.0,\n\t\t\t-0.89100652418836757,\n\t\t\t-0.58778525229247336,\n\t\t\t-0.15643446504023112,\n\t\t\t0.30901699437494717,\n\t\t\t0.70710678118654791,\n\t\t\t0.95105651629515375,\n\t\t\t0.98768834059513766,\n\t\t\t0.80901699437494656,\n\t\t\t0.45399049973954791,\n\t\t\t0.0\n\t\t],\n\t\t[\n\t\t\t0.0,\n\t\t\t0.70710678118654746,\n\t\t\t1.0,\n\t\t\t0.70710678118654757,\n\t\t\t0.0,\n\t\t\t-0.70710678118654746,\n\t\t\t-1.0,\n\t\t\t-0.70710678118654768,\n\t\t\t0.0,\n\t\t\t0.70710678118654791,\n\t\t\t1.0,\n\t\t\t0.70710678118654713,\n\t\t\t0.0,\n\t\t\t-0.70710678118654657,\n\t\t\t-1.0,\n\t\t\t-0.70710678118654724,\n\t\t\t0.0,\n\t\t\t0.70710678118654657,\n\t\t\t1.0,\n\t\t\t0.70710678118654857,\n\t\t\t0.0\n\t\t]\n\t],\n\t\"ModeShapesCrossFlow\": [\n\t\t[\n\t\t\t0.0,\n\t\t\t0.15643446504023087,\n\t\t\t0.3090169943749474,\n\t\t\t0.4539904997395468,\n\t\t\t0.58778525229247314,\n\t\t\t0.70710678118654746,\n\t\t\t0.80901699437494745,\n\t\t\t0.89100652418836779,\n\t\t\t0.95105651629515353,\n\t\t\t0.98768834059513777,\n\t\t\t1.0,\n\t\t\t0.98768834059513766,\n\t\t\t0.95105651629515353,\n\t\t\t0.8910065241883679,\n\t\t\t0.80901699437494745,\n\t\t\t0.70710678118654757,\n\t\t\t0.58778525229247325,\n\t\t\t0.45399049973954686,\n\t\t\t0.30901699437494712,\n\t\t\t0.15643446504023098,\n\t\t\t1.22514845490862E-16\n\t\t],\n\t\t[\n\t\t\t0.0,\n\t\t\t0.3090169943749474,\n\t\t\t0.58778525229247314,\n\t\t\t0.80901699437494745,\n\t\t\t0.95105651629515353,\n\t\t\t1.0,\n\t\t\t0.95105651629515353,\n\t\t\t0.80901699437494745,\n\t\t\t0.58778525229247325,\n\t\t\t0.30901699437494712,\n\t\t\t1.22514845490862E-16,\n\t\t\t-0.30901699437494773,\n\t\t\t-0.58778525229247336,\n\t\t\t-0.80901699437494734,\n\t\t\t-0.95105651629515353,\n\t\t\t-1.0,\n\t\t\t-0.95105651629515364,\n\t\t\t-0.80901699437494756,\n\t\t\t-0.58778525229247258,\n\t\t\t-0.30901699437494762,\n\t\t\t0.0\n\t\t],\n\t\t[\n\t\t\t0.0,\n\t\t\t0.4539904997395468,\n\t\t\t0.80901699437494745,\n\t\t\t0.98768834059513777,\n\t\t\t0.95105651629515353,\n\t\t\t0.70710678118654757,\n\t\t\t0.30901699437494751,\n\t\t\t-0.15643446504023073,\n\t\t\t-0.58778525229247336,\n\t\t\t-0.89100652418836823,\n\t\t\t-1.0,\n\t\t\t-0.89100652418836757,\n\t\t\t-0.58778525229247336,\n\t\t\t-0.15643446504023112,\n\t\t\t0.30901699437494717,\n\t\t\t0.70710678118654791,\n\t\t\t0.95105651629515375,\n\t\t\t0.98768834059513766,\n\t\t\t0.80901699437494656,\n\t\t\t0.45399049973954791,\n\t\t\t0.0\n\t\t]\n\t],\n\t\"DirectionalityOption\": \"CurrentDirectional\"\n}"
+    StressAmplitudeInput:
+      required:
+        - coatingDensity
+        - coatingLayerThickness
+        - concreteConstructionStrength
+        - concreteDensity
+        - concreteLayerThickness
+        - concreteStiffnessFactor
+        - currentData
+        - DirectionalityOption
+        - effectiveResidualLayTension
+        - fluidDensityExternal
+        - fluidDensityInternal
+        - fluidPressureInternal
+        - frequenciesCrossFlow
+        - frequenciesInLine
+        - hydrodynamicDampingRatio
+        - locations
+        - pipeSurfaceRoughness
+        - safetyCategory
+        - safetyClass
+        - snCurveCap
+        - snCurveRoot
+        - soilDamping
+        - spanAngle
+        - spanGap
+        - spanLength
+        - steelCoefficientOfThermalExpansion
+        - steelDensity
+        - steelEmodulus
+        - steelOuterDiameter
+        - steelPoissonsRatio
+        - steelWallThickness
+        - structuralDampingRatio
+        - temperatureDifferenceAsLaid
+        - trenchDepth
+        - unitDiameterStressAmplitudesCrossFlow
+        - unitDiameterStressAmplitudesInLine
+        - waterDepth
+        - waveData
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        frequenciesInLine:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        frequenciesCrossFlow:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        unitDiameterStressAmplitudesInLine:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        unitDiameterStressAmplitudesCrossFlow:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        lambda:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanLength:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        waterDepth:
+          maximum: 11034.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanGap:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        trenchDepth:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spanAngle:
+          maximum: 360.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        pipeSurfaceRoughness:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        fluidDensityInternal:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        temperatureDifferenceAsLaid:
+          maximum: 1000.0
+          minimum: -1000.0
+          type: number
+          format: double
+          nullable: true
+        fluidDensityExternal:
+          maximum: 2000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        fluidPressureInternal:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        effectiveResidualLayTension:
+          maximum: 10000000.0
+          minimum: -10000000.0
+          type: number
+          format: double
+          nullable: true
+        snCurveRoot:
+          type: object
+          description: 'JSon schema: Either PreDefinedSnCurve or SnCurveUserDefined'
+          nullable: true
+        snCurveCap:
+          type: object
+          description: 'JSon schema: Either PreDefinedSnCurve or SnCurveUserDefined'
+          nullable: true
+        soilDamping:
+          type: object
+          description: 'JSon schema: Either PreDefinedSoil or SoilDampingUserDefined'
+          nullable: true
+        structuralDampingRatio:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        hydrodynamicDampingRatio:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelOuterDiameter:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelWallThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelDensity:
+          maximum: 20000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelEmodulus:
+          maximum: 100000000000000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelCoefficientOfThermalExpansion:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        steelPoissonsRatio:
+          maximum: 10.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        coatingLayerThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        coatingDensity:
+          maximum: 10000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteLayerThickness:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteDensity:
+          maximum: 4000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteConstructionStrength:
+          maximum: 1000.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        concreteStiffnessFactor:
+          maximum: 100.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        safetyClass:
+          type: string
+          nullable: true
+        safetyCategory:
+          type: string
+          nullable: true
+        currentData:
+          type: object
+          description: 'JSon schema: One, and only one, of the following schemas: CurrentRawDataWeibull, CurrentRawDataHistogram, CurrentRawDataRpv'
+          nullable: true
+        waveData:
+          type: object
+          description: 'JSon schema: {} for turning off Wave simulation, or one, and only one, of the following schemas: WaveRawDataWeibull, WaveRawDataHistogram, WaveRawDataRpv, WaveRawDataScatter'
+          nullable: true
+        DirectionalityOption:
+          $ref: '#/components/schemas/DirectionalityOption'
+      additionalProperties: false
+      example: "{\n\t\"SteelOuterDiameter\": 0.1683,\n\t\"SteelWallThickness\": 0.0112,\n\t\"SteelDensity\": 7850.0,\n\t\"SteelEmodulus\": 2.07E+11,\n\t\"SteelCoefficientOfThermalExpansion\": 1.17E-05,\n\t\"SteelPoissonsRatio\": 0.3,\n\t\"CoatingLayerThickness\": 0.006,\n\t\"CoatingDensity\": 1300.0,\n\t\"ConcreteLayerThickness\": 0.0,\n\t\"ConcreteDensity\": 2250,\n\t\"ConcreteConstructionStrength\": 42.0,\n\t\"ConcreteStiffnessFactor\": 0.25,\n\t\"FluidDensityInternal\": 823.0,\n\t\"TemperatureDifferenceAsLaid\": 0.0,\n\t\"FluidDensityExternal\": 1027,\n\t\"FluidPressureInternal\": 0.0,\n\t\"WaterDepth\": 45.0,\n\t\"SpanGap\": 4.0,\n\t\"SpanLength\": 18.513,\n\t\"SpanAngle\": 60.0,\n\t\"TrenchDepth\": 0.0,\n\t\"PipeSurfaceRoughness\": 0.01,\n\t\"EffectiveResidualLayTension\": 41000.0,\n\t\"SnCurveRoot\": {\n\t\t\"m1\": 3,\n\t\t\"m2\": 5,\n\t\t\"logA1\": 11.699,\n\t\t\"logA2\": 14.832,\n\t\t\"scf\": 1.4\n\t},\n\t\"SnCurveCap\": {\n\t\t\"curveName\": \"D  (seawater cp)\",\n\t\t\"scf\": 1.4\n\t},\n\t\"SoilDamping\": {\n\t\t\"soilName\": \"Clay - Very soft\"\n\t},\n\t\"HydrodynamicDampingRatio\": 0.0,\n\t\"StructuralDampingRatio\": 0.005,\n\t\"CurrentData\": {\n\t\t\"Directions\": [\n\t\t\t13,\n\t\t\t103,\n\t\t\t193,\n\t\t\t283\n\t\t],\n\t\t\"SectorProbabilities\": [\n\t\t\t0.435,\n\t\t\t0.303,\n\t\t\t0.147,\n\t\t\t0.115\n\t\t],\n\t\t\"WeibullCoefficients\": [\n\t\t\t[\n\t\t\t\t2.159,\n\t\t\t\t0.1428,\n\t\t\t\t0\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.819,\n\t\t\t\t0.1196,\n\t\t\t\t0\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.35,\n\t\t\t\t0.0748,\n\t\t\t\t0.0103\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.3,\n\t\t\t\t0.0675,\n\t\t\t\t0.0079\n\t\t\t]\n\t\t],\n\t\t\"TurbulenceIntensity\": 0.04,\n\t\t\"ReferenceHeight\": 3.0,\n\t\t\"OnBottomRoughness\": 5E-06,\n\t\t\"TimeBetweenEvents\": 1.0,\n\t\t\"UcCount\": 40\n\t},\n\t\"WaveData\": {\n\t\t\"Directions\": [\n\t\t\t13,\n\t\t\t103,\n\t\t\t193,\n\t\t\t283\n\t\t],\n\t\t\"SectorProbabilities\": [\n\t\t\t0.435,\n\t\t\t0.303,\n\t\t\t0.147,\n\t\t\t0.115\n\t\t],\n\t\t\"WeibullCoefficients\": [\n\t\t\t[\n\t\t\t\t1.219,\n\t\t\t\t1.67,\n\t\t\t\t0.928\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.172,\n\t\t\t\t1.495,\n\t\t\t\t0.85\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.083,\n\t\t\t\t0.738,\n\t\t\t\t0.81\n\t\t\t],\n\t\t\t[\n\t\t\t\t1.076,\n\t\t\t\t0.779,\n\t\t\t\t0.84\n\t\t\t]\n\t\t],\n\t\t\"PeakednessParameter\": 0.0,\n\t\t\"SpreadingParameter\": 8.0,\n\t\t\"TpMultiplier\": 7.5,\n\t\t\"TpExponent\": 0.3,\n\t\t\"TimeBetweenEvents\": 3.0,\n\t\t\"HsCount\": 40,\n\t\t\"MinWaveVelocity\": 0.0001\n\t},\n\t\"SafetyCategory\": \"WellDefined\",\n\t\"SafetyClass\": \"MediumRisk\",\n\t\"FrequenciesInLine\": [\n\t\t2.0,\n\t\t4.0,\n\t\t6.0,\n\t\t10.0\n\t],\n\t\"FrequenciesCrossFlow\": [\n\t\t3.0,\n\t\t6.0,\n\t\t9.0\n\t],\n\t\"Locations\": [\n\t\t0.0,\n\t\t0.92565000000000008,\n\t\t1.8513000000000002,\n\t\t2.7769500000000003,\n\t\t3.7026000000000003,\n\t\t4.62825,\n\t\t5.5539000000000005,\n\t\t6.4795500000000006,\n\t\t7.4052000000000007,\n\t\t8.3308500000000016,\n\t\t9.2565,\n\t\t10.182150000000002,\n\t\t11.107800000000001,\n\t\t12.03345,\n\t\t12.959100000000001,\n\t\t13.884750000000002,\n\t\t14.810400000000001,\n\t\t15.73605,\n\t\t16.661700000000003,\n\t\t17.58735,\n\t\t18.513\n\t],\n\t\"UnitDiameterStressAmplitudesInLine\": [\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t26.0878228921596,\n\t\t\t38.3267715611718,\n\t\t\t49.6219879150853,\n\t\t\t59.6953462405924,\n\t\t\t68.298807024163,\n\t\t\t75.2205245080508,\n\t\t\t80.2900630359439,\n\t\t\t83.3825937444505,\n\t\t\t84.4219682640046,\n\t\t\t83.3825937444496,\n\t\t\t80.2900630359439,\n\t\t\t75.2205245080517,\n\t\t\t68.298807024162,\n\t\t\t59.6953462405929,\n\t\t\t49.6219879150854,\n\t\t\t38.326771561173,\n\t\t\t26.0878228921565,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t],\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t198.467996875085,\n\t\t\t273.167762690997,\n\t\t\t321.127964622995,\n\t\t\t337.653923947603,\n\t\t\t321.127964622995,\n\t\t\t273.167762690996,\n\t\t\t198.467996875087,\n\t\t\t104.340800717191,\n\t\t\t3.80198515590074E-12,\n\t\t\t104.340800717197,\n\t\t\t198.467996875086,\n\t\t\t273.167762690995,\n\t\t\t321.127964622996,\n\t\t\t337.653923947602,\n\t\t\t321.127964622995,\n\t\t\t273.167762691,\n\t\t\t198.467996875079,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t],\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t614.363214826687,\n\t\t\t750.045287545144,\n\t\t\t722.227274452238,\n\t\t\t536.973139422312,\n\t\t\t234.665866626141,\n\t\t\t118.795503085892,\n\t\t\t446.361003213683,\n\t\t\t676.62562892742,\n\t\t\t759.394696401092,\n\t\t\t676.625628927415,\n\t\t\t446.361003213684,\n\t\t\t118.795503085893,\n\t\t\t234.665866626138,\n\t\t\t536.973139422315,\n\t\t\t722.227274452238,\n\t\t\t750.045287545146,\n\t\t\t614.363214826675,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t],\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t2102.11792348144,\n\t\t\t1486.42183854751,\n\t\t\t5.06486200233175E-13,\n\t\t\t1486.42183854751,\n\t\t\t2102.11792348144,\n\t\t\t1486.42183854751,\n\t\t\t1.01297240046635E-12,\n\t\t\t1486.42183854752,\n\t\t\t2102.11792348144,\n\t\t\t1486.42183854751,\n\t\t\t2.53243100116588E-12,\n\t\t\t1486.4218385475,\n\t\t\t2102.11792348145,\n\t\t\t1486.42183854751,\n\t\t\t3.03891720139905E-12,\n\t\t\t1486.4218385475,\n\t\t\t2102.11792348144,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t]\n\t],\n\t\"UnitDiameterStressAmplitudesCrossFlow\": [\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t26.0878228921596,\n\t\t\t38.3267715611718,\n\t\t\t49.6219879150853,\n\t\t\t59.6953462405924,\n\t\t\t68.298807024163,\n\t\t\t75.2205245080508,\n\t\t\t80.2900630359439,\n\t\t\t83.3825937444505,\n\t\t\t84.4219682640046,\n\t\t\t83.3825937444496,\n\t\t\t80.2900630359439,\n\t\t\t75.2205245080517,\n\t\t\t68.298807024162,\n\t\t\t59.6953462405929,\n\t\t\t49.6219879150854,\n\t\t\t38.326771561173,\n\t\t\t26.0878228921565,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t],\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t198.467996875085,\n\t\t\t273.167762690997,\n\t\t\t321.127964622995,\n\t\t\t337.653923947603,\n\t\t\t321.127964622995,\n\t\t\t273.167762690996,\n\t\t\t198.467996875087,\n\t\t\t104.340800717191,\n\t\t\t3.80198515590074E-12,\n\t\t\t104.340800717197,\n\t\t\t198.467996875086,\n\t\t\t273.167762690995,\n\t\t\t321.127964622996,\n\t\t\t337.653923947602,\n\t\t\t321.127964622995,\n\t\t\t273.167762691,\n\t\t\t198.467996875079,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t],\n\t\t[\n\t\t\t0.001,\n\t\t\t0.001,\n\t\t\t614.363214826687,\n\t\t\t750.045287545144,\n\t\t\t722.227274452238,\n\t\t\t536.973139422312,\n\t\t\t234.665866626141,\n\t\t\t118.795503085892,\n\t\t\t446.361003213683,\n\t\t\t676.62562892742,\n\t\t\t759.394696401092,\n\t\t\t676.625628927415,\n\t\t\t446.361003213684,\n\t\t\t118.795503085893,\n\t\t\t234.665866626138,\n\t\t\t536.973139422315,\n\t\t\t722.227274452238,\n\t\t\t750.045287545146,\n\t\t\t614.363214826675,\n\t\t\t0.001,\n\t\t\t0.001\n\t\t]\n\t],\n\t\"Lambda\": 1.29,\n\t\"DirectionalityOption\": \"CurrentDirectional\"\n}"
+    CurrentRawDataWeibull:
+      required:
+        - directions
+        - onBottomRoughness
+        - referenceHeight
+        - sectorProbabilities
+        - timeBetweenEvents
+        - turbulenceIntensity
+        - ucCount
+        - weibullCoefficients
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        sectorProbabilities:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        weibullCoefficients:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        ucCount:
+          type: integer
+          format: int32
+          nullable: true
+        turbulenceIntensity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        referenceHeight:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        onBottomRoughness:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    CurrentRawDataRpv:
+      required:
+        - directions
+        - onBottomRoughness
+        - referenceHeight
+        - rpvs
+        - sectorProbabilities
+        - timeBetweenEvents
+        - turbulenceIntensity
+        - ucCount
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        sectorProbabilities:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        rpvs:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        ucCount:
+          type: integer
+          format: int32
+          nullable: true
+        turbulenceIntensity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        referenceHeight:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        onBottomRoughness:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    CurrentRawDataHistogram:
+      required:
+        - directions
+        - histograms
+        - onBottomRoughness
+        - referenceHeight
+        - timeBetweenEvents
+        - turbulenceIntensity
+        - ucBins
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        histograms:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        ucBins:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        turbulenceIntensity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        referenceHeight:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        onBottomRoughness:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    WaveRawDataWeibull:
+      required:
+        - directions
+        - hsCount
+        - minWaveVelocity
+        - peakednessParameter
+        - sectorProbabilities
+        - spreadingParameter
+        - timeBetweenEvents
+        - tpExponent
+        - tpMultiplier
+        - weibullCoefficients
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        sectorProbabilities:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        weibullCoefficients:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        hsCount:
+          maximum: 1000.0
+          minimum: 15.0
+          type: integer
+          format: int32
+          nullable: true
+        peakednessParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spreadingParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpMultiplier:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpExponent:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        minWaveVelocity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    WaveRawDataRpv:
+      required:
+        - directions
+        - hsCount
+        - minWaveVelocity
+        - peakednessParameter
+        - rpvs
+        - sectorProbabilities
+        - spreadingParameter
+        - timeBetweenEvents
+        - tpExponent
+        - tpMultiplier
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        sectorProbabilities:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        rpvs:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        hsCount:
+          maximum: 1000.0
+          minimum: 15.0
+          type: integer
+          format: int32
+          nullable: true
+        peakednessParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spreadingParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpMultiplier:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpExponent:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        minWaveVelocity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    WaveRawDataHistogram:
+      required:
+        - directions
+        - histograms
+        - hsBins
+        - minWaveVelocity
+        - peakednessParameter
+        - spreadingParameter
+        - timeBetweenEvents
+        - tpExponent
+        - tpMultiplier
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        hsBins:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        histograms:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          nullable: true
+        peakednessParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spreadingParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpMultiplier:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpExponent:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        minWaveVelocity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    WaveRawDataScatter:
+      required:
+        - directions
+        - hsBins
+        - minWaveVelocity
+        - peakednessParameter
+        - scatterDiagrams
+        - spreadingParameter
+        - timeBetweenEvents
+        - tpBins
+        - tpExponent
+        - tpMultiplier
+      type: object
+      properties:
+        directions:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        hsBins:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        tpBins:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        scatterDiagrams:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+                format: double
+          nullable: true
+        peakednessParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        spreadingParameter:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpMultiplier:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        tpExponent:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        timeBetweenEvents:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        minWaveVelocity:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    SoilStiffnessUserDefined:
+      required:
+        - kl
+        - kv
+        - kvs
+      type: object
+      properties:
+        kl:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        kv:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        kvs:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    SoilOption:
+      enum:
+        - UserDefined
+        - ClayVerySoft
+        - ClaySoft
+        - ClayFirm
+        - ClayStiff
+        - ClayVeryStiff
+        - ClayHard
+        - SandLoose
+        - SandMedium
+        - SandDense
+      type: string
+    PreDefinedSoil:
+      required:
+        - SoilName
+      type: object
+      properties:
+        SoilName:
+          $ref: '#/components/schemas/SoilOption'
+      additionalProperties: false
+    SoilDampingUserDefined:
+      required:
+        - crossFlowSoilDamping
+        - inLineSoilDamping
+      type: object
+      properties:
+        inLineSoilDamping:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        crossFlowSoilDamping:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    SnCurveUserDefined:
+      required:
+        - logA1
+        - logA2
+        - m1
+        - m2
+        - scf
+      type: object
+      properties:
+        m1:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        m2:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        logA1:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        logA2:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+        scf:
+          minimum: 0.0
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    SnCurveOption:
+      enum:
+        - UserDefined
+        - DAir
+        - EAir
+        - FAir
+        - F1Air
+        - F3Air
+        - DSeaWaterCp
+        - ESeaWaterCp
+        - FSeaWaterCp
+        - F1SeaWaterCp
+        - F3SeaWaterCp
+        - DFreeCorrosion
+        - EFreeCorrosion
+        - FFreeCorrosion
+        - F1FreeCorrosion
+        - F3FreeCorrosion
+        - Din2413
+        - F2Cn304
+      type: string
+    PreDefinedSnCurve:
+      required:
+        - CurveName
+        - scf
+      type: object
+      properties:
+        CurveName:
+          $ref: '#/components/schemas/SnCurveOption'
+        scf:
+          minimum: 0.0
+          type: number
+          format: double
+      additionalProperties: false
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

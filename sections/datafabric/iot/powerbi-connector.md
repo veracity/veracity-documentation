@@ -24,7 +24,7 @@ In order to fetch data from the IoT API incoming requests must contain a bearer 
 The Veracity IoT Power BI Connector will be delivered to you as a .mez file. In order to install it for use with Power BI Desktop you must put the file under `Documents/Power BI Desktop/Custom Connectors`. If the folder(s) do not exist, you must create them.
 
 <figure>
-	<img src="assets/connectorfolder.png"/>
+	<img src="assets/connectorfolder1.png"/>
 	<figcaption>Installing the connector</figcaption>
 </figure>
 
@@ -33,7 +33,7 @@ Since the iot connector is -- as of yet -- not certified by Microsoft, in order 
 In Power BI Desktop, go to `options and settings` -> `options` -> `Security` then under `Data Extensions` make sure `Allow any extension to load without validation or warning` is selected then press `Ok` to persist the change in settings.
 
 <figure>
-	<img src="assets/connectorenable.png"/>
+	<img src="assets/connectorenable1.png"/>
 	<figcaption>Enabling the connector</figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ In Power BI Desktop, go to `options and settings` -> `options` -> `Security` the
 Once installed and enabled you can fetch data from the Veracity IoT API by either making a direct m query (see below) or by clicking the `Get Data` ribbon and selecting `Veracity IoT (beta)` under `All` or `Other` or alternatively just searching for Veracity
 
 <figure>
-	<img src="assets/connectorconnect.PNG"/>
+	<img src="assets/connectorconnect1.png"/>
 	<figcaption>Connecting</figcaption>
 </figure>
 
@@ -50,13 +50,13 @@ Once installed and enabled you can fetch data from the Veracity IoT API by eithe
 Once connected to Veracity IoT you will be presented with a set of functions for importing data. If you are not logged in or it has been 60 minutes since your last login you will be presented with the login screen for the connector. To proceed click `Sign in as different users`. This will take you to the Veracity login where you will be providing your Veracity user credentials in order to proceed.
 
 <figure>
-	<img src="assets/connectorlogin.png"/>
+	<img src="assets/connectorlogin1.png"/>
 	<figcaption>Login</figcaption>
 </figure>
 
 You may get a popup warning about a script error, this can be safely ignored (click yes), and is caused by a script issue by the Microsoft login service.
 <figure>
-	<img src="assets/connectorlogincredentials.png"/>
+	<img src="assets/connectorlogincredentials1.png"/>
 	<figcaption>Login Credentials</figcaption>
 </figure>
 

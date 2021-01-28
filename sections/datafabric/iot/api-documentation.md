@@ -12,22 +12,22 @@ Only users that has access to an asset can access data from this asset.
 
 Base url: https://api.veracity.com/veracity/timeseries/api
 
-**[GET /v1/Assets](#get-v1assets)**
-**[GET /v1/Assets/{id}](##get-v1assetsid)**
-**[GET /v1/DataChannelList/{id}](#get-v1datachannellistid)**
-**[GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/ .getRawData](#v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)**
-**[GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/ .getDownSampledData](#v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)**
-**[POST /v1/TimeSeriesData/.getTimeSeriesData](#v1timeseriesdatagettimeseriesdata)**
-**[POST /v1/TimeSeriesData/.latest](#v1timeseriesdatalatest)**
-**[POST /v1/TimeSeriesData/.time_range](#v1timeseriesdatatime_range)**
-**[POST /v1/DataQuality/.timeseriesdata]#v1dataqualitytimeseriesdata)**
-**[POST /v1/DataQuality/aggregate/.score](#v1dataqualityaggregatescore)**
-**[POST /v1/DataQuality/aggregate/.rulescore](#v1dataqualityaggregaterulescore)**
-**[POST /v1/DataQuality/aggregate/.channelscore](#v1dataqualityaggregatechannelscore)**
-**[POST /v1/DataQuality/trend/.score](#v1dataqualitytrendscore)**
-**[POST /v1/DataQuality/trend/.rulescore](#v1dataqualitytrendrulescore)**
-**[GET /v1/Workspaces](#v1workspacesworkspaces)**
-**[GET /v1/Workspaces/{workspaceid}](#v1workspacesworkspaceid)**
+* [GET /v1/Assets](#get-v1assets)
+* [GET /v1/Assets/{id}](##get-v1assetsid)
+* [GET /v1/DataChannelList/{id}](#get-v1datachannellistid)
+* [GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/ .getRawData](#v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
+* [GET /v1/Assets/{id}/DataChannels/{dataChannelId}/TimeSeriesData/ .getDownSampledData](#v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
+* [POST /v1/TimeSeriesData/.getTimeSeriesData](#v1timeseriesdatagettimeseriesdata)
+* [POST /v1/TimeSeriesData/.latest](#v1timeseriesdatalatest)
+* [POST /v1/TimeSeriesData/.time_range](#v1timeseriesdatatime_range)
+* [POST /v1/DataQuality/.timeseriesdata]#v1dataqualitytimeseriesdata)
+* [POST /v1/DataQuality/aggregate/.score](#v1dataqualityaggregatescore)
+* [POST /v1/DataQuality/aggregate/.rulescore](#v1dataqualityaggregaterulescore)
+* [POST /v1/DataQuality/aggregate/.channelscore](#v1dataqualityaggregatechannelscore)
+* [POST /v1/DataQuality/trend/.score](#v1dataqualitytrendscore)
+* [POST /v1/DataQuality/trend/.rulescore](#v1dataqualitytrendrulescore)
+* [GET /v1/Workspaces](#v1workspacesworkspaces)
+* [GET /v1/Workspaces/{workspaceid}](#v1workspacesworkspaceid)
   	
 ### Assets
 

@@ -92,7 +92,7 @@ Get the latest n-received values for given channels. Datapoints in the response 
 * dataChannelIds: Array of channel ids. Use type specified in dataChannelIdType.  I.e. "AI030206", "AI030207", "AI030701" 
 
 
-####POST /v1/TimeSeriesData/.time_range
+#### POST /v1/TimeSeriesData/.time_range
 Returns min date and max date for received datapoints for selected channels
 
 * assetIds: array asset guids, ie. "2d37a463-xxxx-yyyy-zzzz-33c6f21f1724" 
@@ -101,7 +101,7 @@ Returns min date and max date for received datapoints for selected channels
 * dataChannelIds: Array of channel ids. Use type specified in dataChannelIdType.  I.e. "AI030206", "AI030207", "AI030701" 
 
 
-###POST Data quality
+### POST Data quality
 #### /v1/DataQuality/.timeseriesdata
 Returns data quality measures for channels for selected time period.
 
@@ -116,7 +116,7 @@ Returns data quality measures for channels for selected time period.
 * typeOption: sddData/Data. sddData returns datapoints and metadata, Data returns datapoints only
 
 
-####POST /v1/DataQuality/aggregate/.score
+#### POST /v1/DataQuality/aggregate/.score
 Returns aggregated dataquality score for assets for given time period
 
 * start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
@@ -125,7 +125,7 @@ Returns aggregated dataquality score for assets for given time period
 * includePreviousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
 
 
-####POST /v1/DataQuality/aggregate/.rulescore
+#### POST /v1/DataQuality/aggregate/.rulescore
 Returns aggregated dataquality score per data quality metric for selected period
 
 * start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
@@ -133,7 +133,7 @@ Returns aggregated dataquality score per data quality metric for selected period
 * assetIds: arrays of asset guids
 * includePreviousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
 
-####POST /v1/DataQuality/aggregate/.channelscore</td>                            
+#### POST /v1/DataQuality/aggregate/.channelscore</td>                            
 Returns aggregated data quality score per channel per data quality metric for selected period
 
 * start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
@@ -141,7 +141,7 @@ Returns aggregated data quality score per channel per data quality metric for se
 * assetIds: arrays of asset guids
 * includePreviousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
 
-####POST /v1/DataQuality/trend/.score</td>            
+#### POST /v1/DataQuality/trend/.score</td>            
 Returns aggregations per week for data quality score in selected period
 
 * start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
@@ -149,7 +149,7 @@ Returns aggregations per week for data quality score in selected period
 * assetIds: arrays of asset guids
 * includePreviousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
     			
-####POST /v1/DataQuality/trend/.rulescore</td>                                 
+#### POST /v1/DataQuality/trend/.rulescore</td>                                 
  Returns aggregations per week for each data quality metric in selected period.        
  
 * start: Start of period using format YYYY-MM-DDTHH:mm:ss.SSSZ (ISO-8601)
@@ -160,13 +160,13 @@ Returns aggregations per week for data quality score in selected period
 ### Workspaces
 Returns Asset Connect workspaces user has access to
 
-####GET /v1/Workspaces
+#### GET /v1/Workspaces
 Returns workspaces user has access to
 
-####GET /v1/Workspaces/{workspaceid}
+#### GET /v1/Workspaces/{workspaceid}
 Returns the workspace by id, and the assets (if any) in the workspace which have IoT Data enabled.
 
-###GET StoredProcedure
+### GET StoredProcedure
 #### /v1/StoredProcedure/{name}		
 Stored procedures can be used for custom queries. Must be managed by Veracity administrators.
 

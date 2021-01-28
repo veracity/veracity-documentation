@@ -42,7 +42,7 @@ In Power BI Desktop, go to `options and settings` -> `options` -> `Security` the
 Once installed and enabled you can fetch data from the Veracity IoT API by either making a direct m query (see below) or by clicking the `Get Data` ribbon and selecting `Veracity IoT (beta)` under `All` or `Other` or alternatively just searching for Veracity
 
 <figure>
-	<img src="assets/connectorconnect.png"/>
+	<img src="assets/connectorconnect.PNG"/>
 	<figcaption>Connecting</figcaption>
 </figure>
 

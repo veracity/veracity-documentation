@@ -1,0 +1,13 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "DNVGL RP O501 Rest API",
+			"href": "dnv-rp-o501-rest-api-openapi.yaml"
+		}
+	]
+}

@@ -1,0 +1,1067 @@
+openapi: 3.0.1
+info:
+  title: DNVGL RP-O501 REST Api
+  description: EROSIVE WEAR IN PIPING SYSTEMS
+  version: '1.0'
+servers:
+  - url: https://api.veracity.com/ext/dnvgl/rpo501
+paths:
+  /v2015/api/componentranking/blackoilstream:
+    post:
+      tags:
+        - ComponentRanking
+      summary: "Calculates relative erosion and relative criticality for a set of components (Line object) and a single\r\nflow condition specified through a BlackOilStream object and a ParticleStream object."
+      description: "REQUEST SCHEMA: LineBlackOilStream\r\n\r\nConsult the examples and sub-schemas for details on how the various components are defined."
+      operationId: post-v2015-api-componentranking-blackoilstream
+      requestBody:
+        description: LineBlackOilStream
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineBlackOilStream'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComponentRanking'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/componentranking/basicstream:
+    post:
+      tags:
+        - ComponentRanking
+      summary: "Calculates relative erosion and relative criticality for a set of components (Line object) and a single\r\nflow condition specified through a BasicStream object and a ParticleStream object."
+      description: "REQUEST SCHEMA: LineBasicStream\r\n\r\nConsult the examples and sub-schemas for details on how the various components are defined."
+      operationId: post-v2015-api-componentranking-basicstream
+      requestBody:
+        description: LineBasicStream
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineBasicStream'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComponentRanking'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/erosion/single/blackoilstream:
+    post:
+      tags:
+        - ErosionSingle
+      summary: "Calculates erosion in mm/ton sand and mm/year for a set of components (Line object) and a single flow\r\ncondition. Mixture velocity is also returned."
+      description: "REQUEST SCHEMA: LineBlackOilStream\r\n\r\nConsult the examples and sub-schemas for details on how to specify input."
+      operationId: post-v2015-api-erosion-single-blackoilstream
+      requestBody:
+        description: LineBlackOilStream
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineBlackOilStream'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComponentResult'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/erosion/single/basicstream:
+    post:
+      tags:
+        - ErosionSingle
+      summary: "Calculates erosion in mm/ton sand and mm/year for a set of components (Line object) and a single flow\r\ncondition. Mixture velocity is also returned."
+      description: "REQUEST SCHEMA: LineBasicStream\r\n\r\nConsult the examples and sub-schemas for details on how to specify input."
+      operationId: post-v2015-api-erosion-single-basicstream
+      requestBody:
+        description: LineBasicStream
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineBasicStream'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComponentResult'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/erosion/timeseries/blackoilstream:
+    post:
+      tags:
+        - ErosionTimeSeries
+      summary: "Calculates erosion in mm/ton sand and mm/year for a set of components (Line object) and a time series of flow\r\nconditions."
+      description: "REQUEST SCHEMA: LineBlackOilStreamTimeSeries\r\n\r\nConsult the examples and sub-schemas for details on how the various components are defined."
+      operationId: post-v2015-api-erosion-timeseries-blackoilstream
+      requestBody:
+        description: LineBlackOilStreamTimeSeries
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineBlackOilStreamTimeSeries'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2015ApiErosionTimeseriesBlackoilstreamPost200ApplicationJsonResponse'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/erosion/timeseries/basicstream:
+    post:
+      tags:
+        - ErosionTimeSeries
+      summary: "Calculates erosion in mm/ton sand and mm/year for a set of components (Line object) and a single flow\r\ncondition. Mixture velocity is also returned."
+      description: "REQUEST SCHEMA: LineBasicStreamTimeSeries\r\n\r\nConsult the examples and sub-schemas for details on how the various components are defined."
+      operationId: post-v2015-api-erosion-timeseries-basicstream
+      requestBody:
+        description: LineBasicStreamTimeSeries
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineBasicStreamTimeSeries'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2015ApiErosionTimeseriesBasicstreamPost200ApplicationJsonResponse'
+        '400':
+          description: Invalid or insufficient input. This includes valid input that is outside the model ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/PredefinedErosiveAgent:
+    get:
+      tags:
+        - PredefinedErosiveAgent
+      summary: "Provides access to default (RP-O501) density and reduction factor for the erosive agents Quartz, Barite and\r\nCalcite."
+      description: 'Schema: None'
+      operationId: get-v2015-api-predefinederosiveagent
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/V2015ApiPredefinedErosiveAgentGet200TextPlainResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2015ApiPredefinedErosiveAgentGet200ApplicationJsonResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/V2015ApiPredefinedErosiveAgentGet200TextJsonResponse'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  '/v2015/api/PredefinedErosiveAgent/{erosiveAgentName}':
+    get:
+      tags:
+        - PredefinedErosiveAgent
+      summary: "Provides access to default (RP-O501) density and reduction factor for a specific predefined erosive agent\r\nas specified by name 'erosiveAgentName'."
+      description: 'Schema: None.'
+      operationId: get-v2015-api-predefinederosiveagent-erosiveagentname
+      parameters:
+        - name: erosiveAgentName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErosiveAgent'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErosiveAgent'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErosiveAgent'
+        '400':
+          description: Invalid erosive agent name.
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  /v2015/api/PredefinedTargetMaterial:
+    get:
+      tags:
+        - PredefinedTargetMaterial
+      summary: Provides access to default (RP-O501) coefficients K / n and density for all predefined target materials.
+      description: 'Schema: None'
+      operationId: get-v2015-api-predefinedtargetmaterial
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/V2015ApiPredefinedTargetMaterialGet200TextPlainResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2015ApiPredefinedTargetMaterialGet200ApplicationJsonResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/V2015ApiPredefinedTargetMaterialGet200TextJsonResponse'
+        '500':
+          description: Calculation error. Unhandled exceptions.
+  '/v2015/api/PredefinedTargetMaterial/{targetMaterialName}':
+    get:
+      tags:
+        - PredefinedTargetMaterial
+      summary: "Provides access to default (RP-O501) coefficients K / n and density for a specific predefined target\r\nmaterial as specified by name 'TargetMaterialName'."
+      description: 'Schema: None.'
+      operationId: get-v2015-api-predefinedtargetmaterial-targetmaterialname
+      parameters:
+        - name: targetMaterialName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/TargetMaterial'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TargetMaterial'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TargetMaterial'
+        '400':
+          description: Invalid target material name.
+        '500':
+          description: Calculation error. Unhandled exceptions.
+components:
+  schemas:
+    BlackOilStream:
+      type: object
+      properties:
+        temperatureStd:
+          type: number
+          description: 'Temperature at standard (reference) condition: [deg C]'
+          format: double
+          nullable: true
+        pressureStd:
+          type: number
+          description: 'Pressure at standard (reference) condition: [Bar abs]'
+          format: double
+          nullable: true
+        gasMolWeight:
+          type: number
+          description: 'Mol weight (MW) of gas: [g/mol]'
+          format: double
+          nullable: true
+        oilDensityStd:
+          type: number
+          description: 'Density of oil phase: [kg/m3]'
+          format: double
+          nullable: true
+        waterDensityStd:
+          type: number
+          description: 'Density of water phase: [kg/m3]'
+          format: double
+          nullable: true
+        gasViscosity:
+          type: number
+          description: 'Viscosity of gas phase: [Pas]'
+          format: double
+          nullable: true
+        oilViscosity:
+          type: number
+          description: 'Viscosity of oil phase: [Pas]'
+          format: double
+          nullable: true
+        waterViscosity:
+          type: number
+          description: 'Viscosity of water phase: [Pas]'
+          format: double
+          nullable: true
+        gasCompressibilityFactor:
+          type: number
+          description: 'Gas compressibility factor: [-]'
+          format: double
+          nullable: true
+        temperature:
+          type: number
+          description: 'Temperature: [deg C]'
+          format: double
+          nullable: true
+        pressure:
+          type: number
+          description: 'Pressure: [bar absolute]'
+          format: double
+          nullable: true
+        gasVolumetricRateStd:
+          type: number
+          description: 'Gas rate at standard conditions: [m3/day]'
+          format: double
+          nullable: true
+        oilVolumetricRateStd:
+          type: number
+          description: 'Oil rate at standard conditions: [m3/day]'
+          format: double
+          nullable: true
+        waterVolumetricRateStd:
+          type: number
+          description: 'Water rate at standard conditions: [m3/day]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: "Defines a single 'snapshot' of a fluid stream according to the simplified \"Black oil\" equation of state.\r\n\"Black oil\" assumes no flashing or absorption, meaning the gas fraction will behave as an ideal gas, and that\r\nthe oil and water phases retain their properties (density/viscosity) regardless of pressure or temperature.\r\nFlow rates are given with reference to a standard condition, for which pressure and temperature are known, i.e.\r\na volumetric gas flow rate in Sm3/d assumes that the gas density is equal to that of the reference condition\r\ngiven by PressureStd and TemperatureStd.\r\n            \r\nMixture density and mixture viscosity are calculated based on the volume weighted fractions of gas. oil and\r\nwater, and these are used as inputs to the erosion calculations."
+    ErosiveAgent:
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'Name of predefined erosive agent, or custom name (optional).'
+          nullable: true
+        density:
+          type: number
+          description: 'Density of erosive agent [kg/m3]'
+          format: double
+          nullable: true
+        reductionFactor:
+          type: number
+          description: "ReductionFactor [-] Correction factor enabling adjustment of the erosive response based on geometric properties\r\nof the erosive agents. For example, proppants would typically be modelled with ReductionFactor > 1.\r\nA value of 1.0 corresponds to standard RP-O501 models."
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: "Describes the erosive agent present in a fluid stream.\r\n\r\nTo use predefined erosive agent properties (see separate endpoint), specify the name of the predefined\r\nerosive agent. In this case, the values of Density and ReductionFactor will be ignored,\r\nand the corresponding predefined erosive agent values will be applied.\r\nIf Name does not correspond to a predefined erosive agent, the values of Density, and ReductionFactor must be\r\nspecified."
+    ParticleStream:
+      type: object
+      properties:
+        particleDiameter:
+          type: number
+          description: 'Representative particle diameter. Typically set to d50 for the particle size distribution: [microns]'
+          format: double
+          nullable: true
+        particleMassFlowRate:
+          type: number
+          description: 'Particle mass flow rate: [g/s]'
+          format: double
+          nullable: true
+        erosiveAgent:
+          $ref: '#/components/schemas/ErosiveAgent'
+      additionalProperties: false
+      description: Defines the particle content in a fluid stream.
+    AngleDependencyOption:
+      enum:
+        - Ductile
+        - DuctileLegacy
+        - Brittle
+      type: string
+    TargetMaterial:
+      type: object
+      properties:
+        angleDependency:
+          $ref: '#/components/schemas/AngleDependencyOption'
+        name:
+          type: string
+          description: 'Name of predefined target material, or custom name (optional).'
+          nullable: true
+        density:
+          type: number
+          description: 'Density of target material [kg/m3]'
+          format: double
+          nullable: true
+        k:
+          type: number
+          description: Constant of proportionality in RP-O501 response equation
+          format: double
+          nullable: true
+        n:
+          type: number
+          description: Velocity exponent in RP-O501 response equation
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: "To use predefined target material properties (see separate endpoint), specify the name of the predefined\r\ntarget material. In this case, the values of AngleDependencyOption, Density, K and N will be ignored,\r\nand the corresponding predefined material values will be applied.\r\nIf Name does not correspond to a predefined target material, the values of AngleDependencyOption Density,\r\nK and N must be specified."
+    Bend:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        pipeDiameter:
+          type: number
+          description: 'Diameter of pipe [m]'
+          format: double
+          nullable: true
+        radiusOfCurvature:
+          type: number
+          description: 'Radius of curvature for the pipe, expressed in number of inner diameters [-]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Bend geometry model definition.
+    Tee:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        pipeDiameter:
+          type: number
+          description: 'Diameter of pipe at inlet/outlet [m]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Blinded tee geometry model definition.
+    Reducer:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        inletDiameter:
+          type: number
+          description: 'Inlet diameter of contraction [m]'
+          format: double
+          nullable: true
+        outletDiameter:
+          type: number
+          description: 'Outlet diameter of contraction [m]'
+          format: double
+          nullable: true
+        projectedAngleInDegrees:
+          type: number
+          description: 'Angle between the pipe axis and the surface of the contracting part of the pipe [deg]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Reducer/contraction geometry model definition.
+    ErProbe:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        pipeDiameter:
+          type: number
+          description: 'Diameter of pipe [m]'
+          format: double
+          nullable: true
+        projectedAngleInDegrees:
+          type: number
+          description: 'Angle between the pipe axis and surface of the probe elements [deg]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Erosion probe (electrical resistivity probe) geometry model definition.
+    SmoothPipe:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        pipeDiameter:
+          type: number
+          description: 'Diameter of pipe [m]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Smooth pipe geometry model definition.
+    WeldedJointUpstream:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        pipeDiameter:
+          type: number
+          description: 'Diameter of pipe [m]'
+          format: double
+          nullable: true
+        projectedAngleInDegrees:
+          type: number
+          description: 'Angle between the pipe axis and flow-facing surface of the weld [deg]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Welded joint (flow-facing side) geometry model definition.
+    WeldedJointDownstream:
+      type: object
+      properties:
+        geometryFactor:
+          type: number
+          description: 'Correction factor applied to results in order to account for isometric effects (swirl) [-]'
+          format: double
+          nullable: true
+        erosionAllowance:
+          type: number
+          description: 'Erosion allowance for component. Used for calculation of relative criticality [mm]'
+          format: double
+          nullable: true
+        tag:
+          type: string
+          description: Component ID
+          nullable: true
+        material:
+          $ref: '#/components/schemas/TargetMaterial'
+        pipeDiameter:
+          type: number
+          description: 'Diameter of pipe [m]'
+          format: double
+          nullable: true
+        weldHeight:
+          type: number
+          description: 'Height of weld as measured from the pipe wall [mm]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Welded joint (downstream side) geometry model definition.
+    ComponentsWrapper:
+      type: object
+      properties:
+        bends:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bend'
+          nullable: true
+        tees:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tee'
+          nullable: true
+        reducers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reducer'
+          nullable: true
+        erProbes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErProbe'
+          nullable: true
+        smoothPipes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SmoothPipe'
+          nullable: true
+        weldedJointsUpstream:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeldedJointUpstream'
+          nullable: true
+        weldedJointsDownstream:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeldedJointDownstream'
+          nullable: true
+      additionalProperties: false
+      description: "Contains definition of all components on the line. At least one of the arrays containing at least one component,\r\nhas to be specified."
+    Line:
+      type: object
+      properties:
+        tag:
+          type: string
+          nullable: true
+        serviceLife:
+          type: number
+          format: double
+          nullable: true
+        components:
+          $ref: '#/components/schemas/ComponentsWrapper'
+      additionalProperties: false
+      description: "Contains the Line definition, i.e. the virtual pipe containing a group of components for which erosion\r\nis to be calculated."
+    LineBlackOilStream:
+      type: object
+      properties:
+        fluidStream:
+          $ref: '#/components/schemas/BlackOilStream'
+        particleStream:
+          $ref: '#/components/schemas/ParticleStream'
+        line:
+          $ref: '#/components/schemas/Line'
+      additionalProperties: false
+      description: ''
+      example: "{\r\n\t\"FluidStream\": {\r\n\t\t\"TemperatureStd\": 15.6,\r\n\t\t\"Temperature\": 50,\r\n\t\t\"PressureStd\": 1.01325,\r\n\t\t\"Pressure\": 63,\r\n\t\t\"GasMolWeight\": 19,\r\n\t\t\"OilDensityStd\": 800,\r\n\t\t\"WaterDensityStd\": 1020,\r\n\t\t\"GasVolumetricRateStd\": 1000000,\r\n\t\t\"OilVolumetricRateStd\": 1000,\r\n\t\t\"WaterVolumetricRateStd\": 10,\r\n\t\t\"GasViscosity\": 1.5E-5,\r\n\t\t\"OilViscosity\": 1E-4,\r\n\t\t\"WaterViscosity\": 1E-3,\r\n\t\t\"GasCompressibilityFactor\": 0.9\r\n\t},\r\n\t\"ParticleStream\": {\r\n\t\t\"ParticleDiameter\": 150,\r\n\t\t\"ParticleMassFlowRate\": 0.1,\r\n\t\t\"ErosiveAgent\": {\r\n\t\t\t\"Name\": \"Quartz\",\r\n\t\t\t\"Density\": 2650,\r\n\t\t\t\"ReductionFactor\": 1\r\n\t\t}\r\n\t},\r\n\t\"Line\": {\r\n\t\t\"Tag\": \"BC-USC\",\r\n\t\t\"ServiceLife\": 20,\r\n\t\t\"Components\": {\r\n\t\t\t\"Bends\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"XMT elbow 5inch\",\r\n\t\t\t\t\t\"GeometryFactor\": 2,\r\n\t\t\t\t\t\"ErosionAllowance\": 0.83,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1223,\r\n\t\t\t\t\t\"RadiusOfCurvature\": 3\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"Tees\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"XMT Tee\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1302\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+    ComponentRanking:
+      type: object
+      properties:
+        componentTags:
+          type: array
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+        relativeErosion:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+        relativeCriticality:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+      description: Relative erosion and relative criticality for a line of components.
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: { }
+    BasicStream:
+      type: object
+      properties:
+        density:
+          type: number
+          description: 'Representative mixture density of all phases: [kg/m3]'
+          format: double
+          nullable: true
+        viscosity:
+          type: number
+          description: 'Representative mixture viscosity of all phases: [Pas]'
+          format: double
+          nullable: true
+        volumetricRate:
+          type: number
+          description: 'Sum of volumetric flow rate for all phases: [m3/s]'
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: "Defines a single 'snapshot' of a fluid stream with direct specification of fluid properties and flow rate.\r\nNote that rates are given as m3/s rather than m3/day."
+    LineBasicStream:
+      type: object
+      properties:
+        fluidStream:
+          $ref: '#/components/schemas/BasicStream'
+        particleStream:
+          $ref: '#/components/schemas/ParticleStream'
+        line:
+          $ref: '#/components/schemas/Line'
+      additionalProperties: false
+      description: ''
+      example: "{\r\n\t\"FluidStream\": {\r\n\t\t\"VolumetricRate\": 0.23,\r\n\t\t\"Density\": 45,\r\n\t\t\"Viscosity\": 1.5E-4\r\n\t},\r\n\t\"ParticleStream\": {\r\n\t\t\"ParticleDiameter\": 150,\r\n\t\t\"ParticleMassFlowRate\": 0.1,\r\n\t\t\"ErosiveAgent\": {\r\n\t\t\t\"Name\": \"Quartz\",\r\n\t\t\t\"Density\": 2650,\r\n\t\t\t\"ReductionFactor\": 1\r\n\t\t}\r\n\t},\r\n\t\"Line\": {\r\n\t\t\"Tag\": \"13L0001\",\r\n\t\t\"ServiceLife\": 25,\r\n\t\t\"Components\": {\r\n\t\t\t\"Bends\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"8inch CS 3D bend\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1683,\r\n\t\t\t\t\t\"RadiusOfCurvature\": 1.5\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"6inch CS 3D bend\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1683,\r\n\t\t\t\t\t\"RadiusOfCurvature\": 1.5\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"Tees\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"8inch CS blinded tee\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1683\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"6inch CS blinded tee\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1245\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"Reducers\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"Duplex\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7850,\r\n\t\t\t\t\t\t\"K\": 2E-09,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"8x6inch reducer\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 2.0,\r\n\t\t\t\t\t\"InletDiameter\": 0.1683,\r\n\t\t\t\t\t\"OutletDiameter\": 0.1245,\r\n\t\t\t\t\t\"ProjectedAngleInDegrees\": 45\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"ErProbes\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"Duplex\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7850,\r\n\t\t\t\t\t\t\"K\": 2E-09,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"Erosion probe\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 2.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1245,\r\n\t\t\t\t\t\"ProjectedAngleInDegrees\": 45\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"SmoothPipes\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"Duplex\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7850,\r\n\t\t\t\t\t\t\"K\": 2E-09,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"Generic 6inch piping\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 2.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1245\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"WeldedJointsUpstream\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"Duplex\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7850,\r\n\t\t\t\t\t\t\"K\": 2E-09,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"Generic 6inch weld US\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 2.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1245,\r\n\t\t\t\t\t\"ProjectedAngleInDegrees\": 60\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"WeldedJointsDownstream\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"Duplex\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7850,\r\n\t\t\t\t\t\t\"K\": 2E-09,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"Generic 6inch weld DS\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 2.0,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1245,\r\n\t\t\t\t\t\"WeldHeight\": 10\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+    ComponentResult:
+      type: object
+      properties:
+        geometryModel:
+          type: string
+          nullable: true
+        tag:
+          type: string
+          nullable: true
+        fluidVelocity:
+          type: number
+          description: Mixture velocity applied in erosion model
+          format: double
+        erosionPerTon:
+          type: number
+          description: 'Erosion rate [mm/ton]'
+          format: double
+        erosionPerYear:
+          type: number
+          description: 'Erosion rate [mm/year]'
+          format: double
+      additionalProperties: false
+      description: Calculation results for a single component.
+    BlackOilStreamTimeSeries:
+      type: object
+      properties:
+        temperatureStd:
+          type: number
+          description: 'Temperature at standard (reference) condition: [deg C]'
+          format: double
+          nullable: true
+        pressureStd:
+          type: number
+          description: 'Pressure at standard (reference) condition: [Bar abs]'
+          format: double
+          nullable: true
+        gasMolWeight:
+          type: number
+          description: 'Mol weight (MW) of gas: [g/mol]'
+          format: double
+          nullable: true
+        oilDensityStd:
+          type: number
+          description: 'Density of oil phase: [kg/m3]'
+          format: double
+          nullable: true
+        waterDensityStd:
+          type: number
+          description: 'Density of water phase: [kg/m3]'
+          format: double
+          nullable: true
+        gasViscosity:
+          type: number
+          description: 'Viscosity of gas phase: [Pas]'
+          format: double
+          nullable: true
+        oilViscosity:
+          type: number
+          description: 'Viscosity of oil phase: [Pas]'
+          format: double
+          nullable: true
+        waterViscosity:
+          type: number
+          description: 'Viscosity of water phase: [Pas]'
+          format: double
+          nullable: true
+        gasCompressibilityFactor:
+          type: number
+          description: 'Gas compressibility factor: [-]'
+          format: double
+          nullable: true
+        temperature:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of temperatures: [deg C]'
+          nullable: true
+        pressure:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of pressures: [bar absolute]'
+          nullable: true
+        timeSeries:
+          type: array
+          items:
+            type: string
+          description: "Array of timestamps. Several valid formats apply, e.g. \"08/18/2018 07:22:16\", \"8/2018\", \"2018-08-18T07:22:16.0000000-07:00\".\r\nMake sure that all timestamps are arranged in chronological order, as this is required to calculate accumulated erosion."
+          nullable: true
+        gasVolumetricRateStd:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of gas rates at standard conditions: [m3/day]'
+          nullable: true
+        oilVolumetricRateStd:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of oil rates at standard conditions: [m3/day]'
+          nullable: true
+        waterVolumetricRateStd:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of water rates at standard conditions: [m3/day]'
+          nullable: true
+      additionalProperties: false
+      description: "Similar to the BlackOilStream specification, except that pressure, temperature and flow rates are given as time\r\nseries rather than a single set of values, enabling more efficient processing of an entire production history.\r\n\r\nThe fluid stream is defined according to the simplified \"Black oil\" equation of state.\r\n\"Black oil\" assumes no flashing or absorption, meaning the gas fraction will behave as an ideal gas, and that\r\nthe oil and water phases retain their properties (density/viscosity) regardless of pressure or temperature.\r\nFlow rates are given with reference to a standard condition, for which pressure and temperature are known, i.e.\r\na volumetric gas flow rate in Sm3/d assumes that the gas density is equal to that of the reference condition\r\ngiven by PressureStd and TemperatureStd.\r\n            \r\nMixture density and mixture viscosity are calculated based on the volume weighted fractions of gas. oil and\r\nwater, and these are used as inputs to the erosion calculations.\r\n            \r\nNote that the number of data sets, i.e. the length of the pressure, temperature, flow rate and time series\r\narrays must match each other and those of the ParticleStreamTimeSeries object."
+    ParticleStreamTimeSeries:
+      type: object
+      properties:
+        particleDiameter:
+          type: number
+          description: 'Representative particle diameter. Typically set to d50 for the particle size distribution: [microns]'
+          format: double
+          nullable: true
+        particleMassFlowRates:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of particle mass flow rates: [g/s]'
+          nullable: true
+        timeSeries:
+          type: array
+          items:
+            type: string
+          description: "Array of timestamps. Several valid formats apply, e.g. \"08/18/2018 07:22:16\", \"8/2018\", \"2018-08-18T07:22:16.0000000-07:00\".\r\nMake sure that all timestamps are arranged in chronological order, as this is required to calculate accumulated erosion."
+          nullable: true
+        erosiveAgent:
+          $ref: '#/components/schemas/ErosiveAgent'
+      additionalProperties: false
+      description: "Similar to the ParticleStream specification, except that particle mass flow rate is given as time series rather\r\nthan a single set of values.\r\n            \r\nPlease note that the number of data sets, i.e. the length of the ParticleMassFlowRates and TimeSeries arrays\r\nmust match each other and those of the fluid stream (BasicStreamTimeSeries or BlackOilStreamTimeSeries)."
+    LineBlackOilStreamTimeSeries:
+      type: object
+      properties:
+        fluidStream:
+          $ref: '#/components/schemas/BlackOilStreamTimeSeries'
+        particleStream:
+          $ref: '#/components/schemas/ParticleStreamTimeSeries'
+        line:
+          $ref: '#/components/schemas/Line'
+      additionalProperties: false
+      description: ''
+      example: "{\r\n\t\"FluidStream\": {\r\n\t\t\"TemperatureStd\": 15.6,\r\n\t\t\"PressureStd\": 1.01325,\r\n\t\t\"GasMolWeight\": 19,\r\n\t\t\"OilDensityStd\": 850,\r\n\t\t\"WaterDensityStd\": 1035,\r\n\t\t\"GasViscosity\": 0.000015,\r\n\t\t\"OilViscosity\": 0.0001,\r\n\t\t\"WaterViscosity\": 0.001,\r\n\t\t\"GasCompressibilityFactor\": 0.9,\r\n\t\t\"TimeSeries\": [\r\n\t\t\t\"01/01/1997\",\r\n\t\t\t\"01/02/1997\",\r\n\t\t\t\"01/03/1997\",\r\n\t\t\t\"01/04/1997\",\r\n\t\t\t\"01/05/1997\",\r\n\t\t\t\"01/06/1997\",\r\n\t\t\t\"01/07/1997\",\r\n\t\t\t\"01/08/1997\",\r\n\t\t\t\"01/09/1997\",\r\n\t\t\t\"01/10/1997\",\r\n\t\t\t\"01/11/1997\",\r\n\t\t\t\"01/12/1997\",\r\n\t\t\t\"01/01/1998\",\r\n\t\t\t\"01/02/1998\",\r\n\t\t\t\"01/03/1998\"\r\n\t\t],\r\n\t\t\"Temperature\": [\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85,\r\n\t\t\t85\r\n\t\t],\r\n\t\t\"Pressure\": [\r\n\t\t\t0,\r\n\t\t\t169.99,\r\n\t\t\t176.33,\r\n\t\t\t174.48,\r\n\t\t\t106.68,\r\n\t\t\t89.6,\r\n\t\t\t143.2,\r\n\t\t\t155.94,\r\n\t\t\t82.49,\r\n\t\t\t151.05,\r\n\t\t\t149.26,\r\n\t\t\t144.35,\r\n\t\t\t127.39,\r\n\t\t\t119.18,\r\n\t\t\t100.6\r\n\t\t],\r\n\t\t\"GasVolumetricRateStd\": [\r\n\t\t\t0,\r\n\t\t\t180855.933333333,\r\n\t\t\t129183.466666667,\r\n\t\t\t96912.2,\r\n\t\t\t64810.5333333333,\r\n\t\t\t0,\r\n\t\t\t44525.4333333333,\r\n\t\t\t101406.633333333,\r\n\t\t\t60520.5,\r\n\t\t\t231839,\r\n\t\t\t189111.333333333,\r\n\t\t\t148551.6,\r\n\t\t\t254761.433333333,\r\n\t\t\t220444.033333333,\r\n\t\t\t285051.566666667\r\n\t\t],\r\n\t\t\"OilVolumetricRateStd\": [\r\n\t\t\t0,\r\n\t\t\t2585.86666666667,\r\n\t\t\t1845.96666666667,\r\n\t\t\t1385.03333333333,\r\n\t\t\t926.133333333333,\r\n\t\t\t0,\r\n\t\t\t635.433333333333,\r\n\t\t\t1446.5,\r\n\t\t\t864.433333333333,\r\n\t\t\t3312.5,\r\n\t\t\t2698.9,\r\n\t\t\t2306.63333333333,\r\n\t\t\t3639.43333333333,\r\n\t\t\t3155.33333333333,\r\n\t\t\t4072.16666666667\r\n\t\t],\r\n\t\t\"WaterVolumetricRateStd\": [\r\n\t\t\t0,\r\n\t\t\t1.4,\r\n\t\t\t0.533333333333333,\r\n\t\t\t0.633333333333333,\r\n\t\t\t0.266666666666667,\r\n\t\t\t0,\r\n\t\t\t0.2,\r\n\t\t\t0.433333333333333,\r\n\t\t\t1.03333333333333,\r\n\t\t\t1.06666666666667,\r\n\t\t\t0.8,\r\n\t\t\t0.433333333333333,\r\n\t\t\t0.7,\r\n\t\t\t0.5,\r\n\t\t\t0.8\r\n\t\t]\r\n\t},\r\n\t\"ParticleStream\": {\r\n\t\t\"ParticleDiameter\": 50,\r\n\t\t\"TimeSeries\": [\r\n\t\t\t\"01/04/2019\",\r\n\t\t\t\"01/05/2019\",\r\n\t\t\t\"01/06/2019\",\r\n\t\t\t\"01/07/2019\",\r\n\t\t\t\"01/08/2019\",\r\n\t\t\t\"01/09/2019\",\r\n\t\t\t\"01/10/2019\",\r\n\t\t\t\"01/11/2019\",\r\n\t\t\t\"01/12/2019\",\r\n\t\t\t\"01/01/2020\",\r\n\t\t\t\"01/02/2020\",\r\n\t\t\t\"01/03/2020\",\r\n\t\t\t\"01/04/2020\",\r\n\t\t\t\"01/05/2020\",\r\n\t\t\t\"01/06/2020\"\r\n\t\t],\r\n\t\t\"ParticleMassFlowRates\": [\r\n\t\t\t0,\r\n\t\t\t8.26388888888889E-05,\r\n\t\t\t3.14814814814815E-05,\r\n\t\t\t3.73842592592593E-05,\r\n\t\t\t1.57407407407407E-05,\r\n\t\t\t0,\r\n\t\t\t1.18055555555556E-05,\r\n\t\t\t2.55787037037037E-05,\r\n\t\t\t6.09953703703704E-05,\r\n\t\t\t6.2962962962963E-05,\r\n\t\t\t4.72222222222222E-05,\r\n\t\t\t2.55787037037037E-05,\r\n\t\t\t4.13194444444444E-05,\r\n\t\t\t2.95138888888889E-05,\r\n\t\t\t4.72222222222222E-05\r\n\t\t],\r\n\t\t\"ErosiveAgent\": {\r\n\t\t\t\"Name\": \"Quartz\",\r\n\t\t\t\"Density\": 2650,\r\n\t\t\t\"ReductionFactor\": 1\r\n\t\t}\r\n\t},\r\n\t\"Line\": {\r\n\t\t\"Tag\": \"BC-USC\",\r\n\t\t\"ServiceLife\": 20,\r\n\t\t\"Components\": {\r\n\t\t\t\"Bends\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"XMT elbow 5inch\",\r\n\t\t\t\t\t\"GeometryFactor\": 2,\r\n\t\t\t\t\t\"ErosionAllowance\": 0.83,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1223,\r\n\t\t\t\t\t\"RadiusOfCurvature\": 3\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"Tees\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"MyCustomAlloy\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 8000,\r\n\t\t\t\t\t\t\"K\": 0.0000000021,\r\n\t\t\t\t\t\t\"N\": 2.7\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"XMT Tee\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1302\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}\r\n"
+    ComponentResultTimeSeries:
+      type: object
+      properties:
+        geometryModel:
+          type: string
+          nullable: true
+          readOnly: true
+        tag:
+          type: string
+          nullable: true
+          readOnly: true
+        erosionAccumulated:
+          type: number
+          format: double
+          readOnly: true
+        timeSeries:
+          type: array
+          items:
+            type: string
+            format: date-time
+          nullable: true
+          readOnly: true
+        fluidVelocity:
+          type: array
+          items:
+            type: number
+            format: double
+          description: Array of mixture velocities applied in erosion model
+          nullable: true
+          readOnly: true
+        erosionPerTon:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of erosion rates [mm/ton]'
+          nullable: true
+          readOnly: true
+        erosionPerYear:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of erosion rates [mm/year]'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+      description: Calculation results for a single component when fluid and particle streams are specified as time series
+    BasicStreamTimeSeries:
+      type: object
+      properties:
+        densities:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of representative mixture densities of all phases: [kg/m3]'
+          nullable: true
+        viscosities:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of representative mixture viscosities of all phases: [Pas]'
+          nullable: true
+        volumetricRates:
+          type: array
+          items:
+            type: number
+            format: double
+          description: 'Array of volumetric flow rates: [m3/s]'
+          nullable: true
+        timeSeries:
+          type: array
+          items:
+            type: string
+          description: "Array of timestamps. Several valid formats apply, e.g. \"08/18/2018 07:22:16\", \"8/2018\", \"2018-08-18T07:22:16.0000000-07:00\".\r\nMake sure that all timestamps are arranged in chronological order, as this is required to calculate accumulated erosion."
+          nullable: true
+      additionalProperties: false
+      description: "Similar to the BasicStream specification, except that fluid density, viscosity and flow rate are given as\r\ntime series rather than a single set of values.\r\nNote that rates are given as m3/s rather than m3/day.\r\n            \r\nAlso note that the number of data sets, i.e. the length of the density, viscosity, flow rate and TimeSeries\r\narrays must match each other and those of the ParticleStreamTimeSeries object."
+    LineBasicStreamTimeSeries:
+      type: object
+      properties:
+        fluidStream:
+          $ref: '#/components/schemas/BasicStreamTimeSeries'
+        particleStream:
+          $ref: '#/components/schemas/ParticleStreamTimeSeries'
+        line:
+          $ref: '#/components/schemas/Line'
+      additionalProperties: false
+      description: ''
+      example: "{\r\n\t\"FluidStream\": {\r\n\t\t\"Densities\": [\r\n\t\t\t423,\r\n\t\t\t512,\r\n\t\t\t389,\r\n\t\t\t407.3333333,\r\n\t\t\t390.3333333,\r\n\t\t\t373.3333333,\r\n\t\t\t356.3333333,\r\n\t\t\t236.4444444,\r\n\t\t\t252.9444444,\r\n\t\t\t269.4444444,\r\n\t\t\t285.9444444,\r\n\t\t\t302.4444444,\r\n\t\t\t368,\r\n\t\t\t237.3333333,\r\n\t\t\t401\r\n\t\t],\r\n\t\t\"Viscosities\": [\r\n\t\t\t1.00E-04,\r\n\t\t\t1.30E-04,\r\n\t\t\t1.20E-04,\r\n\t\t\t1.37E-04,\r\n\t\t\t1.47E-04,\r\n\t\t\t1.57E-04,\r\n\t\t\t1.67E-04,\r\n\t\t\t1.77E-04,\r\n\t\t\t1.87E-04,\r\n\t\t\t1.97E-04,\r\n\t\t\t2.07E-04,\r\n\t\t\t2.17E-04,\r\n\t\t\t2.27E-04,\r\n\t\t\t2.37E-04,\r\n\t\t\t2.47E-04\r\n\t\t],\r\n\t\t\"TimeSeries\": [\r\n\t\t\t\"01/04/2019\",\r\n\t\t\t\"01/05/2019\",\r\n\t\t\t\"01/06/2019\",\r\n\t\t\t\"01/07/2019\",\r\n\t\t\t\"01/08/2019\",\r\n\t\t\t\"01/09/2019\",\r\n\t\t\t\"01/10/2019\",\r\n\t\t\t\"01/11/2019\",\r\n\t\t\t\"01/12/2019\",\r\n\t\t\t\"01/01/2020\",\r\n\t\t\t\"01/02/2020\",\r\n\t\t\t\"01/03/2020\",\r\n\t\t\t\"01/04/2020\",\r\n\t\t\t\"01/05/2020\",\r\n\t\t\t\"01/06/2020\"\r\n\t\t],\r\n\t\t\"VolumetricRates\": [\r\n\t\t\t0.41,\r\n\t\t\t0.49,\r\n\t\t\t0.3,\r\n\t\t\t0.42,\r\n\t\t\t0.365,\r\n\t\t\t0.349,\r\n\t\t\t0.333,\r\n\t\t\t0.317,\r\n\t\t\t0.301,\r\n\t\t\t0.285,\r\n\t\t\t0.269,\r\n\t\t\t0.253,\r\n\t\t\t0.237,\r\n\t\t\t0.221,\r\n\t\t\t0.205\r\n\t\t]\r\n\t},\r\n\t\"ParticleStream\": {\r\n\t\t\"ParticleDiameter\": 50,\r\n\t\t\"TimeSeries\": [\r\n\t\t\t\"01/04/2019\",\r\n\t\t\t\"01/05/2019\",\r\n\t\t\t\"01/06/2019\",\r\n\t\t\t\"01/07/2019\",\r\n\t\t\t\"01/08/2019\",\r\n\t\t\t\"01/09/2019\",\r\n\t\t\t\"01/10/2019\",\r\n\t\t\t\"01/11/2019\",\r\n\t\t\t\"01/12/2019\",\r\n\t\t\t\"01/01/2020\",\r\n\t\t\t\"01/02/2020\",\r\n\t\t\t\"01/03/2020\",\r\n\t\t\t\"01/04/2020\",\r\n\t\t\t\"01/05/2020\",\r\n\t\t\t\"01/06/2020\"\r\n\t\t],\r\n\t\t\"ParticleMassFlowRates\": [\r\n\t\t\t0,\r\n\t\t\t8.26388888888889E-05,\r\n\t\t\t3.14814814814815E-05,\r\n\t\t\t3.73842592592593E-05,\r\n\t\t\t1.57407407407407E-05,\r\n\t\t\t0,\r\n\t\t\t1.18055555555556E-05,\r\n\t\t\t2.55787037037037E-05,\r\n\t\t\t6.09953703703704E-05,\r\n\t\t\t6.2962962962963E-05,\r\n\t\t\t4.72222222222222E-05,\r\n\t\t\t2.55787037037037E-05,\r\n\t\t\t4.13194444444444E-05,\r\n\t\t\t2.95138888888889E-05,\r\n\t\t\t4.72222222222222E-05\r\n\t\t],\r\n\t\t\"ErosiveAgent\": {\r\n\t\t\t\"Name\": \"Quartz\",\r\n\t\t\t\"Density\": 2650,\r\n\t\t\t\"ReductionFactor\": 1\r\n\t\t}\r\n\t},\r\n\t\"Line\": {\r\n\t\t\"Tag\": \"BC-USC\",\r\n\t\t\"ServiceLife\": 20,\r\n\t\t\"Components\": {\r\n\t\t\t\"Bends\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"XMT elbow 5inch\",\r\n\t\t\t\t\t\"GeometryFactor\": 2,\r\n\t\t\t\t\t\"ErosionAllowance\": 0.83,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1223,\r\n\t\t\t\t\t\"RadiusOfCurvature\": 3\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"Tees\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"Material\": {\r\n\t\t\t\t\t\t\"Name\": \"CarbonSteel\",\r\n\t\t\t\t\t\t\"AngleDependency\": \"Ductile\",\r\n\t\t\t\t\t\t\"Density\": 7800,\r\n\t\t\t\t\t\t\"K\": 0.000000002,\r\n\t\t\t\t\t\t\"N\": 2.6\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"Tag\": \"XMT Tee\",\r\n\t\t\t\t\t\"GeometryFactor\": 1,\r\n\t\t\t\t\t\"ErosionAllowance\": 3,\r\n\t\t\t\t\t\"PipeDiameter\": 0.1302\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+    V2015ApiErosionTimeseriesBlackoilstreamPost200ApplicationJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentResultTimeSeries'
+    V2015ApiErosionTimeseriesBasicstreamPost200ApplicationJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentResultTimeSeries'
+    V2015ApiPredefinedErosiveAgentGet200TextPlainResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ErosiveAgent'
+    V2015ApiPredefinedErosiveAgentGet200ApplicationJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ErosiveAgent'
+    V2015ApiPredefinedErosiveAgentGet200TextJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ErosiveAgent'
+    V2015ApiPredefinedTargetMaterialGet200TextPlainResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/TargetMaterial'
+    V2015ApiPredefinedTargetMaterialGet200ApplicationJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/TargetMaterial'
+    V2015ApiPredefinedTargetMaterialGet200TextJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/TargetMaterial'
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

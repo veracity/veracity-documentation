@@ -7,19 +7,18 @@ Contributors: "Rachel Hassall, Thomas Rudfoss"
 ## Overview
 Veracity's Application Programming Interfaces (APIs) enable data providers and consumers to interact with Veracity programmatically. There are 3 main Veracity APIs:
 
-- Data API - The Veracity Data API is an API where developers and applications can get information on data containers, get the key to a data container, or share a key with other Veracity Platform users.
-- Provisioning API - The Veracity Provision API is an API that enables developers and applications to create,update and delete data containers.
-- Service API - The Service API provides a consistent interface for accessing data about the user, as well as the Veracity platform in general, [click here for more information](https://developer.veracity.com/doc/service-api)
+- **Data API**: The Veracity Data API provides developers and applications to get information on data containers they have access to, retrieve keys for the data containers, or share access to other Veracity Platform users.
+- **Provisioning API**: The Veracity Provision API enables developers and applications to create, update and delete data containers.
+- **Service API**: The Service API provides a consistent interface for accessing data about the user, as well as the Veracity platform in general, [click here for more information](https://developer.veracity.com/doc/service-api)
 
 
 ## Authentication
-
 Authentication is performed through OAuth2 bearer tokens. To learn how to set up Azure AD B2C, go [here](https://developer.veracity.com/doc/identity).
 
 ## API usage
 For all requests you need to provide the `Ocp-Apim-Subscription-Key` header. It must contain your subscription key found in your [profile](https://api-portal.veracity.com/developer).
 
-All request also requires a Authorization token, a guide on how to acquire the token can be found [here](https://developer.veracity.com/doc/identity)
+All request also requires an Authorization token, a guide on how to acquire the token can be found [here](https://developer.veracity.com/doc/identity)
 
 The following request body types are supported on all requests:
 
@@ -81,7 +80,7 @@ https://api.veracity.com/veracity/datafabric/data/api/1/[end-point]
 
 ##### GET /resources/{resourceId}/accesses
 
-Get a list of users/applications with access (keys) to the specific resource.
+Get a list of users / applications with access (keys) to the specified resource.
 
 Endpoint will list your own accesses.
 

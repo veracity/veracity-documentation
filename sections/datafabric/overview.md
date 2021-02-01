@@ -21,4 +21,4 @@ Data fabric is built with self-service at core, and the users are able to access
 
 ## Security and data protection
 
-Sharing of data is done using SAS (shared access signature) keys which provide a way to granting and revoking access at any time. Activities related to stored data in the container can be tracked in the ledger and reviewed by the container owner. Keys can only be shared with other authorized platform users.
+Sharing of data is done using Shared Access Signature (SAS) keys which provide a way to granting and revoking access at any time. Activities related to stored data in the container can be tracked in the ledger and reviewed by the container owner. Keys can only be shared with other authorized platform users.

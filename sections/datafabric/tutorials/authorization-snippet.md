@@ -94,7 +94,7 @@ Firstly, input data is required:
 * ApiScopes - scopes available for given api  
 
 For user identification we use the class PublicClientApplication which is available in the namespace [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client). You can include it as a NuGet package, currently in preview mode.  
-```cs   
+```cs
 public static PublicClientApplication PublicClientApp { get; } = new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
 ```
 The Authority field is the following URL, where {tenant} and {policy} are replaced with proper values from the app registration.:  

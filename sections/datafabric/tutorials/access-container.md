@@ -7,11 +7,15 @@ The easiest way to access your container is via your browser (use Chrome for the
 Go to [My Data](https://data.veracity.com/) on Veracity. This should give you an overview of all the containers you have access to.
 
 1. Click on the container you want to access. In the example below this is the `Demo container`.
-
-    <img alt="Demo container" src="../assets/DF_CreatedContainer.png" width="25%" />
+<figure>
+    <img src="../assets/DF_CreatedContainer.png" width="25%" />
+    <figcaption>Demo container</figcaption>
+</figure>
 1. You are now in the container and can see the files in the container. 
-    
-    <img alt="Container contents" src="../assets/DF_Container_with_file.png" width="75%" />
+<figure>
+    <img src="../assets/DF_Container_with_file.png" width="75%" />
+    <figcaption>Container contents</figcaption>
+</figure>
 1. To download a file, press the file name and the download will start.
 2. To make changed to the file, press the `...` at the end of the file line and choose the action you want to perform.
 3. On the right you will see a button `Upload files` which can be used to upload files. 
@@ -33,17 +37,26 @@ To connect to you storage account via either the [Microsoft Azure Storage Explor
 
 ### Browser
 1. Go to [My Data](https://data.veracity.com/) and click on the container you want to access. 
-
-    <img alt="Demo container" src="../assets/DF_CreatedContainer.png" width="25%" />
+<figure>
+    <img src="../assets/DF_CreatedContainer.png" width="25%" />
+    <figcaption>Demo container</figcaption>
+</figure>
 2. Click on `Access` in the right corner.
-    
-    <img alt="Container Contents" src="../assets/DF_EmptyContainer.png" width="75%" />
+<figure>
+    <img src="../assets/DF_EmptyContainer.png" width="75%" />
+    <figcaption>Container Contents</figcaption>
+</figure>   
 3. Click on the tab `User management`.
-    
-    <img alt="Access page" src="../assets/DF_MyAccess.png" width="75%" />
+<figure>
+    <img src="../assets/DF_MyAccess.png" width="75%" />
+    <figcaption>Access page</figcaption>
+</figure>
 4. Click on `View key` to retrieve the SAS token. 
+<figure>
+    <img src="../assets/DF_AccessKey.png" width="75%" />
+    <figcaption>Access key</figcaption>
+</figure>
     
-    <img alt="Access key" src="../assets/DF_AccessKey.png" width="75%" />
 
 ### Data API 
 The Data API exposes endpoints to retrieve an access token for your container.
@@ -59,17 +72,25 @@ The Data API exposes endpoints to retrieve an access token for your container.
 In case you are transferring large files, using the Microsoft Azure Storage Explorer for file transfers is recommended over the file upload functionality in My Data via the browser. The storage explorer application is better in handling possible hick-ups during the file transfer. 
 
 1. Press the `Connect to Azure Storage` button to bring up the connection pane.
-   
-    <img alt="Connect to storage" src="../assets/DF_AZ_storage_connect.png" width="25" />
+<figure>
+    <img src="../assets/DF_AZ_storage_connect.png" width="25" />
+    <figcaption>Connect to storage</figcaption>
+</figure>
 2. Select `Use a shared access signature (SAS) URI` and press `Next`.
-    
-    <img alt="Connect to Azure Storage" src="../assets/DF_AZ_SAS_Connect.png" width="75%" />
+<figure>
+    <img src="../assets/DF_AZ_SAS_Connect.png" width="75%" />
+    <figcaption>Connect to Azure Storage</figcaption>
+</figure>    
 3. Get a SAS token (see [Get Access Token](#get-access-token)) and paste it in the field `URI`. The `Display name` field will now automatically be populated. Change this in case you want a more readable reference to the container. Press `Next` to continue.
-
-    <img alt="CAttach with SAS URI" src="../assets/DF_AZ_Connect_2.png" width="75%" />
+<figure>
+    <img alt="" src="../assets/DF_AZ_Connect_2.png" width="75%" />
+    <figcaption>Attach with SAS URI</figcaption>
+</figure>
 4. Now you will see a connection summary. This lists when the key expires, what permissions it has and to which container it connects. Press `Connect` to connect to your container.
-   
-   <img alt="Connection Summary" src="../assets/DF_AZ_Connect_3.png" width="75%" />
+<figure>
+    <img src="../assets/DF_AZ_Connect_3.png" width="75%" />
+    <figcaption>Connection Summary</figcaption>
+</figure>
 5. A new tab is opened and you should see the contents of the container. Depending on the permissions of your access token, you can upload, download, delete files and folders here now. 
 
 

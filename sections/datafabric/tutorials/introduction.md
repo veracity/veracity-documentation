@@ -26,7 +26,7 @@ Ocp-Apim-Subscription-Key: {subscription-Key}
 Authorization: Bearer {token}  
 ```
 C# example:  
-```csharp
+```cs
 var httpClient = new System.Net.Http.HttpClient();
 
 var request = new HttpRequestMessage(HttpMethod.Get, "https://api.veracity.com/veracity/datafabric/data/api/1/users/me");

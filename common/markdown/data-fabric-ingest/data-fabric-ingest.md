@@ -95,7 +95,7 @@ In this sample we use the following nuget packages:
 
 Firstly, we need to create a .Net Framework application and add the constant holding SAS key provided by Veracity to the Main method.
 
-```csharp
+```cs
 static void Main(string[] args)
   {
   // Create the constant holding the key provided by Veracity. Add your key.
@@ -110,7 +110,7 @@ static void Main(string[] args)
 
 Add the following packages to the program:
 
-```csharp
+```cs
 using System;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -118,7 +118,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 We now need to create a method that can interact with the container. We add functionality to both write, but also read so that we can verify that the write operation has succeeded.
 
-```csharp
+```cs
 static void UseContainerSAS(string sas)
 {
   // We try to performe operations with the SAS provided.
@@ -193,7 +193,7 @@ static void UseContainerSAS(string sas)
 
 Finally, we call the UseContainerSAS method from the main method in the program. Your main method should now look like this.
 
-```csharp
+```cs
 static void Main(string[] args)
 {
   // Create the constant holding the key provided by Veracity. Add your key.

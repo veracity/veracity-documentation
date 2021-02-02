@@ -40,7 +40,7 @@ This example requires:
 We will also reuse the authentication code (for application) from [here](https://developer.veracity.com/doc/data-fabric-api#Authorization-snippet)
 
 To make communication with the Data fabric apis, we have created a sample helper to use:  
-```csharp
+```cs
 public class DataFabricClient
 {
 
@@ -107,7 +107,7 @@ Replace the values of:
 * {tenantId}
 
 With values provided from developer portal.  
-```csharp
+```cs
 public class TokenProvider {
         /// <summary>
         /// Object based on https://tools.ietf.org/html/rfc6750
@@ -174,7 +174,7 @@ The "StorageLocation" can be found by using the "GET /api/1/regions" endpoint, b
 
 Container creation can take up to 2 min. So you should add some retry logic if the container does not appear the first time.  
 
-```csharp
+```cs
 var client = new DataFabricClient();
 
 var provisionApiBaseUrl = "{provisionApiBaseUrl}";
@@ -225,7 +225,7 @@ To see what each attribute of a key template is, read more here
 
 This will create a "AccessSharingId" the id will later be used to fetch the SAS token.  
 
-```csharp
+```cs
 var client = new DataFabricClient();
 
 var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -268,7 +268,7 @@ Now it's time to get your SAS token and use it!
 [For more information on SAS tokens](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
 Use the accessSharingId you retrieved from the last step and replace {accessSharingId}.  
-```csharp
+```cs
 var client = new DataFabricClient();
 
 var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -303,7 +303,7 @@ It's time to share your amazing container with other people.
 
 For simplicity we use the same keytemplateId as the last time.
 
-```csharp
+```cs
 var client = new DataFabricClient();
 
 var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -338,7 +338,7 @@ This scenario will cover:
 ### Find Resource
 
 It's now time to find out if someone (or you) has given you access to their container.  
-```csharp
+```cs
 var client = new DataFabricClient();
 
 var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -358,7 +358,7 @@ if (resource == null)
     throw new Exception("Found no resource where you could claim key");
 ```
 ### Claim key and read content
-```csharp
+```cs
 var client = new DataFabricClient();
 
 var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -408,7 +408,7 @@ if (await blob.ExistsAsync())
 ### Models
 
 All the models used in the quick guide  
-```csharp
+```cs
 public class ProviderAccessResult
 {
     [JsonProperty("results")]

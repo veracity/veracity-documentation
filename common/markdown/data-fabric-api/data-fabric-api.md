@@ -1153,7 +1153,7 @@ Authorization: Bearer {token}
 
 C# example:
 
-```csharp
+```cs
 var httpClient = new System.Net.Http.HttpClient();
 var request = new HttpRequestMessage(httpMethod, "https://api.veracity.com/veracity/datafabric/data/api/1/users/me");
 request.Headers.Add("Ocp-Apim-Subscription-Key", "{Subscription-Key}");
@@ -1199,7 +1199,7 @@ This example requires:
 
 Aad Token class:
 
-```csharp
+```cs
 public class Token
     {
         [JsonProperty("token_type")]
@@ -1227,7 +1227,7 @@ public class Token
 
 Retrieve the access token:
 
-```csharp
+```cs
 var clientId = "{clientId}";
 var clientSecret = "{clientSecret";
 var tokenEndpoint = "https://login.microsoftonline.com/{tenantId}/oauth2/token";
@@ -1266,7 +1266,7 @@ ApiScopes - scopes available for given api
 For user identification we use the class PublicClientApplication which is available in the namespace [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client).
 You can include it as a NuGet package, currently in preview mode.
 
-```csharp
+```cs
 public static PublicClientApplication PublicClientApp { get; } = new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
 ```
 
@@ -1278,7 +1278,7 @@ The Authority field is the following URL, where {tenant} and {policy} are replac
 
 To sign in, the AcquireTokenAsync method from PublicClientApplication is used.
 
-```csharp
+```cs
 public static async Task<AuthenticationResult> SignIn()
 {
   try
@@ -1340,7 +1340,7 @@ This example requires:
 We will also reuse the authentication code (for application) from [here](#Authorization-snippet)
 
 To make communication with the Data fabric apis, we have created a sample helper to use:
-```csharp
+```cs
    public class DataFabricClient
         {
 
@@ -1409,7 +1409,7 @@ Replace the values of:
 
 With values provided from developer portal.
 
-```csharp
+```cs
 public class TokenProvider {
         /// <summary>
         /// Object based on https://tools.ietf.org/html/rfc6750
@@ -1477,7 +1477,7 @@ The "StorageLocation" can be found by using the "GET /api/1/regions" endpoint, b
 
 Container creation can take up to 2 min. So you should add some retry logic if the container does not appear the first time.
 
-```csharp
+```cs
             var client = new DataFabricClient();
 
             var provisionApiBaseUrl = "{provisionApiBaseUrl}";
@@ -1528,7 +1528,7 @@ To see what each attribute of a key template is, read more [here](#GET/keytempla
 
 This will create a "AccessSharingId" the id will later be used to fetch the SAS token.
 
-```csharp
+```cs
     var client = new DataFabricClient();
 
             var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -1572,7 +1572,7 @@ Now it's time to get your SAS token and use it!
 
 Use the accessSharingId you retrieved from the last step and replace {accessSharingId}.
 
-```csharp
+```cs
             var client = new DataFabricClient();
 
             var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -1608,7 +1608,7 @@ It's time to share your amazing container with other people.
 
 For simplicity we use the same keytemplateId as the last time.
 
-```csharp
+```cs
             var client = new DataFabricClient();
 
             var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -1645,7 +1645,7 @@ This scenario  will cover:
 
 It's now time to find out if someone (or you) has given you access to their container.
 
-```csharp
+```cs
             var client = new DataFabricClient();
 
             var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -1667,7 +1667,7 @@ It's now time to find out if someone (or you) has given you access to their cont
 
 ###### Claim key and read content
 
-```csharp
+```cs
             var client = new DataFabricClient();
 
             var dataApiBaseUrl = "{dataApiBaseUrl}";
@@ -1716,7 +1716,7 @@ It's now time to find out if someone (or you) has given you access to their cont
 ##### Models
 
 All the models used in the quick guide
-```csharp
+```cs
    public class ProviderAccessResult
         {
             [JsonProperty("results")]

@@ -36,7 +36,7 @@ This example requires:
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 
 Aad Token class:  
-```csharp
+```cs
 public class Token
 {
     [JsonProperty("token_type")]
@@ -62,7 +62,7 @@ public class Token
 }
 ```
 Retrieve the access token:  
-```csharp
+```cs
 var clientId = "{clientId}";
 var clientSecret = "{clientSecret}";
 var tokenEndpoint = "https://login.microsoftonline.com/{tenantId}/oauth2/token";
@@ -94,7 +94,7 @@ Firstly, input data is required:
 * ApiScopes - scopes available for given api  
 
 For user identification we use the class PublicClientApplication which is available in the namespace [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client). You can include it as a NuGet package, currently in preview mode.  
-```csharp   
+```cs   
 public static PublicClientApplication PublicClientApp { get; } = new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
 ```
 The Authority field is the following URL, where {tenant} and {policy} are replaced with proper values from the app registration.:  
@@ -102,7 +102,7 @@ The Authority field is the following URL, where {tenant} and {policy} are replac
     "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
 
 To sign in, the AcquireTokenAsync method from PublicClientApplication is used.  
-```csharp
+```cs
 public static async Task<AuthenticationResult> SignIn()
 {
     try

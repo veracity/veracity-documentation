@@ -37,7 +37,7 @@ There is also the possibility to consume Web Service in batch mode, this will be
 
 The WebServiceConsumer class is the one responsible for sending the scoring request and receiving predictions from the AML Web Service. To setup it correctly we need to set two properties via the constructor:
 
-```csharp
+```cs
 public WebServiceConsumer(string webServiceUrl, string apiKey)
 {
   ServiceUrl = webServiceUrl;
@@ -52,7 +52,7 @@ In the following example, we use the url for single request-response action.
 
 The main method for communication with the Web Service is shown below:
 
-```csharp
+```cs
 public async Task<Tuple<string, string>> RequestScore(Request scoreRequest)
 {
   using (var client = new HttpClient())
@@ -68,17 +68,17 @@ public async Task<Tuple<string, string>> RequestScore(Request scoreRequest)
 
 We then use the Http Client from System.Net.Http to send the request and retrieve response. Note that the original service url should be extended with
 
-```csharp
+```cs
 "/execute?api-version=2.0&details=true"
 ```
 The API key is used for authorization and set as the default request header:
 
-```csharp
+```cs
 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
 ```
 Our input data is represented here as a Request class.
 
-```csharp
+```cs
 _scoreRequest = new Request
 {
   Inputs = new Dictionary<string, StringTable>
@@ -108,7 +108,7 @@ _scoreRequest = new Request
 ```
 The structure of the request can also be found in AML Studio, after choosing the proper Web Service and proper action. In this case, single request-response action. As we can see, we can have several inputs as it is represented as a dictionary. The single input needs to provide a name and a structure called StringTable.
 
-```csharp
+```cs
 public class StringTable
 {
   public string[] ColumnNames { get; set; }
@@ -131,7 +131,7 @@ There are two main classes to be concerned about.
 
 ##### Web Service Retrainer class
 Just like in WebServiceConsumer we need to provide two properties via the constructor when initializing the class.
-```csharp
+```cs
 public WebServiceRetrainer(string serviceUrl, string apiKey)
 {
   ServiceJobsUrl = serviceUrl;
@@ -143,7 +143,7 @@ Both parameters are available from AML Studio. The API Key is available directly
 As we are using batch mode, we need to create a special kind of request message that we will send to Web Service later.
 
 The message we need is created in the method PrepareRequest.
-```csharp
+```cs
 private BatchExecutionRequest PrepareRequest(AzureStorageData inputdata, AzureStorageData outputData)
 {
   return new BatchExecutionRequest
@@ -180,7 +180,7 @@ As an output from retraining, we get an .ilearner file - our new retrained model
 
 With request data prepared like this we can use HttpClient from System.Net.Http and send it via the REST API.
 
-```csharp
+```cs
 public async Task<Tuple<string, IEnumerable<AzureBlobDataReference>>> Retrain(AzureStorageData inputStorageData, AzureStorageData outputStorageData)
 {
   var request = PrepareRequest(inputStorageData, outputStorageData);
@@ -207,14 +207,14 @@ public async Task<Tuple<string, IEnumerable<AzureBlobDataReference>>> Retrain(Az
 
 For HttpClient we need to provide authentication header:
 
-```csharp
+```cs
 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
 ```
 
 Once the request is sent correctly, we receive a Job ID created for our request. The next step is to execute that job.
 We do that by sending:
 
-```csharp
+```cs
 response = await client.PostAsync(ServiceJobsUrl + "/" + jobId + "/start?api-version=2.0", null);
 ```
 
@@ -225,7 +225,7 @@ In the MonitorProgress method we have a loop which asks WebService for the statu
 
 After the job is completed, we receive the location of our .ilearner file. The file will be used by WebServiceUpdater to update the predictive model.
 
-```csharp
+```cs
 public class AzureBlobDataReference
 {
   // Storage connection string used for regular blobs. It has the following format:
@@ -248,7 +248,7 @@ public class AzureBlobDataReference
 ##### Web Service Updater class
 When initializing the updater class, we need to provide the WebService URL and API key
 
-```csharp
+```cs
 public WebServiceUpdater(string serviceEndPointUrl, string endpointApiKey)
 {
   ServiceEndpointUrl = serviceEndPointUrl;
@@ -260,7 +260,7 @@ The Web Service URL needs to point to the Web Service with the predictive model.
 
 The UpdateModel method is the method that takes the .ilearner file we created while retraining, and is used to update the predictive model. As input to the method we pass a collection of AzureBlobDataReference objects.
 
-```csharp
+```cs
 public class AzureBlobDataReference
 {
   // Storage connection string used for regular blobs. It has the following format:
@@ -282,7 +282,7 @@ public class AzureBlobDataReference
 
 Now, using the HttpClient from System.Net.Http we send a PATCH request.
 
-```csharp
+```cs
 using (var client = new HttpClient())
 {
   client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", EndpointApiKey);

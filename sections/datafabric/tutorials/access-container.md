@@ -98,7 +98,7 @@ In case you are transferring large files, using the Microsoft Azure Storage Expl
 It is also possible to connect via to your container programmatically. For example in C#, you can use the NuGet packages [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) or [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage), where the latter is now marked as deprecated.
 
 For example write to a file in a blob container using `Azure.Storage.Blobs` package: 
-```csharp
+```cs
 var blobContainerClient = new BlobContainerClient(new UriBuilder("<SAS-Token>").Uri);
 var blockBlobClient = blobContainerClient.GetBlockBlobClient("exampleFile.txt");
 await using var stream = blockBlobClient.OpenWriteAsync(true);

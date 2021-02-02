@@ -36,19 +36,19 @@
 			]
 		},
 		{
-			"text": "Data Fabric Data API Reference",
+			"text": "Data Fabric Data API Specification",
 			"href": "datafabric-dataapi-openapi.yaml"
 		},
 		{
-			"text": "Data Fabric Provision API Reference",
+			"text": "Data Fabric Provision API Specification",
 			"href": "datafabric-provisionapi-openapi.yaml"
 		},
 		{
 			"text": "Authentication",
 			"items": [
 				{
-					"text": "Acessing APIs",
-					"href": "authentication/acessing-apis.md"
+					"text": "Accessing APIs",
+					"href": "authentication/accessing-apis.md"
 				}
 			]
 		},
@@ -72,6 +72,11 @@
 					"text": "Introduction",
 					"href": "tutorials/introduction.md"
 				},
+				{
+					"text": "Access container",
+					"href": "tutorials/access-container.md"
+				}
+				,
 				{
 					"text": "Authorization Snippet",
 					"href": "tutorials/authorization-snippet.md"

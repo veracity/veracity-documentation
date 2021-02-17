@@ -19,6 +19,10 @@
 				{
 					"text": "APIs",
 					"href": "authentication/api.md"
+				},
+				{
+					"text": "Claims",
+					"href": "authentication/claims.md"
 				}
 			]
 		},

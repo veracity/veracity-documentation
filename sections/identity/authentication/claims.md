@@ -14,7 +14,7 @@ family_name | Surname |
 name | Display Name |
 email | E-mail address |
 upn | Sign in name | <ul><li>Will be same as email address for all standard users (some legacy users may have a different value)</li></ul>
-mfa_type | <div>Indicates whether multi-factor authentication (MFA) was part of the logon process:<ul><li>None – No MFA</li><li>Phone – MFA was completed using verification by SMS to user’s phone</li></ul></div> |
+mfa_type | <div>Indicates whether multi-factor authentication (MFA) was part of the logon process:<ul><li>None – No MFA</li><li>Phone – MFA was completed using Veracity's MFA solution with verification by SMS to user’s phone</li><li>federatedIdp - Only relevant for federated users, means that MFA was completed by the federated Identity Provider</li></ul></div> |
 authenticatedBy | Indicates which organization’s Identity Provider authenticated the user. |
 
 ## Obsolete claims - To be deprecated

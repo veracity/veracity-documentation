@@ -10,6 +10,10 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "New Login URL",
+			"href": "new-login-url.md"
+		},
+		{
 			"text": "Authentication",
 			"items": [
 				{

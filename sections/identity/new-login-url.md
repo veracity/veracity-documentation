@@ -3,7 +3,7 @@ author: Veracity
 description: Transition to new login URL in B2C
 ---
 
-# New Login Url
+# Transition to new login URL in B2C
 ## Background
 MS will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants.
 

@@ -11,7 +11,7 @@ MS will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants.
 * All services in Veracity trusting B2C PROD (the dnvglb2cprod tenant) must change from login.microsoftonline.com to login.veracity.com 
 * When this is changed, all issued tokens will get a new issuer value: 
   * Old: "iss": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/", 
-  * New: "iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
+  * New: "iss": "https://***login.veracity.com***/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
 * This means that if your service involves APIs, you need to make sure that your API can support this new issuer before the client apps that call the API are updated
 * **Note! Change to login.veracity.com must only be made after March 15th.**
 

@@ -16,7 +16,7 @@ MS will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants.
 * **Note! Change to login.veracity.com must only be made after March 15th.**
 
 ## Deadline
-<span style="color:red;">**July 1st, 2021**</span><br/>
+<span style="color:red;">**July 1st, 2021**</span><br/><br/>
 Note that in order to keep SSO for your service, we recommend that you make this change before April 10th. On this date, we will switch to a new logon page using Azure AD B2C, and users of services still using login.microsoftonline.com will get a secondary logon prompt if they navigate between services that have changed and those that have not. 
 
 ## Additional information:

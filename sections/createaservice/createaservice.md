@@ -12,7 +12,7 @@ Digital services in Veracity come in many different flavors. You may choose to u
 
 All services in Veracity needs to be part of a project in the Provider Hub. You can find your projects located on the menu bar in developer.veracity.com. Resources like application credentials used for Veracity Identity can be provisioned self-service from here.
 
-A project in Veracity Provider Hub is what holds all resources related to your product. Resources are organized in resource groups. You can add collaborators into a project, and assign access rights to these collaborators. You would typically have one project for every product. E.g. the DNV GL product DNVGL Oil and Gas Standards and Recommended Practices, would usually have one project called DNVGL Oil and Gas Standards and Recommended Practices.
+A project in Veracity Provider Hub is what holds all resources related to your product. Resources are organized in resource groups. You can add collaborators into a project, and assign access rights to these collaborators. You would typically have one project for every product. E.g. the DNV product DNV Oil and Gas Standards and Recommended Practices, would usually have one project called DNV Oil and Gas Standards and Recommended Practices.
 
 Inside a project, you can create a resource. A resource can be application credentials for using Veracity Identity in your service or any other platform capabilities. You can think of a project as a resource group, with some user management.
 
@@ -32,7 +32,7 @@ A resource group is used to collect a set of resources. Currently the resource g
 
 ## Next steps
 
-[Sign up ](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials. Already done it? Use the [Veracity Application Generator](https://developer.veracity.com/docs/section/createaservice/generator/installgenerator) to kick start the development of your application. 
+[Sign up ](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials.
 
 Check out our [documentation](https://developer.veracity.com/docs) to understand how to integrate use our platform services.
 You can create your service from scratch using any language you want.

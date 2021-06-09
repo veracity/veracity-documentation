@@ -5,7 +5,7 @@ Contributors: "Rachel Hassall"
 ---
 ## Overview
 
-Veracity is an open, neutral, platform that allows services to be offered by both internal and external providers. There is no need for a direct affiliation with DNV GL, however there is an integration process which has mandatory requirements to ensure the quality of product and service provided.
+Veracity is an open, neutral, platform that allows services to be offered by both internal and external providers. There is no need for a direct affiliation with DNV, however there is an integration process which has mandatory requirements to ensure the quality of product and service provided.
 
 To get started you need to know about:
 1. [How to integrate with our identity provider](https://developer.veracity.com/doc/identity)
@@ -29,7 +29,7 @@ Data managers can takes advantage of the Veracity ecosystem whereby they can com
 Documentation on the [data fabric API](https://developer.veracity.com/doc/data-fabric-api), [data fabric in general](https://developer.veracity.com/docs), and sample code on [GitHub](https://www.github.com/veracity) to get a feeling for what opportunities the data fabric enables. 
 
 ## My services and the service API
-Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use the digital services without additional log in as it is a prerequisite for service providers to integrate their digital services with the DNV GL identity provider. Consumers will buy services on the Marketplace, and once purchased the service will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API. 
+Consumers will find all the digital services they have access to on the Veracity platform in their service overview called My Services. They will be able to use the digital services without additional log in as it is a prerequisite for service providers to integrate their digital services with the DNV identity provider. Consumers will buy services on the Marketplace, and once purchased the service will appear in My Services. Automatic provisioning of the service to the consumer is currently available for free services, typically trial products, that have an integration with the service subscription API. 
 
 To get the complete overview of the Service API and understand the full potential of the API, start reading up on the documentation [Service API](https://developer.veracity.com/doc/service-api).
 

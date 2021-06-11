@@ -1,6 +1,6 @@
 ---
 author: Benedikte Kallåk
-description: This section describes the different endpoints of the IoT Api
+description: This section describes the different endpoints of the Event Query Api
 ---
 # Veracity IoT Api
 The api is accessible from [api-portal](https://api-portal.veracity.com/).

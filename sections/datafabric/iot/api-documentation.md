@@ -107,6 +107,7 @@ Returns min date and max date for received datapoints for selected channels
 
 
 # Data quality
+
 ## /v1/DataQuality/.timeseriesdata
 Returns data quality measures for channels for selected time period.
 
@@ -153,7 +154,7 @@ Returns aggregations per week for data quality score in selected period
 * end: End of period using format YYYY-MM-DDTHH:mm:ss.SSSZ
 * assetIds: arrays of asset guids
 * includePreviousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
-    			
+
 ## POST /v1/DataQuality/trend/.rulescore</td>                                 
  Returns aggregations per week for each data quality metric in selected period.        
  
@@ -171,8 +172,8 @@ Returns workspaces user has access to
 ## GET /v1/Workspaces/{workspaceid}
 Returns the workspace by id, and the assets (if any) in the workspace which have IoT Data enabled.
 
-### GET StoredProcedure
-#### /v1/StoredProcedure/{name}		
+# GET StoredProcedure
+## /v1/StoredProcedure/{name}		
 Stored procedures can be used for custom queries. Must be managed by Veracity administrators.
 
 

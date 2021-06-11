@@ -17,17 +17,48 @@
 					"href": "iot/overview.md"
 				},
 				{
-					"text": "API endpoint",
-					"href": "iot/api-documentation.md"
+					"text": "Events",
+					"items": [
+					{
+						"text": "Types of event",
+						"href": "iot/event-overview.md"
+					},
+					{
+						"text": "Topology message",
+						"href": "iot/topology-message.md"
+					}
+					{
+						"text": "Health message",
+						"href": "iot/health-message.md"
+					}
+					{
+						"text": "Generic events message",
+						"href": "iot/generic-message.md"
+					}
+					{
+						"text": "Ingest api",
+						"href": "iot/event-ingest-api.md"
+					}
+					{
+						"text": "Request data api",
+						"href": "iot/event-egest-api.md"
+					}
+					]
+				},							
+				{
+					"text": "Ingest sensordata",
+					"href": "iot/ingest-data.md"
 				},
+				{
+					"text": "Sensordata API",
+					"href": "iot/api-documentation.md"
+				},			
+				
 				{
 					"text": "Use api from application",
 					"href": "iot/sdk.md"
 				},
-				{
-					"text": "Ingest data",
-					"href": "iot/ingest-data.md"
-				},
+				
 				
 				{
 					"text": "Power BI Connector",

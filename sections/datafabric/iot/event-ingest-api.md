@@ -7,11 +7,11 @@ description: This section describes the Event Ingest Api
 
 Data is ingested into Veracity using API. 
 The api is accessible from [api-portal](https://api-portal.veracity.com/). 
-Select api: Data Fabric IoT Event Ingest API
+Select api: Data Fabric IoT Event Ingest API.
 
 # Subscribe to API
 
-Data can be accessed using Veracity IoT api. The API is managed by Azure API management and hence you need a subscription. 
+The API is managed by Azure API management and hence you need a subscription. 
 1.	Go to Veracity api portal:[api-portal](https://api-portal.veracity.com/)
 2.	Sign in
 3.	Select Product
@@ -26,10 +26,8 @@ Data can be accessed using Veracity IoT api. The API is managed by Azure API man
 4.	Try It
 
 
-To group the endpoints in api-portal, select the "group by tag" button.
-
 ## Security Model
-Only users that has access to an asset can access data from this asset.
+Only users (incl. application credentials) that has access to an asset can ingest data to an asset.
 
 ## Setup
 Before data can be ingested to Veracity the following must be done:
@@ -45,3 +43,4 @@ Veracity support a topic based events and have defined:
 - Topology report: Equipment with system data
 - Health report: Status on equipment
 - Generic reports: Use dataset to ingest events
+

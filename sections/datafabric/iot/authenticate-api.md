@@ -1,0 +1,103 @@
+---
+author: Benedikte Kallåk
+description: This section describes how to communicate with Event and IoT Apis
+---
+
+# Veracity IoT Api and Event api
+
+- Events are ingested into Veracity using API and requested using API. 
+- Sensor data supports several ingest methods, but query of sensor-data is done using API.
+- The apis are accessible from [api-portal](https://api-portal.veracity.com/). 
+
+
+## API overview
+ - Data Fabric IoT Event Ingest API (Ingest events)
+ - Data Fabric IoT Event request (Query API for events)
+ - Data Fabric Time Series API  (Query API for timeseries data)
+
+ 
+## How to authenticate
+There are two ways of making requests to the Veracity Iot & Events API endpoints. You can request the API 
+either as a user through API Portal/Postman or as application through Postman/Code. 
+- When you request the endpoints as user, then your personal token and API Key are being used. 
+- On the other hand, when you make requests as application then application token and API key are being used.
+
+
+
+# API request as user (User credentials - B2C token)
+
+1. Visit the Veracity API Portal: https://api-portal.veracity.com/
+2. If you already have a user from before, please click directly at “Sign In”. In case you are not registered from before , please click at “Sign Up”.
+3. You will then be navigated to a page where you can either sign in or register a new user
+
+<figure>
+	<img src="assets/signup.png"/>
+	<figcaption>Sign up for Veracity</figcaption>
+</figure>
+
+
+4. For new users: You will shortly receive an email to complete the registration. Follow the process.
+5. After registration is complete, please navigate back to https://api-portal.veracity.com/ and sign in with the newly created user.
+6. Select "PRODUCTS" option in menu 
+
+<figure>
+	<img src="assets/products.png"/>
+	<figcaption>Sign up for Veracity</figcaption>
+</figure>
+
+7. Select Veracity Platform API. This api contains all the Veracity platform APIs which allow you to integrate with platform and enjoy the platform features by calling related API, it contains all the legacy "My service API" and "Data fabric API".
+8. Select Subscribe
+9. After subscription, your API Keys should be visible (Primary & Secondary).
+10. Select “APIS” in the menu
+11. Select the api:
+ - Data Fabric IoT Event Ingest API
+ - Data Fabric IoT Event request
+ - Data Fabric Time Series API
+12. Go into any API endpoint and click at the button “Try it”
+13. Now you should see your Ocp-Apim-Subscription-Key on the page
+14. When signing in to api portal, you authenticate yourself with username and password. After authentication succeed you 
+will see that an access token is obtained. 
+15. On the same page you can authenticate yourself to obtain an Access Token. Please select
+Authorization Code in the menu of B2C PROD Oauth – V2 Endpoint
+<figure>
+	<img src="assets/authentication.png"/>
+	<figcaption>Authentication</figcaption>
+</figure>
+16. It should now be possible to make requests from the API portal. Just make desired 
+changes to the Request Body and click at Send on bottom of page. 
+ 
+
+## Use Postman instead of API Portal
+
+You can copy the value of Ocp-Apim-Subscription-Key and Authorization from API Portal. 
+Please paste those values in the header of any endpoint. In this case your personal API key and token
+are being used from Postman.
+
+# Api request as application (application credentials)
+The rest api can be invoked directly from you application. An SDK is provided for .Net and for Python.
+
+
+## Get token
+For each api call you need to provide a token.
+
+https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
+
+- resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
+- client_id & client_secret will be sent in a separate encrypted email.
+- grant_type: client_credentials
+
+1. This example use Postman to receive token.
+
+<figure>
+	<img src="assets/token.png"/>
+	<figcaption>get token</figcaption>
+</figure>
+
+2. Thereafter click at «Send» and copy the Access Token between the quotes in response.
+3. Now as we have an access token, we can make various requests using the api
+
+## Use Postman
+
+4. Click at «Authorization» in the «Request» window and select «Bearer Token» and use the access token from step 2
+5. Click at the «Headers» tab. Please fill in the Ocp-Apim-Subscription-Key (Ocp-Apim-Subscription-Key has been sent out in separate email 
+

@@ -25,6 +25,10 @@
 					"href": "iot/api-documentation.md"
 				},
 				{
+					"text": "Authenticate",
+					"href": "iot/authenticate-api.md"
+				}, 
+				{
 					"text": "Use api from application",
 					"href": "iot/sdk.md"
 				},
@@ -36,32 +40,40 @@
 		},
 		{
 			"text": "Veracity Alarms & Events",
-			"items": [			
+			"items": [
 				{
-							"text": "Types of event",
-							"href": "iot/event-overview.md"
+					"text": "Types of event",
+					"href": "iot/event-overview.md"
 				},
 				{
-				  	"text": "Topology message",
-							"href": "iot/topology-message.md"
+					"text": "Topology message",
+					"href": "iot/topology-message.md"
 				},
 				{
-							"text": "Health message",
-							"href": "iot/health-message.md"
+					"text": "Health message",
+					"href": "iot/health-message.md"
 				},
 				{
-						"text": "Generic events message",
-						"href": "iot/generic-message.md"
+					"text": "Generic events message",
+					"href": "iot/generic-message.md"
 				},
 				{
-							"text": "Ingest event",
-							"href": "iot/event-ingest-api.md"
+					"text": "Ingest event",
+					"href": "iot/event-ingest-api.md"
 				},
 				{
-							"text": "Query event api",
-							"href": "iot/event-egest-api.md"
+					"text": "Query event api",
+					"href": "iot/event-egest-api.md"
+				},
+				{
+					"text": "Authenticate",
+					"href": "iot/authenticate-api.md"
+				},
+				{
+					"text": "Use api from application",
+					"href": "iot/sdk.md"
 				}
-				]
+			]
 		},
 		{
 			"text": "Data Fabric Data API Specification",

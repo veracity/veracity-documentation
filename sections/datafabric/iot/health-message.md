@@ -9,8 +9,8 @@ A health message is related to an equipment. Health status is provided as:
 - Yellow: Need attention
 - Red: Not healthy
 
-The topology of the equipment is described as SystemData. ISO 19848 standard is used to identify the equipment. In this example DNV-Vis structure is used to name the equiment with VIS code.
-Optianlly, a custom classification can be provided.
+The topology of the equipment is described as SystemData. ISO 19848 standard is used to identify the equipment. In this example DNV-Vis structure is used to name the equipment with VIS code.
+A custom classification can be provided in addition.
 
 
 

@@ -2,10 +2,15 @@
 author: Benedikte Kallåk
 description: This section describes the different endpoints of the Event Query Api
 ---
-# Veracity IoT Api
+# Data Fabric IoT Event Query API
 The api is accessible from [api-portal](https://api-portal.veracity.com/).
 Select api: Data Fabric IoT Event Query API
+
 To group the endpoints in api-portal, select the "group by tag" button.
+
+## Authentication
+Authorization: Use bearer-token
+See how to authenticate for the api [click here]( authenticate-api.md).
 
 ## Security Model
 Only users that has access to an asset can access data from this asset.
@@ -47,15 +52,14 @@ Fetches topics for a given asset Schema and Id
 Fetches values for a given asset id (Schema and Id)
 
 
-
 # Events based on topic or id (across vessels)
-
+* GET /Event/GetEventsByTopic?topic={topic}
 Fetches all events for a specific topic
-* [GET /Event/GetEventsByTopic?topic={topic}](#get-v1assets)
-Fetches all events for a specific topic
+topic: same as ingested
 
-* [GET /Event/{id}](##get-v1assetsid)
+* GET /Event/{id}
 Fetches an event based on EventId
+id: event id provided at ingest
 
 
 

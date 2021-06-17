@@ -6,8 +6,8 @@ description: This section describes the Event Ingest Api
 # Ingest Alarms & Events to Veracity
 
 Data is ingested into Veracity using API. 
-The api is accessible from [api-portal](https://api-portal.veracity.com/). 
-Select api: Data Fabric IoT Event Ingest API.
+- The api is accessible from [api-portal](https://api-portal.veracity.com/). 
+- Select api: *Data Fabric IoT Event Ingest API*
 
 ## Authentication
 Authorization: Use bearer-token

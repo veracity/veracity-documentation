@@ -196,7 +196,7 @@ In a Veracity message several datapoints can be sent in same message.
 }
 ```	   
 
-# Submit JSON  to IoT Hub
+## Submit JSON to IoT Hub
 
 Once the JSON is obtained, the MS SDK provides an easy way of sending the JSON to the IOT Hub using Microsoft.Azure.Devices.Client; as demonstrated in the code example below:
 

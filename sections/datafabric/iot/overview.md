@@ -3,14 +3,14 @@ author: Veracity
 description: Gives an overview of the Veracity IoT services and related components.
 ---
 
-# Overview of  Veracity IoT
+# Overview of Veracity IoT
 Veracity IoT is a managed service for handling sensor data and alarms & events. 
 Veracity IoT sensor data handles continuous streams of high-volume timeseries data allowing remote monitoring of operations.
 Veracity Alarams & Events handle event driven data. Events can be triggered by various systems based on sensor values, rules, etc. For instance, events are triggered only when sensors exceed a certain value. This will reduce data sent to shore; which is useful when bamdwidth is an issue.
 Events can also be manually triggered and be used to report any data.
 
 
-# Modules in Veracity IoT
+## Modules in Veracity IoT
 It consists of several modules:
 
 - Sensor data support

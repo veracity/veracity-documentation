@@ -17,7 +17,7 @@ In addition, the API can also service requests from applications. Applications g
 In order to fetch data from the IoT API incoming requests must contain a bearer token. This token is issued by the identity provider (Azure B2C) using one of the supported oauth2 flows on Veracity, either implicit flow, authorization code flow or client credentials.
 
 
-# Veracity IoT Power BI Connector User Guide
+## Veracity IoT Power BI Connector User Guide
 
 ## Installation
 ### Installing the mez file

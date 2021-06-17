@@ -21,20 +21,18 @@ Base url: https://api.veracity.com/veracity/iotevents/api/v1
 
 ### Equipment and Topology for asset
 [Get equipmentlist for a given asset](#getequipmentlistforasset)
+[Get latest topology report for an asset](#getlatesttopologyreportforasset) 
 [Get current topology for an equipment](#getcurrenttopologyforanequipmentforasset)
-Get latest topology report for an asset
-Get values for a given equipment code
 
 ### Health reports 
-Get latest health report for an asset
+[Get latest health report for an asset](#getlatesthealthreportforasset)
 
 ### Events on asset
-Get topic list for a given asset
-Get all events for a given asset
+[Get topic list for a given asset](#gettopiclistforasset)
 
 ### Events based on topic or id (across vessels)
-Get all events for a specific topic
-Get event based on eventId
+[Get all events for a specific topic](#getalleventsfortopic)
+[Get event based on eventId](#geteventbyeventId)
 
 
 #### Get equipmentlist for asset
@@ -48,20 +46,47 @@ Get event based on eventId
 - Schema: schema for asset identider - i.e. IMO, 
 - Id: asset identifier for given schema
 - Code: equipment code
-- Response: Systemdata for 
+- Response: Current systemdata for equipment
 
 #### Get latest topology report for asset
-/GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}
+- Relative url: /Event/GetLatestTopologyEventByAsset?schema={schema}&id={id}
+- Schema: schema for asset identider - i.e. IMO, 
+- Id: asset identifier for given schema
 
-#### Get values for a given equipment code
+This could respond in a report not containing all equipment if last report was incomplete.
+
 
 #### Get latest health report for asset
+- Relative url: /Event/GetLatestHealthEventByAsset?schema={schema}&id={id}
+- Schema: schema for asset identider - i.e. IMO, 
+- Id: asset identifier for given schema
 
-#### Get topic list for a given asset
+This could respond in a report not containing health on all equipment if last report was incomplete.
+
+#### Get topic list for asset
+- Relative url: /Event/GetTopicsByAsset?schema={schema}&id={id}
+- Schema: schema for asset identider - i.e. IMO, 
+- Id: asset identifier for given schema
+- Response: Array of unique topics
 
 #### Get all events for asset
+- Relative url: /Event/GetEventsByAsset?schema={schema}&id={id}
+- Schema: schema for asset identider - i.e. IMO, 
+- Id: asset identifier for given schema
 
-#### Get all events for a specific topic
+This api-endpoint will change shortly to limit the response
 
-#### Get event based on eventId
+#### Get all events for topic
+- Relative url: /Event/GetEventsByTopic?topic={topic}
+- Topic: topic name, i.e. "Communication/EquipmentStatus/HealthReport"
+- Response: all event with this topic across vessels you have access to
+
+#### Get event by eventId
+- Relative url: /Event/{id}
+- id: unique id of event ingested
+
+[obsolete]
+These endpoints will be re-implemented based on needs:
+- Get values for a given equipment code
+- Fetches values for a given equipment data value, dataset schema and name
 

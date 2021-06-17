@@ -80,23 +80,24 @@ The rest api can be invoked directly from you application. An SDK is provided fo
 ### Get token
 For each api call you need to provide a token.
 
-https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
+1. Receive token
 
+- IDP auth: https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
 - resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
-- client_id & client_secret will be sent in a separate encrypted email.
+- client_id: will be sent in a separate encrypted email
+- client_secret: will be sent in a separate encrypted email
 - grant_type: client_credentials
 
-1. This example use Postman to receive token.
 
 <figure>
 	<img src="assets/token1.png"/>
-	<figcaption>get token</figcaption>
+	<figcaption>get token using postman</figcaption>
 </figure>
 
 2. Thereafter click at «Send» and copy the Access Token between the quotes in response.
 3. Now as we have an access token, we can make various requests using the api
 
-### Use Postman
+### Use Postman or code
 
 4. Click at «Authorization» in the «Request» window and select «Bearer Token» and use the access token from step 2
 5. Click at the «Headers» tab. Please fill in the Ocp-Apim-Subscription-Key (Ocp-Apim-Subscription-Key has been sent out in separate email 

@@ -3,46 +3,45 @@ author: Benedikte Kallåk
 description: This section describes the different endpoints of the Event Query Api
 ---
 # Data Fabric IoT Event Query API
-The api is accessible from [api-portal](https://api-portal.veracity.com/).
-Select api: Data Fabric IoT Event Query API
-
-To group the endpoints in api-portal, select the "group by tag" button.
+- The api is accessible from [api-portal](https://api-portal.veracity.com/).
+- Select api: Data Fabric IoT Event Query API
+- To group the endpoints in api-portal, select the "group by tag" button.
 
 ## Authentication
 Authorization: Use bearer-token
-See how to authenticate for the api [click here]( authenticate-api.md).
+See how to authenticate for the api [click here](authenticate-api.md).
 
 ## Security Model
 Only users that has access to an asset can access data from this asset.
 
 ## Api endpoints
 
-Base url: https://api.veracity.com/veracity/iotevents/api/v1
+Base url: *https://api.veracity.com/veracity/iotevents/api/v1*
 
 ### Equipment and Topology for asset
-[Get equipmentlist for a given asset](#getequipmentlistforasset)
-[Get latest topology report for an asset](#getlatesttopologyreportforasset) 
-[Get current topology for an equipment](#getcurrenttopologyforanequipmentforasset)
+[Get equipmentlist for a given asset](#get-equipmentlist-for-asset)
+[Get latest topology report for an asset](#get-latest-topology-report-for-asset) 
+[Get current topology for an equipment](#get-current-topology-for-an-equipment-for-asset)
 
 ### Health reports 
-[Get latest health report for an asset](#getlatesthealthreportforasset)
+[Get latest health report for an asset](#get-latest-health-report-for-asset)
 
 ### Events on asset
-[Get topic list for a given asset](#gettopiclistforasset)
+[Get topic list for a given asset](#get-topic-list-for-asset)
 
 ### Events based on topic or id (across vessels)
-[Get all events for a specific topic](#getalleventsfortopic)
-[Get event based on eventId](#geteventbyeventId)
+[Get all events for a specific topic](#get-all-events-for-topic)
+[Get event based on eventId](#get-event-by-eventid)
 
 
 #### Get equipmentlist for asset
-- Relative url: /GetEquipmentByAsset?schema={schema}&id={id}
+- Relative url: /Event/GetEquipmentByAsset?schema={schema}&id={id}
 - Schema: schema for asset identider - i.e. IMO, 
 - Id: asset identifier for given schema
 - Response: List of unique equipment codes (id)
 
 #### Get current topology for an equipment for asset
-- Relative url: /GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}
+- Relative url: /Event/GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}
 - Schema: schema for asset identider - i.e. IMO, 
 - Id: asset identifier for given schema
 - Code: equipment code

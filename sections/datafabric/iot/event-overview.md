@@ -11,9 +11,11 @@ Each event contains more data (metadata) than what is typical for sensordata. Ea
 
 Most events are related to equipment. Veracity supports the ISO 19848 standard for naming equipment using DNV's VIS schema.
 
+For more details about [Veracity IoT Sensor data handling](overview.md)
+
 ## Event types
 Veracity support a topic-based events (reports) and have defined:
 
-- [Topology report]( topology-message.md): Equipment with system data.
+- [Topology report](topology-message.md): Equipment with system data.
 - [Health report](health-message.md): Status on equipment
 - [Generic reports](generic-message.md): Use userdefined topic and ingest events using the generic Dataset format.

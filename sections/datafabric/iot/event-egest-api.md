@@ -19,47 +19,49 @@ Only users that has access to an asset can access data from this asset.
 
 Base url: https://api.veracity.com/veracity/iotevents/api/v1
 
-# Equipment and Topology for asset
-* [GET Event/GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}](#get-v1datachannellistid)
-Fetches current topology for an equipment
+### Equipment and Topology for asset
+[Get equipmentlist for a given asset](#getequipmentlistforasset)
+[Get current topology for an equipment](#getcurrenttopologyforanequipmentforasset)
+Get latest topology report for an asset
+Get values for a given equipment code
 
-* [GET /Event/GetEquipmentByAsset?schema={schema}&id={id}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches equipment for a given asset Schema and Id
+### Health reports 
+Get latest health report for an asset
 
-* [GET /Event/GetEquipmentByAsset?schema={schema}&id={id}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches equipment for a given asset Schema and Id
+### Events on asset
+Get topic list for a given asset
+Get all events for a given asset
 
-* [GET /Event/GetLatestTopologyEventByAsset?schema={schema}&id={id}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches latest topology event for an asset
-
-* [GET /Event/GetEventsByEquipmentCode?code={code}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches values for a given equipment code
-
-* [GET /Event/GetEventsByEquipmentStatus?schema={schema}&key={key}&value={value}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches values for a given equipment data value, dataset schema and name
+### Events based on topic or id (across vessels)
+Get all events for a specific topic
+Get event based on eventId
 
 
-# Health
+#### Get equipmentlist for asset
+- Relative url: /GetEquipmentByAsset?schema={schema}&id={id}
+- Schema: schema for asset identider - i.e. IMO, 
+- Id: asset identifier for given schema
+- Response: List of unique equipment codes (id)
 
-* [GET /Event/GetLatestHealthEventByAsset?schema={schema}&id={id}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches latest health event for an asset
+#### Get current topology for an equipment for asset
+- Relative url: /GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}
+- Schema: schema for asset identider - i.e. IMO, 
+- Id: asset identifier for given schema
+- Code: equipment code
+- Response: Systemdata for 
 
-# Events on asset
-* [GET /Event/GetTopicsByAsset?schema={schema}&id={id}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches topics for a given asset Schema and Id
+#### Get latest topology report for asset
+/GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}
 
-* [GET /Event/GetEventsByAsset?schema={schema}&id={id}(#get-v1assetsiddatachannelsdatachannelidtimeseriesdatagetdownsampleddata)
-Fetches values for a given asset id (Schema and Id)
+#### Get values for a given equipment code
 
+#### Get latest health report for asset
 
-# Events based on topic or id (across vessels)
-* GET /Event/GetEventsByTopic?topic={topic}
-Fetches all events for a specific topic
-topic: same as ingested
+#### Get topic list for a given asset
 
-* GET /Event/{id}
-Fetches an event based on EventId
-id: event id provided at ingest
+#### Get all events for asset
 
+#### Get all events for a specific topic
 
+#### Get event based on eventId
 

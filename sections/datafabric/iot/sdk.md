@@ -3,46 +3,23 @@ author: Benedikte Kallåk
 description: This section describes the different endpoints of the IoT Api
 ---
 
-# Veracity IoT Api
+# Use api from applications
 
 Only users that has access to an asset as well as given permission to datachannel-datasets can access iot data from this asset.
+
 The api is accessible from [api-portal](https://api-portal.veracity.com/)
 
-# Subscribe to API
+## Access token
+There are two ways of making requests to the Veracity Iot & Events API endpoints. You can request the API 
+either as a user through API Portal/Postman or as application through Postman/Code. 
+- When you request the endpoints as user, then your personal token and API Key are being used. 
+- On the other hand, when you make requests as application then application token and API key are being used.
 
-Data can be accessed using Veracity IoT api. The API is managed by Azure API management and hence you need a subscription. 
-1.	Go to Veracity api portal:[api-portal](https://api-portal.veracity.com/)
-2.	Sign in
-3.	Select Product
-4.	Select Veracity Platform API. This api contains all the Veracity platform APIs which allow you to integrate with platform and enjoy the platform features by calling related API, it contains all the legacy "My service API" and "Data fabric API".
-5.	Select Subscribe
-6.	After subscription, your access keys are available from Products
+[See details about authentication and how to test the api](authenticate-api.md)
 
- 
-# Test api from portal.	
-
-1.  Go to [api-portal](https://api-portal.veracity.com/)
-2.	Sign in
-3.	Select API
-4.	Select Data Fabric Time Series API
-5.	Select Group-by Tag
-6.	Select an endpoint – i.e [api](https://api.veracity.com/veracity/timeseries/api/v1/Assets)
-7.	Select Try It
-8.	If you are  signed in Ocp-Apim keys are filled out.  This is the key you can get from subscription key described above
-9.	Select Authorization code from Authorization 
-10. Fill in required parameters in payload and select SEND
-
-# Use api from application
-
-You will receive credentials for your service app:
-- Client Id
-- Client secret
-- APIM subscription key
-
-The service app is granted access to the asset(s).
 
 ## C# SDK
-Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard.
+Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard and availabale as Nuget packages.
 
 - [model](https://www.nuget.org/packages/Veracity.IoT.SDK.Models/): Veracity.IOT.SDK.Models: models used for data ingest and output of data queries
 - [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/): Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models

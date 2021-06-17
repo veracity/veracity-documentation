@@ -3,7 +3,7 @@ author: Benedikte Kallåk
 description: This section describes how to communicate with Event and IoT Apis
 ---
 
-# Veracity IoT Api and Event api
+# Authenticate for Veracity IoT Api and Event api
 
 - Events are ingested into Veracity using API and requested using API. 
 - Sensor data supports several ingest methods, but query of sensor-data is done using API.
@@ -24,7 +24,7 @@ either as a user through API Portal/Postman or as application through Postman/Co
 
 
 
-# API request as user (User credentials - B2C token)
+## API request as user (User credentials - B2C token)
 
 1. Visit the Veracity API Portal: https://api-portal.veracity.com/
 2. If you already have a user from before, please click directly at “Sign In”. In case you are not registered from before , please click at “Sign Up”.
@@ -67,17 +67,17 @@ Authorization Code in the menu of B2C PROD Oauth – V2 Endpoint
 changes to the Request Body and click at Send on bottom of page. 
  
 
-## Use Postman instead of API Portal
+### Use Postman instead of API Portal
 
 You can copy the value of Ocp-Apim-Subscription-Key and Authorization from API Portal. 
 Please paste those values in the header of any endpoint. In this case your personal API key and token
 are being used from Postman.
 
-# Api request as application (application credentials)
+## Api request as application (application credentials)
 The rest api can be invoked directly from you application. An SDK is provided for .Net and for Python.
 
 
-## Get token
+### Get token
 For each api call you need to provide a token.
 
 https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
@@ -96,7 +96,7 @@ https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/to
 2. Thereafter click at «Send» and copy the Access Token between the quotes in response.
 3. Now as we have an access token, we can make various requests using the api
 
-## Use Postman
+### Use Postman
 
 4. Click at «Authorization» in the «Request» window and select «Bearer Token» and use the access token from step 2
 5. Click at the «Headers» tab. Please fill in the Ocp-Apim-Subscription-Key (Ocp-Apim-Subscription-Key has been sent out in separate email 

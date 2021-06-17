@@ -31,7 +31,7 @@ either as a user through API Portal/Postman or as application through Postman/Co
 3. You will then be navigated to a page where you can either sign in or register a new user
 
 <figure>
-	<img src="assets/signup.png"/>
+	<img src="assets/signup1.png"/>
 	<figcaption>Sign up for Veracity</figcaption>
 </figure>
 
@@ -41,7 +41,7 @@ either as a user through API Portal/Postman or as application through Postman/Co
 6. Select "PRODUCTS" option in menu 
 
 <figure>
-	<img src="assets/products.png"/>
+	<img src="assets/products1.png"/>
 	<figcaption>Sign up for Veracity</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ will see that an access token is obtained.
 15. On the same page you can authenticate yourself to obtain an Access Token. Please select
 Authorization Code in the menu of B2C PROD Oauth – V2 Endpoint
 <figure>
-	<img src="assets/authentication.png"/>
+	<img src="assets/authentication1.png"/>
 	<figcaption>Authentication</figcaption>
 </figure>
 16. It should now be possible to make requests from the API portal. Just make desired 
@@ -89,7 +89,7 @@ https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/to
 1. This example use Postman to receive token.
 
 <figure>
-	<img src="assets/token.png"/>
+	<img src="assets/token1.png"/>
 	<figcaption>get token</figcaption>
 </figure>
 

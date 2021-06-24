@@ -4,6 +4,8 @@ description: Transition to new login URL in B2C
 ---
 
 # Transition to new login URL in B2C
+## UPDATE JUNE 24
+*July 1st 2021 is fast approaching and as we informed earlier this year, we will not be able to guarantee authentication of the old login url after this date. We strongly urge you to update this NOW.
 ## Background
 MS will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants.
 

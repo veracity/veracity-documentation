@@ -19,7 +19,7 @@ MS will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants.
 
 ## Deadline
 <span style="color:red;font-weight:bolder;">**July 1st, 2021**</span><br/>
-Note that in order to keep SSO for your service, we recommend that you make this change before **April 10th**. On this date, we will switch to a new logon page using Azure AD B2C, and users of services still using login.microsoftonline.com will get a secondary logon prompt if they navigate between services that have changed and those that have not. 
+We have switched to a new logon page using Azure AD B2C, and users of services still using login.microsoftonline.com will get a secondary logon prompt if they navigate between services that have changed and those that have not. 
 
 ## Changes required in different scenarios:
 ### Apps using Client Credentials grant type

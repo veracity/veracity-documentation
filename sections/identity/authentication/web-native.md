@@ -41,22 +41,19 @@ Data Fabric API scope|`https://dnvglb2cprod.onmicrosoft.com/37c59c8d-cd9d-4cd5-b
 With this information you can now construct the URLs needed to authenticate and authorize users with Veraicty. Before we do however it is useful to know about the metadata endpoint. This is a url where you can get detailed information about the configuration of the OAuth 2.0 implementation used in Veracity. The format of the URL is:
 
 ```
-# Format 
-https://login.microsoftonline.com/{tenantid}/v2.0/.well-known/openid-configuration?p={policy}
-
 # Veracity Metadata URL
-https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
+https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
 ```
 
 If you visit this URL in your browser the IDP will return details about its OAuth configuration. When verifying tokens you will need this information. It also contains the authorization URL as well as token endpoint URL which you will need later. Let's construct the authorization URL based on the information returned from the metadata endpoint. Here is an example of the data returned:
 
 ```json
 {
-  "issuer": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
-  "authorization_endpoint": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp",
-  "token_endpoint": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token?p=b2c_1a_signinwithadfsidp",
-  "end_session_endpoint": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/logout?p=b2c_1a_signinwithadfsidp",
-  "jwks_uri": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/discovery/v2.0/keys?p=b2c_1a_signinwithadfsidp",
+  "issuer": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
+  "authorization_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp",
+  "token_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token?p=b2c_1a_signinwithadfsidp",
+  "end_session_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/logout?p=b2c_1a_signinwithadfsidp",
+  "jwks_uri": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/discovery/v2.0/keys?p=b2c_1a_signinwithadfsidp",
   "response_modes_supported": [
     "query",
     "fragment",
@@ -86,9 +83,9 @@ If you visit this URL in your browser the IDP will return details about its OAut
     "client_secret_basic"
   ],
   "claims_supported": [
-    "userId",
     "dnvglAccountName",
     "myDnvglGuid",
+    "userId",
     "oid",
     "name",
     "given_name",
@@ -96,6 +93,9 @@ If you visit this URL in your browser the IDP will return details about its OAut
     "sub",
     "email",
     "upn",
+    "mfaType",
+    "mfa_required",
+    "authenticatedBy",
     "iss",
     "iat",
     "exp",
@@ -123,7 +123,7 @@ Parameter|Value
 All parameters must also be URL encoded before being sent to remove any illegal characters from the URL. With node/javascript you can do this using the `encodeURIComponent` function. Read more about it [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent). Here is an example of the complete, encoded url (line breaks added for clarity):
 
 ```url
-https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize
+https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize
 
 ?p=b2c_1a_signinwithadfsidp
 &client_id=6731de76-14a6-49ae-97bc-6eba6914391e

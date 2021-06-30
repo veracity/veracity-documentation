@@ -23,11 +23,11 @@ Information you need to acquire before you start :
 To get a access token:
 
 Example Http request:  
-
-    POST https://login.microsoftonline.com/{tenantId/oauth2/token
-    Content-Type: application/x-www-form-urlencoded
-    grant_type=client_credentials&resource={Full Data fabric resource url}f&client_id={ClientId}&client_secret={ClientSecret}  
-
+```
+POST https://login.microsoftonline.com/{tenantId/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+grant_type=client_credentials&resource={Full Data fabric resource url}f&client_id={ClientId}&client_secret={ClientSecret}  
+```
 Note: Remember to url encode the form content
 
 ### Example C#
@@ -36,51 +36,51 @@ This example requires:
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 
 Aad Token class:  
+```cs
+public class Token
+{
+    [JsonProperty("token_type")]
+    public string TokenType { get; set; }
 
-    public class Token
-    {
-        [JsonProperty("token_type")]
-        public string TokenType { get; set; }
+    [JsonProperty("expires_in")]
+    public string ExpiresIn { get; set; }
 
-        [JsonProperty("expires_in")]
-        public string ExpiresIn { get; set; }
+    [JsonProperty("ext_expires_in")]
+    public string ExtExpiresIn { get; set; }
 
-        [JsonProperty("ext_expires_in")]
-        public string ExtExpiresIn { get; set; }
+    [JsonProperty("expires_on")]
+    public string ExpiresOn { get; set; }
 
-        [JsonProperty("expires_on")]
-        public string ExpiresOn { get; set; }
+    [JsonProperty("not_before")]
+    public string NotBefore { get; set; }
 
-        [JsonProperty("not_before")]
-        public string NotBefore { get; set; }
+    [JsonProperty("resource")]
+    public string Resource { get; set; }
 
-        [JsonProperty("resource")]
-        public string Resource { get; set; }
-
-        [JsonProperty("access_token")]
-        public string AccessToken { get; set; }
-    }
-
+    [JsonProperty("access_token")]
+    public string AccessToken { get; set; }
+}
+```
 Retrieve the access token:  
+```cs
+var clientId = "{clientId}";
+var clientSecret = "{clientSecret}";
+var tokenEndpoint = "https://login.microsoftonline.com/{tenantId}/oauth2/token";
+var resource = "{Data fabric resource url}";
 
-    var clientId = "{clientId}";
-    var clientSecret = "{clientSecret";
-    var tokenEndpoint = "https://login.microsoftonline.com/{tenantId}/oauth2/token";
-    var resource = "{Data fabric resource url}";
+using (var client = new System.Net.Http.HttpClient())
+{
+    var content =
+        new StringContent(
+            $"grant_type=client_credentials&client_id={clientId}&resource={resource}&client_secret={HttpUtility.UrlEncode(clientSecret)}",
+            Encoding.UTF8, "application/x-www-form-urlencoded");
 
-    using (var client = new System.Net.Http.HttpClient())
-    {
-        var content =
-            new StringContent(
-                $"grant_type=client_credentials&client_id={clientId}&resource={resource}&client_secret={HttpUtility.UrlEncode(clientSecret)}",
-                Encoding.UTF8, "application/x-www-form-urlencoded");
+    var response = await client.PostAsync(tokenEndpoint, content);
+    var result = JsonConvert.DeserializeObject<Token>(await response.Content.ReadAsStringAsync());
 
-        var response = await client.PostAsync(tokenEndpoint, content);
-        var result = JsonConvert.DeserializeObject<Token>(await response.Content.ReadAsStringAsync());
-
-        var accessToken = result.AccessToken;
-    }
-
+    var accessToken = result.AccessToken;
+}
+```
 ## User
 
 To acquire the Bearer Token needed for the API requests it is possible to authenticate with the code below. It's important to register any new app in the Azure Active Directory as a Native App. This App ID, together with the tenant name from Azure AD will be used to obtain an authentication key.
@@ -94,17 +94,17 @@ Firstly, input data is required:
 * ApiScopes - scopes available for given api  
 
 For user identification we use the class PublicClientApplication which is available in the namespace [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client). You can include it as a NuGet package, currently in preview mode.  
-    
-    public static PublicClientApplication PublicClientApp { get; } = new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
-
+```cs
+public static PublicClientApplication PublicClientApp { get; } = new PublicClientApplication(ClientId, Authority, TokenCacheHelper.GetUserCache());
+```
 The Authority field is the following URL, where {tenant} and {policy} are replaced with proper values from the app registration.:  
 
     "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
 
 To sign in, the AcquireTokenAsync method from PublicClientApplication is used.  
-
-    public static async Task<AuthenticationResult> SignIn()
-    {
+```cs
+public static async Task<AuthenticationResult> SignIn()
+{
     try
     {
         var authResult = await PublicClientApp.AcquireTokenAsync(ApiScopes,
@@ -120,7 +120,8 @@ To sign in, the AcquireTokenAsync method from PublicClientApplication is used.
         $"Users:{string.Join(",", PublicClientApp.Users.Select(u => u.Identifier))}{Environment.NewLine}Error Acquiring Token:{Environment.NewLine}{ex}");
         return null;
     }
-    }  
+}  
+```
 
 The AuthenticationResult object contains the property AccessToken, which is where the Bearer Key is stored.
 

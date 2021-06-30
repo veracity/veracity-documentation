@@ -4,31 +4,6 @@
 		{
 			"text": "Introduction",
 			"href": "createaservice.md"
-		},
-		{
-			"text": "Veracity application generator",
-			"items": [
-				{
-					"text": "Introduction",
-                    "href": "generator/introduction.md"
-				},
-				{
-					"text": "Setup your dev environment",
-					"href": "generator/setupdevenvironment.md"
-                },
-                {
-					"text": "Install generator",
-					"href": "generator/installgenerator.md"
-                },
-                {
-					"text": "NodeJs application",
-					"href": "generator/nodejsapp.md"
-                },
-                {
-					"text": ".NET application",
-					"href": "generator/dotnet.md"
-                }
-			]
 		}
 	]
 }

@@ -10,6 +10,10 @@
 			"href": "overview.md"
 		},
 		{
+			"text": "New Login URL",
+			"href": "new-login-url.md"
+		},
+		{
 			"text": "Authentication",
 			"items": [
 				{
@@ -19,6 +23,10 @@
 				{
 					"text": "APIs",
 					"href": "authentication/api.md"
+				},
+				{
+					"text": "Claims",
+					"href": "authentication/claims.md"
 				}
 			]
 		},

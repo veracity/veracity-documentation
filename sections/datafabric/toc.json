@@ -10,19 +10,85 @@
 			"href": "overview.md"
 		},
 		{
-			"text": "Data Fabric Data API Reference",
+			"text": "Veracity IoT Sensors",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "iot/overview.md"
+				},
+				{
+					"text": "Ingest sensordata",
+					"href": "iot/ingest-data.md"
+				},
+				{
+					"text": "Sensordata API",
+					"href": "iot/api-documentation.md"
+				},
+				{
+					"text": "Authenticate",
+					"href": "iot/authenticate-api.md"
+				}, 
+				{
+					"text": "SDK",
+					"href": "iot/sdk.md"
+				},
+				{
+					"text": "Power BI Connector",
+					"href": "iot/powerbi-connector.md"
+				}
+			]
+		},
+		{
+			"text": "Veracity Alarms & Events",
+			"items": [
+				{
+					"text": "Types of event",
+					"href": "iot/event-overview.md"
+				},
+				{
+					"text": "Topology message",
+					"href": "iot/topology-message.md"
+				},
+				{
+					"text": "Health message",
+					"href": "iot/health-message.md"
+				},
+				{
+					"text": "Generic events message",
+					"href": "iot/generic-message.md"
+				},
+				{
+					"text": "Ingest event",
+					"href": "iot/event-ingest-api.md"
+				},
+				{
+					"text": "Query event api",
+					"href": "iot/event-egest-api.md"
+				},
+				{
+					"text": "Authenticate",
+					"href": "iot/authenticate-api.md"
+				},
+				{
+					"text": "SDK",
+					"href": "iot/sdk.md"
+				}
+			]
+		},
+		{
+			"text": "Data Fabric Data API Specification",
 			"href": "datafabric-dataapi-openapi.yaml"
 		},
 		{
-			"text": "Data Fabric Provision API Reference",
+			"text": "Data Fabric Provision API Specification",
 			"href": "datafabric-provisionapi-openapi.yaml"
 		},
 		{
 			"text": "Authentication",
 			"items": [
 				{
-					"text": "Acessing APIs",
-					"href": "authentication/acessing-apis.md"
+					"text": "Accessing APIs",
+					"href": "authentication/accessing-apis.md"
 				}
 			]
 		},
@@ -46,6 +112,11 @@
 					"text": "Introduction",
 					"href": "tutorials/introduction.md"
 				},
+				{
+					"text": "Access container",
+					"href": "tutorials/access-container.md"
+				}
+				,
 				{
 					"text": "Authorization Snippet",
 					"href": "tutorials/authorization-snippet.md"

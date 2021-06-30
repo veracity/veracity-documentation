@@ -93,7 +93,7 @@ In this sample we use the following nuget packages:
 
 Firstly, we need to create a .Net Framework application and add the constant holding SAS key provided by Veracity to the Main method.
 
-```csharp
+```cs
 static void Main(string[] args)
 {
   // Create the constant holding the key provided by Veracity. Add your key.
@@ -118,14 +118,14 @@ using System.Collections.Generic;
 ```
 
 Now 3 main tasks remain, we need to get a reference to the container using a SAS key,
-```csharp
+```cs
 //Return a reference to the container using the SAS URI.
 CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
 ```
 
 get the blob URIs using the SAS URI for the container,
 
-```csharp
+```cs
 //Create a list to store blob URIs returned by a listing operation on the container.
 List<ICloudBlob> blobList = new List<ICloudBlob>();
 
@@ -137,7 +137,7 @@ foreach (ICloudBlob blob in container.ListBlobs())
 ```
 and finally read the content of the blob.
 
-```csharp
+```cs
 CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
 MemoryStream msRead = new MemoryStream();
 msRead.Position = 0;
@@ -146,7 +146,7 @@ blob.DownloadToStream(msRead);
  
 Using these three steps, we can create a method that can interact with the container. We also add functionality to verify what access the provided Veracity SAS key gives.
 
-```csharp
+```cs
 // We create a method that interact with the container
 static void UseContainerSAS(string sas)
 {
@@ -235,7 +235,7 @@ static void UseContainerSAS(string sas)
 
 Finally we then need to call the method from the main method in the program. Your main method should then look like this.
 
-```csharp
+```cs
 static void Main(string[] args)
 {
   // Create the constant holding the key provided by Veracity. Add your key.

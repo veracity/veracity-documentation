@@ -30,4 +30,4 @@ You will also receive a serviceId, this id is the unique identifier for your app
 
 
 ## Further reading
-We are soon to publish new documentation for all product lines at Veracity. The old documentation with samlple code in this document are out of date and removed, so we suggest using the Veracity Application generator for sample code, and follow us at GitHub and developer.veracity.com for updates.
+We are soon to publish new documentation for all product lines at Veracity. The old documentation with samlple code in this document are out of date and removed. Follow us at GitHub and developer.veracity.com for updates.

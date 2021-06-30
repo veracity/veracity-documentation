@@ -23,7 +23,7 @@ The process the API should follow is:
 In order to properly validate the access token received with the request the API needs some additional information from the Veracity IDP. This information is available through the metadata endpoint which is available here:
 
 ```
-https://login.microsoftonline.com/{tenantid}/v2.0/.well-known/openid-configuration?p={policy}
+https://login.veracity.com/{tenantid}/v2.0/.well-known/openid-configuration?p={policy}
 ```
 
 Replace the placeholders with the following parameters:
@@ -36,11 +36,11 @@ Visiting this URL in your browser will return details about the Veracity IDPs OA
 
 ```json
 {
-  "issuer": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
-  "authorization_endpoint": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp",
-  "token_endpoint": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token?p=b2c_1a_signinwithadfsidp",
-  "end_session_endpoint": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/logout?p=b2c_1a_signinwithadfsidp",
-  "jwks_uri": "https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/discovery/v2.0/keys?p=b2c_1a_signinwithadfsidp",
+  "issuer": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
+  "authorization_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp",
+  "token_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token?p=b2c_1a_signinwithadfsidp",
+  "end_session_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/logout?p=b2c_1a_signinwithadfsidp",
+  "jwks_uri": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/discovery/v2.0/keys?p=b2c_1a_signinwithadfsidp",
   "response_modes_supported": [
     "query",
     "fragment",
@@ -70,9 +70,9 @@ Visiting this URL in your browser will return details about the Veracity IDPs OA
     "client_secret_basic"
   ],
   "claims_supported": [
-    "userId",
     "dnvglAccountName",
     "myDnvglGuid",
+    "userId",
     "oid",
     "name",
     "given_name",
@@ -80,6 +80,9 @@ Visiting this URL in your browser will return details about the Veracity IDPs OA
     "sub",
     "email",
     "upn",
+    "mfaType",
+    "mfa_required",
+    "authenticatedBy",
     "iss",
     "iat",
     "exp",

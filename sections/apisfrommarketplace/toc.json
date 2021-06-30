@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "DNVGL RP O501 REST API",
+			"href": "dnv-rp-o501-rest-api-openapi.yaml"
+		},
+		{
+			"text": "FatFree REST API",
+			"href": "fatfree-rest-api-openapi.yaml"
+		}
+	]
+}

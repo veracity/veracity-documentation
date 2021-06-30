@@ -20,7 +20,7 @@ In this section, we have the following settings:
 - Footer properties
 
 ## Header icon
-The default icon for the VAP service is the Veracity by DNVGL wordmark. You can change the icon to your preference. To do so, click the edit header icon and upload your icon. We support most file types, and you will be able to crop the icon during upload. 
+The default icon for the VAP service is the Veracity by DNV wordmark. You can change the icon to your preference. To do so, click the edit header icon and upload your icon. We support most file types, and you will be able to crop the icon during upload. 
 
 ## Statistics report
 The statistics report provide you with insight into your VAP service. Both concerning the operational aspects and the customer aspects.

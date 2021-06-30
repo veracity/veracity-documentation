@@ -16,7 +16,7 @@ First, you go to the admin tab on the menu bar in VAP. Click on the Manage files
 
 Fill in the fields, as shown in the image below. When done, click the next button.
 <figure>
-	<img src="assets/step-by-step-upload-files.png"/>
+	<img src="assets/HowToUse-VAP-PowerBI-VeracityContainerAsDataSource.png"/>
 	<figcaption>Step-by-step guide: Upload file</figcaption>
 </figure>
 

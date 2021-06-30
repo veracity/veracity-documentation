@@ -16,14 +16,14 @@ First, you go to the admin tab on the menu bar in VAP. Click on the Manage files
 
 Fill in the fields, as shown in the image below. When done, click the next button.
 <figure>
-	<img src="assets/step-by-step-upload-files.png"/>
+	<img src="assets/HowToUse-VAP-PowerBI-VeracityContainerAsDataSource.png"/>
 	<figcaption>Step-by-step guide: Upload file</figcaption>
 </figure>
 
 You should now have loaded the demo file into VAP, and ready to proceed to the next step.
 
 ## Use data container as data source
- <a href="assets/how-to-use-vap-power-bi-veracitycontainer-as-datasource.pdf" download>Download the guide</a> on how to use Veracity container as data source.  
+ <a href="assets/HowToUse-VAP-PowerBI-VeracityContainerAsDataSource.pdf" download> Download the guide</a> on how to use Veracity container as data source.  
 
 Now, lets learn how to mange your reports.
 

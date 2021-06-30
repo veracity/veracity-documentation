@@ -87,3 +87,18 @@ Giving access to the service itself is in many cases not sufficient as there are
 ## Customer journey
 For details on how the journey will be for the customer have a look at this customer journey
 <a href="assets/UserJourneyPurchasableProducts.png" download>Click to Download</a>
+
+## Using trial periods on subscriptions
+For subscription services it is possible to add a free trial to show your prospective customers the value of your service and help them make an informed decision. You can start your customer’s subscription with a free trial period of your choosing. In the example below, DATE for CMC have chosen a 3 month free trial for their customers. The pricing plan purchase buttons will consequently reflect the chosen period - the button will say <em>"Try free for (period time)"</em>. You can choose between the following trial periods:
+* 7 days trial
+* 14 days trial
+* 1 month trial
+* 3 months trial
+* 6 months trial
+
+When purchasing the customer puts in their payment information as normal, and after the trial period ends the customer is charged for the service. Get in touch with your onboarding manager to discuss the possibility of adding a free trial period to your service.
+
+<figure>
+	<img src="assets/DATEForCMC.PNG"/>
+	<figcaption>Free trial period on DATE for CMC</figcaption>
+</figure>

@@ -5,7 +5,7 @@ description: An overview of the different paid pricing models you can use for yo
 
 # Paid services
 
-When planning to sell a service through Veracity Marketplace, you should have reached a high grade of maturity of your product and be ready for scalability. Get in touch with us if you want to know more about how "ready you are for selling digitally".
+When planning to sell a service through Veracity Marketplace, you should have reached a high grade of maturity of your product and be ready for scalability. Get in touch with us if you want to know more about how "ready you are for selling digitally". Veracity supports processing charges in multiple currencies, including Euro (EUR), British pound sterling (GBP) and U.S. Dollars (USD).
 
 The following section gives an overview of the different pricing models you can use for your product.
 
@@ -85,5 +85,19 @@ For digital services/apps there are several options for how access to the servic
 Giving access to the service itself is in many cases not sufficient as there are needs to set-up access levels inside the service as well. We do have some options for giving messages to initiate this process as well. 
 
 ## Customer journey
-For details on how the journey will be for the customer have a look at this customer journey
-<a href="assets/UserJourneyPurchasableProducts.png" download>Click to Download</a>
+For details on how the journey will be for the customer have a look at <a href="assets/UserJourneyPurchasableProducts.png" download>this customer journey</a>.
+
+## Using trial periods on subscriptions
+For subscription services it is possible to add a free trial to show your prospective customers the value of your service and help them make an informed decision. You can start your customer’s subscription with a free trial period of your choosing. In the example below, DATE for CMC have chosen a 3 month free trial for their customers. The pricing plan purchase buttons will consequently reflect the chosen period - the button will say <em>"Try free for (period time)"</em>. You can choose between the following trial periods:
+* 7 days trial
+* 14 days trial
+* 1 month trial
+* 3 months trial
+* 6 months trial
+
+When purchasing the customer puts in their payment information as normal, and after the trial period ends the customer is charged for the service. Get in touch with your onboarding manager to discuss the possibility of adding a free trial period to your service.
+
+<figure>
+	<img src="assets/CMC.png"/> 
+	<figcaption>Free trial period on DATE for CMC</figcaption>
+</figure>

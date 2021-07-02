@@ -9,7 +9,7 @@ Choosing the right pricing model for your product can be challenging. There are 
 
 ## Subscription model
 
-Subscription is a well-known model and is easy for customers to understand. A subscription model can be set up to be just one single subscription in which case you might not capture the entire revenue potential of your service, so using a tiered subscription is advised. When making a tiered subscription you should not make too many tiers as this will make it difficult for the customers to select the one most suitable for them.​​
+Subscription is a well-known model and is easy for customers to understand. A subscription model can be set up to be just one single subscription in which case you might not capture the entire revenue potential of your service, so using a tiered subscription is advised. When making a tiered subscription you should not make too many tiers as this will make it difficult for the customers to select the one most suitable for them.​​ For subscription services it is also [possible to add a free trial](./paidservices.md)​ to show your prospective customers the value of your service and help them make an informed decision.
 
 Subscription models makes the cost predictable for the customer and the revenue predictable for you as the provider of the service.​
 

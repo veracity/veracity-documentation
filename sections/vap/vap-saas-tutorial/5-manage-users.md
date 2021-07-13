@@ -14,12 +14,6 @@ To add a customer to your service, click the <i>Add user</i> button and type in 
 Fill in the fields as follows, but with the email as of your preference. 
 <figure>
 	<img src="assets/step-by-step-add-users.png"/>
-
-
-	[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
-
-
-
 	<figcaption>Step-by-step guide: Add user</figcaption>
 </figure>
 

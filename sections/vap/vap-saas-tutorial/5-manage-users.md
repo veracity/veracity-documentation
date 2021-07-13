@@ -14,7 +14,7 @@ To add a customer to your service, click the <i>Add user</i> button and type in 
 Fill in the fields as follows, but with the email as of your preference. 
 <figure>
 	<img src="assets/step-by-step-add-users.png"/>
-	<iframe width = "560" height = "350" src = "https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N">
+	<iframe width = "560" height = "350" src = "https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N"> </iframe>
 	
 	<figcaption>Step-by-step guide: Add user</figcaption>
 </figure>

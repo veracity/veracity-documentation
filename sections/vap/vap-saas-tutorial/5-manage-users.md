@@ -15,6 +15,8 @@ Fill in the fields as follows, but with the email as of your preference.
 <figure>
 	<img src="assets/step-by-step-add-users.png"/>
 	<figcaption>Step-by-step guide: Add user</figcaption>
+
+	<iframe height="200" width="200" src="https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N"> </iframe>
 </figure>
 
 

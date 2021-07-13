@@ -7,7 +7,7 @@ description: VAP tutorial - Manage users
 [Previous - Manage entities](4-manage-entities.md)
 
 https://brandcentral.dnv.com/mars/embed?o=55A3D8D74ED78BAD&c=10651&a=N
-
+										
 Now we are very close to granting users access. Drop into the Manage Users section, and we can start adding them. There are two main usecases; first, the grant customers access, and second, adding collaborators with elevated access rights within your VAP service. We will do both.
 
 ## Add customers
@@ -41,4 +41,6 @@ The highest user access level is the SystemAdmin. The SystemAdmin have access to
 You have now granted users access and added collaborators. Let's summarize and have a look at whats important to do next.
 
 [Next](6-summary.md)
+
+
 

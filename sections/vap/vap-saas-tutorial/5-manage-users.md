@@ -17,7 +17,7 @@ Fill in the fields as follows, but with the email as of your preference.
 	<img src="assets/step-by-step-add-users.png"/>
 	<figcaption>Step-by-step guide: Add user</figcaption>
 
-[!["IMAGE"](assets/step-by-step-add-users.png)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N "Intro")</figure>
+[!["IMAGE"](assets/Video1.png)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N "Intro")</figure>
 
 
 You have now granted access to the customer, and they will be able to see the report you uploaded and configured. 

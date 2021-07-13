@@ -14,7 +14,9 @@ To add a customer to your service, click the <i>Add user</i> button and type in 
 Fill in the fields as follows, but with the email as of your preference. 
 <figure>
 	<img src="assets/step-by-step-add-users.png"/>
-	[![Getting started]assets/step-by-step-add-users.png)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N)
+	[![Little red riding hood](http://i.imgur.com/7YTMFQp.png)](https://vimeo.com/3514904 "Little red riding hood - Click to Watch!")
+
+
 
 	<figcaption>Step-by-step guide: Add user</figcaption>
 </figure>

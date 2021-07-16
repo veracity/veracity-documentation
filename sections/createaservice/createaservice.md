@@ -32,8 +32,6 @@ A resource group is used to collect a set of resources. Currently the resource g
 
 ## Next steps
 
-Check videos 
-
 [Sign up ](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials.
 
 Check out our [documentation](https://developer.veracity.com/docs) to understand how to integrate use our platform services.

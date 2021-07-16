@@ -6,4 +6,11 @@
 			"href": "createaservice.md"
 		}
 	]
+
+	"items": [
+		{
+			"text": "Step one",
+			"href": "createaservice.md"
+		}
+	]
 }

@@ -4,13 +4,12 @@
 		{
 			"text": "Introduction",
 			"href": "createaservice.md"
-		}
+		},
+	{
+		"text": "Step one",
+		"href": "createaservice.md"
+	}
 	]
 
-	"items": [
-		{
-			"text": "Step one",
-			"href": "createaservice.md"
-		}
-	]
+
 }

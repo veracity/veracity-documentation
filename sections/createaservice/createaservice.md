@@ -23,7 +23,7 @@ A resource is any platform capability that needs provisioning for your project t
 
 Some of the resources you can provision self-service, as a part of a project by default, and some are configured by Veracity Onboarding before your product is released to production on Veracity. An example of this is Marketplace, which is provisioned by Veracity Onboarding and will be done in close collaboration with you.
 
-A resource group is used to collect a set of resources. Currently the resource group will be labeled with environments, such as “devtest”, “test”, “staging or “production”. 
+A resource group is used to collect a set of resources. Currently the resource group will be labeled with environments, such as “devtest”, “test”, “staging or “production”.
 
 <figure>
 	<img src="assets/ProjectStructure.png" alt="Example of a project structure"/>

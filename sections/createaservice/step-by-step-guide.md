@@ -16,4 +16,5 @@ description: A step-by-step guide on how to use the developer portal
 
 # Step 4
 [![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N
+
 )

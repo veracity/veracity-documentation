@@ -5,7 +5,7 @@ description: Introduction to how to create a service in Veracity.
 
 # Create a digital service in Veracity
 
-Digital services in Veracity come in many different flavors. You may choose to use a few or a wide range of platform capabilities in your service. Independently of what platform services you want to take advantage of, there are a few mandatory steps to create a service.
+Digital Services in Veracity come in many different flavors. You may choose to use a few or a wide range of platform capabilities in your service. Independently of what platform services you want to take advantage of, there are a few mandatory steps to create a service.
 
 
 ## What is a project

@@ -10,7 +10,7 @@ This is a brief video showing you how to get started on the Veracity for develop
 
 # Creating resources
 
-[![Watch the video](assets/createResource.gif)](https://brandcentral.dnv.com/mars/embed?o=6F95E8DCB2669A8B&c=10651&a=N)
+[![Watch the video](assets/createResourse.gif)](https://brandcentral.dnv.com/mars/embed?o=6F95E8DCB2669A8B&c=10651&a=N)
 
 # Setting up an app
 [![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://brandcentral.dnv.com/mars/embed?o=231C2B4325BC4746&c=10651&a=N)

@@ -4,6 +4,10 @@
 		{
 			"text": "Introduction",
 			"href": "createaservice.md"
+		},
+		{
+			"text": "Step-by-step guide",
+			"href": "step-by-step.md"
 		}
 	]
 }

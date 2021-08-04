@@ -18,3 +18,6 @@ a
 
 # Creating a Veracity service
 [![Watch the video](assets/creatingService_play.gif)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N)
+
+
+

@@ -5,9 +5,9 @@ description: Description of the Vessel Information System (VIS)
 
 # Vessel Information System (VIS) and Generic Product Model (GMOD)
 
-VIS is an abbreviation for Vessel Information Systems, which has been used in DNV GLs production tools for classification of vessels since 2005. VIS contains a hierarchy of functions and libraries of equipment, where a name and code is defined for each item. The coding is based on the Universal Decimal Classification (UDC) numbering system.
+VIS is an abbreviation for Vessel Information Systems, which has been used in DNVs production tools for classification of vessels since 2005. VIS contains a hierarchy of functions and libraries of equipment, where a name and code is defined for each item. The coding is based on the Universal Decimal Classification (UDC) numbering system.
 
-The VIS standard is a generic functional description of a vessel with a library of standard components with reference to functions they can perform. Using VIS, it is possible to generate a vessel-specific product model comprising a vessel-specific functional hierarchy in which vessel-specific components are instantiated and positioned. All vessels classed with DNV GL have a vessel-specific model, whether it is a new building or a class entry.
+The VIS standard is a generic functional description of a vessel with a library of standard components with reference to functions they can perform. Using VIS, it is possible to generate a vessel-specific product model comprising a vessel-specific functional hierarchy in which vessel-specific components are instantiated and positioned. All vessels classed with DNV have a vessel-specific model, whether it is a new building or a class entry.
 
 The model is used to structure various types of information such as document and certification requirements, approval comments, surveyor findings, conditions and non-conformities, coating condition assessment, data recordings throughout the vessel’s lifecycle
 

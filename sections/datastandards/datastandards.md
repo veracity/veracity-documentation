@@ -28,7 +28,7 @@ Standards can be developed by public or private actors. Within some areas standa
 - World Wide Web Consortium (W3C)
 - The Internet Engineering Task Force (IETF)
 
-In 2017, DNV GL issued a position paper that discussed the role of standards and how they could be used to improve data flows and enable digitalisation in the maritime field.  It addressed some of the challenges experienced in digital pilot projects such as incompatible tagging schemes and lack of meta data, in turn leading to reduced data quality and not being able to utilise the data effectively. The paper concluded that these problems could be alleviated by introducing standards and systematics into the processes of collection, storage and exchange of data.
+In 2017, DNV issued a position paper that discussed the role of standards and how they could be used to improve data flows and enable digitalisation in the maritime field.  It addressed some of the challenges experienced in digital pilot projects such as incompatible tagging schemes and lack of meta data, in turn leading to reduced data quality and not being able to utilise the data effectively. The paper concluded that these problems could be alleviated by introducing standards and systematics into the processes of collection, storage and exchange of data.
 
 <figure>
 	<img src="assets/sensor-data-value-chain-image.png"/>
@@ -50,11 +50,11 @@ In a maritime context there are several areas that are affected by standards:
 
 Standardisation efforts will be necessary in these areas as well as others in order to improve data quality and reduce friction in the operational data value chain and to enable the growth of digital applications in the maritime industry.
 
-## What does Veracity and DNV GL provide ?
+## What does Veracity and DNV provide ?
 
-Building on more than 150 years of experience in using and making standards together with lessons learnt through numerous ship digitalisation projects in recent years, DNV GL shares insights and thoughts on how standards can play a role within the collection of digital information from ships.
+Building on more than 150 years of experience in using and making standards together with lessons learnt through numerous ship digitalisation projects in recent years, DNV shares insights and thoughts on how standards can play a role within the collection of digital information from ships.
 
-There are several ongoing data standard activities provided through DNV GL and the Veracity project:
+There are several ongoing data standard activities provided through DNV and the Veracity project:
 
 ### Operational Vessel Data
 
@@ -62,7 +62,7 @@ There are several ongoing data standard activities provided through DNV GL and t
 
 ### ISO 19847 and ISO 19848
 
-- DNV GL (Maritime Class) can do certification services of 19847 data servers and network infrastructures handling ISO 19848 data files.
+- DNV (Maritime Class) can do certification services of 19847 data servers and network infrastructures handling ISO 19848 data files.
 
 - Veracity will support ingest of IOT data following the ISO 19848 standard by end of May.  
 
@@ -70,7 +70,7 @@ There are several ongoing data standard activities provided through DNV GL and t
 
 ### Vessel information Systems (VIS) and  Generic Predict Model (GPM)
 
-Vessel Information System (VIS) and Generic Predict Model (GPM) are two standards offered by DNV GL as information source to be used in sensor naming in accordance with ISO 19848.
+Vessel Information System (VIS) and Generic Predict Model (GPM) are two standards offered by DNV as information source to be used in sensor naming in accordance with ISO 19848.
 
 [More information about VIS/GPM.](vesselinformationsystem.md)
 
@@ -80,10 +80,10 @@ These standards are being currently developed. There is also an initiative to de
 
 ### FMI/FMU:  OSP project for simulation models.  
 
-### Cyber security services offered by DNV GL
+### Cyber security services offered by DNV
 
--	DNV GL type approval program for cyber secure components (DNV GL CP-031)
--	cyber secure class notation  (DNV GL Ship rules Pt 6 Ch 5 Sec 21)  
+-	DNV type approval program for cyber secure components (DNV CP-031)
+-	cyber secure class notation  (DNV Ship rules Pt 6 Ch 5 Sec 21)  
 
 ### Data quality
 Algorithm/ AI verification.  

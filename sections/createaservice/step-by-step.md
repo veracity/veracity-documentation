@@ -2,7 +2,8 @@
 author: Veracity
 description: A step-by-step guide on how to use the developer portal
 ---
-#         Getting started
+
+# Getting started
 This is a brief video showing you how to get started on the Veracity for developer portal
 
 

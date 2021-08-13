@@ -6,8 +6,25 @@
 			"href": "createaservice.md"
 		},
 		{
-			"text": "Get started",
-			"href": "step-by-step.md"
+			"text": "Step-by-step guide",
+			"items": [
+				{
+					"text": "CreateService",
+					"href": "step-by-step-guide/GettingStarted.md"
+				},
+				{
+					"text": "Creating resources",
+					"href": "step-by-step-guide/CreatingResources.md"
+				},
+				{
+					"text": "Set up an app",
+					"href": "step-by-step-guide/SetUpApp.md"
+				},
+				{
+					"text": "Creating services",
+					"href": "step-by-step-guide/CreateService.md"
+				}
+			]
 		}
 	]
 }

@@ -11,7 +11,6 @@ description: Introdduction
 4. [Set up app](SetUpApp.md)
 5. [Create a service](CreateService.md)
 
-
 Now, lets start the tutorial!
 
 [Next](GettingStarted.md)

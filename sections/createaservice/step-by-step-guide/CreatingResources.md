@@ -1,0 +1,2 @@
+# Creating resources
+[![Watch the video](assets/createResourse_play.gif)](https://brandcentral.dnv.com/mars/embed?o=6F95E8DCB2669A8B&c=10651&a=N)

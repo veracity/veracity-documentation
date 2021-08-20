@@ -9,26 +9,29 @@
 			"text": "Step-by-step guide",
 			"items": [
 				{
-					"text": "Getting started",
-					"href": "step-by-step-guide/GettingStarted.md"
+					"text": "Introduction",
+					"href": "step-by-step-guide/introduction.md"
+				},
+				{
+					"text": "Getting Started",
+					"href": "step-by-step-guide/getting-started.md"
 				},
 				{
 					"text": "Creating resources",
-					"href": "step-by-step-guide/CreatingResources.md"
+					"href": "step-by-step-guide/creating-resources.md"
 				},
 				{
 					"text": "Set up an app",
-					"href": "step-by-step-guide/SetUpApp.md"
+					"href": "step-by-step-guide/set-up-app.md"
 				},
 				{
 					"text": "Creating services",
-					"href": "step-by-step-guide/CreateService.md"
+					"href": "step-by-step-guide/create-service.md"
 				},
 				{
-					"text": "Technical requirements",
-					"href": "step-by-step-guide/Technical_requirements.md"
-				},
-
+					"text": "Technical Requirements",
+					"href": "step-by-step-guide/technical-requirements.md"
+				}
 			]
 		}
 	]

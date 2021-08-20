@@ -27,12 +27,12 @@
 				{
 					"text": "Creating services",
 					"href": "step-by-step-guide/create-service.md"
+				},
+				{
+					"text": "Technical Requirements",
+					"href": "step-by-step-guide/technical-requirements.md"
 				}
 			]
-		},
-		{
-			"text": "Technical Requirements",
-			"href": "technical-requirements.md"
 		}
 	]
 }

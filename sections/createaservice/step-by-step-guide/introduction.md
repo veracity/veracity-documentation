@@ -10,6 +10,7 @@ description: Introdduction
 3. [Creating resources](creating-resources.md)
 4. [Set up app](set-up-app.md)
 5. [Create a service](create-service.md)
+6. [Technical Requirements](technical-requirements.md)
 
 Now, lets start the tutorial!
 

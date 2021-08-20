@@ -71,9 +71,8 @@ An excel template consists of the following columns:
 		<tr>
 		    <td>Alias</td>
             <td>Alias for shortId (tag id) if exist. This is optional</td>                  
-        </tr>			
-		
- </tbody>    		
+        </tr>	
+ 	</tbody>
  </table>
 
 

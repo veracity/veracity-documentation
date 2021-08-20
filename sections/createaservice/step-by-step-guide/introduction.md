@@ -6,11 +6,11 @@ description: Introdduction
 # Introduction: How to use Veracity for developer
 
 1. Introduction **<- You are here**
-2. [Get started](GettingStarted.md)
-3. [Creating resources](CreatingResources.md)
-4. [Set up app](SetUpApp.md)
-5. [Create a service](CreateService.md)
+2. [Get started](getting-started.md)
+3. [Creating resources](creating-resources.md)
+4. [Set up app](set-up-app.md)
+5. [Create a service](create-service.md)
 
 Now, lets start the tutorial!
 
-[Next](GettingStarted.md)
+[Next](getting-started.md)

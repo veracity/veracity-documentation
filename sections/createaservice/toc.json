@@ -9,7 +9,7 @@
 			"text": "Step-by-step guide",
 			"items": [
 				{
-					"text": "CreateService",
+					"text": "Getting started",
 					"href": "step-by-step-guide/GettingStarted.md"
 				},
 				{
@@ -25,9 +25,10 @@
 					"href": "step-by-step-guide/CreateService.md"
 				},
 				{
-					"text": "Creating services",
+					"text": "Technical requirements",
 					"href": "step-by-step-guide/Technical_requirements.md"
-				}
+				},
+
 			]
 		}
 	]

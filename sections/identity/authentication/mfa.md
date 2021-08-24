@@ -21,7 +21,9 @@ _https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p
 ### User-initiated MFA
 A user can choose to always use MFA for any service they use in Veracity. This can be done by toggling the following option in the user’s profile:
 
-![user-initiated-mfa](assets/user-initiated-mfa.png)
+<figure>
+	<img src="assets/user-initiated-mfa.png" alt="Toggle mfa"/>
+</figure>
 
 ## Invoking MFA on user authentication
 When MFA is invoked, it will by default only be invoked once during the lifetime of the user’s session. The session lifetime for B2C is set to 8 hours but will be terminated if user closes the browser. This means that if the user has already done MFA previously in the session, e.g. a service requested it, he will by default not be prompted again if he navigates to a new service that also requires MFA.

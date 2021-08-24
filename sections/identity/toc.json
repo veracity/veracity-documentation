@@ -27,6 +27,10 @@
 				{
 					"text": "Claims",
 					"href": "authentication/claims.md"
+				},
+				{
+					"text": "Multi-Factor Authentication",
+					"href": "authentication/mfa.md"
 				}
 			]
 		},

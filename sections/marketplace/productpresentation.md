@@ -26,7 +26,7 @@ Good examples:
 Forecaster — Real-time, 24/7 predictions of wind, solar and power demand for a single plant, a fleet, or a whole market. 
 FuelBoss — Digital and collaborative platform connecting LNG fuel suppliers and ship owners. 
 <figure>
-	<img src="assets/pp_servicetile.PNG"/>
+	<img src="assets/pp_servicetile.png"/>
 	<figcaption>Overview section example</figcaption>
 </figure>
  
@@ -35,7 +35,7 @@ The marketplace product page will show 3 main key benefits of your service. They
 - what is the value proposition of your product?
 - why should a customer buy from you and not from a competitor?
 <figure>
-	<img src="assets/pp_keybenefits.PNG"/>
+	<img src="assets/pp_keybenefits.png"/>
 	<figcaption>Service key benefits example</figcaption>
 </figure>
 
@@ -45,9 +45,10 @@ You can write here from 3 to 5 paragraphs to describe what the service is about.
 - avoid too technical description, remember that the potential buyers do not always have a technical background.
 
 <figure>
-	<img src="assets/pp_overviewsection.PNG"/>
+	<img src="assets/pp_overviewsection.png"/>
 	<figcaption>Overview section example</figcaption>
 </figure>
+
 
 
 ## Details section 
@@ -59,6 +60,6 @@ The Terms and Condition paragraph will always be shown with the link to T&C.
 You can also add other links to legal documents (eg. Service Level Agreement, Open-Source Software licensing terms, Data Processing Agreement). 
 
 <figure>
-	<img src="assets/pp_detailssection.PNG"/>
+	<img src="assets/pp_detailssection.png"/>
 	<figcaption>Details section example</figcaption>
 </figure>

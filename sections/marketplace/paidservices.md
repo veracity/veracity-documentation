@@ -11,9 +11,7 @@ The following section gives an overview of the different pricing models you can 
 
 ## Standard price plan - horizontal visualization​
 
-Standard pricing plans, with a horizontal view of the different pricing, are used when the provider needs to sell different  “Product variants”. A product variant describes different software solutions or packages of online software/APIs, data sets.​
-Every variant has a name (1) and a description (2).​
-When naming a specific variant, please try to be short and to the point in what the user gets. The description below the name of the variant should help in specifying what it`s included in this package. ​The pricing models rows (3) should be kept simple, and differentiate mainly by:​
+Standard pricing plans, with a horizontal view of the different pricing, are used when the provider needs to sell different  “Product variants”. A product variant describes different software solutions or packages of online software/APIs, data sets. Every variant has a name (1) and a description (2). When naming a specific variant, please try to be short and to the point in what the user gets. The description below the name of the variant should help in specifying what it`s included in this package. ​The pricing models rows (3) should be kept simple, and differentiate mainly by:​
 * Prices ​
 * Type of customers (eg. One users, 2-6 users, students, enterprise)​
 * Subscription type (one-time, recurrent, yearly, monthly, support duration, etc.)​
@@ -30,14 +28,14 @@ When choosing this configuration you shall choose:​
 * Different prices and subscription type; (2)
 * A brief explanation at the top (we recommend this to be short, as features area should already cover most of the added value for your product) (3)
 * Features and usage (4)
-​
+
 Typical examples of product features can be:​
 * Technical integrations available​
 * Sharing features​
 * Level of access, or rights (eg, Manager, viewer, etc.)​
 * Usage or consumption (eg, Mb/Tb data storage, number APIs) ​
-​
-As a rule, when choosing this price plan, we suggest that you describe most of your product offerings in the descriptive paragraphs in the centre of the page. When you come to text in the pricing plan, you shall try to summarize and be specific to what the customer gets.
+
+As a general rule, we suggest that you keep the detailed description of your service's offerings in the paragraphs above in the page. In the pricing plan, you shall try to summarize and be specific to what the customer gets as a package.
 
 <figure>
 	<img src="assets/Datafabric.PNG"/>
@@ -45,7 +43,7 @@ As a rule, when choosing this price plan, we suggest that you describe most of y
 </figure>
 
 
-## Using trial periods on subscriptions
+## Offering trials
 For subscription services it is possible to add a free trial to show your prospective customers the value of your service and help them make an informed decision. You can start your customer’s subscription with a free trial period of your choosing. In the example below, DATE for CMC have chosen a 3 month free trial for their customers. The pricing plan purchase buttons will consequently reflect the chosen period - the button will say <em>"Try free for (period time)"</em>. You can choose between the following trial periods:
 * 7 days trial
 * 14 days trial
@@ -58,6 +56,21 @@ When purchasing the customer puts in their payment information as normal, and af
 <figure>
 	<img src="assets/CMC.png"/> 
 	<figcaption>Free trial period on DATE for CMC</figcaption>
+</figure>
+
+## Offering add-ons 
+You can decide to sell your service together with add-ons. By add-ons we mean extra modules, extensions, or extra features of an application, that the user can buy in addition to the pricing plan shown (see picture). An add-on shall have a short, intuitive name, a brief description, and eventually, a link to an external page for extra information.
+<figure>
+	<img src="assets/addons.png"/>
+	<figcaption>example of Add-ons</figcaption>
+</figure>
+
+## Pricing plan selector  
+In the pricing variant that you create for your service, you can also add a dropdown selector. This allows you to show one package of plans or one plan at a time in a drop-down list. In this way, the user is not overwhelmed with too much information and too many “Buy now” buttons. We suggest using this selector whenever you have many different price packages, or a lot of complexity to manage on one page. The name you give to the different plans in the selector should differ for easy and countable features (e.g., users, usage, access period). 
+
+<figure>
+	<img src="assets/pricingplanselector.png"/>
+	<figcaption>Selector of different pricing plans</figcaption>
 </figure>
 
 
@@ -78,7 +91,6 @@ After accepting the terms and conditions of the service the customer have to ent
 	<img src="assets/PurchaseForm.png"/>
 	<figcaption>Purchase form</figcaption>
 </figure>
-
 
 In the image above the service provider have decided to offer both payment by credit card and by invoice. This is configurable, you can decide if you want to offer credit card payment and/or invoice payment. It can even be set up so that you only allow credit card for small amounts and offer both options for larger amounts.
 

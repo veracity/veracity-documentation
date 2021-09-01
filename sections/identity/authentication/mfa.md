@@ -16,7 +16,10 @@ A service can invoke MFA for all users of its service or for certain functions w
 If only certain functions within a service shall invoke MFA, then the service can upon usage of the function redirect the user to Veracity login adding the mentioned parameter. If MFA shall only be invoked for certain users of a service (such as admin users), then after a successful standard login, the service can redirect the user back to Veracity login adding the mentioned parameter, and MFA will then be invoked.
 
 Example of logon request invoking MFA:
-_https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C\_1A\_SignInWithADFSIdp&client\_id=842ec61b-26cf-4adf-adfb-e05dac4d4eee&nonce=defaultNonce&redirect\_uri=https%3A%2F%2Fjwt.ms&scope=openid&response\_type=id\_token*&mfa\_required=true*_
+
+```url
+https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C\_1A\_SignInWithADFSIdp&client\_id=842ec61b-26cf-4adf-adfb-e05dac4d4eee&nonce=defaultNonce&redirect\_uri=https%3A%2F%2Fjwt.ms&scope=openid&response\_type=id\_token&mfa\_required=true
+```
 
 ### User-initiated MFA
 A user can choose to always use MFA for any service they use in Veracity. This can be done by toggling the following option in the user’s profile:

@@ -18,7 +18,7 @@ If only certain functions within a service shall invoke MFA, then the service ca
 Example of logon request invoking MFA:
 
 ```url
-https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C\_1A\_SignInWithADFSIdp&client\_id=842ec61b-26cf-4adf-adfb-e05dac4d4eee&nonce=defaultNonce&redirect\_uri=https%3A%2F%2Fjwt.ms&scope=openid&response\_type=id\_token&mfa\_required=true
+https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SignInWithADFSIdp&client_id=842ec61b-26cf-4adf-adfb-e05dac4d4eee&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&mfa_required=true
 ```
 
 ### User-initiated MFA

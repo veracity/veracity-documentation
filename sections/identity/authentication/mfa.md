@@ -17,9 +17,9 @@ If only certain functions within a service shall invoke MFA, then the service ca
 
 Example of logon request invoking MFA:
 
-```url
-https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SignInWithADFSIdp&client_id=842ec61b-26cf-4adf-adfb-e05dac4d4eee&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&mfa_required=true
-```
+<code>
+	https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SignInWithADFSIdp&client_id=58d531de-c4f6-4fce-b792-4a1edfe32e2d&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token<strong>&mfa_required=true</strong>
+</code>
 
 ### User-initiated MFA
 A user can choose to always use MFA for any service they use in Veracity. This can be done by toggling the following option in the user’s profile:

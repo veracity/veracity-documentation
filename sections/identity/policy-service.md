@@ -98,3 +98,6 @@ No subcode: No issues detected.
 Subcode 0: Missing subscription for the specified service.
 
 Subcode 3: Missing terms-acceptance. Subcode 3 is applicable for both missing service-specific terms and missing Veracity terms. 
+
+If you have any questions:
+<onboarding@veracity.com>

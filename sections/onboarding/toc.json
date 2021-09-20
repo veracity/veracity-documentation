@@ -1,0 +1,9 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Onboarding",
+			"href": "onboarding.md"
+		}
+	]
+}

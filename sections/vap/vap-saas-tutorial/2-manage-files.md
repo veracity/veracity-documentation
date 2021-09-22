@@ -23,7 +23,7 @@ Fill in the fields, as shown in the image below. When done, click the next butto
 You should now have loaded the demo file into VAP, and ready to proceed to the next step.
 
 ## Use data container as data source
- <a href="assets/HowToUse-VAP-PowerBI-VeracityContainerAsDataSource.pdf" download> Download the guide</a> on how to use Veracity container as data source.  
+ <a href="https://community.veracity.com/t/using-veracity-container-as-a-data-source-for-power-bi/42" download> Download the guide</a> on how to use Veracity container as data source.  
 
 Now, lets learn how to mange your reports.
 

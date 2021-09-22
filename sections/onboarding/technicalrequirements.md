@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Technical requirements for onboarding to Veracity.
+---
+
 # Onboarding your service to Veracity - technical requirements
 ## Here you will find a summary of the technical requirements for onboarding your service to Veracity. You will find links below to further documentation which will help you to implement the changes required.
 *Changelog:*

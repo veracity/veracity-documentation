@@ -30,7 +30,7 @@ A user can choose to always use MFA for any service they use in Veracity. This c
 
 ## Invoking MFA on user authentication
 When MFA is invoked, it will by default only be invoked once during the lifetime of the user’s session. The session lifetime for B2C is set to 8 hours but will be terminated if user closes the browser. This means that if the user has already done MFA previously in the session, e.g. a service requested it, he will by default not be prompted again if he navigates to a new service that also requires MFA.
-A service can decide to force MFA even if it has already been done earlier in the session by sending the parameters *\_mfa\_required=true&prompt=login\_* in the login request. User will then be asked both to log in and do MFA.
+A service can decide to force MFA even if it has already been done earlier in the session by sending the parameters *&mfa_required=true&prompt=login* in the login request. User will then be asked both to log in and do MFA.
 
 ## Verifying that MFA has been done
 In order to verify that MFA has been completed in the session, you can look for the claim *mfaType* which should have the value *phone*. If no MFA has been done, it has the value *none*.

@@ -17,9 +17,6 @@ Fill in the fields as follows, but with the email as of your preference.
 	<img src="assets/step-by-step-add-users.png"/>
 	<figcaption>Step-by-step guide: Add user</figcaption>
 
-[!["IMAGE"](assets/Video1.PNG)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N "Intro")</figure>
-
-
 You have now granted access to the customer, and they will be able to see the report you uploaded and configured. 
 
 From the list view in the Manage users, you can see that users are granted access to entities individually. They are also granted access level on service level. We will do this next.

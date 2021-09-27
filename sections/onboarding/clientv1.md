@@ -40,7 +40,9 @@ NOTE! We normally configure the federation in our Staging environment first to m
 
 1. You will then see the below page which can just be ignored and closed. It means that the admin consent was successfully set:
 
-![](RackMultipart20210927-4-b1zokv_html_9a96e6bdbe0d47f7.png)
+<figure>
+	<img src="assets/clientV1images/image2.png"/>
+</figure>
 
 1. In the Azure Portal, go to &quot; **Azure Active Directory**&quot; -\&gt; &quot; **Enterprise applications**&quot; and search for the app named &quot; **VeracityFederationApp**&quot; (for Staging it is called &quot;VeracityFederationApp-STAG&quot;). This is the app that controls the trust relationship between Veracity and your Azure AD. (In order to remove the admin consent that was granted above, you can just delete this app.)
 
@@ -56,23 +58,33 @@ NOTE! We normally configure the federation in our Staging environment first to m
 
 and click &quot; **Log in**&quot; in the upper right corner:
 
-![](RackMultipart20210927-4-b1zokv_html_8a3f7d79aac3ae70.png)
+<figure>
+	<img src="assets/clientV1images/image3.png"/>
+</figure>
 
 1. Specify your email address and click &quot; **Continue**&quot;
 
-![](RackMultipart20210927-4-b1zokv_html_33b72f035f7b8555.png)
+<figure>
+	<img src="assets/clientV1images/image4.png"/>
+</figure>
 
 1. You should now be redirected to your Azure AD tenant and be authenticated there
 
 1. If you have never logged on to Veracity before, you will see an enrollment page where you need to specify your country and thereafter accept terms of use
 
-![](RackMultipart20210927-4-b1zokv_html_403f630c9232761c.png)
+<figure>
+	<img src="assets/clientV1images/image5.png"/>
+</figure>
 
-![](RackMultipart20210927-4-b1zokv_html_ba2ed49953824195.png)
+<figure>
+	<img src="assets/clientV1images/image6.png"/>
+</figure>
 
 1. You should the see the following page:
 
-![](RackMultipart20210927-4-b1zokv_html_f3cef44540317d73.png)
+<figure>
+	<img src="assets/clientV1images/image7.png"/>
+</figure>
 
 1. Next, please navigate to this URL:
 
@@ -86,6 +98,8 @@ and click &quot; **Log in**&quot; in the upper right corner:
 
 and copy the &quot; **Decoded Token**&quot; and send this back to the Veracity team (the page will show the claims that are sent in the token for your user, so that we can verify that the authentication and login process is working as intended):
 
-![](RackMultipart20210927-4-b1zokv_html_a63eec6996bdd7d2.png)
+<figure>
+	<img src="assets/clientV1images/image8.png"/>
+</figure>
 
 Page 3 Version 1.0

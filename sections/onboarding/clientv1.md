@@ -31,7 +31,6 @@ NOTE! We normally configure the federation in our Staging environment first to m
 
 <figure>
 	<img src="assets/clientV1images/image1.png"/>
-	<figcaption>test</figcaption>
 </figure>
 
 

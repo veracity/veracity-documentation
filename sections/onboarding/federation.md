@@ -30,7 +30,7 @@ NOTE! We normally configure the federation in our Staging environment first to m
 
 
 <figure>
-	<img src="assets/clientV1images/image1.png"/>
+	<img src="assets/federation/image1.png"/>
 </figure>
 
 
@@ -41,7 +41,7 @@ NOTE! We normally configure the federation in our Staging environment first to m
 1. You will then see the below page which can just be ignored and closed. It means that the admin consent was successfully set:
 
 <figure>
-	<img src="assets/clientV1images/image2.png"/>
+	<img src="assets/federation/image2.png"/>
 </figure>
 
 1. In the Azure Portal, go to &quot; **Azure Active Directory**&quot; -\&gt; &quot; **Enterprise applications**&quot; and search for the app named &quot; **VeracityFederationApp**&quot; (for Staging it is called &quot;VeracityFederationApp-STAG&quot;). This is the app that controls the trust relationship between Veracity and your Azure AD. (In order to remove the admin consent that was granted above, you can just delete this app.)
@@ -59,13 +59,13 @@ NOTE! We normally configure the federation in our Staging environment first to m
 and click &quot; **Log in**&quot; in the upper right corner:
 
 <figure>
-	<img src="assets/clientV1images/image3.png"/>
+	<img src="assets/federation/image3.png"/>
 </figure>
 
 1. Specify your email address and click &quot; **Continue**&quot;
 
 <figure>
-	<img src="assets/clientV1images/image4.png"/>
+	<img src="assets/federation/image4.png"/>
 </figure>
 
 1. You should now be redirected to your Azure AD tenant and be authenticated there
@@ -73,17 +73,17 @@ and click &quot; **Log in**&quot; in the upper right corner:
 1. If you have never logged on to Veracity before, you will see an enrollment page where you need to specify your country and thereafter accept terms of use
 
 <figure>
-	<img src="assets/clientV1images/image5.png"/>
+	<img src="assets/federation/image5.png"/>
 </figure>
 
 <figure>
-	<img src="assets/clientV1images/image6.png"/>
+	<img src="assets/federation/image6.png"/>
 </figure>
 
 1. You should the see the following page:
 
 <figure>
-	<img src="assets/clientV1images/image7.png"/>
+	<img src="assets/federation/image7.png"/>
 </figure>
 
 1. Next, please navigate to this URL:
@@ -99,7 +99,7 @@ and click &quot; **Log in**&quot; in the upper right corner:
 and copy the &quot; **Decoded Token**&quot; and send this back to the Veracity team (the page will show the claims that are sent in the token for your user, so that we can verify that the authentication and login process is working as intended):
 
 <figure>
-	<img src="assets/clientV1images/image8.png"/>
+	<img src="assets/federation/image8.png"/>
 </figure>
 
 Page 3 Version 1.0

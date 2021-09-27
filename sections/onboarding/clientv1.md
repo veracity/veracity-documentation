@@ -28,7 +28,7 @@ NOTE! We normally configure the federation in our Staging environment first to m
 
 1. You will see a similar picture as the one below:
 
-![](RackMultipart20210927-4-b1zokv_html_bd7ed3341a419e7b.png)
+![](sections/onboarding/assets/clientV1images/image1.png)
 
 1. Make sure the message states &quot; **all users**&quot; and then click &quot; **Accept**&quot;.
   - What you consent to is that this app is allowed to sign user in and read profile data for the signed-in user. This is necessary for Veracity to get back data about what user is logging in.

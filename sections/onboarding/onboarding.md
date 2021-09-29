@@ -42,11 +42,11 @@ You can reach us at  [onboarding@veracity.com](mailto:onboarding@veracity.com)
 2.  Technical requirements
 3.  Legal requirements (only for DNV apps)
 
-**Marketplace requirements**:  
+# Marketplace requirements:  
 There are some strict limits on what you can do on your own Veracity Marketplace page.  
 See more details here:
 
-### [Marketplace - Service presentation](https://developer.veracity.com/services/marketplace)
+# [Marketplace - Service presentation](https://developer.veracity.com/services/marketplace)
 
 Learn about the Veracity marketplace
 
@@ -60,9 +60,9 @@ It does not make sense to cram 47 different product variants on a single marketp
 We recommend to keep it to 3-4 product variants maximum, with the option for a “contact us to learn more” approach for more complex variants. It is common for 1 or 2 of your product variants to represent a vast majority of your sales - focus on these variants!  
 Think about the product variants you see in your daily life online - be it on Netflix, Spotify or any other digital platform. Make it easy for your customers to buy! Limit the amount of choices, and make it super clear to your customer what it is they are purchasing.
 
-**Tech requirements**  are found here:
+# Tech requirements  are found here:
 
-### [Onboarding your service to Veracity - technical requirements](https://developer.veracity.com/article/veracity-technical-requirements)
+# [Onboarding your service to Veracity - technical requirements](https://developer.veracity.com/article/veracity-technical-requirements)
 
 
 Short summary of tech requirements:  
@@ -72,7 +72,7 @@ You have to display a logout button.
 Your app must support a few different browsers.  
 And you have to think about what sort of data you are storing. If you are storing personal data, then some additional requirements kick in.
 
-**Legal requirements**  summarized (only relevant for DNV apps):
+# Legal requirements  summarized (only relevant for DNV apps):
 
 All DNV-owned apps need their own set of terms & conditions to provide a legal framework which follows DNV contracting principles. It is important with a tailor made set of terms and conditions for each service to capture legal risks unique for  _your_  service.
 

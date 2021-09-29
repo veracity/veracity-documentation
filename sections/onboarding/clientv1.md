@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Veracity V1 client documentation
+---
+
 # Veracity V1 client documentation
 
 In short: The V1 client is a client which can make API calls towards Veracity without a normal user token.

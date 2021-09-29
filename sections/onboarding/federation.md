@@ -1,3 +1,7 @@
+---
+author: Veracity
+description: Federation.
+---
 # How to configure a customer&#39;s Azure AD as a Trusted Identity Provider with Veracity
 
 ## Introduction

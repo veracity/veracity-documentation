@@ -29,3 +29,5 @@ When sharing the key, please select ' **Set key as recurring'** , set access lev
 <figure>
 	<img src="assets/3.png"/>
 </figure>
+
+[Next](3-get-file-url.md)

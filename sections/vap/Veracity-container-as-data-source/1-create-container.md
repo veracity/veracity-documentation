@@ -9,3 +9,5 @@ If your department/unit does not have a subscription, then that can easily be bo
 Help on Data Fabric can be found here: https://intercom.help/veracity/en/ This is the link you also find on Veracity.com in the footer called Help center.
 
 If you need any help in addition to the description above I recommend that you contact the Product Manager for Veracity Data Fabric [Christian.Skjelbred@dnv.com](mailto:Christian.Skjelbred@dnv.com)
+
+[Next](upload-data.md)

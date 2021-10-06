@@ -3,100 +3,105 @@ author: Benedikte Kallåk
 description: Description of quick start section
 ---
 
-# Generic event
+# Event type
 
-Using naming of topics, any events can be defined as a set of datapoints in a dataset.
-The body is an array of elements in which each element consist of an equipment Id and a dataset.
+Different event types can be defined where the paramters in the body will vary. 
+
+## Header
+
+- assetId: 1234
+- assetIdSchema: imo
+- eventType: BunkerDeliveryNote
+- timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
+- dataChannelId: Consumables/BunkerDeliveryNote/IntermediteFuelOil
+- namingRule: mc
 
 
-
+## Body
 ```json
 {
-  "Topic": {
-    "Name": "topictest",
-    "Version": "1.0"
+  
+  "assets": {
+    "globalId": "string",
+    "name": "string",
+    "type": "string"
   },
-  "Asset": {
-    "Name": "ASSETNAME",
-    "Id": [
-      {
-        "Schema": "IMO",
-        "Id": "123"
-      }      
-    ]
+  "eventData": {
+    "mcKey": "Consumables/BunkerDeliveryNote/IntermediteFuelOil",
+    "discipline": "Consumables",
+    "eventType": "BunkerDeliveryNote",
+    "timestampUTC": "string",
+    "timestampLocal": "string",
+    "id": "string"
   },
-  "TimeStampUtc": "2021-04-06T12:22:48.9502389Z",
-  "Payload": {
-    "Header": {
-      "Event": {
-        "EventId": "0cad04ab-93c1-4051-92fe-f1ffea67b05b",
-        "TimeStampUtc": "2021-04-06T12:22:48.9506662Z",
-        "TimeStampLocal": "2021-04-06T14:22:48.950716+02:00",
-        "EventSource": "eventsource",
-        "NumberOfBodyElements": "3",
-        "ReportMethod": "automatic",
-        "TriggerType": "regular_daily"
-      },
-      "Operation": {
-        "OperatingMode": "Sailing",
-        "VoyageId": "543",
-        "GeoPosition": {
-          "GeoLocation": {
-            "SourceId": "APS-A",
-            "Latitude": -19.142333333333333,
-            "Longitude": 118.13816666666666
-          },
-          "Location": {
-            "Name": "Bergen",
-            "Type": "unlocode",
-            "Code": "ABCDEF12"
-          }
+  "bdnData": {
+    "bdnNr": "string",
+    "deliveryPort": {
+      "name": "string",
+      "unLoCode": "string"
+    },
+    "timeReport": {
+      "hoseConnected": "string",
+      "commencedPumping": "string",
+      "completedPumping": "string",
+      "hoseDisconnected": "string"
+    },
+    "bunkerData": {
+      "fuelType": "string",
+      "grade": "string",
+      "kinematicViscosity": {
+        "temperature": {
+          "value": 0,
+          "unit": "string"
+        },
+        "viscosity": {
+          "value": 0,
+          "unit": "string"
         }
       },
-      "ReportedBy": {
-        "Position": "Chief Engineer",
-        "UserId": "Ola N"
+      "volumeAtLoadingTemp": {
+        "value": 0,
+        "unit": "string"
+      },
+      "volumeAt15dg": {
+        "value": 0,
+        "unit": "string"
+      },
+      "mass": {
+        "value": 0,
+        "unit": "string"
+      },
+      "loadingTemp": {
+        "value": 0,
+        "unit": "string"
+      },
+      "sulphurContent": {
+        "value": 0,
+        "unit": "string"
+      },
+      "densityAt15dg": {
+        "value": 0,
+        "unit": "string"
+      },
+      "waterContent": {
+        "value": 0,
+        "unit": "string"
+      },
+      "lowerHeatingValue": {
+        "value": 0,
+        "unit": "string"
+      },
+      "higherHeatingValue": {
+        "value": 0,
+        "unit": "string"
       }
     },
-    "Body": [
-      {
-        "Equipment": {
-          "Id": [
-            {
-              "Schema": "DNV-Vis",
-              "Version": "3.3",
-              "Code": "443.1-1F/C323",
-              "Name": "Bow Thruster",
-              "Custom": {
-                "Class": "Machinery",
-                "Type": "Thruster/BowThruster"
-              }
-            }           
-       },
-        "DataSet": [
-          {
-            "Id": [
-              {
-                "Schema": "Maranics",
-                "Key": "Thruster1-Status",
-                "Name": "Bow Thruster 1"
-              },
-              {
-                "Schema": "DNV-Vis",
-                "Key": "443.1-1F/C323//status",
-                "Name": "Bow Thruster 1"
-              }
-            ],
-            "Value": "running",
-            "Metadata": {
-              "Detail": "1 / 2"
-            }
-          }
-        ]
-      }
-
-    ]
+    "supplier": {
+      "name": "string",
+      "id": "string"
+    }
   }
 }
+
 
 ```

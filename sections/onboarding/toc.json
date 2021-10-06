@@ -9,6 +9,16 @@
 			
 			"text": "Veracity Technical Requirements",
 			"href": "technicalrequirements.md"
+		},
+		{
+			
+			"text": "Veracity Identity federation documentation",
+			"href": "federation.md"
+		},
+		{
+			
+			"text": "Veracity Identity V1 clients",
+			"href": "clientv1.md"
 		}
 	]
 }

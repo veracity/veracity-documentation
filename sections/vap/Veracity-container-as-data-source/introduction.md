@@ -1,3 +1,8 @@
+---
+author: Veracity adapter for Power BI
+description: Veracity container as data source - introduction
+---
+
 # Using Veracity Container as a data source for Power BI
 
 So you want to use data from your Veracity container in the Power BI report you upload in VAP? You can easily do so by following this step-by-step guide made by the VAP team.

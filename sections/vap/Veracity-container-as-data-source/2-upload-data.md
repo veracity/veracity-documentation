@@ -1,3 +1,8 @@
+---
+author: Veracity adapter for Power BI
+description: Veracity container as data source - step 2
+---
+
 # 2. WHAT DO YOU NEED TO DO IN THE CONTAINER?  
 When you develop your Power BI report to use data from a Veracity container there are some steps to be aware of. When this description is written there are limitations in functionality both from Microsoft Power BI REST API used by VAP and from Veracity. This document describes how you currently can set it up both from a Veracity Container, from Power BI and from VAP.
 

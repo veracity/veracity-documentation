@@ -1,3 +1,8 @@
+---
+author: Veracity adapter for Power BI
+description: Veracity container as data source - step 4
+---
+
 # 4: CREATE YOUR POWER BI REPORT USING THE FILE URL
 
 Go to Power BI Desktop to create your report.

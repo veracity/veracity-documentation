@@ -1,3 +1,8 @@
+---
+author: Veracity adapter for Power BI
+description: Veracity container as data source - step 5
+---
+
 # 5.	UPLOAD THE POWER BI FILE IN VAP
 Log in to your VAP service. Click ‘Manage Files’ to upload the file.
 

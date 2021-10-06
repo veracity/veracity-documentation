@@ -1,3 +1,8 @@
+---
+author: Veracity adapter for Power BI
+description: Veracity container as data source - step 3
+---
+
 # 3.	FOR VERACITY CONTAINER THE FILE URL NEEDS TO BE USED IN YOUR POWER BI REPORT
 
 You will later use the key when building the report from Power BI Desktop. 

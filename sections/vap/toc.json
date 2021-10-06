@@ -43,27 +43,27 @@
 			"items": [
 				{
 					"text": "Introduction",
-					"href": "Veracity-container-as-data-source/introduction.md"
+					"href": "veracity-container-as-data-source/introduction.md"
 				},
 				{
 					"text": "Create your container",
-					"href": "Veracity-container-as-data-source/1-create-container.md"
+					"href": "veracity-container-as-data-source/1-create-container.md"
 				},
 				{
 					"text": "Upload data",
-					"href": "Veracity-container-as-data-source/2-upload-data.md"
+					"href": "veracity-container-as-data-source/2-upload-data.md"
 				},
 				{
 					"text": "Configure file url",
-					"href": "Veracity-container-as-data-source/3-get-file-url.md"
+					"href": "veracity-container-as-data-source/3-get-file-url.md"
 				},
 				{
 					"text": "Create your report",
-					"href": "Veracity-container-as-data-source/4-create-PowerBI-report.md"
+					"href": "veracity-container-as-data-source/4-create-PowerBI-report.md"
 				},
 				{
 					"text": "Upload in VAP",
-					"href": "Veracity-container-as-data-source/5-upload-report.md"
+					"href": "veracity-container-as-data-source/5-upload-report.md"
 				}
 			]
 		}

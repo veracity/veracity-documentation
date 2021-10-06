@@ -31,4 +31,4 @@ So the file URL to be used in your Power BI Desktop when building your report sh
 The correct file URL is: https://we1dnvglpstgcus0000c9k8z.blob.core.windows.net/vap-demoe4db89fe-7abb-4afd-b2b4-aae92c6c0417<b>/Folder/myContainerData.csv</b>?sv=2018&sr=c&sig=fiwCCK7E5WgdTJq...................
 Please note the URL is case-sensitive.
 
-[Next](4-create-PowerBI-report.md)
+[Next](4-create-powerbi-report.md)

@@ -15,4 +15,4 @@ Help on Data Fabric can be found here: https://intercom.help/veracity/en/ This i
 
 If you need any help in addition to the description above I recommend that you contact the Product Manager for Veracity Data Fabric [Christian.Skjelbred@dnv.com](mailto:Christian.Skjelbred@dnv.com)
 
-[Next](2-upload-data.md)
+[Next](2-upload-data.md) 

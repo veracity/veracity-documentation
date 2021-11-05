@@ -7,12 +7,12 @@ description: This section describes the Event Ingest Api
 
 Events and alerts are ingested into Veracity using API. 
 - The api is accessible from [api-portal](https://api-portal.veracity.com/). 
-- Select api: *Data Fabric IoT Event Ingest API*
+- Select api: *Data Fabric IoT Event Ingest API v2*
 
-Events are defined by templates and Veracity allows ingest of any event template. If the template used is not defined in Veracity, 
-the ingested event will only be validated according to message size and 
+Events are defined by event-types (templates) and Veracity allows ingest of any eventtype. If the eventtype used is not defined in Veracity, 
+the ingested event will only be validated according to basic JSON validation.
 
-A specialized event is the the equipment event that allows for topology inserts and updates as well as health messages.
+A specialized event is the the equipment event that allows for topology inserts and updates as well as health status.
 
 ## Authentication
 Authorization: Use bearer-token
@@ -29,11 +29,10 @@ Before data can be ingested to Veracity the following must be done:
 
 ## Ingest equipment event
 This endpoint is used for adding new equipment, updating endpoint and update health status
-
-- Url: https://api.veracity.com/veracity/ioteventsingest/api/v2/asset/{assetId}/event/equipment
+- Base url: https://api.veracity.com/veracity
+- Realtive url: ioteventsingest2/api/v2/assets/{assetId}/event/equipment?assetIdSchema={assetIdSchema}
 - Authorization: Bearer token [click here]( authenticate-api.md)
 - Ocp-Apim-Subscription-Key: from application client or B2C user
-
 
 ### query param
 -assetId: asset imo nr or veracity guid
@@ -55,7 +54,8 @@ The body contains the JSON message in the following format
     "equipmentId": [
       {
         "dataChannelId": "string",
-        "namingRule": "string"       
+        "namingRule": "string",
+        "name": "string"		
       }
     ]
   }
@@ -65,19 +65,37 @@ The body contains the JSON message in the following format
 
 * equipmentId:
 	* dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
-	* namingRule: name of codebook: Vis, JSME
-* healtStatus: can be null (omitted) if event is a topology event only.
+	* namingRule: name of codebook: DNV-VIS, JSME, MC
+* healtStatus: can be null (omitted) if event is a topology event 
+* healtStatus: ok, notok
 * timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
 * expiryDate: Optional, equipment such as charts have expiry date
-* healtStatus: ok, notok
 * softwareVersion: major.minor.patch
 
-[see how to ingest health message]( health-message.md).
 
-## Ingest event by template
-This endpoint can be used to ingest any event a JSON object to Veracity with some paramerters in header. 
+## Ingest health status
+Use same endpoint as for equipment: '
+```json
+{
+  {
+   
+    "healthStatus": "string",    
+    "equipmentId": [
+      {
+        "dataChannelId": "string",
+        "namingRule": "string",
+        "name": "string"		
+      }
+    ]
+  }
+}
 
-- Url: https://api.veracity.com/veracity/ioteventsingest/api/v2/asset/{assetId}/event
+```
+
+## Ingest event by eventtype
+This endpoint can be used to ingest any eventtype as a JSON object to Veracity with some paramerters in header. 
+- Base url: https://api.veracity.com/veracity
+- Realtive url: ioteventsingest2/api/v2/assets/{assetId}/event/{eventType}?assetIdSchema={assetIdSchema}&namingRule={namingRule}&dataChannelID={dataChannelID}[&eventId][&timeStampUtc]
 - Authorization: Bearer token [click here]( authenticate-api.md)
 - Ocp-Apim-Subscription-Key: from application client or B2C user
 
@@ -85,21 +103,48 @@ This endpoint can be used to ingest any event a JSON object to Veracity with som
 ### Header param
 - assetId: asset imo nr or veracity guid
 - assetIdSchema: imo/veracity  (the schema for the asset id)
-- eventType: event template
+- eventType: event type (template/topic)
 - timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
 - dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
-- namingRule: name of codebook: Vis, JSME
+- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
 - eventId: optional. If not provided, a UUID will be generated
+- timeStampUTC: option. If not provided, UTC.now will be used
 
 ### Body
 
+Payload
 ```json
 {
-  {
+  
     any json object
-  }
+  
 }
-
 ```
 
-[see exampe of event of type bunker delivery note event]( generic-message.md).
+Example:
+```json
+{
+	"equipment": {
+		"customFields": null,
+		"key": "Propulsion/Engine_1/CylinderHead_1",
+		"title": "Propulsion Engine 1 Cylinder Head 1"
+	},
+	"eventData": {
+		"id": "4b2161e8-efd3-408a-8090-2359a4e84f78",
+		"mcKey": "Propulsion/Engine_1/CylinderHead_1/ExhaustGas/Outlet/Temperature",
+		"eventType": "EquipmentReading",
+		"discipline": "Machinery",
+		"timestampUTC": "2021-11-01T12:36:01.9860000Z",
+		"timestampLocal": "2021-11-01T12:36:01.0000000Z"
+	},
+	"equipmentReading": {
+		"customFields": null,
+		"unit": "?C",
+		"value": 104,
+		"content": "ExhaustGas",
+		"measure": "Temp",
+		"position": "Outlet",
+		"readingTime": "2021-11-01T12:36:01.1990000Z"
+	}
+}
+```

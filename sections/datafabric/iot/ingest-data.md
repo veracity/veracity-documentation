@@ -183,17 +183,8 @@ In a Veracity message several datapoints can be sent in same message.
 *dimension: Optional - can be used to relate datapoint to component
 *sentTimestamp: Timestamp, UTC, 
 
-## Trisense Message
-	
-```json
-{  
-  "deviceId": "db:xx:yy:zz",
-  "TMP": 8,
-  "HUM": 69,
-  "CHRG": 5865,
-  "WAP": 421
-}
-```	   
+## Combine events and tabular
+
 
 ## Submit JSON to IoT Hub
 

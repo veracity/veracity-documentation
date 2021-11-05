@@ -201,7 +201,7 @@ Returns data quality measures for channels for selected time period.
 
 Payload
 
-``` json
+```json
 {
   "downScaleInt" : "string"
   "start": "string",
@@ -232,7 +232,7 @@ Returns aggregated dataquality score for assets for given time period
 * assetIds: arrays of asset guids
 * includePreviousPeriod: returns rulescore for previous period (period with same length as specified by start and end)
 
-``` json
+```json
 {
   "start": "string",
   "end": "string",

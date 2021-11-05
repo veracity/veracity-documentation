@@ -11,9 +11,9 @@ description: This section describes how to communicate with Event and IoT Apis
 
 
 ## API overview
- - Data Fabric IoT Event Ingest API (Ingest events)
- - Data Fabric IoT Event request (Query API for events)
- - Data Fabric Time Series API  (Query API for timeseries data)
+ - Data Fabric IoT Event Ingest API V2 (Ingest events)
+ - Data Fabric IoT Event Query V2 (Query API for events)
+ - Data Fabric Time Series API V2 (Query API for timeseries data)
 
  
 ## How to authenticate
@@ -22,7 +22,8 @@ either as a user through API Portal/Postman or as application through Postman/Co
 - When you request the endpoints as user, then your personal token and API Key are being used. 
 - On the other hand, when you make requests as application then application token and API key are being used.
 
-
+## Authenticate using application client
+See how this can be done using SDK or using  Microsoft.Identity.Client [click here]( sdk.md)
 
 ## API request as user (User credentials - B2C token)
 

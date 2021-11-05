@@ -42,18 +42,6 @@
 			"text": "Veracity Alarms & Events",
 			"items": [
 				{
-					"text": "Types of event",
-					"href": "iot/event-overview.md"
-				},
-				{
-					"text": "Topology message",
-					"href": "iot/topology-message.md"
-				},
-				{
-					"text": "Health message",
-					"href": "iot/health-message.md"
-				},
-				{
 					"text": "Generic events message",
 					"href": "iot/generic-message.md"
 				},

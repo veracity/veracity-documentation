@@ -87,6 +87,25 @@ Are you using open source components, and if so, have you looked at the licenses
 Have you implemented cookie-consent if it is a webapp?  
 And if you are storing personal data, we have to inform our users! So you have to tell the lawyers so they can create good service-specific terms & conditions for your service.
 
+We recommend using Snyk to get a good overview of the licenses for your software components (“dependencies”).
+
+**Always read the license text.** They are often quite short, so not a lot of effort.
+There are three categories of open sources licenses you should be aware of:
+
+1. Permissive licenses, like MIT, Unlicense, Apache 2.0. Permissive licenses are rarely problematic.
+
+2. Hybrids/weak copyleft, like MPL 2.0, LGPL. You must read the license text very carefully in the context of your usage of the dependency. These can create problems if you are not careful, but they are often unproblematic.
+
+3. Copyleft, like GPL and EUPL. These are often problematic and should be avoided. Do your utmost to use another dependency with a more permissive license. If you cannot remove them you must read the license text carefully. Different copyleft licenses may have mutually exclusive requirements, so having two or more copyleft licenses might make your app impossible to legally distribute.
+
+Some public resources concerning licenses:
+
+[Overview with description of most common licenses](https://choosealicense.com/licenses/)
+
+[Table view of common licenses. Rule of thumb: The more blue dots, the more problematic the license.](https://choosealicense.com/appendix/)
+
+[Another resource with overview of licenses](https://opensource.org/licenses)
+
 DNV has good relations with our suppliers of software and components, but some of these contracts are ageing. An example would be a valid contract that allows DNV to use a software in exchange for royalties, however the agreements explicitly lists floppy disks or CD-ROM as the distribution method of the software. That doesn’t support DNV’s preferred delivery model today, and we need to update contracts like these even if both DNV and the software supplier are happy with the status quo.
 
 You can reach us at  [onboarding@veracity.com](mailto:onboarding@veracity.com)

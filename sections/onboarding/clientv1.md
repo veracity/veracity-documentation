@@ -47,7 +47,7 @@ https://dnvglb2cprod.onmicrosoft.com/dfba9693-546d-4300-bcd7-d8d525bdff38
     $clientSecret = '<your client secret>'
     $resource = '<the App ID URI of the API for which you want access token, example: https://dnvglb2cprod.onmicrosoft.com/dfc0f96d-1c85-4334-a600-703a89a32a4c if you want to obtain a token for Veracity Identity>'
     $GrantType = "client_credentials"
-    $Uri = ”https://login.microsoftonline.com/dnvglb2prod.onmicrosoft.com/oauth2/token”
+    $Uri = ”https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token”
 
 
     $Body= @{

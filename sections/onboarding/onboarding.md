@@ -46,7 +46,7 @@ You can reach us at  [onboarding@veracity.com](mailto:onboarding@veracity.com)
 There are some strict limits on what you can do on your own Veracity Marketplace page.  
 See more details here:
 
-## [Marketplace - Service presentation](https://developer.veracity.com/services/marketplace)
+<span class="h2">[Marketplace - Service presentation](https://developer.veracity.com/services/marketplace)</span>
 
 Learn about the Veracity marketplace
 
@@ -62,7 +62,7 @@ Think about the product variants you see in your daily life online - be it on Ne
 
 ## Tech requirements  are found here:
 
-## [Onboarding your service to Veracity - technical requirements](https://developer.veracity.com/article/veracity-technical-requirements)
+<span class="h2">[Onboarding your service to Veracity - technical requirements](https://developer.veracity.com/article/veracity-technical-requirements)</span>
 
 
 Short summary of tech requirements:  

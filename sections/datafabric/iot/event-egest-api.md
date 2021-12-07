@@ -4,7 +4,7 @@ description: This section describes the different endpoints of the Event Query A
 ---
 # Data Fabric IoT Event Query API
 - The api is accessible from [api-portal](https://api-portal.veracity.com/).
-- Select api: Data Fabric IoT Event Query API
+- Select api: Data Fabric IoT Event Query API V2
 - To group the endpoints in api-portal, select the "group by tag" button.
 
 ## Authentication
@@ -14,78 +14,70 @@ See how to authenticate for the api [click here](authenticate-api.md).
 ## Security Model
 Only users that has access to an asset can access data from this asset.
 
-## Api endpoints
-
-Base url: *https://api.veracity.com/veracity/iotevents/api/v1*
-
-### Equipment and Topology for asset
-[Get equipmentlist for a given asset](#get-equipmentlist-for-asset)
-[Get latest topology report for an asset](#get-latest-topology-report-for-asset) 
-[Get current topology for an equipment](#get-current-topology-for-an-equipment-for-asset)
-
-### Health reports 
-[Get latest health report for an asset](#get-latest-health-report-for-asset)
-
-### Events on asset
-[Get topic list for a given asset](#get-topic-list-for-asset)
-
-### Events based on topic or id (across vessels)
-[Get all events for a specific topic](#get-all-events-for-topic)
-[Get event based on eventId](#get-event-by-eventid)
+## Equipment topology and Health
+Base url: *https://api.veracity.com/veracity/
 
 
-#### Get equipmentlist for asset
-- Relative url: /Event/GetEquipmentByAsset?schema={schema}&id={id}
-- Schema: schema for asset identider - i.e. IMO, 
-- Id: asset identifier for given schema
-- Response: List of unique equipment codes (id)
+### Get current equipment topology on asset
+Get latest (current) topology on asset
+Relative url: iotevents2/api/v2/assets/{assetId}/events/equipment/topology/latest?assetIdSchema={assetIdSchema}
 
-#### Get current topology for an equipment for asset
-- Relative url: /Event/GetCurrentTopologyByEquipmentCode?schema={schema}&code={code}&id={id}
-- Schema: schema for asset identider - i.e. IMO, 
-- Id: asset identifier for given schema
-- Code: equipment code
-- Response: Current systemdata for equipment
+- assetId: asset imo nr or veracity guid
+- assetIdSchema: imo/veracity  (the schema for the asset id)
 
-#### Get latest topology report for asset
-- Relative url: /Event/GetLatestTopologyEventByAsset?schema={schema}&id={id}
-- Schema: schema for asset identider - i.e. IMO, 
-- Id: asset identifier for given schema
+### Get current topology on equipment
+Get latest (current) topology on asset
+Relative url: iotevents2/api/v2/assets/{assetId}/events/equipment/topology/dataChannel/latest?assetIdSchema={assetIdSchema}&dataChannelId={dataChannelId}&namingRule={namingRule}
 
-This could respond in a report not containing all equipment if last report was incomplete.
+- assetId: asset imo nr or veracity guid
+- assetIdSchema: imo/veracity  (the schema for the asset id)
+- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
+- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+
+### Get historical topology events on dataChannel
+Get a list of equipment topology events registered on given data channels
+Relative url: iotevents2/api/v2/assets/{assetId}/events/equipment/topology?assetIdSchema={assetIdSchema}&dataChannelId={dataChannelId}&namingRule={namingRule}[&fromUtcDate][&toUtcDate]
+
+- assetId: asset imo nr or veracity guid
+- assetIdSchema: imo/veracity  (the schema for the asset id)
+- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
+- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+- fromUtcDate: optional - select events from this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
+- toUtcDate: optional - select events until and including this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
 
 
-#### Get latest health report for asset
-- Relative url: /Event/GetLatestHealthEventByAsset?schema={schema}&id={id}
-- Schema: schema for asset identider - i.e. IMO, 
-- Id: asset identifier for given schema
+## Events
+Base url: *https://api.veracity.com/veracity/
 
-This could respond in a report not containing health on all equipment if last report was incomplete.
+### Get events for the provided start. end date, template type, naming rule and data channel Id
+Relative url: /iotevents2/api/v2/assets/{assetId}/events?assetIdSchema={assetIdSchema}&dataChannelId={dataChannelId}&namingRule={namingRule}[&fromUtcDate][&toUtcDate][&eventType]
 
-#### Get topic list for asset
-- Relative url: /Event/GetTopicsByAsset?schema={schema}&id={id}
-- Schema: schema for asset identider - i.e. IMO, 
-- Id: asset identifier for given schema
-- Response: Array of unique topics
+- assetId: asset imo nr or veracity guid
+- assetIdSchema: imo/veracity  (the schema for the asset id)
+- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
+- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+- fromUtcDate: optional - select events from this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
+- eventType: event type (template/topic)
 
-#### Get all events for asset
-- Relative url: /Event/GetEventsByAsset?schema={schema}&id={id}
-- Schema: schema for asset identider - i.e. IMO, 
-- Id: asset identifier for given schema
+### Get an event based on EventId
+Relative url: iotevents2/api/v2/assets/{assetId}/events/eventId/{eventId}?assetIdSchema={assetIdSchema}
 
-This api-endpoint will change shortly to limit the response
+### Events by type
+Get event by event type
+Relative url: iotevents2/api/v2/assets/{assetId}​/events/eventType/{eventType}?assetIdSchema={assetIdSchema}[&fromUtcDate][&toUtcDate]
 
-#### Get all events for topic
-- Relative url: /Event/GetEventsByTopic?topic={topic}
-- Topic: topic name, i.e. "Communication/EquipmentStatus/HealthReport"
-- Response: all event with this topic across vessels you have access to
+- assetId: asset imo nr or veracity guid
+- eventType: event type (template/topic)
+- assetIdSchema: imo/veracity  (the schema for the asset id)
+- fromUtcDate: optional - select events from this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
+- toUtcDate: optional - select events until and including this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
 
-#### Get event by eventId
-- Relative url: /Event/{id}
-- id: unique id of event ingested
+### Get n-latest Events
 
-[obsolete]
-These endpoints will be re-implemented based on needs:
-- Get values for a given equipment code
-- Fetches values for a given equipment data value, dataset schema and name
-
+Relative url: iotevents2/api/v2/assets/{assetId}/events​/latest?assetIdSchema={assetIdSchema}[&dataChannelId][&namingRule][&eventType][&nLatest]
+- assetId: asset imo nr or veracity guid
+- assetIdSchema: imo/veracity  (the schema for the asset id)
+- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
+- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+- eventType: event type (template/topic)
+- nLatest: no of latest events to fetch

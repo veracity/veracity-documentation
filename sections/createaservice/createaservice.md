@@ -26,7 +26,7 @@ Some of the resources you can provision self-service, as a part of a project by 
 A resource group is used to collect a set of resources. Currently the resource group will be labeled with environments, such as “devtest”, “test”, “staging or “production”.
 
 <figure>
-	<img src="assets/ProjectStructure.png" alt="Example of a project structure"/>
+	<img src="step-by-step-guide/assets/ProjectStructure.png" alt="Example of a project structure"/>
 	<figcaption>Example of a project structure</figcaption>
 </figure>
 

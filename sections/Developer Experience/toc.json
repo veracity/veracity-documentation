@@ -1,0 +1,9 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Indtroduction to Veracity Resource Manager (VRM)",
+			"href": "readme.md"
+		}
+	]
+}

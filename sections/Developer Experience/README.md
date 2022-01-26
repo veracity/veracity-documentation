@@ -1,6 +1,6 @@
 # Veracity Resource Management (VRM)
 
-![Vrm](/assets/vrmLogo.png)
+![Vrm](assets/vrmLogo.png)
 
 > Veracity Resource Manager (VRM) is a Veracity Developer service you can use to manage and deploy resources using an infrastructure as code paradigm. It enables you to provision and modify resources using a variety of features including access controls, tags and secret management.
 

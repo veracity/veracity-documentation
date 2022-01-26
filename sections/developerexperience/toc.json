@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Indtroduction to Veracity Resource Manager (VRM)",
+			"href": "vrm.md"
+		},
+		{
+			"text": "Application or API schema",
+			"href": "appapischema.md"
+		},
+		{
+			"text": "Veracity Service schema",
+			"href": "serviceschema.md"
+		}
+	]
+}

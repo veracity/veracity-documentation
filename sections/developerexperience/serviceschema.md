@@ -31,7 +31,7 @@ A veracity service is the representation of your application within Veracity. Th
 |advanced.accessLevels.useAccessLevels|Turns the support on or off||
 |advanced.accessLevels.accessLevels|Define the levels with name||
 
-```JSON
+```json
 {
       "name": "$parameter('serviceName')",
       "sku": "standard",

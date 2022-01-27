@@ -73,7 +73,7 @@ The VRM service does a best effort to do validation of the content but detailed 
 Some resource types support, or require, references to other resource type instances. The VRM service will provision each resource sequentially in the order they are defined in the template file. 
 
 ### Qurey sample
-```JSON
+```json
 {
     "outputs": [
       {
@@ -93,7 +93,7 @@ Some resource types support, or require, references to other resource type insta
 ## Sample
 
 ### Parameters
-```JSON
+```json
 [
   {
     "name": "rgName",
@@ -124,7 +124,7 @@ Some resource types support, or require, references to other resource type insta
 ```
 
 ### Template
-```JSON
+```json
 {
     "resourceGroup": {
     "name": "$parameter('rgName')",
@@ -223,7 +223,7 @@ Some resource types support, or require, references to other resource type insta
 ## ouput statements
 
 #### Value types
-```JSON
+```json
 {
       "name": "serviceId",
       "value": "$resources[?name== parameter('serviceName')].id",
@@ -248,7 +248,7 @@ Some resource types support, or require, references to other resource type insta
 
 #### complex objects
 
-```JSON
+```json
 {
       "name": "appRegCombined",
       "value": "$resources[?name== parameter('appName')].{clientId:id,secret:sections.properties.secrets[0].secretText,apiKeys:sections.advanced.apiProductSubscriptions[*].{id:productId,subscriptionKey:key}}",
@@ -260,7 +260,7 @@ Some resource types support, or require, references to other resource type insta
 
 ### output
 
-```JSON
+```json
 {
   "errors": null,
   "values": [

@@ -30,7 +30,7 @@ A Veracity application represents your app/api in Veracity Identity and allow yo
 |advanced.clients.clientId|The app id of the clien you want to grant access to||
 |advanced.clients.scopes|the scopes you will grant access to||
 
-```JSON
+```json
 {
       "sections": {
         "properties": {

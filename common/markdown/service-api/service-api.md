@@ -193,7 +193,7 @@ Response format:
 
 406 - Policy violations, redirect the user to the policy approval page.
 
-```JSON
+```json
 {
   "url": "urlToAcceptTermsPage",
   "violatedPolicies": [
@@ -220,7 +220,7 @@ Response format:
 
 406 - Policy violations, redirect the user to the policy approval page.
 
-```JSON
+```json
 {
   "url": "urlToAcceptTermsPage",
   "violatedPolicies": [
@@ -447,7 +447,7 @@ Send a notification to users or channels. This is a great way to inform your use
 
 Request format:
 
-```JSON
+```json
 
 NotificationMessage {
 message (Message, optional): The Message details,

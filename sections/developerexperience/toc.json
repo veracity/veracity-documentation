@@ -2,15 +2,48 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Indtroduction to Veracity Resource Manager (VRM)",
+			"text": "Introduction",
+			"href": "introduction.md"
+		},
+		{
+			"text": "Step-by-step guide",
+			"items": [
+				{
+					"text": "Introduction",
+					"href": "step-by-step-guide/guide.md"
+				},
+				{
+					"text": "Getting Started",
+					"href": "step-by-step-guide/getting-started.md"
+				},
+				{
+					"text": "Creating resources",
+					"href": "step-by-step-guide/creating-resources.md"
+				},
+				{
+					"text": "Set up an app",
+					"href": "step-by-step-guide/set-up-app.md"
+				},
+				{
+					"text": "Creating services",
+					"href": "step-by-step-guide/create-service.md"
+				},
+				{
+					"text": "Technical Requirements",
+					"href": "step-by-step-guide/technical-requirements.md"
+				}
+			]
+		},
+		{
+			"text": "Veracity Resource Manager (VRM)",
 			"href": "vrm.md"
 		},
 		{
-			"text": "Application or API schema",
+			"text": "VRM Application or API schema",
 			"href": "appapischema.md"
 		},
 		{
-			"text": "Veracity Service schema",
+			"text": "VRM Veracity Service schema",
 			"href": "serviceschema.md"
 		}
 	]

@@ -36,7 +36,10 @@
 		},
 		{
 			"text": "Veracity Resource Manager (VRM)",
-			"href": "vrm.md",
+			"href": "vrm.md"
+		},
+		{
+			"text": "Veracity Resource Manager (VRM) schemas",
 			"items": [
 				{
 					"text": "VRM Application or API schema",

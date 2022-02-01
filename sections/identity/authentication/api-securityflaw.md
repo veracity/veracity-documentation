@@ -17,13 +17,13 @@ Microsoft’s implementation of OAuth 2.0 has a security flaw that you have to b
 
 This can be done by requesting an access token using the OAuth2.0 grant type “Client Credentials”.
 It is possible to disable the possibility to issue access tokens for an API requested through the “Client Credentials” grant type. However, until now, the default configuration that has been used for APIs, both when creating them manually and through the Veracity Developer Portal, have not implemented this restriction. This will shortly be fixed in the Veracity Developer Portal, however, already existing APIs need to be manually managed.
-This document explains how to set up your API with access restrictions to mitigate the OAuth 2.0 security flaw in Azure AD B2C. If you have any questions, please register it here: https://support.veracity.com/ 
+This document explains how to set up your API with access restrictions to mitigate the OAuth 2.0 security flaw in Azure AD B2C. If you have any questions, please register it here: [https://support.veracity.com/](https://support.veracity.com/)
 
 ## What needs to be done 
 
 ### API apps that only support access tokens generated on behalf of a logged-on user
 
-If your API is only accepting calls made on behalf of a logged-on user (i.e. the client application that requested the access token used one of the user-based OAuth 2.0 flows such as Authorization Code flow), we can disable the possibility to issue access tokens for an API requested through the “Client Credentials” grant type. Register a request on https://mygss.dnv.com with the following information:
+If your API is only accepting calls made on behalf of a logged-on user (i.e. the client application that requested the access token used one of the user-based OAuth 2.0 flows such as Authorization Code flow), we can disable the possibility to issue access tokens for an API requested through the “Client Credentials” grant type. Register a request on [https://mygss.dnv.com](https://mygss.dnv.com) with the following information:
 
 _Please send to IAM team:_
 
@@ -32,7 +32,7 @@ _Please enable “Assignment required” on my Veracity API app: \<Client ID of 
 
 ### API apps that support access tokens generated with “Client Credentials” grant type
 The simplest method is to enable a restriction so that only client apps that are specifically granted permissions are allowed to get an access token using the “Client Credentials” grant type. This must be requested from support at the moment, but will soon be supported in the Developer Portal for API apps registered there.
-Register a request on https://mygss.dnv.com with the following information:
+Register a request on [https://mygss.dnv.com](https://mygss.dnv.com) with the following information:
 
 _Please send to IAM team:_
 
@@ -107,18 +107,18 @@ For an access token generated on behalf of a logged-on user, the **azp** claim w
   "aud": "83054ebf-1d7b-43f5-82ad-b2bde84d7b75",
   "mfa_required": "true",
   "myDnvglGuid": "47B5CC98-F524-4864-BD0E-6E6562E34DC5",
-  "dnvglAccountName": "MONAKRISTO2",
+  "dnvglAccountName": "FIRSTLA",
   "oid": "7b183823-cc38-426b-a78b-422605f61988",
-  "name": "Mona Olander Kristoffersen (1+2)",
+  "name": "Firstname Lastname",
   "email": [
-    "monaokr1+2@gmail.com"
+    "firstname.lastname@veracity.com"
   ],
-  "upn": "MONAokr1+2@gmail.com",
+  "upn": "firstname.lastname@veracity.com",
   "authenticatedBy": "https://veracity.com",
   "userId": "47B5CC98-F524-4864-BD0E-6E6562E34DC5",
   "sub": "47b5cc98-f524-4864-bd0e-6e6562e34dc5",
-  "given_name": "Mona Olander",
-  "family_name": "Kristoffersen (1+2)",
+  "given_name": "Firstname",
+  "family_name": "Lastname",
   "mfaType": "phone",
   "nonce": "mkrtest",
   "scp": "user_impersonation",
@@ -129,8 +129,8 @@ For an access token generated on behalf of a logged-on user, the **azp** claim w
 ```
 More information from MS:
 
-https://docs.microsoft.com/en-us/azure/active-directory-b2c/application-types#daemonsserver-side-applications
-https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#access-control-lists 
+[https://docs.microsoft.com/en-us/azure/active-directory-b2c/application-types#daemonsserver-side-applications](https://docs.microsoft.com/en-us/azure/active-directory-b2c/application-types#daemonsserver-side-applications)
+[https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#access-control-lists](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#access-control-lists)
 
 #### Application permissions
 If you want to be able to differentiate what different callers are allowed to request from your API, you can use **appRoles** in the configuration of your API (done on the app registration for the API in Azure AD B2C).
@@ -173,6 +173,6 @@ We plan to support self-service creation of appRoles using Veracity Developer po
 
 More information from MS:
 
-https://docs.microsoft.com/en-us/azure/active-directory-b2c/application-types#daemonsserver-side-applications 
-https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#application-permissions  
+[https://docs.microsoft.com/en-us/azure/active-directory-b2c/application-types#daemonsserver-side-applications](https://docs.microsoft.com/en-us/azure/active-directory-b2c/application-types#daemonsserver-side-applications)
+[https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#application-permissions](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#application-permissions)
 

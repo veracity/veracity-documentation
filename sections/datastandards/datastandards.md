@@ -68,9 +68,9 @@ There are several ongoing data standard activities provided through DNV and the 
 
 [More information on ISO 19847 and ISO 19848.](iso19847iso19848.md)
 
-### Vessel information Systems (VIS) and  Generic Predict Model (GPM)
+### Vessel information Structures (VIS) and  Generic Product Model (GPM)
 
-Vessel Information System (VIS) and Generic Predict Model (GPM) are two standards offered by DNV as information source to be used in sensor naming in accordance with ISO 19848.
+Vessel Information Structures (VIS) and Generic Product Model (GPM) are two standards offered by DNV as information source to be used in sensor naming in accordance with ISO 19848.
 
 [More information about VIS/GPM.](vesselinformationsystem.md)
 

@@ -3,14 +3,14 @@
 	"items": [
 		{
 			"text": "Introduction",
-			"href": "introduction.md"
+			"href": "createaservice.md"
 		},
 		{
 			"text": "Step-by-step guide",
 			"items": [
 				{
-					"text": "Index",
-					"href": "step-by-step-guide/guide.md"
+					"text": "Introduction",
+					"href": "step-by-step-guide/introduction.md"
 				},
 				{
 					"text": "Getting Started",
@@ -33,24 +33,6 @@
 					"href": "step-by-step-guide/technical-requirements.md"
 				}
 			]
-		},
-		{
-			"text": "Veracity Resource Manager (VRM)",
-			"href": "vrm.md"
-		},
-		{
-			"text": "Veracity Resource Manager (VRM) schemas",
-			"items": [
-				{
-					"text": "VRM Application or API schema",
-					"href": "appapischema.md"
-				},
-				{
-					"text": "VRM Veracity Service schema",
-					"href": "serviceschema.md"
-				}
-			]
 		}
-		
 	]
 }

@@ -3,13 +3,15 @@ author: Benedikte Kallåk
 description: Description of quick start section
 ---
 
-# Ingest IoT data to Veracity
+# Ingest sensor data to Veracity
 
-Data is ingested into Veracity IOT hub from edge solution or from another data platform. 
+High frequency data is streamed into Veracity IOT hub from edge solution or from another data platform. 
 The data format supported are:
  - [ISO 19848](#iso19848-message-format)
  - [Veracity ](#veracity-message)
  - [Trisense](#trisense-message)
+
+Veracity IOT also support CSV uploads to data container.
 
 ## Setup
 Before data can be ingested to Veracity the following must be done:

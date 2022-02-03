@@ -31,10 +31,6 @@
 				{
 					"text": "Multi-Factor Authentication",
 					"href": "authentication/mfa.md"
-				},
-				{
-					"text": "API Security Flaw",
-					"href": "authentication/api-securityflaw.md"
 				}
 			]
 		},

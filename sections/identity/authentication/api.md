@@ -6,8 +6,6 @@ description: Describes the required authentication mechanism for APIs provided w
 # Authentication for APIs
 In contrast to [web and native application](web-native.md) authentication for APIs do not involve any kind of user interaction yet they still need to be able to validate the users identity in order to trust that the user is who they claim to be. It is important to also note that *authorization* (the act of determining if the user is allowed to perform an operation) is **not** handled by the Veracity Identity Provider (IDP) which means your API needs to perform this step internally.
 
-[NOTE! Please be aware of this security flaw when you develop an API:](api-securityflaw.md)
-
 <figure>
 	<img src="../assets/api-verification-sequence.png"/>
 	<figcaption>A application receiving calls from another will have to validate the incomming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>

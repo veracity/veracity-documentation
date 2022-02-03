@@ -1,11 +1,11 @@
 ---
 author: Veracity 
-description: Index
+description: Introdduction
 ---
 
 # Introduction: How to use Veracity for developer
 
-1. Index **<- You are here**
+1. Introduction **<- You are here**
 2. [Get started](getting-started.md)
 3. [Creating resources](creating-resources.md)
 4. [Set up app](set-up-app.md)

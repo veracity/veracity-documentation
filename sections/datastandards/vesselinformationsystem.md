@@ -1,11 +1,11 @@
 ---
 author: Veracity
-description: Description of the Vessel Information System (VIS)
+description: Description of the Vessel Information Structures (VIS)
 ---
 
-# Vessel Information System (VIS) and Generic Product Model (Gmod)
+# Vessel Information Structures (VIS) and Generic Product Model (Gmod)
 
-VIS is an abbreviation for Vessel Information Systems, which has been used in DNVs production tools for classification of vessels since 2005. VIS contains a hierarchy of functions and libraries of equipment, where a name and code is defined for each item. The coding is based on the Universal Decimal Classification (UDC) numbering system.
+VIS is an abbreviation for Vessel Information Structures, which has been used in DNVs production tools for classification of vessels since 2005. VIS contains a hierarchy of functions and libraries of equipment, where a name and code is defined for each item. The coding is based on the Universal Decimal Classification (UDC) numbering system.
 
 The VIS standard is a generic functional description of a vessel with a library of standard components with reference to functions they can perform. Using VIS, it is possible to generate a vessel-specific product model comprising a vessel-specific functional hierarchy in which vessel-specific components are instantiated and positioned. All vessels classed with DNV have a vessel-specific model, whether it is a new building or a class entry.
 
@@ -15,9 +15,9 @@ Since VIS has been refined and maintained for more than 15 years, it has become 
 
 <figure>
 	<img src="assets/vis-gmod.png"/>
-	<figcaption>Vessel Information System and GMOD </figcaption>
+	<figcaption>Vessel Information Structures and GMOD </figcaption>
 </figure>
 
-As GMOD provides a rich language and functional structure of a vessel, it can be used for other purposes than classification. In ISO 19848, the VIS/GMOD is used as “codebooks” to provide unique identification strings for IoT sensors and data sources on ships. See DNVGL-VIS Naming rule defined in Annex C of ISO 19848.  
+As Gmod provides a rich language and functional structure of a vessel, it can be used for other purposes than classification. In ISO 19848, the VIS/GMOD is used as “codebooks” to provide unique identification strings for IoT sensors and data sources on ships. See DNVGL-VIS Naming rule defined in Annex C of ISO 19848.  
 
-You can read more about VIS and GMOD and download the VIS “codebooks” used in ISO 194848 [here](http://data.dnvgl.com/dnvgl-vis/).
+You can read more about VIS and Gmod and download the VIS “codebooks” used in ISO 194848 [here](http://data.dnvgl.com/dnvgl-vis/).

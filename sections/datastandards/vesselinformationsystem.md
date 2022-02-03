@@ -3,7 +3,7 @@ author: Veracity
 description: Description of the Vessel Information System (VIS)
 ---
 
-# Vessel Information System (VIS) and Generic Product Model (GMOD)
+# Vessel Information System (VIS) and Generic Product Model (Gmod)
 
 VIS is an abbreviation for Vessel Information Systems, which has been used in DNVs production tools for classification of vessels since 2005. VIS contains a hierarchy of functions and libraries of equipment, where a name and code is defined for each item. The coding is based on the Universal Decimal Classification (UDC) numbering system.
 

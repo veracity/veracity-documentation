@@ -17,12 +17,39 @@ description: This section describes how to communicate with Event and IoT Apis
 
  
 ## How to authenticate
-There are two ways of making requests to the Veracity Iot & Events API endpoints. You can request the API 
-either as a user through API Portal/Postman or as application through Postman/Code. 
-- When you request the endpoints as user, then your personal token and API Key are being used. 
-- On the other hand, when you make requests as application then application token and API key are being used.
+There are two ways of making requests to the Veracity Iot & Events API endpoints:
+* You can request as a user through using B2C authentication, or
+* as application using client credentials (i.e. from Postman or application) 
 
-## Authenticate using application client
+When you request the endpoints as user, then your personal token and API Key are being used. On the other hand, when you make requests as application then application token and API key are being used.
+
+
+## Api request as application (client application credentials)
+The rest api can be invoked directly from you application. An SDK is provided for .Net and for Python.
+
+
+### Get token
+For each api call you need to provide a token.
+
+Receive token from IDP
+
+- IDP auth: https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
+- resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
+- client_id: will be sent in a separate encrypted email
+- client_secret: will be sent in a separate encrypted email
+- grant_type: client_credentials
+
+The following example shows hot do get token from Postman
+
+<figure>
+	<img src="assets/token1.png"/>
+	<figcaption>get token using postman</figcaption>
+</figure>
+
+Thereafter click at «Send» and copy the Access Token between the quotes in response.
+
+
+## SDK
 See how this can be done using SDK or using  Microsoft.Identity.Client [click here]( sdk.md)
 
 ## API request as user (User credentials - B2C token)
@@ -74,29 +101,7 @@ You can copy the value of Ocp-Apim-Subscription-Key and Authorization from API P
 Please paste those values in the header of any endpoint. In this case your personal API key and token
 are being used from Postman.
 
-## Api request as application (application credentials)
-The rest api can be invoked directly from you application. An SDK is provided for .Net and for Python.
 
-
-### Get token
-For each api call you need to provide a token.
-
-1. Receive token
-
-- IDP auth: https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
-- resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
-- client_id: will be sent in a separate encrypted email
-- client_secret: will be sent in a separate encrypted email
-- grant_type: client_credentials
-
-
-<figure>
-	<img src="assets/token1.png"/>
-	<figcaption>get token using postman</figcaption>
-</figure>
-
-2. Thereafter click at «Send» and copy the Access Token between the quotes in response.
-3. Now as we have an access token, we can make various requests using the api
 
 ### Use Postman or code
 

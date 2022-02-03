@@ -7,7 +7,7 @@ description: This section describes the Event Ingest Api
 
 Events and alerts are ingested into Veracity using API. 
 - The api is accessible from [api-portal](https://api-portal.veracity.com/). 
-- Select api: *Data Fabric IoT Event Ingest API v2*
+- Select api: *Data Fabric IoT Event Ingest API*
 
 Events are defined by event-types (templates) and Veracity allows ingest of any eventtype. If the eventtype used is not defined in Veracity, 
 the ingested event will only be validated according to basic JSON validation.
@@ -30,7 +30,8 @@ Before data can be ingested to Veracity the following must be done:
 ## Ingest equipment event
 This endpoint is used for adding new equipment, updating endpoint and update health status
 - Base url: https://api.veracity.com/veracity
-- Realtive url: ioteventsingest2/api/v2/assets/{assetId}/event/equipment?assetIdSchema={assetIdSchema}
+- Request url: https://api.veracity.com/veracity/ioteventsingest2/api/v2/assets/{assetId}/event/equipment?assetIdSchema={assetIdSchema}
+
 - Authorization: Bearer token [click here]( authenticate-api.md)
 - Ocp-Apim-Subscription-Key: from application client or B2C user
 
@@ -42,32 +43,26 @@ This endpoint is used for adding new equipment, updating endpoint and update hea
 The body contains the JSON message in the following format
 
 ```json
-{
+
   {
     "manufacturer": "string",
     "modelNo": "string",
     "serialNo": "string",
     "softwareVersion": "string",
-    "timeStampUTC": "2021-09-29T10:15:00.269Z",
+    "type": "string",
+    "dataChannelId": "string",
+    "name": "string",
+    "timeStampUTC": "string",
     "healthStatus": "string",
-    "expiryDate": "2021-09-29T10:15:00.269Z",
-    "equipmentId": [
-      {
-        "dataChannelId": "string",
-        "namingRule": "string",
-        "name": "string"		
-      }
-    ]
+    "expiryDate": "string"
   }
-}
+
 
 ```
 
-* equipmentId:
-	* dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
-	* namingRule: name of codebook: DNV-VIS, JSME, MC
-* healtStatus: can be null (omitted) if event is a topology event 
-* healtStatus: ok, notok
+* dataChannelId: The equipment identifier /code used by the namingstandard used for asset categorization ( Vis code, mc key, JSME id etc.). This is the local id (ISO 19848) containing the namingrule
+* name:Equipment name
+* healtStatus: ok, notok - can be null (omitted) if event is a topology event 
 * timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
 * expiryDate: Optional, equipment such as charts have expiry date
 * softwareVersion: major.minor.patch
@@ -82,9 +77,9 @@ Use same endpoint as for equipment: '
     "healthStatus": "string",    
     "equipmentId": [
       {
-        "dataChannelId": "string",
-        "namingRule": "string",
-        "name": "string"		
+       "dataChannelId": "string",
+       "dataChannelId": "string",
+       "name": "string",
       }
     ]
   }
@@ -95,7 +90,7 @@ Use same endpoint as for equipment: '
 ## Ingest event by eventtype
 This endpoint can be used to ingest any eventtype as a JSON object to Veracity with some paramerters in header. 
 - Base url: https://api.veracity.com/veracity
-- Realtive url: ioteventsingest2/api/v2/assets/{assetId}/event/{eventType}?assetIdSchema={assetIdSchema}&namingRule={namingRule}&dataChannelID={dataChannelID}[&eventId][&timeStampUtc]
+- Request url: https://api.veracity.com/veracity/ioteventsingest2/api/v2/assets/{assetId}/event?assetIdSchema={assetIdSchema}&eventType={eventType}&dataChannelID={dataChannelID}[&eventId][&timeStampUtc]
 - Authorization: Bearer token [click here]( authenticate-api.md)
 - Ocp-Apim-Subscription-Key: from application client or B2C user
 
@@ -105,8 +100,7 @@ This endpoint can be used to ingest any eventtype as a JSON object to Veracity w
 - assetIdSchema: imo/veracity  (the schema for the asset id)
 - eventType: event type (template/topic)
 - timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
-- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
-- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+- dataChannelId: The equipment identifier /code used by the namingstandard used for asset categorization ( Vis code, mc key, JSME id etc.). This is the local id (ISO 19848) containing the namingrule
 - eventId: optional. If not provided, a UUID will be generated
 - timeStampUTC: option. If not provided, UTC.now will be used
 

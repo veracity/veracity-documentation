@@ -12,9 +12,9 @@ A Veracity application represents your app/api in Veracity Identity and allow yo
 |Name|Description|Accepted values|
 |----|-----------|---------------|
 |name|The name of the app registration. Resource names are unique per project. Setting a new name will result in a new resource, while using an exsisting name will result in an update.|string|
-|sku|App registration type code|[SKU](#SKU)|
+|sku|App registration type code|[SKU](#sku)|
 |resourceType|Type of resource|string, e.g veracity.service, veracity.application|
-|sections|Configuration sections|[Sections](#Sections)|
+|sections|Configuration sections|[Sections](#sections)|
 
 ### SKU
 |Value|Description|
@@ -26,14 +26,14 @@ A Veracity application represents your app/api in Veracity Identity and allow yo
 ### Sections
 |Property|Description|Accepted value|
 |--------|-----------|--------------|
-|properties|Basic properties|[Properties](#Properties)|
-|advanced|Advanced properties|[Advanced](#Advanced)|
+|properties|Basic properties|[Properties](#properties)|
+|advanced|Advanced properties|[Advanced](#advanced)|
 
 ### Properties
 |Property|Description|Accepted value|
 |--------|-----------|--------------|
 |isApi|Turn on if your registration publishes api scopes. If true at least 1 published scope must be defined|true/false|
-|clientType|the type of client application|[ClientType](#ClientType)|
+|clientType|the type of client application|[ClientType](#clienttype)|
 |applicationUrl|The root url of your application||
 |redirectUrls|the return url for the authentication flows||
 |publishedScopes|List of scopes to publish for an api||

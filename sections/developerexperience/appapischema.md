@@ -11,17 +11,17 @@ A Veracity application represents your app/api in Veracity Identity and allow yo
 
 |Name|Description|Accepted values|
 |----|-----------|---------------|
-|name|The name of the app registration. Resource names are unique per project. Setting a new name will result in a new resource, while using an exsisting name will result in an update.||
+|name|The name of the app registration. Resource names are unique per project. Setting a new name will result in a new resource, while using an exsisting name will result in an update.|string|
 |sku|App registration type code|[SKU](#SKU)|
-|resourceType|Type of resource||
+|resourceType|Type of resource|string, e.g veracity.service, veracity.application|
 |sections|Configuration sections|[Sections](#Sections)|
 
 ### SKU
-|Property|Description|
-|--------|-----------|
+|Value|Description|
+|-----|-----------|
 |app|Client application|
 |api|API|
-|app:api|An API that is allso a client application
+|app;api|An API that is allso a client application
 
 ### Sections
 |Property|Description|Accepted value|
@@ -33,13 +33,22 @@ A Veracity application represents your app/api in Veracity Identity and allow yo
 |Property|Description|Accepted value|
 |--------|-----------|--------------|
 |isApi|Turn on if your registration publishes api scopes. If true at least 1 published scope must be defined|true/false|
-|clientType|the type of client application|None/Confidential/Public/Spa/ClientCredential/Native|
+|clientType|the type of client application|[ClientType](#ClientType)|
 |applicationUrl|The root url of your application||
 |redirectUrls|the return url for the authentication flows||
 |publishedScopes|List of scopes to publish for an api||
 |services|List of services the app registration can manage subscriptions for||
 |secretManagementOptions|Defines how the VRM is going to treat secret rotation|none/rollover/onlyIfEmpty|
 
+### ClientType
+|Value|Description|
+|-----|-----------|
+|None||
+|Confidential| Confidential client application (e.g web server)|
+|Public| Public client application|
+|Spa| Single page appliation, public client using Authorization code flow with PKCE|
+|ClientCredential|App using client credentials|
+|Native|Mobile or desktop application|
 ### Advanced
 |Property|Description|Accepted value|
 |--------|-----------|--------------|

@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Single sign-on implementation
+---
+
 # Implementation
 1. Make sure you have an account in your Azure AD with the **Application administrator** or **Global administrator** role (this is required to do Admin Consent of the application that configures the SSO with Veracity).
 2. Open a browser in InPrivate/Incognito mode.

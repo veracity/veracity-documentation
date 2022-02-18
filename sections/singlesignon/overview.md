@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Single sign-on overview.
+---
+
 # Overview of Single Sign-On with Veracity
 
 We implement SSO by using the Open ID Connect protocol, and all configuration is pre-configured by installing the **Veracity Single Sign-On** app from Azure AD App Gallery. 

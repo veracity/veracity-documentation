@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: Single sign-on provisioning
+---
+
 # Provisioning of users
 When users log in, they will automatically get a profile in Veracity, there is no need to provision users in advance. 
 

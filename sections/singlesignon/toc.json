@@ -1,0 +1,25 @@
+{
+  "$schema": "../../schemas/toc.json",
+  "items": [
+    {
+      "text": "Single Sign-On",
+			"href": "singlesignon.md"
+		},
+		{	
+      "text": "Overview",
+			"href": "overview.md"
+		},
+		{
+		 "text": "Provisioning of users",
+		 "href": "provisioningofusers.md"
+		},
+		{	
+		 "text": "Veracity Identity V1 clients",
+		 "href": "clientv1.md"
+		},
+    {
+      "text": "Implementation",
+      "href": "implementation.md"
+    }
+	]
+}

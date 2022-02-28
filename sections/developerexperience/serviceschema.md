@@ -12,6 +12,8 @@ A veracity service is the representation of your application within Veracity. Th
 |Field path|Description|accepted values|
 |----------|-----------|---------------|
 |name|The name of the service, shown in the veracity navigation menu|string  <br /> Character limit: 4-200 <br />Valid characters: Alphanumerics, underscores, commas, whitespaces, and hyphens|
+|resourceType|schema used by veracity|veracity.service|
+|locked|Locked state will determine if the user can edit the service through the user interface in developer. Manual override is still possible. VRM ignores this field and will make chages regardless |true/false|
 |sku|Not used in the current release|standard|
 |properties.serviceUrl|The url to the frontpage of the application  |must be https|
 |properties.visible|Sets if the service should be visible in the veracity MyServices and in the novigation menu. Will not take full effect for non production environments|true/false|
@@ -31,40 +33,79 @@ A veracity service is the representation of your application within Veracity. Th
 |advanced.accessLevels.useAccessLevels|Turns the support on or off|true/false|
 |advanced.accessLevels.accessLevels|Define the levels with name|string <br/>Character limit: 2-50 <br/>Valid characters: Alphanumerics, underscores, hyphen, periods|
 
+## Examples
+
+A basic veracity service 
 ```json
 {
-      "name": "$parameter('serviceName')",
-      "sku": "standard",
-      "resourceType": "veracity.service",
-      "sections": {
-        "properties": {
-          "businessOwnerId": null,
-          "description": "",
-          "shortName": "NP_Dev_DemoService",
-          "openInNewTab": true,
-          "visible": true,
-          "serviceUrl": "$parameter('appUrl')",
-          "technicalContactEmail": "",
-          "providerCompanyName": null,
-          "tags": [ "Sample", "Dev" ] 
-        },
-        "advanced": {
-          "passwordPolicy": null,
-          "accessLevels": {
-            "useAccessLevels": true,
-            "accessLevels": [
-              {
-                "accessLevelName": "reader"
-              },
-              {
-                "accessLevelName": "contributor"
-              },
-              {
-                "accessLevelName": "owner"
-              }
-            ]
-          }
-        }
+  "name": "$parameter('serviceName')",
+  "sku": "standard",
+  "resourceType": "veracity.service",
+  "locked": true,
+  "sections": {
+    "properties": {
+      "description": "A test service",
+      "shortName": "DemoService",
+      "openInNewTab": false,
+      "visible": false,
+      "serviceUrl": "$parameter('appUrl')",
+      "shortDescription": "a test service",
+    },
+    "advanced": {
+      "passwordPolicy": null,
+      "accessLevels": {
+        "useAccessLevels": false,
+        "accessLevels": null
       }
     }
+  }
+}
 ```
+
+A veracity service with access levels and password policy correctly configured
+
+```json
+{
+  "name": "$parameter('serviceName')",
+  "sku": "standard",
+  "resourceType": "veracity.service",
+  "locked": true,
+  "sections": {
+    "properties": {
+      "businessOwnerId": null,
+      "description": "",
+      "shortName": "NP_Dev_DemoService",
+      "openInNewTab": true,
+      "visible": true,
+      "serviceUrl": "$parameter('appUrl')",
+      "technicalContactEmail": "",
+      "providerCompanyName": null,
+      "tags": [ "Sample", "Dev" ]
+    },
+    "advanced": {
+      "passwordPolicy": {
+        "enforcePasswordPolicy": true,
+	"interval": 180,
+        "intervalType": 0,
+        "scope": 0
+      },
+      "accessLevels": {
+        "useAccessLevels": true,
+        "accessLevels": [
+          {
+            "accessLevelName": "reader"
+          },
+          {
+            "accessLevelName": "contributor"
+          },
+          {
+            "accessLevelName": "owner"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+Examples of connecting a service to an app/api is show in the VRM application/API schema page

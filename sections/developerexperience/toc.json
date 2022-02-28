@@ -48,6 +48,10 @@
 				{
 					"text": "VRM Veracity Service schema",
 					"href": "serviceschema.md"
+				},
+				{
+					"text": "Combining resources with VRM",
+					"href": "combiningresources.md"
 				}
 			]
 		}

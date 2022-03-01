@@ -26,13 +26,15 @@ To submit a template file you can post it to the VRM endpoint:
 
 `https://api.veracity.com/developer/vrm/v1`
 
-specifying the Project id found in the "Settings" tab in your project in [My Projects](https://developer.veracity.com/projects)
+specifying the Project id found in the "Settings" tab in your project in [My Projects](https://developer.veracity.com/projects) in the path.
 
-In the request add an authorization header with a bearer token. This token can be generated under **Generate new automation token** in the "Settings" tab of your project:
+In the request add an authorization header with a bearer token. This token can be generated under **"Generate new automation token"** in the "Settings" tab of your project:
 
 <figure>
 	<img src="assets/generate-token.png" alt="Generate an automation token in you project"/>
 </figure>
+
+The full request should look like this:
 
 ```
 POST https://api.veracity.com/developer/vrm/v1/projects/{projectId}/resourceGroups/files HTTP/1.1
@@ -41,7 +43,7 @@ Authorization: Bearer [token]
 Content-Type: application/json
 ```
 
-The payload of the post request must be JSON with the contents of your template file and parameter file base64 encoded:
+The body of the post request must be a JSON payload with the contents of your template file and parameter file base64 encoded:
 
 ```json
 {

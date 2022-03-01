@@ -18,6 +18,42 @@ Core features:
 - standardized query language [JMESPath](https://jmespath.org/specification.html)
 - future proof, supports future resource types
 
+<br>
+
+## VRM Endpoint and authentication
+
+To submit a template file you can post it to the VRM endpoint:
+
+`https://api.veracity.com/developer/vrm/v1`
+
+specifying the Project id found in the "Settings" tab in your project in [My Projects](https://developer.veracity.com/projects)
+
+In the request add an authorization header with a bearer token. This token can be generated under **Generate new automation token** in the "Settings" tab of your project:
+
+<figure>
+	<img src="assets/generate-token.png" alt="Generate an automation token in you project"/>
+</figure>
+
+```
+POST https://api.veracity.com/developer/vrm/v1/projects/{projectId}/resourceGroups/files HTTP/1.1
+Host: api.veracity.com
+Authorization: Bearer [token]
+Content-Type: application/json
+```
+
+The payload of the post request must be JSON with the contents of your template file and parameter file base64 encoded:
+
+```json
+{
+  "format": "json",
+  "template": "{base64-encoded-template-file}",
+  "parameters": "{base64-encoded-parameter-file}"
+}
+```
+
+We have a Github repository with some sample template and parameter files. This allso contains a Powershell module that can be used to submit templates to VRM.
+
+[https://github.com/veracity/vrm-samples](https://github.com/veracity/vrm-samples)
 
 ## Structure of the template file
 
@@ -44,6 +80,8 @@ Defines what to output to the CI/CD pipeline for later use.
 
 Used to parameterize the VRM template. This allows you to have different name for the resources depending on the environment.
 
+<hr>
+
 ## Query language
 
 VRM templates use [JMESPath](https://jmespath.org/specification.html) to express queries allowing you to look up and return the needed information from the result including secrets, keys and id's that you need to configure your services and applications.
@@ -69,7 +107,7 @@ The VRM service does a best effort to do validation of the content but detailed 
 
 Some resource types support, or require, references to other resource type instances. The VRM service will provision each resource sequentially in the order they are defined in the template file. 
 
-### Qurey sample
+### Query sample
 ```json
 {
     "outputs": [
@@ -130,6 +168,9 @@ Some resource types support, or require, references to other resource type insta
   },
   "resources": [
     {
+      "name": "$parameter('serviceName')",
+      "sku": "standard",
+      "resourceType": "veracity.service",
       "sections": {
         "properties": {
           "businessOwnerId": null,
@@ -152,12 +193,12 @@ Some resource types support, or require, references to other resource type insta
             "accessLevels": null
           }
         }
-      },
-      "name": "$parameter('serviceName')",
-      "sku": "standard",
-      "resourceType": "veracity.service"
+      }
     },
     {
+      "name": "$parameter('appName')",
+      "sku": "app",
+      "resourceType": "veracity.application",
       "sections": {
         "properties": {
           "isApi": false,
@@ -191,10 +232,7 @@ Some resource types support, or require, references to other resource type insta
             }
           ]
         }
-      },
-      "name": "$parameter('appName')",
-      "sku": "app",
-      "resourceType": "veracity.application"
+      }
     }
   ],
   "outputs": [

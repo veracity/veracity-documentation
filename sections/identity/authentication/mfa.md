@@ -4,7 +4,7 @@ description: Describes Multi Factor Authentication with Veracity Identity
 ---
 
 # Multi-Factor Authentication (MFA)
-*Note!* Currently only phone-based MFA (SMS or call) is supported. Support for push notification to Microsoft’s Authenticator app will be supported as soon as Microsoft supports it for their Azure AD B2C tenants.
+*Note!* Currently only phone-based MFA (SMS or call) is supported.
 
 
 ## Types of Multi-Factor Authentication offered by Veracity

@@ -24,23 +24,26 @@ https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=
 
 
 ### User-initiated MFA
-A user can choose to always use MFA for any service they use in Veracity. This can be done by toggling the following option in the user’s profile:
+A user can choose to always use MFA for any service they use in Veracity. This can be done on the **Security** page in the user’s profile as follows:
 
-<figure>
-	<img src="assets/user-initiated-mfa.png" alt="Toggle mfa"/>
-</figure>
+If the user has not already defined a phone number in his profile, he will need to click on the link shown below to do so:
 
-If the user has not already defined a phone number in his profile, he will be asked to do so. Once a phone number is present in the profile and strong authentication is toggled ON, the user will see the following message:
 
 ![enable-mfa-step1](assets/enable-mfa-step1.png)
 
-By pressing the "Send activation code" button, the user will recieve an activation code used to verify the phone number used for MFA on the account.
+Once a phone number is present in the profile, the number must be verified. Clicking on the link shown below will send an SMS to the user’s registered phone number with a code that must be given as input:
 
 ![enable-mfa-step2](assets/enable-mfa-step2.png)
 
-After verifying the phone number, the process is completed by pressing the "Enable MFA" button.
-
 ![enable-mfa-step3](assets/enable-mfa-step3.png)
+
+Once the user has clicked **Verify**, he will be given the option to turn on user-initiated MFA:
+
+![enable-mfa-step4](assets/enable-mfa-step4.png)
+
+Upon clicking **Yes**, this result will be shown in the user’s profile and the user will be prompted for MFA on subsequent logins:
+
+![enable-mfa-step5](assets/enable-mfa-step5.png)
 
 
 ## Invoking MFA on user authentication

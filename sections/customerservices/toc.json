@@ -1,0 +1,9 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Single Sign-On (SSO)",
+			"href": "sso.md"
+		}
+	]
+}

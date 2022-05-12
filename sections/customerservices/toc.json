@@ -2,6 +2,10 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
+			"text": "Customer Services",
+			"href": "customerservices.md"
+		},
+		{
 			"text": "Single Sign-On (SSO)",
 			"href": "sso.md"
 		}

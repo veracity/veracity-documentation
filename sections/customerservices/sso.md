@@ -47,7 +47,10 @@ We implement SSO by using the Open ID Connect 1.0 protocol, and all configuratio
     - When you click **Accept**, an app will be installed in your **Enterprise applications** blade in your Azure AD with the name **Veracity Single Sign-On**. This is the app that controls the trust relationship between Veracity and your Azure AD. In order to remove the admin consent that was granted above, you can just delete this app.
      - Make sure the message states **all users** and then click **Accept**:
 
-        ![](./assets/AdminConsent.png)
+<figure>
+	<img src="assets/AdminConsent.png"/>
+</figure>
+        
 
 5. Once the previous steps are done, you will be redirected to a page where we will gather more information from you and also perform an analysis of your (if any) existing user base in Veracity. The main steps are the following:
     - You will be asked to input the email domain(s) for which you want the SSO to be set up
@@ -63,17 +66,38 @@ When the SSO is set up, you can verify that it works as follows:
 
 1. Re-start your browser (to make sure you can log in with an ordinary account and not your admin account) and go to the Veracity Home page [https://www.veracity.com](https://www.veracity.com)
 2. Press **Log in** in the upper right corner:
-    ![](./assets/LogIn1.png)
+
+<figure>
+	<img src="assets/LogIn1.png"/>
+</figure>
+        
+    
 2. Specify the email address of your ordinary account and click **Continue**:
 
-    ![](./assets/LogIn2.png)
+<figure>
+	<img src="assets/LogIn2.png"/>
+</figure>
+        
+
 3. You should now be redirected to your Identity Provider and be authenticated there.
 4. If you have never logged on to Veracity before, you will see an enrollment page where you need to specify your country and thereafter accept terms of use. This step is required for all users logging in to Veracity for the first time:
 
-    ![](./assets/Enrollment1.png)
-    ![](./AcceptToU.png)
+<figure>
+	<img src="assets/Enrollment1.png"/>
+</figure>
+
+<figure>
+	<img src="assets/AcceptToU.png"/>
+</figure>
+        
+        
+  
 5. You should then see the logged-in version of the Veracity Home page where your initials are shown in the top right:
-    ![](./assets/VeracityHome.png)
+
+<figure>
+	<img src="assets/VeracityHome.png"/>
+</figure>
+        
 
 
 ## Support

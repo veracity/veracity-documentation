@@ -20,7 +20,7 @@ Setup of SSO is free of charge. It will give access to log in with your company 
 
 ## Identity Providers other than Azure AD
 
-If you use an Identity Provider other than Azure AD, please send a request for SSO to support@veracity.com with the following information:
+If you use an Identity Provider other than Azure AD, please send a request for SSO to [support@veracity.com](mailto:support@veracity.com) with the following information:
 
 - Name of **email domain(s**) where the SSO should be implemented (example: @dnv.com)
 - What **Identity Provider** you have (example: Ping Idenity, ADFS) and what **protocol** will be used (OpenID Connect 1.0 or SAML 2.0)
@@ -39,8 +39,8 @@ We implement SSO by using the Open ID Connect 1.0 protocol, and all configuratio
 
 ### Implementation
 1. Log in to the Azure Portal with an account in your Azure AD that has the **Application administrator** or **Global administrator** role (this is required to do Admin Consent of the application that configures the SSO with Veracity).
-2. Go to **Azure Active Directory** -> **Enterprise applications** and click on **New application**
-3. **CHECK**: Find the app called **Veracity Single Sign-On** and click on **Sign up for Veracity Single Sign-On**
+2. Go to **Azure Active Directory** -> **Enterprise applications** and click on **New application**.
+3. Find the app called **Veracity Single Sign-On** and click on **Sign up for Veracity Single Sign-On**.
 4. You will see a picture similar to the one below.
     - What you consent to is that this app is allowed to sign user in and read profile data for the signed-in user. This is necessary for Veracity to get back necessary data on which user is logging in.
     - Handling of the profile data is controlled by the [Veracity Terms of use](https://id.veracity.com/terms-of-use "Veracity Terms of use") and [Privacy statement](https://services.veracity.com/PrivacyStatement "Veracity Privacy statement") which all users must personally accept before they can use the Veracity platform.
@@ -54,8 +54,8 @@ We implement SSO by using the Open ID Connect 1.0 protocol, and all configuratio
         - Note that these domains must match what is in the **mail** attribute of your users' accounts in Azure AD
     - To prove that you own the domain, you will be asked to register a TXT record in your DNS. The verification of this may take some time.
     - You will be asked to input your company name, technical contact and support contact email addresses.
-    - A process will be started to analyze your (if any) existing user base in Veracity. If we find any issues that might not work well with SSO, we will stop the process and contact you for manual cleanup.
-    - If no issues are found and the DNS records are verified, you will be able to proceed with the SSO setup. The whole process, after clicking the **Submit** button, should take 5-10mins.
+    - Once the DNS records are verified, a process will be started to analyze your (if any) existing user base in Veracity. If we find any issues that might not work well with SSO, we will stop the process and contact you for manual cleanup.
+    - If no issues are found, you will be able to proceed with the SSO setup. The whole process, after clicking the **Submit** button, should take 5-10mins.
 
 
 ## Verification

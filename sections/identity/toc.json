@@ -39,6 +39,10 @@
 			]
 		},
 		{
+			"text": "Single Sign-On (SSO)",
+			"href": "sso.md"
+		},
+		{
 			"text": "Policy Service",
 			"href": "policy-service.md"
 		},

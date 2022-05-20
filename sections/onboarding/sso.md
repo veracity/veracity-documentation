@@ -25,4 +25,4 @@ The below figure shows the login flow for a user where SSO is set up:
 When users enabled for SSO log in, they will automatically get a profile in Veracity, there is no need to provision users in advance. We plan to support user provisioning later so that customers will be able to upload users in advance and manage their permissions. This will be implemented through an API endpoint that will support the SCIM protocol.
 
 ## How to information
-**../customerservices/sso.md**
+[Read more](../customerservices/sso.md)

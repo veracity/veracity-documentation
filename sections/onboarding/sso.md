@@ -2,6 +2,7 @@
 author: Veracity
 description: Setting up Single Sign-On with Veracity.
 ---
+# Setting up Single Sign-On with Veracity.
 
 ## General information
 Veracity offers a Single Sign-On (SSO) solution where customers can log in to Veracity with their company accounts making the logon process very smooth.

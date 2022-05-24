@@ -6,7 +6,7 @@ description: Setting up Single Sign-On with Veracity
 # Setting up Single Sign-On with Veracity
 
 ## General information
-Veracity offers a Single Sign-On (SSO) solution where you can log in to Veracity with your company accounts making the logon process very smooth.
+Veracity offers a Single Sign-On (SSO) solution where you can log in to Veracity with your company accounts making the logon process very smooth. Your users no longer need to maintain a separate account in Veracity, and you have full control of who can access Veracity. If an employee leaves, and the account is terminated in your company, he or she will no longer be able to log in to Veracity. 
 
 The setup applies to all users with email address matching the email domain that has been configured for SSO.
 

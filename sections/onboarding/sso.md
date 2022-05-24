@@ -21,9 +21,10 @@ Setup of SSO is free of charge. It will give access to log in with the customer'
 
 ## SSO user experience
 The below figure shows the login flow for a user where SSO is set up:
-![](./SSOUserExperience.png)
 
-
+<figure>
+	<img src="assets/SSOUserExperience.png"/>
+</figure>
 
 ## Provisioning of users
 When users enabled for SSO log in, they will automatically get a profile in Veracity, there is no need to provision users in advance. We plan to support user provisioning later so that customers will be able to upload users in advance and manage their permissions. This will be implemented through an API endpoint that will support the SCIM protocol.

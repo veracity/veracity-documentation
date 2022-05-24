@@ -48,7 +48,7 @@ The Veracity onboarding team will help you throughout this process, you don’t 
 You can reach us at  [onboarding@veracity.com](mailto:onboarding@veracity.com)
 
 <details>
-   <summary>Marketplace requirements</summary>
+   <summary style="font-size: 16px;cursor: pointer">Marketplace requirements</summary>
 
 <span class="h2">Marketplace requirements:</span>
 
@@ -81,7 +81,7 @@ Recommendations:
 </details>
 
 <details>
-   <summary>Technical Requirements</summary>
+   <summary style="font-size: 16px;cursor: pointer">Technical Requirements</summary>
 <span class="h2">Tech requirements are found here:</span>
 
 <span class="h2">[Onboarding your service to Veracity - technical requirements](https://developer.veracity.com/article/veracity-technical-requirements)</span>
@@ -99,7 +99,7 @@ Recommendations:
 
 
 <details>
-   <summary>Legal Requirements</summary>
+   <summary style="font-size: 16px;cursor: pointer">Legal Requirements</summary>
 <span class="h2">Legal requirements  summarized (only relevant for DNV apps):</span>
 
 All DNV-owned apps need their own set of terms & conditions to provide a legal framework which follows DNV contracting principles. It is important with a tailor made set of terms and conditions for each service to capture legal risks unique for _your_ service.

@@ -1,0 +1,1538 @@
+openapi: 3.0.1
+info:
+  title: AIS API
+  description:  "Data Factory AIS API allows users to integrate with AIS data from different providers." 
+  version: '1.0'
+  servers url: "https://fa-prd-df-ais-api-we1.azurewebsites.net/api"
+  contact:
+    name: DataFacory AIS API
+    url: https://dnv.sharepoint.com/teams/Data-Factory
+    email: OceanSpaceDataLake@dnv.onmicrosoft.com
+
+paths:
+  /api/vessellist: 
+    get:
+      tags:
+      - api
+      summary: Simple function used to obtain key vessel identifiers required for the more detailed endpoints.
+      operationId: vessellist
+      parameters:
+      - name: vesselStatus.
+        in: query.
+        description: Current status of the vessel. <i>e.g. L,D</i> See Appendix A.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: array.
+          items: 
+            type: string.
+      - name: vesselType.
+        in: query.
+        description: 3 letter LLI vessel type code. <i>e.g. BBU</i> See Appendix B.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: array.
+          items: 
+            type: string.
+      - name: vesselFlag.
+        in: query.
+        description: Current flag of the vessel as per LLI vessel flag code. See Appendix C. <i>e.g. DEU</i>.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: array.
+          items: 
+            type: string.
+      - name: grossTonnage.
+        in: query.
+        description: Range of the gross tonnages of vessels being requested. <i>e.g. 25000-100000</i>.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+      - name: dwtTonnage.
+        in: query.
+        description: Range of the deadweight tonnages of the vessels being requested. <i>e.g. 50000-120000</i>.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+      - name: classb.
+        in: query.
+        description: If supplied as ‘true’, known class B vessels will be included in the API response.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: boolean.
+      - name: output.
+        in: query.
+        description: Can be used to request the format of data being returned.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+          enum: json/xml.
+      - name: pageNumber.
+        in: query.
+        description: API response will list total pages. Can be used to fetch the page of data required.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: integer. 
+      responses:
+        200: 
+          description: Success
+          content:  
+            application/json:
+              schema:  
+                $ref: "#/components/schemas/vesselListResponse"
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        405:
+          description: Invalid input
+        500:
+          description: Unexpected error
+  /api/aispositioncurrent_v2:
+    get: 
+      tags:
+      - api
+      summary: Latest AIS position information used to track where vessels currently are.
+      operationId: aispositioncurrent_v2
+      parameters:
+      - name: vesselId
+        in: query
+        description: LLI unique vessel ID(s). Can be obtained using vesselList API. <i>e.g. 310462</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselName
+        in: query
+        description: Current name of the vessel. Additional functionality available, see 'Standard Functionality'. <i>e.g. Queen Mary 2</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: Mmsi
+        in: query
+        description: Mmsi number of the vessel(s) which you wish to track. <i>e.g. 422666000,422533000</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselFlag
+        in: query
+        description: Current flag of the vessel as per LLI vessel flag code. See Appendix C. <i>e.g. DEU,TUR</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselType
+        in: query
+        description: 3 letter LLI vessel type code. See Appendix B. <i>e.g. BBU</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: grossTonnage
+        in: query
+        description: Range of the gross tonnages of vessels being requested. <i>e.g. 25000-100000</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: dwtTonnage
+        in: query
+        description: Range of the deadweight tonnages of the vessels being requested. <i>e.g. 50000-120000</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: classb
+        in: query
+        description: If supplied as ‘true’, known class B vessels will be included in the API response.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      - name: includecallsign
+        in: query
+        description: If supplied as ‘true’, the vessels’ call sign will be included in the API response. <i>e.g. true</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      - name: receivedAfter
+        in: query
+        description: Can be used to get AIS positions received after the supplied date/time (UTC). <i>e.g. 2019-09-01T09:00:00</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: scrollId
+        in: query
+        description: Used to retrieve data from a result cache when the total number of records from the API request exceeds the volume permitted for a single API call. See explanation below.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: output.
+        in: query.
+        description: Can be used to request the format of data being returned.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+          enum: json/xml.
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aisPositionCurrent_v2Response"
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        405:
+          description: Invalid input
+        500:
+          description: Unexpected error
+  /api/aispositionhistory:
+    get: 
+      tags:
+      - api
+      summary: Historic AIS for tracking a vessels' location during a given time period.
+      operationId: aispositionhistory
+      parameters: 
+      - name: vesselId
+        in: query
+        description: LLI unique vessel ID(s). Can be obtained using vesselList API. <i>e.g. 310462</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselImo
+        in: query
+        description: IMO number of the vessel. <i>e.g. 9515802,9410026,8210699,5355632</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselName
+        in: query
+        description: Current name of the vessel. Additional functionality available, see 'Standard Functionality'. <i>e.g. Queen Mary 2</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: Mmsi
+        in: query
+        description: Mmsi number of the vessel(s) which you wish to track. <i>e.g. 422666000,422533000</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: dateRange
+        in: query
+        description: Date range required for AIS positions to be returned. Can accept either dates or date/times. If no dateRange supplied the API will default to the last 24 hours. Cannot exceed 30 days for a single vessel. Or 24 hours for multiple vessels. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: classb
+        in: query
+        description: If supplied as ‘true’, known class B vessels will be included in the API response.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      - name: output.
+        in: query.
+        description: Can be used to request the format of data being returned.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+          enum: json/xml.
+      - name: includeimo
+        in: query
+        description: If supplied as ‘true’, the vessels’ IMO number will be included in the API response. <i>e.g. true</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      - name: includecallsign
+        in: query
+        description: If supplied as ‘true’, the vessels’ call sign will be included in the API response. <i>e.g. true</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      responses:
+        200: 
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/aisPositionHistoryResponse"
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        405:
+          description: Invalid input
+        500:
+          description: Unexpected error
+  /api/polygonsearch:
+    get: 
+      tags:
+      - api
+      summary: Obtain either current or historic AIS positions by an area.
+      operationId: polygonsearch
+      parameters:
+      - name: coordinates
+        in: query
+        description: Sets of tuples [latitude,longitude] making up a geofence/polygon. See below rules on implementation. <i>e.g. [25.6900167,46.2176271], [23.0202812,55.1808944], [27.9403095,57.2856489], [31.02828295,48.15175907], [25.6900167,46.2176271]</i>.
+        required: true.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items: 
+            type: string
+      - name: recordType
+        in: query
+        description: Type of API request. For allowed values see the supporting documents. <i>e.g. Historic</i>.
+        required: true.
+        style: form
+        explode: true.
+        schema:
+          type: array
+      - name: dateRange
+        in: query
+        description: Date range required for AIS positions to be returned. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: latestPositionDateRange
+        in: query
+        description: Maximum age in days of latest AIS message for a vessel to be returned (recordType=Current only). <i>e.g. 1</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: number
+      - name: includeGhostVessels
+        in: query
+        description: If supplied as ‘true’, vessels which have not been matched to the LLI database will be included. <i>e.g. true</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      - name: classb.
+        in: query.
+        description: If supplied as ‘true’, known class B vessels will be included in the API response.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: boolean.
+      - name: output.
+        in: query.
+        description: Can be used to request the format of data being returned.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+          enum: json/xml.
+      - name: scrollId
+        in: query
+        description: Used to retrieve data from a result cache when the total number of records from the API request exceeds the volume permitted for a single API call. See explanation below.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: includeimo
+        in: query
+        description: If supplied as ‘true’, the vessels’ IMO number will be included in the API response. <i>e.g. true</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      - name: includecallsign
+        in: query
+        description: If supplied as ‘true’, the vessels’ call sign will be included in the API response. <i>e.g. true</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+            schema:
+              $ref: "#/components/schemas/polygonSearchResponse"
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        405:
+          description: Invalid input
+        500:
+          description: Unexpected error
+  /api/vesseleta_v2:
+    get: 
+      tags:
+      - api
+      summary: Historic and future ETA's e.g. where a vessel is due to arrive. You must provide either vesselId, vesselName, vesselImo or vesselMmsi.
+      operationId: vesseleta_v2
+      parameters:
+      - name: vesselId
+        in: query
+        description: LLI unique vessel ID(s). Can be obtained using vesselList API. <i>e.g. 310462</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselImo
+        in: query
+        description: IMO number of the vessel. <i>e.g. 9515802,9410026,8210699,5355632</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselName
+        in: query
+        description: Current name of the vessel. Additional functionality available, see 'Standard Functionality'. <i>e.g. Queen Mary 2</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: vesselType
+        in: query
+        description: 3 letter LLI vessel type code. See Appendix B. <i>e.g. BBU</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselMmsi
+        in: query
+        description: MMSI number currently used by the vessel. <i>e.g. 310627000</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: etaType
+        in: query
+        description: Specifies the type of ETA data being returned. For allowed values see below. Optional (default will provide ETA’s for the previous and next 30 days. <i>e.g. current</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: dateRange
+        in: query
+        description: Level of vessel’s overall compliance risks score that is assigned to the vessel. For allowed values see below. At least one of the STS Pairing vessels should have this overall compliance risks score. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: output.
+        in: query.
+        description: Can be used to request the format of data being returned.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+          enum: json/xml.
+      - name: pageNumber.
+        in: query.
+        description: API response will list total pages. Can be used to fetch the page of data required.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: integer. 
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+            schema:
+              $ref: "#/components/schemas/vesselEtaResponse"
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        405:
+          description: Invalid input
+        500:
+          description: Unexpected error
+  /api/vesselmovements_v3:
+    gets:
+      tags:
+      - api
+      summary: Historic vessel port calling, passing and AIS Sighting details.
+      operationId: vesselmovements_v3
+      parameters:
+      - name: vesselId
+        in: query
+        description: LLI unique vessel ID(s). Can be obtained using vesselList API. <i>e.g. 310462</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselImo
+        in: query
+        description: IMO number of the vessel. <i>e.g. 9515802,9410026,8210699,5355632</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: vesselName
+        in: query
+        description: Current name of the vessel. Additional functionality available, see 'Standard Functionality'. <i>e.g. Queen Mary 2</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: vesselMmsi
+        in: query
+        description: MMSI number currently used by the vessel. <i>e.g. 310627000</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: array
+          items:
+            type: string 
+      - name: recordType
+        in: query
+        description: Type of API request. For allowed values see the supporting documents. <i>e.g. Historic</i>.
+        required: true.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: movementType
+        in: query
+        description: Enables the user to exclude non-standard port calling records from the callings entity. For allowed values see below. Default 'all'. e.g. callings.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: classb
+        in: query.
+        description: If supplied as ‘true’, known class B vessels will be included in the API response.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: boolean.
+      - name: dateRange
+        in: query
+        description: Date range required for AIS positions to be returned. Can accept either dates or date/times. If no dateRange supplied the API will default to the last 24 hours. Cannot exceed 30 days for a single vessel. Or 24 hours for multiple vessels. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+        required: false.
+        style: form
+        explode: true.
+        schema:
+          type: string
+      - name: output.
+        in: query.
+        description: Can be used to request the format of data being returned.
+        required: true.
+        style: form.
+        explode: true.
+        schema:
+          type: string.
+          enum: json/xml.
+      - name: pageNumber.
+        in: query.
+        description: API response will list total pages. Can be used to fetch the page of data required.
+        required: false.
+        style: form.
+        explode: true.
+        schema:
+          type: integer. 
+      responses: 
+        200:
+          description: Success
+          content:
+            application/json:
+            schema:
+              $ref: "#/components/schemas/vesselMovementsResponse"
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        405:
+          description: Invalid input
+        500:
+          description: Unexpected error
+components:
+  schemas:
+    vesselListResponse:
+      type: object
+      properties: 
+        IsSuccess:
+          type: boolean
+        Data: 
+          $ref: "#/components/schemas/vesselData"
+        Errors:
+          type: array
+          example: 
+          items:
+    vesselData:
+      type: object
+      properties:
+        CurrentPage:
+          type: integer
+          example: 1
+        TotalPages:
+          type: integer
+          example: 1
+        TotalRecords:
+          type: integer
+          example: 2
+        Vessels:
+          type: array
+          items:  
+            $ref: "#/components/schemas/vessel"
+    vessel:
+      type: object
+      properties: 
+        vesselId:
+          type: string
+          example: 9960389
+        vesselImo:
+          type: string
+          example: 9503861
+        vesselName:
+          type: string
+          example: Weilan 2
+        vesselStatus:
+          type: string
+          example: Live
+        vesselType:
+          type: string
+          example: bulk carrier
+    aisPositionCurrent_v2Response:
+      type: object
+      properties:
+        IsSuccess:
+          type: boolean
+        Data:
+          $ref: "#/components/schemas/aisPositionCurrent_v2Data"
+        Errors:
+          type: array
+          example:
+          items:
+    aisPositionCurrent_v2Data:
+      type: object
+      properties:
+        ScrollId: 
+          type: string
+          example: DnF1ZXJ5VGhlbkZldGNoBQAAAACYv-EbFnVVc2cwQlBvU2MyMVdrZzNjdXVESHcAAAABQVE3-xZROTYyUkxDb1RBZXVKdVZoUW9ES29BAAAAAH3xx-wWNTAyLWU0ajVUY0NBTHZqRU9DakJEQQAAAACMs5BVFnEtcGdEa0E4UVFTNHdLRWVlMEtQencAAAAAjT6NQRZFNmltQ2N5ZFNDT0RHTm1tOG5UVzRB
+        TotalRecords:
+          type: number
+          example: 1
+        AisPositions:
+          type: array
+          items:
+            $ref: "#/components/schemas/aisPositionCurrent_v2"
+    aisPositionCurrent_v2:
+      type: object
+      properties:
+        vesselId:
+          type: string
+          example: 10998609
+        VesselImo: 
+          type: string
+          example: 9624110
+        VesselName: 
+          type: string
+          example: AM Buchanan
+        VesselMmsi: 
+          type: string
+          example: 538005066
+        MessageTimestamp: 
+          type: string
+          example: 2020-10-27T15:24:32
+        Latitude: 
+          type: number
+          example: 46.1396533333333
+        Longitude: 
+          type: number
+          example: -50.50392
+        Speed: 
+          type: number
+          example: 9.2
+        Cog: 
+          type: number
+          example: 90.5
+        Rot: 
+          type: number
+          example: 0
+        Heading: 
+          type: number
+          example: 91
+        NearestPlace: 
+          type: string
+          example: Hibernia Field
+        NearestPlaceId: 
+          type: string
+          example: 17998
+        NearestCountry: 
+          type: string
+          example: Canada
+        Distance: 
+          type: number
+          example: 83.7402730255961
+        Destination: 
+          type: string
+          example: CAPCA>>FRDKK
+        Eta: 
+          type: string
+          example: 2020-11-05T14:00:00
+        Draft: 
+          type: number
+          example: 14.4
+        Dimensions: 
+          type: string
+          example: A = 190 B = 39 C = 9 D = 23
+        NavStatus: 
+          type: number
+          example: 0
+        TypeCargo: 
+          type: number
+          example: 70
+        Source: 
+          type: string
+          example: SAT
+        CallSign: 
+          type: string
+          example: V7AT9
+    aisPositionHistoryResponse:
+      type: object
+      properties:
+        IsSuccess:
+          type: boolean
+          example: true.
+        Data:
+          type: array
+          items: 
+            $ref: "#/components/schemas/aisPositionHistoryResponse_Data"
+        Errors:
+          type: array
+          example:
+          items:
+    aisPositionHistoryResponse_Data:
+      type: object
+      properties:
+        CurrentPage:
+          type: number
+          example: 1
+        TotalPages:
+          type: number
+          example: 1
+        totalRecords: 
+          type: number
+          example: 3
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/aisPositionHistoryResponse_items"
+    aisPositionHistoryResponse_items:
+      type: object
+      properties:
+        aisPositionHistory:
+          $ref: "#/components/schemas/aisPositionHistoryResponse_aisPositionHistory"
+    aisPositionHistoryResponse_aisPositionHistory:
+      type: object
+      properties: 
+        vesselId: 
+          type: string
+          example: 310462
+        mmsi: 
+          type: string
+          example: 310627000          
+        messageTimestamp: 
+          type: string
+          example: 2018-10-01T23:07:13         
+        latitude: 
+          type: number
+          example: 46.813885         
+        longitude: 
+          type: number
+          example: -71.1998133333333          
+        speed: 
+          type: number
+          example: 0.3          
+        cog: 
+          type: number
+          example: 178.3          
+        rot: 
+          type: number
+          example: 5         
+        heading: 
+          type: number
+          example: 186         
+        nearestPlace: 
+          type: string
+          example: Quebec          
+        nearestPlaceId: 
+          type: string
+          example: 15894       
+        nearestCountry: 
+          type: string
+          example: Canada         
+        distance: 
+          type: number
+          example: 0.22986830100720304         
+        destination: 
+          type: string
+          example: CA QU          
+        eta: 
+          type: string
+          example: 2018-09-29T12:30:00         
+        draft: 
+          type: number
+          example: 10.1         
+        dimensions: 
+          type: string
+          example:          
+        navStatus: 
+          type: number
+          example: 0         
+        typeCargo: 
+          type: string         
+        source: 
+          type: string
+          example: LAND
+    polygonSearchResponse:
+      type: object
+      properties:
+        IsSuccess:
+          type: boolean
+          example: true.
+        Data:
+          type: array
+          items:
+             $ref: "#/components/schemas/polygonSearchResponse_Data"
+        Errors:
+          type: array
+          example:
+          items:
+    polygonSearchResponse_Data:
+      type: object
+      properties: 
+        IsSuccess: 
+          type: string
+          example: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAgDVNFnBWdi1SQzlPVExPM1NEOVFxSEQ1TVEAAAAAAzvI8hZmX2ZTeVhoY1QtbXhtRDVxY2tZTDZRAAAAAAYMMI8WOVZiVDBqMDZRZGFWMUJsUTgyNEtFZwAAAAAIx5zvFjdmRjktb2FnU29TVXFPR18zY3BKUFEAAAAABgwGUxZhUVNiYUQxelFGR04wUWtiVHY4RGRn
+        totalRecords:
+          type: number
+          example: 4077
+        items:
+          type: array
+          items: 
+            $ref: "#/components/schemas/polygonSearchResponse_items"
+    polygonSearchResponse_items:
+      type: object
+      properties: 
+        polygonSearch:
+          $ref: "#/components/schemas/polygonSearchResponse_polygonSearch"
+    polygonSearchResponse_polygonSearch:
+      type: object
+      properties: 
+        vesselId: 
+          type: string
+          example: 310462
+        mmsi: 
+          type: string
+          example: 310627000
+        messageTimestamp: 
+          type: string
+          example: 2018-10-01T23:07:13
+        latitude: 
+          type: number
+          example: 46.813885
+        longitude: 
+          type: number
+          example: -71.1998133333333
+        speed: 
+          type: number
+          example: 0.3
+        cog: 
+          type: number
+          example: 178.3
+        rot: 
+          type: number
+          example: 5
+        heading: 
+          type: number
+          example: 186
+        nearestPlace: 
+          type: string
+          example: Quebec
+        nearestCountry: 
+          type: string
+          example: Canada
+        distance: 
+          type: number
+          example: 0.22986830100720304
+        destination: 
+          type: string
+          example: CA QU
+        eta: 
+          type: string
+          example: 2018-09-29T12:30:00
+        draft: 
+          type: number
+          example: 10.1
+        dimensions: 
+          type: string
+          example: 
+        navStatus: 
+          type: number
+          example: 0
+        typeCargo: 
+          type: string
+        source: 
+          type: string
+          example: LAND
+    vesselEtaResponse:
+      type: object
+      properties:
+        IsSuccess:
+          type: boolean
+          example: true.
+        Data:
+          $ref: "#/components/schemas/vesselEtaResponse_Data"
+        Errors:
+          type: array
+          example:
+          items:
+    vesselEtaResponse_Data:
+      type: object
+      properties: 
+        CurrentPage: 
+          type: number
+          example: 1
+        TotalPages:
+          type: number
+          example: 1
+        TotalRecords: 
+          type: number
+          example: 4077
+        Vessels: 
+          type: array
+          items:
+            $ref: "#/components/schemas/vesselEtaResponse_Data_Vessels"
+    vesselEtaResponse_Data_Vessels:
+      type: object
+      properties:
+        vesselId:
+          type: string
+          example: 310462
+        vesselImo:
+          type: string
+          example: 9241061
+        vesselName: 
+          type: string
+          example: Queen Mary 2
+        VesselMmsi:
+          type: string
+          example: 310627000
+        Etas:
+          type: array
+          items:
+            $ref: "#/components/schemas/vesselEtaResponse_Data_Etas"
+    vesselEtaResponse_Data_Etas:
+      type: object
+      properties: 
+        placeName: 
+          type: string
+          example: Torquay
+        placeCountry: 
+          type: string
+          example: United Kingdom
+        eta: 
+          type: string
+          example: 2020-10-14T13:00:00
+        terminal:
+          type: string
+          example: 
+        voyage: 
+          type: string
+          example: 
+        etd:
+          type: string
+        nextPort: 
+          type: string
+          example:         
+        source: 
+          type: string
+          example: AIS
+    vesselMovementsResponse:
+      type: object
+      properties:
+        IsSuccess:
+          type: boolean
+          example: true.
+        Data:
+          $ref: "#/components/schemas/vesselMovementsResponse_Data"
+        Errors:
+          type: array
+          example:
+          items:
+    vesselMovementsResponse_Data:
+      type: object
+      properties:
+        CurrentPage:
+          type: number
+          example: 1
+        TotalPages:
+          type: number
+          example: 1
+        TotalRecords:
+          type: number
+          example: 4077
+        Vessels:
+          type: array
+          items: 
+            $ref: "#/components/schemas/vesselMovementsResponse_Data_Vessels"
+    vesselMovementsResponse_Data_Vessels:
+      type: object
+      properties:
+        vessel:
+          $ref: "#/components/schemas/vesselMovementsResponse_Data_vessel" 
+        sightings:
+          type: array
+          items:
+            $ref: "#/components/schemas/vesselMovementsResponse_Data_sightings"
+        callings:
+          items:
+            $ref: "#/components/schemas/vesselMovementsResponse_Data_callings"
+    vesselMovementsResponse_Data_Vessel:
+      type: object
+      properties:
+        vesselId:
+          type: string
+          example: 310462
+        VesselImo:
+          type: string
+          example: 9241061
+        vesselName: 
+          type: string
+          example: Queen Mary 2
+        VesselMmsi:
+          type: string
+          example: 310627000
+    vesselMovementsResponse_Data_sightings:
+      type: object
+      properties:
+        VesselMmsi:
+          type: string
+          example: 310627000
+        type:
+          type: string
+          example: nearing
+        fromGmt:
+          type: string
+          example: 2020-05-07T22:56:32.000+0000
+        sog:
+          type: number
+          example: 17
+        cog:
+          type: number
+          example: 260.1
+        distance:
+          type: string
+          example: 19.6
+        destination:
+          type: string
+          example: WEYMOUTH
+        eta: 
+          type: string
+          example: 2020-05-07T04:45:00.000+0000
+        draft:
+          type: number
+          example: 10.3
+        numberUpdates:
+          type: number
+          example: 13
+        nearestPlace:
+          $ref: "#/components/schemas/vesselMovementsResponse_Data_nearestPlace"
+    vesselMovementsResponse_Data_callings:
+      type: object
+      properties: 
+        moveId:
+          type: string
+          example: 77952466
+        moveSequence:
+          type: number
+          example: 2113
+        arrivalDate:
+          type: string
+          example: 2020-05-07T07:42:00.000+0000
+        arrivalEstimated:
+          type: boolean
+          example: false.
+        arrivalQualifier:
+          type: string
+          example: 
+        sailingDate:
+          type: string
+          example: 2020-05-07T16:36:00.000+0000
+        sailingEstimated:
+          type: boolean
+          example: false.
+        sailingQualifier:
+          type: string
+          example: 
+        movementType:
+          type: string
+          example: calling
+        narrative:
+          type: string
+          example: 
+        lastUpdated:
+          type: string
+          example: 2020-05-15T10:09:00.000+0000
+        place:
+          $ref: "#/components/schemas/vesselMovementsResponse_Data_nearestPlace"
+    vesselMovementsResponse_Data_nearestPlace:
+      type: object
+      properties: 
+        name:
+          type: string
+          example: Majishan Anch.
+        placeId:
+          type: string
+          example: 111587
+        unlocode:
+          type: string
+          example: CN
+        latitude:
+          type: number
+          example: 30.416389
+        longitude:
+          type: number
+          example: 122.789444
+        countryCode:
+          type: string
+          example: CHN
+        countryIso:
+          type: string
+          example: CHN
+        countryName:
+          type: string
+          example: China
+        portNotes:
+          type: array
+          example: 
+          items: 
+  parameters:
+    etaType:
+      name: etaType
+      in: query
+      description: Specifies the type of ETA data being returned. For allowed values see below. Optional (default will provide ETA’s for the previous and next 30 days. <i>e.g. current</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    vesselStatus:
+      name: vesselStatus
+      in: query
+      description: Current status of the vessel. <i>e.g. L,D</i> See Appendix A.
+      required: true.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    vesselType:
+      name: vesselType
+      in: query
+      description: 3 letter LLI vessel type code. <i>e.g. BBU</i> See Appendix B.
+      required: true.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    coordinates:
+      name: coordinates
+      in: query
+      description: Sets of tuples [latitude,longitude] making up a geofence/polygon. See the supporting documents for rules on implementation. AIS Gap matches the coordinates if AIS Gap start tuple falls into set coordinates. <i>e.g. [25.6900167,46.2176271], [23.0202812,55.1808944], [27.9403095,57.2856489], [31.02828295,48.15175907], [25.6900167,46.2176271]</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    coordinatesRequired:
+      name: coordinates
+      in: query
+      description: Sets of tuples [latitude,longitude] making up a geofence/polygon. See below rules on implementation. <i>e.g. [25.6900167,46.2176271], [23.0202812,55.1808944], [27.9403095,57.2856489], [31.02828295,48.15175907], [25.6900167,46.2176271]</i>.
+      required: true.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    vesselTypeNotRequired:
+      name: vesselType
+      in: query
+      description: 3 letter LLI vessel type code. See Appendix B. <i>e.g. BBU</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    vesselFlag:
+      name: vesselFlag
+      in: query
+      description: Current flag of the vessel as per LLI vessel flag code. See Appendix C. <i>e.g. DEU</i>.
+      required: true.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    vesselFlagNotRequired:
+      name: vesselFlag
+      in: query
+      description: Current flag of the vessel as per LLI vessel flag code. See Appendix C. <i>e.g. DEU,TUR</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items: 
+          type: string
+    grossTonnage:
+      name: grossTonnage
+      in: query
+      description: Range of the gross tonnages of vessels being requested. <i>e.g. 25000-100000</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    dwtTonnage:
+      name: dwtTonnage
+      in: query
+      description: Range of the deadweight tonnages of the vessels being requested. <i>e.g. 50000-120000</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    classb:
+      name: classb
+      in: query
+      description: If supplied as ‘true’, known class B vessels will be included in the API response.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: boolean
+    output:
+      name: output
+      in: query
+      description: Can be used to request the format of data being returned.
+      required: true.
+      style: form
+      explode: true.
+      schema:
+        type: string
+        enum: json/xml.
+    pageNumber:
+      name: pageNumber
+      in: query
+      description: API response will list total pages. Can be used to fetch the page of data required.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: integer
+    vesselId:
+      name: vesselId
+      in: query
+      description: LLI unique vessel ID(s). Can be obtained using vesselList API. <i>e.g. 310462</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items:
+          type: string
+    vesselImo:
+      name: vesselImo
+      in: query
+      description: IMO number of the vessel. <i>e.g. 9515802,9410026,8210699,5355632</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items:
+          type: string
+    vesselImoNotRequired:
+      name: vesselImo
+      in: query
+      description: IMO number of the vessel. <i>e.g. 9515802,9410026,8210699,5355632</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items:
+          type: string
+    vesselMmsi:
+      name: vesselMmsi
+      in: query
+      description: MMSI number currently used by the vessel. <i>e.g. 310627000</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items:
+          type: string
+    Mmsi:
+      name: Mmsi
+      in: query
+      description: Mmsi number of the vessel(s) which you wish to track. <i>e.g. 422666000,422533000</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items:
+          type: string
+    vesselName:
+      name: vesselName
+      in: query
+      description: Current name of the vessel. Additional functionality available, see 'Standard Functionality'. <i>e.g. Queen Mary 2</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    includecallsign:
+      name: includecallsign
+      in: query
+      description: If supplied as ‘true’, the vessels’ call sign will be included in the API response. <i>e.g. true</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: boolean
+    includeimo:
+      name: includeimo
+      in: query
+      description: If supplied as ‘true’, the vessels’ IMO number will be included in the API response. <i>e.g. true</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: boolean
+    receivedAfter:
+      name: receivedAfter
+      in: query
+      description: Can be used to get AIS positions received after the supplied date/time (UTC). <i>e.g. 2019-09-01T09:00:00</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    scrollId:
+      name: scrollId
+      in: query
+      description: Used to retrieve data from a result cache when the total number of records from the API request exceeds the volume permitted for a single API call. See explanation below.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    scrollSize:
+      name: scrollSize
+      in: query
+      description: Number of vessels per page response. Default 100. Maximum allowed value 300.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: number
+    dateRange:
+      name: dateRange
+      in: query
+      description: Obtain details of vessel-company relationships between 2 dates. For historyType ‘Historic’ only. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    dateRangeAis:
+      name: dateRange
+      in: query
+      description: Date range required for AIS positions to be returned. Can accept either dates or date/times. If no dateRange supplied the API will default to the last 24 hours. Cannot exceed 30 days for a single vessel. Or 24 hours for multiple vessels. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    dateRangeMovements:
+      name: dateRange
+      in: query
+      description: If no dateRange supplied the API will return the previous 7 days history. Maximum dateRange allowed is 31 days. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    dateRangeAisRequired:
+      name: dateRange
+      in: query
+      description: Date range required for AIS positions to be returned. <i>e.g. 2020-12-01 – 2020-12-31</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    latestPositionDateRange:
+      name: latestPositionDateRange
+      in: query
+      description: Maximum age in days of latest AIS message for a vessel to be returned (recordType=Current only). <i>e.g. 1</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: number
+    includeGhostVessels:
+      name: includeGhostVessels
+      in: query
+      description: If supplied as ‘true’, vessels which have not been matched to the LLI database will be included. <i>e.g. true</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: boolean
+    dateRangeLcrs:
+      name: dateRange
+      in: query
+      description: Used to return all LCRS messages published between a date range rather than vessel specific. Optional, can be used with or without a vessel parameter to obtain all reports during the date range. Maximum allowed range is 7 days when used without a vessel filter parameter. <i>e.g. 1997-01-01 – 2001-12-31</i>.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: array
+        items:
+          type: string
+    recordType:
+      name: recordType
+      in: query
+      description: Type of API request. For allowed values see the supporting documents. <i>e.g. Historic</i>.
+      required: true.
+      style: form
+      explode: true.
+      schema:
+        type: string
+    movementType:
+      name: movementType
+      in: query
+      description: Enables the user to exclude non-standard port calling records from the callings entity. For allowed values see below. Default 'all'. e.g. callings.
+      required: false.
+      style: form
+      explode: true.
+      schema:
+        type: string

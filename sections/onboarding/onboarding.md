@@ -133,6 +133,13 @@ There are three categories of open sources licenses you should be aware of:
 2. Hybrids/weak copyleft, like MPL 2.0, LGPL. You must read the license text very carefully in the context of your usage of the dependency. These can create problems if you are not careful, but they are often unproblematic.
 3. Copyleft, like GPL and EUPL. These are often problematic and should be avoided. Do your utmost to use another dependency with a more permissive license. If you cannot remove them you must read the license text carefully. Different copyleft licenses may have mutually exclusive requirements, so having two or more copyleft licenses might make your app impossible to legally distribute.
 
+	
+DNV employees, see official statement from legal department [**here**](https://dnv.sharepoint.com/sites/intranet/support/finance/Pages/Use-of-third-party-IPR.aspx?OR=Teams-HL&CT=1655730337181&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjA1MDEwMTAwOSJ9).
+	
+[**Link - DNV Policy for Open Source Software**](https://dnv.sharepoint.com/sites/intranet/support/finance/Documents/2022%20IPR%20Nissen%20Group%20Legal/00%20Policy%20Open%20Source%20Software%20FINAL%20220506%20Group%20Legal%20intranet%20page%20220603%28396651.1%29.pdf)
+	
+[**Link - DNV Policy Guidance Document**<-- this one is useful and important to read!](https://dnv.sharepoint.com/sites/intranet/support/finance/Documents/2022%20IPR%20Nissen%20Group%20Legal/01%20Appendix%201%20Policy%20Guidance%20Document%20FINAL%20220516%20Group%20Legal%20intranet%20page%20220603%28396653.1%29.pdf)
+	
 Some public resources concerning licenses:
 
 [Overview with description of most common licenses](https://choosealicense.com/licenses/)

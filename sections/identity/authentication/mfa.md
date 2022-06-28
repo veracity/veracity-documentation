@@ -12,6 +12,8 @@ description: Describes Multi Factor Authentication with Veracity Identity
 ### Service-specific MFA
 A service can invoke MFA for all users of its service or for certain functions within its service. This is accomplished by sending the following parameter in the login request:
 
+**NOTE! Due to a bug that has not been solved yet, the value of mfa_required must be in lower case (_true_)**
+
 *mfa_required=true*
 
 If only certain functions within a service shall invoke MFA, then the service can upon usage of the function redirect the user to Veracity login adding the mentioned parameter. If MFA shall only be invoked for certain users of a service (such as admin users), then after a successful standard login, the service can redirect the user back to Veracity login adding the mentioned parameter, and MFA will then be invoked.

@@ -35,6 +35,10 @@
 				{
 					"text": "API Security Flaw",
 					"href": "authentication/api-securityflaw.md"
+				},
+				{
+					"text": "Rotation of the Token Signing Key",
+					"href": "authentication/rotation-token-signing-key.md"
 				}
 			]
 		},

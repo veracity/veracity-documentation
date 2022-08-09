@@ -10,7 +10,7 @@ In contrast to [web and native application](web-native.md) authentication for AP
 
 <figure>
 	<img src="../assets/api-verification-sequence.png"/>
-	<figcaption>A application receiving calls from another will have to validate the incomming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>
+	<figcaption>An application receiving calls from another will have to validate the incomming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>
 </figure>
 
 When any API is called within the Veracity ecosystem it should be provided with a relevant access token from the calling code. The access token should be placed in the `Authorization` header of the request as a `Bearer` token. The API can then grab the token and verify and decode it to ensure the user is who they claim to be. Before executing any operation the API should also look up if the user has permissions to perform the requested operation. This can, for instance, be done by the API accessing it's own internal database of users indexed by the `userId` claim from the access token and retrieving additional information.

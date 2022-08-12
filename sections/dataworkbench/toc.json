@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Overview",
+			"href": "overview.md"
+		},
+		{
+			"text": "What is new?",
+			"href": "whatsnew.md"
+		},
+		{
+			"text": "User management",
+			"href": "usermanagement.md"
+		},
+		{
+			"text": "API integrations",
+			"href": "apiintegrations.md"
+		},
+		{
+			"text": "Authentication",
+			"href": "authentication.md"
+		},
+		{
+			"text": "API endpoints",
+			"href": "apiendpoints.md"
+		}
+	]
+}

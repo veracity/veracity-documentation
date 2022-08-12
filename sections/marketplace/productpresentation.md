@@ -2,62 +2,82 @@
 author: Veracity
 description: Give a general description of the Veracity Marketplace Service.
 ---
-# Presenting your product in the Marketplace
-When your service is at a mature stage, and you are ready to present it or sell it on our marketplace you have two options: 
-- Download marketplace Content form and send it back to us with content and media requested, so that we can create a marketplace page for you; <a href="assets/Ver_Marketplace_Guide_ServiceContentForm_2021_09.docx" download>Click to Download</a>
-- Upload content yourself, through our Sanity content platform. Contact us for more guidance.
+# How to go live on Veracity Marketplace?
+When you are ready to publish your service or product on Veracity Marketplace, you can do it in two ways: 
+* Create a Marketplace page for your service or product yourself.
+* Fill in a form and send it to <onboarding@veracity.com> to request assistance.
 
-In both cases, we also suggest that you read the following guidelines, and that you familiarize yourself with the different product pages at store.veracity.com.
+Before publishing on Marketplace, see other [product pages](https://store.veracity.com) for inspiration and read this article for guidelines.
 
+### Create a Marketplace page by yourself 
+You can create a Marketplace page for your product or service by yourself. To do that, contact the Veracity onboarding team at <onboarding@veracity.com> and ask them to give you access to the Sanity content platform. 
 
-## Naming your service and writing content
-When deciding the name of your service, and when writing descriptions, you should think both about being user-friendly and choosing the right words for SEO (Search Engine Optimization). Both in the name of the service and in the content it`s important to: 
-- write what the service is about in a simple and short way; 
-- avoid using only abbreviations, and if needed explain what the abbreviation means; 
-- write in a user-friendly way, not too technical, as many of our users are not technical experts; 
-- do research about the most typical words used from your target group - we suggest https://trends.google.com/ as a smart tool to compare usage of words in search (e.g. If your users are more exposed to the word “boat”, use that instead of vessel). 
+### Request help with creating a Marketplace page 
+The onboarding team can create a product or service Marketplace page for you. To request their assistance, do the following: 
+1. Download [the service content form for the Veracity Marketplace](https://veracity-static.azureedge.net/docs/marketplace/Ver_Marketplace_Guide_ServiceContentForm_2021_09.docx). 
+2. Fill in the form with content information about your service or product. 
+3. Indicate what media (images, videos) you want to include on your Marketplace page. 
+4. Send the filled-in form with attachments to the onboarding team at <onboarding@veracity.com>. 
 
+## Recommendations for your Marketplace page
+Since many Veracity users are not technical experts, choose a name that will: 
+* Inform what your service offers. 
+* Be easy to understand. 
 
-## Naming your service tile in marketplace
-The text on the service tile in marketplace, that will also be the same text shown as a subtitle at the top of the product page, should be short and to the point. 
-Write what you sell and why it is relevant to the user in a few words (max 100 characters). Read the text out loud and test with your stakeholders if they understand what you sell. 
+## Writing content 
+When writing your content, you should: 
+* Be concise and clear – describe your service in a short and simple way. Avoid using technical terminology. 
+* Avoid abbreviations – avoid using abbreviations unless it is necessary. If you have to use them, explain their meaning. 
+* Do some Search Engine Optimization (SEO) – Help users find your page through search engines. Find out what words they type in their search engines when they look for products or services and use them on your page. Veracity suggests using [Google Trends](https://trends.google.com/) for that. 
 
-Good examples:  
-Forecaster — Real-time, 24/7 predictions of wind, solar and power demand for a single plant, a fleet, or a whole market. 
-FuelBoss — Digital and collaborative platform connecting LNG fuel suppliers and ship owners. 
+## Service tile 
+Your product or service will be presented on a service tile. At the top, it will display the name of your product or service. Below that, you should add a text that explains what you offer. Note that this text will also be displayed as a subtitle at the top of your product page. 
+ 
+To write a good text for the service tile:
+* Inform what you sell and why it is relevant to the user.
+* Be concise and to the point. You cannot exceed 100 characters.
+* Read the text aloud and ensure your stakeholders clearly understand what you sell.
+
+See the following examples:
+
+Forecaster — Real-time, 24/7 predictions of wind, solar and power demand for a single plant, a fleet, or a whole market.
+
+FuelBoss — Digital and collaborative platform connecting LNG fuel suppliers and ship owners.
+
 <figure>
 	<img src="assets/pp_servicetile.png"/>
 	<figcaption>Overview section example</figcaption>
 </figure>
  
-## Service key benefits 
-The marketplace product page will show 3 main key benefits of your service. They are represented with an icon and a short text paragraph, and they should describe your service's unique selling points. Be short and tell what is important first:
-- what is the value proposition of your product?
-- why should a customer buy from you and not from a competitor?
+## Service key benefits
+The Marketplace product page shows three key benefits of your service. They are represented with an icon and a short text paragraph. When you present the benefits, be concise, and state what your unique value proposition is. Ensure the reader understands how your product stands out from your competitors offer.
+
 <figure>
 	<img src="assets/pp_keybenefits.png"/>
-	<figcaption>Service key benefits example</figcaption>
+	<figcaption>Example of service key benefits </figcaption>
 </figure>
 
 ## Overview section
-You can write here from 3 to 5 paragraphs to describe what the service is about.
-- explain the main functionalities and add video or images of screens so that the user gets concrete examples. 
-- avoid too technical description, remember that the potential buyers do not always have a technical background.
+Use this section to describe your service or product:
+* Explain its main functionalities.
+* Avoid using technical language.
+* Add videos or images to show your potential customers what your product looks like and how it works.
+* Make sure that your text is between three to five paragraphs long.
 
 <figure>
 	<img src="assets/pp_overviewsection.png"/>
 	<figcaption>Overview section example</figcaption>
 </figure>
 
+## Details section
+You must add this section to sell your service or product digitally and offer a pricing plan. Veracity recommends that you start it by describing your service and the scope of what it provides.
 
-
-## Details section 
-This section must be shown for services that are sold digitally and are presenting a pricing plan. While the overview section above tells the good marketing story and focuses on awareness and interest phase, the "Details" section is focusing on the consideration phase. The user is considering buying and needs all the details of the process.  
-
-Below Details, it is mandatory to fill in at least one paragraph and we suggest starting from "Service description" that tells about the scope. In addition to this you could fill other details like “Delivery”, “Payment options”, “Technical requirements”.  
-The "Country availability" paragraph should be there too, as users can check ahead if the service is sold in their country). 
-The Terms and Condition paragraph will always be shown with the link to T&C.  
-You can also add other links to legal documents (eg. Service Level Agreement, Open-Source Software licensing terms, Data Processing Agreement). 
+Veracity also suggests that you cover the information below, preferably dedicating one section to each type of information.
+* Delivery – how your service will be delivered.
+* Payment options – what payment options are available.
+* Technical requirements – what are the technical requirements for using your service or product.
+* Country availability – to what countries you deliver your service or product.
+* Usage and Terms – link to the Terms and Conditions of your service or product. Apart from Terms and Conditions, you can add links to other legal documents, for example, Service Level Agreement, Open-Source Software Licensing Terms, or Data Processing Agreement.
 
 <figure>
 	<img src="assets/pp_detailssection.png"/>

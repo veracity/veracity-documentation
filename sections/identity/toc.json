@@ -6,16 +6,16 @@
 			"href": "identity.md"
 		},
 		{
-			"text": "Overview",
-			"href": "overview.md"
-		},
-		{
-			"text": "New Login URL",
-			"href": "new-login-url.md"
+			"text": "What is new?",
+			"href": "whatsnew.md"
 		},
 		{
 			"text": "Authentication",
 			"items": [
+				{
+					"text": "Overview",
+					"href": "overview.md"
+				},
 				{
 					"text": "Web and Native Applications",
 					"href": "authentication/web-native.md"
@@ -25,30 +25,23 @@
 					"href": "authentication/api.md"
 				},
 				{
-					"text": "Claims",
-					"href": "authentication/claims.md"
-				},
-				{
-					"text": "Multi-Factor Authentication",
-					"href": "authentication/mfa.md"
-				},
-				{
-					"text": "API Security Flaw",
-					"href": "authentication/api-securityflaw.md"
-				},
-				{
-					"text": "Rotation of the Token Signing Key",
-					"href": "authentication/rotation-token-signing-key.md"
+					"text": "Client v1",
+					"href": "clientv1.md"
 				}
 			]
 		},
 		{
-			"text": "Single Sign-On (SSO)",
-			"href": "sso.md"
-		},
-		{
-			"text": "Policy Service",
-			"href": "policy-service.md"
+			"text": "SSO & MFA",
+			"items": [
+				{
+					"text": "Single Sign-On (SSO)",
+					"href": "sso.md"
+				},
+				{
+					"text": "Multi Factor Authentication (MFA)",
+					"href": "mfa.md"
+				}
+			]
 		},
 		{
 			"text": "NodeJS Webapp Tutorial",
@@ -84,8 +77,17 @@
 			]
 		},
 		{
-			"text": "Services API Reference",
-			"href": "services-openapi.yaml"
-		}
+			"text": "Services API",
+			"items": [
+				{
+					"text": "Services API Reference",
+					"href": "services-openapi.yaml"
+				},
+				{
+					"text": "Policy Service",
+					"href": "policy-service.md"
+				}
+			]
+		},
 	]
 }

@@ -4,14 +4,18 @@ description: Give a general description of the Veracity Marketplace Service.
 ---
 
 # Veracity Marketplace
+Veracity Marketplace is a platform with global reach within the maritime and energy sectors. It offers various setups and solutions custom-tailored to your product's needs. 
 
-Reduce the cost of selling your digital services, data or APIs on a platform with global reach within the maritime and energy sectors.
-
+## Achieving your business goals 
 Veracity Marketplace will help you:
-- Reach a rapidly growing user base within relevant markets
-- Achieve a fully digital marketing and sales process that scales
-- Reduce paperwork with "click-accept" for terms and condition
-- Handle the financial transactions with your customers in multiple global locations with different VAT/tax rules and preferred payment methods (Credit card or Invoice)
-- Ensure access safely and in a timely manner of the digital service, data or APIs to the customer
+* Reduce the cost of sales of your digital services, data, or APIs.
+* Reach a rapidly growing user base within relevant markets.
+* Create a sales process that scales.
+* Achieve fully digital marketing.
 
-What items we can help with for your specific offering depends on several parameters and needs to be detailed out in each case
+## Easier and safer processes
+Veracity Marketplace will allow you to simplify processes and make them safer. It will:
+* Reduce paperwork with a "click to accept" method. Your customers will be able to accept the terms and conditions of a contract with a single click and get instant access to your service.
+* Ensure that your customers have safe and quick access to digital service, data, or APIs.
+* Handle financial transactions with customers from locations with different VAT or taxation rules.
+* Make it possible for your customers to use either credit card or invoice as preferred payment methods.

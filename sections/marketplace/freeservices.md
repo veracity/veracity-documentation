@@ -6,27 +6,24 @@ description: Describes the option of giving free access to your service or produ
 # Giving access to free services
 
 ## Purchase process for free services
-
-In some cases, you might want to give access to a free application or data set. For free products, the main call to action button is "Free access" as seen below.​
+If you want to give free access to an application or a data set, you can use the "Free access" button, as shown below.
 
 <figure>
 	<img src="assets/ProductPageWithFreeAccess.png"/>
-	<figcaption>Product page for product with free access</figcaption>
+	<figcaption>Product page for a product with free access</figcaption>
 </figure>
 
-Free services might still have terms and conditions that have to be approved before the customer can start using them.​
+You can add terms and conditions to free services so that the customer must approve them before they start using it.
 
-## Delivering a free service
-For applications that are integrated with Veracity identity, access to the free application can be given immediately by Veracity to the customer.​
-Veracity can also handle the immediate delivery of data sets. The data will then be made available for the customer in My data. To do this the Veracity Marketplace needs to be given necessary rights on the data container(s) in question.​
-
-In some edge cases, you might want to have an approval process before you give access to the free service. We do have an approval process that is available for applications. However, we do recommend to give immediate access to the service.
+## Delivering free services
+Veracity enables the delivery of free services by:
+* Giving customers immediate free access to applications integrated with [Veracity Identity](https://developer.veracity.com/docs/section/identity/identity).
+* Handling immediate delivery of data sets. After you give the Veracity Marketplace necessary rights on the data container(s) in question, data will be made available for customers in “My data”.
+* Providing an approval process that you can use before you give access to your free service. However, Veracity recommends that you give your customers immediate access to your service.
 
 ## Free services as an entry-level with upsell possibilities
-
-Giving free access can be used as an entry-level for getting customers to start using a service. 
-Premium versions or add-on modules can then be sold as separate products on the Veracity marketplace. 
+You can give free access to your service as an entry-level for getting customers to start using a paid plan. You can sell premium versions or add-on modules as separate products on the Veracity Marketplace.
 
 ## Customer journey
-For details on how the journey will be for the customer, have a look at this  
-<a href="assets/UserJourneyFreeProducts.png" download>customer journey</a>
+You can see what the customer journey looks like 
+<a href="assets/UserJourneyFreeProducts.png" download>here</a>.

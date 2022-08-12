@@ -5,21 +5,18 @@ description: If your product/service is not ready for selling digitally, you can
 
 # Lead generating services
 ## Capturing leads
-Even if your product/service is not ready for selling digitally, you can still present your service to get leads.​ A lead is any potential customer who indicates interest in your product or service.​
-​
-To reach these customers we have two types of interactions available in the upper part of the page:​
+You can present your service to potential customers even if your service is not ready for digital sale. A potential customer who shows interest in your product or service is usually called a lead. 
 
-1. A “Get a price quote” (1) button that allows potential customers to get a specific price quote for their needs.​
-This button is available only for services that are not ready for digital sales or on a specific negotiable price plan.​
-​
+To reach your leads, you can use the two following buttons in the upper part of the page:
+* "Get a price quote" (1) – allows potential customers to fill out a form and get a price quote tailored for their needs.
+It is available for:
+	* Services that are not ready for digital sales. 
+	* Services that offer a negotiable price plan. 
+* "Contact provider" (2) – allows potential customers to fill out a form and message the service provider with any questions or requests. This button is available for services sold both digitally and non-digitally.
 
-2. A “contact provider" (2) button that allows a potential customer to write a message for any type of interests/request.​
-This button is available for all services no matter if they sell digitally or not.​
+After the customer fills out the form, you will get an email with their details and their message. From there, you can continue the sales process manually.
 
-
-After the customer completes the form with details and message, you will get an email with the same data and from there you can continue the sales process manually.​
-
-These buttons are available also in the bottom part in the pricing plans, with some exceptions and rules. You can read more in the “Combinations" paragraph.​
+"Get a price quote" and "Contact provider" buttons are also available in the bottom part of the pricing plans, with some exceptions and rules. To learn more about it, see [Combinations](./hybridsolutions​.md).
 
 <figure>
 	<img src="assets/MyQRA.PNG"/>
@@ -27,5 +24,5 @@ These buttons are available also in the bottom part in the pricing plans, with s
 </figure>
 
 ## Customer journey
-For details on how the journey will be for the customer, have a look at this  
-<a href="assets/UserJourneyLeadsProcess.png" download>customer journey</a>
+You can see what the customer journey looks like
+<a href="assets/UserJourneyLeadsProcess.png" download>here</a>.

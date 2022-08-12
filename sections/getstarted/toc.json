@@ -1,0 +1,13 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Dev overview",
+			"href": "devoverview.md"
+		},
+		{
+			"text": "Legal requirements (DNV)",
+			"href": "legalrequirements.md"
+		}
+	]
+}

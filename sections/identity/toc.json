@@ -26,7 +26,7 @@
 				},
 				{
 					"text": "Client v1",
-					"href": "clientv1.md"
+					"href": "authentication/clientv1.md"
 				}
 			]
 		},
@@ -39,7 +39,7 @@
 				},
 				{
 					"text": "Multi Factor Authentication (MFA)",
-					"href": "mfa.md"
+					"href": "signing/mfa.md"
 				}
 			]
 		},
@@ -88,6 +88,6 @@
 					"href": "policy-service.md"
 				}
 			]
-		},
+		}
 	]
 }

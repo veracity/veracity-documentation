@@ -1,7 +1,7 @@
 ---
 author: Veracity
 description: This page explains using the API integrations tab in Data Workbench.
-
+---
 # API integrations
 
 You can integrate APIs with Data Workbench. To do so, you need a service account.

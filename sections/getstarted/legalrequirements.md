@@ -1,7 +1,7 @@
 ---
 author: Veracity
 description: This is an overview of legal requirements for onboarding DNV apps on Veracity.
-
+---
 # Legal requirements
 This is an overview of legal requirements for onboarding DNV apps on Veracity. For non-DNV applications, ask the [onboarding team](mailto:onboarding@veracity.com) for assistance.
 

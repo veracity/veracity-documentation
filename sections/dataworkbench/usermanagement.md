@@ -1,7 +1,7 @@
 ---
 author: Veracity
 description: This page explains user management for a workspace in Data Workbench.
-
+---
 # User management
 
 There are two roles for the users:

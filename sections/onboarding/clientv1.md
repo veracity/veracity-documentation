@@ -62,3 +62,14 @@ https://dnvglb2cprod.onmicrosoft.com/dfba9693-546d-4300-bcd7-d8d525bdff38
 
     $token = Invoke-RestMethod -Uri $Uri -Method Post -Body $Body -ContentType "application/x-www-form-urlencoded"
     Write-Output $token.access_token 
+
+
+Documentation version 1.2
+
+2021-09-17 AANDRES
+
+Changelog: Removed hyperlinks in powershell script. Added some missing &quot;&quot; characters in the script. Added the word &quot;normal&quot; in the intro and emphasized that there is still a token that is obtained.
+
+Documentation version 1.1
+
+2021-04-22 AANDRES

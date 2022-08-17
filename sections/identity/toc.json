@@ -23,10 +23,6 @@
 				{
 					"text": "APIs",
 					"href": "authentication/api.md"
-				},
-				{
-					"text": "Client v1",
-					"href": "authentication/clientv1.md"
 				}
 			]
 		},

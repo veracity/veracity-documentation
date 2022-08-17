@@ -1,0 +1,19 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Onboarding",
+			"href": "onboarding.md"
+		},
+		{
+			
+			"text": "Veracity Technical Requirements",
+			"href": "technicalrequirements.md"
+		},
+		{
+			
+			"text": "Veracity Identity V1 clients",
+			"href": "clientv1.md"
+		}
+	]
+}

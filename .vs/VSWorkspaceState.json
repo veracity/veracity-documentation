@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\sections",
-    "\\sections\\dataworkbench"
+    "\\sections\\customerservices\\assets",
+    "\\sections\\identity\\authentication",
+    "\\sections\\marketplace",
+    "\\sections\\marketplace\\sellingyourproduct",
+    "\\sections\\singlesignon"
   ],
-  "SelectedNode": "\\sections\\dataworkbench\\apiendpoints.md",
+  "SelectedNode": "\\sections\\marketplace\\sellingyourproduct\\sellingyourproductoverview.md",
   "PreviewInSolutionExplorer": false
 }

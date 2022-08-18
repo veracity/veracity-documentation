@@ -2,13 +2,14 @@
 author: Veracity
 description: Setting up Single Sign-On with Veracity.
 ---
+
 # Single Sign-On with Veracity
 
 You can sign in to Veracity with your company account using the Single Sign-On (SSO) solution. The benefits are:
 * Convenient sign-in - use your company account credentials.
 * Easy access management - if an employee leaves the company, terminate their company account to revoke their access to Veracity resources.
 
-The SSO setup is free of charge and available for all resources integrated with Veracity. If you want to see the sign-in flow for the user once SSO is configured, go [here](#flow).
+The SSO setup is free of charge and available for all resources integrated with Veracity. If you want to see the sign-in flow for the user once SSO is configured, go [here](#sso-user-experience).
 
 ## Provisioning users
 You do not need to provision users. When a user enabled for SSO signs in to Veracity, they automatically get a Veracity account.
@@ -20,17 +21,17 @@ Veracity's SSO supports the following protocols:
 * SAML 2.0
 
 The setup depends on who is your company's identity provider:
-* If your company's identity provider is Azure Active Directory (Azure AD), go [here](#azure).
-* If you have another identity provider, go [here](#notazure).
+* If your company's identity provider is Azure Active Directory (Azure AD), go [here](#sso-with-azure-ad).
+* If you have another identity provider, go [here](#identity-providers-other-than-azure-ad).
 
 The setup applies to all users with email addresses matching the email domain that has been configured for SSO.
     
-## <a name="azure"></a>SSO with Azure AD
+## SSO with Azure AD
 Veracity implements SSO by using the Open ID Connect 1.0 protocol. Everything is pre-configured by installing the Veracity Single Sign-On app from Azure AD App Gallery. This application controls the trust relationship between Veracity and your Azure AD. 
 Note that:
 * To implement SSO, you need to be an Application administrator or Global administrator in your company's Azure AD.
 * You will need to allow the app to sign in users and read the profile data for the signed-in users.
-* User's profile data is handled according to the [Veracity Terms of use](https://id.veracity.com/terms-of-use "Veracity Terms of use") and [Privacy statement](https://services.veracity.com/PrivacyStatement "Veracity Privacy statement").
+* User's profile data is handled according to the [Veracity Terms of use](https://id.veracity.com/terms-of-use) and [Privacy statement](https://services.veracity.com/PrivacyStatement).
 
 If you want to stop using SSO for Veracity, delete the Veracity Single Sign-On app in your Azure AD.
 
@@ -48,7 +49,7 @@ To implement SSO with Azure AD, follow the steps below.
     - If there are no issues, you will be able to proceed with the SSO setup.  After selecting the **Submit** button, the whole process usually takes five to ten minutes.
 
 
-## <a name="notazure"></a>Identity Providers other than Azure AD
+## Identity Providers other than Azure AD
 
 If you use an identity provider other than Azure AD, send a request for implementing SSO to [support@veracity.com](mailto:support@veracity.com).  Provide the following information:
 
@@ -67,18 +68,18 @@ If you use an identity provider other than Azure AD, send a request for implemen
 When you have implemented SSO, verify if it works properly by following the steps below. Avoid using the administrator account, and choose a regular user account instead.
 
 1. Restart your browser.
-2. Go to the [Veracity Home](https://www.veracity.com) page.
+2. Go to the [Veracity home page](https://www.veracity.com).
 3. In the upper right corner, select the **Sign in** button.
 4. Enter an email address for a regular user account and select **Continue**.
 5. You should be redirected to your identity provider. Authenticate there.
 6. If this is the first time you sign in to Veracity, you will be asked to specify your country and accept the terms of use.
-7. You should be redirected to the [Veracity Home page](https://www.veracity.com). 
+7. You should be redirected to the [Veracity home page](https://www.veracity.com). 
 8. To verify you are signed in, in the upper-right corner of the page, find your initials or profile picture.
 <figure>
     <img src="assets/Enrollment1.png"/>
 </figure>
 
-## <a name="flow"></a>SSO user experience
+## SSO user experience
 To see the SSO sign-in flow for a user, consult the diagram below.
 <figure>
 	<img src="assets/SSOUserExperience.png"/>

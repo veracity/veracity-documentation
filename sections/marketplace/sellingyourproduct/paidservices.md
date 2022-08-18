@@ -24,7 +24,7 @@ There are three elements you need to fill in:
 	* Subscription type - for example: one-time, recurrent, yearly, monthly, support duration 
 
 <figure>
-	<img src="assets/DPCA.PNG"/>
+	<img src="../assets/DPCA.PNG"/>
 	<figcaption>Example from Dynamic Positioning Capability Assessment</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ Typical product features are:
 Keep the pricing and plans section short. Include any detailed description of your offer in the paragraphs above this section. 
 
 <figure>
-	<img src="assets/Datafabric.PNG"/>
+	<img src="../assets/Datafabric.PNG"/>
 	<figcaption>Example from Veracity Data Fabric</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ You can add a free trial to show prospective customers the value of your service
 See the following example. 
 
 <figure>
-	<img src="assets/CMC.png"/> 
+	<img src="../assets/CMC.png"/> 
 	<figcaption>Free trial period on DATE for CMC</figcaption>
 </figure>
 
@@ -80,7 +80,7 @@ An add-on should have:
 See the example of add-ons below.
 
 <figure>
-	<img src="assets/addons.png"/>
+	<img src="../assets/addons.png"/>
 	<figcaption>Example of Add-ons</figcaption>
 </figure>
 
@@ -88,7 +88,7 @@ See the example of add-ons below.
 If you have a lot of different price packages or too much information to manage on one page, you can use a drop-down selector. The selector shows only one plan or package plan at a time in a drop-down list. It helps the user choose without being overwhelmed with too many options and buy buttons.
 
 <figure>
-	<img src="assets/pricingplanselector.png"/>
+	<img src="../assets/pricingplanselector.png"/>
 	<figcaption>Selector of different pricing plans</figcaption>
 </figure>
 
@@ -98,7 +98,7 @@ To do online contracting, you need terms and conditions of your service that the
 See an example of terms and conditions below.
 
 <figure>
-	<img src="assets/ServiceTerms.png"/>
+	<img src="../assets/ServiceTerms.png"/>
 	<figcaption>Terms and conditions example</figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ See an example of terms and conditions below.
 After accepting the terms and conditions of your service, the customer needs to enter details about themselves and their company. If the customer is already a Veracity user, the information they already provided will be prefilled.
 
 <figure>
-	<img src="assets/PurchaseForm.png"/>
+	<img src="../assets/PurchaseForm.png"/>
 	<figcaption>Purchase form</figcaption>
 </figure>
 
@@ -124,7 +124,7 @@ After the purchase, your customer:
 Later, the customer will get an invoice to be paid. If they already paid for the purchase by credit card, the invoice will be marked as pre-paid.
 
 <figure>
-	<img src="assets/OrderConfirmation.png"/>
+	<img src="../assets/OrderConfirmation.png"/>
 	<figcaption>Order confirmation mail</figcaption>
 </figure>
 
@@ -144,4 +144,4 @@ You can offer your customers automatic or manual access based on the plan price 
 You may need to set up access levels inside the service. In such cases, Veracity provides you with messages to initiate this process.
 
 ## Customer journey
-You can see what the customer journey looks like <a href="assets/UserJourneyPurchasableProducts.png" download>here</a>.
+You can see what the customer journey looks like <a href="../assets/UserJourneyPurchasableProducts.png" download>here</a>.

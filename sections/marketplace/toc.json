@@ -18,23 +18,23 @@
 			"items": [
 				{
 					"text": "Overview",
-					"href": "sellingyourproductoverview.md"
+					"href": "sellingyourproduct/sellingyourproductoverview.md"
 				},
 				{
 					"text": "Paid services",
-					"href": "paidservices.md"
+					"href": "sellingyourproduct/paidservices.md"
 				},
 				{
 					"text": "Lead generating services",
-					"href": "leadsgeneratingservices.md"
+					"href": "sellingyourproduct/leadsgeneratingservices.md"
 				},
 				{
 					"text": "Free services",
-					"href": "freeservices.md"
+					"href": "sellingyourproduct/freeservices.md"
 				},
 				{
 					"text": "Combinations",
-					"href": "hybridsolutions.md"
+					"href": "sellingyourproduct/hybridsolutions.md"
 				}
 			]
 		},

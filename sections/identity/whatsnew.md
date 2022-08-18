@@ -6,6 +6,7 @@ description: Public changelog with important announcments.
 # Latest news
 This page contains latest news about Veracity Identity Provider and its [changelog](#changelog).
 ## Rotation of the Veracity Identity Token Signing Key
+Last updated: 18 August 2022
 
 According to security best practice, we will implement a new rotation scheme for the key used to sign the tokens issued by the Veracity Identity provider (Azure AD B2C/login.veracity.com) as follows:
 - The new key will be published to the metadata (https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/discovery/v2.0/keys?p=b2c_1a_signinwithadfsidp) **one month before it gets activated**. This will allow the services to pick up the new key.
@@ -15,17 +16,18 @@ According to security best practice, we will implement a new rotation scheme for
 We do not expect this to cause issue for services as they should already handle such rotation in accordance with best practice, however, the very first time we activate a new key, we will only make it active for 1 day. When it expires, the old (the key used today) will be used again. This will allow services to detect potential issues, but get them working again (at the latest) the next day.
 
 The first key will be:
-- Published to metadata:**Sep 6, 2022**
-- Set active: **Oct 11, 2022**
-- Expired: **Oct 12, 2022**
+- Published to metadata:**6 September 2022**
+- Set active: **11 October 2022**
+- Expired: **12 October 2022**
 
 If all goes well, we will start the 6 month rotation scheme as follows:
-- Published to metadata: **Oct 18, 2022**
-- Set active: **Nov 22, 2022**
+- Published to metadata: **18 October 2022**
+- Set active: **22 November 2022**
 - Expired:After **~6 months**
 
-Below you can find latest news related to Veracity Identity. Last update 7 March 2022.
 ## Transition to new login URL in B2C
+Last updated: 18 August 2022
+
 Microsoft will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants on 31 August 2022([source](https://azure.microsoft.com/en-us/updates/update-apps-using-azure-ad-b2c-to-new-redirect-b2clogincom/)). Because of that, Veracity advises you to **change your login URL to login.veracity.com by 31 August 2022**. If you do not do this, the login to your application will stop working.
 
 After changing the login URL, all issued tokens will get a new issuer value (**login.veracity.com**). See an example of a new token: "iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/"
@@ -44,18 +46,18 @@ If your app is NOT using the veracity .net package, you can find more documentat
 If you have questions or need help, [use this form to contact support](https://services.veracity.com/form/SupportAnonymous).
 
 ## API Security flaw
-Last updated: 01.02.2022
+Last updated: 18 August 2022
 
 ### Audience
 The below is important information for all developers of an API using the Veracity Identity Provider, Azure AD B2C.
 
 ### The problem
-Microsoft’s implementation of OAuth 2.0 has a security flaw that you have to be aware of if you are responsible for an API:
+Microsoft's implementation of OAuth 2.0 has a security flaw that you have to be aware of if you are responsible for an API:
 
 - **Any client application (registered in _any_ Azure AD tenant, incl. non DNV-owned tenants) is able to get an access (bearer) token for any other API registered in Azure AD B2C without any permissions granted between the two.**
 
-This can be done by requesting an access token using the OAuth2.0 grant type “Client Credentials”.
-It is possible to disable the possibility to issue access tokens for an API requested through the “Client Credentials” grant type. However, until now, the default configuration that has been used for APIs, both when creating them manually and through the Veracity Developer Portal, have not implemented this restriction. This will shortly be fixed in the Veracity Developer Portal, however, already existing APIs need to be manually managed.
+This can be done by requesting an access token using the OAuth2.0 grant type "Client Credentials".
+It is possible to disable the possibility to issue access tokens for an API requested through the "Client Credentials" grant type. However, until now, the default configuration that has been used for APIs, both when creating them manually and through the Veracity Developer Portal, have not implemented this restriction. This will shortly be fixed in the Veracity Developer Portal, however, already existing APIs need to be manually managed.
 This document explains how to set up your API with access restrictions to mitigate the OAuth 2.0 security flaw in Azure AD B2C. If you have any questions, please register it here: [https://support.veracity.com/](https://support.veracity.com/)
 
 ### What needs to be done 
@@ -66,11 +68,11 @@ If your API is only accepting calls made on behalf of a logged-on user (i.e. the
 
 _Please send to IAM team:_
 
-_Please enable “Assignment required” on my Veracity API app: \<Client ID of your API app\>_
+_Please enable "Assignment required" on my Veracity API app: \<Client ID of your API app\>_
 
 
 #### API apps that support access tokens generated with “Client Credentials” grant type
-The simplest method is to enable a restriction so that only client apps that are specifically granted permissions are allowed to get an access token using the “Client Credentials” grant type. This must be requested from support at the moment, but will soon be supported in the Developer Portal for API apps registered there.
+The simplest method is to enable a restriction so that only client apps that are specifically granted permissions are allowed to get an access token using the "Client Credentials" grant type. This must be requested from support at the moment, but will soon be supported in the Developer Portal for API apps registered there.
 Register a request on [https://mygss.dnv.com](https://mygss.dnv.com) with the following information:
 
 _Please send to IAM team:_
@@ -79,7 +81,7 @@ _Please configure the following for my Veracity API app \<Client ID of API app\>
 
 _1.	Add appRole_ 
 
-_2.	Implement “Assignment required”_
+_2.	Implement "Assignment required"_
 
 _3.	Grant the following client apps access to the role:_
 
@@ -91,7 +93,7 @@ Alternatively, you can use one of the two methods described below, but these req
 ##### Access control lists
 
 You can implement code in your API that specifically checks whether the caller is allowed to call you. You will then have to maintain (for example in a database) a list of callers that are allowed to call.
-If your API will accept access tokens generated using the OAuth2.0 Client Credentials grant type (used in a server-to-server scenario where you do not have any logged-on users), this is one of two methods you can use to protect your API (the other one is listed below: “Application permissions”).
+If your API will accept access tokens generated using the OAuth2.0 Client Credentials grant type (used in a server-to-server scenario where you do not have any logged-on users), this is one of two methods you can use to protect your API (the other one is listed below: "Application permissions").
 
 There are different claims specifying the caller app depending on how your API was created. If it was created through the Veracity Developer portal, it will look like the following where the caller Client ID is identified by the **azp** claim:
 
@@ -137,7 +139,7 @@ If your API app was created manually requesting it to be used specifically with 
 }
 ```
 
-For an access token generated on behalf of a logged-on user, the **azp** claim will be the claim to look for if you want to use the “Access control lists” method also in this scenario:
+For an access token generated on behalf of a logged-on user, the **azp** claim will be the claim to look for if you want to use the "Access control lists" method also in this scenario:
 ```json
 {
   "iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
@@ -198,7 +200,7 @@ This is how an access token with such a **roles** claim could look like:
   "ver": "2.0"
 }
 ```
-We can specify different roles and the role names can be anything. To follow MS’ use of it, you may choose a format of the type
+We can specify different roles and the role names can be anything. To follow MS' use of it, you may choose a format of the type
 - **object.permissiontype** (e.g. All.Full, User.Read, Vessel.Write, etc.)
 
 and client apps can be granted access to different roles. The **roles** claim will only contain the roles that a client app has been granted access to.

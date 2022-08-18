@@ -3,7 +3,7 @@
 	"items": [
 		{
 			"text": "Overview",
-			"href": "overview.md"
+			"href": "dataworkbench.md"
 		},
 		{
 			"text": "What is new?",
@@ -24,6 +24,10 @@
 		{
 			"text": "API endpoints",
 			"href": "apiendpoints.md"
+		},
+		{
+			"text": "Connectors",
+			"href": "connectors.md"
 		}
 	]
 }

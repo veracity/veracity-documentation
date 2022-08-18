@@ -1,7 +1,7 @@
 ---
 author: Veracity
 description: This page explains how to authenticate and authorize API calls for Data Workbench.
-
+---
 # Authenticate and authorise calls
 To authenticate API calls, you need:
 * Service account secret – the secret used by an OAuth client to authenticate to Veracity. 
@@ -19,5 +19,7 @@ To authorise calls with [Veracity Identity Provider](https://developer.veracity.
 * AuthorizationUrl: "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/authorize"
 * TokenUrl: "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/token"
 
-## Sample API request (draft)
+## Sample API request
 Below you can see a sample API request.
+
+[placeholder]

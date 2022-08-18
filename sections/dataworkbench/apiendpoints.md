@@ -5,20 +5,21 @@ description: This page lists API endpoints for Data Workbench.
 # API endpoints
 
 You can use the following API endpoints for Data Workbench:
-* [Workspace endpoints](#workspace)
-* [Connector and connections endpoints](#connect)
-* [Data sets endpoints](#data)
+* [Workspace endpoints](#workspace-endpoints)
+* [Connector and connections endpoints](#connectors-and-connections)
+* [Data sets endpoints](#data-sets-endpoints)
 
-To see response codes for the API, go [here](#response).
+To see response codes for the API, go [here](#response-codes).
 
-## <a name="workspace"></a>Workspace endpoints
+## Workspace endpoints
 
 Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
 
-To get a list of workspace schemas for a specific workspace, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. You must provide {workspaceId}(string, $UUID).
+To get a list of workspace schemas for a specific workspace, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. You must provide `{workspaceId}`(string, $UUID).
 
 Below you can see an example of a successful request (code 200).
-<pre><code>
+
+```json
 [
   {
     "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -59,17 +60,15 @@ Below you can see an example of a successful request (code 200).
     "lastModifiedOn": "2022-08-10T14:51:11.785Z"
   }
 ]
-</pre></code>
+```
 
-## <a name="connect"></a>Connectors and connections
-
-Each workspace contains data that is imported from source systems and validated by the [Data Validator API](https://api-portal.veracity.com/docs/services/DataValidatorApi/operations/ColumnValidator_AddColumnValidator).
+## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
 
-You can list all connections used by a workspace by calling the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/connections endpoint. You must provide {workspaceId} (string, #UUID) in your call.
+You can list all connections used by a workspace by calling the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/connections endpoint. You must provide `{workspaceId}` (string, #UUID) in your call.
 
 Below you can see an example of a successful request (code 200).
-<pre><code>
+```json
 [
   {
     "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -124,12 +123,12 @@ Below you can see an example of a successful request (code 200).
     }
   }
 ]
-</pre></code>
+```
 
-You can also list all the connectors used by a workspace by calling the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. You must provide {workspaceId} (string, #UUID) in your call.
+You can also list all the connectors used by a workspace by calling the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. You must provide `{workspaceId}` (string, #UUID) in your call.
 
 Below you can see an example of a successful request (code 200).
-<pre><code>
+```json
 [
   {
     "connectorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -164,16 +163,16 @@ Below you can see an example of a successful request (code 200).
     }
   }
 ]
-</pre></code>
+```
 
-## <a name="data"></a>Data sets endpoints
+## Data sets endpoints
 
 You can use the following endpoints:
 * [Get all data sets for a workspace](#allData)
 * [Get specific data sets by ID](#data)
 * [Query for data sets by ID and with additional properties](#dataMore)
 
-<a name="allData"></a>To get all data sets available in a workspace, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide {workspaceId} (string, $UUID).
+<a name="allData"></a>To get all data sets available in a workspace, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
 You can use additional properties in your query:
 * {isBaseDataset} – boolean; by default, no value; you can set it to "true" or "false"
 * pageIndex – integer($int32)
@@ -182,12 +181,10 @@ You can use additional properties in your query:
 * sortDirection – string; by default, no value; you can set it to "ascending" or "descending"
 
 Below you can see an example of a request URL that uses all additional properties.
-<pre><code>
 https://dwdevtest.veracity.com/gateway/api/v1/workspaces/0c2208da-4f16-4af5-9255-d5c70384cda5/datasets?isBaseDataset=true&pageIndex=1&pageSize=1&sortColumn=1&sortDirection=Ascending
-</pre></code>
 
 Below you can see an example of a successful request (code 200).
-<pre><code>
+```json
 [
   {
     "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -220,12 +217,12 @@ Below you can see an example of a successful request (code 200).
     "isBaseDataset": true
   }
 ]
-</pre></code>
+```
 
-<a name="data"></a>To get data sets by workspace ID and data set ID, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the {workspaceId} (string, $UUID) and the {datasetId}(string, $UUID).
+<a name="data"></a>To get data sets by workspace ID and data set ID, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
 
 Below you can see an example of a successful request (code 200).
-<pre><code>
+```json
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "name": "string",
@@ -256,14 +253,15 @@ Below you can see an example of a successful request (code 200).
   ],
   "isBaseDataset": true
 }
-</pre></code>
+```
 
 <a name="dataMore"></a>To query for data by workspace ID, data set ID, and some additional properties, call the https://dwdev.veracity.com/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint.
-You must provide the {workspaceId} (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
+You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
 
 Below you can see a sample request body.
 
-<pre><code>{
+```json
+{
   "pageIndex": 0,
   "pageSize": 0,
   "columnFilter": [
@@ -281,11 +279,11 @@ Below you can see a sample request body.
     ]
   }
 }
-</pre></code>
+```
 
 Below you can see an example of a successful request (code 200).
 
-<pre><code>
+```json
 {
   "data": [
     "string"
@@ -297,9 +295,9 @@ Below you can see an example of a successful request (code 200).
     "totalCount": 0
   }
 }
-</pre></code>
+```
 
-## <a name="response"></a>Response codes
+## Response codes
 
 You can get the following response codes when you send API calls:
 

@@ -34,7 +34,7 @@ To get the API key:
 When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
 
 ### Bearer token
-To get the bearer token, call the URL "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/token" with the POST method.
+To get the bearer token, call the URL https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/token with the POST method.
 Use the following request body:
 * `client_id` - this is the Service account ID for your app.
 * `client_secret` - this is the Service account secret for your app.

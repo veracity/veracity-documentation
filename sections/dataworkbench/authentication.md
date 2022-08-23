@@ -2,7 +2,10 @@
 author: Veracity
 description: This page explains how to authenticate and authorize API calls for Data Workbench.
 ---
-# Authorization
+# Authorization & authentication
+Learn how to authorize and authenticate your API calls.
+
+## Authorization
 
 Authorise your API calls with [Veracity Identity Provider](https://developer.veracity.com/docs/section/identity/identity) using the OAuth 2.0 protocol and the Authorization code flow.
 

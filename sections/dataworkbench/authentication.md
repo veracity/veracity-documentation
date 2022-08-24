@@ -16,7 +16,7 @@ See the security scheme for OAuth 2.0 below.
         "flows": {
           "authorizationCode": {
             "authorizationUrl": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/authorize",
-            "tokenUrl": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/token",
+            "tokenUrl": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token",
             "scopes": {
               "https://dnvglb2cprod.onmicrosoft.com/37c59c8d-cd9d-4cd5-b05a-e67f1650ee14"
             }
@@ -34,11 +34,11 @@ To get the API key:
 When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
 
 ### Bearer token
-To get the bearer token, call the URL https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/b2c_1a_signinwithadfsidp/oauth2/v2.0/token with the POST method.
+To get the bearer token, call the URL https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token with the POST method.
 Use the following request body:
 * `client_id` - this is the Service account ID for your app.
 * `client_secret` - this is the Service account secret for your app.
-* `resource` - use the scope for Services API: https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75
+* `scope` - use the scope for Services API: https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/.default
 * `grant_type` - client credentials
 
 To get `client_id` and `client_secret`:

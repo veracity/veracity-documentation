@@ -18,16 +18,12 @@
 			"href": "apiintegrations.md"
 		},
 		{
-			"text": "Authorization & authentication",
+			"text": "Authentication",
 			"href": "authentication.md"
 		},
 		{
 			"text": "API endpoints",
 			"href": "apiendpoints.md"
-		},
-		{
-			"text": "Connectors",
-			"href": "connectors.md"
 		}
 	]
 }

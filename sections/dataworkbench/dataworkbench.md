@@ -14,6 +14,10 @@ Data Workbench allows you to:
 
 Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers. For information on user management, go [here](usermanagement.md).
 
+If you are a tenant admin, you can use the picker button to create a new workspace. To do so:
+1. In the upper-left corner of the "Home" page, select the workspace and tenant picker button.
+2. In the dropdown that appears, at the bottom, select the **Add workspace** button.
+
 ## Connectors and connections
 Each workspace has connectors and connections. A connector defines a way of connectivity between Veracity and a source system. A connection is an instance of a connector, and it is used by the dataset to query data from a data source.
 

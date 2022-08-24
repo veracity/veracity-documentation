@@ -82,7 +82,7 @@ Also, Data Workbench has added a button for deselecting all columns in a data se
 
 ### Icon tooltips updated
 
-The icons for data sets, "Poseidon Principles" template, and "Sea Cargo Charter" template got new tooltip text that shows after you hover on an icon.
+The icons within data sets, "Poseidon Principles" template, and "Sea Cargo Charter" template got new tooltip text that shows after you hover over an icon.
 
 ### Message and prompt when you have no data sets
 Previously, if no data sets were available in your workspace, there was no message informing about that. 
@@ -102,7 +102,7 @@ This section covers bugs that were fixed.
 Previously, when using the column picker to select columns for a dataset, you could not deselect columns to the far-right using the default screen size. Now, it is fixed.
 
 ### Blank workspace name
-Previously, you could not create a workspace with a blank space instead of a name. Now, this is impossible, and the name of the workspace should be between 1 and 100 characters.
+Previously, you could create a workspace with a blank space instead of a name. Now, this is impossible, and the name of the workspace should be between 1 and 100 characters.
 
 ### Firefox: horizontal scroll bar under data properties
 Previously, in Firefox, a horizontal scroll bar was displayed under data properties in column picker. Now, it is removed.

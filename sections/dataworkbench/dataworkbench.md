@@ -10,8 +10,6 @@ Data Workbench allows you to:
 * Build dashboards and reports on top of the data.
 * Work with scalable data streams and self-defined non-time-series data streams.
 
-For details, see [Data Workbench on Marketplace](https://store.veracity.com/b692-2dd3fb6b0225-workbench).
-
 ## Tenants and workspaces
 
 Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers. For information on user management, go [here](usermanagement.md).

@@ -19,7 +19,7 @@ Use the following request body:
 * `client_id` - this is the Service account ID for your app.
 * `client_secret` - this is the Service account secret for your app.
 * `resource` - use the scope for Services API: https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75
-* `grant_type` - client credentials
+* `grant_type` - client_credentials
 
 <figure>
 	<img src="assets/requestbody.png"/>

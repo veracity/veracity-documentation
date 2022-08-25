@@ -11,7 +11,7 @@ The onboarding process for Veracity mixes meetings with the onboarding team and 
 adding your company's app to the [Marketplace](https://store.veracity.com/) (see [Marketplace docs](https://developer.veracity.com/docs/section/marketplace/marketplace)) and using [Veracity Identity Provider](https://developer.veracity.com/docs/section/identity/identity) (Veracity IDP) for authentication. 
 2. You [set up a non-production Veracity service](#project) and start working on it to comply with the [technical requirements](#requirements) for integrating with Veracity.
 3. You ask the [onboarding team](mailto:onboarding@veracity.com) to provide you with application credentials for a "test" or "staging" Veracity application.
-4. When your application meets [technical requirements](#requirements), you contact the onboarding team to request a verification.
+4. When your application meets [technical requirements](#technical-requirements), you contact the onboarding team to request a verification.
 5. The onboarding team verifies if your application is ready for production.
 6. After a successful verification, the onboarding team issues a new set of credentials for a production version of your application.
 7. You use the production credentials to configure your production application.
@@ -46,36 +46,36 @@ By default, your APIs have access to the [Veracity MyServices API](https://devel
 
 If you need to call other [Veracity APIs](https://developer.veracity.com/api), you will need subscription keys for them. To get them, contact the [onboarding team](onboarding@veracity.com). 
 
-## <a name="requirements"></a>Technical requirements
+## Technical requirements
 If your company only needs a lead-generating site on Veracity, skip this section.
 However, if you want to integrate your application with Veracity, you must meet the requirements described below. 
 
 The Veracity platform is built on Microsoft Azure and uses Azure Active Directory B2C (OpenID Connect OAuth 2.0) for managing authentication with Veracity IDP. Because of that, the integration with Veracity will be easier for apps written in common languages and hosted on Azure, Amazon Web Services (AWS) or another large cloud platform.
 
 **Technical requirements for integrating with Veracity:**
-* [Sign-in button](#sign-in)
-* [Sign-out](#sign-out)
-* [Grant and remove subscriptions with API calls](#api)
-* [Consider authorization](#auth)
-* [Unique user identifier](#uui)
-* [Call the Policy API on every sign in](#policy)
-* [HTTPS & browser support](#browser)
+* [Sign-in button](#sign-in-button)
+* [Sign-out](#sign-out-button)
+* [Grant and remove subscriptions with API calls](#grant-and-remove-subscriptions-with-api-calls)
+* [Consider authorization](#consider-authorization)
+* [Unique user identifier](#unique-user-identifier)
+* [Call the Policy API on every sign in](#call-the-policy-api-on-every-sign-in)
+* [HTTPS & browser support](#https-and-browser-support)
 
 **Test your application:**
 * On internal company computers (for DNV, VERIT) and non-company computers.
 * On internal company networks and external networks.
 
-### <a name="sign-in"></a>Sign-in button
-Your app should have a sign-in button integrated with [Veracity IDP](https://developer.veracity.com/docs/section/identity/identity). The Veracity IDP provides authentication and the [Single Sign On (SSO) experience](https://developer.veracity.com/docs/section/onboarding/sso). 
+### Sign-in button
+Your app should have a sign-in button integrated with [Veracity IDP](https://developer.veracity.com/docs/section/identity/identity). The Veracity IDP provides authentication and the [Single Sign On (SSO) experience](https://developer.veracity.com/docs/section/customerservices/sso). 
 
-### <a name="sign-out"></a>Sign-out button
+### Sign-out button
 Your app should have a sign-out button that is easy to find. 
 The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint sings out the user both from ADFS and Azure AD B2C.
 
 If applicable, all local session info (including cookies) should be deleted when the user signs out.
 Note that this applies to all Digital Services on Veracity.
 
-### <a name="api"></a>Grant and remove subscriptions with API calls (GDPR)
+### Grant and remove subscriptions with API calls
 Veracity needs to know:
 * Which Veracity users should have access to your app?
 * What information on Veracity users does your app store?. Thanks to this, Veracity can stay compliant with the General Data Protection Regulation (GDPR).
@@ -90,7 +90,7 @@ To see Veracity MyServices endpoints for managing subscriptions, go [here](https
 * The viewpoints "Directory" and "Options" are not available to you. 
 * When you test API calls, you can do it in the browser for the "My" viewpoint. For the "This" viewpoint, use Postman or a similar tool.
 
-### <a name="auth"></a>Consider authorization
+### Consider authorization
 Veracity provides user authentication but offers limited authorization options. 
 
 If your application has a single access level, then you can assign service subscription to Veracity Users, and the users will have access to your app. To see the claims provided by Veracity IDP, go [here](https://developer.veracity.com/docs/section/identity/authentication/claims)
@@ -102,19 +102,19 @@ If your app has more than one user access level, you will need to control access
 * Informs your application which membership was bought by the user (bronze, silver, or gold).
 After that, your application should use this information to give the user the access level that corresponds to their membership.
 
-### <a name="uui"></a>Unique user identifier
+### Unique user identifier
 Use the unique Veracity ID as a unique user identifier in your application. The Veracity ID is associated with the Veracity user account. Avoid using users' email addresses as unique identifiers because Veracity users can change their emails.
 
 Also, if possible, avoid storing other information from the claim. Instead, you can retrieve it from the bearer token issued after the login. This approach should guarantee that you always have current profile information and avoid issues with syncing users.
 
-### <a name="policy"></a>Call the Policy API on every sign in
+### Call the Policy API on every sign in
 Your app should call the Veracity Policy Service API when a user signs in. The API will:
 * Check if the user has accepted the newest terms & conditions.
 * Check if the user has a subscription for the given service on Veracity.
 
 For details on the Policy API, go [here](https://developer.veracity.com/docs/section/identity/policy-service).
 
-### <a name="browser"></a>HTTPS & browser support
+### HTTPS and browser support
 Your application should use the HTTPS protocol and support the following browsers:
 * Chrome
 * Firefox

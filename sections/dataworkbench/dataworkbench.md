@@ -23,7 +23,7 @@ Each workspace has connectors and connections. A connector defines a way of conn
 
 To see available connectors and connections in your workspace, go to the **Connections** tab. 
 
-For details on setting up a connection, go [here](connectors.md). Once you have set up a connection, the Data Catalogue will show the predefined data sets queried from the corresponding source system.
+Once you have a connection set up, the Data Catalogue will show the predefined data sets queried from the corresponding source system.
 
 ## Data sets
 To see data sets available in your workspace, go to the **Data Catalogue** tab. 

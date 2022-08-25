@@ -21,6 +21,11 @@ Use the following request body:
 * `resource` - use the scope for Services API: https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75
 * `grant_type` - client credentials
 
+<figure>
+	<img src="assets/requestbody.png"/>
+	<figcaption>An application with direct user interaction can redirect the user to the login page to authenticate them.</figcaption>
+</figure>
+
 To get `client_id` and `client_secret`:
 1. In your Data Workbench workspace, select the **API Integrations** tab.
 2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).

@@ -1,152 +1,123 @@
 ---
 author: Veracity
-description: Onboard a new resource to Veracity.
+description: Explains to a developer how to start using Veracity.
 ---
 
-# Onboarding
+# How to start using Veracity?
+If you are a developer, read this page to learn how to start using Veracity. 
 
-## Why onboard to the Veracity platform?
+The onboarding process for Veracity mixes meetings with the onboarding team and a self-service approach:
+1. Someone from your company starts the onboarding process for customers. See how to do it [here](https://developer.veracity.com/docs/section/marketplace/productpresentation). A typical onboarding process results in
+adding your company's app to the [Marketplace](https://store.veracity.com/) (see [Marketplace docs](https://developer.veracity.com/docs/section/marketplace/marketplace)) and using [Veracity Identity Provider](https://developer.veracity.com/docs/section/identity/identity) (Veracity IDP) for authentication. 
+2. You [set up a non-production Veracity service](#project) and start working on it to comply with the [technical requirements](#requirements) for integrating with Veracity.
+3. You ask the [onboarding team](mailto:onboarding@veracity.com) to provide you with application credentials for a "test" or "staging" Veracity application.
+4. When your application meets [technical requirements](#requirements), you contact the onboarding team to request a verification.
+5. The onboarding team verifies if your application is ready for production.
+6. After a successful verification, the onboarding team issues a new set of credentials for a production version of your application.
+7. You use the production credentials to configure your production application.
+8. You ask the [onboarding team](mailto:onboarding@veracity.com) for another verification.
+9. After a successful verification, you receive client credentials for calling [Veracity APIs](https://developer.veracity.com/api) (including Veracity IDP).
 
-The onboarding process is here to help you in your quest to reach your customers through Veracity.
+Note that Veracity will cooperate with someone from your company on the commercial aspect of the onboarding when you go through the technical onboarding.
 
-**The Veracity Marketplace will allow you to significantly lower the cost of goods sold. Your customers can click-accept the terms & conditions and pay with credit card or invoice, with instant provisioning of access to your service (if technically feasible)**  
+If you need assistance, contact the [onboarding team](mailto:onboarding@veracity.com). You can expect an answer within a few business days.
 
-We also offer simple setups where you list your product and Veracity handles payment, but you handle the provisioning of the service. This is relevant for services with a custom/tailored setup for each customer, or where instant provisioning is not possible for technical reasons. 
+## API Explorer and GitHub
+To see the specifications for APIs provided by Veracity, go [here](https://developer.veracity.com/api).
 
-By going through our onboarding process we ensure together that your project reaches the Veracity Marketplace successfully and with minimal delays. 
+To see Veracity GitHub, go [here](https://github.com/veracity).
 
-Reach out to us to discuss your product - we are always excited to hear about new products! Try to involve us as early as possible - we have a lot of experience with best practices for online digital sales and we are eager to help.
+## <a name="project"></a>Project Portal
+To start setting up your Veracity service, you need access to the Project Portal. To get it, [sign up](https://id.veracity.com/sign-up?return-url=https%3a%2f%2fdeveloper.veracity.com%2fauth%2flogin%3freturnTo%3d%2fdevEnrolled) for an account or [sign in](https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp&redirect_uri=https%3A%2F%2Fdeveloper.veracity.com%2Fauth%2Foidc%2Floginreturn&response_type=code&response_mode=form_post&client_id=3e6d5154-57c6-4fb2-a591-1f51b6c7739e&mfa_required=true&state=CUSTOMOVVnHKeZnaNhrB3VRj7KsCCA56dBjh9U%7B%22query%22%3A%7B%22returnTo%22%3A%22%2FdevEnrolled%22%2C%22p%22%3A%22B2C_1A_SignInWithADFSIdp%22%7D%7D&nonce=Dhgzqrv_YktA_BRvQCKJR3fkpVJaTFqP&scope=openid%20offline_access%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fuser_impersonation%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fmanage_appregistrations%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fuser_administration%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fmanage_services%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fresource_administration&x-client-SKU=passport-azure-ad&x-client-Ver=4.3.2) to your account.
+In the [Project Portal](https://developer.veracity.com/projects), create the resources you need. For an overview, go [here](https://developer.veracity.com/docs/section/developerexperience/introduction). For a step-by-step guide, go [here](https://developer.veracity.com/docs/section/developerexperience/step-by-step-guide/getting-started).
+Once you have created the resources you need, you will be able to get information for authenticating with Veracity IDP. 
 
-## How to onboard a service
+To see the ID of your application, service, or API:
+* In the [Project Portal](https://developer.veracity.com/projects), select your app, service, or API. It may be grouped under a Resource Group.
+* Select the "Settings" tab.
 
-The three main requirements you need to ensure are:
+If you need a client secret for your API, follow the same procedure as above.
 
-<figure>
-	<img src="assets/generalReq.png"/>
-</figure>
+To configure the Reply URLs:
+* In the [Project Portal](https://developer.veracity.com/projects), select your app, service, or API. It may be grouped under a Resource Group.
+* Select the "Configure" tab.
 
+By default, your APIs have access to the [Veracity MyServices API](https://developer.veracity.com/docs/section/identity/services-openapi) used by Veracity Identity Provider. The scope is https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation.
 
-1. Marketplace requirements
-2. Technical requirements
-3. Legal requirements (only for DNV apps) 
+If you need to call other [Veracity APIs](https://developer.veracity.com/api), you will need subscription keys for them. To get them, contact the [onboarding team](onboarding@veracity.com). 
 
-This post will explain the main process of onboarding your application/service to Veracity. 
+## <a name="requirements"></a>Technical requirements
+If your company only needs a lead-generating site on Veracity, skip this section.
+However, if you want to integrate your application with Veracity, you must meet the requirements described below. 
 
-When we say something is “on Veracity” we mean two different things:
-1. The application is available through Veracity Marketplace.
-   or
-2. The application uses Veracity technology like Veracity Identity login. 
+The Veracity platform is built on Microsoft Azure and uses Azure Active Directory B2C (OpenID Connect OAuth 2.0) for managing authentication with Veracity IDP. Because of that, the integration with Veracity will be easier for apps written in common languages and hosted on Azure, Amazon Web Services (AWS) or another large cloud platform.
 
-Many applications are both available through the marketplace and use Veracity technologies. 
+**Technical requirements for integrating with Veracity:**
+* [Sign-in button](#sign-in)
+* [Sign-out](#sign-out)
+* [Grant and remove subscriptions with API calls](#api)
+* [Consider authorization](#auth)
+* [Unique user identifier](#uui)
+* [Call the Policy API on every sign in](#policy)
+* [HTTPS & browser support](#browser)
 
-The reason why there is an onboarding process is to maintain some minimum technical standards for applications using Veracity tech, as well as creating a coherent look and feel to the Veracity Marketplace.  
+**Test your application:**
+* On internal company computers (for DNV, VERIT) and non-company computers.
+* On internal company networks and external networks.
 
-There are also legal requirements! But these mainly apply for DNV services. A service owned by a non-DNV will need to conform to some platform standard agreements. As a developer it is often tempting to use software components not owned by your own company, but that has its risks. 
+### <a name="sign-in"></a>Sign-in button
+Your app should have a sign-in button integrated with [Veracity IDP](https://developer.veracity.com/docs/section/identity/identity). The Veracity IDP provides authentication and the [Single Sign On (SSO) experience](https://developer.veracity.com/docs/section/onboarding/sso). 
 
-The Veracity onboarding team will help you throughout this process, you don’t have to go through this alone. We are here to guide you!
+### <a name="sign-out"></a>Sign-out button
+Your app should have a sign-out button that is easy to find. 
+The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint sings out the user both from ADFS and Azure AD B2C.
 
-You can reach us at  [onboarding@veracity.com](mailto:onboarding@veracity.com)
+If applicable, all local session info (including cookies) should be deleted when the user signs out.
+Note that this applies to all Digital Services on Veracity.
 
-<details>
-   <summary style="font-size: 24px; cursor: pointer; margin-bottom: 16px">Marketplace requirements</summary>
+### <a name="api"></a>Grant and remove subscriptions with API calls (GDPR)
+Veracity needs to know:
+* Which Veracity users should have access to your app?
+* What information on Veracity users does your app store?. Thanks to this, Veracity can stay compliant with the General Data Protection Regulation (GDPR).
 
-<span class="h2">Marketplace requirements:</span>
+Because of that, please stay in sync with Veracity. To do that, every time you add a Veracity user to your app, create a Service subscription for them.
+If you delete or deactivate a user in your app's database, call a corresponding API endpoint to notify Veracity that we should revoke this user's access to your app. 
 
-There are some strict limits on what you can do on your own Veracity Marketplace page. 
-See more details here:
+Veracity recommends creating an admin panel in your app for user management, so that non-technical admins can select buttons for actions that trigger API calls to Veracity.
 
-<span class="h2">[Marketplace - Service presentation](https://developer.veracity.com/services/marketplace)</span>
+To see Veracity MyServices endpoints for managing subscriptions, go [here](https://developer.veracity.com/docs/section/identity/services-openapi). Note that:
+* The viewpoints "My" and "This" are available to you.
+* The viewpoints "Directory" and "Options" are not available to you. 
+* When you test API calls, you can do it in the browser for the "My" viewpoint. For the "This" viewpoint, use Postman or a similar tool.
 
-Learn about the Veracity marketplace
+### <a name="auth"></a>Consider authorization
+Veracity provides user authentication but offers limited authorization options. 
 
-<figure>
-	<img src="assets/marketplaceReq.jpg"/>
-</figure>
+If your application has a single access level, then you can assign service subscription to Veracity Users, and the users will have access to your app. To see the claims provided by Veracity IDP, go [here](https://developer.veracity.com/docs/section/identity/authentication/claims)
 
-1. Fill out the form. TODO: link
-2. Choose some images for your page. TODO: images
-3. Send to Veracity.
-4. Veracity will construct and draft your page.
+If your application is open to everyone (free), you might not need any authorization method. In this case, the onboarding team will help you decide on the authorization.
 
-We also have the option for self-service of the marketplace pages after the initial draft has been created. Let us know if you’d like access to the self-service tool. 
-We’ll iterate together on your marketplace page until you are happy.
+If your app has more than one user access level, you will need to control access on the side of your application. For example, your application may offer bronze, silver, and gold membership. In this case, when a user buys a membership, Veracity:
+* Uses a service subscription to give the user access to your application.
+* Informs your application which membership was bought by the user (bronze, silver, or gold).
+After that, your application should use this information to give the user the access level that corresponds to their membership.
 
-Recommendations:
-- Keep in mind that not all existing business models work well with online digital sales.
-- It does not make sense to cram 47 different product variants on a single marketplace page.
-- Keep it to 3-4 product variants maximum, with the option for a “contact us to learn more” approach for more complex variants.
-- It is common for 1 or 2 of your product variants to represent a vast majority of your sales - focus on these variants!
-- Think about the product variants you see in your daily life online - be it on Netflix, Spotify or any other digital platform.
-- Make it easy for your customers to buy! Limit the amount of choices, and make it super clear to your customer what it is they are purchasing.
-</details>
+### <a name="uui"></a>Unique user identifier
+Use the unique Veracity ID as a unique user identifier in your application. The Veracity ID is associated with the Veracity user account. Avoid using users' email addresses as unique identifiers because Veracity users can change their emails.
 
-<details>
-   <summary style="font-size: 24px; cursor: pointer; margin-bottom: 16px">Technical Requirements</summary>
-<span class="h2">Tech requirements are found here:</span>
+Also, if possible, avoid storing other information from the claim. Instead, you can retrieve it from the bearer token issued after the login. This approach should guarantee that you always have current profile information and avoid issues with syncing users.
 
-<span class="h2">[Onboarding your service to Veracity - technical requirements](https://developer.veracity.com/article/veracity-technical-requirements)</span>
+### <a name="policy"></a>Call the Policy API on every sign in
+Your app should call the Veracity Policy Service API when a user signs in. The API will:
+* Check if the user has accepted the newest terms & conditions.
+* Check if the user has a subscription for the given service on Veracity.
 
-<figure>
-	<img src="assets/technicalReq.png"/>
-</figure>
+For details on the Policy API, go [here](https://developer.veracity.com/docs/section/identity/policy-service).
 
-1. You have to call the Policy API endpoint. This enforces terms-acceptance for users.
-2. Users who have not accepted the latest terms & conditions should not be allowed into your app if they use their Veracity account for login.
-3. You have to display a logout button.
-4. Your app must support different browsers.
-5. And you have to think about what sort of data you are storing. If you are storing personal data, then some additional requirements kick in.
-</details>
+### <a name="browser"></a>HTTPS & browser support
+Your application should use the HTTPS protocol and support the following browsers:
+* Chrome
+* Firefox
+* Edge
 
-
-<details>
-   <summary style="font-size: 24px; cursor: pointer; margin-bottom: 16px">Legal Requirements</summary>
-<span class="h2">Legal requirements  summarized (only relevant for DNV apps):</span>
-
-All DNV-owned apps need their own set of terms & conditions to provide a legal framework which follows DNV contracting principles. It is important with a tailor made set of terms and conditions for each service to capture legal risks unique for _your_ service.
-
-<figure>
-	<img src="assets/legalReq.png"/>
-</figure>
-
-We are interested in three main topics: 
-
-1. You need to ensure that you have updated agreements for use of intellectual property not owned by DNV.
-2. You need to ensure that you are up to date on GDPR requirements.
-3. You have to read the license text.
-
-We’ll ask the following questions:
-- Are you using any 3rd party data?
-- Are you using any 3rd party components?
-- Do you have contracts in place regulating your use of this 3rd party stuff?
-- Are you using open source components, and if so, have you looked at the licenses regulating your use of these components? Licenses like GPL and LGPL can contain clauses which can restrict DNV’s ability to sell the product and use of these licenses must be reviewed together with the Veracity onboarding team.
-- Have you implemented cookie-consent if it is a webapp? 
-And if you are storing personal data, we have to inform our users!
-
-So you have to tell the lawyers so they can create good service-specific terms & conditions for your service. 
-
-We recommend using Snyk to get a good overview of the licenses for your software components (“dependencies”).
-
-**Always read the license text.** They are often quite short, so not a lot of effort. 
-There are three categories of open sources licenses you should be aware of: 
-
-1. Permissive licenses, like MIT, Unlicense, Apache 2.0. Permissive licenses are rarely problematic.
-2. Hybrids/weak copyleft, like MPL 2.0, LGPL. You must read the license text very carefully in the context of your usage of the dependency. These can create problems if you are not careful, but they are often unproblematic.
-3. Copyleft, like GPL and EUPL. These are often problematic and should be avoided. Do your utmost to use another dependency with a more permissive license. If you cannot remove them you must read the license text carefully. Different copyleft licenses may have mutually exclusive requirements, so having two or more copyleft licenses might make your app impossible to legally distribute.
-
-	
-DNV employees, see official statement from legal department [**here**](https://dnv.sharepoint.com/sites/intranet/support/finance/Pages/Use-of-third-party-IPR.aspx?OR=Teams-HL&CT=1655730337181&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjA1MDEwMTAwOSJ9).
-	
-[**Link - DNV Policy for Open Source Software**](https://dnv.sharepoint.com/sites/intranet/support/finance/Documents/2022%20IPR%20Nissen%20Group%20Legal/00%20Policy%20Open%20Source%20Software%20FINAL%20220506%20Group%20Legal%20intranet%20page%20220603%28396651.1%29.pdf)
-	
-[**Link - DNV Policy Guidance Document**<-- this one is useful and important to read!](https://dnv.sharepoint.com/sites/intranet/support/finance/Documents/2022%20IPR%20Nissen%20Group%20Legal/01%20Appendix%201%20Policy%20Guidance%20Document%20FINAL%20220516%20Group%20Legal%20intranet%20page%20220603%28396653.1%29.pdf)
-	
-Some public resources concerning licenses:
-
-[Overview with description of most common licenses](https://choosealicense.com/licenses/)
-
-[Table view of common licenses. Rule of thumb: The more blue dots, the more problematic the license.](https://choosealicense.com/appendix/)
-
-[Another resource with overview of licenses](https://opensource.org/licenses)
-
-DNV has good relations with our suppliers of software and components, but some of these contracts are ageing. An example would be a valid contract that allows DNV to use a software in exchange for royalties, however the agreements explicitly lists floppy disks or CD-ROM as the distribution method of the software. That doesn’t support DNV’s preferred delivery model today, and we need to update contracts like these even if both DNV and the software supplier are happy with the status quo. 
-</details>
+However, you can choose not to support a browser and display a warning instead. In this case, when a user tries to access your service using an unsupported browser, they should see a warning that the app will not work properly and information what other browsers you support.

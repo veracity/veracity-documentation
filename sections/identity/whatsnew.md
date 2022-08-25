@@ -30,7 +30,7 @@ Last updated: 18 August 2022
 
 Microsoft will deprecate the use of login.microsoftonline.com for Azure AD B2C tenants on 31 August 2022([source](https://azure.microsoft.com/en-us/updates/update-apps-using-azure-ad-b2c-to-new-redirect-b2clogincom/)). Because of that, Veracity advises you to **change your login URL to login.veracity.com by 31 August 2022**. If you do not do this, the login to your application will stop working.
 
-After changing the login URL, all issued tokens will get a new issuer value (**login.veracity.com**). See an example of a new token: "iss": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/"
+After changing the login URL, all issued tokens will get a new issuer value (**login.veracity.com**). See an example of a new token: `iss`: "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/"
 If your service contains APIs, first make sure that your API supports the new issuer value. Then, you can update client apps that call your APIs.
 
 ### Exceptions
@@ -64,14 +64,14 @@ This document explains how to set up your API with access restrictions to mitiga
 
 #### API apps that only support access tokens generated on behalf of a logged-on user
 
-If your API is only accepting calls made on behalf of a logged-on user (i.e. the client application that requested the access token used one of the user-based OAuth 2.0 flows such as Authorization Code flow), we can disable the possibility to issue access tokens for an API requested through the “Client Credentials” grant type. Register a request on [https://mygss.dnv.com](https://mygss.dnv.com) with the following information:
+If your API is only accepting calls made on behalf of a logged-on user (i.e. the client application that requested the access token used one of the user-based OAuth 2.0 flows such as Authorization Code flow), we can disable the possibility to issue access tokens for an API requested through the "Client Credentials" grant type. Register a request on [https://mygss.dnv.com](https://mygss.dnv.com) with the following information:
 
 _Please send to IAM team:_
 
 _Please enable "Assignment required" on my Veracity API app: \<Client ID of your API app\>_
 
 
-#### API apps that support access tokens generated with “Client Credentials” grant type
+#### API apps that support access tokens generated with "Client Credentials" grant type
 The simplest method is to enable a restriction so that only client apps that are specifically granted permissions are allowed to get an access token using the "Client Credentials" grant type. This must be requested from support at the moment, but will soon be supported in the Developer Portal for API apps registered there.
 Register a request on [https://mygss.dnv.com](https://mygss.dnv.com) with the following information:
 

@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\sections",
+    "\\sections\\customerservices\\assets",
+    "\\sections\\identity\\authentication",
+    "\\sections\\marketplace",
+    "\\sections\\marketplace\\sellingyourproduct",
+    "\\sections\\singlesignon"
   ],
-  "SelectedNode": "\\C:\\Users\\MICZIE\\Documents\\Repos\\veracity-documentation",
+  "SelectedNode": "\\sections\\marketplace\\sellingyourproduct\\sellingyourproductoverview.md",
   "PreviewInSolutionExplorer": false
 }

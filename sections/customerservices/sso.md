@@ -1,109 +1,89 @@
 ---
 author: Veracity
-description: Setting up Single Sign-On with Veracity
+description: Setting up Single Sign-On with Veracity.
 ---
 
-# Setting up Single Sign-On with Veracity
+# Single Sign-On with Veracity
 
-## General information
-Veracity offers a Single Sign-On (SSO) solution where you can log in to Veracity with your company accounts making the logon process very smooth. Your users no longer need to maintain a separate account in Veracity, and you have full control of who can access Veracity. If an employee leaves, and the account is terminated in your company, he or she will no longer be able to log in to Veracity. 
+You can sign in to Veracity with your company account using the Single Sign-On (SSO) solution. The benefits are:
+* Convenient sign-in - use your company account credentials.
+* Easy access management - if an employee leaves the company, terminate their company account to revoke their access to Veracity resources.
 
-The setup applies to all users with email address matching the email domain that has been configured for SSO.
+The SSO setup is free of charge and available for all resources integrated with Veracity. If you want to see the sign-in flow for the user once SSO is configured, go [here](#sso-user-experience).
 
-The SSO setup is between the Veracity **platform** and your company, thus applies to all services on the Veracity-integrated services.
+## Provisioning users
+You do not need to provision users. When a user enabled for SSO signs in to Veracity, they automatically get a Veracity account.
+However, Veracity plans to enable provisioning users in advance so that customers can upload their users and manage their permissions. This would be implemented through an API endpoint supporting the SCIM protocol. For details, contact [support@veracity.com](mailto:support@veracity.com).
 
-The following protocols are supported:
-- Open ID Connect 1.0
-- SAML 2.0
+## How to set up SSO?
+Veracity's SSO supports the following protocols:
+* Open ID Connect 1.0
+* SAML 2.0
 
-Setup of SSO is free of charge. It will give access to log in with your company accounts to the Veracity platform and your users will have access to the free services on the Veracity platform. If users want to use some of the paid services, they can buy a license for those in the [Veracity Marketplace](https://store.veracity.com).
+The setup depends on who is your company's identity provider:
+* If your company's identity provider is Azure Active Directory (Azure AD), go [here](#sso-with-azure-ad).
+* If you have another identity provider, go [here](#identity-providers-other-than-azure-ad).
+
+The setup applies to all users with email addresses matching the email domain that has been configured for SSO.
+    
+## SSO with Azure AD
+Veracity implements SSO by using the Open ID Connect 1.0 protocol. Everything is pre-configured by installing the Veracity Single Sign-On app from Azure AD App Gallery. This application controls the trust relationship between Veracity and your Azure AD. 
+Note that:
+* To implement SSO, you need to be an Application administrator or Global administrator in your company's Azure AD.
+* You will need to allow the app to sign in users and read the profile data for the signed-in users.
+* User's profile data is handled according to the [Veracity Terms of use](https://id.veracity.com/terms-of-use) and [Privacy statement](https://services.veracity.com/PrivacyStatement).
+
+If you want to stop using SSO for Veracity, delete the Veracity Single Sign-On app in your Azure AD.
+
+### Implementation
+To implement SSO with Azure AD, follow the steps below.
+1. Sign in to the Azure Portal with an account that is an Application administrator or Global administrator in your company's Azure AD.
+2. Go to **Azure Active Directory** > **Enterprise applications** and select **New application**.
+3. Find the **Veracity Single Sign-On** app and select **Sign up for Veracity Single Sign-On**.
+4. Ensure that the app requests permissions for **all users in your organization**, and select **Accept**. The app will be installed in your Azure AD in the **Enterprise applications** blade. The name of the app is **Veracity Single Sign-On**. 
+5. You will be redirected to another page and asked to:
+    - Provide the email domain(s) for which you want to set up SSO. Note that these domains must match the **mail** attribute of your users' accounts in Azure AD.
+    - Prove that you own the domain by registering a TXT record in your DNS.
+    - Enter your company name, technical contact and support contact email addresses.
+    - Once the DNS records are verified, Veracity will analyze your existing user base in Veracity. If there are issues, the process will stop, and you will receive a request for manual cleanup.
+    - If there are no issues, you will be able to proceed with the SSO setup.  After selecting the **Submit** button, the whole process usually takes five to ten minutes.
+
 
 ## Identity Providers other than Azure AD
 
-If you use an Identity Provider other than Azure AD, please send a request for SSO to [support@veracity.com](mailto:support@veracity.com) with the following information:
+If you use an identity provider other than Azure AD, send a request for implementing SSO to [support@veracity.com](mailto:support@veracity.com).  Provide the following information:
 
-- Name of **email domain(s**) where the SSO should be implemented (example: @dnv.com)
-- What **Identity Provider** you have (example: Ping Idenity, ADFS) and what **protocol** will be used (OpenID Connect 1.0 or SAML 2.0)
-- **Metadata URL** for the Identity Provider
-- The **name of the claims** sent back in the token to us that contain the following information:
+* The name of the email domain for which you need SSO. For example, @dnv.com.
+* The name of your identity provider. For example, Ping Identity or ADFS.
+* The protocol you want to use. Choose OpenID Connect 1.0 or SAML 2.0.
+* The Metadata URL for your identity provider.
+* The claims that will be sent to Veracity as tokens containing:
     - First name
     - Last name
     - Email
     - Unique identifier within the federated domain
-    - A claim indicating that MFA was done within customer company (optional)
-    
+* Optionally, a name of the claim indicating that the multi-factor authentication was done within the customer company.
 
-## Azure AD
-We implement SSO by using the Open ID Connect 1.0 protocol, and all configuration is pre-configured by installing the **Veracity Single Sign-On** app from **Azure AD App Gallery**.
+## Verify the implementation
+When you have implemented SSO, verify if it works properly by following the steps below. Avoid using the administrator account, and choose a regular user account instead.
 
-
-### Implementation
-1. Log in to the Azure Portal with an account in your Azure AD that has the **Application administrator** or **Global administrator** role (this is required to do Admin Consent of the application that configures the SSO with Veracity).
-2. Go to **Azure Active Directory** -> **Enterprise applications** and click on **New application**.
-3. Find the app called **Veracity Single Sign-On** and click on **Sign up for Veracity Single Sign-On**.
-4. You will see a picture similar to the one below.
-    - What you consent to is that this app is allowed to sign user in and read profile data for the signed-in user. This is necessary for Veracity to get back necessary data on which user is logging in.
-    - Handling of the profile data is controlled by the [Veracity Terms of use](https://id.veracity.com/terms-of-use "Veracity Terms of use") and [Privacy statement](https://services.veracity.com/PrivacyStatement "Veracity Privacy statement") which all users must personally accept before they can use the Veracity platform.
-    - When you click **Accept**, an app will be installed in your **Enterprise applications** blade in your Azure AD with the name **Veracity Single Sign-On**. This is the app that controls the trust relationship between Veracity and your Azure AD. In order to remove the admin consent that was granted above, you can just delete this app.
-     - Make sure the message states **all users** and then click **Accept**:
-
+1. Restart your browser.
+2. Go to the [Veracity home page](https://www.veracity.com).
+3. In the upper right corner, select the **Sign in** button.
+4. Enter an email address for a regular user account and select **Continue**.
+5. You should be redirected to your identity provider. Authenticate there.
+6. If this is the first time you sign in to Veracity, you will be asked to specify your country and accept the terms of use.
+7. You should be redirected to the [Veracity home page](https://www.veracity.com). 
+8. To verify you are signed in, in the upper-right corner of the page, find your initials or profile picture.
 <figure>
-	<img src="assets/AdminConsent.png"/>
-</figure>
-        
-
-5. Once the previous steps are done, you will be redirected to a page where we will gather more information from you and also perform an analysis of your (if any) existing user base in Veracity. The main steps are the following:
-    - You will be asked to input the email domain(s) for which you want the SSO to be set up
-        - Note that these domains must match what is in the **mail** attribute of your users' accounts in Azure AD
-    - To prove that you own the domain, you will be asked to register a TXT record in your DNS. The verification of this may take some time.
-    - You will be asked to input your company name, technical contact and support contact email addresses.
-    - Once the DNS records are verified, a process will be started to analyze your (if any) existing user base in Veracity. If we find any issues that might not work well with SSO, we will stop the process and contact you for manual cleanup.
-    - If no issues are found, you will be able to proceed with the SSO setup. The whole process, after clicking the **Submit** button, should take 5-10mins.
-
-
-## Verification
-When the SSO is set up, you can verify that it works as follows:
-
-1. Re-start your browser (to make sure you can log in with an ordinary account and not your admin account) and go to the Veracity Home page [https://www.veracity.com](https://www.veracity.com)
-2. Press **Log in** in the upper right corner:
-
-<figure>
-	<img src="assets/LogIn1.png"/>
-</figure>
-        
-    
-2. Specify the email address of your ordinary account and click **Continue**:
-
-<figure>
-	<img src="assets/LogIn2.png"/>
-</figure>
-        
-
-3. You should now be redirected to your Identity Provider and be authenticated there.
-4. If you have never logged on to Veracity before, you will see an enrollment page where you need to specify your country and thereafter accept terms of use. This step is required for all users logging in to Veracity for the first time:
-
-<figure>
-	<img src="assets/Enrollment1.png"/>
+    <img src="assets/Enrollment1.png"/>
 </figure>
 
+## SSO user experience
+To see the SSO sign-in flow for a user, consult the diagram below.
 <figure>
-	<img src="assets/AcceptToU.png"/>
+	<img src="assets/SSOUserExperience.png"/>
 </figure>
-        
-        
-  
-5. You should then see the logged-in version of the Veracity Home page where your initials are shown in the top right:
-
-<figure>
-	<img src="assets/VeracityHome.png"/>
-</figure>
-        
-
 
 ## Support
-If you have any issues with the above, please contact us at [support@veracity.com](mailto:support@veracity.com).
-
-
-
-## Provisioning of users
-When users log in, they will automatically get a profile in Veracity, there is no need to provision users in advance. We plan to support user provisioning later so that you will be able to upload users in advance and manage their permissions. This will be implemented through an API endpoint that will support the SCIM protocol.
+If you need support, contact [support@veracity.com](mailto:support@veracity.com).

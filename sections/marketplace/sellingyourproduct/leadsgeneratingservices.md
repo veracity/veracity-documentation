@@ -19,10 +19,10 @@ After the customer fills out the form, you will get an email with their details 
 "Get a price quote" and "Contact provider" buttons are also available in the bottom part of the pricing plans, with some exceptions and rules. To learn more about it, see [Combinations](./hybridsolutions​.md).
 
 <figure>
-	<img src="assets/MyQRA.PNG"/>
+	<img src="../assets/MyQRA.PNG"/>
 	<figcaption>Example from MyQRA</figcaption>
 </figure>
 
 ## Customer journey
 You can see what the customer journey looks like
-<a href="assets/UserJourneyLeadsProcess.png" download>here</a>.
+<a href="../assets/UserJourneyLeadsProcess.png" download>here</a>.

@@ -10,11 +10,11 @@
 			"href": "whatsnew.md"
 		},
 		{
-			"text": "Authentication",
+			"text": "Authentication and authorization",
 			"items": [
 				{
 					"text": "Overview",
-					"href": "overview.md"
+					"href": "authentication/overview.md"
 				},
 				{
 					"text": "Web and Native Applications",
@@ -25,8 +25,8 @@
 					"href": "authentication/api.md"
 				},
 				{
-					"text": "Client v1",
-					"href": "authentication/clientv1.md"
+					"text": "Claims",
+					"href": "authentication/claims.md"
 				}
 			]
 		},

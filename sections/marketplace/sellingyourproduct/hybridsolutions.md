@@ -12,12 +12,12 @@ As you can see in the picture below, there are three options for buttons configu
 * Customized button (3) – which can link to an external website.
 
 <figure>
-	<img src="assets/HybridHorizontal.png"/>
+	<img src="../assets/HybridHorizontal.png"/>
 	<figcaption>Example from "WindFarmer Analyst"​</figcaption>
 </figure>
 
 <figure>
-	<img src="assets/HybridHorizontal2.png"/>
+	<img src="../assets/HybridHorizontal2.png"/>
 	<figcaption>Example from "DNV GL Noble Denton"</figcaption>
 </figure>
 
@@ -26,6 +26,6 @@ If you want to offer a free plan, Veracity recommends using a comparable price p
 You can add specifications about time limitations for the free access in the top description of the pricing plan or variant.
 
 <figure>
-	<img src="assets/HybridVertical.PNG"/>
+	<img src="../assets/HybridVertical.PNG"/>
 	<figcaption>Example from "Veracity Deep Search"​​</figcaption>
 </figure>

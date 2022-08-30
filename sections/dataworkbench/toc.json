@@ -24,6 +24,10 @@
 		{
 			"text": "API endpoints",
 			"href": "apiendpoints.md"
+		},
+		{
+			"text": "Tutorial: query data",
+				"href": "tutorialq.md"
 		}
 	]
 }

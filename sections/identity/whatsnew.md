@@ -37,7 +37,7 @@ If your service contains APIs, first make sure that your API supports the new is
 In some scenarios, you should take a different approach than described above.
 * Are your apps using Client Credentials grant type?
 This grant type is used for service-to-service scenarios where no user login happens. If your apps use it, continue using login.microsoftonline.com.
-*Are your apps using the Veracity .net package?
+* Are your apps using the Veracity .net package?
 If this is how your apps authenticate, [consult this documentation](https://github.com/veracity/Veracity-Identity-and-Services-Api) and update accordingly. 
 * Are your apps not using the Veracity .net package?
 If your app is NOT using the veracity .net package, you can find more documentation [here](https://developer.veracity.com/docs/section/identity/authentication/web-native).

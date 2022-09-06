@@ -2,7 +2,6 @@
 author: Veracity
 description: Public changelog with important announcments.
 ---
-
 # VAP 4.3 release with an in-app tutorial
 Release date: 7 September 2022
 

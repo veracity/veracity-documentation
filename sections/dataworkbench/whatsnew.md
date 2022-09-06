@@ -96,7 +96,7 @@ Now, when you download a State of Compliance (SoC) file, the name of the file fo
 * yyyy-mm-dd is replaced by the start and end date for the verification period.
 
 ## Bugs fixed
-This section covers bugs that were fixed.
+This section covers bugs that have been fixed.
 
 ### Unable to deselect properties in a data set
 Previously, when using the column picker to select columns for a dataset, you could not deselect columns to the far-right using the default screen size. Now, it is fixed.

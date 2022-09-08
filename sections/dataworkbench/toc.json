@@ -18,6 +18,10 @@
 			"href": "apiintegrations.md"
 		},
 		{
+			"text": "Activity logs",
+			"href": "activitylog.md"
+		},
+		{
 			"text": "Authentication",
 			"href": "authentication.md"
 		},
@@ -27,7 +31,7 @@
 		},
 		{
 			"text": "Tutorial: query data",
-				"href": "tutorialq.md"
+			"href": "tutorialq.md"
 		}
 	]
 }

@@ -60,3 +60,5 @@ To share a data set with one or more users:
 5. Under **Share access for**, select how long the data set should be available to the user(s).
 6. Select the **Share** button. 
 
+## Activity logs
+Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

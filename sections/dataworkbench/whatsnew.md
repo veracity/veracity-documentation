@@ -42,7 +42,7 @@ Now, when you go the "Data Catalogue" or "Workspace" tab, you will see a new sub
 
 #### Better filter handling
 
-Improved handling for working with apply and clear filters for data set details, SCC and Poseidon page-
+Improved handling for working with apply and clear filters for data set details, SCC and Poseidon page.
 
 - "Clear filter" button will be hidden when the filter is not set yet
 - "Apply" button will be disabled when the filter is not set
@@ -60,7 +60,7 @@ Now you will be prompted if you have unsaved changes and try to leave the data s
 
 #### Calendar improvements
 
-The calendar is part of different filters in the application
+The calendar is part of different filters in the application.
 
 1. In SCC and Poseidon page, add visible indication of which dates have available data for them
 2. Added input field, making it possible to manually enter a date

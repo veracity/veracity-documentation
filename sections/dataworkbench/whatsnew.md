@@ -19,9 +19,9 @@ This section covers new features.
 
 #### Activity logs
 
-The activity log provides transparency into what have happen to your data in a workspace. It provides information about who did something, to what data, which users and when it happen. This way a data set does not just go missing without a trace and you can also see how data is shared and revoked at different time, plus more. For details, [see the documentation](activitylog.md).
+The activity log provides transparency into what have happened to your data in a workspace. It provides information about who did something, to what data, which users and when it happened. For details, [see the documentation](activitylog.md).
 
-In later follow up, we will add filters, that really enables you to look into the data you are interested in.
+In future releases, Veracity will enable filtering data sets, so that you can look into the data you are interested in.
 
 ### Changes in existing features
 
@@ -42,53 +42,53 @@ Now, when you go the "Data Catalogue" or "Workspace" tab, you will see a new sub
 
 #### Better filter handling
 
-Improved handling for working with apply and clear filters for data set details, SCC and Poseidon page.
+Improved handling for working with applying and clearing filters for data set details, SCC and Poseidon page.
 
-- "Clear filter" button will be hidden when the filter is not set yet
-- "Apply" button will be disabled when the filter is not set
-- A button called "Clear filters" was added to clear all the filters
+- "Clear filter" button is hidden when the filter is not set yet.
+- "Apply" button is disabled when the filter is not set.
+- A button called "Clear filters" was added to clear all the filters.
 
 #### Prompt before leaving unsaved changes
 
-Now you will be prompted if you have unsaved changes and try to leave the data set details page.
+Now, if you have unsaved changes and try to leave the data set details page, you will be prompted to save them.
 
 #### API integrations improvements
 
-1. In the service account list, updated the mouse hover state to be less intrusive
-2. Moved the **“+ Add account”** button to the top of the service account list and make it always visible
-3. In the service account list, scroll to the newly created account while creating
+- In the service account list, updated the mouse hover state to be less intrusive.
+- Moved the **“+ Add account”** button to the top of the service account list and made it always visible.
+- In the service account list, after you have created an account, the page scrolls to it.
 
 #### Calendar improvements
 
 The calendar is part of different filters in the application.
 
-1. In SCC and Poseidon page, add visible indication of which dates have available data for them
-2. Added input field, making it possible to manually enter a date
-3. The calendar always will have the same height, for easier browsing
-4. In SCC and Poseidon page, enforce date ranger behavior, disallowing selecting a from date that is later than a to date
+- In SCC and Poseidon page, added visible indication of which dates have available data for them.
+- Added input field, making it possible to manually enter a date
+- The calendar always will have the same height, for easier browsing
+- In SCC and Poseidon page, enforce date ranger behavior, disallowing selecting a from date that is later than a to date
 
-#### Misc other changes
+#### Other changes
 
-1. In create dataset, workspace and service account name input fields, add letter counter and max length indicator
-2. Classification status will now refetch and update the classifications even if the user is idle in the page
-3. In data catalogue page, add sticky headers and scrollbar making them always visible and available
-4. Add native tooltip for all data that can overflow. This way you can hover any data to see the full content.
-5. In the data set list, remove the superficial “assets” word in the rows. It already says “available assets” in the header
-6. Data set name is limited to 64 in order to align with Data Fabric
+- In create dataset, workspace and service account name input fields, added letter counter and max length indicator.
+- Classification status will now refetch and update the classifications even if the user is idle on the page.
+- In data catalogue page, added sticky headers and scrollbar making them always visible and available.
+- Added native tooltip for all data that can overflow. This way you can hover over any data to see the full content.
+- In the data set list, removed the superficial “assets” word in the rows. It already says “available assets” in the header.
+- Data set name is limited to 64 characters to align with Data Fabric.
 
 ### Bugs fixed
 
 This section covers bugs that have been fixed.
 
-1. Fixed columns are not evenly spread across rows in column picker for readers
-2. Margin in navigation tabs are not consistent in different page
-3. Fixed spin box displaying during saving dataset is truncated
-4. Page goes to unexpected page after click "back" button in browser
-5. Better handling of longer data set names
-6. Firefox: Fixed operation icons are not displayed when mouse hovering on data set record
-7. Decrease the margin between dataset list table and the end border of page
-8. Scrollbar is displayed on Create new data set dialog box
-9. Fix gap between title and filters for Poseidon and SCC templates
+- Fixed columns are not evenly spread across rows in column picker for readers.
+- Margins in navigation tabs are not consistent in different page.
+- Fixed spin box displaying during saving dataset is truncated.
+- Page goes to unexpected page after click "back" button in browser.
+- Better handling of longer data set names.
+- Firefox: Fixed operation icons are not displayed when mouse hovering on data set record.
+- Decreased the margin between dataset list table and the end border of page.
+- Scrollbar is displayed on the "Create new data set" dialog box.
+- Fixed the gap between title and filters for Poseidon and SCC templates.
 
 ## August 2022 release
 

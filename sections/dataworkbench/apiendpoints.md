@@ -21,44 +21,32 @@ Below you can see an example of a successful request (code 200).
 
 ```json
 [
-  {
-    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "name": "string",
-    "description": "string",
-    "schemaVersions": [
-      {
-        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "schemaVersionName": "string",
-        "description": "string",
-        "columns": [
-          {
-            "name": "string",
-            "displayName": "string",
-            "type": "String",
-            "description": "string",
-            "isFilterable": true,
-            "filterType": "List"
-          }
-        ],
-        "schemaId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "createdOn": "2022-08-10T14:51:11.785Z",
-        "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "lastModifiedOn": "2022-08-10T14:51:11.785Z",
-        "isDefault": true,
-        "avatarColor": 0
-      }
-    ],
-    "industry": "string",
-    "isPredefined": true,
-    "avatarColor": 0,
-    "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "createdOn": "2022-08-10T14:51:11.785Z",
-    "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "lastModifiedOn": "2022-08-10T14:51:11.785Z"
-  }
+    {
+        "id": "7c31d976-4d3d-45ea-9234-12f238f7ceaa",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "name": "DCS Period Summary",
+        "description": "Aggregated emissions per DCS period including verification status, grouped by owner and flag",
+        "industry": "Maritime",
+        "isPredefined": true,
+        "avatarColor": 55,
+        "createdBy": "c44e1e55-fa3a-4553-b974-87eb50e41da9",
+        "createdOn": "2022-05-23T11:42:34.9558871Z",
+        "lastModifiedBy": "c44e1e55-fa3a-4553-b974-87eb50e41da9",
+        "lastModifiedOn": "2022-05-23T11:42:34.9558871Z"
+    },
+ {
+        "id": "2a0b9aa7-b7d5-4fbb-9a59-850459cd3cbb",
+        "workspaceId": "e03c005e-f13d-456a-9d84-3f86948396db",
+        "name": "WS Eason01 S002",
+        "description": "ddd",
+        "industry": "",
+        "isPredefined": false,
+        "avatarColor": 60,
+        "createdBy": "2fce7ee2-ce2a-4d25-af86-f5364fcb5521",
+        "createdOn": "2022-06-07T06:49:35.5587386Z",
+        "lastModifiedBy": "2fce7ee2-ce2a-4d25-af86-f5364fcb5521",
+        "lastModifiedOn": "2022-06-17T08:55:25.063984Z"
+    }
 ]
 ```
 
@@ -262,21 +250,14 @@ Below you can see a sample request body.
 
 ```json
 {
-  "pageIndex": 0,
-  "pageSize": 0,
-  "columnFilter": [
-    "string"
+  "data": [
+    {}
   ],
-  "queryFilters": {
-    "additionalProp1": [
-      "string"
-    ],
-    "additionalProp2": [
-      "string"
-    ],
-    "additionalProp3": [
-      "string"
-    ]
+  "pagination": {
+    "pageIndex": 0,
+    "pageSize": 0,
+    "totalPages": 0,
+    "totalCount": 0
   }
 }
 ```

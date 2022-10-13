@@ -11,7 +11,8 @@ Read this page to learn what changed in Veracity Data Workbench with the Septemb
 
 ## New features
 
-This section covers new features.
+This section covers new features:
+- [Activity logs](#activity-logs)
 
 ### Activity logs
 
@@ -19,11 +20,18 @@ The activity log provides transparency into what have happened to your data in a
 
 In future releases, Veracity will enable filtering data sets, so that you can look into the data you are interested in.
 
-### Changes in existing features
+## Changes in existing features
 
-This section covers changes in existing features.
+This section covers changes in existing features:
+- [Members tab renamed to Workspace](#members-tab-renamed-to-workspace)
+- [Added Activity log tab](#added-activity-log-tab)
+- [Improved filter handling](#improved-filter-handling)
+- [Prompt-before-leaving-unsaved-changes](#prompt-before-leaving-unsaved-changes)
+- [API integrations improvements](#api-integrations-improvements)
+- [Calendar improvements](#calendar-improvements)
+- [Other changes](#other-changes)
 
-### "Members" tab renamed to "Workspace"
+### Members tab renamed to Workspace
 
 The "Members" tab, located at the top of the page, has been renamed to "Workspace".
 
@@ -32,11 +40,11 @@ Now, to see workspace members:
 1. In the workspace, go the **Workspace** tab.
 2. In the left corner, go to the **Members** tab.
 
-### Added "Activity log" tab
+### Added Activity log tab
 
 Now, when you go the "Data Catalogue" or "Workspace" tab, you will see a new sub-tab called "Activity log".
 
-### Better filter handling
+### Improved filter handling
 
 Improved handling for working with applying and clearing filters for data set details, SCC and Poseidon page.
 
@@ -74,7 +82,7 @@ The calendar is part of different filters in the application.
 
 ## Bugs fixed
 
-This section covers bugs that have been fixed.
+This section covers bugs that have been fixed:
 
 - Fixed columns are not evenly spread across rows in column picker for readers.
 - Margins in navigation tabs are not consistent in different page.

@@ -4,63 +4,60 @@ description: An overview of the different paid pricing models you can use for yo
 ---
 
 # Paid services
-When planning to sell a service through Veracity Marketplace, you should have reached a high grade of maturity of your product and be ready for scalability. Get in touch with us if you want to know more about how "ready you are for selling digitally". 
+When planning to sell a service through Veracity Marketplace, you should have reached a high level of maturity of your product and be ready for scalability. Get in touch with us if you want to know more about how "ready you are for selling digitally". 
 
-Veracity supports processing charges in multiple currencies, including Euro (EUR), British pound sterling (GBP) and U.S. Dollars (USD).
+Prices are set in Euro (EUR), but can also be displayed, and processed in multiple currencies, including British pound sterling (GBP), U.S. Dollars (USD) and Norwegian krone (NOK). 
 
-The following section gives an overview of the different pricing models you can use for your product.
+## Terminology when defining and pricing your product
+A product pricing should be set up following a hierarchy: 
 
-## Standard price plan - horizontal visualization
-If you want to sell different product variants, use a standard price plan with a horizontal pricing visualization.
+_Variants_
+High level configuration of your product, for example defined by included products/servicesfeatures, or subscription tiers (like Standard, Professional, Advanced). Each variant can include one or more plans. 
 
-A product variant describes different software solutions or packages of online software/APIs, and data sets.
+_Plans_  
+Plans show variations of price inside a specific variant. Plans can be defined by period (like monthly, yearly subscription), quantity (like number of users, number of vessels, or MBb, etc), or other elements that might affect the price. 
 
-There are three elements you need to fill in: 
-* Name (1) - a short and self-explanatory name of the product variant. 
-* Description (2) - details on what the variant includes. 
-* Pricing models rows (3) - differentiate them by: 
-	* Prices 
-	* Type and number of customers – for example: one user, 2-5 users, students, enterprise 
-	* Subscription type - for example: one-time, recurrent, yearly, monthly, support duration 
+_Extensions_  
+Extensions are extra optional modules included in the plan, with their own price.  
+
+After you have an idea of how to set up your product pricing, you should plan how to display it to the customers on the marketplace. 
+
+There are two main ways to display your pricing: “Side-by-side” and “One-column”. Inside these two display types, you can also offer extensions and trials, or structure your offer in a more flexible way (like adding a pricing plan selector). Read the following paragraphs to get a better overview of the display possibilities. 
+
+## One-column pricing plan
+With this visualization, pricing plans are displayed below each other in one column. As customers need to scroll to get a full overview, we suggest this visualization if you need to show not more than 3/4 variants of pricing pans. Note that the last variant can end up at the end of the page, having less visibility compared to the ones above. 
+
+In specific, the variant name (1) and description (2) are shown at the top blue area, while the plans (3) and different prices are shown in the rows below. 
 
 <figure>
-	<img src="../assets/DPCA.PNG"/>
-	<figcaption>Example from Dynamic Positioning Capability Assessment</figcaption>
+	<img src="../assets/one-column.PNG"/>
+	<figcaption>Example from Rules and Standards Explorer</figcaption>
 </figure>
 
-## Comparable price plan - vertical visualization​
-For a detailed explanation of each product variant, use a comparable price plan with a vertical pricing view. 
-In this plan, you need to fill in: 
-* Name (1) – a short and self-explanatory name of the product variant. 
-* Price and subscription type (2) – for example: one-time, recurrent, yearly, monthly, support duration. 
-* Description (3) – short information on the product variant. 
-* Features (4) – what features a variant offers.
+## Side-by-side pricing plan​
+With this visualization, pricing plans are displayed beside each other. Customers can easily compare prices (1), and eventual differences in features (2), usage (3), delivery periods, or extensions (see paragraph on extension to learn more). For better readability we do not suggest displaying more than 4 columns in a page.  
 
-Typical product features are: 
-	* Available technical integrations 
-	* Sharing features 
-	* Access level or rights (for example, manager, viewer)
-* Usage or consumption (5) – for example: Mb/Tb data storage, number APIs.
+The “side-by-side" visualization should be preferred when showing subscription tiers (Starter, Advanced, Premium, Professional) or when you have a pricing model based on different usages (Mb or consumption). 
 
-Keep the pricing and plans section short. Include any detailed description of your offer in the paragraphs above this section. 
+In general try to keep the description in the plan short and if needed refer to further explanation in the "Details section" above pricing plans section. 
 
 <figure>
-	<img src="../assets/Datafabric.PNG"/>
+	<img src="../assets/side-by-side.PNG"/>
 	<figcaption>Example from Veracity Data Fabric</figcaption>
 </figure>
 
 
 ## Offering trials
-You can add a free trial to show prospective customers the value of your service and help them make an informed decision. When purchasing your service, the customer puts in their payment information. After the trial period ends, the customer is charged for the service.
+Offering a free trial for a short period will show your customers the value of your service and help them make an informed decision. When purchasing your service with trial, the customers share their payment information and after the trial period ends, they are automatically charged, prior cancellation. 
 
 See the following example. 
 
 <figure>
-	<img src="../assets/CMC.png"/> 
+	<img src="../assets/date-for-CMC.png"/> 
 	<figcaption>Free trial period on DATE for CMC</figcaption>
 </figure>
 
-In the example above, DATE for CMC chose a three-month free trial for their customers. The purchase buttons on the right reflect the chosen period. You can choose between the following trial periods: 
+In the example above, DATE for CMC choose a six-month free trial for their customers. There are five trial periods to choose from for your "Try free" button: 
 * 7 days trial 
 * 14 days trial 
 * 1 month trial 
@@ -69,28 +66,37 @@ In the example above, DATE for CMC chose a three-month free trial for their cust
 
 Contact your onboarding manager to discuss the possibility of adding a free trial period to your service.
 
-## Offering add-ons
-You can sell your service with add-ons. Add-ons are extra modules, extensions, or features that the user can buy in addition to the pricing plan.
-
-An add-on should have:
-* A short and descriptive name.
-* A brief description of what it does.
-* A link to an external page with extra information (optional). 
-
-See the example of add-ons below.
+## Offering extensions
+You can decide to sell your service together with extensions (1). Extensions can be extra modules, or extra features of an application, that the customer can buy in addition to the selected plan (see picture). An extension should have a short, intuitive name, a brief description, and eventually, a link to an external page for extra information. 
 
 <figure>
-	<img src="../assets/addons.png"/>
-	<figcaption>Example of Add-ons</figcaption>
+	<img src="../assets/extension-Phast.png"/>
+	<figcaption>Example of extension in Phast 1-day-access plan </figcaption>
 </figure>
 
 ## Pricing plan selector
-If you have a lot of different price packages or too much information to manage on one page, you can use a drop-down selector. The selector shows only one plan or package plan at a time in a drop-down list. It helps the user choose without being overwhelmed with too many options and buy buttons.
+If you need to display different price plans with a common differentiating element (like “users” as in the example below), you can use a drop-down selector. The selector shows only one plan at a time in a drop-down list. It helps the user choose without being overwhelmed with too many options and buy buttons. 
+
+Pricing plan selector can be shown on “one-column” or “side-by-side” pricing plans display options.
 
 <figure>
 	<img src="../assets/pricingplanselector.png"/>
 	<figcaption>Selector of different pricing plans</figcaption>
 </figure>
+
+
+## Grouping options
+As explained previously, a variant can gather one or more plans. Sometimes, displaying different variants can lead to a quite long page with many plans and buy buttons. To avoid this complexity and increase readability, you have the possibility to gather different variants in a button group (or switch button). 
+Customers can use the buttons to switch between the different variants and select what they are really interested in. 
+
+Grouping option can be enabled for both “one-column” and “side-by-side" pricing plans display options. 
+
+<figure>
+	<img src="../assets/grouping-option.PNG"/>
+	<figcaption>Example of pricing plan with grouping option</figcaption>
+</figure>
+ 
+
 
 ## Online contracting
 To do online contracting, you need terms and conditions of your service that the customer can select to accept. Veracity supports only B2B purchases, so your customers must provide their company information when buying your service.
@@ -107,41 +113,31 @@ See an example of terms and conditions below.
 After accepting the terms and conditions of your service, the customer needs to enter details about themselves and their company. If the customer is already a Veracity user, the information they already provided will be prefilled.
 
 <figure>
-	<img src="../assets/PurchaseForm.png"/>
+	<img src="../assets/payment.PNG"/>
 	<figcaption>Purchase form</figcaption>
 </figure>
 
-Veracity makes it possible for your customers to pay by credit card or invoice. You, as a provider, can: 
-* Enable only one payment option (credit card or invoice).
-* Give your customers two payment options (credit card and invoice).
-* Allow credit card payments for small amounts and offer both options for larger amounts. 
+There are two payment options avaialble in Veracity marketplace: credit card and invoice. Different combination are possible: 
+* Only one payment option (credit card or invoice).
+* Two payment options (credit card and invoice).
+* Credit card for small amounts and both payment options for plans with higher price amounts. 
 
 ## Order confirmation and invoice
-After the purchase, your customer:
-* Sees a message with their order confirmation.
-* Receives their order confirmation by mail.
-
-Later, the customer will get an invoice to be paid. If they already paid for the purchase by credit card, the invoice will be marked as pre-paid.
+After the purchase, your customer get to an order confirmation page, with instructions. In addition he/she will receive an order confirmation mail by Veracity with the same details of the purchase.
+Later, an invoice file from the system will be sendt to the same email. If the customers payed by card, the invoice will be marked as pre-paid.
 
 <figure>
-	<img src="../assets/OrderConfirmation.png"/>
+	<img src="../assets/order-confirmation.PNG"/>
 	<figcaption>Order confirmation mail</figcaption>
 </figure>
 
 ## Delivering the purchased service
-It is best to deliver your products through Veracity. It ensures a consistent user experience and secure access to products with Veracity Identity. Digital services are delivered on "My services", and data sets are delivered on "My data".
 
-The user can get automatic access to your services with: 
-* Single-user licence 
-* Multi-user licence 
+Once the purchase is completed you can decide to deliver the service yourself or through our Veracity “My services” landing page. The second option should be preferred as it ensures consistent user experience and secure access with the same Veracity sign-in solution. You can also deliver data set, through our “My data” page. 
+In addition, we offer a “User management” solution to support purchases of multi-user licenses. In this webpage, admin users can share and manage licenses, inviting new users into a service. 
 
-For a multi-user licence, the customer can share licence with other users using a separate module in Veracity.
-
-It is also possible to set up a manual process to give access to the customer.
-
-You can offer your customers automatic or manual access based on the plan price or payment method. For example, you can give automated access to customers paying by credit card and manual access to customers paying by invoice.
-
-You may need to set up access levels inside the service. In such cases, Veracity provides you with messages to initiate this process.
+A manual process for giving access to customers is also possible. 
+You can offer your customers automatic or manual access based on the plan price or payment method. For example, you can give automated access to customers paying by credit card and manual access to customers paying by invoice (in case of bigger contracts, and enterprise solutions). You may need to set up access levels inside the service. In such cases, Veracity provides you with messages to initiate this process. 
 
 ## Customer journey
-You can see what the customer journey looks like <a href="../assets/UserJourneyPurchasableProducts.png" download>here</a>.
+Have a look at how the customer journey for paid services looks like <a href="../assets/UserJourneyPurchasableProducts.png" download>here</a>.

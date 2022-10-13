@@ -11,7 +11,12 @@ Read this page to learn what changed in Veracity Data Workbench with the August 
 
 ## New features
 
-This section covers new features.
+This section covers new features:
+- [API integrations tab](#api-integrations-tab)
+- [Endpoint for fetching data](#endpoint-for-fetching-data)
+- [Add, update, and remove a service account](#add,-update,-and-remove-a-service-account)
+- [New workspace and tenant picker button](#new-workspace-and-tenant-picker-button)
+- [Data Catalogue: title bar with the back and action buttons](#data-catalogue:-title-bar-with-the-back-and-action-buttons)
 
 ### API integrations tab
 
@@ -67,7 +72,12 @@ Now, when you open a data set in the "Data catalogue" tab, at the top, there is 
 
 ## Changes in existing features
 
-This section covers changes in existing features.
+This section covers changes in existing features:
+- [Change data set title and description](#change-data-set-title-and-description)
+- [Column picker changes](#column-picker-changes)
+- [Icon tooltips updated](#icon-tooltips-updated)
+- [Message and prompt when you have no data sets](#message-and-prompt-when-you-have-no-data-sets)
+- [State of Compliance (SoC) files renamed](#state-of-compliance-(soc)-files-renamed)
 
 ### Change data set title and description
 
@@ -115,7 +125,13 @@ Now, when you download a State of Compliance (SoC) file, the name of the file fo
 
 ## Bugs fixed
 
-This section covers bugs that have been fixed.
+This section covers bugs that have been fixed:
+- [Unable to deselect properties in a data set](#unable-to-deselect-properties-in-a-data-set)
+- [Blank workspace name](#unable-to-deselect-properties-in-a-data-set)
+- [Blank workspace name](#blank-workspace-name)
+- [Firefox: horizontal scroll bar under data properties](#firefox:-horizontal-scroll-bar-under-data-properties)
+- [No response when selecting some areas of the User predefined data set](#no-response-when-selecting-some-areas-of-the-user-predefined-data-set)
+- [Data sets returning incorrect asset count](#data-sets-returning-incorrect-asset-count)
 
 ### Unable to deselect properties in a data set
 
@@ -129,7 +145,7 @@ Previously, you could create a workspace with a blank space instead of a name. N
 
 Previously, in Firefox, a horizontal scroll bar was displayed under data properties in column picker. Now, it is removed.
 
-### No response when selecting some areas of the "Use predefined data set"
+### No response when selecting some areas of the User predefined data set
 
 Previously, when selecting some areas of the "Use predefined data set" button, there was no response. Now, it is fixed.
 

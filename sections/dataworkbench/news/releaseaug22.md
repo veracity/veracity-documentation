@@ -14,9 +14,9 @@ Read this page to learn what changed in Veracity Data Workbench with the August 
 This section covers new features:
 - [API integrations tab](#api-integrations-tab)
 - [Endpoint for fetching data](#endpoint-for-fetching-data)
-- [Add, update, and remove a service account](#add,-update,-and-remove-a-service-account)
+- [Add, update, and remove a service account](#add-update-and-remove-a-service-account)
 - [New workspace and tenant picker button](#new-workspace-and-tenant-picker-button)
-- [Data Catalogue: title bar with the back and action buttons](#data-catalogue:-title-bar-with-the-back-and-action-buttons)
+- [Data Catalogue: title bar with the back and action buttons](#data-catalogue-title-bar-with-the-back-and-action-buttons)
 
 ### API integrations tab
 
@@ -77,7 +77,7 @@ This section covers changes in existing features:
 - [Column picker changes](#column-picker-changes)
 - [Icon tooltips updated](#icon-tooltips-updated)
 - [Message and prompt when you have no data sets](#message-and-prompt-when-you-have-no-data-sets)
-- [State of Compliance (SoC) files renamed](#state-of-compliance-(soc)-files-renamed)
+- [State of Compliance (SoC) files renamed](#state-of-compliance-soc-files-renamed)
 
 ### Change data set title and description
 
@@ -127,9 +127,8 @@ Now, when you download a State of Compliance (SoC) file, the name of the file fo
 
 This section covers bugs that have been fixed:
 - [Unable to deselect properties in a data set](#unable-to-deselect-properties-in-a-data-set)
-- [Blank workspace name](#unable-to-deselect-properties-in-a-data-set)
 - [Blank workspace name](#blank-workspace-name)
-- [Firefox: horizontal scroll bar under data properties](#firefox:-horizontal-scroll-bar-under-data-properties)
+- [Firefox: horizontal scroll bar under data properties](#firefox-horizontal-scroll-bar-under-data-properties)
 - [No response when selecting some areas of the User predefined data set](#no-response-when-selecting-some-areas-of-the-user-predefined-data-set)
 - [Data sets returning incorrect asset count](#data-sets-returning-incorrect-asset-count)
 

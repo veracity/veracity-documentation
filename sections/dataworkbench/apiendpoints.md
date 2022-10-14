@@ -21,7 +21,20 @@ Below you can see an example of a successful request (code 200).
 
 ```json
 [
-     {
+    {
+        "id": "7c312976-3d3d-4te3-9234-12f238f71234",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "name": "DCS Period Summary",
+        "description": "Aggregated emissions per DCS period including verification status, grouped by owner and flag",
+        "industry": "Maritime",
+        "isPredefined": true,
+        "avatarColor": 55,
+        "createdBy": "c44e1e55-fa3a-4553-b974-87eb50e41234",
+        "createdOn": "2022-05-23T11:42:34.9558871Z",
+        "lastModifiedBy": "c44e1e55-1232-4553-b974-87eb50e41234",
+        "lastModifiedOn": "2022-05-23T11:42:34.9558871Z"
+    },
+ {
         "id": "2a0b9aa7-b7d5-4fbb-9a59-850459cd1234",
         "workspaceId": "e03c005e-1adf-456a-9d84-3f8694831234",
         "name": "TEST Name",
@@ -32,19 +45,6 @@ Below you can see an example of a successful request (code 200).
         "createdBy": "2f3t7ee2-1234-4d25-af86-f5364fcb1234",
         "createdOn": "2022-06-07T06:49:35.5587386Z",
         "lastModifiedBy": "2f2e7ae3-1234-4d25-af86-f5364fcb1234",
-        "lastModifiedOn": "2022-06-17T08:55:25.063984Z"
-    },
- {
-        "id": "2a0b9aa7-b7d5-4fbb-9a59-850459cd3cbb",
-        "workspaceId": "e03c005e-f13d-456a-9d84-3f86948396db",
-        "name": "WS Eason01 S002",
-        "description": "ddd",
-        "industry": "",
-        "isPredefined": false,
-        "avatarColor": 60,
-        "createdBy": "2fce7ee2-ce2a-4d25-af86-f5364fcb5521",
-        "createdOn": "2022-06-07T06:49:35.5587386Z",
-        "lastModifiedBy": "2fce7ee2-ce2a-4d25-af86-f5364fcb5521",
         "lastModifiedOn": "2022-06-17T08:55:25.063984Z"
     }
 ]

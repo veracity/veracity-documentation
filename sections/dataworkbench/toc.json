@@ -7,7 +7,16 @@
 		},
 		{
 			"text": "What is new?",
-			"href": "whatsnew.md"
+			"items": [
+				{
+					"text": "September 2022 release",
+					"href": "news/releasesept22.md"
+				},
+				{
+					"text": "August 2022 release",
+					"href": "news/releaseaug22.md"
+				}
+			]
 		},
 		{
 			"text": "User management",

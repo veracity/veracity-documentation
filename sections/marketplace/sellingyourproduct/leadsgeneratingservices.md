@@ -15,14 +15,12 @@ It is available for:
 * "Contact provider" (2) – allows potential customers to fill out a form and message the service provider with any questions or requests. This button is available for services sold both digitally and non-digitally.
 
 After the customer fills out the form, you will get an email with their details and their message. From there, you can continue the sales process manually.
-
-"Get a price quote" and "Contact provider" buttons are also available in the bottom part of the pricing plans, with some exceptions and rules. To learn more about it, see [Combinations](./hybridsolutions​.md).
+"Get a price quote" and "Contact provider" buttons can also de shown in a pricing plan. To learn more about this option, see [Combinations](./hybridsolutions​.md).
 
 <figure>
-	<img src="../assets/MyQRA.PNG"/>
-	<figcaption>Example from MyQRA</figcaption>
+	<img src="../assets/leads-buttons.png"/>
+	<figcaption>Special buttons for getting leads</figcaption>
 </figure>
 
 ## Customer journey
-You can see what the customer journey looks like
-<a href="../assets/UserJourneyLeadsProcess.png" download>here</a>.
+Have a look at how the customer journey for lead generating services looks like <a href="../assets/UserJourneyLeadsProcess.png" download>here</a>.

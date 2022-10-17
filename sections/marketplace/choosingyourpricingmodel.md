@@ -3,7 +3,7 @@ author: Veracity
 description: Choosing the right pricing model for your product can be challenging. Here we introduce some of the most common ones.
 ---
 # Choosing your pricing model
-Choosing the right pricing model for your product can be challenging. This article will help clarifing some terminology and further enable you to make a good choice. In Veracity Marketplace you can choose between four pricing models:
+Choosing the right pricing model for your product can be challenging, but this article will help you make the right choice. With Veracity, you can choose between four pricing models:
 * One-time payment  
 * Subscription (Single and Tiered)
 * Consumption model (pay-as-you-go)

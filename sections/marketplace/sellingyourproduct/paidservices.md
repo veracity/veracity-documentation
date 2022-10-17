@@ -25,7 +25,7 @@ After you have an idea of how to set up your product pricing, you should plan ho
 There are two main ways to display your pricing: “Side-by-side” and “One-column”. Inside these two display types, you can also offer extensions and trials, or structure your offer in a more flexible way (like adding a pricing plan selector). Read the following paragraphs to get a better overview of the display possibilities. 
 
 ## One-column pricing plan
-With this visualization, pricing plans are displayed below each other in one column. As customers need to scroll to get a full overview, we suggest this visualization if you need to show not more than 3/4 variants of pricing pans. Note that the last variant can end up at the end of the page, having less visibility compared to the ones above. 
+With this visualization, pricing plans are displayed below each other in one column. As customers need to scroll to get a full overview, Veracity suggests this visualization if you need to show not more than 3/4 variants of pricing pans. Note that the last variant can end up at the end of the page, having less visibility compared to the ones above. 
 
 In specific, the variant name (1) and description (2) are shown at the top blue area, while the plans (3) and different prices are shown in the rows below. 
 
@@ -35,7 +35,7 @@ In specific, the variant name (1) and description (2) are shown at the top blue 
 </figure>
 
 ## Side-by-side pricing plan​
-With this visualization, pricing plans are displayed beside each other. Customers can easily compare prices (1), and eventual differences in features (2), usage (3), delivery periods, or extensions (see paragraph on extension to learn more). For better readability we do not suggest displaying more than 4 columns in a page.  
+With this visualization, pricing plans are displayed beside each other. Customers can easily compare prices (1), and eventual differences in features (2), usage (3), delivery periods, or extensions (see paragraph on extension to learn more). For better readability Veracity suggests displaying no more than four columns in a page.  
 
 The “side-by-side" visualization should be preferred when showing subscription tiers (Starter, Advanced, Premium, Professional) or when you have a pricing model based on different usages (Mb or consumption). 
 
@@ -134,7 +134,7 @@ Later, an invoice file from the system will be sendt to the same email. If the c
 ## Delivering the purchased service
 
 Once the purchase is completed you can decide to deliver the service yourself or through our Veracity “My services” landing page. The second option should be preferred as it ensures consistent user experience and secure access with the same Veracity sign-in solution. You can also deliver data set, through our “My data” page. 
-In addition, we offer a “User management” solution to support purchases of multi-user licenses. In this webpage, admin users can share and manage licenses, inviting new users into a service. 
+In addition, Veracity offers a “User management” solution to support purchases of multi-user licenses. In this webpage, admin users can share and manage licenses, inviting new users into a service. 
 
 A manual process for giving access to customers is also possible. 
 You can offer your customers automatic or manual access based on the plan price or payment method. For example, you can give automated access to customers paying by credit card and manual access to customers paying by invoice (in case of bigger contracts, and enterprise solutions). You may need to set up access levels inside the service. In such cases, Veracity provides you with messages to initiate this process. 

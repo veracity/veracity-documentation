@@ -13,14 +13,15 @@ It is available for:
 	* Services that are not ready for digital sales. 
 	* Services that offer a negotiable price plan. 
 * "Contact provider" (2) – allows potential customers to fill out a form and message the service provider with any questions or requests. This button is available for services sold both digitally and non-digitally.
+<figure>
+	<img src="assets/leadsbuttons.png"/>
+</figure>
 
 After the customer fills out the form, you will get an email with their details and their message. From there, you can continue the sales process manually.
 "Get a price quote" and "Contact provider" buttons can also de shown in a pricing plan. To learn more about this option, see [Combinations](./hybridsolutions​.md).
 
-<figure>
-	<img src="../assets/leads-buttons.png"/>
-	<figcaption>Special buttons for getting leads</figcaption>
-</figure>
-
 ## Customer journey
-Have a look at how the customer journey for lead generating services looks like <a href="../assets/UserJourneyLeadsProcess.png" download>here</a>.
+Below you can see an example of a customer journey for generating services.
+<figure>
+	<img src="assets/UserJourneyLeadsProcess.png"/>
+</figure>

@@ -9,8 +9,7 @@ description: Describes the option of giving free access to your service or produ
 If you want to give free access to an application or a data set, you can use the "Free access" button, as shown below.
 
 <figure>
-	<img src="../assets/ProductPageWithFreeAccess.png"/>
-	<figcaption>Product page for a product with free access</figcaption>
+	<img src="assets/ProductPageWithFreeAccess.png"/>
 </figure>
 
 You can add terms and conditions to free services so that the customer must approve them before they start using it.

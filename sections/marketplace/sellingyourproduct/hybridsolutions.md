@@ -4,19 +4,15 @@ description: We offer the provider to configure a combination of variants of the
 ---
 
 # Combinations
-In both "One-column" and "Side-by-side" display options you can configure a combination of variants of your product. 
-You can for example combine a free plan above a paid plan, or even add an extra variant of plan for users that have special needs, and show a “contact provider” button (1). You can show a plan with customized button (2) – which can link to an external website.
-We have many possibilities to assecondate your pricing and selling needs.
-Contact us in case you need more guidance for more complex configuration of pricing.
-
+In both "One-column" and "Side-by-side" display options, you can configure a combination of variants of your product. 
+For example, you can combine a free plan above a paid plan, or even add an extra variant of plan for users that have special needs, and show a “contact provider” button (1).
 <figure>
-	<img src="../assets/special-need.png"/>
-	<figcaption>Combination of paid plan and lead generating plan​</figcaption>
+	<img src="assets/specialneed.png"/>
 </figure>
-
+Also, you can show a plan with customized button (2) – which can link to an external website.
 <figure>
-	<img src="../assets/custom-button.png"/>
-	<figcaption>Pricing plan with customized button</figcaption>
+	<img src="assets/custombutton.png"/>
 </figure>
+If you need another pricing model or help with complex pricing configuration, contact Veracity.
 
 

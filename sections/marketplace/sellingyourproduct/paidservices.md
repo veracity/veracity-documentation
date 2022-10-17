@@ -30,7 +30,7 @@ With this visualization, pricing plans are displayed below each other in one col
 In specific, the variant name (1) and description (2) are shown at the top blue area, while the plans (3) and different prices are shown in the rows below. 
 
 <figure>
-	<img src="../assets/one-column.PNG"/>
+	<img src="assets/onecolumn.png"/>
 	<figcaption>Example from Rules and Standards Explorer</figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ The “side-by-side" visualization should be preferred when showing subscription
 In general try to keep the description in the plan short and if needed refer to further explanation in the "Details section" above pricing plans section. 
 
 <figure>
-	<img src="../assets/side-by-side.PNG"/>
+	<img src="assets/sidebyside.png"/>
 	<figcaption>Example from Veracity Data Fabric</figcaption>
 </figure>
 
@@ -53,7 +53,7 @@ Offering a free trial for a short period will show your customers the value of y
 See the following example. 
 
 <figure>
-	<img src="../assets/date-for-CMC.png"/> 
+	<img src="assets/dateforCMC.png"/> 
 	<figcaption>Free trial period on DATE for CMC</figcaption>
 </figure>
 
@@ -70,7 +70,7 @@ Contact your onboarding manager to discuss the possibility of adding a free tria
 You can decide to sell your service together with extensions (1). Extensions can be extra modules, or extra features of an application, that the customer can buy in addition to the selected plan (see picture). An extension should have a short, intuitive name, a brief description, and eventually, a link to an external page for extra information. 
 
 <figure>
-	<img src="../assets/extension-Phast.png"/>
+	<img src="assets/extensionphast.png"/>
 	<figcaption>Example of extension in Phast 1-day-access plan </figcaption>
 </figure>
 
@@ -80,7 +80,7 @@ If you need to display different price plans with a common differentiating eleme
 Pricing plan selector can be shown on “one-column” or “side-by-side” pricing plans display options.
 
 <figure>
-	<img src="../assets/pricingplanselector.png"/>
+	<img src="assets/pricingplanselector.png"/>
 	<figcaption>Selector of different pricing plans</figcaption>
 </figure>
 
@@ -92,7 +92,7 @@ Customers can use the buttons to switch between the different variants and selec
 Grouping option can be enabled for both “one-column” and “side-by-side" pricing plans display options. 
 
 <figure>
-	<img src="../assets/grouping-option.PNG"/>
+	<img src="assets/groupingoption.png"/>
 	<figcaption>Example of pricing plan with grouping option</figcaption>
 </figure>
  
@@ -104,7 +104,7 @@ To do online contracting, you need terms and conditions of your service that the
 See an example of terms and conditions below.
 
 <figure>
-	<img src="../assets/ServiceTerms.png"/>
+	<img src="assets/ServiceTerms.png"/>
 	<figcaption>Terms and conditions example</figcaption>
 </figure>
 
@@ -113,7 +113,7 @@ See an example of terms and conditions below.
 After accepting the terms and conditions of your service, the customer needs to enter details about themselves and their company. If the customer is already a Veracity user, the information they already provided will be prefilled.
 
 <figure>
-	<img src="../assets/payment.PNG"/>
+	<img src="assets/payment.png"/>
 	<figcaption>Purchase form</figcaption>
 </figure>
 
@@ -127,7 +127,7 @@ After the purchase, your customer get to an order confirmation page, with instru
 Later, an invoice file from the system will be sendt to the same email. If the customers payed by card, the invoice will be marked as pre-paid.
 
 <figure>
-	<img src="../assets/order-confirmation.PNG"/>
+	<img src="assets/orderconfirmation.png"/>
 	<figcaption>Order confirmation mail</figcaption>
 </figure>
 
@@ -140,4 +140,7 @@ A manual process for giving access to customers is also possible.
 You can offer your customers automatic or manual access based on the plan price or payment method. For example, you can give automated access to customers paying by credit card and manual access to customers paying by invoice (in case of bigger contracts, and enterprise solutions). You may need to set up access levels inside the service. In such cases, Veracity provides you with messages to initiate this process. 
 
 ## Customer journey
-Have a look at how the customer journey for paid services looks like <a href="../assets/UserJourneyPurchasableProducts.png" download>here</a>.
+Below you can see an example of a customer journey for paid services.
+<figure>
+<img src="assets/UserJourneyPurchasableProducts.png"/>
+</figure>

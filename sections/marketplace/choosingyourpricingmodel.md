@@ -32,12 +32,13 @@ There are two ways you can set up a subscription model: Single and Tiered.
 A single subscription means offering a single product or service with a fixed set of features at a fixed price. Avoid using this model if your resource costs vary significantly from user to user.
 
 ### Tiered subscription 
-A tiered subscription means offering multiple packages with various features at different prices. Following usability principles, you should not set up more than 4/5 tiers, or customers will have difficulties choosing the most suitable package.  
+A tiered subscription means offering multiple packages with various features at different prices. Following usability principles, you should not set up more than four or five tiers, or customers will have difficulties choosing the most suitable package.  
+
 If you offer a service for large enterprises, keep the top tier negotiable, displaying a Request quote button that will lead to a contact form.You can also offer a free trial to show your prospective customers the value of your service and help them make an informed decision. Read more about [offering trials](paidservices.md)​ in the chapter "Selling your product". 
 
+Below you can see an example of a tiered pricing for Veracity Adapter for Power BI (VAP)​.
 <figure>
-	<img src="assets/subscription-tier.png"/>
-	<figcaption>Example from Veracity Adapter for Power BI (VAP)​</figcaption>
+	<img src="assets/subscriptiontier.png"/>
 </figure>
 
 ## Consumption model (pay-as-you-go)​

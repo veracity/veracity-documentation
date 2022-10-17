@@ -34,7 +34,7 @@ A single subscription means offering a single product or service with a fixed se
 ### Tiered subscription 
 A tiered subscription means offering multiple packages with various features at different prices. Following usability principles, you should not set up more than four or five tiers, or customers will have difficulties choosing the most suitable package.  
 
-If you offer a service for large enterprises, keep the top tier negotiable, displaying a Request quote button that will lead to a contact form.You can also offer a free trial to show your prospective customers the value of your service and help them make an informed decision. Read more about [offering trials](paidservices.md)​ in the chapter "Selling your product". 
+If you offer a service for large enterprises, keep the top tier negotiable, displaying a Request quote button that will lead to a contact form.You can also offer a free trial to show your prospective customers the value of your service and help them make an informed decision. Read more about [offering trials](sellingyourproduct/paidservices.md)​ in the chapter "Selling your product". 
 
 Below you can see an example of a tiered pricing for Veracity Adapter for Power BI (VAP)​.
 <figure>

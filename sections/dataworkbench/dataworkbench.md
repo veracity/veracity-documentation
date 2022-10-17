@@ -19,11 +19,37 @@ If you are a tenant admin, you can use the picker button to create a new workspa
 2. In the dropdown that appears, at the bottom, select the **Add workspace** button.
 
 ## Connectors and connections
-Each workspace has connectors and connections. A connector defines a way of connectivity between Veracity and a source system. A connection is an instance of a connector, and it is used by the dataset to query data from a data source.
+ Data Workbench fetches data from external data sources by using connectors. A connector:
+- Is an integration layer between a data provider and the Data Workbench. 
+- Uses an API exposed by the provider to query data, and transforms it into a unified format used in Data Workbench.
+- Is authorized on the provider's side and follows their authorization policy.
+- If the provider enables downloading binary data, a connector stores this data into cloud file stores, so that it can used by customers.
+
+A connection binds together a connector and a tenant's workspace, and it is used by the dataset to query data from a data source. 
 
 To see available connectors and connections in your workspace, go to the **Connections** tab. 
-
 Once you have a connection set up, the Data Catalogue will show the predefined data sets queried from the corresponding source system.
+
+### Becoming a data provider
+To become a data provider and integrate with Data Workbench, contact the Data Workbench team for assistance.
+
+To integrate, you will need to implement a standardized API that consists of mandatory and optional endpoints that cover REST API verbs, paths, and contracts for request and response payloads.
+
+Note that:
+- The API allows only the REST protocol.
+- You need to host the API in your own environment.
+- You need to allow Data Workbench to access this API. If you have a firewall, adjust the rules accordingly.
+
+The Data Workbench team will cooperate with you on gathering the requirements for creating a connector. Expect to discuss:
+- Technical aspects for server-to-server communication such as base URL of your API, server-to-server API keys, and more.
+- Schemas that should be supported by the connector. Data Workbench queries data for a certain schema, and your API also needs the schema to decide how to satisfy the request.
+- Custom settings for each schema.
+- Definition of settings that must be provided with a new connection.
+
+Also, you need to create connections. Currently, the Data Workbench team does it for you, but Veracity plans to make it self service.
+
+### Data restrictions
+Data Workbench can impose restricions on access to data. For each connector, Veracity can configure a definition of mandatory settings that its connections must follow. These settings are represented by a dictionary (string<=>string) meaning they can contain any data (authorization data, environment data, etc). 
 
 ## Data sets
 To see data sets available in your workspace, go to the **Data Catalogue** tab. 

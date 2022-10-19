@@ -141,6 +141,3 @@ You can offer your customers automatic or manual access based on the plan price 
 
 ## Customer journey
 For an example of a customer journey for paid services, go [here.](https://veracity-static-stag.azureedge.net/docs/marketplace/sellingyourproduct/UserJourneyPurchasableProducts.png)
-<figure>
-<img src="assets/UserJourneyPurchasableProducts.png"/>
-</figure>

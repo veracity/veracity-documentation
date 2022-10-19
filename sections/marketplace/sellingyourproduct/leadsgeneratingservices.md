@@ -21,7 +21,4 @@ After the customer fills out the form, you will get an email with their details 
 "Get a price quote" and "Contact provider" buttons can also de shown in a pricing plan. To learn more about this option, see [Combinations](./hybridsolutions​.md).
 
 ## Customer journey
-Below you can see an example of a customer journey for generating services.
-<figure>
-	<img src="assets/UserJourneyLeadsProcess.png"/>
-</figure>
+For an example of a customer journey for generating services, go [here](https://veracity-static-stag.azureedge.net/docs/marketplace/sellingyourproduct/UserJourneyLeadsProcess.png).

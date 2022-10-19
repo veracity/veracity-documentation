@@ -140,7 +140,7 @@ A manual process for giving access to customers is also possible.
 You can offer your customers automatic or manual access based on the plan price or payment method. For example, you can give automated access to customers paying by credit card and manual access to customers paying by invoice (in case of bigger contracts, and enterprise solutions). You may need to set up access levels inside the service. In such cases, Veracity provides you with messages to initiate this process. 
 
 ## Customer journey
-Below you can see an example of a customer journey for paid services.
+For an example of a customer journey for paid services, go [here.](https://veracity-static-stag.azureedge.net/docs/marketplace/sellingyourproduct/UserJourneyPurchasableProducts.png)
 <figure>
 <img src="assets/UserJourneyPurchasableProducts.png"/>
 </figure>

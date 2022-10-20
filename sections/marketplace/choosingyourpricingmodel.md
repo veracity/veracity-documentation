@@ -58,4 +58,4 @@ There are some disadvantages of this plan you need to consider:
 * You should carefully consider what to “give away” in the free version to ensure that customers do not get fully satisfied by staying on the free version. 
 * You need to factor in the cost of running a free service when calculating your bottom line for the service. 
 
-Trials can also be a good alternative to a freemium model. Read more about [offering trials](paidservices.md)​ in the chapter "Selling your product". 
+Trials can also be a good alternative to a freemium model. Read more about [offering trials](sellingyourproduct/paidservices.md)​ in the chapter "Selling your product". 

@@ -4,6 +4,15 @@ description: This page explains user management for a workspace in Data Workbenc
 ---
 # User management
 
+## User list
+To see the user list, go to **Workspace** > **Members**. Users are listed in two tables, one containing only workspace members, and another containing only tenant members.
+
+Each table:
+* Displays user count in the top right corner.
+* Shows the name, email, and role of each member.
+* Becomes paginated if there are more than 20 members.
+
+## User roles
 There are two roles for the users:
 * admin
 * reader

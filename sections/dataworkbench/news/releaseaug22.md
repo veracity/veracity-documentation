@@ -7,7 +7,7 @@ description: This is the changelog for the October 2022 release of Data Workbenc
 
 Release date: 25 August 2022
 
-Read this page to learn what changed in Veracity Data Workbench with the August 2022 release.
+Read this page to learn what have changed in Veracity Data Workbench with the August 2022 release.
 
 ## New features
 

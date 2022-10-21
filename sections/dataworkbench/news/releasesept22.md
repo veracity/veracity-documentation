@@ -7,7 +7,7 @@ description: This is the changelog for the September 2022 release of Data Workbe
 
 Release date: September 2022
 
-Read this page to learn what changed in Veracity Data Workbench with the September 2022 release.
+Read this page to learn what have changed in Veracity Data Workbench with the September 2022 release.
 
 ## New features
 

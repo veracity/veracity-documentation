@@ -14,7 +14,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the Oct
 This section covers new features.
 
 ### API endpoints for querying activity logs
-Now, you can call activity logs (ledgers) on the workspace or data set level. 
+Now, you can query activity logs (ledgers) on the workspace or data set level. 
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
 

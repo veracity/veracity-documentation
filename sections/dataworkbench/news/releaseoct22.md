@@ -46,9 +46,9 @@ Note that they cannot query data that is out of the scope of the saved data set.
 However, workspace admins and members can query data sets with all the available filters.
 
 ### Saving shared data sets
-For users with read access, saving shared data sets is disabled, and the save button is hidden. However, they can copy the data set and save it as a new one.
+Data sets can be shared for a specified time after which the access expires. If a data set has been shared and the access to it has not expired yet, then users with read access cannot save this data set. Also, the save button is hidden for them, but it remains visible for admin users. However, the users can copy the data set and save it as a new data set.
 
- For admin users, the save button is enabled. For shared data sets, admin can copy a data set and save it as a new data set. For data sets that are not shared, admin can choose to "Save" a data set or "Save as new" to create a copy.
+For data sets that are not shared, admin can choose to "Save" a data set or "Save as new" to create a copy.
 
 ### Members display
 Now, in the **Members** tab ("Workspace" > "Members"), there are two tables with members: "Workspace members" and "Tenant members", so that  you can see who is a workspace member, and who is a tenant member.

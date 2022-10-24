@@ -40,15 +40,12 @@ Previously, the Home page was displaying "Connections" and below them, "Recent d
 Previously, Activity log was paginated. Now, the data loads as you scroll down.
 
 ### Query filters for saved data sets
-Data sets are saved with some query filters. Now, users with read access who are not members of a workspace can deselect the saved filters, for example, to filter by a smaller number of vessels or a shorter time range. 
-Note that they cannot query data that is out of the scope of the saved data set. This means that they cannot filter by new vessels, time ranges that exceed the saved time range, and so on.
-
-However, workspace admins and members can query data sets with all the available filters.
+Data sets are saved with some query filters. Now, users with read access can deselect the saved filters, for example, to filter by a smaller number of vessels or a shorter time range. 
 
 ### Saving shared data sets
-Data sets can be shared with stakeholders for a specified time after which the access expires. If a data set has been shared and at least one of the stakeholders still has access to it, then users with read access cannot save this data set. Also, the save button is hidden for them, but it remains visible for admin users. However, the users can copy the data set and save it as a new data set.
+Data sets can be shared with stakeholders for a specified time after which the access expires. If a data set has been shared and at least one of the stakeholders still has access to it, no changes can be saved to this data set. However, admin users can use the "Save as new" button to copy the data set and save it as a new data set.
 
-For data sets that are not shared, admin can choose to "Save" a data set or "Save as new" to create a copy.
+Note that users with read access cannot save data sets.
 
 ### Members display
 Now, in the **Members** tab ("Workspace" > "Members"), there are two tables with members: "Workspace members" and "Tenant members", so that  you can see who is a workspace member, and who is a tenant member.

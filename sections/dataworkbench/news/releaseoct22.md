@@ -46,7 +46,7 @@ Note that they cannot query data that is out of the scope of the saved data set.
 However, workspace admins and members can query data sets with all the available filters.
 
 ### Saving shared data sets
-Data sets can be shared for a specified time after which the access expires. If a data set has been shared and the access to it has not expired yet, then users with read access cannot save this data set. Also, the save button is hidden for them, but it remains visible for admin users. However, the users can copy the data set and save it as a new data set.
+Data sets can be shared with stakeholders for a specified time after which the access expires. If a data set has been shared and at least one of the stakeholders still has access to it, then users with read access cannot save this data set. Also, the save button is hidden for them, but it remains visible for admin users. However, the users can copy the data set and save it as a new data set.
 
 For data sets that are not shared, admin can choose to "Save" a data set or "Save as new" to create a copy.
 

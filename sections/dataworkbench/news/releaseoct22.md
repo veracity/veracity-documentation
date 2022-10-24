@@ -20,7 +20,6 @@ Placeholder text.
 
 This section covers changes in existing features:
 * [Home page changes](#home-page-changes)
-* [Filter Activity log](#filter-activity-log)
 * [Infinite scroll for Activity log](#infinite-scroll-for-activity-log)
 * [Query filters for saved datasets](#query-filters-for-saved-datasets)
 * [Saving shared datasets](#saving-shared-datasets)
@@ -32,15 +31,6 @@ The navigation tabs ("Home", "Data Catalogue", "Connections", "Members") were mo
 The templates ("Poseidon Principles", "Sea Cargo Charter") were moved to the Home page from Data Catalogue, and they are placed below the navigation tabs.
 
 Previously, the Home page was displaying "Connections" and below them, "Recent data sets". Now, "Recent data sets" are displayed on the top, and the "Connections" section is below them. Now, to the right of the "Recent data sets" section title, there is a "See all data sets" button. Also, to the right of the "Connections" section title, there is a "See all connections" button.
-
-### Filter Activity log
-Now, you can filter activity log by:
-* The time range of the changes.
-* The actions performed.
-* The entities that were changed.
-* The users who have performed an action.
-
-For details, [see the documentation](activitylog.md).
 
 ### Infinite scroll for Activity log
 Previously, Activity log was paginated. Now, the data loads as you scroll down.

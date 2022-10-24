@@ -13,16 +13,20 @@ Read this page to learn what has changed in Veracity Data Workbench with the Oct
 
 This section covers new features.
 
-### Add ledger to gateway
-Placeholder text.
+### API endpoints for querying activity logs
+Now, you can call activity logs (ledgers) on the workspace or data set level. 
+
+To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
+
+To query activity logs (ledgers) for a data set, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace and the data set.
 
 ## Changes in existing features
 
 This section covers changes in existing features:
 * [Home page changes](#home-page-changes)
 * [Infinite scroll for Activity log](#infinite-scroll-for-activity-log)
-* [Query filters for saved datasets](#query-filters-for-saved-datasets)
-* [Saving shared datasets](#saving-shared-datasets)
+* [Query filters for saved data sets](#query-filters-for-saved-data-sets)
+* [Saving shared data sets](#saving-shared-data-sets)
 * [Members display](#members-display)
 * [Smaller banner in Connections](#smaller-banner-in-connections)
 
@@ -35,16 +39,16 @@ Previously, the Home page was displaying "Connections" and below them, "Recent d
 ### Infinite scroll for Activity log
 Previously, Activity log was paginated. Now, the data loads as you scroll down.
 
-### Query filters for saved datasets
-Datasets are saved with some query filters. Now, users with read access who are not members of a workspace can deselect the saved filters, for example, to filter by a smaller number of vessels or a shorter time range. 
-Note that they cannot query data that is out of the scope of the saved dataset. This means that they cannot filter by new vessels, time ranges that exceed the saved time range, and so on.
+### Query filters for saved data sets
+Data sets are saved with some query filters. Now, users with read access who are not members of a workspace can deselect the saved filters, for example, to filter by a smaller number of vessels or a shorter time range. 
+Note that they cannot query data that is out of the scope of the saved data set. This means that they cannot filter by new vessels, time ranges that exceed the saved time range, and so on.
 
-However, workspace admins and members can query datasets with all the available filters.
+However, workspace admins and members can query data sets with all the available filters.
 
-### Saving shared datasets
-For users with read access, saving shared datasets is disabled, and the save button is hidden. However, they can copy the dataset and save it as a new one.
+### Saving shared data sets
+For users with read access, saving shared data sets is disabled, and the save button is hidden. However, they can copy the data set and save it as a new one.
 
- For admin users, the save button is enabled. For shared datasets, admin can copy a dataset and save it as a new dataset. For datasets that are not shared, admin can choose to "Save" a dataset or "Save as new" to create a copy.
+ For admin users, the save button is enabled. For shared data sets, admin can copy a data set and save it as a new data set. For data sets that are not shared, admin can choose to "Save" a data set or "Save as new" to create a copy.
 
 ### Members display
 Now, in the **Members** tab ("Workspace" > "Members"), there are two tables with members: "Workspace members" and "Tenant members", so that  you can see who is a workspace member, and who is a tenant member.
@@ -61,13 +65,13 @@ In the Connections tab, the banner "New conections coming soon" was made smaller
 
 This section covers bugs that have been fixed:
 
-* Fixed the 400 Bad Request error when sharing dataset in the user interface.
+* Fixed the 400 Bad Request error when sharing data set in the user interface.
 * Fixed the 500 Internal Server Error for operations on service accounts.
-* Fixed data synchronization issues for SoC (State of Compliance) datasets.
-* Fixed redirecting to the Home page after trying to access a deleted dataset by URL. Now, the redirect is to an error page.
-* In data set lists, fixed display issues for data classification tooltip. Previously, it was cropped on small screens or when the list was displaying only a few datasets.
+* Fixed data synchronization issues for SoC (State of Compliance) data sets.
+* Fixed redirecting to the Home page after trying to access a deleted data set by URL. Now, the redirect is to an error page.
+* In data set lists, fixed display issues for data classification tooltip. Previously, it was cropped on small screens or when the list was displaying only a few data sets.
 * In Data Catalogue, fixed display issues with the column picker. Previously, the column tags were cropped when they did not fit into the browser window. Now, they fade out.
-* Corrected typos in the window telling with whom you have shared a dataset.
+* Corrected typos in the window telling with whom you have shared a data set.
 * For the window for inviting users, fixed display issue ocurring when you tried to invite to the workspace existing users.
 * Now, public access to storage accounts is disallowed.
 * Previously, sharing data sets was logged in the Activity log even if the sharing has failed. Now, it is fixed.

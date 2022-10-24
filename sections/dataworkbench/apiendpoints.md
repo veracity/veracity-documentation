@@ -48,7 +48,9 @@ Below you can see an example of a successful request (code 200).
         "lastModifiedOn": "2022-06-17T08:55:25.063984Z"
     }
 ]
-```
+``
+
+To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
 
 ## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
@@ -159,6 +161,7 @@ You can use the following endpoints:
 * [Get all data sets for a workspace](#allData)
 * [Get specific data sets by ID](#data)
 * [Query for data sets by ID and with additional properties](#dataMore)
+* [Query for activity logs for a data set](#ledger)
 
 <a name="allData"></a>To get all data sets available in a workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
 You can use additional properties in your query:
@@ -284,6 +287,8 @@ Below you can see an example of a successful request (code 200).
   }
 }
 ```
+
+<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace and the dataset.
 
 ## Response codes
 

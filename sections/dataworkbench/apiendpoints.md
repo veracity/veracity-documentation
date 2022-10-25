@@ -300,4 +300,4 @@ You can get the following response codes when you send API calls:
 * 401 code when you are unauthorized to access a resource.
 * 404 code when the resource was not found.
 * 500 code for an internal server error.
-* 502 when you have called a bad gateway.
+* 502 when you have called a bad gateway..

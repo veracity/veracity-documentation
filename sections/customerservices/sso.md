@@ -57,14 +57,14 @@ If you use an identity provider other than Azure AD, send a request for implemen
 * The name of your identity provider. For example, Ping Identity or ADFS.
 * The protocol you want to use. Choose OpenID Connect 1.0 or SAML 2.0.
 * The Metadata URL for your identity provider.
-* The claims that will be sent to Veracity as tokens containing:
-    - First name
-    - Last name
-    - Email
-    - Unique identifier within the federated domain
-* Optionally, a name of the claim indicating that the multi-factor authentication was done within the customer company.
+* Claims sent to Veracity in the user's token:
+    - The name of the claim containing user's first name (e.g. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname)
+    - The name of the claim containing user's last name (e.g. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname)
+    - The name of the claim containing user's email address (e.g. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress)
+    - The name of the claim containing a unique identifier for the user (e.g. http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid)
+   - Optionally, the name of the claim indicating that multi-factor authentication was done within the customer company
 
-## Verify the implementation
+## Verification
 When you have implemented SSO, verify if it works properly by following the steps below. Avoid using the administrator account, and choose a regular user account instead.
 
 1. Restart your browser.

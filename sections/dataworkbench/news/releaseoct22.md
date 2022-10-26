@@ -60,15 +60,9 @@ In the Connections tab, the banner "New conections coming soon" was made smaller
 
 ## Bugs fixed
 
-This section covers bugs that have been fixed:
+This release has brought some security improvements reagarding access and sharing, as well as some corrections in what is logged and when. Apart from that, the following issues have been fixed:
 
-* Fixed the 400 Bad Request error when sharing data set in the user interface.
-* Fixed the 500 Internal Server Error for operations on service accounts.
-* Fixed data synchronization issues for SoC (State of Compliance) data sets.
-* Fixed redirecting to the Home page after trying to access a deleted data set by URL. Now, the redirect is to an error page.
 * In data set lists, fixed display issues for data classification tooltip. Previously, it was cropped on small screens or when the list was displaying only a few data sets.
 * In Data Catalogue, fixed display issues with the column picker. Previously, the column tags were cropped when they did not fit into the browser window. Now, they fade out.
 * Corrected typos in the window telling with whom you have shared a data set.
 * For the window for inviting users, fixed display issue ocurring when you tried to invite to the workspace existing users.
-* Now, public access to storage accounts is disallowed.
-* Previously, sharing data sets was logged in the Activity log even if the sharing has failed. Now, it is fixed.

@@ -60,7 +60,7 @@ In the Connections tab, the banner "New conections coming soon" was made smaller
 
 ## Bugs fixed
 
-This release has brought some security improvements reagarding access and sharing, as well as some corrections in what is logged and when. Apart from that, the following issues have been fixed:
+This release has brought some security improvements and some corrections in what is logged and when. Apart from that, the following issues have been fixed:
 
 * In data set lists, fixed display issues for data classification tooltip. Previously, it was cropped on small screens or when the list was displaying only a few data sets.
 * In Data Catalogue, fixed display issues with the column picker. Previously, the column tags were cropped when they did not fit into the browser window. Now, they fade out.

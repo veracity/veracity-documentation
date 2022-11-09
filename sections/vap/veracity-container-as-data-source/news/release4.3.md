@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: Public changelog with important announcments.
+description: This is the changelog for the release 4.3 of Veracity Adapter for Power BI (VAP).
 ---
 # VAP 4.3 release with an in-app tutorial
 Release date: 7 September 2022
@@ -11,7 +11,12 @@ This release focuses on improvements to the Viewer.
 Read this page to learn what has changed in Veracity Adapter for Power BI.
 
 ## New features
-This section covers new features.
+This section covers new features:
+* [Tutorial presenting new features](#tutorial-presenting-new-features)
+* [Create your report tutorial](#create-your-report-tutorial)
+* [Copy the link to report bookmarks](#copy-the-link-to-report-bookmarks)
+* [Capacity API has a new refresh endpoint](capacity-api-has-a-new-refresh-endpoint)
+
 
 ### Tutorial presenting new features
 Now, a built-in tutorial updates you on the latest features in the product.
@@ -26,7 +31,13 @@ Now, you can copy the link to report bookmarks to create marketing materials and
 Now, Capacity API has a new refresh endpoint.
 
 ## Changes in existing features
-This section covers changes in existing features.
+This section covers changes in existing features:
+* [Changes in how Viewer displays the analytics](#web-app-supports-user-tokens)
+* [Improvements for adding several users](#improvements-for-adding-several-users)
+* [Improvements for web apps One Gateway](#improvements-for-web-apps-one-gateway)
+* [Web app Azure hosting](web-app-azure-hosting)
+* [Automated setup of a VAP service](#automated-setup-of-a-vap-service)
+
 
 ### Changes in how Viewer displays the analytics
 Now, Viewer shows the analytics according to the settings from "Manage report" and "Manage file".
@@ -44,10 +55,8 @@ Now, there are some new IP restrictions for Azure Web Services.
 Now, the setup of a VAP service has been automated with Veracity Resource Management (VRM).
 
 ## Bugs fixed
-This section covers bugs that have been fixed.
-
-### Scheduled refresh fixes
-Some known issues for scheduled refresh have been fixed.
+This section covers bugs that have been fixed:
+* Some known issues for scheduled refresh have been fixed.
 
 
 

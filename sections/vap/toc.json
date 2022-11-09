@@ -7,7 +7,16 @@
 		},
 		{
 			"text": "What is new?",
-			"href": "whatsnew.md"
+			"items": [
+				{
+					"text": "Release 4.4",
+					"href": "news/release4.4.md"
+				},
+				{
+					"text": "Release 4.3",
+					"href": "news/release4.3.md"
+				}
+			]
 		},
 		{
 			"text": "Quick start",

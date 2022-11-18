@@ -24,7 +24,7 @@ Veracity enables the delivery of free services by:
 You can give free access to your service as an entry-level for getting customers to start using a paid plan. You can sell premium versions or add-on modules as separate products on the Veracity Marketplace.
 
 ## Customer journey
-Below you can see an example of a customer journey for free services.
+To see an example of a customer journey for free services, <a href="assets/UserJourneyFreeProducts.png">go here</a>.
 <figure>
 <img src="assets/UserJourneyFreeProducts.png"/>
 </figure>

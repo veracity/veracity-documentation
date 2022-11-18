@@ -25,6 +25,3 @@ You can give free access to your service as an entry-level for getting customers
 
 ## Customer journey
 To see an example of a customer journey for free services, <a href="assets/UserJourneyFreeProducts.png">go here</a>.
-<figure>
-<img src="assets/UserJourneyFreeProducts.png"/>
-</figure>

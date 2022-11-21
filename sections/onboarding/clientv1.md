@@ -19,11 +19,7 @@ V1 clients are great if you have a use case where you absolutely are unable to r
 
 **How do I get one?**
 
-V1 clients are only created in instances where you cannot retrieve a user token or if you need to have a Data Fabric container which is directly administrated by the service. Please speak to the Veracity onboarding manager ([onboarding@veracity.com](mailto:onboarding@veracity.com)) to request a V1 client. Please state your use case and for which service the client should have rights. You will receive an encrypted set of credentials on email.
-
-**Drawbacks?**
-
-V1 clients are inherently more unsafe because they do not require a user token. Compromised V1 credentials are more dangerous than compromised credentials for a regular application. The V1 client only requires the client ID and secret to have the ability to call API endpoints or create/edit/delete Data Fabric containers. This means that if a hostile party gets hold of your V1 credentials they can do great damage.
+Create an application in My Projects and choose "ClientCredentials" under the Client application" section.
 
 **How do I use the V1 client?**
 
@@ -63,6 +59,11 @@ https://dnvglb2cprod.onmicrosoft.com/dfba9693-546d-4300-bcd7-d8d525bdff38
     $token = Invoke-RestMethod -Uri $Uri -Method Post -Body $Body -ContentType "application/x-www-form-urlencoded"
     Write-Output $token.access_token 
 
+Documentation verison 1.3
+
+2022-11-21 AANDRES
+
+Changelog: Removed "Drawbacks?" section and updated "How do I get one?" section to reflect new self-service flow.
 
 Documentation version 1.2
 

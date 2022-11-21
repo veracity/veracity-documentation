@@ -9,14 +9,13 @@ If you are a developer, read this page to learn how to start using Veracity.
 The onboarding process for Veracity mixes meetings with the onboarding team and a self-service approach:
 1. Someone from your company starts the onboarding process for customers. See how to do it [here](https://developer.veracity.com/docs/section/marketplace/productpresentation). A typical onboarding process results in
 adding your company's app to the [Marketplace](https://store.veracity.com/) (see [Marketplace docs](https://developer.veracity.com/docs/section/marketplace/marketplace)) and using [Veracity Identity Provider](https://developer.veracity.com/docs/section/identity/identity) (Veracity IDP) for authentication. 
-2. You [set up a non-production Veracity service](#project) and start working on it to comply with the [technical requirements](#requirements) for integrating with Veracity.
-3. You ask the [onboarding team](mailto:onboarding@veracity.com) to provide you with application credentials for a "test" or "staging" Veracity application.
-4. When your application meets [technical requirements](#technical-requirements), you contact the onboarding team to request a verification.
-5. The onboarding team verifies if your application is ready for production.
-6. After a successful verification, the onboarding team issues a new set of credentials for a production version of your application.
-7. You use the production credentials to configure your production application.
-8. You ask the [onboarding team](mailto:onboarding@veracity.com) for another verification.
-9. After a successful verification, you receive client credentials for calling [Veracity APIs](https://developer.veracity.com/api) (including Veracity IDP).
+2. You [set up a non-production Veracity service](#project) and start working on it to comply with the [technical requirements](#requirements) for integrating with Veracity. These non-prod apps will have a limit of 50 users. 
+3. When your application meets [technical requirements](#technical-requirements), you contact the onboarding team to request a verification.
+4. The onboarding team verifies if your application is ready for production.
+5. After a successful verification, the onboarding team approves a production version of your application.
+6. You use the production credentials to configure your production application.
+7. You ask the [onboarding team](mailto:onboarding@veracity.com) for another verification.
+8. After a successful verification, your production app can call the Veracity API's.
 
 Note that Veracity will cooperate with someone from your company on the commercial aspect of the onboarding when you go through the technical onboarding.
 

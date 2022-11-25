@@ -48,7 +48,7 @@ Below you can see an example of a successful request (code 200).
         "lastModifiedOn": "2022-06-17T08:55:25.063984Z"
     }
 ]
-``
+```
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
 

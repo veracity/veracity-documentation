@@ -6,6 +6,7 @@ description: Description of Operational Vessel Data Standards in Veracity
 # Operational Vessel Data (OVD)
 
 Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data platform.
+
 The OVD data service on Veracity is continuously assuring data from thousands of vessels. By submitting data to Veracity OVD, your data is structured, analyzed, enriched and quality assured before you have the option to use it in one of the many services running on Veracity, like MRV and DCS verification, Emissions Connect, or to share quality assured data via the Veracity Data Workbench with stakeholders or other parties or solutions that will utilize your data, like Poseidon Principles or Sea Cargo Charter.
 
 A full and comprehensive description of the OVD standard can be found in [this Excel document](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.0%20interface%20description%20-%20STAG.xlsx). To further learn, play with and test your OVD data, the [OVD Guide](https://ovdguide.veracityapp.com/) has interactive guidance to the most important elements of OVD and allow you to test upload of files.

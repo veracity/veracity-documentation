@@ -75,9 +75,6 @@ When you have implemented SSO, verify if it works properly by following the step
 6. If this is the first time you sign in to Veracity, you will be asked to specify your country and accept the terms of use.
 7. You should be redirected to the [Veracity home page](https://www.veracity.com). 
 8. To verify you are signed in, in the upper-right corner of the page, find your initials or profile picture.
-<figure>
-    <img src="assets/Enrollment1.png"/>
-</figure>
 
 ## SSO user experience
 To see the SSO sign-in flow for a user, consult the diagram below.

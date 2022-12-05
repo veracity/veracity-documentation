@@ -5,14 +5,17 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-The Operational Vessel Data (OVD) interface standard for exchanging data between software solutions is a comprehensive and easy to adapt format for operational vessel data, like Noon and Arrival reports.
+Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data platform.
 
-The standard supports data sharing in the Fleet Performance Management context but is also applicable for MRV/DCS data provision to the Verifier and other services.
+The OVD data service on Veracity is continuously assuring data from thousands of vessels. By submitting data to Veracity OVD, your data is structured, analyzed, enriched and quality assured before you have the option to use it in one of the many services running on Veracity, like MRV and DCS verification, Emissions Connect, or to share quality assured data via the Veracity Data Workbench with stakeholders or other parties or solutions that will utilize your data, like Poseidon Principles or Sea Cargo Charter.
 
-Event reports like Noon, BOSP, Departure are catered by the standard as well as instantaneous information like engine performance reports. The most commonly used data fields reported in typical event reports are covered. For instance, consumptions and distances, weather, propulsion and auxiliary work, ETA, Ordered Speed, bunker intake, etc., to name a few.
+A full and comprehensive description of the OVD standard can be found in [this Excel document](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.0%20interface%20description%20-%20STAG.xlsx). To further learn, play with and test your OVD data, the [OVD Guide](https://ovdguide.veracityapp.com/) has interactive guidance to the most important elements of OVD and allow you to test upload of files.
 
-The OVD interface file is a CSV file and its simple structure makes it easy to process the data on both, the import and export side of the data flow. Furthermore, being based on a CSV file the OVD standard is bridging automated and manual input in a nice way.
+OVD consists of several schemas. A schema is a definition of how to fill in a sheet in Excel, with defined columns and clear rules for what to put into each of the columns/rows. The two most used schemas in OVD are Log Abstract (LA), listing all key events from the vessels’ operations, and the Bunkers file (BR), listing all bunkers in the relevant period. Both the Log Abstract and the Bunkers file are required for MRV and DCS verification.
+Below is an example of how the OVD Log Abstract would look for a vessel sailing from Hamburg to Rotterdam:
 
-On Veractiy APIs exist for import and export of OVD files. The import API can validate the data on record level and supports logging and archiving. Updating and deletion of records are supported by the Veracity API too. The OVD standard is actively developed by DNV and StormGeo and has a history since 2014. You can download the latest OVD interface description here.
+<figure>
+    <img src="assets/data-table.png"/>
+</figure>
 
-<a href="assets/odv-flatfile-interface-description.xlsx" download>Download Operational Vessel Data - Flatfile Interface Description</a>
+Data can be submitted to DNV’s Veracity OVD via continuous and automated transfer using modern REST API interfaces, or via manual upload of CSV files. Please contact [Veracity support](mailto:support@veracity.com) if you want to know more about how to establish automated transfer of OVD data.

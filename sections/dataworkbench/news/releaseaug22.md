@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: This is the changelog for the October 2022 release of Data Workbench.
+description: This is the changelog for the August 2022 release of Data Workbench.
 ---
 
 # August 2022 release

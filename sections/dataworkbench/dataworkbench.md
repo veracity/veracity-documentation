@@ -65,6 +65,10 @@ Each data set has:
 * Save option – save your changes.
 * Share option – share a data set with a user, and set for how long you grant them access.
 
+To download a data set as a CSV file:
+1. In the **Data catalogue** tab, open a data set you want to download.
+2. In the right corner, select the download icon.
+
 To see data sets you can use, go to [My data](https://data.veracity.com/containers). 
 To see how to manage your data on Data Fabric, go [here](https://help-center.veracity.com/en/collections/2429587-managing-your-data-on-data-fabric).
 
@@ -78,6 +82,7 @@ If you want to upload a new data set, Veracity suggests using an existing templa
 
 ### Share a data set
 You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
+
 To share a data set with one or more users:
 1. Hover over the row with a data set. Two icons will appear in the right corner of the row.
 2. Select the sharing icon (the last one).

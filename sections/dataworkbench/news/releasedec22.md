@@ -7,7 +7,7 @@ description: This is the changelog for the December 2022 release of Data Workben
 
 Release date: 2 December 2022
 
-Read this page to learn what has changed in Veracity Data Workbench with the November 2022 release.
+Read this page to learn what has changed in Veracity Data Workbench with the December 2022 release.
 
 ## New features
 

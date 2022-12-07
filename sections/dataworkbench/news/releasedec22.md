@@ -21,7 +21,7 @@ To download a data set:
 1. In the **Data catalogue** tab, open a data set you want to download.
 2. In the right corner, select the download icon.
 
-Also, when you download a data set, this event is logged and shown in the Activity log.
+When you download a data set, this event is logged and shown in the Activity log.
 
 ## Bugs fixed
 

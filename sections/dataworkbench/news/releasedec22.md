@@ -11,9 +11,6 @@ Read this page to learn what has changed in Veracity Data Workbench with the Dec
 
 ## New features
 
-This section covers new features:
-* [Download a data set](#download-a-data-set)
-
 ### Download a data set
 Now, you can download a data set as a CSV file.
 

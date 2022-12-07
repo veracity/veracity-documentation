@@ -21,15 +21,7 @@ To download a data set:
 1. In the **Data catalogue** tab, open a data set you want to download.
 2. In the right corner, select the download icon.
 
-Future releases will enable applying filters to a data set to create its subset, and then downloading it. However, currently you can only download a full data set.
-
-## Changes in existing features
-
-This section covers changes in existing features:
-* [Logging data sets downloads](#logging-data-sets-downloads)
-
-### Logging data sets downloads
-Now, when you download a data set, this event is logged and shown in the Activity log.
+Also, when you download a data set, this event is logged and shown in the Activity log.
 
 ## Bugs fixed
 

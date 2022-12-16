@@ -5,6 +5,14 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
+[<img src="assets/OVD-interface-description-button.png">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.1%20interface%20description.xlsx)
+
+[<img src="assets/OVD-Guide-button.png">](https://ovdguide.veracityapp.com)
+
+[<img src="assets/CSV-File-Converter-button.png">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20CSV%20file%20converter%20v1.81.xlsm)
+
+[<img src="Sample-Files-button.png">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip)
+
 Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data Platform. 
 
 The OVD data service on Veracity is continuously assuring data from thousands of vessels. By submitting data to Veracity OVD, your data is structured, analyzed, enriched and quality assured before you have the option to use it in one of the many services running on Veracity, like MRV and DCS/CII verification, Emissions Connect, or to share quality assured data via the Veracity Data Workbench with stakeholders or other parties or solutions that will utilize your data, like Poseidon Principles or Sea Cargo Charter. 
@@ -23,4 +31,4 @@ Have a look at the [Sample Files](https://veracitycdnprod.blob.core.windows.net/
 
 Data can be submitted to DNV’s Veracity OVD via continuous and automated transfer using modern REST API interfaces, or via manual upload of CSV files. Please contact [Veracity Support](mailto:support@veracity.com) if you want to know more about how to establish automated transfer of OVD data. 
 
-The CSV File Converter is an easy-to-use tool to get your data into OVD format. This is intended only for smaller cases where IT capabilities are not available to automate the output of data in OVD format. 
+The [CSV File Converter](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20CSV%20file%20converter%20v1.81.xlsm) is an easy-to-use tool to get your data into OVD format. This is intended only for smaller cases where IT capabilities are not available to automate the output of data in OVD format. 

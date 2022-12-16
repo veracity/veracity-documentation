@@ -19,6 +19,14 @@
 			]
 		},
 		{
+			"text": "Admin tab",
+			"href": "admintab.md"
+		},
+		{
+			"text": "User roles",
+			"href": "userroles.md"
+		},
+		{
 			"text": "Quick start",
 			"items": [
 				{

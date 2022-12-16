@@ -6,11 +6,11 @@ description: Overview of VAP roles and permissions.
 # User roles
 
 In Veracity Adapter for Power BI (VAP), each user role grants different permissions:
-* DataReader — can read reports, suitalbe for regular users.
-* ReportAdmin — can manage files, webs, and reports.
-* DataAdmin — can manage files, reports, and entities.
-* UserAdmin — can manage users.
-* SystemAdmin — can manage files, webs, reports, entities, users, and configure VAP.
+* DataReader - can read reports, suitalbe for regular users.
+* ReportAdmin - can manage files, webs, and reports.
+* DataAdmin - can manage files, reports, and entities.
+* UserAdmin - can manage users.
+* SystemAdmin - can manage files, webs, reports, entities, users, and configure VAP.
 
 Roles are assigned and revoked by user admins and system admins.
 

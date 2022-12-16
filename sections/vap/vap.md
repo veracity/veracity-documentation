@@ -24,8 +24,8 @@ For quick-start tutorials, go [here](vap-saas-tutorial/1-introduction.md).
 ## How to access VAP
 
 To access your VAP service:
-1. Go to the Veracity page.
-2. In the top navigation menu, select "My Services".
+1. Go to the [Veracity page](https://www.veracity.com/).
+2. In the top navigation menu, select ["My Services"](https://services.veracity.com/).
 3. Find the tile with the name of your VAP service and select it.
 
 ## Home tab

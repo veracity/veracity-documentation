@@ -55,17 +55,17 @@ To create a new Power BI or Blob report:
 6. From the **File title** dropdown, select what PBI file you want your report to connect to.
 7. Below **File title**, you can enable the following toggles:
 
-	Printable — allows printing the report.
+	Printable - allows printing the report.
 	
-	Able to export data — allows exporting data.
+	Able to export data - allows exporting data.
 	
-	Show filter panel — if your reports uses filter pane, disable this option to show the filter.
+	Show filter panel - if your reports uses filter pane, disable this option to show the filter.
 	
-	Hide custom report title — if you deselect this box, three options to choose from appear, so that you can customize the title of your report shown at the top of your Power BI report.
+	Hide custom report title - if you deselect this box, three options to choose from appear, so that you can customize the title of your report shown at the top of your Power BI report.
 	
-	Show bookmark icon — enables users to bookmark parts of the report, so that they can use them to go back to the bookmarked parts of the reports or share them as links with other people. Only user personal bookmarks will be shown.
+	Show bookmark icon - enables users to bookmark parts of the report, so that they can use them to go back to the bookmarked parts of the reports or share them as links with other people. Only user personal bookmarks will be shown.
 		
-	Show based on report file bookmarks — enables user personal bookmarks and report bookmarks. Use it for reports that will have some bookmarks created by the report author, but also will allow users to create their own.
+	Show based on report file bookmarks - enables user personal bookmarks and report bookmarks. Use it for reports that will have some bookmarks created by the report author, but also will allow users to create their own.
 
 8. In the **Role name**, if you have enabled Row Level Security (RLS), provide the role name as defined in your PBI report (Manage roles > Roles).
 9. In the **Row level security parameter**, if you have enabled RLS, provide filter key and from the dropdown, select its type. To add another filter key, select the plus button next to the dropdown.
@@ -147,15 +147,15 @@ To create a new web connection:
 5. Optionally, in the **Description** field, describe your report for the end users. Note that currently the description is not shown to the users.
 6. Below **Description**, you can enable the following toggles:
 
-	Enable Dedicated Domain Name — if your web app requires a dedicated domain name, enable this to provide the domain name.
+	Enable Dedicated Domain Name - if your web app requires a dedicated domain name, enable this to provide the domain name.
 	
-	Enable Service Worker — if your web app uses service workers, enable this and provide the full URL of the JS file where you register the service workers for your web app.
+	Enable Service Worker - if your web app uses service workers, enable this and provide the full URL of the JS file where you register the service workers for your web app.
 	
-	Single page application (SPA) — if your web app is a single page application, enable this, and select your app's framework, and the full URL of the "App.js" file containing routing configuration for your SPA framework.
+	Single page application (SPA) - if your web app is a single page application, enable this, and select your app's framework, and the full URL of the "App.js" file containing routing configuration for your SPA framework.
 	
-	Host In One Gateway — if your web app is hosted in One Gateway, enable this, and provide your app's Client ID for One Gateway. Then, go to your One Gateway, and allow access for the VAP Web App. Also, allow for VAP to control the authentication. After that, the configuration for your web app will disable URL direct access, making it only valid when interacting from VAP.
+	Host In One Gateway - if your web app is hosted in One Gateway, enable this, and provide your app's Client ID for One Gateway. Then, go to your One Gateway, and allow access for the VAP Web App. Also, allow for VAP to control the authentication. After that, the configuration for your web app will disable URL direct access, making it only valid when interacting from VAP.
 	
-	Attach User Token — if you want to attach user token in the request header, enable this.
+	Attach User Token - if you want to attach user token in the request header, enable this.
 
 7. Select the **Check connection** button to verify if your web application can connect to your VAP service.
 8. After establishing a connection, select the **Add** button to add the connection.
@@ -193,25 +193,25 @@ Under "Entity types", you can add entity types, see what types are already creat
 
 Under **Tenant Properties**, you can see tenant properties and edit them.
 To edit tenant properties, select the **Edit** button and edit the fields you need to change. You can edit the following fields:
-* Invoice Detail — add information for invoicing, for example, cost center, your project and task number, and so on. Note that currently this field is not shown.
-* Invoice Contact Email — provide email for sending you invoices. Note that currently this field is not shown.
-* Business Owner — provide the name of the service owner. Note that currently this field is not shown. However, it can be used for communication regarding your VAP service.
-* Contact Email — provide an email for contacting you regarding your VAP service.
-* Service Description — describe your VAP service.
-* Send notification to all users — enable it to send notifications to users when their account is modified. This is a default setting, and you can override it for each user account.
-* Notified Group — select to notify users with a certain role (for example, SystemAdmin) when a new user has successfully self-subscribed to the tenant or an entity in your tenant has turned on public view (access).
+* Invoice Detail - add information for invoicing, for example, cost center, your project and task number, and so on. Note that currently this field is not shown.
+* Invoice Contact Email - provide email for sending you invoices. Note that currently this field is not shown.
+* Business Owner - provide the name of the service owner. Note that currently this field is not shown. However, it can be used for communication regarding your VAP service.
+* Contact Email - provide an email for contacting you regarding your VAP service.
+* Service Description - describe your VAP service.
+* Send notification to all users - enable it to send notifications to users when their account is modified. This is a default setting, and you can override it for each user account.
+* Notified Group - select to notify users with a certain role (for example, SystemAdmin) when a new user has successfully self-subscribed to the tenant or an entity in your tenant has turned on public view (access).
 	
-	Allow Self Subscribe — enable to allow users to self-register and access your web service.
+	Allow Self Subscribe - enable to allow users to self-register and access your web service.
 	
-	Enable manage filters — if you enable this default setting, a "Manage Filters" button will be shown under "Manage Reports", and you wil be able to configure reusable report filters for your users.
+	Enable manage filters - if you enable this default setting, a "Manage Filters" button will be shown under "Manage Reports", and you wil be able to configure reusable report filters for your users.
 	
-	Show dataset and report id — enable to show the ID of data sets and reports.
+	Show dataset and report id - enable to show the ID of data sets and reports.
 	
-	Enable Power BI — enable Power BI in your VAP service.
+	Enable Power BI - enable Power BI in your VAP service.
 	
-	Enable Web Apps — enable connecting web applications to your VAP service.
+	Enable Web Apps - enable connecting web applications to your VAP service.
 
-* Background image — add a background image to your VAP service.
+* Background image - add a background image to your VAP service.
 
 ### Tenant Documents
 
@@ -247,11 +247,11 @@ If you want to apply a refresh plan or change it to another, you can do so for e
 Under "Footer Properties", you can see what is shown in the footer of your VAP service. To edit this, select the icon in the right corner of the row.
 
 You can set the following properties for the footer:
-* Footer Header — provide the title for the middle section of the footer. 
-* Support Contact Email — provide the support email contact for your service.
-* Tenant Information — provide information about your service. If this field is empty, then it is not shown to the users.
-* Tenant Information URL — if you want to have a clickable link or email under your "Tenant Information", provide it in this field.
-* Copy Right — if you want to change the default copyright information shown in the footer, provide your custom text.
+* Footer Header - provide the title for the middle section of the footer. 
+* Support Contact Email - provide the support email contact for your service.
+* Tenant Information - provide information about your service. If this field is empty, then it is not shown to the users.
+* Tenant Information URL - if you want to have a clickable link or email under your "Tenant Information", provide it in this field.
+* Copy Right - if you want to change the default copyright information shown in the footer, provide your custom text.
 
 Note that to see the changes in footer properties, you need to refresh the page first.
 

@@ -1,6 +1,7 @@
 ---
 author: Veracity
 description: Overview of the Veracity Adapter for Power BI.
+---
 
 # Veracity adapter for Power BI
 

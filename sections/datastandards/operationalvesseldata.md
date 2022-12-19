@@ -5,7 +5,9 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-[<img src="assets/OVD-interface-description-button.png" align="left" alt="assets/OVD-interface-description-button" height="50">](assets/OVD31interfacedescription.xlsx)
+[<img src="assets/OVD-interface-description-button.png" align="left" alt="assets/OVD-interface-description-button" height="50">]
+
+<a href="./assets/OVD31interfacedescription." Download>OVD interface description</a>
 
 [<img src="assets/OVD-Guide-button.png" align="left" alt="assets/OVD-Guide-button" height="50">](https://ovdguide.veracityapp.com)
 

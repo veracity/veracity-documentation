@@ -2,7 +2,7 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Veracity adapter for Power BI",
+			"text": "Overview",
 			"href": "vap.md"
 		},
 		{
@@ -21,6 +21,27 @@
 		{
 			"text": "User roles",
 			"href": "user-roles.md"
+		},
+		{
+			"text": "Data sources and security",
+			"href": "data.md"
+		},
+		{
+			"text": "Reading reports",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "using-reports/overview.md"
+				},
+				{
+					"text": "Filter and sort",
+					"href": "using-reports/filter-sort.md"
+				},
+				{
+					"text": "Bookmarks",
+					"href": "using-reports/bookmarks.md"
+				}
+			]
 		},
 		{
 			"text": "Admin Tab",

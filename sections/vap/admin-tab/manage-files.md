@@ -22,8 +22,8 @@ If you get warnings when VAP checks your report's 'data sources, read the warnin
 The "Manage Files" page shows all uploaded files in a table. To sort them by a specific column, select the column. 
 
 In the right corner of each row you can:
-* Refresh data (for [refreshable data sources](../vap.md#data-sources-and-security)).
-* Schedule a data refresh (for [refreshable data sources](../vap.md#data-sources-and-security)).
+* Refresh data (for [refreshable data sources](../data.md)).
+* Schedule a data refresh (for [refreshable data sources](../data.md)).
 * See history.
 * Edit the file, see report ID and dataset ID or file name.
 * Delete the file.

@@ -2,22 +2,23 @@
 author: Veracity
 description: Overview of the Configure tab in the admin tab.
 ---
-## Configure
 
-### Header Icon
+# Configure
+
+## Header Icon
 
 Under "Header Icon", you can edit the favicon (header) icon for your VAP service or reset it to the default. To upload your own icon, select the **Edit Head Icon** button. To reset the icon to the default, select the **Reset to default icon**.
 
 
-### Statistics Report
+## Statistics Report
 
 Under "Statistics Report", you can see the statistics for your VAP service including VAP usage, historical data, who is using your tenant, and the information on key fields.
 
-### Entity types
+## Entity types
 
 Under "Entity types", you can add entity types, see what types are already created, edit or delete them.
 
-### Tenant Properties
+## Tenant Properties
 
 Under **Tenant Properties**, you can see tenant properties and edit them.
 To edit tenant properties, select the **Edit** button and edit the fields you need to change. You can edit the following fields:
@@ -41,7 +42,7 @@ To edit tenant properties, select the **Edit** button and edit the fields you ne
 
 * Background image - add a background image to your VAP service.
 
-### Tenant Documents
+## Tenant Documents
 
 Under "Tenant Documents", you can see the documents added to your tenant. To sort them by column, select the column's name. In the right corner of each row, you can:
 * Edit the document.
@@ -53,7 +54,7 @@ To add a document:
 3. In the **Display name**, add the name for the document that should be shown to users.
 4. Select the **Save** button.
 
-### Refresh Schedule Plan
+## Refresh Schedule Plan
 
 Under "Refresh Schedule Plan", you can schedule when the reports in your VAP service should refresh data. The table shows all the schedled refreshes. To sort them by column, select the column's name. In the right corner of each row, you can:
 * Edit the scheduled refresh.
@@ -70,7 +71,7 @@ To add a scheduled refresh:
 
 If you want to apply a refresh plan or change it to another, you can do so for each report under "Manage file".
 
-### Footer Properties
+## Footer Properties
 
 Under "Footer Properties", you can see what is shown in the footer of your VAP service. To edit this, select the icon in the right corner of the row.
 
@@ -83,6 +84,6 @@ You can set the following properties for the footer:
 
 Note that to see the changes in footer properties, you need to refresh the page first.
 
-### Report Release Note
+## Report Release Note
 
 Under "Report Release Note", you can download a JSON template file for release notes. You can use it for creating your release notes with the purpose of communicating changes to your end users.

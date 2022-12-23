@@ -3,7 +3,7 @@ author: Veracity
 description: Overview of the Manage Reports tab in the admin tab.
 ---
 
-## Manage Reports
+# Manage Reports
 
 To create a new Power BI or Blob report:
 1. Select the **Create new report** button. It will open a pop up window in the "PBI report/Blob report tab".

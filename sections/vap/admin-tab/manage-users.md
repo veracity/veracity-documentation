@@ -2,7 +2,8 @@
 author: Veracity
 description: Overview of the Manage Users tab in the admin tab.
 ---
-## Manage Users
+
+# Manage Users
 
 You can only add Veracity users to a VAP entity. However, if you try to add a non-Veracity user, you will be offered an option to invite them to Veracity. To get access to the VAP entity, this person needs to accept the invitation and create their Veracity account.
 

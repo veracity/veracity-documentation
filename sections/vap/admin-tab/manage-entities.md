@@ -2,7 +2,8 @@
 author: Veracity
 description: Overview of the Manage Entities tab in the admin tab.
 ---
-## Manage Entities
+
+# Manage Entities
 
 An entity:
 * Can contain one or more reports.

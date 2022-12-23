@@ -77,7 +77,7 @@
 			]
 		},
 		{
-			"text": "Quick start",
+			"text": "Tutorial: Quick start",
 			"items": [
 				{
 					"text": "Introduction",
@@ -110,7 +110,7 @@
 			]
 		},
 		{
-			"text": "Using Veracity container as a data source",
+			"text": "Tutorial: Using Veracity container as a data source",
 			"items": [
 				{
 					"text": "Introduction",

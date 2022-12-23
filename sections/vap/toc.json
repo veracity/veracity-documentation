@@ -19,12 +19,41 @@
 			]
 		},
 		{
-			"text": "Admin tab",
-			"href": "admintab.md"
+			"text": "User roles",
+			"href": "user-roles.md"
 		},
 		{
-			"text": "User roles",
-			"href": "userroles.md"
+			"text": "Admin Tab",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "admin-tab/overview.md"
+				},
+				{
+					"text": "Manage files",
+					"href": "admin-tab/manage-files.md"
+				},
+				{
+					"text": "Manage reports",
+					"href": "admin-tab/manage-reports.md"
+				},
+				{
+					"text": "Manage entities",
+					"href": "admin-tab/manage-entities.md"
+				},
+				{
+					"text": "Manage users",
+					"href": "admin-tab/manage-users.md"
+				},
+				{
+					"text": "Manage webs",
+					"href": "admin-tab/manage-webs.md"
+				},
+				{
+					"text": "Configure",
+					"href": "admin-tab/configure.md"
+				}
+			]
 		},
 		{
 			"text": "Quick start",

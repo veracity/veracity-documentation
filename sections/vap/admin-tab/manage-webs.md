@@ -26,7 +26,7 @@ To create a new web connection:
 7. Select the **Check connection** button to verify if your web application can connect to your VAP service.
 8. After establishing a connection, select the **Add** button to add the connection.
 
-After you have added a new web connection, go to [Manage Entities](#manage-entities) to add your web application to a new or existing entity.
+After you have added a new web connection, go to [Manage Entities](admin-tab/manage-entities.md) to add your web application to a new or existing entity.
 
 For help with connecting your web app to VAP, go to [Veracity Community](https://community.veracity.com/t/how-to-plug-the-web-apps-into-vap/145/3).
 

@@ -34,11 +34,11 @@ The Home tab of your Veracity Power Adapter for Power BI (VAP) shows the entitie
 
 ## Admin tab
 
-The Admin tab shows [administrator tasks](admintab.md).
+The Admin tab shows [administrator tasks](admin-tab/overview.md).
 
 ## Permissions
 
-What you can do in VAP depends on your [user role](userroles.md). Usually, the end users consume reports, and the admin users handle administrator tasks such as creating reports, configuring the VAP service, and so on.
+What you can do in VAP depends on your [user role](user-roles.md). Usually, the end users consume reports, and the admin users handle administrator tasks such as creating reports, configuring the VAP service, and so on.
 
 ## Bookmarks
 

@@ -25,7 +25,7 @@ APIs and other services that are not intended to interact directly with users an
 
 <figure>
 	<img src="assets/api-verification-sequence.png"/>
-	<figcaption>A application receiving calls from another will have to validate the incomming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>
+	<figcaption>An application receiving calls from another will have to validate the incoming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>
 </figure>
 
 To get more details on how to perform authentication see the technical implementation guidelines in the Authentication sub-section.

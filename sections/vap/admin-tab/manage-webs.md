@@ -5,6 +5,17 @@ description: Overview of the Manage Webs tab in the admin tab.
 
 # Manage Webs
 
+The "Manage Webs" page shows all connections created in your VAP service. To sort them by a specific column, select the column. 
+
+In the right corner of each row, you can:
+* See history.
+* Edit and check the connection.
+* Delete the connection.
+
+The actions above are listed from the first to the last icon from the left.
+
+## To create a new web connection
+
 To create a new web connection:
 1. Select the **Create new web app connection** button.
 2. In the **Root URL**, provide the full root URL to your web application.
@@ -25,16 +36,6 @@ To create a new web connection:
 
 7. Select the **Check connection** button to verify if your web application can connect to your VAP service.
 8. After establishing a connection, select the **Add** button to add the connection.
-
-After you have added a new web connection, go to [Manage Entities](manage-entities.md) to add your web application to a new or existing entity.
+9. After you have added a new web connection, go to [Manage Entities](manage-entities.md) and add your web application to a new or existing entity.
 
 For help with connecting your web app to VAP, go to [Veracity Community](https://community.veracity.com/t/how-to-plug-the-web-apps-into-vap/145/3).
-
-The "Manage Webs" page shows all connections created in your VAP service. To sort them by a specific column, select the column. 
-
-In the right corner of each row, you can:
-* See history.
-* Edit and check the connection.
-* Delete the connection.
-
-The actions above are listed from the first to the last icon from the left.

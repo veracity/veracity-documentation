@@ -7,43 +7,27 @@ description: Overview of the Veracity Adapter for Power BI.
 
 ## Overview
 
-Veracity Adapter for Power BI (VAP) allows sharing Power BI reports with your users without requiring them to purchase a Power BI licence and install the software. The only step your users need to take is to sign in to Veracity. The VAP service is hosted and maintaned by Veracity, so that you can focus on the content.
-
-The Veracity Adapter for Power offers:
-* Convenient access for end-users. Sign in to Veracity and access the reports that are automatically updated.
-* Secure sharing of your reports, interactive dashboards, and other data.
-* Managing your reports, users, and their access permissions.
-* Maintenance and updates handled by Veracity.
-* Easy scaling.
-* Optionally, a Marketplace page for monetising your data and reports.
+Veracity Adapter for Power BI (VAP) allows you to:
+* Share access to your Power BI reports without requiring users to have a Power BI licence.
+* Focus on the content and leave security and maintenance to Veracity.
+* Manage your reports, users, and their access permissions.
+* Automatically update your reports.
+* Optionally, use a Marketplace page for monetising your data and reports.
 
 For details about the service, see the [VAP Marketplace page](https://store.veracity.com/veracity-adapter-for-power-bi-vap).
 
-For quick-start tutorials, go [here](vap-saas-tutorial/1-introduction.md).
+For a quick-start tutorial, go [here](vap-saas-tutorial/1-introduction.md).
 
-## How to access VAP
+## User guide
 
-To access your VAP service:
-1. Go to the [Veracity page](https://www.veracity.com/).
-2. In the top navigation menu, select ["My Services"](https://services.veracity.com/).
-3. Find the tile with the name of your VAP service and select it.
+If you are a user of a VAP service, see the [reading reports section](reading-reports/overview.md).
 
-## Home tab
+## Admin guide
 
-The Home tab of your Veracity Power Adapter for Power BI (VAP) shows the entities you have access to and the reports in them. 
+If you are an administrator of a VAP service, see the [admin tab overview](admin-tab/overview.md) and the available [user roles](user-roles.md).
 
-To go to an entity or a report:
-1. In your VAP service, go to the **Home** tab.
-2. Select the tile with the name of the entity or report you want to go to.
+## Tutorials
 
-## Admin tab
+For a basic VAP tutorial, go the [quick start](vap-saas-tutorial/1-introduction.md).
 
-The Admin tab shows [administrator tasks](admin-tab/overview.md).
-
-## Permissions
-
-What you can do in VAP depends on your [user role](user-roles.md). Usually, the end users consume reports, and the admin users handle administrator tasks such as creating reports, configuring the VAP service, and so on.
-
-## Quick start
-
-For quick start tutorials, go [here](vap-saas-tutorial/1-introduction.md).
+For a tutorial on how to use a Veracity container (Data Fabric) as a data source in your reprot, go [here](veracity-container-as-data-source/introduction.md).

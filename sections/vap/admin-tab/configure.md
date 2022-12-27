@@ -20,7 +20,8 @@ Under "Entity types", you can add entity types, see what types are already creat
 
 ## Tenant Properties
 
-Under **Tenant Properties**, you can see tenant properties and edit them.
+Under "Tenant Properties", you can see tenant properties and edit them.
+
 To edit tenant properties, select the **Edit** button and edit the fields you need to change. You can edit the following fields:
 * Invoice Detail - add information for invoicing, for example, cost center, your project and task number, and so on. Note that currently this field is not shown.
 * Invoice Contact Email - provide email for sending you invoices. Note that currently this field is not shown.

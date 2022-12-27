@@ -19,19 +19,11 @@
 			]
 		},
 		{
-			"text": "User roles",
-			"href": "user-roles.md"
-		},
-		{
-			"text": "Data sources and security",
-			"href": "data.md"
-		},
-		{
 			"text": "Reading reports",
 			"items": [
 				{
 					"text": "Overview",
-					"href": "using-reports/overview.md"
+					"href": "reading-reports/overview.md"
 				},
 				{
 					"text": "Filter and sort",
@@ -42,6 +34,10 @@
 					"href": "using-reports/bookmarks.md"
 				}
 			]
+		},
+		{
+			"text": "Data sources and security",
+			"href": "data.md"
 		},
 		{
 			"text": "Admin Tab",
@@ -75,6 +71,10 @@
 					"href": "admin-tab/configure.md"
 				}
 			]
+		},
+		{
+			"text": "User roles",
+			"href": "user-roles.md"
 		},
 		{
 			"text": "Tutorial: Quick start",

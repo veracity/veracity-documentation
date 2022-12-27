@@ -6,7 +6,7 @@ description: Overview of the Manage Reports tab in the admin tab.
 # Manage Reports
 This page describes administrator tasks you can do in "Manage Reports".
 
-## Creating a new Power BI report
+## To create a new Power BI report
 To create a new Power BI or Blob report:
 1. Select the **Create new report** button. It will open a pop up window in the "PBI report/Blob report tab".
 2. In the **Title**, provide the internal name of the report. It will be shown only to admin users.
@@ -33,7 +33,7 @@ To create a new Power BI or Blob report:
 10. In the **Connect Tutorial**, you can select which tutorial for your report should be shown to the users. You can use tutorials to present new features, teach users how to read your reports, and so on.
 11. In the right corner, select the **Add** button.
 
-## Creating a new Web app report
+## To create a new Web app report
 
 To create a new Web app report:
 1. Select the **Create new report** button. It will open a pop up window in the "PBI report/Blob report tab".
@@ -46,14 +46,14 @@ To create a new Web app report:
 8. In the **Connect Tutorial**, you can select which tutorial to your report should be shown to your users. You can use tutorials to present new features, teach users how to read your reports, and so on.
 9. In the right corner, select the **Add** button.
 
-## Refreshing a report with imported data
+## To refresh a report with imported data
 
 If your report contains imported data and you want to show its newer version with the fresh data, follow the steps below.
 1. Upload the new report.
 2. In the **File title** field, select the report you have just uploaded.
 3. Select the **Save** button.
 
-## Enabling bookmarks
+## To enable bookmarks
 
 You can enable or disable personal and report bookmarks. Bookmarks work like links and allow users to navigate to the parts of the report they were created on. For details, go [here](../vap.md#bookmarks).
 
@@ -67,6 +67,8 @@ To enable personal and report bookmarks:
 2. In the pop-up window, under **File title**, select the **"Show bookmark icon"** toggle.
 3. Under the previous toggle, select the **"Show based on report file bookmarks"** toggle.
 4. In the right corner of the window, select the **Save** button.
+
+## To disable bookmarks
 
 To disable personal and report bookmarks:
 1. Choose a report and in the right corner of the row, select the editing icon (the second one from the left). A pop-up window will appear.

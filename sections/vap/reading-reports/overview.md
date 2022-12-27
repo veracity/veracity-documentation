@@ -7,7 +7,7 @@ description: This page explains how to read reports in VAP.
 
 This page explains how to read reports in VAP.
 
-## How to access VAP
+## To access VAP
 
 To access your VAP service:
 1. Go to the [Veracity page](https://www.veracity.com/).

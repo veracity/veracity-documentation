@@ -38,6 +38,16 @@ To create a bookmark:
 5. In the pop-up window, enter the name for the bookmark.
 5. Select the **Save** button.
 
+
+## To organize bookmarks
+
+To rearrange the order of your personal bookmarks:
+1. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
+2. Select the bookmark you want to move.
+3. Drag and drop the bookmark to the desired location.
+
+Note that you cannot move report bookmarks.
+
 ## To share a bookmark
 
 To share a bookmark:
@@ -49,6 +59,8 @@ To share a bookmark:
 6. Select the **Share** button.
 
 If you get the "The user does not have access to this entity" error when trying to share the bookmark with a user, contact the user admnistrator and request that they add the user to the entity with the report.
+
+Note that if you update a bookmark you have shared with other users, it will not get updated for them.
 
 ## To delete a bookmark
 

@@ -24,4 +24,9 @@ VAP supports the following refreshable data sources:
 Azure Analysis Services can offer the fastest way of refreshing report data, while Azure SQL Database may be the slowest (depending on the data model and the amount of data).
 
 ## Row-level security
-Placeholder text.
+
+Use row-level security (RLS) if you want to store all data in one report and show each user only the data they should have access to. Note that what users see in VAP is controlled by the report settings that are configured in Microsoft Power BI.
+
+To use RLS:
+1. Implement RLS in your Power BI report file. For details, follow the [Microsoft tutorial](https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-rls).
+2. [When creating a report in VAP](admin-tab/manage-reports.md), provide the required values for row-level security.

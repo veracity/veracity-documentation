@@ -14,18 +14,18 @@ Note that:
 
 ## Showing filtering and sorting
 
-When you hover over a slicer in a report, in its top right corner, VAP shows icons with the available options:
-* See what filters and slicers are applied to this slicer.
-* Apply a filter. This icon is shown only if the slicer has a filter you can apply.
-* Focus mode. This enlarges the window with the report slicer.
+When you hover over an element in a report, in its top right corner, VAP shows icons with the available options:
+* See what filters and slicers are applied to this element.
+* Apply a filter. This icon is shown only if the element has a filter you can apply.
+* Focus mode. This enlarges the window with the report element.
 * More options.
 
 The icons above are listed from the first to the last icon from the left.
 
 More options, when selected, expand to:
-* "Show as table" - shows the slicer as a table. In the top right corner, shows the filter icon, the "Switch to vertical layout" icon, and the "More options" icon that may show the actions described below.
-* "Spotlight" - dims other report slicers.
-* "Get insights" - shows the analytics for the report slicer.
+* "Show as table" - shows the element as a table. In the top right corner, shows the filter icon, the "Switch to vertical layout" icon, and the "More options" icon that may show the actions described below.
+* "Spotlight" - dims other report elements.
+* "Get insights" - shows the analytics for the report element.
 * "Sort descending" - sorts values from the highest to the lowest one.
 * "Sort ascending" - sort values from the lowest to the highest one.
 * "Sort by" - sorts by the selected element (for example, a column).

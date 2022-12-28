@@ -55,7 +55,7 @@ If your report contains imported data and you want to show its newer version wit
 
 ## To enable bookmarks
 
-You can enable or disable personal and report bookmarks. Bookmarks work like links and allow users to navigate to the parts of the report they were created on. For details, go [here](../vap.md#bookmarks).
+You can enable or disable personal and report bookmarks. Bookmarks work like links and allow users to navigate to the parts of the report they were created on. For details, go [here](../reading-reports/bookmarks.md).
 
 To enable only personal bookmarks:
 1. Choose a report and in the right corner of the row, select the editing icon (the second one from the left). A pop-up window will appear.

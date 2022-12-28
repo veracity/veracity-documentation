@@ -17,7 +17,7 @@ To add a user to an entity:
 1. Select the **Add User** button.
 2. Provide the user's email address, and select the **Check Email / User ID** button.
 3. In the **Grant access to** dropdown, select the entity to which the user should be added.
-4. In the **Roles** dropdown, assign a [role](userroles.md) to the user.
+4. In the **Roles** dropdown, assign a [role](user-roles.md) to the user.
 5. Optionally, deselect "Send notification to this user" if you do not want to notify the user that they have been added to an entity in VAP.
 
 ## To batch add users

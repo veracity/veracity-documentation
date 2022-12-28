@@ -5,7 +5,7 @@ description: This page explains how to use bookmarks in VAP reports.
 
 # Bookmarks
 
-Admin users can enable personal and report bookmarks that work like links to the parts of the report they were created on, and can be shared with other users. If you are an admin user, go [here](../admin-tab/manage-reports.md#enable-bookmarks) for details.
+Admin users can enable personal and report bookmarks that work like links to the parts of the report they were created on, and can be shared with other users. If you are an admin user, go [here](../admin-tab/manage-reports.md) for details.
 
 Report bookmarks:
 * Are created by the report author.

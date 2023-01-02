@@ -3,6 +3,7 @@ author: Veracity
 description: This page explains activity logging in Data Workbench.
 ---
 # Activity logs
+
 Data Workbench logs the following events:
 * Adding new user to Data Workbench.
 * Changes to tenant (created, role added, role deleted).

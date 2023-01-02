@@ -72,7 +72,7 @@ To download a data set as a CSV file:
 To see data sets you can use, go to [My data](https://data.veracity.com/containers). 
 To see how to manage your data on Data Fabric, go [here](https://help-center.veracity.com/en/collections/2429587-managing-your-data-on-data-fabric).
 
-### Create a data set
+### To create a data set
 To create a derived data set:
 1. Select an existing data set.
 2. Apply filters to get relevant data.
@@ -80,7 +80,7 @@ To create a derived data set:
 
 If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
 
-### Share a data set
+### To share a data set
 You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
 
 To share a data set with one or more users:

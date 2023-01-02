@@ -24,7 +24,7 @@ Workspace admin can:
 * change users' roles
 * remove users
 
-## Add users
+## To add users
 To add one or more users to the workspace:
 1. In the workspace, go the **Workspace** tab.
 2. In the left corner, go to the **Members** tab. Then, in the right corner, select the icon with a person and a plus.
@@ -34,7 +34,7 @@ If the user is not registered in Veracity, you will be prompted to invite them t
 5. Select the **Invite** button. It will send the user a message informing they were added to the workspace.
 
 
-## Change user's role
+## To change user's role
 To change a user's role:
 1. In the workspace, go the **Workspace** tab.
 2. In the left corner, go to the **Members** tab. You will see a list of all users in the workspace.
@@ -42,7 +42,7 @@ To change a user's role:
 4. Select the user's role. It will open a dropdown. 
 5. From the dropdown, select a new role for the user.
 
-## Remove a user
+## To remove a user
 To remove a user from the workspace:
 1. In the workspace, go the **Workspace** tab.
 2. In the left corner, go to the **Members** tab.

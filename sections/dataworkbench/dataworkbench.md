@@ -80,6 +80,16 @@ To create a derived data set:
 
 If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
 
+### To upload a data set from a CSV file
+To upload a data set from a CSV file:
+1. In the **Data catalogue** tab, in the right corner, select **Upload data set**. A pop-up window will appear.
+2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file. The file will be validated, and if there are any errors, Data Workbench will show them. After a successful validaton, a pop-up window will appear.
+3. In the window, Data Workbench will show names of the columns in the file and the type of data in them. Verify they are correct and edit incorrect column names or data types.
+4. To preview what the data set would look like, select the **Preview** button. If everything is correct, at the top of the window, select the **Close preview** button.
+5. To upload the data set, select the **Upload** button.
+
+After uploading the file, it will be verified and, after a succesful validation, added to the list of data sets. You can check the validation status for the data set in the "Data status" column. If the validation is unsuccessful, you wil get an email notification explaining what went wrong and how to fix it.  
+
 ### To share a data set
 You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
 
@@ -90,6 +100,38 @@ To share a data set with one or more users:
 4. Select the **Add** button to confirm.
 5. Under **Share access for**, select how long the data set should be available to the user(s).
 6. Select the **Share** button. 
+
+## Storage
+You can upload files to your Data Workbench Storage. Files can have any file extension, they can be shared, and downloaded.
+
+To see the storage for your workspace, go to the **Storage** tab.
+
+In the storage:
+* You can upload and manage files and folders (add, delete, rename) of any extension.
+* You can change the preferred view of your storage.
+* If you upload a CSV file, Data Workbench will offer to convert it to a data set.
+* You can share and download files.
+
+To change the preferred view of your storage:
+* placeholder
+
+To create a folder:
+* placeholder
+
+To upload a file or folder:
+* placeholder
+
+To rename a file or folder:
+* placeholder
+
+To delete a file or folder:
+* placeholder
+
+To share a file or folder:
+* placeholder
+
+To download a file or folder:
+* placeholder
 
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

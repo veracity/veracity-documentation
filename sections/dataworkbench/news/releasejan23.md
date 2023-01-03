@@ -13,10 +13,6 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jan
 
 This section covers new features:
 * [Upload data sets from CSV files.](#upload-data-sets-from-CSV-files)
-* [File storage.](#file-storage)
-
-### File storage
-Now you can upload, store, and share files through your workspace's storage.
 
 ### Upload data sets from CSV files
 Now, when you upload a CSV file, Data Workbench offers to convert it into a data set.

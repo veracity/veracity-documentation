@@ -101,37 +101,5 @@ To share a data set with one or more users:
 5. Under **Share access for**, select how long the data set should be available to the user(s).
 6. Select the **Share** button. 
 
-## Storage
-You can upload files to your Data Workbench Storage. Files can have any file extension, they can be shared, and downloaded.
-
-To see the storage for your workspace, go to the **Storage** tab.
-
-In the storage:
-* You can upload and manage files and folders (add, delete, rename) of any extension.
-* You can change the preferred view of your storage.
-* If you upload a CSV file, Data Workbench will offer to convert it to a data set.
-* You can share and download files.
-
-To change the preferred view of your storage:
-* placeholder
-
-To create a folder:
-* placeholder
-
-To upload a file or folder:
-* placeholder
-
-To rename a file or folder:
-* placeholder
-
-To delete a file or folder:
-* placeholder
-
-To share a file or folder:
-* placeholder
-
-To download a file or folder:
-* placeholder
-
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

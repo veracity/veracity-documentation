@@ -7,7 +7,9 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 [<img src="assets/Btn-InterfaceDescription.png" alt="assets/Btn-InterfaceDescription" height="40">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.1%20interface%20description.xlsx)
 
-[<img src="assets/Btn-OVDGuide.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-OVDGuide" height="30">](https://ovdguide.veracityapp.com)
+<a href="https://ovdguide.veracityapp.com" target="_blank">
+  <img src="assets/Btn-OVDGuide.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-OVDGuide" height="30">
+</a>
 
 [<img src="assets/Btn-CSVfileConverter.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-CSVfileConverter" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20CSV%20file%20converter%20v1.81.xlsm)
 

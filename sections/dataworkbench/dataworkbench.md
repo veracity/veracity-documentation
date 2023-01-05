@@ -82,13 +82,10 @@ If you want to upload a new data set, Veracity suggests using an existing templa
 
 ### To upload a data set from a CSV file
 To upload a data set from a CSV file:
-1. In the **Data catalogue** tab, in the right corner, select **Upload data set**. A pop-up window will appear.
-2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file. The file will be validated, and if there are any errors, Data Workbench will show them. After a successful validaton, a pop-up window will appear.
-3. In the window, Data Workbench will show names of the columns in the file and the type of data in them. Verify they are correct and edit incorrect column names or data types.
-4. To preview what the data set would look like, select the **Preview** button. If everything is correct, at the top of the window, select the **Close preview** button.
-5. To upload the data set, select the **Upload** button.
-
-After uploading the file, it will be verified and, after a succesful validation, added to the list of data sets. You can check the validation status for the data set in the "Data status" column. If the validation is unsuccessful, you wil get an email notification explaining what went wrong and how to fix it.  
+1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
+2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
+3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
+4. To upload the data set, select the **Upload** button.
 
 ### To share a data set
 You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.

@@ -85,7 +85,9 @@ To upload a data set from a CSV file:
 1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
 2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
 3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
-4. To upload the data set, select the **Upload** button.
+4. To upload the data set created from the CSV file, select the **Upload** button.
+
+Note that now you have created a data set you can share with other users.
 
 ### To share a data set
 You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.

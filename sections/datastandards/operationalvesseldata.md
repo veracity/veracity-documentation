@@ -5,13 +5,13 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-[<img src="assets/Btn-InterfaceDescription.png" style="float:left; padding-right:10px" alt="assets/Btn-InterfaceDescription" height="40">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.1%20interface%20description.xlsx)
+[<img src="assets/Btn-InterfaceDescription.png" alt="assets/Btn-InterfaceDescription" height="40">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.1%20interface%20description.xlsx)
 
 [<img src="assets/Btn-OVDGuide.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-OVDGuide" height="30">](https://ovdguide.veracityapp.com)
 
 [<img src="assets/Btn-CSVfileConverter.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-CSVfileConverter" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20CSV%20file%20converter%20v1.81.xlsm)
 
-[<img src="assets/Btn-Samples.png" style="float:left; padding-right:10px" alt="assets/Btn-Samples" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip)
+[<img src="assets/Btn-Samples.png" style="float:left; padding-right:10px" alt="assets/Btn-Samples" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip)  
 
 
 Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data Platform. 

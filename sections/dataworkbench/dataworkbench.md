@@ -84,8 +84,16 @@ If you want to upload a new data set, Veracity suggests using an existing templa
 You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
 
 To share a data set with one or more users:
-1. Hover over the row with a data set. Two icons will appear in the right corner of the row.
+1. Hover over the row with a data set. Action icons will appear in the right corner of the row.
 2. Select the sharing icon (the last one).
+3. Under **Share with user**, enter the email address of a user. You can add multiple users.
+4. Select the **Add** button to confirm.
+5. Under **Share access for**, select how long the data set should be available to the user(s).
+6. Select the **Share** button. 
+
+Alternatively:
+1. Go to a data set you want to share.
+2. In the top-right corner, select the **Share** icon.
 3. Under **Share with user**, enter the email address of a user. You can add multiple users.
 4. Select the **Add** button to confirm.
 5. Under **Share access for**, select how long the data set should be available to the user(s).

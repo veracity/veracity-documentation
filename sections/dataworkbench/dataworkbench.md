@@ -84,6 +84,15 @@ To create a derived data set:
 
 If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
 
+### To upload a data set from a CSV file
+To upload a data set from a CSV file:
+1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
+2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
+3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
+4. To upload the data set created from the CSV file, select the **Upload** button.
+
+Note that now you have created a data set you can share with other users.
+
 ### To share a data set
 You can share a dynamic (live) version of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
 
@@ -125,6 +134,16 @@ Alternatively:
 2. In the row with the data set, under the **Shared with** column, select a user avatar. A pop-up window with the list of users will appear.
 3. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
 4. Select the **Save and Close** button.
+
+Alternatively:
+1. Go to a data set you want to share.
+2. In the top-right corner, select the **Share** icon.
+3. Under **Share with user**, enter the email address of a user. You can add multiple users.
+4. Select the **Add** button to confirm.
+5. Under **Share access for**, select how long the data set should be available to the user(s).
+6. Select the **Share** button. 
+
+Note that if you try to share a data set with an email account that is not registered with Veracity, Veracity will show the **Invite** button. If you select it, Veracity will invite this person to register. After they have registered, they will gain access to the data set you have shared.
 
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

@@ -104,8 +104,15 @@ To share a data set with one or more users:
 5. Select the **Share** button. 
 
 Note that:
-* You can share a dynamic version of the data set.
 * Users are notified by email when they get access to a data set.
+* If you try to share a data set with an email account that is not registered with Veracity, Veracity will show the **Invite** button. If you select it, Veracity will invite this person to register, and they must register in Veracity to get access to the data set you have shared with them.
+
+Alternatively:
+1. Go to a data set you want to share.
+2. In the top-right corner, select the **Share** icon.
+3. Under **Share with user**, enter the email address of a user. You can add multiple users.
+4. Select the **Add** button to confirm.
+5. Select the **Share** button. 
 
 ### To see data sets shared with you
 To see the data sets that have been shared with you:
@@ -119,7 +126,6 @@ Alternatively:
 Note that you cannot edit data sets that are shared with you.
 
 ### To revoke access to a data set
-
 To revoke access to a data set:
 1. Go to the data set.
 2. Go to the **Details** tab.
@@ -135,15 +141,6 @@ Alternatively:
 3. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
 4. Select the **Save and Close** button.
 
-Alternatively:
-1. Go to a data set you want to share.
-2. In the top-right corner, select the **Share** icon.
-3. Under **Share with user**, enter the email address of a user. You can add multiple users.
-4. Select the **Add** button to confirm.
-5. Under **Share access for**, select how long the data set should be available to the user(s).
-6. Select the **Share** button. 
-
-Note that if you try to share a data set with an email account that is not registered with Veracity, Veracity will show the **Invite** button. If you select it, Veracity will invite this person to register. After they have registered, they will gain access to the data set you have shared.
 
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

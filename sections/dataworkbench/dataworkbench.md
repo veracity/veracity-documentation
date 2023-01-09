@@ -62,6 +62,7 @@ Each data set has:
 * Title and description.
 * Column picker – show or hide table columns.
 * Filters - filter data.
+* Save option - save your changes.
 * Share option – share a data set with a user.
 
 To download a data set as a CSV file:

@@ -12,7 +12,10 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jan
 ## New features
 
 This section covers new features:
-* placeholder
+* [Upload data sets from CSV files.](#upload-data-sets-from-CSV-files)
+
+### Upload data sets from CSV files
+Now, when in the **Data catalogue** tab, you can use the **Upload data set** button (in the top right corner) to upload a CSV file and have it converted into a data set.
 
 ## Changes in existing features
 

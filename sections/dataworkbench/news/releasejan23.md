@@ -14,7 +14,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jan
 This section covers new features:
 * [Guest access](#guest-access)
 * [Revoke data set access](#revoke-data-set-access)
-* [Upload data sets from CSV files.](#upload-data-sets-from-CSV-files)
+* [Upload data sets from CSV files](#upload-data-sets-from-CSV-files)
 
 ### Guest access
 Now, you can share data sets with users that are not part of your workspace. The users are notified by email and can access the data sets by the link in the notification message or by going from the **Data catalogue** to **Shared with me** tab.

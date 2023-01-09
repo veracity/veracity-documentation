@@ -62,8 +62,7 @@ Each data set has:
 * Title and description.
 * Column picker – show or hide table columns.
 * Filters - filter data.
-* Save option – save your changes as a data snapshot or a data live stream.
-* Share option – share a data set with a user, and set for how long you grant them access.
+* Share option – share a data set with a user.
 
 To download a data set as a CSV file:
 1. In the **Data catalogue** tab, open a data set you want to download.
@@ -74,10 +73,7 @@ To see how to manage your data on Data Fabric, go [here](https://help-center.ver
 
 ### Types of data sets
 Data sets can be saved and shared as:
-* **Data snapshosts** - shares the current version of the data set (no automatic updates). 
 * **Data live streams (dynamic)**dynamic - when there is a change in a data set, it gets automatically updated.
-
-Note that you cannot save a data snapshot as a data live stream. However, you can convert a data live stream into a data snapshot.
 
 ### To create a data set
 To create a derived data set:
@@ -88,19 +84,18 @@ To create a derived data set:
 If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
 
 ### To share a data set
-You can share a snapshot or a dynamic (live) version of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
+You can share a dynamic (live) version of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
 
 To share a data set with one or more users:
-1. Hover over the row with a data set. Two icons will appear in the right corner of the row.
+1. Hover over the row with a data set. Action icons will appear in the right corner of the row.
 2. Select the sharing icon (the last one).
 3. Under **Share with user**, enter the email address of a user. You can add multiple users.
 4. Select the **Add** button to confirm.
-5. Under **Share access for**, select how long the data set should be available to the user(s). 
-6. Select the **Share** button. 
-7. In the dialog window that appears, decide whether you want to create and save in your storage a CSV file based on the data set you are sharing.
+5. Select the **Share** button. 
+6. In the dialog window that appears, decide whether you want to create and save in your storage a CSV file based on the data set you are sharing.
 
 Note that:
-* You can share a snapshot or a dynamic version of the data set.
+* You can share a dynamic version of the data set.
 * Users are notified by email when they get access to a data set.
 
 ### To see data sets shared with you

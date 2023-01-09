@@ -2,12 +2,11 @@
 author: Veracity
 description: This page contains an overview of Data Workbench.
 ---
-
 # What is Data Workbench?
 Data Workbench allows you to:
 * Get access to data and use it in your applications.
 * Securely share your data and use data shared by others.
-* Monitor who uses your data, limit how long it is available, and revoke access to it.
+* Monitor who uses your data and revoke access to it.
 * Build dashboards and reports on top of the data.
 * Work with scalable data streams and self-defined non-time-series data streams.
 
@@ -63,8 +62,8 @@ Each data set has:
 * Title and description.
 * Column picker – show or hide table columns.
 * Filters - filter data.
-* Save option – save your changes.
-* Share option – share a data set with a user, and set for how long you grant them access.
+* Save option - save your changes.
+* Share option – share a data set with a user.
 
 To download a data set as a CSV file:
 1. In the **Data catalogue** tab, open a data set you want to download.
@@ -73,7 +72,11 @@ To download a data set as a CSV file:
 To see data sets you can use, go to [My data](https://data.veracity.com/containers). 
 To see how to manage your data on Data Fabric, go [here](https://help-center.veracity.com/en/collections/2429587-managing-your-data-on-data-fabric).
 
-### Create a data set
+### Types of data sets
+Data sets can be saved and shared as:
+* **Data live streams (dynamic)** dynamic - when there is a change in a data set, it gets automatically updated.
+
+### To create a data set
 To create a derived data set:
 1. Select an existing data set.
 2. Apply filters to get relevant data.
@@ -81,16 +84,63 @@ To create a derived data set:
 
 If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
 
-### Share a data set
-You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
+### To upload a data set from a CSV file
+To upload a data set from a CSV file:
+1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
+2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
+3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
+4. To upload the data set created from the CSV file, select the **Upload** button.
+
+Note that now you have created a data set you can share with other users.
+
+### To share a data set
+You can share a dynamic (live) version of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it.
 
 To share a data set with one or more users:
-1. Hover over the row with a data set. Two icons will appear in the right corner of the row.
+1. Hover over the row with a data set. Action icons will appear in the right corner of the row.
 2. Select the sharing icon (the last one).
 3. Under **Share with user**, enter the email address of a user. You can add multiple users.
 4. Select the **Add** button to confirm.
-5. Under **Share access for**, select how long the data set should be available to the user(s).
-6. Select the **Share** button. 
+5. Select the **Share** button. 
+
+Note that:
+* Users are notified by email when they get access to a data set.
+* If you try to share a data set with an email account that is not registered with Veracity, Veracity will show the **Invite** button. If you select it, Veracity will invite this person to register, and they must register in Veracity to get access to the data set you have shared with them.
+
+Alternatively:
+1. Go to a data set you want to share.
+2. In the top-right corner, select the **Share** icon.
+3. Under **Share with user**, enter the email address of a user. You can add multiple users.
+4. Select the **Add** button to confirm.
+5. Select the **Share** button. 
+
+### To see data sets shared with you
+To see the data sets that have been shared with you:
+1. From the main page of Data Workbench, go to **Recent data sets** and then select **See all data sets**.
+2. Go to the **Shared with me** tab.
+
+Alternatively:
+1. Go to the **Data Catalogue** tab.
+2. Go to the **Shared with me** tab.
+
+Note that you cannot edit data sets that are shared with you.
+
+### To revoke access to a data set
+To revoke access to a data set:
+1. Go to the data set.
+2. Go to the **Details** tab.
+3. Under **Shared with**, select the pencil icon. A pop-up window with the list of users will appear.
+4. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
+5. Select the **Save and Close** button.
+
+When you revoke a user's access to a data set, they are notified about that by email.
+
+Alternatively:
+1. Go to **Data Catalogue** and select the tab with the data set you want to revoke access to.
+2. In the row with the data set, under the **Shared with** column, select a user avatar. A pop-up window with the list of users will appear.
+3. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
+4. Select the **Save and Close** button.
+
 
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

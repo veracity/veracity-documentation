@@ -6,7 +6,7 @@ description: This page contains an overview of Data Workbench.
 Data Workbench allows you to:
 * Get access to data and use it in your applications.
 * Securely share your data and use data shared by others.
-* Monitor who uses your data, limit how long it is available, and revoke access to it.
+* Monitor who uses your data and revoke access to it.
 * Build dashboards and reports on top of the data.
 * Work with scalable data streams and self-defined non-time-series data streams.
 

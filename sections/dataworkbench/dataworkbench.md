@@ -93,7 +93,6 @@ To share a data set with one or more users:
 3. Under **Share with user**, enter the email address of a user. You can add multiple users.
 4. Select the **Add** button to confirm.
 5. Select the **Share** button. 
-6. In the dialog window that appears, decide whether you want to create and save in your storage a CSV file based on the data set you are sharing.
 
 Note that:
 * You can share a dynamic version of the data set.

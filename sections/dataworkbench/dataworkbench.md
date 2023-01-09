@@ -62,8 +62,8 @@ Each data set has:
 * Title and description.
 * Column picker – show or hide table columns.
 * Filters - filter data.
-* Save option – save your changes.
-* Share option – share a data set with a user, and set for how long you grant them access.
+* Save option - save your changes.
+* Share option – share a data set with a user.
 
 To download a data set as a CSV file:
 1. In the **Data catalogue** tab, open a data set you want to download.
@@ -71,6 +71,10 @@ To download a data set as a CSV file:
 
 To see data sets you can use, go to [My data](https://data.veracity.com/containers). 
 To see how to manage your data on Data Fabric, go [here](https://help-center.veracity.com/en/collections/2429587-managing-your-data-on-data-fabric).
+
+### Types of data sets
+Data sets can be saved and shared as:
+* **Data live streams (dynamic)**dynamic - when there is a change in a data set, it gets automatically updated.
 
 ### To create a data set
 To create a derived data set:
@@ -90,15 +94,46 @@ To upload a data set from a CSV file:
 Note that now you have created a data set you can share with other users.
 
 ### To share a data set
-You can share a snapshot of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
+You can share a dynamic (live) version of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it and when their access expires.
 
 To share a data set with one or more users:
 1. Hover over the row with a data set. Action icons will appear in the right corner of the row.
 2. Select the sharing icon (the last one).
 3. Under **Share with user**, enter the email address of a user. You can add multiple users.
 4. Select the **Add** button to confirm.
-5. Under **Share access for**, select how long the data set should be available to the user(s).
-6. Select the **Share** button. 
+5. Select the **Share** button. 
+
+Note that:
+* You can share a dynamic version of the data set.
+* Users are notified by email when they get access to a data set.
+
+### To see data sets shared with you
+To see the data sets that have been shared with you:
+1. From the main page of Data Workbench, go to **Recent data sets** and then select **See all data sets**.
+2. Go to the **Shared with me** tab.
+
+Alternatively:
+1. Go to the **Data Catalogue** tab.
+2. Go to the **Shared with me** tab.
+
+Note that you cannot edit data sets that are shared with you.
+
+### To revoke access to a data set
+
+To revoke access to a data set:
+1. Go to the data set.
+2. Go to the **Details** tab.
+3. Under **Shared with**, select the pencil icon. A pop-up window with the list of users will appear.
+4. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
+5. Select the **Save and Close** button.
+
+When you revoke a user's access to a data set, they are notified about that by email.
+
+Alternatively:
+1. Go to **Data Catalogue** and select the tab with the data set you want to revoke access to.
+2. In the row with the data set, under the **Shared with** column, select a user avatar. A pop-up window with the list of users will appear.
+3. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
+4. Select the **Save and Close** button.
 
 Alternatively:
 1. Go to a data set you want to share.

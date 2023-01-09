@@ -99,5 +99,7 @@ Alternatively:
 5. Under **Share access for**, select how long the data set should be available to the user(s).
 6. Select the **Share** button. 
 
+Note that if you try to share a data set with an email account that is not registered with Veracity, Veracity will show the **Invite** button. If you select it, Veracity will invite this person to register. After they have registered, they will gain access to the data set you have shared.
+
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

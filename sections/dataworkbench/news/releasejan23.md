@@ -17,7 +17,7 @@ This section covers new features:
 * [Upload data sets from CSV files](#upload-data-sets-from-csv-files)
 
 ### Guest access
-Now, you can share data sets with users that are not part of any workspace or tenant. The users are notified by email and can access the data sets by the link in the notification message or by going from the **Data catalogue** to **Shared with me** tab.
+Now, you can share data sets with users that are not part of any workspace or tenant. The users are notified by email and can access the data sets by the link in the notification message. Workspace or tenant members can also see shared data sets from others by going from the "Data catalogue" to "Shared with me" tab. Guest users can see shared data sets in the "Shared with me" list.
 The guest users have reader access meaning they cannot edit data sets.
 
 ### Revoke data set access

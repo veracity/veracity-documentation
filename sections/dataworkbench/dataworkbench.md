@@ -84,6 +84,8 @@ To create a derived data set:
 If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
 
 ### To upload a data set from a CSV file
+If you are an admin, you can upload a data set from a CSV file.
+
 To upload a data set from a CSV file:
 1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
 2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.

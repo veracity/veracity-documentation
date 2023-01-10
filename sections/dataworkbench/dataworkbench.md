@@ -63,14 +63,13 @@ Each data set has:
 * Column picker – show or hide table columns.
 * Filters - filter data.
 * Save option - save your changes.
+* Download option - download a data set.
 * Share option – share a data set with a user.
+* Delete option - if you are an admin, you can delete the data set.
 
 To download a data set as a CSV file:
 1. In the **Data catalogue** tab, open a data set you want to download.
 2. In the right corner, select the download icon.
-
-To see data sets you can use, go to [My data](https://data.veracity.com/containers). 
-To see how to manage your data on Data Fabric, go [here](https://help-center.veracity.com/en/collections/2429587-managing-your-data-on-data-fabric).
 
 ### Types of data sets
 Data sets can be saved and shared as:
@@ -98,7 +97,7 @@ You can share a dynamic (live) version of a data set to file storage in [Data Fa
 
 To share a data set with one or more users:
 1. Hover over the row with a data set. Action icons will appear in the right corner of the row.
-2. Select the sharing icon (the last one).
+2. Select the **Share** icon.
 3. Under **Share with user**, enter the email address of a user. You can add multiple users.
 4. Select the **Add** button to confirm.
 5. Select the **Share** button. 

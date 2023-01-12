@@ -4,6 +4,8 @@ description: This page explains activity logging in Data Workbench.
 ---
 # Activity logs
 
+To see the activity log for a workspace, in the **Workspace** tab, select the **Activity log** tab.
+
 Data Workbench logs the following events:
 * Adding new user to Data Workbench.
 * Changes to tenant (created, role added, role deleted).
@@ -17,5 +19,3 @@ Data Workbench logs the following events:
 * Changes to connections (created, modified, deleted).
 * Changes to connector (created, modified, deleted).
 * Changes to service accounts for API sharing (created, updated, regenerate service account secret, deleted).
-
-To see the activity log for a workspace, go to the **Workspace** tab. Then, under the bar with an arrow, go to the **Activity log** tab.

@@ -81,7 +81,7 @@ To create a derived data set:
 2. Apply filters to get relevant data.
 3. Save the data set.
 
-Veracity suggests using an existing templates for creating your data sets. The templates are shown in the **Home** tab under the navigation menu. Note that a template can contain one or more data sets.
+Veracity suggests using an existing template for creating your data sets. The templates are shown in the **Home** tab under the navigation menu. Note that a template can contain one or more data sets.
 
 To create a new data set from a template:
 1. In the **Home** tab, select a template.

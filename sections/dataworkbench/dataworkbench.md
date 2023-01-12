@@ -81,10 +81,18 @@ To create a derived data set:
 2. Apply filters to get relevant data.
 3. Save the data set.
 
-If you want to upload a new data set, Veracity suggests using an existing template such as Poseidon Principles or Sea Cargo Charter. You can upload data as a CSV file. 
+Veracity suggests using an existing templates for creating your data sets. The templates are shown in the **Home** tab under the navigation menu. Note that a template can contain one or more data sets.
+
+To create a new data set from a template:
+1. In the **Home** tab, select a template.
+2. If there is more than one data set in the template, select a data set.
+2. In the right corner, select the **Save as new** icon and save a copy of the data set.
+3. Edit the data set to suit your needs. Consider using "Edit table properties" (the pencil icon) and filters (the three vertical lines icon).
+4. Optionally, to download the data set from as a CSV file, in the right corner, select the **Download** icon.
+
 
 ### To upload a data set from a CSV file
-If you are an admin, you can upload a data set from a CSV file.
+If you are an [admin](usermanagement.md), you can upload a data set from a CSV file.
 
 To upload a data set from a CSV file:
 1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.

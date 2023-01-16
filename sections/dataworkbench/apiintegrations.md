@@ -29,3 +29,10 @@ To regenerate a service account secret:
 1. In your workspace, select the **API Integrations** tab. 
 2. In the left sidebar, select a service account.
 3. Next to the **Service account secret**, select **Regenerate**.
+
+## To delete a service account
+To delete a service account:
+1. In your workspace, select the **API Integrations** tab. 
+2. In the left sidebar, select a service account.
+3. In the bottom right corner, select the **Remove service account** button. A pop-up window will appear.
+4. In the pop-up window, select the **Delete** button.

@@ -42,8 +42,3 @@ Now, in the "Data catalogue", there is a new tab called "Shared with me". The ta
 
 ### Share data sets without expiration date
 Previously, when sharing a data set, you had to decide on the expiration date for the share. Now, data sets are shared for unlimited time.
-
-## Bugs fixed
-
-This section covers bugs that have been fixed:
-* placeholder

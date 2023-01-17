@@ -3,21 +3,24 @@ author: Veracity
 description: Overview of data sources and security in the Veracity Adapter for Power BI.
 ---
 
-# Data sources and security
+# Data sources and security in Power BI reports
 
 VAP workspaces are hosted in Microsoft cloud either in the UE or USA, depending on where your service is set up. For maxium safety, DNV owns private premium capacities and does not share them with anyone.
 
 VAP does not store your data and it cannot access it. VAP only stores the report and data set ID, so that they can be loaded from their source location into your reports in VAP. 
 
-VAP supports using multiple data sources in your Power BI report. The data sources and credentials you use when creating your report are automatically imported into VAP. If you want to override and update them, you can do so from VAP.
+If you are a Power BI report developer, store you Power BI file and source code in a secure folder and ensure it is available to the coworkers that might subtitute you if you are unavailable.
+
+VAP supports using multiple data sources in your Power BI report. The data sources and credentials you use when creating your report are part of your Power BI file. If you want to override and update them, you can do so from VAP. Note that the updates are made on the Power BI file, and VAP does not store or capture them.
 
 You can use the following data sources:
-* Your Power BI report. VAP will import the data from it. Suitable if the data changes seldom.
+* Data imported from source files when developing your Power BI report. Suitable if the data changes seldom.
 * Refreshable data sources stored in the cloud. Suitable if the data changes frequently.
 
 VAP supports the following refreshable data sources:
 * Azure SQL Database through direct query. VAP refreshes data each time the users views the report.
 * Veracity Data Fabric containers (to see your containers, in Veracity's top navigation bar, select "My data"). You can set up data to refresh daily, weekly, or monthly. The maximum number of daily refreshes is 48 which means the data would be refreshed approximately every 30 minutes. 
+If you want to create a Veracity Data Fabric container and do not have the necessary access level, you can obtain it [here](https://store.veracity.com/veracity-data-fabric-secure-data-sharing).
 * Azure Analysis Services. VAP refreshes data each time the users views the report.
 * On Permises Databases through Gateway.
 

@@ -9,13 +9,13 @@ The "Manage Users" page shows all users in your VAP service. You can:
 * Filter each column providing the text to filter by or choosing an option from a dropdown. To clear all the filters, select the **Clear** button in the right corner of the row with the filters.
 * Sort the "Name" and "Email" columns by selecting them.
 
-You can only add Veracity users to a VAP entity. However, if you try to add a non-Veracity user, you will be offered an option to invite them to Veracity. To get access to the VAP entity, this person needs to accept the invitation and create their Veracity account.
+You can only add Veracity users to a VAP entity. However, if you try to add a non-Veracity user, you will be offered an option to invite them to Veracity. To get access to the VAP entity, this person needs to accept the invitation and compleet their the Veracity account registration.
 
 ## To add a user
 
 To add a user to an entity:
 1. Select the **Add User** button.
-2. Provide the user's email address, and select the **Check Email / User ID** button.
+2. Provide the user's email address, and select the **Check Email / User ID** button. You can also add a user by it's unique Vracity ID instead of email address.
 3. In the **Grant access to** dropdown, select the entity to which the user should be added.
 4. In the **Roles** dropdown, assign a [role](../user-roles.md) to the user.
 5. Optionally, deselect "Send notification to this user" if you do not want to notify the user that they have been added to an entity in VAP.
@@ -24,8 +24,12 @@ To add a user to an entity:
 
 To batch add users to an entity:
 1. Select the **Batch Add Users** button.
-2. In the **Grant access to** dropdown, select the entity to which the users should be added.
+2. In the **Grant access to** dropdown, select the entity/enteties to which the users should be added.
 3. In the **Roles** dropdown, assign a [role](userroles.md) to the users.
 4. Select the **Choose File** button and choose a CSV file from your local machine to batch import users.
 
-For a template for batch importing users, look below the **Choose File** button.
+For a template for batch importing users, look below the **Choose File** button. 
+
+Allready added yours will updated with aditional role or aditional enteties.
+
+Please note that based on performance this function will be run as a background module. You can check the status in the Background module section.

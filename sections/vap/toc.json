@@ -36,10 +36,6 @@
 			]
 		},
 		{
-			"text": "Data sources and security",
-			"href": "data.md"
-		},
-		{
 			"text": "Admin Tab",
 			"items": [
 				{
@@ -71,6 +67,10 @@
 					"href": "admin-tab/configure.md"
 				}
 			]
+		},
+		{
+			"text": "Data sources and security in Power BI reports",
+			"href": "data.md"
 		},
 		{
 			"text": "User roles",

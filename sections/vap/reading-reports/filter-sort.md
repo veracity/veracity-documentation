@@ -14,7 +14,7 @@ Note that:
 
 ## Showing filtering and sorting
 
-When you hover over an element in a report, in its top right corner, VAP shows icons with the available options:
+When you hover over a visual element in a report, in its top right corner, VAP shows icons with the available options:
 * See what filters and slicers are applied to this element.
 * Apply a filter. This icon is shown only if the element has a filter you can apply.
 * Focus mode. This enlarges the window with the report element.

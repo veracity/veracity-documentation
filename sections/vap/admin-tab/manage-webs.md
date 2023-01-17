@@ -21,7 +21,7 @@ To create a new web connection:
 2. In the **Root URL**, provide the full root URL to your web application.
 3. To accept the legal terms of using the service, below the ***Root URL***, enable the toggle **I accept and understand...**
 4. In the **Display name**, provide the name that the end users should see when they change between different reports or applications.
-5. Optionally, in the **Description** field, describe your report for the end users. Note that currently the description is not shown to the users.
+5. Optionally, in the **Description** field, describe your web application for the end users. Note that currently the description is not shown to the users.
 6. Below **Description**, you can enable the following toggles:
 
 	Enable Dedicated Domain Name - if your web app requires a dedicated domain name, enable this to provide the domain name.
@@ -36,6 +36,7 @@ To create a new web connection:
 
 7. Select the **Check connection** button to verify if your web application can connect to your VAP service.
 8. After establishing a connection, select the **Add** button to add the connection.
-9. After you have added a new web connection, go to [Manage Entities](manage-entities.md) and add your web application to a new or existing entity.
+9. After you have added a new web connection, go to [Manage Reports](manage-reports.md) and add your web application to a new or existing report object.
+10. After that, go to [Manage Entities](manage-entities.md) and add your web application to a new or existing entity.
 
 For help with connecting your web app to VAP, go to [Veracity Community](https://community.veracity.com/t/how-to-plug-the-web-apps-into-vap/145/3).

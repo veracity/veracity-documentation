@@ -21,7 +21,7 @@ Personal bookmarks:
 
 To go to a bookmarked page of the report:
 1. Open a report.
-2. In the right corner of the window, select the bookmark icon (the third one from the left, if made avaliable for the report). A pop-up window will appear.
+2. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
 3. In the pop-up window, select the name of the bookmark. After that, you will be taken to the bookmarked page of the report.
 
 ## To create a bookmark
@@ -29,7 +29,7 @@ To go to a bookmarked page of the report:
 To create a bookmark:
 1. Open a report.
 2. Go to the page of the report you want to create a bookmark on.
-3. In the right corner of the window, select the bookmark icon (the third one from the left, if made avaliable). A pop-up window will appear.
+3. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
 4. In the pop-up window, select the **Add a new bookmark** button. A pop-up window will appear.
 5. In the pop-up window, enter the name for the bookmark.
 5. Select the **Save** button.
@@ -38,7 +38,7 @@ To create a bookmark:
 ## To organize bookmarks
 
 To rearrange the order of your personal bookmarks:
-1. In the right corner of the window, select the bookmark icon (the third one from the left, if made avaliable). A pop-up window will appear.
+1. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
 2. Select the bookmark you want to move.
 3. Drag and drop the bookmark to the desired location.
 

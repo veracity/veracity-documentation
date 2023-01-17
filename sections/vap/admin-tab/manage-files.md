@@ -26,8 +26,10 @@ The actions above are listed from the first to the last icon from the left.
 To upload a file:
 1. Select the **Upload a file** button.
 2. Select the **Choose File** button and select the file from your local machine.
-3. In the **Name** field, provide the name for the file. If you are uploading a report for a particular client, Veracity recommends including the client's name and the report's date in the file name.
-4. In the right corner, select the **Upload** button.
+3. Read and accept the terms
+4. Respond to personal data questions
+5. In the **Name** field, provide the name for the file. If you are uploading a report for a particular client, Veracity recommends including the client's name and the report's date in the file name. Another recommendation is also to spesify the upload date as part of your filename. Makes it easier to know the latest version later. 
+6. In the right corner, select the **Upload** button.
 
 If you get a warning when VAP checks your report's data sources, follow the troubleshooting recommended in the warning. 
 

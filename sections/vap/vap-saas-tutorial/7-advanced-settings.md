@@ -14,7 +14,6 @@ In this section, we have the following settings:
 - Service Analytics
 - Entity types
 - Tenant properties
-- Entity type properties
 - Tenant documents
 - Refresh schedule plan
 - Footer properties
@@ -30,9 +29,6 @@ Entity types define the naming used in the <i>Manage Entities</i> section of the
 
 ## Tenant properties
 Tenant properties are information about your service. There is some basic information you can edit, like invoicing details, owner of the service etc. 
-
-## Entity type properties
-Entity type properties are the properties that will be sent to Power BI during runtime to utilize row-level security. For details on setup, see the VAP manual with examples. Row-level-security is a VAP Pro feature.
 
 ## Tenant documents
 Tenant documents are documents you want to make available to all users from the end-users main screen. This is where you typically would publish marketing doccuments, FAQ, invitations to events etc.

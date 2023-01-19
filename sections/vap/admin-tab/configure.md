@@ -7,7 +7,7 @@ description: Overview of the Configure tab in the admin tab.
 
 ## Header Icon
 
-Under "Header Icon", you can edit the favicon (header) icon for your VAP service or reset it to the default. To upload your own icon, select the **Edit Head Icon** button. To reset the icon to the default, select the **Reset to default icon**. A DNV or Veracity owned service should not update the logo, but stay with the default one.
+Under "Header Icon", you can edit the favicon (header) icon for your VAP service or reset it to the default. To upload your own icon, select the **Edit Head Icon** button. To reset the icon to the default, select the **Reset to default icon**. If this a DNV or Veracity-owned service, leave the default logo.
 
 
 ## Statistics Report
@@ -35,7 +35,7 @@ To edit tenant properties, select the **Edit** button and edit the fields you ne
 	
 	Enable manage filters - if you enable this default setting, a "Manage Filters" button will be shown under "Manage Reports", and you wil be able to configure reusable report filters for your users.
 	
-	Show dataset and report id - enable to show the ID of data sets and reports on Power BI reports in Manage File.
+	Show dataset and report id - enable to show the ID of data sets and reports on Power BI reports in "Manage File".
 	
 	Enable Power BI - enable Power BI in your VAP service.
 	
@@ -46,13 +46,13 @@ To edit tenant properties, select the **Edit** button and edit the fields you ne
 
 ## Tenant Documents
 
-Under "Tenant Documents", you can define what documents should be avaliable for all users from HOME menu. You can see the documents added to your tenant. To sort them by column, select the column's name. In the right corner of each row, you can:
+Under "Tenant Documents", you can define what documents should be avaliable for all users from the "Home" menu. You can see the documents added to your tenant. To sort them by column, select the column's name. In the right corner of each row, you can:
 * Edit the document.
 * Delete the document.
 
 To add a document:
 1. Select the **Add** button.
-2. In the **Report title** dropdown, select the name of the document (PDF or Image).
+2. In the **Report title** dropdown, select the name of the document (PDF, image).
 3. In the **Display name**, add the name for the document that should be shown to users.
 4. Select the **Save** button.
 
@@ -65,13 +65,13 @@ Under "Refresh Schedule Plan", you can schedule when the reports in your VAP ser
 To add a scheduled refresh:
 1. Select the **Add** button.
 2. In the **Title**, provide a name for the refresh plan. This is only shown to Report and System Admin users.
-3. In the time zone, select a time zone for the refresh, the start time, the intervals, and the number of daily refreshes (maximum 48 per day which means a refresh every 30 minutes). Schedule refresh is consuming capacity memory and should only be set up to run in the intervalls you know the data are updated. It is seen as a background task, when Power BI capacity has high usage these background tasks is not prioriticed and will be prosponed to later.
+3. In the time zone, select a time zone for the refresh, the start time, the intervals, and the number of daily refreshes (maximum 48 per day which means a refresh every 30 minutes). Note that scheduled refresh is a memory intensive background task and may be postponed during high memory usage by Power BI. Because of that, set the refreshes only in the necessary intervals.
 4. Optionally, select the **Generate refresh times** to set the time for each refresh. To add another scheduled refresh, select the **Add another time** button.
 5. Under **Weekdays**, select the days on which report data should be refreshed.
 6. In the **Apply to PBI reports**, select which Power BI files should use this refresh plan. Note that the files need to be stored in a cloud.
 7. Select the **Save & Apply** button.
 
-If you want to apply a refresh plan or change it to another, you can do so for each report under "Manage file" or directly here.
+If you want to apply a refresh plan or change it to another, you can do so for each report under "Manage file" or in the "Configure" tab.
 
 ## Footer Properties
 
@@ -88,4 +88,4 @@ Note that to see the changes in footer, entity types or tenant properties, you n
 
 ## Report Release Note
 
-Under "Report Release Note", you can download a JSON template file for release notes. You can use it for creating your release notes with the purpose of communicating changes to your end users. Upload it in Manage File and connect it to the report in Manage Report.
+Under "Report Release Note", you can download a JSON template file for release notes. You can use it for creating your release notes with the purpose of communicating changes to your end users. After modifying the template, ipload it in [the "Manage Files" tab](manage-files.md)  and connect it to the report in [the "Manage Reports" tab](manage-reports.md).

@@ -65,6 +65,10 @@
 				{
 					"text": "Configure",
 					"href": "admin-tab/configure.md"
+				},
+				{
+					"text": "Background jobs",
+					"href": "admin-tab/background-jobs.md"
 				}
 			]
 		},

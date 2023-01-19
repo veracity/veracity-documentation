@@ -24,10 +24,6 @@ To go to a bookmarked page of the report:
 2. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
 3. In the pop-up window, select the name of the bookmark. After that, you will be taken to the bookmarked page of the report.
 
-To go back to the previous report page after using a bookmark:
-1. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
-2. Select the third icon from the left. After that, you will be taken back to the page of the report you had open when you selected a bookmark.
-
 ## To create a bookmark
 
 To create a bookmark:
@@ -69,4 +65,4 @@ To delete a bookmark:
 2. In the right corner of the window, select the bookmark icon (the third one from the left). A pop-up window will appear.
 3. In the pop-up window, in the row with name of the bookmark, select the delete icon (the second one from the left). After that, the bookmark will be deleted.
 
-Note that users can only delete their own personal bookmarks. However, admin users with the "Manage Reports" access can delete report and personal bookmarks.
+Note that users can only delete their own personal bookmarks. However, admin users with the "Manage Reports" access can delete or disable both report and personal bookmarks.

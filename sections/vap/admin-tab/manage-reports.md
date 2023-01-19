@@ -13,14 +13,14 @@ To create a new report object:
 3. In the **Display name**, provide the name that will be visible to everyone with access.
 4. Optionally, deselect the toggle **Use Display Name as Report URL Name**, and below in the field **Report URL name** provide your custom URL for the report. The URL name must be unique and cannot contain spaces or special characters. You can use alphanumeric values, underscore, and hyphen.
 5. Optionally, in the **Description** field, describe your report for the end users. Note that currently the description is not shown to the users.
-6. From the **File title** dropdown, select what file you want your report to connect to. The one you uploaded in Manage File.
+6. From the **File title** dropdown, select what file you want your report to connect to. If you do not see the file, go to [Manage Files to upload it](manage-files.md).
 7. Below **File title**, you can enable the following toggles:
 
 	Printable - allows printing the report.
 	
 	Able to export data - allows exporting data from visuals in the report.
-	Able to export as PDF  - allows export of all pages in your report to a PDF document. Can be used to print the file later.
-	Able to export to PPT - allows export of all pages to Power Point.
+	Able to export as PDF  - allows exporting your report to a PDF document.
+	Able to export to PPT - allows exporting your report to Power Point.
 	
 	Show filter panel - if your reports uses filter pane, disable this option to show the filter.
 	
@@ -28,13 +28,12 @@ To create a new report object:
 	
 	Show bookmark icon - enables users to bookmark parts of the report, so that they can use them to go back to the bookmarked parts of the reports or share them as links with other people. Only user personal bookmarks will be shown.
 		
-	Show based on report file bookmarks - enables user personal bookmarks and report bookmarks. Use it for reports that will have some bookmarks created by the report author, but also will allow users to create their own. When disabled only personal bookmarks will be shown.
+	Show based on report file bookmarks - enables user personal bookmarks and report bookmarks. Use it for reports that will have some bookmarks created by the report author, but also will allow users to create their own. Note that, when it is disabled, VAP will show only personal bookmarks.
 
 8. In the **Role name**, if you have enabled [Row Level Security (RLS)](../data.md), provide the role name as defined in your PBI report (Manage roles > Roles).
 9. In the **Row level security parameter**, if you have enabled [RLS](../data.md), provide filter key and from the dropdown, select its type. To add another filter key, select the plus button next to the dropdown.
-10. In the **Connect Tutorial**, you can select which tutorial for your report should be shown to the users. You can use tutorials to present new features, teach users how to read your reports, and so on. Remember, a report tutorial needs to be added in Manage File before it can be selected here. A template avaliable in Configure.
+10. In the **Connect Tutorial**, you can select which tutorial for your report should be shown to the users. You can use tutorials to present new features, teach users how to read your reports, and so on. If you do not see the file, go to [Manage Files to upload it](manage-files.md). Note that you can find a template for tutorials in the "Configure" tab.
 11. In the right corner, select the **Add** button.
-
 
 ## To create a new Web app report
 
@@ -53,9 +52,9 @@ To create a new Web app report:
 
 ## To refresh a report with new content 
 
-If your Power BI report contains imported data and you want to show its newer version with the fresh data, or if you need to updated your Image or PDF file with a newer version. Follow the steps below.
-1. Upload the new file/report in Manage File.
-2. In the **File title** field, switch and select the report you have just uploaded.
+If your Power BI report contains imported data and you want to show its newer version with the fresh data, or if you need to replace an image or a PDF file with its newer version, follow the steps below.
+1. In **Manage File**, upload the new file or report.
+2. In the **File title** field, select the file you have uploaded.
 3. Select the **Save** button.
 
 

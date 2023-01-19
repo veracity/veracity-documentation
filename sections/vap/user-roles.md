@@ -16,19 +16,19 @@ Roles are assigned and revoked by user admins and system admins.
 
 ## DataReader
 
-This role is suitable for end-users of your VAP service as it allows them to read the reports they have been given access to.
+This role is suitable for end-users of your VAP service as it allows them to read and interact with the reports and web connections they have been given access to.
 
 ## ReportAdmin
 
 This role is suitable for people who should be able to:
-* Upload and delete Power BI files (your reports are based on them).
+* Upload and delete Power BI reports and files (your reports are based on them).
 * Create reports in VAP.
 * Connect your web app to be shown and shared through VAP.
 
 ## DataAdmin
 
 This role is suitable for data administrators who organize how your reports are shown to end users and give them access. Data admins can:
-* Upload and delete Power BI files (your reports are based on them).
+* Upload and delete Power BI reports and files (your reports are based on them).
 * Create reports in VAP.
 * Group and structure your reports, and give access to them.
 

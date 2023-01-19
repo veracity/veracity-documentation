@@ -21,7 +21,7 @@ This role is suitable for end-users of your VAP service as it allows them to rea
 ## ReportAdmin
 
 This role is suitable for people who should be able to:
-* Upload and delete Power BI report and files (your reports are based on them).
+* Upload and delete Power BI reports and files (your reports are based on them).
 * Create reports in VAP.
 * Connect your web app to be shown and shared through VAP.
 

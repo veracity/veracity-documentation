@@ -1,0 +1,22 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "AIS-Ocean Data",
+			"href": "aisoceandataoverview.md"
+		},
+		{
+			"text": "AIS-API",
+			"items": [
+				{
+					"text": "AIS-API Specification",
+					"href": "aisapi/aisapispecification.md"
+				},
+				{
+					"text": "Services API Reference",
+					"href": "aisapi/ais-service-api.yaml"
+				}
+			]
+		}
+	]
+}

@@ -27,7 +27,7 @@ Workspace admin can:
 ## To add users
 To add one or more users to the workspace:
 1. In the workspace, go the **Workspace** tab.
-2. In the left corner, go to the **Members** tab. Then, in the right corner, select the icon with a person and a plus.
+2. In the left corner, go to the **Members** tab. Then, in the right corner, select "+ Invite members".
 3. Enter the user's email address and select the user's role ("Reader" or "Admin").
 If the user is not registered in Veracity, you will be prompted to invite them to Veracity.
 4. Select the **Add** button. It will add the user to the workspace. You can add more than one user.

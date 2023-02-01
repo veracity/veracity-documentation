@@ -288,9 +288,7 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="ledger"></a>To query activity logs (ledgers) for a dataset:
-* If the service account has access to all the workspace, call the call https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
-* If the service account has access only to the datasets shared with it, call the call https://api.veracity.com/veracity/dw/gateway/api/v1/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
+<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
 
 ## Response codes
 

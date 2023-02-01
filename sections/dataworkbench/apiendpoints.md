@@ -52,22 +52,6 @@ Below you can see an example of a successful request (code 200).
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
 
-## Service account endpoints
-
-To get information about a service account, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/me.
-
-Below you can see an example of a successful request (code 200).
-```json
-{
-  "serviceAccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "serviceAccountName": "string",
-  "secret": "string",
-  "subscriptionKey": "string",
-  "accessLevel": "Dataset"//Workspace or Dataset
-}
-```
-Note that **accessLevel** indicates wheter the service account has access to all the data in the worksapce ("Workspace") or just to the data sets shared with it ("Dataset").
-
 ## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
 
@@ -179,9 +163,7 @@ You can use the following endpoints:
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all available data sets:
-* If the service account has access to all the workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
-* If the service account has access only to the data sets shared with it, call the https://api.veracity.com/veracity/dw/gateway/api/v1/datasets endpoint.
+<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
 
 You can use additional properties in your query:
 * {isBaseDataset} – boolean; by default, no value; you can set it to "true" or "false"
@@ -229,9 +211,7 @@ Below you can see an example of a successful request (code 200).
 ]
 ```
 
-<a name="data"></a>To get a specific data set by its ID:
-* If the service account has access to all the workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
-* If the service account has access only to the datasets shared with it, call the https://api.veracity.com/veracity/dw/gateway/api/v1/datasets/{datasetId} endpoint. You must provide the {datasetId}(string, $UUID).
+<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -267,11 +247,7 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="dataMore"></a>To query for data by workspace ID:
-* If the service account has access to all the workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
-* If the service account has access only to the datasets shared with it, call the https://api.veracity.com/veracity/dw/gateway/api/v1/datasets/{datasetId}/query endpoint. You must provide the {datasetId}(string, $UUID). You can use additional properties in your query. 
-
-
+<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
 
 Below you can see a sample request body.
 

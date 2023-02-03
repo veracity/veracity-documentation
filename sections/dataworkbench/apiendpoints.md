@@ -163,7 +163,8 @@ You can use the following endpoints:
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all data sets available in a workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
+<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
+
 You can use additional properties in your query:
 * {isBaseDataset} – boolean; by default, no value; you can set it to "true" or "false"
 * {pageIndex} – integer($int32)
@@ -210,7 +211,7 @@ Below you can see an example of a successful request (code 200).
 ]
 ```
 
-<a name="data"></a>To get data sets by workspace ID and data set ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
+<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -246,8 +247,7 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="dataMore"></a>To query for data by workspace ID, data set ID, and some additional properties, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint.
-You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
+<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
 
 Below you can see a sample request body.
 
@@ -288,7 +288,7 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace and the dataset.
+<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
 
 ## Response codes
 

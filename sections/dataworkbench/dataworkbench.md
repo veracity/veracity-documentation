@@ -25,7 +25,7 @@ If you are a tenant admin, you can use the picker button to create a new workspa
 - Is authorized on the provider's side and follows their authorization policy.
 - If the provider enables downloading binary data, a connector stores this data into cloud file stores, so that it can used by customers.
 
-A connection binds together a connector and a tenant's workspace, and it is used by the dataset to query data from a data source. 
+A connection binds together a connector and a tenant's workspace, and it is used by the data set to query data from a data source. 
 
 To see available connectors and connections in your workspace, go to the **Connections** tab. 
 Once you have a connection set up, the Data Catalogue will show the predefined data sets queried from the corresponding source system.

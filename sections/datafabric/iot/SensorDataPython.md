@@ -1,4 +1,0 @@
-﻿# Sensordata query Python 
-
-
-

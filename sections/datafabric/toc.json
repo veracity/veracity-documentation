@@ -17,19 +17,52 @@
 					"href": "iot/overview.md"
 				},
 				{
-					"text": "How tos",
-					"href": "iot/howtos.md"
+					"text": "Ingest sensordata",
+					"href": "iot/ingest-data.md"
 				},
 				{
-					"text": "Providing data",
-					"href": "iot/data-provider.md"
+					"text": "Sensordata API",
+					"href": "iot/api-documentation.md"
 				},
 				{
-					"text": "Consuming data",
-					"href": "iot/data-consumer.md"
-				}				
+					"text": "Authenticate",
+					"href": "iot/authenticate-api.md"
+				}, 
+				{
+					"text": "SDK",
+					"href": "iot/sdk.md"
+				},
+				{
+					"text": "Power BI Connector",
+					"href": "iot/powerbi-connector.md"
+				}
 			]
-		},		
+		},
+		{
+			"text": "Veracity Alarms & Events",
+			"items": [
+				{
+					"text": "Generic events message",
+					"href": "iot/generic-message.md"
+				},
+				{
+					"text": "Ingest event",
+					"href": "iot/event-ingest-api.md"
+				},
+				{
+					"text": "Query event api",
+					"href": "iot/event-egest-api.md"
+				},
+				{
+					"text": "Authenticate",
+					"href": "iot/authenticate-api.md"
+				},
+				{
+					"text": "SDK",
+					"href": "iot/sdk.md"
+				}
+			]
+		},
 		{
 			"text": "Data Fabric Data API Specification",
 			"href": "datafabric-dataapi-openapi.yaml"

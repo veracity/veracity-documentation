@@ -328,6 +328,7 @@ The Docker image is now built and you can run it in a container.
 Since we have excluded the `appsettings.Localhost.json` file, we need to pass the connection string as an environment variable to the Docker container.
 
 To run the Docker container, open a command prompt and run the following command:
+
 ```
 docker run -it -e ServiceBusConnectionString="<your connection string>" --rm servicebusconsumer
 ```
@@ -348,29 +349,39 @@ This scenario is detailed in the [Azure Container Instances](https://learn.micro
 
 ### 5.4 Stop the Docker container
 To stop the container, press `Ctrl+C`. Alternatively, you can run the following command:
+
 ```
 docker kill <container id>
 ```
+
 To get the container id, run the following command:
+
 ```
 docker ps
+
 ```
 ## 6. Publish the Docker image to Azure Container Registry
 To publish the Docker image to Azure Container Registry (ACR), you need to create a Container Registry instance. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) for information on how to create an Azure Container Registry.
 
 Once you've created an ACR, you can publish the Docker image to the registry. Open a command prompt and run the following command:
+
 ```
 az acr login --name <your registry name>
 ```
 The command will log you in to the Azure Container Registry.
 Next, tag the Docker image with the name of the Azure Container Registry:
 ```
+
 docker tag servicebusconsumer <your registry name>.azurecr.io/servicebusconsumer
+
 ```
+
 Finally, push the Docker image to the Azure Container Registry:
+
 ```
 docker push <your registry name>.azurecr.io/servicebusconsumer
 ```
+
 The Docker image is now published to the Azure Container Registry and can be deployed as a container instance. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart) for information on how to do that.
 
 ## References

@@ -16,13 +16,13 @@ Veracity IOT SDK can be used to connect to API from .NET application. Veracity I
 ### Token provider and Veracity ioT Http client
 
 
-   ```cs
+```cs
           //Get token
             ClientCredentialsTokenProvider tokenProvider = new Veracity.IoT.SDK.Client.ClientCredentialsTokenProvider(Environment.GetEnvironmentVariable("ClientId"), Environment.GetEnvironmentVariable("ClientSecret") );
             string baseUrl = "https://api.veracity.com/veracity/";
             var veracityIoTTimeSeriesClient = new Veracity.IoT.SDK.Client.VeracityIoTTimeSeriesClient(tokenProvider, baseUrl , Environment.GetEnvironmentVariable("SubscriptionKey"));
       
-       ```
+```
  
  When VeracityIoTTimeSeriesClient is instantiated you can call any of the methods provided (and token is automatiocally refreshed for you):
  Methods are grouped into categories:

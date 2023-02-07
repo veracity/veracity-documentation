@@ -7,8 +7,8 @@ You can call the api directly from your application using standard tooling in yo
 * [How to authenticate](authenticate.md)
 * [How to explore the api in the portal](ApiPortal.md)
 * [Query events](#query-events)
-	- [How to use Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
-	- [C# code example using Http client](#c#-code-example-using-http-client)
+	* [How to use Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
+	* [C# code example using Http client](#c#-code-example-using-http-client)
 
 ## Security Model
 Users or applications can only access data for assets, tenants and respective topics they have access to. 
@@ -16,12 +16,12 @@ Users or applications can only access data for assets, tenants and respective to
 ## Querying Events
 This endpoint can be used to fetch Events with various parameters for filtering.
 
-* Base url:  [https://api.veracity.com/veracity/](https://api.veracity.com/veracity/)
+* Base URL:  [https://api.veracity.com/veracity/](https://api.veracity.com/veracity/)
 * Authorization: Bearer token  [click here](Authenticate.md)
 * Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Get Events
-Relative url: 
+Relative URL: 
 ```
 ioteventbrokerquery/api/v1/events?tenantId={tenantId}&eventType={eventType}&topic={topic}&fromUtcDate={fromUtcDate}&toUtcDate={toUtcDate}&assetId={assetId}&assetIdIssuer={assetIdIssuer}&maxNumberOfItems={maxNumberOfItems}&offset={offset}
 ```

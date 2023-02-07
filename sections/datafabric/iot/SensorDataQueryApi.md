@@ -6,9 +6,9 @@ Explore the api in the portal: [Data Fabric IoT Time Series Query API V2](https:
 * [How to authenticate](authenticate.md)
 * [How to explore the api in the portal](ApiPortal.md)
 *  [Get timeseries data](#get-timeseries-data)
-	- [C# code using Http client](#c#-code-using-http-client)
-	- [C# code using Veracity SDK for C#](#c#-code-example-using-veracity-iot-sdk)
-	- [Python example](SensorDataPython.md)
+	* [C# code using Http client](#c#-code-using-http-client)
+	* [C# code using Veracity SDK for C#](#c#-code-example-using-veracity-iot-sdk)
+	* [Python example](SensorDataPython.md)
 * [Query for calculated data quality](#query-for-calculated-data-quality)
 ## Security Model
 Only users that has access to an asset can access sensor-data from this asset on the channels user has subscribed. 

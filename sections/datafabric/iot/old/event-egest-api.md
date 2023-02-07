@@ -21,28 +21,28 @@ Base URL: *https://api.veracity.com/veracity/
 Get latest (current) topology on asset
 Relative URL: iotevents2/api/v2/assets/{assetId}/events/equipment/topology/latest?assetIdSchema={assetIdSchema}
 
-- assetId: asset imo nr or veracity guid
-- assetIdSchema: imo/veracity  (the schema for the asset id)
+* assetId: asset imo nr or veracity guid
+* assetIdSchema: imo/veracity  (the schema for the asset id)
 
 ### Get current topology on equipment
 Get latest (current) topology on asset
 Relative URL: iotevents2/api/v2/assets/{assetId}/events/equipment/topology/dataChannel/latest?assetIdSchema={assetIdSchema}&dataChannelId={dataChannelId}&namingRule={namingRule}
 
-- assetId: asset imo nr or veracity guid
-- assetIdSchema: imo/veracity  (the schema for the asset id)
-- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
-- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+* assetId: asset imo nr or veracity guid
+* assetIdSchema: imo/veracity  (the schema for the asset id)
+* dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
+* namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
 
 ### Get historical topology events on dataChannel
 Get a list of equipment topology events registered on given data channels
 Relative URL: iotevents2/api/v2/assets/{assetId}/events/equipment/topology?assetIdSchema={assetIdSchema}&dataChannelId={dataChannelId}&namingRule={namingRule}[&fromUtcDate][&toUtcDate]
 
-- assetId: asset imo nr or veracity guid
-- assetIdSchema: imo/veracity  (the schema for the asset id)
-- dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
-- namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
-- fromUtcDate: optional - select events from this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
-- toUtcDate: optional - select events until and including this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
+* assetId: asset imo nr or veracity guid
+* assetIdSchema: imo/veracity  (the schema for the asset id)
+* dataChannelId: The identifier /code used by the codebook used for asset categorization ( Vis code, mc key, JSME id etc.)
+* namingRule: name of codebook: DNV-VIS, JSME, MC, etc.
+* fromUtcDate: optional - select events from this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
+* toUtcDate: optional - select events until and including this timestamp. UTC-format: "2021-04-06T14:22:48.950716+02:00"
 
 ## Events
 Base URL: *https://api.veracity.com/veracity/

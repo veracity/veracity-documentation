@@ -69,7 +69,7 @@ The body contains the JSON message in the following format
 
 
 ## Ingest health status
-Use same endpoint as for equipment: '
+Use same endpoint as for equipment:
 ```json
 {
   {

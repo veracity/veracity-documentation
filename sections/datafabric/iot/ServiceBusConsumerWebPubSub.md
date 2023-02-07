@@ -10,7 +10,7 @@ Create a WebPubSub service in Azure portal. You can find the quickstart [here](h
 ### From the CLI:
 You can also create a WebPubSub service from the Azure CLI. We'll just list the commands here, but you can find the full instructions in this [Azure docs page](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/quickstart-cli-create).
 Create a Web PubSub instance with the following command:
-```bash
+```
 az webpubsub create --name "<your-unique-name>" --resource-group "myResourceGroup" --location "WestEurope" --sku Free_F1
 ```
 ## 2. Create the Azure functions
@@ -18,7 +18,7 @@ With the WebPubSub service created, we can now create the Azure functions. We'll
 
 ### 2.1 Initialize the project
 Create a new directory for the project and initialize it with the following command:
-```bash
+```
 func init --worker-runtime javascript
 ```
 Update `host.json`'s extensionBundle to version `3.3.0` or later to get Web PubSub support.
@@ -40,7 +40,7 @@ There are 3 functions in the project, `notify`, `negotiate`, and `web_index`:
 ### 2.2 Create the `notify` function
 Create the `notify` function with the following command:
 
-```bash
+```
 func new -n notify -t "Azure Service Bus Queue trigger"
 ```
 Next we'll configure the function to connect to our ServiceBus queue. 
@@ -78,11 +78,11 @@ module.exports = function(context, message) {
 };
 ```
 You can test the function locally with:
-```bash
+```
 npm start
 ```
 If all is well, you will see a message like this in the terminal:
-```bash
+```
 Azure Functions Core Tools
 Core Tools Version:       4.0.4915 Commit hash: N/A  (64-bit)
 Function Runtime Version: 4.14.0.19631
@@ -100,7 +100,7 @@ The `negoiate` function is used to create a WebSocket connection to the WebPubSu
 At the moment of writing this guide, the [Azure Function Core Tools v4.0](https://github.com/Azure/azure-functions-core-tools) library doesn't yet contain a template for the WebPubSub service. So we'll use the `HTTPTrigger` instead. 
 Create the `negotiate` function with the following command:
 
-```bash
+```
 func new -n notify
 ```
 Choose `HTTPTrigger` as the template (or choose something like "WebPubSub negotiate HTTP trigger" if you see it in the list).
@@ -189,7 +189,7 @@ Copy the "Connection string" and add it in your `local.settings.json`, as below:
 Before we can test the function, we need to add a simple web page that will connect to the WebPubSub service. This is done by adding a new function called `web_index` that will serve the `index.html` file.
 In this function, we'll use the `httpTrigger` binding to create a HTTP endpoint that will serve the `index.html` file. From the UI we'll connect to the WebPubSub service using a WebSocket connection, which is exposed automatically in the `negotiate` function we created earlier.
 Create the `web_index` function with the following command:
-```bash
+```
 func new -n web_index -t "HTTP trigger
 ```
 Add the `index.html` and `index.js` files located in the `web_index` folder. The UI was built on top of the Bootstrap framework and includes a basic chart, table, and a map, all of which are updated in real-time as new data is received from the Veracity IoT EventBroker.
@@ -223,12 +223,12 @@ module.exports = function(context, message) {
 ### 3.2 Run the functions locally
 Now that we have the Azure Functions set up, we can run them locally and test the example end-to-end.
 Start the Azure Functions runtime by running the following command:
-```bash
+```
 npm start
 ```
 You should see the following output:
 
-```bash
+```
 Azure Functions Core Tools
 Core Tools Version:       4.0.4915 Commit hash: N/A  (64-bit)
 Function Runtime Version: 4.14.0.19631
@@ -243,7 +243,7 @@ Functions:
 	notify: serviceBusTrigger
 ```
 Open the `http://localhost:7071/api/web_index` URL in your browser and inspect the console. You should see the following lines:
-```bash 
+``` 
 Connecting to http://localhost:7071/api/negociate...
 Connected to WebPubSub service
 ```
@@ -274,7 +274,7 @@ Refer to the Developer documentation for more information on how to publish mess
 The last step is to deploy the Azure Functions to Azure. This can be done by [creating a new function app service](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) in the Azure portal.
 Once the function app service is created, run the following command and replace the `<function-app-name>` with the name of your function app service:
 
-```bash
+```
 func azure functionapp publish <your-function-app-name>
 ```
 

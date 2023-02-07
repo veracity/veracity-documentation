@@ -122,6 +122,7 @@ var jsonPayload =
 
 var ingestResult = await eventsClient.Events.IngestEvent(jsonPayload, eventType, topic, timeStampUtc, assetId, assetIdIssuer);
 ```
+
 ## Submit events to Iot Hub
 You will need the following information to be able to publish events to the IoT Hub:
 * IoT Hub connection string
@@ -141,8 +142,9 @@ An event can be streamed to an Azure IoT hub by wrapping it into a Veracity-even
   }
 ```
 
-Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client)
-```c#
+Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client).
+
+```
   using Microsoft.Azure.Devices.Client;
 
  var connectionString = "must be provided";
@@ -156,7 +158,7 @@ Microsoft supports nuget pacakges for sending data to IOTHub by connection strin
  await device.SendEventAsync(message);
  await device.CloseAsync();
  
-````
+```
 
 
 ### Node.js example
@@ -164,21 +166,21 @@ Microsoft supports nuget pacakges for sending data to IOTHub by connection strin
 We'll be writing a simple Node.js application that will publish events to the IoT Hub. 
 
 1. Navigate to the `test` folder and create a new Node.js project:  
-```bash
+```
 cd ../test
 npm init -y
 ``` 
 2. Install the `azure-iot-device` and the `azure-iot-device-mqtt` packages:
-```bash
+```
 npm install azure-iot-device azure-iot-device-mqtt
 ```
 Also install the `dotenv` package to be able to read the configuration values from a `.env` file and the `uuid` package to generate a unique device ID: 
-```bash
+```
 npm install dotenv uuid
 ```
 3. Create a new file named `.env` and add the following configuration values:  
 
-```bash
+```
 IOTHUB_CONNECTION_STRIN="<iot-hub-connection-string>"
 IOTHUB_DEVICE_ID="<YOUR_DEVICE_ID>"`` 
 
@@ -244,7 +246,7 @@ id: uuidv4()
 Replace the `<YOUR_TEST_ASSETID>`, `YOUR_TEST_ASSETID_ISSUER`, and `<YOUR_TEST_TOPIC>` placeholders with actual values from your application.  
 
 5. Run the `test_publisher.js` script:
-```bash
+```
 node test_publisher.js
 ``` 
 If all is well, you should have an event published and ready to be consumed by the Azure Function.

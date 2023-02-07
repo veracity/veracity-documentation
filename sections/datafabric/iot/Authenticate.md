@@ -1,9 +1,4 @@
-﻿---
-author: Benedikte Kallåk
-description: This section describes how to authenticate API calls.
----
-
-# How to authenticate
+﻿# How to authenticate
 
 There are two ways of making requests to the Veracity Iot & Events API endpoints:
 * You can request as a user through using B2C authentication, or

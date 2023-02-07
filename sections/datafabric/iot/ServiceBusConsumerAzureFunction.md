@@ -1,9 +1,4 @@
-﻿---
-author: Benedikte Kallåk
-description: This section describes Service Bus consumer.
----
-
-# Service Bus consumer using Azure Functions
+﻿# Service Bus consumer using Azure Functions
 Azure Service Bus is a fully managed enterprise message broker which is used to build applications and services that use an event-driven architecture. It provides message queues and publish-subscribe topics with at-least-once delivery guarantees. It also supports sessions, transactions, and dead-letter queues. 
 This guide will walk you through the process of creating a new Azure Function that uses a Service Bus trigger to consume messages in real-time.  
 

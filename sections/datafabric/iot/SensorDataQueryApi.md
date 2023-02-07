@@ -1,9 +1,4 @@
-﻿---
-author: Benedikte Kallåk
-description: This section describes Sensor Query API.
----
-
-# Sensor Query Api
+﻿# Sensor Query Api
 You can call the api directly from your application using a RestClient.  An SDK is provided for .Net and for Python.
 When invoking the api, the consumer needs a token for authentication.
 Explore the api in the portal: [Data Fabric IoT Time Series Query API V2](https://api-portal.veracity.com/docs/services/DataFabric-IoT-TimeSeriesAPI-V2) . Select group by tag.  Note: [you must be signed in](ApiPortal.md).

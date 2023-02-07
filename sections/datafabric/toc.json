@@ -27,9 +27,9 @@
 				{
 					"text": "Consuming data",
 					"href": "iot/data-consumer.md"
-				}
+				}				
 			]
-		},
+		},		
 		{
 			"text": "Data Fabric Data API Specification",
 			"href": "datafabric-dataapi-openapi.yaml"
@@ -70,7 +70,8 @@
 				{
 					"text": "Access container",
 					"href": "tutorials/access-container.md"
-				},
+				}
+				,
 				{
 					"text": "Authorization Snippet",
 					"href": "tutorials/authorization-snippet.md"

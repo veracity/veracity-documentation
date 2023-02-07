@@ -1,9 +1,4 @@
-﻿---
-author: Benedikte Kallåk
-description: This section is an overview of Veracity IoT.
----
-
-# Veracity IoT
+﻿# Veracity IoT
 
 Veracity IoT is a managed service and infrastructure for handling high volume sensor data and aggregated data such as events.
 

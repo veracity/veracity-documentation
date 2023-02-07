@@ -1,8 +1,3 @@
-﻿---
-author: Benedikte Kallåk
-description: This section describes ServiceBus consumer console.
----
-
 # ServiceBus consumer console app in Docker container
 This tutorial will walk you through the steps to create an Azure ServiceBus consumer which receives messages from a queue. We'll create a C# console application which can optionally be run in a Docker container. 
 

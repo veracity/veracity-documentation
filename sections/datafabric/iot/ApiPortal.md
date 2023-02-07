@@ -1,9 +1,4 @@
-﻿---
-author: Benedikte Kallåk
-description: This section describes Veracity API Portal.
----
-
-# Veracity Api Portal
+﻿# Veracity Api Portal
 Visit the Veracity API Portal: https://api-portal.veracity.com/
 If you already have a user from before, please click directly at "Sign In". 
 

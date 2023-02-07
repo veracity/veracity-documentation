@@ -329,7 +329,6 @@ Create a new file named `.dockerignore` in the `ServiceBusConsumer` folder with 
 **/bin
 **/charts
 **/docker-compose*
-**/Dockerfile*
 **/node_modules
 **/npm-debug.log
 **/obj

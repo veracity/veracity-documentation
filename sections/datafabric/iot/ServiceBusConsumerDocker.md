@@ -36,11 +36,12 @@ dotnet add package CommandLineParser
 ### 1.2. Create the configuration file
 Create a new file called `appsettings.Localhost.json` in the root of your project and add the following content:
 
-```json
+```
 {
   "ServiceBusConnectionString": "<your connection string>",
   "QueueName": "<your-queue-name>"
 }
+
 ```
 
 The connection string and queue name have been issued to you when you have been on-boarded to the Veracity DataFabric.  
@@ -111,9 +112,9 @@ class Program
         return configuration;    
     }
 }
-
 ```
-Now edit your `.csproj` file and add the following content to make sure that the config files are copied to the output directory:
+
+Now edit your .csproj file and add the following content to make sure that the config files are copied to the output directory:
 
 ```
 <ItemGroup>
@@ -214,12 +215,13 @@ private static async Task ReceiveMessages(IConfigurationRoot configuration, Canc
         Console.WriteLine($"\t{ex.ToString()}");
     }
 }
-
 ```
+
 The `ReceiveMessages` method receives the `configuration` object as a parameter, so that it can access the configuration settings. It also receives a `CancellationToken` object, which is used to cancel the task when the user presses `Ctrl+C`.
 The `ReceiveMessages` method creates a `ServiceBusClient` instance, which is used to receive messages from the queue. 
 The receive call to the Service Bus is kept open for while the console app is running and if messages arrive, they're returned immediately and a new receive call is issued. This concept is called _long polling_. You can read more about how Service Bus queues work in the [Azure docs](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal).
 Update the `Main` method to call the `ReceiveMessages` method:
+
 ```
 static async Task Main(string[] args)
 {
@@ -340,11 +342,15 @@ appsettings.Localhost.json
 
 ## 4. Build the Docker image
 To build the Docker image, open a command prompt and navigate to the `ServiceBusConsumer` folder. Run the following command:
+
 ```
 docker build -t servicebusconsumer .
 ```
+
 The Docker image is now built and you can run it in a container.
+
 ## 5. Run the Docker container
+
 ### 5.1. Pass the connection string to the Docker container
 Since we have excluded the `appsettings.Localhost.json` file, we need to pass the connection string as an environment variable to the Docker container.
 

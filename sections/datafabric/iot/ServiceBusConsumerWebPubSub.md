@@ -4,7 +4,6 @@ This tutorial will guide you through the process of creating a single page appli
 The connection from the browser to the ServiceBus queue is established via a [WebPubSub](https://azure.microsoft.com/en-us/products/web-pubsub) service. WebPubSub is a recently released managed Azure service that enabled building real-time applications using a publish-subscribe architecture.
 
 ## 1. Create WebPubSub service
-
 ### From the Portal:
 Create a WebPubSub service in Azure portal. You can find the quickstart [here](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/howto-develop-create-instance).
 
@@ -53,7 +52,7 @@ func new -n notify -t "Azure Service Bus Queue trigger"
 Next we'll configure the function to connect to our ServiceBus queue. 
 Open `local.settings.json` and add a `ServiceBusConnectionString` property to the `Values` section, as shown below (replace the `<your-servicebus-connection-string>` string with your own ServiceBus connection string for the Veracity IoT platform):
 
-```
+```json
 {
   "IsEncrypted": false,
   "Values": {
@@ -66,7 +65,7 @@ Open `local.settings.json` and add a `ServiceBusConnectionString` property to th
 
 Then open `notify/function.json` and set the `connection` property to the name of the ServiceBus connection string you created earlier. Also make sure to set the `queueName` property to the name of your own queue. 
 
-```
+```json
 {
   "bindings": [
     {
@@ -119,12 +118,11 @@ Create the `negotiate` function with the following command:
 ```
 func new -n notify
 ```
-
 Choose `HTTPTrigger` as the template (or choose something like "WebPubSub negotiate HTTP trigger" if you see it in the list).
 
 Then update the `negotiate/function.json` file to add the `webPubSub` binding. 
 
-```
+```json
 {
   "bindings": [
     {
@@ -148,8 +146,8 @@ Then update the `negotiate/function.json` file to add the `webPubSub` binding.
 }
 ```
 Also edit the `negotiate/index.js` file to add the following code:
-```
 
+```
 module.exports = function (context, req, connection) {
   context.res = { body: connection };
   context.done();
@@ -159,7 +157,7 @@ module.exports = function (context, req, connection) {
 We also need to update the previous `notify` function to add the `webPubSub` output binding.
 Edit `notify/function.json` and add the `webPubSub` binding, like so (use the same `hub` name as in the `negotiate` function):
 
-```
+```json
 {
   "bindings": [
     {
@@ -196,8 +194,7 @@ module.exports = function (context, message) {
 
 Finally, we need to update the `local.settings.json` file to add the WebPubSub connection string. You can retrieve this from navigating to your WebPubSub service in the Azure portal, and then clicking on the "Keys" tab. 
 Copy the "Connection string" and add it in your `local.settings.json`, as below:
-
-```
+```json
 {
   "IsEncrypted": false,
   "Values": {
@@ -219,9 +216,7 @@ func new -n web_index -t "HTTP trigger
 ```
 
 Add the `index.html` and `index.js` files located in the `web_index` folder. The UI was built on top of the Bootstrap framework and includes a basic chart, table, and a map, all of which are updated in real-time as new data is received from the Veracity IoT EventBroker.
-
 ## 3. Run the example end-to-end
-
 ### 3.1 Update the notify function
 Before we can run the example end-to-end, we need to update the `notify` function send the data according to the Veracity IoT Message. By default, the `notify` function sends only the message body, but we will need to add a few properties as well, such as `eventType` and `topic`.
 
@@ -256,7 +251,6 @@ Start the Azure Functions runtime by running the following command:
 ```
 npm start
 ```
-
 You should see the following output:
 
 ```
@@ -274,8 +268,7 @@ Functions:
 	notify: serviceBusTrigger
 ```
 Open the `http://localhost:7071/api/web_index` URL in your browser and inspect the console. You should see the following lines:
-
-```
+``` 
 Connecting to http://localhost:7071/api/negociate...
 Connected to WebPubSub service
 ```
@@ -285,7 +278,7 @@ This means that the `web_index` function was able to connect to the `negotiate` 
 The `web_index` function is now ready to receive messages from the Veracity IoT EventBroker. To do so, we need to publish some messages to the Veracity IoT Platform. The UI will display the messages in real-time, and you should see the chart, table, and map being updated.
 The UI expects messages to be received in the following format:
 
-```
+```json
 {
   "value": "{\"message\": \"body\"}",
   "properties": {
@@ -297,7 +290,7 @@ The UI expects messages to be received in the following format:
 
 Here's an example of a message that can be published to the Veracity IoT Platform:
 
-```
+```json
 {"Payload":{"Temperature":7.845451070281867,"Pressure":-0.4986194983223189,"Humidity":25.0,"Latitude":58.49814652167727,"Longitude":10.078944402815145,"TimeStampUtc":"2022-12-21T10:30:46.435457Z"},"TenantId":"0cbb4396-ef53-4ff7-a1df-ff4c50dda75e","AssetId":"223344","AssetIdIssuer":"imo","Topic":"MC/Engines/2","EventType":"EquipmentStatus","TimeStampUtc":"2022-12-21T10:30:46.435457Z"}
 ```
 Refer to the Developer documentation for more information on how to publish messages to the Veracity IoT Platform.

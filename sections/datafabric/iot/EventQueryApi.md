@@ -4,9 +4,9 @@ The api is accessible from [api-portal](https://api-portal.veracity.com/).  Sele
 
 You can call the api directly from your application using standard tooling in your platform. For .Net and Python we provide SDK and examples.  When invoking the api, the consumer needs a token for authentication.
 
-- [How to authenticate](authenticate.md)
-- [How to explore the api in the portal](ApiPortal.md)
-- [Query events](#query-events)
+* [How to authenticate](authenticate.md)
+* [How to explore the api in the portal](ApiPortal.md)
+* [Query events](#query-events)
 	- [How to use Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
 	- [C# code example using Http client](#c#-code-example-using-http-client)
 
@@ -16,30 +16,30 @@ Users or applications can only access data for assets, tenants and respective to
 ## Querying Events
 This endpoint can be used to fetch Events with various parameters for filtering.
 
--   Base url:  [https://api.veracity.com/veracity/](https://api.veracity.com/veracity/)
--   Authorization: Bearer token  [click here](Authenticate.md)
--   Ocp-Apim-Subscription-Key: from application client or B2C user
+* Base url:  [https://api.veracity.com/veracity/](https://api.veracity.com/veracity/)
+* Authorization: Bearer token  [click here](Authenticate.md)
+* Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Get Events
 Relative url: 
 ```
 ioteventbrokerquery/api/v1/events?tenantId={tenantId}&eventType={eventType}&topic={topic}&fromUtcDate={fromUtcDate}&toUtcDate={toUtcDate}&assetId={assetId}&assetIdIssuer={assetIdIssuer}&maxNumberOfItems={maxNumberOfItems}&offset={offset}
 ```
--   assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
--   assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
--   eventType: E.g: Voyagereport, Topologyreport
--   fromUtcDate: Date time start range, UTC: format: "2021-04-06T14:22:48.950716+02:00"
--   toUtcDate: Date time end range, UTC: format: "2021-04-06T14:22:48.950716+02:00"
--   maxNumberOfItems: Number of events to return
--   offset: You can specify an offset from where to start returning data
--   topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery"
--   tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
+* assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
+* assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
+* eventType: E.g: Voyagereport, Topologyreport
+* fromUtcDate: Date time start range, UTC: format: "2021-04-06T14:22:48.950716+02:00"
+* toUtcDate: Date time end range, UTC: format: "2021-04-06T14:22:48.950716+02:00"
+* maxNumberOfItems: Number of events to return
+* offset: You can specify an offset from where to start returning data
+* topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery"
+* tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
 
 ### C# code example using Veracity IoT SDK
 Use latest nuget package **Veracity.IoT.SDK.Client**
 Client id, secret and subscription key must be given
 
-```c#
+```
 using Veracity.IoT.SDK.Client; 
  
 string clientId = "[clientId]";
@@ -66,7 +66,7 @@ assetId, assetIdIssuer, topic, eventType, fromUtcDate, toUtcDate, maxNumberOfIte
 ### C# code example using Http client
 Alternatively using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
 
-```c#
+```
 var token = await GetToken(); 
 var subscriptionKey = "[OCP APIM Subscription key]";  
  

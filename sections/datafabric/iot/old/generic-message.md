@@ -9,12 +9,12 @@ Different event types can be defined where the paramters in the body will vary.
 
 ## Header
 
-- assetId: 1234
-- assetIdSchema: imo
-- eventType: BunkerDeliveryNote
-- timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
-- dataChannelId: Consumables/BunkerDeliveryNote/IntermediteFuelOil
-- namingRule: mc
+* assetId: 1234
+* assetIdSchema: imo
+* eventType: BunkerDeliveryNote
+* timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
+* dataChannelId: Consumables/BunkerDeliveryNote/IntermediteFuelOil
+* namingRule: mc
 
 
 ## Body
@@ -102,6 +102,4 @@ Different event types can be defined where the paramters in the body will vary.
     }
   }
 }
-
-
 ```

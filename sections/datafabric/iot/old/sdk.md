@@ -9,9 +9,9 @@ Only users that has access to an asset as well as given permission to datachanne
 ## C# SDK
 Veracity IOT SDK can be used to connect to API from .NET application. Veracity IOT SDK is based on .Net Standard and availabale as Nuget packages.
 
-- [model](https://www.nuget.org/packages/Veracity.IoT.SDK.Models/): Veracity.IOT.SDK.Models: models used for data ingest and output of data queries
-- [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/): Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models
-- [extentions](https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/): Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client
+* [model](https://www.nuget.org/packages/Veracity.IoT.SDK.Models/): Veracity.IOT.SDK.Models: models used for data ingest and output of data queries
+* [client](https://www.nuget.org/packages/Veracity.IoT.SDK.Client/): Veracity.IOT.SDK.Client: To create HTTTP client to access API. Includes Veracity.IOT.SDK.Models
+* [extentions](https://www.nuget.org/packages/Veracity.IoT.SDK.Client.Extensions/): Veracity.IOT.SDK.Client.Extensions: For dependency injections. Includes Veracity.IOT.SDK.Models and Veracity.IOT.SDK.Client
 
 ### Token provider and Veracity ioT Http client
 
@@ -26,10 +26,10 @@ Veracity IOT SDK can be used to connect to API from .NET application. Veracity I
  
  When VeracityIoTTimeSeriesClient is instantiated you can call any of the methods provided (and token is automatiocally refreshed for you):
  Methods are grouped into categories:
-  - .Assets: methods for accessing assets yu have access to
-  - .Ingest.Events: Methods for ingesting events
-  - .Query.Events:  Methods for querying events
-  - .Query.Sensors: Methods for querying sensors
+  * .Assets: methods for accessing assets yu have access to
+  * .Ingest.Events: Methods for ingesting events
+  * .Query.Events:  Methods for querying events
+  * .Query.Sensors: Methods for querying sensors
   
 ### Ingest event example
 

@@ -4,9 +4,9 @@ This guide will walk you through the process of creating a new Azure Function th
 
 ## Pre-requisites
 To get started, the following are needed to be installed on your machine:
-- [dotnet 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [Node.js](https://nodejs.org/en/download/)
-- An [Azure subscription](https://azure.microsoft.com/free/) is required to deploy the Azure Function. The rest of the tools we'll install them as we go along. Some familiarity with Azure Functions and Service Bus is beneficial but not essential.
+* [dotnet 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
+* [Node.js](https://nodejs.org/en/download/)
+* An [Azure subscription](https://azure.microsoft.com/free/) is required to deploy the Azure Function. The rest of the tools we'll install them as we go along. Some familiarity with Azure Functions and Service Bus is beneficial but not essential.
  
 ## Code example on GitHub
 [Link missing]()
@@ -18,9 +18,9 @@ The easiest way to create a new Azure Function is to use the [Azure Functions Co
  
 If you're using VS code, you can also install these extensions to make it easier to create and manage Azure Functions:
 
-- [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-- [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### Step 0. Create a new file directory
 
@@ -131,7 +131,7 @@ Edit the `local.settings.json` file and add the following configuration values:
 #### Step 4.2
 We also need to edit the `ServiceBusConsumer.cs` file to edit the `ServiceBusTrigger` attribute:
 
- ```csharp
+ ```
 [Function("ServiceBusConsumer")]
 public  void Run(
 [ServiceBusTrigger("%ServiceBusQueueName%", Connection = "ServiceBusConnectionString")]
@@ -189,7 +189,7 @@ As you can see, the Azure Function has consumed the event and printed the payloa
 The Azure Function has consumed the event and printed the payload to the console. However, you may need to read the message properties as well, such as the `AssetId`, `Topic`, and `EventType`.
 
 In the current implementation of Azure Functions (v4) for dotnet isolated process, the message properties are not directly available in the function arguments. Instead, we have to read them via the function `context` object, like so:  
-```csharp
+```
 // ServiceBusConsumer.cs 
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -240,9 +240,9 @@ public  string? AssetId { get; set; }
 
   Now that we have a working Azure Function, we can deploy it to Azure. First, you'll need to create a new function app service in Azure if you don't have one already. You can do this in a few ways:
 
-- in the [Azure portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal)
+* In the [Azure portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal)
 
-- from the [command line](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=azure-cli%2Cin-process)
+* From the [command line](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=azure-cli%2Cin-process)
 
 Once you have a function app service created, you can deploy the function to it using:
  
@@ -254,7 +254,7 @@ Now if you go to the Azure portal and navigate to your function app service, you
  
 
 ### Further reading
-- [Azure Functions documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
-- [Azure Functions for .NET isolated process](https://docs.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-rocess-guide)
-- [Azure Service Bus documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
+* [Azure Functions documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
+* [Azure Functions for .NET isolated process](https://docs.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-rocess-guide)
+* [Azure Service Bus documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
 

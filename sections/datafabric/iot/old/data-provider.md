@@ -5,26 +5,26 @@ description: Description of quick start section
 
 # Data provider
 A data-provider ingests sensor-data or events to Veracity using different protocols and data-formats. 
-- Sensor data is streamed to Veracity IoT Hub 
-- Events are sent to Veracity using rest-api or streamed using IoT Hub
+* Sensor data is streamed to Veracity IoT Hub 
+* Events are sent to Veracity using rest-api or streamed using IoT Hub
 
 When using IoT Hub, data provider needs a private connection string and when using rest-api, B2C authentication is required.
 
 ## Protocols
 
-- HTTPS
-- AMQP, AMQP over WebSockets
-- MQTT, MQTT over WebSockets
+* HTTPS
+* AMQP, AMQP over WebSockets
+* MQTT, MQTT over WebSockets
 
 
 ## Data format for sensordata
 
 High frequency data is streamed into Veracity IOT hub from edge solution or from another data platform. 
 The data format supported are:
- - [ISO 19848](#iso19848-message-format)
- - [Veracity ](#veracity-message)
- - [Trisense](#trisense-message)
- - CSV: Veracity IOT also support CSV uploads to data container.
+ * [ISO 19848](#iso19848-message-format)
+ * [Veracity ](#veracity-message)
+ * [Trisense](#trisense-message)
+ * CSV: Veracity IOT also support CSV uploads to data container.
 
 ## Data format for events
 The payload of the event can be any data structure in JSON format. Each data-structure is defined as a event-type (template). Each event require some meta-data such as asset, topic and timestamp and event-type.
@@ -33,18 +33,18 @@ The payload of the event can be any data structure in JSON format. Each data-str
 ## Ingest events using rest-api
 Any eventtype can be ingested by POSTing a JSON object to Veracity with some header paramerters.
 
-Base url: https://api.veracity.com/veracity
-Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
+Base URL: https://api.veracity.com/veracity
+Request URL: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
 Authorization: Bearer token click here
 Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Header parameters
-- assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
-- assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
-- eventType: E.g: Voyagereport, Topologyreport  (name of tempalte for event)
-- timeStampUtc: timestamp for Event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
-- topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery"
-- tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
+* assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
+* assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
+* eventType: E.g: Voyagereport, Topologyreport  (name of tempalte for event)
+* timeStampUtc: timestamp for Event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
+* topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery"
+* tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
 
 Example
 POST https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?eventType=Topology&topic=TopologyHealth&timeStampUTC=2023-01-01T12:00:00Z&assetId=123&assetIdIssuer=imo
@@ -77,7 +77,7 @@ POST https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?eventT
 Client id, secret and subscription key must be provided
 Use nugt package 
 
-```c#
+```
 using Veracity.IoT.SDK.Client;
 
 
@@ -103,7 +103,7 @@ var ingestResult = await eventsClient.Events.IngestEvent(jsonPayload, eventType,
 ### C# code example using http client
 Alternatively using http client. Fetching bearer token and ingesting Event. Example is written in C#. This approach is transferable to other languages utilizing http clients.
 
-```c#
+```
 
 //main program
 

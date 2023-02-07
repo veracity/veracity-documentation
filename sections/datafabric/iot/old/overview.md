@@ -5,15 +5,15 @@ description: Gives an overview of the Veracity IoT services and related componen
 
 # Overview of Veracity IoT
 Veracity IoT is a managed service for handling high volume sensor data and aggregated data such as events
-- Sensor data: Veracity IoT supports continuous streams of high-volume timeseries data allowing remote monitoring of operations. 
-- Events: Veracity IoT provides real-time support for events such as system alerts, system events or user reporting.
-- Veracity Event Broker is a cloud based infrastructure enabling real-time access to data using the publish/subscribe pattern. The consumer can listen to events on their private queue for real-time access and use a rest api for historians.
+* Sensor data: Veracity IoT supports continuous streams of high-volume timeseries data allowing remote monitoring of operations. 
+* Events: Veracity IoT provides real-time support for events such as system alerts, system events or user reporting.
+* Veracity Event Broker is a cloud based infrastructure enabling real-time access to data using the publish/subscribe pattern. The consumer can listen to events on their private queue for real-time access and use a rest api for historians.
 
 ## Supporting operational readiness
 Operational data can be categorized into a) raw data (sensor data), b) operational events, system alarms and alerts as well as c) reports. 
-- Sensor data consists of small data-packages (high volume) of timestamp, value and channel id (tag id). Veracity supports continuous stream as well as CSV import of sensor data.
-- Events cover operational events, system events and alerts. Events does also have timestamp but can consist of several datapoints and aggregated values usually sent with lower frequency. 
-- Reports are a type of event consisting of composite data-structures often with aggregated raw data as well as some metadata. These reports are delivered with timestamp at a low frequency. Equipment topology and equipment health reports can be shared with DNV class for digital assurance services such as eNaut and D-class. Bunker delivery notes and daily log abstract can be used for supporting automatic MRV/DSC reporting.
+* Sensor data consists of small data-packages (high volume) of timestamp, value and channel id (tag id). Veracity supports continuous stream as well as CSV import of sensor data.
+* Events cover operational events, system events and alerts. Events does also have timestamp but can consist of several datapoints and aggregated values usually sent with lower frequency. 
+* Reports are a type of event consisting of composite data-structures often with aggregated raw data as well as some metadata. These reports are delivered with timestamp at a low frequency. Equipment topology and equipment health reports can be shared with DNV class for digital assurance services such as eNaut and D-class. Bunker delivery notes and daily log abstract can be used for supporting automatic MRV/DSC reporting.
 
 ## Enabeling real-time support
 Veracity Events are based on an event-driven architecture enabeling services to be loosely coupled using a publish-subscribe mechanism where some function as data publishers and others as consumers. Consumers received events to their own private queue and do not need to poll an api to get latest events.
@@ -32,24 +32,24 @@ Connecting all data related to an asset to such a reference model, provides cont
 Veracity supports any event type by supporting customer specific event types (templates) and each event type consists of different datapoints by defining templates for these events/reports.  
 
 Examples of event types:
-- Log abstact (noon report)
-- Bunker delivery note
-- Voyage updates
-- Equipment topology and equipment health reports
-- Observation
+* Log abstact (noon report)
+* Bunker delivery note
+* Voyage updates
+* Equipment topology and equipment health reports
+* Observation
 
 Rawdata, events and reports can be used by service specific applications, dashboards etc. if data owner has given consent for data sharing for each service using the data.
 
 ## Main Features
-- Storage
-- Data permission and access rights
-- Realtime support using subscription model
-Query Api for data access
-- Subscription 
-- Ingest gateways
-- Data quality service
-- Timeseries and events explorer
-- Connectors to major platforms
-- Power Bi Connection
+* Storage
+* Data permission and access rights
+* Realtime support using subscription model
+* Query Api for data access
+* Subscription 
+* Ingest gateways
+* Data quality service
+* Timeseries and events explorer
+* Connectors to major platforms
+* Power Bi Connection
 
 

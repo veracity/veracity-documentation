@@ -8,10 +8,10 @@ When you request the endpoints as user, then your personal token and API Key are
 
 
 ## Application client
-The following credentials will be sent in a separate encrypted email
-- client_id: will be sent in a separate encrypted email
-- client_secret: will be sent in a separate encrypted email
-- subscriptionkey 
+The following credentials will be sent in a separate encrypted email.
+* client_id: will be sent in a separate encrypted email
+* client_secret: will be sent in a separate encrypted email
+* subscriptionkey 
 
 ## Get token
 The following example shows how do get token from Postman
@@ -23,14 +23,14 @@ The following example shows how do get token from Postman
 
 Thereafter click at «Send» and copy the Access Token between the quotes in response.
 
-- IDP auth: https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
-- resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
-- client_id: will be sent in a separate encrypted email
-- client_secret: will be sent in a separate encrypted email
-- grant_type: client_credentials
+* IDP auth: https://login.microsoftonline.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/token
+* resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
+* client_id: will be sent in a separate encrypted email
+* client_secret: will be sent in a separate encrypted email
+* grant_type: client_credentials
 
 ### C# Code example
-```c#
+```
 async Task<string> GetToken()
 {
     var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";

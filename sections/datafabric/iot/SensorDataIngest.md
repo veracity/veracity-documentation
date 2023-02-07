@@ -1,13 +1,13 @@
 ﻿# Ingest sensor data
 
 ## Content
-- [Channel list /taglist](#channellist)
-- [Stream sensor data using Iot Hub](#iot-hub)
-- [Data format](#data-format)
-- [Use CSV upload](#csv-upload)
+* [Channel list /taglist](#channellist)
+* [Stream sensor data using Iot Hub](#iot-hub)
+* [Data format](#data-format)
+* [Use CSV upload](#csv-upload)
 
 ## Channellist 
-Before sensor data can be streamed to Veracity, channel-list needs to be registered for the asset. A channel list is an overview of all the tags/datachannels with its metadata.  An excel template consists of the following columns can be provided or JSON 
+Before sensor data can be streamed to Veracity, channel-list needs to be registered for the asset. A channel list is an overview of all the tags/datachannels with its metadata.  An Excel template consists of the following columns can be provided or JSON. 
 
 The data channel properties  is based on ISO19848 standard for meta-data.
 |Column	 |Description  |
@@ -26,15 +26,15 @@ The data channel properties  is based on ISO19848 standard for meta-data.
 |Update Cycle| represents the cycle of updating measurement value, in unit seconds|
 |Calculation Period|When a value of Data Channel is a result of calculation that uses measurement value of specific time periods, Calculation Period shall be used to describe the said period, in unit seconds|
 
-In addition several identifiers can be modeled for the channels such as 
-- Universal ID
-- Local ID
-- Short ID
+In addition several identifiers can be modeled for the channels such as: 
+* Universal ID
+* Local ID
+* Short ID
 
 ## IOT Hub
 Sensor-data (datapoints) are sent as JSON to veracity IOT hub using different protocols.
 Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client)
-```c#
+```
 using Microsoft.Azure.Devices.Client;
 
 var connectionString = "must be provided";
@@ -51,10 +51,10 @@ await device.CloseAsync();
 
 ## Data format
 The data format for ingesting raw datapoints (sensor data) are:
- - [ISO 19848](#iso19848-message-format)
- - [Veracity ](#veracity-message-format)
- - Wits: Used by oil-rigs to send drilling data
- - [Trisense](#trisense-message)
+ * [ISO 19848](#iso19848-message-format)
+ * [Veracity ](#veracity-message-format)
+ * Wits: Used by oil-rigs to send drilling data
+ * [Trisense](#trisense-message)
 
 ### Iso19848 message format
 

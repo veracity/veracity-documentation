@@ -122,7 +122,7 @@ We'll use an internal class to hold the parameters from the command line, such a
 
 Create a new folder named `Lib` and inside it add a new class `Parameters.cs` with the following content:
 
-```csharp
+```
 using CommandLine;
 
 namespace ServiceBusConsumer.Lib;
@@ -140,7 +140,7 @@ internal class Parameters
 ```
 Update the `Program.cs` file to use the `Parameters` class. The `Main` method should now look like this (note that we're using the `Parameters` class to get the environment name and we're no longer using the `ASPNETCORE_ENVIRONMENT` environment variable):
 
-```csharp
+```
 static async Task Main(string[] args)
 {
     Parameters parameters = null;
@@ -207,7 +207,7 @@ The `ReceiveMessages` method creates a `ServiceBusClient` instance, which is use
 The receive call to the Service Bus is kept open for while the console app is running and if messages arrive, they're returned immediately and a new receive call is issued. This concept is called _long polling_. You can read more about how Service Bus queues work in the [Azure docs](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal).
 Update the `Main` method to call the `ReceiveMessages` method:
 
-```csharp
+```
 static async Task Main(string[] args)
 {
     // ...
@@ -231,7 +231,7 @@ static async Task Main(string[] args)
 ```
 Lastly, add the `WhenCancelled` method to the `Program` class:
 
-```csharp
+```
 private static Task WhenCancelled(CancellationToken cancellationToken)
 {
     Console.WriteLine("WhenCancelled called.");

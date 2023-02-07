@@ -10,9 +10,9 @@ Veracity Events are based on an event-driven architecture enabeling services to 
 Veracity supports any event type by supporting customer specific event types (templates) and each event type consists of different datapoints by defining templates for these events/reports.  
 
 Examples of event types:
-- Log abstact (noon report)
-- Bunker delivery note
-- Voyage updates
-- Equipment topology and equipment health reports
-- Observation
+* Log abstact (noon report)
+* Bunker delivery note
+* Voyage updates
+* Equipment topology and equipment health reports
+* Observation
 

@@ -4,7 +4,7 @@ This tutorial will guide you through the process of creating a single page appli
 The connection from the browser to the ServiceBus queue is established via a [WebPubSub](https://azure.microsoft.com/en-us/products/web-pubsub) service. WebPubSub is a recently released managed Azure service that enabled building real-time applications using a publish-subscribe architecture.
 
 ## 1. Create WebPubSub service
-### From the portal:
+### From the Portal:
 Create a WebPubSub service in Azure portal. You can find the quickstart [here](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/howto-develop-create-instance).
 
 ### From the CLI:

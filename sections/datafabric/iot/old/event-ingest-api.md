@@ -6,8 +6,8 @@ description: This section describes the Event Ingest Api
 # Ingest Alarms & Events to Veracity
 
 Events and alerts are ingested into Veracity using API. 
-- The api is accessible from [api-portal](https://api-portal.veracity.com/). 
-- Select api: *Data Fabric IoT Event Ingest API*
+* The api is accessible from [api-portal](https://api-portal.veracity.com/). 
+* Select api: *Data Fabric IoT Event Ingest API*
 
 Events are defined by event-types (templates) and Veracity allows ingest of any eventtype. If the eventtype used is not defined in Veracity, 
 the ingested event will only be validated according to basic JSON validation.
@@ -16,28 +16,28 @@ A specialized event is the the equipment event that allows for topology inserts 
 
 ## Authentication
 Authorization: Use bearer-token
-See how to authenticate for the api [click here]( authenticate-api.md).
+See how to authenticate for the api [click here](authenticate-api.md).
 
 ## Security Model
 Only users (incl. application credentials) that has access to an asset can ingest data to an asset.
 
 ## Setup
 Before data can be ingested to Veracity the following must be done:
-1.	Vessel must be registered by Veracity administrator
-2.	You must have access to the assets you are ingesting data for
+1. Vessel must be registered by Veracity administrator.
+2. You must have access to the assets you are ingesting data for.
 
 
 ## Ingest equipment event
 This endpoint is used for adding new equipment, updating endpoint and update health status
-- Base url: https://api.veracity.com/veracity
-- Request url: https://api.veracity.com/veracity/ioteventsingest2/api/v2/assets/{assetId}/event/equipment?assetIdSchema={assetIdSchema}
+* Base URL: https://api.veracity.com/veracity
+* Request URL: https://api.veracity.com/veracity/ioteventsingest2/api/v2/assets/{assetId}/event/equipment?assetIdSchema={assetIdSchema}
 
-- Authorization: Bearer token [click here]( authenticate-api.md)
-- Ocp-Apim-Subscription-Key: from application client or B2C user
+* Authorization: Bearer token [click here]( authenticate-api.md)
+* Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### query param
--assetId: asset imo nr or veracity guid
--assetIdSchema: imo/veracity  (the schema for the asset id)
+* assetId: asset imo nr or veracity guid
+* assetIdSchema: imo/veracity  (the schema for the asset id)
 
 ### body
 The body contains the JSON message in the following format
@@ -89,20 +89,20 @@ Use same endpoint as for equipment: '
 
 ## Ingest event by eventtype
 This endpoint can be used to ingest any eventtype as a JSON object to Veracity with some paramerters in header. 
-- Base url: https://api.veracity.com/veracity
-- Request url: https://api.veracity.com/veracity/ioteventsingest2/api/v2/assets/{assetId}/event?assetIdSchema={assetIdSchema}&eventType={eventType}&dataChannelID={dataChannelID}[&eventId][&timeStampUtc]
-- Authorization: Bearer token [click here]( authenticate-api.md)
-- Ocp-Apim-Subscription-Key: from application client or B2C user
+* Base URL: https://api.veracity.com/veracity
+* Request URL: https://api.veracity.com/veracity/ioteventsingest2/api/v2/assets/{assetId}/event?assetIdSchema={assetIdSchema}&eventType={eventType}&dataChannelID={dataChannelID}[&eventId][&timeStampUtc]
+* Authorization: Bearer token [click here]( authenticate-api.md)
+* Ocp-Apim-Subscription-Key: from application client or B2C user
 
 
 ### Header param
-- assetId: asset imo nr or veracity guid
-- assetIdSchema: imo/veracity  (the schema for the asset id)
-- eventType: event type (template/topic)
-- timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
-- dataChannelId: The equipment identifier /code used by the namingstandard used for asset categorization ( Vis code, mc key, JSME id etc.). This is the local id (ISO 19848) containing the namingrule
-- eventId: optional. If not provided, a UUID will be generated
-- timeStampUTC: option. If not provided, UTC.now will be used
+* assetId: asset imo nr or veracity guid
+* assetIdSchema: imo/veracity  (the schema for the asset id)
+* eventType: event type (template/topic)
+* timeStampUtc: timestamp for event, UTC: format: "2021-04-06T14:22:48.950716+02:00"
+* dataChannelId: The equipment identifier /code used by the namingstandard used for asset categorization ( Vis code, mc key, JSME id etc.). This is the local id (ISO 19848) containing the namingrule
+* eventId: optional. If not provided, a UUID will be generated
+* timeStampUTC: option. If not provided, UTC.now will be used
 
 ### Body
 

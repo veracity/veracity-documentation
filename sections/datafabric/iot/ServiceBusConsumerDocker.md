@@ -319,6 +319,7 @@ Create a new file named `.dockerignore` in the `ServiceBusConsumer` folder with 
 **/.gitignore
 **/.project
 **/.settings
+**/Dockerfile*
 **/.toolstarget
 **/.vs
 **/.vscode

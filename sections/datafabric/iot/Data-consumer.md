@@ -1,4 +1,9 @@
-﻿# Data consumer
+﻿---
+author: Benedikte Kallåk
+description: This section describes who can consume data.
+---
+
+# Data consumer
 
 Veracity IoT ensures secure access to data. Only users granted access can read data.
 

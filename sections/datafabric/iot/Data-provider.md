@@ -1,4 +1,9 @@
-﻿# Data provider
+﻿---
+author: Benedikte Kallåk
+description: This section describes explains data providers.
+---
+
+# Data provider
 A data-provider ingests sensor-data or events to Veracity using different protocols and data-formats. 
 * [Sensor data is streamed to Veracity IoT Hub](IngestSensorData.md)
 * [Sensor data can be uploaded using CSV-files](IngestSensorData.md)

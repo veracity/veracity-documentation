@@ -19,12 +19,12 @@ An event can consist of several datapoints (attributes). The format of an event 
 An event-driven architecture uses events to trigger and communicate between decoupled services and is common in modern applications built with microservices.
 
 ## Main Features
-* Ingest gateways for high volume sensors and events
-* Secure storage
-* Data permission and access rights
-* Real-time support using subscription model
-* Query Apis for data access
-* Data quality service
-* Timeseries and events explorer
-* Connectors to major platforms
-* Power Bi Connection
+- Ingest gateways for high volume sensors and events
+- Secure storage
+- Data permission and access rights
+- Real-time support using subscription model
+- Query Apis for data access
+- Data quality service
+- Timeseries and events explorer
+- Connectors to major platforms
+- Power Bi Connection

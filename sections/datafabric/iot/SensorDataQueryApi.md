@@ -3,19 +3,19 @@ You can call the api directly from your application using a RestClient.  An SDK 
 When invoking the api, the consumer needs a token for authentication.
 Explore the api in the portal: [Data Fabric IoT Time Series Query API V2](https://api-portal.veracity.com/docs/services/DataFabric-IoT-TimeSeriesAPI-V2) . Select group by tag.  Note: [you must be signed in](ApiPortal.md).
 
-* [How to authenticate](authenticate.md)
-* [How to explore the api in the portal](ApiPortal.md)
-*  [Get timeseries data](#get-timeseries-data)
-	* [C# code using Http client](#c#-code-using-http-client)
-	* [C# code using Veracity SDK for C#](#c#-code-example-using-veracity-iot-sdk)
-	* [Python example](SensorDataPython.md)
-* [Query for calculated data quality](#query-for-calculated-data-quality)
+- [How to authenticate](authenticate.md)
+- [How to explore the api in the portal](ApiPortal.md)
+-  [Get timeseries data](#get-timeseries-data)
+	- [C# code using Http client](#c#-code-using-http-client)
+	- [C# code using Veracity SDK for C#](#c#-code-example-using-veracity-iot-sdk)
+	- [Python example](SensorDataPython.md)
+- [Query for calculated data quality](#query-for-calculated-data-quality)
 ## Security Model
 Only users that has access to an asset can access sensor-data from this asset on the channels user has subscribed. 
 
 ## Get timeseries data
 Returns timeseries data for a set of datachannels on an asset (or set of assets) by specifying request payload. 
-* Base URL: *https://api.veracity.com/veracity/*
+- Base url: *https://api.veracity.com/veracity/*
 #### Flat response
 ```
 POST https://api.veracity.com/veracity/timeseries2/api/v2/timeSeries
@@ -49,7 +49,7 @@ Set downScaleInt in request payload to  specify downscaling interval. Set to nul
 
 ### C# code example using Veracity IoT SDK
 Use latest nuget package **Veracity.IoT.SDK.Client**
-```
+```cs
 using Veracity.IoT.SDK.Client;
 using Veracity.IoT.SDK.Models.Query;
 
@@ -87,7 +87,7 @@ var result = await veracityIoTclient.TimeSeries.Veracity.GetTimeseries(payload);
 ### C# code using Http client
 Alternatively using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
 
-```
+```cs
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;

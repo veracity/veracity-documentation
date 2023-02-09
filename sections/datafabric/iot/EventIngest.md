@@ -1,19 +1,19 @@
 ﻿# Event ingest
  Veracity supports ingesting events via two main channels:
 - HTTP API
-	* [How to authenticate](Authenticate.md)
-	* [C# code example using http client](#c#-code-example-using-http-client)
-	* [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
-* IoT Hub
+	- [How to authenticate](Authenticate.md)
+	- [C# code example using http client](#c#-code-example-using-http-client)
+	- [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
+- IoT Hub
 	- [Stream events to IoT Hub](#submit-events-to-iot-hub)
 ## Use api
 
 The api is accessible from [api-portal](https://api-portal.veracity.com/).  Select api   [Data Fabric IoT Event Broker Ingest API](https://api-portal.veracity.com/docs/services/DataFabric-IoTEventBrokerIngestAPI)
 You can call the api directly from your application using standard tooling in your platform. For .Net and Python we provide SDK and examples.  When invoking the api, the consumer needs a token for authentication.
 
-* How to authenticate
-* How to explore the api in the portal
-* How to use Veracity IoT SDK
+- How to authenticate
+- How to explore the api in the portal
+- How to use Veracity IoT SDK
 
 Any eventtype can be ingested by POSTing a JSON object to Veracity with some header paramerters.
 ```
@@ -24,12 +24,12 @@ Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1
 - Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Header parameters
-* assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
-* assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
-* eventType: E.g: Voyagereport, Topologyreport  (name of template for event)
-* timeStampUtc: timestamp for Event, UTC: format: "2021-04-06T14:22:48.950716+02:00" (yyyy-mm-ddTHH:
-* topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery". See MC-topics.
-* tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
+- assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
+- assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
+- eventType: E.g: Voyagereport, Topologyreport  (name of template for event)
+- timeStampUtc: timestamp for Event, UTC: format: "2021-04-06T14:22:48.950716+02:00" (yyyy-mm-ddTHH:
+- topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery". See MC-topics.
+- tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
 
 **Example**
 ```
@@ -38,7 +38,7 @@ POST https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?eventT
 ### C# code example using http client
 For C# you can use Veracity nuget package or alternatively using http client. Fetching bearer token and ingesting Event. Example is written in C#. This approach is transferable to other languages utilizing http clients.
 
-```
+```cs
 //main program
 {
 var token = await GetToken();
@@ -100,7 +100,7 @@ async Task<string> GetToken()
 Use nuget package **Veracity.IoT.SDK.Client**
 Client id, secret and subscription key must be provided
 
-```
+```cs
 using Veracity.IoT.SDK.Client;
 
 
@@ -122,11 +122,10 @@ var jsonPayload =
 
 var ingestResult = await eventsClient.Events.IngestEvent(jsonPayload, eventType, topic, timeStampUtc, assetId, assetIdIssuer);
 ```
-
 ## Submit events to Iot Hub
 You will need the following information to be able to publish events to the IoT Hub:
-* IoT Hub connection string
-* IoT Hub device ID   (this is part of the connection string)
+- IoT Hub connection string
+- IoT Hub device ID   (this is part of the connection string)
 
 ### C# example
 An event can be streamed to an Azure IoT hub by wrapping it into a Veracity-event-message format
@@ -142,9 +141,8 @@ An event can be streamed to an Azure IoT hub by wrapping it into a Veracity-even
   }
 ```
 
-Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client).
-
-```
+Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client)
+```cs
   using Microsoft.Azure.Devices.Client;
 
  var connectionString = "must be provided";
@@ -165,22 +163,22 @@ Microsoft supports nuget pacakges for sending data to IOTHub by connection strin
 
 We'll be writing a simple Node.js application that will publish events to the IoT Hub. 
 
-1. Navigate to the `test` folder and create a new Node.js project:  
-```
+1) Navigate to the `test` folder and create a new Node.js project:  
+```shell
 cd ../test
 npm init -y
 ``` 
-2. Install the `azure-iot-device` and the `azure-iot-device-mqtt` packages:
-```
+2) Install the `azure-iot-device` and the `azure-iot-device-mqtt` packages:
+```sh
 npm install azure-iot-device azure-iot-device-mqtt
 ```
 Also install the `dotenv` package to be able to read the configuration values from a `.env` file and the `uuid` package to generate a unique device ID: 
-```
+```sh
 npm install dotenv uuid
 ```
-3. Create a new file named `.env` and add the following configuration values:  
+3) Create a new file named `.env` and add the following configuration values:  
 
-```
+```sh
 IOTHUB_CONNECTION_STRIN="<iot-hub-connection-string>"
 IOTHUB_DEVICE_ID="<YOUR_DEVICE_ID>"`` 
 
@@ -245,8 +243,8 @@ id: uuidv4()
  
 Replace the `<YOUR_TEST_ASSETID>`, `YOUR_TEST_ASSETID_ISSUER`, and `<YOUR_TEST_TOPIC>` placeholders with actual values from your application.  
 
-5. Run the `test_publisher.js` script:
-```
+5) Run the `test_publisher.js` script:
+```sh
 node test_publisher.js
 ``` 
 If all is well, you should have an event published and ready to be consumed by the Azure Function.

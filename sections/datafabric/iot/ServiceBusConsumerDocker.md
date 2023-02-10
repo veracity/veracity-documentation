@@ -4,22 +4,22 @@ This tutorial will walk you through the steps to create an Azure ServiceBus cons
 ## 1. Create a new C# console application
 To create a new C# console application, you can use Visual Studio (or another IDE of choice) or the .NET Core CLI. We'll use the [.NET Core CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) in this tutorial.
 Create a new directory for your project and navigate to it:
-```sh
+```shell
 mkdir ServiceBusConsumer
 cd ServiceBusConsumer
 ```
 Create a new C# console application:
-```sh
+```shell
 dotnet new console
 ```
 ### 1.1. Add the Azure ServiceBus NuGet package
 To add the Azure ServiceBus NuGet package, run the following command:
-```sh
+```shell
 dotnet add package Azure.Messaging.ServiceBus
 ```
 Also add the following NuGet packages:
 
-```sh
+```shell
 dotnet add package Microsoft.Extensions.Configuration
 dotnet add package Microsoft.Extensions.Configuration.Json
 dotnet add package Microsoft.Extensions.Configuration.EnvironmentVariables

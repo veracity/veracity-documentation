@@ -169,16 +169,16 @@ cd ../test
 npm init -y
 ``` 
 2) Install the `azure-iot-device` and the `azure-iot-device-mqtt` packages:
-```sh
+```shell
 npm install azure-iot-device azure-iot-device-mqtt
 ```
 Also install the `dotenv` package to be able to read the configuration values from a `.env` file and the `uuid` package to generate a unique device ID: 
-```sh
+```shell
 npm install dotenv uuid
 ```
 3) Create a new file named `.env` and add the following configuration values:  
 
-```sh
+```shell
 IOTHUB_CONNECTION_STRIN="<iot-hub-connection-string>"
 IOTHUB_DEVICE_ID="<YOUR_DEVICE_ID>"`` 
 
@@ -244,7 +244,7 @@ id: uuidv4()
 Replace the `<YOUR_TEST_ASSETID>`, `YOUR_TEST_ASSETID_ISSUER`, and `<YOUR_TEST_TOPIC>` placeholders with actual values from your application.  
 
 5) Run the `test_publisher.js` script:
-```sh
+```shell
 node test_publisher.js
 ``` 
 If all is well, you should have an event published and ready to be consumed by the Azure Function.

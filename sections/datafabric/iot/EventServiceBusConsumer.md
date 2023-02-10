@@ -15,5 +15,3 @@ Each application receives a connection string to its private queue where only ev
 Each queue can receive events from multiple "data providers" and assets.
 
 ### How to subscribe to events
-
-

@@ -4,22 +4,22 @@ This tutorial will walk you through the steps to create an Azure ServiceBus cons
 ## 1. Create a new C# console application
 To create a new C# console application, you can use Visual Studio (or another IDE of choice) or the .NET Core CLI. We'll use the [.NET Core CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) in this tutorial.
 Create a new directory for your project and navigate to it:
-```shell
+```cs
 mkdir ServiceBusConsumer
 cd ServiceBusConsumer
 ```
 Create a new C# console application:
-```shell
+```cs
 dotnet new console
 ```
 ### 1.1. Add the Azure ServiceBus NuGet package
 To add the Azure ServiceBus NuGet package, run the following command:
-```shell
+```cs
 dotnet add package Azure.Messaging.ServiceBus
 ```
 Also add the following NuGet packages:
 
-```shell
+```cs
 dotnet add package Microsoft.Extensions.Configuration
 dotnet add package Microsoft.Extensions.Configuration.Json
 dotnet add package Microsoft.Extensions.Configuration.EnvironmentVariables
@@ -105,7 +105,7 @@ class Program
 ```
 Now edit your `.csproj` file and add the following content to make sure that the config files are copied to the output directory:
 
-```xml
+```json
 <ItemGroup>
     <None Update="appsettings.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -244,11 +244,11 @@ private static Task WhenCancelled(CancellationToken cancellationToken)
 Now we're ready to run the console app. Refer to the Developer documentation for information on how to publish messages to the Veracity IoT Platform. 
 When you publish one or more messages to the Veracity IoT Platform, the message will be routed to the Service Bus queue and the console app will receive the message.
 To run the console app, open a command prompt and navigate to the `ServiceBusConsumer` folder. Run the following command:
-```shell
+```cs
 dotnet run
 ```
 The console app will start and you should see the following output:
-```shell
+```cs
 ServiceBus connection string: <your connection string>
 ServiceBus queue name: <your queue name>
 Press control-C to exit.
@@ -259,7 +259,7 @@ To run the console app in a Docker container, we need to add Docker support to t
 ### 3.1. Create a Dockerfile
 Create a new file named `Dockerfile` in the `ServiceBusConsumer` folder with the following content:
 
-```shell
+```cs
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/runtime:6.0 AS base
@@ -291,7 +291,7 @@ Since we're building the Docker image from the source code, we don't need to cop
 
 Create a new file named `.dockerignore` in the `ServiceBusConsumer` folder with the following content:
 
-```shell
+```cs
 **/.classpath
 **/.dockerignore
 **/.env
@@ -319,7 +319,7 @@ appsettings.Localhost.json
 ```
 ## 4. Build the Docker image
 To build the Docker image, open a command prompt and navigate to the `ServiceBusConsumer` folder. Run the following command:
-```shell
+```cs
 docker build -t servicebusconsumer .
 ```
 The Docker image is now built and you can run it in a container.
@@ -328,12 +328,12 @@ The Docker image is now built and you can run it in a container.
 Since we have excluded the `appsettings.Localhost.json` file, we need to pass the connection string as an environment variable to the Docker container.
 
 To run the Docker container, open a command prompt and run the following command:
-```shell
+```cs
 docker run -it -e ServiceBusConnectionString="<your connection string>" --rm servicebusconsumer
 ```
 The console app will start and you should see the following output:
 
-```shell
+```cs
 ServiceBus connection string: <your connection string>
 ServiceBus queue name: <your queue name>
 Press control-C to exit.
@@ -348,27 +348,27 @@ This scenario is detailed in the [Azure Container Instances](https://learn.micro
 
 ### 5.4 Stop the Docker container
 To stop the container, press `Ctrl+C`. Alternatively, you can run the following command:
-```shell
+```cs
 docker kill <container id>
 ```
 To get the container id, run the following command:
-```shell
+```cs
 docker ps
 ```
 ## 6. Publish the Docker image to Azure Container Registry
 To publish the Docker image to Azure Container Registry (ACR), you need to create a Container Registry instance. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) for information on how to create an Azure Container Registry.
 
 Once you've created an ACR, you can publish the Docker image to the registry. Open a command prompt and run the following command:
-```shell
+```cs
 az acr login --name <your registry name>
 ```
 The command will log you in to the Azure Container Registry.
 Next, tag the Docker image with the name of the Azure Container Registry:
-```shell
+```cs
 docker tag servicebusconsumer <your registry name>.azurecr.io/servicebusconsumer
 ```
 Finally, push the Docker image to the Azure Container Registry:
-```shell
+```cs
 docker push <your registry name>.azurecr.io/servicebusconsumer
 ```
 The Docker image is now published to the Azure Container Registry and can be deployed as a container instance. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart) for information on how to do that.

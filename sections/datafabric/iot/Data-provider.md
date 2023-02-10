@@ -23,5 +23,3 @@ High frequency data is streamed into Veracity IOT hub from edge solution or from
 
 ## Data format for events
 The payload of the event can be any data structure in JSON format. Each data-structure is defined as a event-type (template). Each event require some meta-data such as asset, topic and timestamp and event-type. [More more information](EventIngest.md)
-
-

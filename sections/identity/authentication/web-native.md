@@ -1,27 +1,24 @@
 ---
 author: Veracity
-description: Detailed description of how authentication with the Veracity IDP works for a web apps.
+description: Detailed description of how authentication with Veracity IDP works for a web apps.
 ---
 
 # Authentication for Web and Native Applications
-Authenticating users is usually the first step any application needs to do before it can be used. Performing authentication with the Veracity IDP is done using the industry standard protocol *OpenID Connect* built on top of [OAuth 2.0](https://auth0.com/docs/protocols/oidc) flows. This ensures compatibility with a wide range of services accross the internet. In this document we'll go through the steps needed to authenticate with Veracity as a web application or native application. These use cases only differ in the parameters that are sent so they have been combined into one single document.
+Authentication for web and native applications is similar and differs only in the parameters that are sent.
+
+For a web or native application, to authenticate a user:
+1. Redirect the user to sign in to Veracity.
+2. After the user sucessfully authenticates, await the validation response from Veracity IDP.
+3. Validate the response.
+4. Optionally, exchange an authorization code for an access token.
+5. Optionally, validate the access token.
+
+If you only need to authenticate the user with Veracity IDP and you will not call any Veracity APIs,  you can skip steps number four and five. 
 
 <figure>
 	<img src="../assets/basic-oidc-authentication.png"/>
 	<figcaption>Overview of the authentication process.</figcaption>
 </figure>
-
-The process of authenticating users consists of a few steps:
-1. Redirect the user to the login page for Veracity.
-2. Await the users response and subsequent redirect back to your application.
-3. Inspect the response and validate it.
-4. (Optionally) Exchange an authorization code for an access token.
-5. (Optionally) Validate the access token.
-
-If you only wish to authenticate the user and do not need to call any Veracity APIs at all you can skip step 4 and 5. Though in most cases you would probably need to do theses steps for your application to operate correctly. The remaining sections of this document will cover every step in detail.
-
-## Helper libraries
-The Veracity IDP implements authentication using OpenID Connect. There are multiple libraries online that aid in building applications 
 
 ## Authenticating a user
 Before you begin the authentication process you need a few parameters. You also need to register your application with Veracity to obtain a *client id*, *reply url* and, if you are building a web application and wish to call Veracity APIs as well, *client secret*. If you intend to call Veracity APIs as well you will also need a subscription key for each API endpoint you want to communicate with. All of this can be obtained from the [Veracity for Developers Project Portal](https://developer.veracity.com/projects). Simply create an account and register your application here and you should receive the relevant parameters.

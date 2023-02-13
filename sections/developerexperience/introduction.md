@@ -24,7 +24,7 @@ A resource group is a container used for organizing your resources. A resource g
 A resource is any platform capability that needs provisioning for your project to use it. For example, application credentials.
 
 <figure>
-	<img src="step-by-step-guide/assets/ProjectStructure.png" alt="Example of a project structure"/>
+	<img src="assets/ProjectStructure.png" alt="Example of a project structure"/>
 </figure>
 
 ## Tutorials

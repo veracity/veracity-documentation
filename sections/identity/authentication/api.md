@@ -98,6 +98,14 @@ Below you can see a sample response from the metadata endpoint.
 }
 ```
 
-Once your API has retrieved the token from the header it should use the above metadata to validate it according to the current best-practice for OAuth token validation available [here](https://auth0.com/docs/tokens/guides/access-token/validate-access-token#json-web-token-jwt-access-tokens). You **MUST** validate the signature of the token using the relevant Json Web Token key. See the `jwks_uri` endpoint in the metadata for a list of public key signatures and validate accordingly. You can read more about validating the siganture [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens#validating-the-signature).
+When validating the token:
+1. Conform to [current best practice for OAuth token validation](https://auth0.com/docs/tokens/guides/access-token/validate-access-token#json-web-token-jwt-access-tokens).
+2. Validate the signature of the token using the relevant JSON Web Token key. For a list of public key signatures, see the `jwks_uri` endpoint in the metadata.
+3. Optionally, [read more about validating the signature](https://learn.microsoft.com/en-us/azure/active-directory/develop/access-tokens#validating-the-signature).
 
-Once these steps are done you can trust that the token was issued by Veracity, is not expired and was signed by the Veacity IDP. Only then can you use the information within to continue handling the request. If any of the validation steps fail your API must reject the token and return a `401 Unauthorized` response indicating to the calling code that the token is invalid and you will not handle the request.
+This lets you confirm that the token:
+* was issued by Veracity
+* is not expired
+* was signed by Veracity IDP
+
+However, if any of the validation steps fail, your API must reject the token and return a `401 Unauthorized` response indicating to the calling code that the token is invalid and you will not handle the request.

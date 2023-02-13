@@ -1,4 +1,9 @@
-﻿# Event query api
+﻿---
+author: Benedikte Kallåk
+description: This section describes event query api
+---
+
+# Event query api
 
 The api is accessible from [api-portal](https://api-portal.veracity.com/).  Select api **Data Fabric IoT Event Broker Query API**
 

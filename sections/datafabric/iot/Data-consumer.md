@@ -1,4 +1,9 @@
-﻿# Data consumer
+﻿---
+author: Benedikte Kallåk
+description: This section contains a toc for data consuming pages
+---
+
+# Data consumer
 
 Veracity IoT ensures secure access to data. Only users granted access can read data.
 

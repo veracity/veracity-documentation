@@ -1,4 +1,9 @@
-﻿# Event ingest
+﻿---
+author: Benedikte Kallåk
+description: This section describes event ingest
+---
+
+# Event ingest
  Veracity supports ingesting events via two main channels:
 - HTTP API
 	- [How to authenticate](Authenticate.md)

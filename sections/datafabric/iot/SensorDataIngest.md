@@ -1,4 +1,9 @@
-﻿# Ingest sensor data
+﻿---
+author: Benedikte Kallåk
+description: This section describes how to ingest sensor data
+---
+
+# Ingest sensor data
 
 ## Content
 - [Channel list /taglist](#channellist)

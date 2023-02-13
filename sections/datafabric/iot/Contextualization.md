@@ -1,4 +1,9 @@
-﻿# Contextualization
+﻿---
+author: Benedikte Kallåk
+description: This section describes contextualization
+---
+
+# Contextualization
 
 A digital twin represents a digital model of the asset using a reference model (codebook) describing a categorization of the asset such as a functional hierarchy as well as the naming scheme for identifying each item.  ISO 19848 (Annex B and C) describes two types of categorizing or identification schemas (JSMEA and VIS).  
 Vessel Information Structure (VIS) is DNV’s logical structure of ship functions as well as components and systems used on the ship. VIS supports tools for compiling unique name-strings for sensors installed on ships. In the future other identification schemas (naming rules) may also be introduced in the ISO 19848 standard. 

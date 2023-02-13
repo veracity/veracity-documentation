@@ -1,4 +1,9 @@
-﻿# Service Bus consumer using Azure Functions and WebPubSub
+﻿---
+author: Benedikte Kallåk
+description: This section describes how to use web pub sub pattern
+---
+
+# Service Bus consumer using Azure Functions and WebPubSub
 
 This tutorial will guide you through the process of creating a single page application (SPA) that connects to an Azure ServiceBus queue and consumes messages in real-time via a WebSocket connection. 
 The connection from the browser to the ServiceBus queue is established via a [WebPubSub](https://azure.microsoft.com/en-us/products/web-pubsub) service. WebPubSub is a recently released managed Azure service that enabled building real-time applications using a publish-subscribe architecture.

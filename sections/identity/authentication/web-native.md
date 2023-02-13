@@ -17,94 +17,23 @@ If you only need to authenticate the user with Veracity IDP and you will not cal
 
 <figure>
 	<img src="../assets/basic-oidc-authentication.png"/>
-	<figcaption>Overview of the authentication process.</figcaption>
 </figure>
 
 ## Authenticating a user
-Before you begin the authentication process you need a few parameters. You also need to register your application with Veracity to obtain a *client id*, *reply url* and, if you are building a web application and wish to call Veracity APIs as well, *client secret*. If you intend to call Veracity APIs as well you will also need a subscription key for each API endpoint you want to communicate with. All of this can be obtained from the [Veracity for Developers Project Portal](https://developer.veracity.com/projects). Simply create an account and register your application here and you should receive the relevant parameters.
+To authenticate users:
+* [See the authentication parameters](overview.md#parameters-for-user-authentication).
+* Constuct the authorization URL using the meta data endpoint.
 
-In addition you also need to know a few parameters specific to the Veracity platform these are the *tenant id*, *policy* and any scopes you want access tokens for. In total here is all the parameters you should have:
+To construct the authorization URL:
+1. Go to the meta data URL in your browser: https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
+2. Copy the value for the `authorization_endpoint`.
+3. Specify and encode required parameters for the authentication request.
+4. Ensure that all parameters are URL encoded, so that they will remove any illegal values from the URL.
+5. To authenticate users, redirect them to the `authorization endpoint`. The user will sign in to Veracity, and then Veracity IDP will issue a POST request to your specified `redirect_uri` (in Project Portal, called `Reply URL`) with all the parameters requested in the `response_mode` (such as `id_token` and, optionally, authorization `code`).
+6. Before you start using the `id_token` or `code`, [validate them](https://auth0.com/docs/secure/tokens/id-tokens/validate-id-tokens).
+7. Optionally, after validating the `id_token`, you can use the `c_hash` claim from the from the `id_token` to validate the authorization code (`code`).
 
-Parameter|Value
--|-
-Client ID|`[from developer portal]`
-Client Secret (only if web application)|`[from developer portal]`
-Reply URL|`[from developer portal]`
-Tenant ID|`a68572e3-63ce-4bc1-acdc-b64943502e9d`
-Policy|`B2C_1A_SignInWithADFSIdp`
-Services API scope|`https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation`
-Data Fabric API scope|`https://dnvglb2cprod.onmicrosoft.com/37c59c8d-cd9d-4cd5-b05a-e67f1650ee14/user_impersonation`
-
-With this information you can now construct the URLs needed to authenticate and authorize users with Veraicty. Before we do however it is useful to know about the metadata endpoint. This is a url where you can get detailed information about the configuration of the OAuth 2.0 implementation used in Veracity. The format of the URL is:
-
-```
-# Veracity Metadata URL
-https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
-```
-
-If you visit this URL in your browser the IDP will return details about its OAuth configuration. When verifying tokens you will need this information. It also contains the authorization URL as well as token endpoint URL which you will need later. Let's construct the authorization URL based on the information returned from the metadata endpoint. Here is an example of the data returned:
-
-```json
-{
-  "issuer": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/",
-  "authorization_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp",
-  "token_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/token?p=b2c_1a_signinwithadfsidp",
-  "end_session_endpoint": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/logout?p=b2c_1a_signinwithadfsidp",
-  "jwks_uri": "https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/discovery/v2.0/keys?p=b2c_1a_signinwithadfsidp",
-  "response_modes_supported": [
-    "query",
-    "fragment",
-    "form_post"
-  ],
-  "response_types_supported": [
-    "code",
-    "code id_token",
-    "code token",
-    "code id_token token",
-    "id_token",
-    "id_token token",
-    "token",
-    "token id_token"
-  ],
-  "scopes_supported": [
-    "openid"
-  ],
-  "subject_types_supported": [
-    "pairwise"
-  ],
-  "id_token_signing_alg_values_supported": [
-    "RS256"
-  ],
-  "token_endpoint_auth_methods_supported": [
-    "client_secret_post",
-    "client_secret_basic"
-  ],
-  "claims_supported": [
-    "dnvglAccountName",
-    "myDnvglGuid",
-    "userId",
-    "oid",
-    "name",
-    "given_name",
-    "family_name",
-    "sub",
-    "email",
-    "upn",
-    "mfaType",
-    "mfa_required",
-    "authenticatedBy",
-    "iss",
-    "iat",
-    "exp",
-    "aud",
-    "acr",
-    "nonce",
-    "auth_time"
-  ]
-}
-```
-
-The URL you need is the `authorization_endpoint`. This is where you need to redirect users in order to perform authentication. However you cannot just redirect them directly to that address. You need to specify a few parameters and encode them as part of the request. You can find more details about the parameters [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code). For Veracity you'll need to provide the following parameters:
+You can find more details about the parameters [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code). For Veracity you'll need to provide the following parameters:
 
 Parameter|Value
 -|-

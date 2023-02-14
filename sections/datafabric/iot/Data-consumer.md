@@ -1,4 +1,4 @@
-﻿---
+---
 author: Benedikte Kallåk
 description: This section contains a toc for data consuming pages
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 author: Benedikte Kallåk
 description: This section describes how to ingest sensor data
 ---

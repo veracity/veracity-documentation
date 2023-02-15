@@ -27,9 +27,30 @@
 				{
 					"text": "Consuming data",
 					"href": "iot/data-consumer.md"
-				}				
+				}
 			]
-		},		
+		},
+		{
+			"text": "Veracity IoT Tutorials",
+			"items": [
+				{
+					"text": "Ingest sensor data",
+					"href": "iot/overview.md"
+				},
+				{
+					"text": "How tos",
+					"href": "iot/howtos.md"
+				},
+				{
+					"text": "Providing data",
+					"href": "iot/data-provider.md"
+				},
+				{
+					"text": "Consuming data",
+					"href": "iot/data-consumer.md"
+				}
+			]
+		},
 		{
 			"text": "Data Fabric Data API Specification",
 			"href": "datafabric-dataapi-openapi.yaml"
@@ -70,8 +91,7 @@
 				{
 					"text": "Access container",
 					"href": "tutorials/access-container.md"
-				}
-				,
+				},
 				{
 					"text": "Authorization Snippet",
 					"href": "tutorials/authorization-snippet.md"

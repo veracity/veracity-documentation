@@ -8,16 +8,16 @@ description: This section describes how tos
 
 How to 
 
-## Define channellist
-Ingest sensor data 
-Read sensordata from api
+## Define channel list
+[Ingest sensor data](sensordataingest.md) 
+[Read sensordata from api](dataconsumer.md)
 
 ## Ingest events
-Read events from api
-Read events from service bus
+[Read events from API](eventqueryapi.md)
+[Read events from service bus](eventservicebusconsumer.md)
 
-##Explore api's in portal
-Authenticate 
+## Explore API's in portal
+[Authenticate](apiportal.md) 
 
 
 

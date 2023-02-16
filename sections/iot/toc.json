@@ -14,10 +14,14 @@
 			"href": "contextualization.md"
 		},
 		{
+			"text": "API Portal",
+			"href": "apiportal.md"
+		},
+		{
 			"text": "Data provider",
 			"items": [
 				{
-					"text": "Ingest sensor data",
+					"text": "Data provider",
 					"href": "dataprovider/dataprovider.md"
 				},
 				{
@@ -27,10 +31,6 @@
 				{
 					"text": "Event Ingest",
 					"href": "dataprovider/eventingest.md"
-				},
-				{
-					"text": "API Portal",
-					"href": "dataprovider/apiportal.md"
 				}
 			]
 		},
@@ -38,39 +38,39 @@
 			"text": "Data consumer",
 			"items": [
 				{
-					"text": "Introduction",
+					"text": "Data consumer",
 					"href": "dataconsumer/dataconsumer.md"
 				},
 				{
-					"text": "Access container",
+					"text": "Sensor Data Query API",
 					"href": "dataconsumer/sensordataqueryapi.md"
 				},
 				{
-					"text": "Authorization Snippet",
+					"text": "Event Query API",
 					"href": "dataconsumer/eventqueryapi.md"
 				},
 				{
-					"text": "Quick Start",
+					"text": "Authenticate",
 					"href": "dataconsumer/authenticate.md"
 				},
 				{
-					"text": "Access container",
+					"text": "Sensor data Python",
 					"href": "dataconsumer/sensordatapython.md"
 				},
 				{
-					"text": "Authorization Snippet",
+					"text": "Event Service Bus Consumer",
 					"href": "dataconsumer/eventservicebusconsumer.md"
 				},
 				{
-					"text": "Authorization Snippet",
+					"text": "Service Bus Consumer Docker",
 					"href": "dataconsumer/servicebusconsumerdocker.md"
 				},
 				{
-					"text": "Quick Start",
+					"text": "Service Bus Consumer Web Pub Sub",
 					"href": "dataconsumer/servicebusconsumerwebpubsub.md"
 				},
 				{
-					"text": "Introduction",
+					"text": "Servuce Bus Consumer Azure Function",
 					"href": "dataconsumer/servicebusconsumerazurefunction.md"
 				}
 			]

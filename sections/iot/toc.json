@@ -27,10 +27,6 @@
 				{
 					"text": "Event Ingest",
 					"href": "dataprovider/eventingest.md"
-				},
-				{
-					"text": "API Portal",
-					"href": "dataprovider/apiportal.md"
 				}
 			]
 		},
@@ -54,10 +50,6 @@
 					"href": "dataconsumer/authenticate.md"
 				},
 				{
-					"text": "Introduction",
-					"href": "../dataprovider/apiportal.md"
-				},
-				{
 					"text": "Access container",
 					"href": "dataconsumer/sensordatapython.md"
 				},
@@ -75,7 +67,7 @@
 				},
 				{
 					"text": "Introduction",
-					"href": "../dataprovider/servicebusconsumerazurefunction.md"
+					"href": "../dataconsumer/servicebusconsumerazurefunction.md"
 				}
 			]
 		}

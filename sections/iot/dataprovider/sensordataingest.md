@@ -6,7 +6,7 @@ description: This section describes how to ingest sensor data
 # Ingest sensor data
 
 ## Content
-- [Channel list /taglist](#channellist)
+- [Channel list /taglist](#channel-list)
 - [Stream sensor data using Iot Hub](#iot-hub)
 - [Data format](#data-format)
 - [Use CSV upload](#csv-upload)

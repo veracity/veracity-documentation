@@ -17,6 +17,7 @@ There are several options for how to consume the events. The following patterns 
 
 ## Security model
 Each application receives a connection string to its private queue where only events application is subscribing to are being published. If an application is multi-tenant, there will be one queue per tenant.  
+
 Each queue can receive events from multiple "data providers" and assets.
 
 ### How to subscribe to events

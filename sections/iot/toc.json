@@ -27,6 +27,10 @@
 				{
 					"text": "Event Ingest",
 					"href": "dataprovider/eventingest.md"
+				},
+				{
+					"text": "API Portal",
+					"href": "dataprovider/apiportal.md"
 				}
 			]
 		},

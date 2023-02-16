@@ -35,59 +35,49 @@
 			]
 		},
 		{
-			"text": "Data Fabric Data API Specification",
-			"href": "datafabric-dataapi-openapi.yaml"
-		},
-		{
-			"text": "Data Fabric Provision API Specification",
-			"href": "datafabric-provisionapi-openapi.yaml"
-		},
-		{
-			"text": "Authentication",
-			"items": [
-				{
-					"text": "Accessing APIs",
-					"href": "authentication/accessing-apis.md"
-				}
-			]
-		},
-		{
-			"text": "Keys",
-			"items": [
-				{
-					"text": "Overview",
-					"href": "keys/overview.md"
-				},
-				{
-					"text": "Security",
-					"href": "keys/security.md"
-				}
-			]
-		},
-		{
-			"text": "Tutorials",
+			"text": "Data consumer",
 			"items": [
 				{
 					"text": "Introduction",
-					"href": "tutorials/introduction.md"
+					"href": "dataconsumer/dataconsumer.md"
 				},
 				{
 					"text": "Access container",
-					"href": "tutorials/access-container.md"
+					"href": "dataconsumer/sensordataqueryapi.md"
 				},
 				{
 					"text": "Authorization Snippet",
-					"href": "tutorials/authorization-snippet.md"
+					"href": "dataconsumer/eventqueryapi.md"
 				},
 				{
 					"text": "Quick Start",
-					"href": "tutorials/quick-start.md"
+					"href": "dataconsumer/authenticate.md"
+				},
+				{
+					"text": "Introduction",
+					"href": "../dataprovider/apiportal.md"
+				},
+				{
+					"text": "Access container",
+					"href": "dataconsumer/sensordatapython.md"
+				},
+				{
+					"text": "Authorization Snippet",
+					"href": "dataconsumer/eventservicebusconsumer.md"
+				},
+				{
+					"text": "Authorization Snippet",
+					"href": "dataconsumer/servicebusconsumerdocker.md"
+				},
+				{
+					"text": "Quick Start",
+					"href": "dataconsumer/servicebusconsumerwebpubsub.md"
+				},
+				{
+					"text": "Introduction",
+					"href": "../dataprovider/servicebusconsumerazurefunction.md"
 				}
 			]
-		},
-		{
-			"text": "FAQ",
-			"href": "faq.md"
 		}
 	]
 }

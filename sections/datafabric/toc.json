@@ -15,18 +15,6 @@
 				{
 					"text": "Overview",
 					"href": "iot/overview.md"
-				},
-				{
-					"text": "How tos",
-					"href": "iot/howtos.md"
-				},
-				{
-					"text": "Providing data",
-					"href": "iot/data-provider.md"
-				},
-				{
-					"text": "Consuming data",
-					"href": "iot/data-consumer.md"
 				}
 			]
 		},

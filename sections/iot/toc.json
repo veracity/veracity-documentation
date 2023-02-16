@@ -2,40 +2,35 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Veracity Data fabric",
-			"href": "datafabric.md"
-		},
-		{
-			"text": "Overview",
-			"href": "overview.md"
-		},
-		{
 			"text": "Veracity IoT Sensors",
-			"items": [
-				{
-					"text": "Overview",
-					"href": "iot/overview.md"
-				}
-			]
+			"href": "iot.md"
 		},
 		{
-			"text": "Veracity IoT Tutorials",
+			"text": "HowTos",
+			"href": "howtos.md"
+		},
+		{
+			"text": "Contextualization",
+			"href": "contextualization.md"
+		},
+		{
+			"text": "Data provider",
 			"items": [
 				{
 					"text": "Ingest sensor data",
-					"href": "iot/overview.md"
+					"href": "dataprovider/dataprovider.md"
 				},
 				{
-					"text": "How tos",
-					"href": "iot/howtos.md"
+					"text": "Sensor Data Ingest",
+					"href": "dataprovider/sensordataingest.md"
 				},
 				{
-					"text": "Providing data",
-					"href": "iot/data-provider.md"
+					"text": "Event Ingest",
+					"href": "dataprovider/eventingest.md"
 				},
 				{
-					"text": "Consuming data",
-					"href": "iot/data-consumer.md"
+					"text": "API Portal",
+					"href": "dataprovider/apiportal.md"
 				}
 			]
 		},

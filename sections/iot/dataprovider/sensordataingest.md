@@ -11,7 +11,7 @@ description: This section describes how to ingest sensor data
 - [Data format](#data-format)
 - [Use CSV upload](#csv-upload)
 
-## Channellist 
+## Channel list 
 Before sensor data can be streamed to Veracity, channel-list needs to be registered for the asset. A channel list is an overview of all the tags/datachannels with its metadata.  An excel template consists of the following columns can be provided or JSON 
 
 The data channel properties  is based on ISO19848 standard for meta-data.
@@ -59,7 +59,7 @@ The data format for ingesting raw datapoints (sensor data) are:
  - [ISO 19848](#iso19848-message-format)
  - [Veracity ](#veracity-message-format)
  - Wits: Used by oil-rigs to send drilling data
- - [Trisense](#trisense-message)
+ - [Trisense](#trisense)
 
 ### Iso19848 message format
 

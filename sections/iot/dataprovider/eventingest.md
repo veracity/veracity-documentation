@@ -6,9 +6,9 @@ description: This section describes event ingest
 # Event ingest
  Veracity supports ingesting events via two main channels:
 - HTTP API
-	- [How to authenticate](Authenticate.md)
-	- [C# code example using http client](#c#-code-example-using-http-client)
-	- [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
+	- [How to authenticate](../dataconsumer/authenticate.md)
+	- [C# code example using http client](#c-sharp-code-example-using-http-client)
+	- [C# code example using Veracity IoT SDK](#c-sharp-code-example-using-veracity-iot-sdk)
 - IoT Hub
 	- [Stream events to IoT Hub](#submit-events-to-iot-hub)
 ## Use api
@@ -22,10 +22,10 @@ You can call the api directly from your application using standard tooling in yo
 
 Any eventtype can be ingested by POSTing a JSON object to Veracity with some header paramerters.
 ```
-Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
+Request URL: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
 ```
-- Base url: https://api.veracity.com/veracity
-- Authorization: [Bearer token](Authenticate.md)
+- Base URL: https://api.veracity.com/veracity
+- Authorization: [Bearer token](../dataconsumer/authenticate.md)
 - Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Header parameters
@@ -40,7 +40,7 @@ Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1
 ```
 POST https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?eventType=Topology&topic=TopologyHealth&timeStampUTC=2023-01-01T12:00:00Z&assetId=123&assetIdIssuer=imo
 ```
-### C# code example using http client
+### C Sharp code example using http client
 For C# you can use Veracity nuget package or alternatively using http client. Fetching bearer token and ingesting Event. Example is written in C#. This approach is transferable to other languages utilizing http clients.
 
 ```cs
@@ -100,7 +100,7 @@ async Task<string> GetToken()
 ```
 
 
-### C# code example using Veracity IoT SDK
+### C Sharp code example using Veracity IoT SDK
 
 Use nuget package **Veracity.IoT.SDK.Client**
 Client id, secret and subscription key must be provided

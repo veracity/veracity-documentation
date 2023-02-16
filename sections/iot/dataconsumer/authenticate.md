@@ -34,7 +34,7 @@ Thereafter click at «Send» and copy the Access Token between the quotes in res
 - client_secret: will be sent in a separate encrypted email
 - grant_type: client_credentials
 
-### C# Code example
+### C Sharp Code example
 ```cs
 async Task<string> GetToken()
 {

@@ -6,21 +6,22 @@ description: This section describes how to query for sensor data using api
 # Sensor Query Api
 You can call the api directly from your application using a RestClient.  An SDK is provided for .Net and for Python.
 When invoking the api, the consumer needs a token for authentication.
-Explore the api in the portal: [Data Fabric IoT Time Series Query API V2](https://api-portal.veracity.com/docs/services/DataFabric-IoT-TimeSeriesAPI-V2) . Select group by tag.  Note: [you must be signed in](ApiPortal.md).
+
+Explore the api in the portal: [Data Fabric IoT Time Series Query API V2](https://api-portal.veracity.com/docs/services/DataFabric-IoT-TimeSeriesAPI-V2) . Select group by tag.  Note: [you must be signed in](../apiportal.md).
 
 - [How to authenticate](authenticate.md)
-- [How to explore the api in the portal](ApiPortal.md)
+- [How to explore the api in the portal](../apiportal.md)
 -  [Get timeseries data](#get-timeseries-data)
-	- [C# code using Http client](#c#-code-using-http-client)
-	- [C# code using Veracity SDK for C#](#c#-code-example-using-veracity-iot-sdk)
-	- [Python example](SensorDataPython.md)
+	- [C# code using Http client](#c-sharp-code-using-http-client)
+	- [C# code using Veracity SDK for C#](#c-sharp-code-example-using-veracity-iot-sdk)
+	- [Python example](sensordatapython.md)
 - [Query for calculated data quality](#query-for-calculated-data-quality)
 ## Security Model
 Only users that has access to an asset can access sensor-data from this asset on the channels user has subscribed. 
 
 ## Get timeseries data
 Returns timeseries data for a set of datachannels on an asset (or set of assets) by specifying request payload. 
-- Base url: *https://api.veracity.com/veracity/*
+- Base URL: *https://api.veracity.com/veracity/*
 #### Flat response
 ```
 POST https://api.veracity.com/veracity/timeseries2/api/v2/timeSeries
@@ -52,7 +53,7 @@ POST https://api.veracity.com/veracity/timeseries2/api/v2/iso19848/timeSeries
 If high resolution of data is not required or can be traded off for less dense data (and performance benefits) this is the recommended way of getting timeseries. Essentially the timeseries is binned by the duration specified in the parameter and the min/max/average of the data per bin is returned.
 Set downScaleInt in request payload to  specify downscaling interval. Set to null if no downscaling. ISO8601 duration format. I.e. PT30S for 30 sec, PT1H, for 1 hour, PT10M for 10 minutes, PT60S 
 
-### C# code example using Veracity IoT SDK
+### C Sharp code example using Veracity IoT SDK
 Use latest nuget package **Veracity.IoT.SDK.Client**
 ```cs
 using Veracity.IoT.SDK.Client;
@@ -89,7 +90,7 @@ DefaultQueryPayload payload = new DefaultQueryPayload()
 var result = await veracityIoTclient.TimeSeries.Veracity.GetTimeseries(payload);
 ```
 
-### C# code using Http client
+### C Sharp code using Http client
 Alternatively using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
 
 ```cs
@@ -185,7 +186,7 @@ public class RequestPayload
 }
 ```
 
-### Get Channellist for asset
+### Get Channel list for asset
 List all metadata for data-channels registered for this asset that the user has access to.  Inaccessible channels, based on permissions, are filtered out.
 ```
 GET https://api.veracity.com/veracity/timeseries2/api/v2/DataChannelList/{assetId}

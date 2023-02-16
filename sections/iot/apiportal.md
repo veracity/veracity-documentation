@@ -32,7 +32,7 @@ If you already have a user from before, please click directly at “Sign In”.
 
 ## Browse api  and "try it"
 1. Select “APIS” in the top-menu
-2. Select desired api: 
+2. Select desired API: 
  - Ingest events:  [Data Fabric IoT Event Broker Ingest API](https://api-portal.veracity.com/docs/services/DataFabric-IoTEventBrokerIngestAPI)
  - Query events [Data Fabric IoT Event Broker Query API](https://api-portal.veracity.com/docs/services/DataFabric-IoTEventBrokerQueryAPI)
  - Query sensor-data: [Data Fabric IoT Time Series Query API V2](https://api-portal.veracity.com/docs/services/DataFabric-IoT-TimeSeriesAPI-V2) 

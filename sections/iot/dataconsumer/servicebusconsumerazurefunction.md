@@ -15,6 +15,7 @@ To get started, the following are needed to be installed on your machine:
  
 ## Code example on GitHub
 [Link missing]()
+
 ## Create an Azure Function with Service Bus trigger  
 Azure Functions integrates with Azure Service Bus via triggers and bindings. For this article, we'll be using the Service Bus trigger to consume messages from a queue. If you're looking for a guide on how to use the output bindings, please refer to the [Azure Service Bus output binding for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus-output) article on the Azure docs.
 An Azure Function can be written in several programming languages using official SDK: C#, Java, JavaScript, and Python. For this article, we'll be using C# in an isolated worker process. You can read more about the benefits of using an isolated process on this [article](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide).  

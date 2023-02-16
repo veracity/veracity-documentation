@@ -10,23 +10,23 @@ The api is accessible from [api-portal](https://api-portal.veracity.com/).  Sele
 You can call the api directly from your application using standard tooling in your platform. For .Net and Python we provide SDK and examples.  When invoking the api, the consumer needs a token for authentication.
 
 - [How to authenticate](authenticate.md)
-- [How to explore the api in the portal](ApiPortal.md)
+- [How to explore the api in the portal](../apiportal.md)
 - [Query events](#query-events)
-	- [How to use Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
-	- [C# code example using Http client](#c#-code-example-using-http-client)
+	- [How to use Veracity IoT SDK](#c-sharp-code-example-using-veracity-iot-sdk)
+	- [C# code example using Http client](#c-sharp-code-example-using-http-client)
 
 ## Security Model
 Users or applications can only access data for assets, tenants and respective topics they have access to. 
 
-## Querying Events
+## Query Events
 This endpoint can be used to fetch Events with various parameters for filtering.
 
--   Base url:  [https://api.veracity.com/veracity/](https://api.veracity.com/veracity/)
--   Authorization: Bearer token  [click here](Authenticate.md)
+-   Base URL:  [https://api.veracity.com/veracity/](https://api.veracity.com/veracity/)
+-   Authorization: Bearer token  [click here](authenticate.md)
 -   Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Get Events
-Relative url: 
+Relative URL: 
 ```
 ioteventbrokerquery/api/v1/events?tenantId={tenantId}&eventType={eventType}&topic={topic}&fromUtcDate={fromUtcDate}&toUtcDate={toUtcDate}&assetId={assetId}&assetIdIssuer={assetIdIssuer}&maxNumberOfItems={maxNumberOfItems}&offset={offset}
 ```
@@ -40,7 +40,7 @@ ioteventbrokerquery/api/v1/events?tenantId={tenantId}&eventType={eventType}&topi
 -   topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery"
 -   tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
 
-### C# code example using Veracity IoT SDK
+### C Sharp code example using Veracity IoT SDK
 Use latest nuget package **Veracity.IoT.SDK.Client**
 Client id, secret and subscription key must be given
 
@@ -68,7 +68,7 @@ var result = await eventClient.Events.GetEvents(_tenantId,
 assetId, assetIdIssuer, topic, eventType, fromUtcDate, toUtcDate, maxNumberOfItems, offset);
 ```
 
-### C# code example using Http client
+### C Sharp code example using Http client
 Alternatively using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
 
 ```cs

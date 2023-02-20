@@ -27,10 +27,29 @@ To navigate to an entity or a report:
 To navigate to a report tab, under the **Home tab**, select the report tab you want to go to.
 
 In the top right corner of the window, you can see the following icons.
-* "Full screen" - shows the report in the full screen mode.
-* The download icon - download the PDF or the image.
-* "Generate a link for current report" - select it to see the URL to the report. To copy it, select the **Copy to clipboard** button.
-* The bookmark icon - add bookmarks, share them, and navigate to available bookmarks. For details, go [here](bookmarks.md).
-* The attached files icon - after selecting it, shows a dropdown with the files attached to the report. To see a file, select it from the dropdown.
+* "Full screen" - Shows the report in the full screen mode.
+* "Generate a link for current report" - Select it to see the URL to the report. To copy it, select the **Copy to clipboard** button.
+* The bookmark icon - Add bookmarks, share them, and navigate to available bookmarks. For details, go [here](bookmarks.md).
+* Export - Export the report as a PDF or PPT.
+* The attached files icon - After selecting it, shows a dropdown with the files attached to the report. To see a file, select it from the dropdown.
 
-The icons above are listed from the first to the last icon from the left. Note that these options are configured by the report author and because of that some of them might be unavailable for the report you are reading.
+Note that these options are configured by the report author and because of that some of them might be unavailable for the report you are reading.
+
+### See a tutorial again
+Some reports have tutorials or release notes that show when you open them for the first time.
+
+To see a tutorial for a report again:
+1. Open a report with a tutorial.
+2. In the top bar, select **Show tutorial again**.
+
+To see VAP release tutorials again:
+1. In the top bar, next to the notification icon, select the question mark icon.
+2. Select **See tutorials again**.
+
+Note that seeing VAP release tutorials depends on your access level.
+
+<figure>
+	<img src="assets/tutorials-again.png"/>
+</figure>
+
+

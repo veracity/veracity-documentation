@@ -5,7 +5,7 @@ description: Overview of the Manage Files tab in the admin tab.
 
 # Manage Files
 
-Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../vap.md#data-sources-and-security).
+Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
 
 Below the "Manage Files" heading (top centre), you can see if your Power BI files are stored in the EU or USA.
 Supported file formats are PBIX, PDF, PNG, JPEG, GIF, JSON. If you want to add release notes, upload a JSON file that follows the [Report Release Note template](configure.md).
@@ -32,4 +32,8 @@ To upload a file:
 6. In the right corner, select the **Upload** button.
 
 If you get a warning when VAP checks your report's data sources, follow the troubleshooting recommended in the warning. 
+
+Note that:
+* If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
+* If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
 

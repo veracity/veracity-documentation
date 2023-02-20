@@ -12,6 +12,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the Feb
 ## Changes in existing features
 
 This section covers changes in existing features.
+
 ### Share data set access
 Now, you can share and revoke access to a data set to a user or service account for a given time period. Note that this access allows viewing the data set, but not editing it.
 

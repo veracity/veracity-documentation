@@ -38,15 +38,13 @@ Note that these options are configured by the report author and because of that 
 ### See a tutorial again
 Some reports have tutorials or release notes that show when you open them for the first time.
 
-To see a tutorial for a report again:
+For all [user roles](../user-roles.md), to see a tutorial for a report again:
 1. Open a report with a tutorial.
 2. In the top bar, select **Show tutorial again**.
 
-To see VAP release tutorials again:
+For [admin roles](../user-roles.md), to see VAP release tutorials again:
 1. In the top bar, next to the notification icon, select the question mark icon.
 2. Select **See tutorials again**.
-
-Note that seeing VAP release tutorials depends on your access level.
 
 <figure>
 	<img src="assets/tutorials-again.png"/>

@@ -110,17 +110,21 @@ Below you can see an example of a sucessful request that has returned an access 
 }
 ```
 
-### Validate access token
+### To validate access token
 
-After getting an access token, you should validate it.
+After getting an access token:
+* [Validate the token](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens).
+* Store it safely within your application.
 
-You now need to validate the access token and as you did with the identity token earler and store it away safely within your application. 
+### To refresh access token
+If you requested the scope `offline_access`, you would also have a refresh token that can be used to get a new access token after the current one expires. 
 
-You should also have received a refresh token (if you requested the scope `offline_access` earlier). This token can be used to ask for a new access token later should the current one expire. It cannot be used to access any services itself. 
+Note that:
+* Veracity does not directly disclose the lifetime for either the access token or refresh token.
+* Veractiy can change the access and refresh tokens without warning as a response to security changes. 
+* Your application needs to be able to handle expiring access and refresh tokens. If the refresh token expires, prompt the user to sign in again.
 
-Veracity does not directly disclose the lifetime for either the access token or refresh token as it may be changed without warning in response to security changes. Your application must know how to deal with both an expired access token and refresh token and prompt the user to log in once more if the latter expires.
-
-## To send an API request
+## To send an API request with an access token
 
 After getting an access token, you can send requests to the API specified in the `scope` parameter:
 1. Construct an HTTPS request to the relevant endpoint.
@@ -136,14 +140,14 @@ Ocp-Apim-Subscription-Key: [subscription-key]
 Authorization: Bearer [token]
 ```
 
-## Logging out
-The logout process for a user involves two steps:
+## To sign out the user
 
-1. Clear all local session data for your application.
-2. Redirect user to `https://www.veracity.com/auth/logout` in order to centrally log them out.
+An authenticated user usually has an active session with your application that contains access and refresh tokens to allow for querying Veracity IDP and other APIs. Given that those tokens usually cannot be revoked, ensure that:
+* The tokens stay within your trusted application core.
+* The user is correctly signed out.
 
-An authenticated user usually has an active session with your application. Such a session may contain access tokens and refresh tokens so that your application can query Veracity and other APIs as needed. Logging users out correctly is a vital part of a secure application as it will mitigate potential misuse of the access tokens the user has acquired. Access tokens issued by Veracity cannot normally be revoked thus you need to ensure that you are in complete control of the access token and that it never leaves your trusted application core. Once the user decides they are done with your service for the day and sign out you must also ensure the access and refresh tokens are deleted. This is done by clearing all session data upon logout.
+To sign out the user:
+1. Clear all local session data for your application. In ExpressJS with Passport, you can call `request.logout()` or use an equivalent method within your preferred library. This deletes any access and refresh tokens that you got for the user.
+2. To centrally sign out the user, redirect them to `https://www.veracity.com/auth/logout`. This clears any reamining session data. 
 
-In ExpressJS with Passport this is usually as easy as calling `request.logout()` and there are probably equivalent methods within your preferred library. Once a user starts the logout process this is the first thing you should do. Clearing session data (if done correctly) will delete any access and refresh tokens you acquired for the user earlier thus preventing access in the future. Once complete the user has been logged out from your system, but not from Veracity as a whole yet. In order log them out completely you need to also redirect them to the central logout endpoint on `https://www.veracity.com/auth/logout`. This will perform a Single-Sign-Out of all internal and other third-party services ensuring the session is properly terminated. After this the user is prompted to close their browser in order to clear any remaining session data. Only then is the user completely signed out.
-
-**Note**: Veracity does not provide any mechanism for routing the user back to your application after being redirected to the Single-Sign-Out endpoint. This is by design in order to prompt them to close their browser to complete the sign-out process.
+Note that Veracity does not provide any mechanism for routing the user back to your application after being redirected to the Single-Sign-Out endpoint. This is by design in order to prompt them to close their browser to complete the sign-out process.

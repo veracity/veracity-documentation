@@ -14,37 +14,38 @@ Data Workbench allows you to:
 
 Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers. For information on user management, go [here](usermanagement.md).
 
-If you are a tenant admin, you can use the picker button to create a new workspace. To do so:
+### To create a new workspace
+If you are a tenant admin, you can use the picker button to create a new workspace:
 1. In the upper-left corner of the "Home" page, select the workspace and tenant picker button.
 2. In the dropdown that appears, at the bottom, select the **Add workspace** button.
 
 ## Connectors and connections
  Data Workbench fetches data from external data sources by using connectors. A connector:
-- Is an integration layer between a data provider and the Data Workbench. 
-- Uses an API exposed by the provider to query data, and transforms it into a unified format used in Data Workbench.
-- Is authorized on the provider's side and follows their authorization policy.
-- If the provider enables downloading binary data, a connector stores this data into cloud file stores, so that it can used by customers.
+* Is an integration layer between a data provider and the Data Workbench. 
+* Uses an API exposed by the provider to query data, and transforms it into a unified format used in Data Workbench.
+* Is authorized on the provider's side and follows their authorization policy.
+* If the provider enables downloading binary data, a connector stores this data into cloud file stores, so that it can used by customers.
 
 A connection binds together a connector and a tenant's workspace, and it is used by the data set to query data from a data source. 
 
 To see available connectors and connections in your workspace, go to the **Connections** tab. 
 Once you have a connection set up, the Data Catalogue will show the predefined data sets queried from the corresponding source system.
 
-### Becoming a data provider
+### Become a data provider
 To become a data provider and integrate with Data Workbench, contact the Data Workbench team for assistance.
 
 To integrate, you will need to implement a standardized API that consists of mandatory and optional endpoints that cover REST API verbs, paths, and contracts for request and response payloads.
 
 Note that:
-- The API allows only the REST protocol.
-- You need to host the API in your own environment.
-- You need to allow Data Workbench to access this API. If you have a firewall, adjust the rules accordingly.
+* The API allows only the REST protocol.
+* You need to host the API in your own environment.
+* You need to allow Data Workbench to access this API. If you have a firewall, adjust the rules accordingly.
 
 The Data Workbench team will cooperate with you on gathering the requirements for creating a connector. Expect to discuss:
-- Technical aspects for server-to-server communication such as base URL of your API, server-to-server API keys, and more.
-- Schemas that should be supported by the connector. Data Workbench queries data for a certain schema, and your API also needs the schema to decide how to satisfy the request.
-- Custom settings for each schema.
-- Definition of settings that must be provided with a new connection.
+* Technical aspects for server-to-server communication such as base URL of your API, server-to-server API keys, and more.
+* Schemas that should be supported by the connector. Data Workbench queries data for a certain schema, and your API also needs the schema to decide how to satisfy the request.
+* Custom settings for each schema.
+* Definition of settings that must be provided with a new connection.
 
 Also, you need to create connections. Currently, the Data Workbench team does it for you, but Veracity plans to make it self service.
 

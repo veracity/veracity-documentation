@@ -19,6 +19,12 @@ After that, your account will be created, and you will get the values for the se
 
 **Note that** you will see the service account secret only once. Copy it and store securely. 
 
+## To copy the base URL endpoint
+To copy the base URL endpoint of a service account:
+1. In your workspace, select the **API Integrations** tab. 
+2. In the left sidebar, under **Service accounts**, select an account.
+3. In the row under **Endpoints base URL**, select **Copy**.
+
 ## To update a service account's name
 To update the name of a service account:
 1. In your workspace, select the **API Integrations** tab. 

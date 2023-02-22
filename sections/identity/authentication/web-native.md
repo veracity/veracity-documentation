@@ -6,7 +6,7 @@ description: Detailed description of how authentication with Veracity IDP works 
 # Authentication for Web and Native Applications
 Authentication for web and native applications is similar and differs only in the parameters that are sent.
 
-For a web or native application, to authenticate a user:
+To authenticate a user:
 1. Redirect the user to sign in to Veracity.
 2. After the user sucessfully authenticates, await the validation response from Veracity IDP.
 3. Validate the response.
@@ -57,7 +57,7 @@ For details on parameters, [go here](https://docs.microsoft.com/en-us/azure/acti
 ### URL encoding
 Ensure that all parameters are URL encoded, so that when they are sent, all illegal characters are removed from the URL. With Node or JavaScript, you can do this using the `encodeURIComponent` function. (for details, [go here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)). 
 
-Below you can see an example of a complete encoded URL. Line breaks were added for clarity. This request authenticates the users and return an authorization code that can be exchanged for an access token with [Veracity MyServices API](../services-openapi.yaml).
+Below you can see an example of a complete encoded URL. Line breaks were added for clarity. This request authenticates the user and returns an authorization code that can be exchanged for an access token with [Veracity MyServices API](../services-openapi.yaml).
 
 ```url
 https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize
@@ -71,21 +71,28 @@ https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/auth
 &scope=openid%20offline_access%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fuser_impersonation
 ```
 
-## Retrieving an access token for the user
-Once you have an authorization code you can request an access token from the Veracity IDP using the `token_endpoint` URL from the metadata earlier. The access token request should be done from your backend without involving the user at all. This is because you will need to send not only your client id and reply url, but also your client secret (if you are building a web application) which should never be known to anyone except your application and the IDP. The parameters you can send to the token endpoint are documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token). For Veracity you'll need to provide the following parameters:
+## Get an access token for the user
+
+To get an access token for a user:
+1. For a web application, construct an HTTPS `POST` request from your server-side-code. For a native application, construct the request internally.
+2. In the request, encode the parameters listed below as the `application/x-www-form-urlencoded` payload. For details,  ([go here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)).
+3. Send the request to the `token_endpoint` URL that you have checked in the meta data endpoint before.
+
+In your request, provide the following parameters required by Veracity IDP. For details on sending parameters to the token endpoint, [go here](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token).
 
 Parameter|Value
--|-
-`client_id`|`[from developer portal]`
+-|- 
+`client_id`|`[from Project Portal]`
 `grant_type`|`authorization_code`
 `scope`|The same scope string you used with the authentication request.
 `code`|The authorization code from the authentication request.
-`redirect_uri`|`[Reply URL from developer portal]`
-`client_secret`*|`[from developer portal]`
+`redirect_uri`|`[Reply URL from Project Portal]`
+`client_secret`*|`[from Project Portal; needed only for web apps]`
 
-\* **Note on client secret**: The client secret paramater is required for web applications where the back end is fully controlled by you and should never be disclosed to anyone. For native applications you should not use the `client_secret` parameter.
 
-Once you have the parameters you need to construct an HTTPS `POST` request from your server side code (or internally in the native application) and encode the parameters as the `application/x-www-form-urlencoded` payload ([read more here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)). Once this call returns you will receive a response similar to this:
+\* Provide the **client secret** only for web applications, and do not disclose it to anyone except for Veracity IDP.
+
+Below you can see an example of a sucessful request that has returned an access token. An access token allows making authorized requests on behalf of the user against the API endpoints defined in the `scope` parameter.
 
 ```json
 {
@@ -103,9 +110,24 @@ Once you have the parameters you need to construct an HTTPS `POST` request from 
 }
 ```
 
-It contains some information about the token as well as the requested access token itself. The access token will allow your application to perform authorized requests on behalf of the user against the requested API endpoints (defined by the scopes option from earlier). You now need to validate the access token and as you did with the identity token earler and store it away safely within your application. You should also have received a refresh token (if you requested the scope `offline_access` earlier). This token can be used to ask for a new access token later should the current one expire. It cannot be used to access any services itself. Veracity does not directly disclose the lifetime for either the access token or refresh token as it may be changed without warning in response to security changes. Your application must know how to deal with both an expired access token and refresh token and prompt the user to log in once more if the latter expires.
+### Validate access token
 
-Now that you have the access token you are able to make requests to the API you specified a scope for earlier. Simply construct an HTTPS request to the relevant endpoint and make sure you add the token in the `Authorization` header as a bearer token as well as your subscription key for the intended API. Here is an example of a request to the `/my/profile` endpoint of the Services API.
+After getting an access token, you should validate it.
+
+You now need to validate the access token and as you did with the identity token earler and store it away safely within your application. 
+
+You should also have received a refresh token (if you requested the scope `offline_access` earlier). This token can be used to ask for a new access token later should the current one expire. It cannot be used to access any services itself. 
+
+Veracity does not directly disclose the lifetime for either the access token or refresh token as it may be changed without warning in response to security changes. Your application must know how to deal with both an expired access token and refresh token and prompt the user to log in once more if the latter expires.
+
+## To send an API request
+
+After getting an access token, you can send requests to the API specified in the `scope` parameter:
+1. Construct an HTTPS request to the relevant endpoint.
+2. In the request, add the access token in the `Authorization` header as a bearer token.
+3. In the request, add your subscription key for the API.
+
+Below you can see an example of a request to the `/my/profile` endpoint of the Services API.
 
 ```
 GET https://api.veracity.com/Veracity/Services/V3/my/profile HTTP/1.1

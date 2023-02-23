@@ -17,9 +17,9 @@ If you plan to go to production with your service or application, also go throug
 
 ## What is a project, resource group, and resource
 
-A project is used for organizing your resource groups. Typically, you use one project per product. You can add collaborators into a project, and assign them access rights.
+A project is used for organizing your resource groups. Typically, you use one project per product. You can add collaborators to a project and assign them access rights.
 
-A resource group is a container used for organizing your resources. A resource group is labeled with the environment in which it is located ("devtest", "test", "staging" or "production").
+A resource group is a container used for organizing your resources. A resource group is labeled with the environment in which it is located ("devtest", "test", "staging", or "production").
 
 A resource is any platform capability that needs provisioning for your project to use it. For example, application credentials.
 

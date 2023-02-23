@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: Detailed description of how authentication with Veracity IDP works for a web apps.
+description: Detailed description of how authentication with Veracity IDP works for web apps.
 ---
 
 # Authentication for Web and Native Applications
@@ -8,7 +8,7 @@ Authentication for web and native applications is similar and differs only in th
 
 To authenticate a user:
 1. Redirect the user to sign in to Veracity.
-2. After the user sucessfully authenticates, await the validation response from Veracity IDP.
+2. After the user successfully authenticates, await the validation response from Veracity IDP.
 3. Validate the response.
 4. Optionally, exchange an authorization code for an access token.
 5. Optionally, validate the access token.
@@ -21,10 +21,10 @@ If you only need to authenticate the user with Veracity IDP and you will not cal
 
 ## To authenticate users
 
-1. Go to the meta data URL in your browser: https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
+1. Go to the metadata URL in your browser: https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
 2. Copy the value for the `authorization_endpoint`.
-3. For the authentication requests, specify and encode required parameters. For details, see [required parameters](#required-parameters) below.
-4. Ensure that all parameters are URL encoded, so that they will remove any illegal values from the URL. For details, see [URL encoding](#url-encoding) below.
+3. For authentication requests, specify and encode the required parameters. For details, see [required parameters](#required-parameters) below.
+4. Ensure that all parameters are URL encoded so that they will remove any illegal values from the URL. For details, see [URL encoding](#url-encoding) below.
 5. To authenticate users, redirect them to the `authorization endpoint`. The user will sign in to Veracity, and then Veracity IDP will issue a POST request to your specified `redirect_uri` with all the parameters requested in the `response_mode`. Below you can see a sample response.
   ```json
 {
@@ -34,7 +34,7 @@ If you only need to authenticate the user with Veracity IDP and you will not cal
 }
 ```
 6. Before you start using the `id_token` or `code`, [validate them](https://auth0.com/docs/secure/tokens/id-tokens/validate-id-tokens).
-7. Optionally, after validating the `id_token`, you can use the `c_hash` claim from the from the `id_token` to validate the authorization code (`code`).
+7. Optionally, after validating the `id_token`, you can use the `c_hash` claim from the `id_token` to validate the authorization code (`code`).
 
 ### Required parameters
 Your authentication requests to Veracity IDP need to provide the following parameters.
@@ -50,12 +50,12 @@ Parameter|Value
 
 For help on finding `client_id` and `redirect_uri`, [go here](overview.md#parameters-for-user-authentication).
 
-For `state`, note that this parameter is meant to contain data that will be returned to your application after the user is authenticated. You may encode in it anything you want. However, it is commonly used in place of a nonce to prevent cross-site scripting attacks. If you want to send actual data in this parameter, consider adding a nonce value that you validate once the request comes back.
+For `state`, note that this parameter is meant to contain data that will be returned to your application after the user is authenticated. You may encode in it anything you want. However, it is commonly used instead of a nonce to prevent cross-site scripting attacks. If you want to send actual data in this parameter, consider adding a nonce value that you validate once the request returns.
 
 For details on parameters, [go here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code).
 
 ### URL encoding
-Ensure that all parameters are URL encoded, so that when they are sent, all illegal characters are removed from the URL. With Node or JavaScript, you can do this using the `encodeURIComponent` function. (for details, [go here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)). 
+Ensure that all parameters are URL encoded so that when they are sent, all illegal characters are removed from the URL. You can do this using the `encodeURIComponent` function with Node or JavaScript (for details, [go here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)).
 
 Below you can see an example of a complete encoded URL. Line breaks were added for clarity. This request authenticates the user and returns an authorization code that can be exchanged for an access token with [Veracity MyServices API](../services-openapi.yaml).
 
@@ -76,7 +76,7 @@ https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/auth
 To get an access token for a user:
 1. For a web application, construct an HTTPS `POST` request from your server-side-code. For a native application, construct the request internally.
 2. In the request, encode the parameters listed below as the `application/x-www-form-urlencoded` payload. For details,  ([go here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)).
-3. Send the request to the `token_endpoint` URL that you have checked in the meta data endpoint before.
+3. Send the request to the `token_endpoint` URL that you have checked in the metadata endpoint before.
 
 In your request, provide the following parameters required by Veracity IDP. For details on sending parameters to the token endpoint, [go here](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token).
 
@@ -92,7 +92,7 @@ Parameter|Value
 
 \* Provide the **client secret** only for web applications, and do not disclose it to anyone except for Veracity IDP.
 
-Below you can see an example of a sucessful request that has returned an access token. An access token allows making authorized requests on behalf of the user against the API endpoints defined in the `scope` parameter.
+Below you can see an example of a successful request that has returned an access token. An access token allows making authorized requests on behalf of the user against the API endpoints defined in the `scope` parameter.
 
 ```json
 {
@@ -110,18 +110,18 @@ Below you can see an example of a sucessful request that has returned an access 
 }
 ```
 
-### To validate access token
+### To validate an access token
 
 After getting an access token:
 * [Validate the token](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens).
 * Store it safely within your application.
 
-### To refresh access token
+### To refresh an access token
 If you requested the scope `offline_access`, you would also have a refresh token that can be used to get a new access token after the current one expires. 
 
 Note that:
-* Veracity does not directly disclose the lifetime for either the access token or refresh token.
-* Veractiy can change the access and refresh tokens without warning as a response to security changes. 
+* Veracity does not directly disclose the lifetime of the access token or refresh token.
+* Veracity can change the access and refresh tokens without warning as a response to security changes. 
 * Your application needs to be able to handle expiring access and refresh tokens. If the refresh token expires, prompt the user to sign in again.
 
 ## To send an API request with an access token
@@ -142,12 +142,12 @@ Authorization: Bearer [token]
 
 ## To sign out the user
 
-An authenticated user usually has an active session with your application that contains access and refresh tokens to allow for querying Veracity IDP and other APIs. Given that those tokens usually cannot be revoked, ensure that:
+An authenticated user usually has an active session with your application containing access and refresh tokens to querying Veracity IDP and other APIs. Given that those tokens usually cannot be revoked, ensure that:
 * The tokens stay within your trusted application core.
 * The user is correctly signed out.
 
 To sign out the user:
 1. Clear all local session data for your application. In ExpressJS with Passport, you can call `request.logout()` or use an equivalent method within your preferred library. This deletes any access and refresh tokens that you got for the user.
-2. To centrally sign out the user, redirect them to `https://www.veracity.com/auth/logout`. This clears any reamining session data. 
+2. To centrally sign out the user, redirect them to `https://www.veracity.com/auth/logout`. This clears any  remaining session data. 
 
-Note that Veracity does not provide any mechanism for routing the user back to your application after being redirected to the Single-Sign-Out endpoint. This is by design in order to prompt them to close their browser to complete the sign-out process.
+Note that Veracity does not provide any mechanism for routing the user back to your application after being redirected to the Single-Sign-Out endpoint. This is by design to prompt them to close their browser to complete the sign-out process.

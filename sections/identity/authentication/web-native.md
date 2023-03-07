@@ -23,8 +23,8 @@ If you only need to authenticate the user with Veracity IDP and you will not cal
 
 1. Go to the metadata URL in your browser: https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
 2. Copy the value for the `authorization_endpoint`.
-3. For authentication requests, specify and encode the required parameters. For details, see [required parameters](#required-parameters) below.
-4. Ensure that all parameters are URL encoded so that they will remove any illegal values from the URL. For details, see [URL encoding](#url-encoding) below.
+3. For authentication requests, specify and encode the required parameters. For details, see [the required parameters](#required-parameters) below.
+4. Ensure that all parameters are URL encoded so that they will remove any illegal values from the URL. For details, see [the URL encoding](#url-encoding) below.
 5. To authenticate users, redirect them to the `authorization endpoint`. The user will sign in to Veracity, and then Veracity IDP will issue a POST request to your specified `redirect_uri` with all the parameters requested in the `response_mode`. Below you can see a sample response.
   ```json
 {
@@ -48,7 +48,7 @@ Parameter|Value
 `response_type`|`code id_token` (if you do not need an access token, skip `code`)
 `response_mode`|`form_post`
 
-For help on finding `client_id` and `redirect_uri`, [go here](overview.md#parameters-for-user-authentication).
+For help finding `client_id` and `redirect_uri`, [go here](overview.md).
 
 For `state`, note that this parameter is meant to contain data that will be returned to your application after the user is authenticated. You may encode in it anything you want. However, it is commonly used instead of a nonce to prevent cross-site scripting attacks. If you want to send actual data in this parameter, consider adding a nonce value that you validate once the request returns.
 
@@ -74,7 +74,7 @@ https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/auth
 ## Get an access token for the user
 
 To get an access token for a user:
-1. For a web application, construct an HTTPS `POST` request from your server-side-code. For a native application, construct the request internally.
+1. For a web application, construct an HTTPS `POST` request from your server-side code. For a native application, construct the request internally.
 2. In the request, encode the parameters listed below as the `application/x-www-form-urlencoded` payload. For details,  ([go here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)).
 3. Send the request to the `token_endpoint` URL that you have checked in the metadata endpoint before.
 
@@ -127,11 +127,11 @@ Note that:
 ## To send an API request with an access token
 
 After getting an access token, you can send requests to the API specified in the `scope` parameter:
-1. Construct an HTTPS request to the relevant endpoint.
+1. Construct an HTTPS request for the relevant endpoint.
 2. In the request, add the access token in the `Authorization` header as a bearer token.
 3. In the request, add your subscription key for the API.
 
-Below you can see an example of a request to the `/my/profile` endpoint of the Services API.
+Below is an example of a request to the `/my/profile` endpoint of the Services API.
 
 ```
 GET https://api.veracity.com/Veracity/Services/V3/my/profile HTTP/1.1
@@ -142,12 +142,12 @@ Authorization: Bearer [token]
 
 ## To sign out the user
 
-An authenticated user usually has an active session with your application containing access and refresh tokens to querying Veracity IDP and other APIs. Given that those tokens usually cannot be revoked, ensure that:
+An authenticated user usually has an active session with your application containing access and refresh tokens to query Veracity IDP and other APIs. Given that those tokens usually cannot be revoked, ensure that:
 * The tokens stay within your trusted application core.
 * The user is correctly signed out.
 
 To sign out the user:
-1. Clear all local session data for your application. In ExpressJS with Passport, you can call `request.logout()` or use an equivalent method within your preferred library. This deletes any access and refresh tokens that you got for the user.
+1. Clear all local session data for your application. In ExpressJS with Passport, you can call `request.logout()` or use an equivalent method within your preferred library. This deletes any access and refreshes tokens that you got for the user.
 2. To centrally sign out the user, redirect them to `https://www.veracity.com/auth/logout`. This clears any  remaining session data. 
 
 Note that Veracity does not provide any mechanism for routing the user back to your application after being redirected to the Single-Sign-Out endpoint. This is by design to prompt them to close their browser to complete the sign-out process.

@@ -3,32 +3,89 @@ author: Veracity
 description: Gives an overview of the Veracity Identity services and related components.
 ---
 
-# Overview of the Veracity Identity Provider
-The Veracity Identity Provider allows applications to securely authenticate users as well as verify that they are who they claim to be. Authentication is performed using the OpenID Connect protocol and will result in a verifiable JSON Web Token containing some basic information about the user. During the OpenID Connect operation you may also ask for an access token that will give the application access to core Veracity APIs (such as the Services API) which in turn can provide additional user information or allow your applcation to execute operations on the users behalf.
+# Overview of Veracity Identity Provider
+Veracity Identity Provider (Veracity IDP) uses the industry standard OpenID Connect protocol built on top of [OAuth 2.0](https://auth0.com/docs/protocols/oidc) flows to authenticate users and generate a verifiable JSON Web Token with basic user information. Because of that, you can find multiple libraries online to help you add authentication to your application.
 
-When working with user information it is vitally important to always adhere to security best practices and principles. The data your application is able to access is personal to the user and you should therefore only request information you absolutely need, never store it unnecessarily and in general ensure it is properly handled in all stages of your application. The Veracity IDP ensures the users data is protected at rest and compliant with industry standards. But as soon as your application retrieves any of this information you are responsible for it. Always check local and international laws regarding working with user identifiable information.
+## Prerequisites
+Before you can authenticate calls with Veracity IDP:
+1. [Create a service in Veracity](../../developerexperience/introduction.md).
+2. Optionally, to be in the production environment, [onboard your service](../../onboarding/onboarding.md).
+3. Update your knowledge on user data protection and apply it in your application or service.
 
-## Veracity IDP integration
-Integrating with the Veracity IDP is handled differently depending on what you are building, but in general it boils down to two primary use cases:
+Note that the user data you access from Veracity IDP requires protection according to local and international laws. When you receive personal user data from Veracity IDP, you become responsible for securing it. Because of that:
+* Request only the information that you need.
+* If possible, avoid storing user data, and delete it when it is no longer necessary.
+* Ensure that user data is handled securely inside your application or service.
 
-- Applications that directly interact with the user. This includes web applications and native applications where the user will log in and perform operations.
-- Applications that perform operations based on requests from other applications. These include services like REST APIs that do not directly interact with users, but receives requests from other applications.
+## Authentication scenarios
+There are two most common authentication scenarios:
+* [Applications directly interacting with users](#apps-with-direct-interaction-with-users).
+* [Applications without direct user interaction](#apps-without-direct-interaction-with-users) that perform operations based on requests from other applications (such as REST APIs).
 
-Applications that directly interact with users need to perform an authentication step before they can execute requests on behalf of the user. This authentication step entails redirecting the user to the Veracity IDP login page and returning them back once they have successfully been verified as users in Veracity. The technical details of how the login is performed is not something your application needs to worry about. Simply direct the user to the Veracity IDP and it will handle the rest. Successful responses from the Veracity IDP means you can trust the user is who they claim to be (provided you validate the reponse).
+How you integrate with Veracity IDP depends on your authentication scenario.
+
+### Apps with direct interaction with users
+
+Applications that directly interact with users need to authenticate them before executing requests on their behalf. To authenticate users:
+1. Redirect users to Veracity IDP login page to sign in. After successful authentication, Veracity IDP responds to your application or service, confirming the user's identity.
+2. Validate the response on your side.
+
+Note that users are sent back to your application or service after successful authentication.
 
 <figure>
 	<img src="assets/basic-oidc-authentication.png"/>
-	<figcaption>An application with direct user interaction can redirect the user to the login page to authenticate them.</figcaption>
 </figure>
 
-APIs and other services that are not intended to interact directly with users and instead are ment to service requests coming from others such as a web application or native application do not need to authenticate the user in the same way. They will still need to vet the user as an authenticated user however and validate that they have sufficient permissions to perform the action they are requesting. Since such an API has no direct interactions it cannot redirect the user to a login page or similar in order to verify who they are so the code calling the API must provide information that allows you to be sure the user is who they claim to be.
+### Apps without direct interaction with users
+SSome applications, like APIs, lack direct interaction with users but must perform actions on their behalf. Because of that, the requests they send must contain the information for authenticating the user, such as an access token. For details, [go here](api.md)
 
 <figure>
 	<img src="assets/api-verification-sequence.png"/>
-	<figcaption>An application receiving calls from another will have to validate the incoming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>
 </figure>
 
-To get more details on how to perform authentication see the technical implementation guidelines in the Authentication sub-section.
-
 ## Additional authorization
-The Veracity IDP provides authentication for any application registered with the platform. This allows your application to verify that the user logging in is who they claim to be. *Authorization* on the other hand is not handled by the Veracity IDP except for access to other Veracity APIs such as Services or Data Fabric. If you need authorization services you will have to implement this for your own application yourself. You may use information retrieved from the Veracity IDP to identify the user and then look up permissions for that user within your own database based on that. The user identity token provides a claim called `userId` that can be used to uniquely identify the specific user.
+Veracity IDP provides authentication for applications registered with the Veracity platform. However, it does not provide authorization except for accessing other Veracity APIs.
+
+If you need authorization, you must implement it in your application or service. You may use information retrieved from the Veracity IDP to identify the user and then look up permissions for that user within your database. The user identity token provides a claim called `userId` that can be used to identify the user uniquely.
+
+## Parameters for user authentication
+
+To authenticate API calls, you will need the following parameters from the Project Portal.
+* `Client ID`
+* `Reply URL`
+* `Client secret` (only for web applications)
+
+To get those parameters, [create a service in Veracity](../../developerexperience/introduction.md) or use an exisiting service.
+
+To see the `Client ID` or `Client secret`:
+* In the [Project Portal](https://developer.veracity.com/projects), select your app, service, or API. It may be grouped under a Resource Group.
+* Select the "Settings" tab.
+
+To configure the Reply URL:
+* In the [Project Portal](https://developer.veracity.com/projects), select your app, service, or API. It may be grouped under a Resource Group.
+* Select the "Configure" tab.
+
+Below you can see other parameters for authenticating API calls.
+
+Parameter|Value
+-|-
+Tenant ID|`a68572e3-63ce-4bc1-acdc-b64943502e9d`
+Policy|`B2C_1A_SignInWithADFSIdp`
+Services API scope|`https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation`
+Data Fabric API scope|`https://dnvglb2cprod.onmicrosoft.com/37c59c8d-cd9d-4cd5-b05a-e67f1650ee14/user_impersonation`
+
+Note that, by default, each API can call [Veracity MyServices API](https://developer.veracity.com/docs/section/identity/services-openapi). However, to call other [Veracity APIs](https://developer.veracity.com/api), you will need subscription keys for them. To get them, contact the [onboarding team](onboarding@veracity.com). 
+
+## Metadata endpoint
+You can get additional information from the metadata endpoint:
+
+```
+https://login.veracity.com/{tenantid}/v2.0/.well-known/openid-configuration?p={policy}
+```
+
+Before calling the endpoint, replace the placeholders with the following parameters.
+
+Parameter|Value
+-|-
+Tenant ID|`a68572e3-63ce-4bc1-acdc-b64943502e9d`
+Policy|`B2C_1A_SignInWithADFSIdp`

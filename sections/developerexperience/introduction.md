@@ -3,36 +3,41 @@ author: Veracity
 description: Introduction to how to create a service in Veracity.
 ---
 
-# Create a digital service in Veracity
+# To create a service in Veracity
 
-Digital Services in Veracity come in many different flavors. You may choose to use a few or a wide range of platform capabilities in your service. Independently of what platform services you want to take advantage of, there are a few mandatory steps to create a service.
+To create a service on Veracity platform:
+1. Create a Veracity account.
+2. From the top navigation bar, select **My projects**. 
+3. Create a project.
+4. Optionally, invite collaborators and assign access rights.
+5. Create a resource group.
+6. Create a resource or ask [the onboarding team](mailto:onboarding@veracity.com) to provision it.
 
+If you plan to go to production with your service or application, also go through [the onboarding process](https://developer.veracity.com/docs/section/onboarding/onboarding).
 
-## What is a project
+## What is a project, resource group, and resource
 
-All services in Veracity needs to be part of a project in the Provider Hub. You can find your projects located on the menu bar in developer.veracity.com. Resources like application credentials used for Veracity Identity can be provisioned self-service from here.
+A project is used for organizing your resource groups. Typically, you use one project per product. You can add collaborators to a project and assign them access rights.
 
-A project in Veracity Provider Hub is what holds all resources related to your product. Resources are organized in resource groups. You can add collaborators into a project, and assign access rights to these collaborators. You would typically have one project for every product. E.g. the DNV product DNV Oil and Gas Standards and Recommended Practices, would usually have one project called DNV Oil and Gas Standards and Recommended Practices.
+A resource group is a container used for organizing your resources. A resource group is labeled with the environment in which it is located ("devtest", "test", "staging", or "production").
 
-Inside a project, you can create a resource. A resource can be application credentials for using Veracity Identity in your service or any other platform capabilities. You can think of a project as a resource group, with some user management.
-
-
-## What are resources and resource groups?
-
-A resource is any platform capability that needs provisioning for your project to use it. An example of a resource is Application credentials, which is used to register your application toward the Veracity Identity Provider so that you can log in with Veracity.
-
-Some of the resources you can provision self-service, as a part of a project by default, and some are configured by Veracity Onboarding before your product is released to production on Veracity. An example of this is Marketplace, which is provisioned by Veracity Onboarding and will be done in close collaboration with you.
-
-A resource group is used to collect a set of resources. Currently the resource group will be labeled with environments, such as “devtest”, “test”, “staging or “production”.
+A resource is any platform capability that needs provisioning for your project to use it. For example, application credentials.
 
 <figure>
-	<img src="step-by-step-guide/assets/ProjectStructure.png" alt="Example of a project structure"/>
-	<figcaption>Example of a project structure</figcaption>
+	<img src="assets/ProjectStructure.png" alt="Example of a project structure"/>
 </figure>
 
-## Next steps
+## Tutorials
+Below you can find tutorials that will help you start using Veracity resources.
 
-[Sign up ](https://developer.veracity.com/)for a profile to create a Project, resource group and application credentials.
+### Getting started
+[![Getting started ](assets/getting_started.gif)](https://brandcentral.dnv.com/mars/embed?o=55A3D8D74ED78BAD&c=10651&a=N)
 
-Check out our [documentation](https://developer.veracity.com/docs) to understand how to integrate use our platform services.
-You can create your service from scratch using any language you want.
+### Creating resources
+[![Watch the video](assets/create_a_resource.gif)](https://brandcentral.dnv.com/mars/embed?o=6F95E8DCB2669A8B&c=10651&a=N)
+
+### Setting up an app
+[![Watch the video](assets/set_up_app.gif)](https://brandcentral.dnv.com/mars/embed?o=231C2B4325BC4746&c=10651&a=N)
+
+### Creating services
+[![Watch the video](assets/create_a_service.gif)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N)

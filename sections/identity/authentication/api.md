@@ -4,37 +4,39 @@ description: Describes the required authentication mechanism for APIs provided w
 ---
 
 # Authentication for APIs
-In contrast to [web and native application](web-native.md) authentication for APIs do not involve any kind of user interaction yet they still need to be able to validate the users identity in order to trust that the user is who they claim to be. It is important to also note that *authorization* (the act of determining if the user is allowed to perform an operation) is **not** handled by the Veracity Identity Provider (IDP) which means your API needs to perform this step internally.
 
-[NOTE! Please be aware of this security flaw when you develop an API.](../whatsnew.md#api-security-flaw)
+Each call to an API within the Veracity ecosystem should provide a relevant access token placed in the `Authorization header` of the request as a `Bearer token`.
+
+Note that your API needs to handle authorization internally because Veracity Identity Provider (Veracity IDP) does not do that.
+
+Your API should follow the process outlined below.
+1. Receive the incoming request and extract the `Bearer` token from the `Authorization` header.
+2. [Validate and decode the token](#validate-access-token).
+3. Look up if the user has permission to perform the requested operation (for example, the API can access its database of users indexed by `userId` claim from the access token and retrieve additional information).
+4. If the token is valid and the user has permission to do an action, perform the request and return a response.
+
+For old APIs, see the [known security flaw](../whatsnew.md#api-security-flaw).
 
 <figure>
 	<img src="../assets/api-verification-sequence.png"/>
-	<figcaption>An application receiving calls from another will have to validate the incomming request as well as the access token provided to ensure the user is who they claim to be.</figcaption>
 </figure>
 
-When any API is called within the Veracity ecosystem it should be provided with a relevant access token from the calling code. The access token should be placed in the `Authorization` header of the request as a `Bearer` token. The API can then grab the token and verify and decode it to ensure the user is who they claim to be. Before executing any operation the API should also look up if the user has permissions to perform the requested operation. This can, for instance, be done by the API accessing it's own internal database of users indexed by the `userId` claim from the access token and retrieving additional information.
-
-The process the API should follow is:
-1. Receive the incomming request and extract the token from the `Authorization` header.
-2. Validate and decode the token.
-3. Lookup additional permissions for the user (if needed) from an internal database.
-4. If token is valid and user has permission perform the request and return a response.
-
-## Validating the access token
-In order to properly validate the access token received with the request the API needs some additional information from the Veracity IDP. This information is available through the metadata endpoint which is available here:
+## Validate access token
+To validate the access token, your API needs additional information about OAuth configuration for Veracity IDP. You can get this information from the metadata endpoint:
 
 ```
 https://login.veracity.com/{tenantid}/v2.0/.well-known/openid-configuration?p={policy}
 ```
 
-Replace the placeholders with the following parameters:
+Before calling the endpoint, replace the placeholders with the following parameters.
+
 Parameter|Value
 -|-
 Tenant ID|`a68572e3-63ce-4bc1-acdc-b64943502e9d`
 Policy|`B2C_1A_SignInWithADFSIdp`
 
-Visiting this URL in your browser will return details about the Veracity IDPs OAuth configuration. The result will look something like this:
+Below you can see a sample response from the metadata endpoint.
+
 
 ```json
 {
@@ -96,6 +98,14 @@ Visiting this URL in your browser will return details about the Veracity IDPs OA
 }
 ```
 
-Once your API has retrieved the token from the header it should use the above metadata to validate it according to the current best-practice for OAuth token validation available [here](https://auth0.com/docs/tokens/guides/access-token/validate-access-token#json-web-token-jwt-access-tokens). You **MUST** validate the signature of the token using the relevant Json Web Token key. See the `jwks_uri` endpoint in the metadata for a list of public key signatures and validate accordingly. You can read more about validating the siganture [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens#validating-the-signature).
+When validating the token:
+1. Conform to [current best practice for OAuth token validation](https://auth0.com/docs/tokens/guides/access-token/validate-access-token#json-web-token-jwt-access-tokens).
+2. Validate the token's signature using the relevant JSON Web Token key. For a list of public key signatures, see the `jwks_uri` endpoint in the metadata.
+3. Optionally, [read more about validating the signature](https://learn.microsoft.com/en-us/azure/active-directory/develop/access-tokens#validating-the-signature).
 
-Once these steps are done you can trust that the token was issued by Veracity, is not expired and was signed by the Veacity IDP. Only then can you use the information within to continue handling the request. If any of the validation steps fail your API must reject the token and return a `401 Unauthorized` response indicating to the calling code that the token is invalid and you will not handle the request.
+This lets you confirm that the token:
+* was issued by Veracity
+* is not expired
+* was signed by Veracity IDP
+
+However, suppose any of the validation steps fail. In that case, your API must reject the token and return a `401 Unauthorized` response indicating to the calling code that the token is invalid and you will not handle the request.

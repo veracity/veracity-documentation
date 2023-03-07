@@ -4,7 +4,7 @@ description: Gives an overview of the Veracity Identity services and related com
 ---
 
 # Overview of Veracity Identity Provider
-Veracity Identity Provider (Veracity IDP) uses the industry standard OpenID Connect protocol built on top of [OAuth 2.0](https://auth0.com/docs/protocols/oidc) flows to authenticate users and generate a verifiable JSON Web Token with basic user information. Because of that, you can find multiple libraries online to help you add authentication to your application.
+Veracity Identity Provider (Veracity IDP) uses the industry standard OpenID Connect protocol built on [OAuth 2.0](https://auth0.com/docs/protocols/oidc) flows to authenticate users and generate a verifiable JSON Web Token with basic user information. Because of that, you can find multiple libraries online to help you add authentication to your application.
 
 ## Prerequisites
 Before you can authenticate calls with Veracity IDP:
@@ -37,7 +37,7 @@ Note that users are sent back to your application or service after successful au
 </figure>
 
 ### Apps without direct interaction with users
-SSome applications, like APIs, lack direct interaction with users but must perform actions on their behalf. Because of that, the requests they send must contain the information for authenticating the user, such as an access token. For details, [go here](api.md)
+Some applications, like APIs, lack direct interaction with users but must perform actions on their behalf. Because of that, the requests they send must contain the information for authenticating the user, such as an access token. For details, [go here](api.md)
 
 <figure>
 	<img src="assets/api-verification-sequence.png"/>
@@ -46,7 +46,7 @@ SSome applications, like APIs, lack direct interaction with users but must perfo
 ## Additional authorization
 Veracity IDP provides authentication for applications registered with the Veracity platform. However, it does not provide authorization except for accessing other Veracity APIs.
 
-If you need authorization, you must implement it in your application or service. You may use information retrieved from the Veracity IDP to identify the user and then look up permissions for that user within your database. The user identity token provides a claim called `userId` that can be used to identify the user uniquely.
+If you need authorization, you must implement it in your application or service. For example, you may use information retrieved from the Veracity IDP to identify the user and then look up permissions for that user within your database. The user identity token provides a claim called `userId` that can be used to identify the user uniquely.
 
 ## Parameters for user authentication
 
@@ -55,7 +55,7 @@ To authenticate API calls, you will need the following parameters from the Proje
 * `Reply URL`
 * `Client secret` (only for web applications)
 
-To get those parameters, [create a service in Veracity](../../developerexperience/introduction.md) or use an exisiting service.
+To get those parameters, [create a service in Veracity](../../developerexperience/introduction.md) or use an existing service.
 
 To see the `Client ID` or `Client secret`:
 * In the [Project Portal](https://developer.veracity.com/projects), select your app, service, or API. It may be grouped under a Resource Group.
@@ -74,7 +74,7 @@ Policy|`B2C_1A_SignInWithADFSIdp`
 Services API scope|`https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation`
 Data Fabric API scope|`https://dnvglb2cprod.onmicrosoft.com/37c59c8d-cd9d-4cd5-b05a-e67f1650ee14/user_impersonation`
 
-Note that, by default, each API can call [Veracity MyServices API](https://developer.veracity.com/docs/section/identity/services-openapi). However, to call other [Veracity APIs](https://developer.veracity.com/api), you will need subscription keys for them. To get them, contact the [onboarding team](onboarding@veracity.com). 
+Note that, by default, each API can call [Veracity MyServices API](https://developer.veracity.com/docs/section/identity/services-openapi). However, to call other [Veracity APIs](https://developer.veracity.com/api), you will need subscription keys for them. To get them, contact [the onboarding team](mailto:onboarding@veracity.com). 
 
 ## Metadata endpoint
 You can get additional information from the metadata endpoint:

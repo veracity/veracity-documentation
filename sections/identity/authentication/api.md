@@ -15,7 +15,7 @@ Your API should follow the process outlined below.
 3. Look up if the user has permission to perform the requested operation (for example, the API can access its database of users indexed by `userId` claim from the access token and retrieve additional information).
 4. If the token is valid and the user has permission to do an action, perform the request and return a response.
 
-For old APIs, see the [known security flaw](../whatsnew.md#api-security-flaw).
+For old APIs, see the [known security flaw](https://developer.veracity.com/docs/section/identity/whatsnew#api-security-flaw).
 
 <figure>
 	<img src="../assets/api-verification-sequence.png"/>
@@ -99,7 +99,7 @@ Below you can see a sample response from the metadata endpoint.
 ```
 
 When validating the token:
-1. Conform to [current best practice for OAuth token validation](https://auth0.com/docs/tokens/guides/access-token/validate-access-token#json-web-token-jwt-access-tokens).
+1. Conform to [current best practices for OAuth token validation](https://auth0.com/docs/tokens/guides/access-token/validate-access-token#json-web-token-jwt-access-tokens).
 2. Validate the token's signature using the relevant JSON Web Token key. For a list of public key signatures, see the `jwks_uri` endpoint in the metadata.
 3. Optionally, [read more about validating the signature](https://learn.microsoft.com/en-us/azure/active-directory/develop/access-tokens#validating-the-signature).
 

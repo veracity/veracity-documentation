@@ -15,7 +15,7 @@ A resource is any platform capability that needs to be provisioned for your proj
 	<img src="assets/ProjectStructure.png" alt="Example of a project structure"/>
 </figure>
 
-## To create a service in Veracity
+## To create a resource in Veracity
 
 To create a service on the Veracity platform:
 1. Create a Veracity account.
@@ -23,9 +23,9 @@ To create a service on the Veracity platform:
 3. Create a project.
 4. Optionally, invite collaborators and assign access rights.
 5. Create a resource group.
-6. Create a resource or ask [the onboarding team](mailto:onboarding@veracity.com) to provision it.
+6. Create a resource choosing an available resource type or ask [the onboarding team](mailto:onboarding@veracity.com) to provision it.
 
-If you plan to go to production with your service or application, also go through [the onboarding process](https://developer.veracity.com/docs/section/onboarding/onboarding).
+If you plan to go to production with your service or application, you need to go through [the onboarding process](https://developer.veracity.com/docs/section/onboarding/onboarding).
 
 ## Tutorials
 Below you can find tutorials that will help you start using Veracity resources.

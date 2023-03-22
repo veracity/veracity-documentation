@@ -3,7 +3,16 @@
 	"items": [
 		{
 			"text": "Projects and resources",
-			"href": "introduction.md"
+			"items": [
+				{
+					"text": "Overview",
+					"href": "introduction.md"
+				},
+				{
+					"text": "Resource types",
+					"href": "resourcetypes.md"
+				}
+			]
 		},
 		{
 			"text": "Veracity Resource Manager (VRM)",

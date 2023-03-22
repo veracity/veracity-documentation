@@ -77,3 +77,19 @@ In the update menu, you can:
 * In the **Configure** tab, change the key's name, description, and manage claims it contains. 
 * In the **Clients** tab, manage clients, including setting expiration date for the JWT token or revoking the token. 
 * In the **Settings** tab, copy the public key.
+
+## Veracity API clients
+
+This resource is used for creating Veracity API clients.
+
+### To create a Veracity API client
+1. Either from **My projects**, an existing project, or a resource group, select **Create new resource**.
+2. Select **Veracity API client key** and then, at the bottom of the resource list, select **Next**. This will open a configuration wizard.
+3. On the **Structure** step, select under which project and resource group your want to put your client.
+4. On the **Configure** step:
+	4.1 Enter the resource name.
+	4.2 If the client requires a subscription key, tick the tickbox **Need Subscription Key** and select the API for which it a subscription key. 
+	4.3 If the client should use an access token,  tick the tickbox **Will Use Access Token** and select a JWK key.
+	4.4 Add any **Claims** that you need and then select the **Submit**. For a list of Veracity Identity claims, go [here](../identity/authentication/claims.md).
+ion for your JWK key.
+5. On the **Settings** step, 

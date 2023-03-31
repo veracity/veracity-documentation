@@ -19,5 +19,5 @@ When seeing data set details, you can enable or disable some columns in the colu
 ### Data set status now in activity log
 Now, the activity log for your workspace shows changes in the share status (created, revoked, expired) for a data set.
 
-### Workspace ID moved from meta data to particular endpoints
+### Workspace ID moved from meta data to relevant endpoints
 Now, the meta data endpoint does not show 'workspaceId', because this information was added to the relevant API endpoints.

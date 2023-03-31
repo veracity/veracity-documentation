@@ -91,5 +91,4 @@ This resource is used for creating Veracity API clients.
 	4.2 If the client requires a subscription key, tick the tickbox **Need Subscription Key** and select the API for which it a subscription key. 
 	4.3 If the client should use an access token,  tick the tickbox **Will Use Access Token** and select a JWK key.
 	4.4 Add any **Claims** that you need and then select the **Submit**. For a list of Veracity Identity claims, go [here](../identity/authentication/claims.md).
-ion for your JWK key.
 5. On the **Settings** step, 

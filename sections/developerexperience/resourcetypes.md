@@ -69,7 +69,7 @@ This resource type is used for creating JWT keys and for token validation.
 5. On the **Advanced** step, select **New claim** and add a claim. For a list of Veracity Identity claims, go [here](../identity/authentication/claims.md).
 6. On the **Advanced** step, check if everything is correct, and select **Submit**.
 
-### To update an JWK key
+### To update an JWT key
 1. Go to the project and resource group where the key is grouped.
 2. Select the name of the JWK resource. This will open the update menu.
 
@@ -92,3 +92,15 @@ This resource is used for creating Veracity API clients.
 	4.3 If the client should use an access token,  tick the tickbox **Will Use Access Token** and select a JWK key.
 	4.4 Add any **Claims** that you need and then select the **Submit**. For a list of Veracity Identity claims, go [here](../identity/authentication/claims.md).
 5. On the **Settings** step, 
+
+## Domain Event Management
+
+This resource is used for managing the Veracity Common Domain Infrastructure.
+
+### To create Domain Event Management
+1. Either from **My projects**, an existing project, or a resource group, select **Create new resource**.
+2. Select **Domain Event Management** and then, at the bottom of the resource list, select **Next**. This will open a configuration wizard.
+3. On the **Structure** step, select under which project and resource group your want to put your Domain Event Management key.
+4. On the **Configure** step, enter the name and description for your Domain Event Management.
+5. On the **Advanced** step, 
+6. On the **Summary** step, check if everything is correct, and select **Submit**.

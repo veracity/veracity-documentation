@@ -14,7 +14,7 @@ Data Workbench logs the following events:
 * Changes to workspace members (invited member, member role updated, member deleted).
 * Changes to schemas (added, updated).
 * Changes to schema versions (add schema version to schema, change default schema version of schema).
-* Changes to data sets (created, modified, deleted, shared or revoked access).
+* Changes to data sets (created, modified, deleted) and access to them.
 * Downloading a data set.
 * Changes to connections (created, modified, deleted).
 * Changes to connector (created, modified, deleted).

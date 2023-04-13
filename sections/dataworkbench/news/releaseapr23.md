@@ -1,13 +1,13 @@
 ---
 author: Veracity
-description: This is the changelog for the March 2023 release of Data Workbench.
+description: This is the changelog for the April 2023 release of Data Workbench.
 ---
 
-# March 2023 release
+# April 2023 release
 
-Release date: March 2023
+Release date: April 2023
 
-Read this page to learn what has changed in Veracity Data Workbench with the March 2023 release.
+Read this page to learn what has changed in Veracity Data Workbench with the April 2023 release.
 
 ## Changes in existing features
 

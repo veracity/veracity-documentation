@@ -24,6 +24,7 @@ A veracity service is the representation of your application within Veracity. Th
 |properties.technicalContactEmail|Email address for the technical contact (optional)|||
 |properties.providerCompanyName|Company name of the service provider (optional)|||
 |properties.tags|tagging of the service in myServices (optional)|||
+|properties.productionService|Is the resource a production service (optional)|true/false|
 |advanced.passwordPolicy|Used if your usecase require a password policy to meet regulatory demands. Please refrain from setting th policy as a global veracity policy|||
 |advanced.passwordPolicy.enforcePasswordPolicy|Turn the policy on and off. setting this a false is the same as not specifing a policy. |true/false|
 |advanced.passwordPolicy.scope|Does the policy apply for the service only or for all of Veracity if the user has a subscription to the service|service=0 <br/>veracity=1|

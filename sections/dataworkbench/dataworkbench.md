@@ -59,18 +59,21 @@ The **Predefined data sets** tab shows data sets that are queried by connections
 
 The **Created data sets** tab shows the data sets that workspace members created.
 
-Each data set has:
-* Title and description.
-* Column picker – show or hide table columns.
-* Filters - filter data.
-* Save option - save your changes.
-* Download option - download a data set.
-* Share option – share a data set with a user.
-* Delete option - if you are an admin, you can delete the data set.
+For each data set, in the top right corner, you can select the following action icons.
+1. Data set info - see data set name and its description.
+2. Edit table properties - disable or enable column picker and select what data columns to show.
+3. Filter - apply and clear the filters available for the data set.
+4. Save - **Save** the current view of the data set (including applied filters and shown columns) or **Save as new** to create a new data set with the applied filters and shown data columns.
+5. Download - download the data set as a CSV file.
+6. Share - share the data set with someone else.
+7. Delete - if you are an admin, delete the data set.
 
-To download a data set as a CSV file:
-1. In the **Data catalogue** tab, open a data set you want to download.
-2. In the right corner, select the download icon.
+ Note that, depending on your [user role](usermanagement.md), you might not see some icons.
+
+<figure>
+	<img src="assets/dataseticons2.png"/>
+	<figcaption>Action icons for data sets.</figcaption>
+</figure>
 
 ### Types of data sets
 Data sets can be saved and shared as:

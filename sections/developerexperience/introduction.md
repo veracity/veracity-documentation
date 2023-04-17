@@ -15,6 +15,13 @@ A resource is any platform capability that needs to be provisioned for your proj
 	<img src="assets/ProjectStructure.png" alt="Example of a project structure"/>
 </figure>
 
+## Preview new functionalities
+
+If you want to use the newest features before they are released for general use, opt in to the Veracity Developer Preview Program. To do so:
+
+1. Go to Profile > User settings > Preferences > Veracity Preview Program.
+2. Under Veracity for Developers and Veracity Developer Preview program, set the toggle to **ON**.
+
 ## To create a resource in Veracity
 
 To create a service on the Veracity platform:

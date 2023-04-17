@@ -9,7 +9,15 @@ You can use different resource types that Veracity has prepared for you.
 
 ## Veracity Service
 
+For creating a Veracity Service, follow the video tutorial below.
+
+[![Watch the video](assets/create_a_service.gif)](https://brandcentral.dnv.com/mars/embed?o=60ABE550617D6AD6&c=10651&a=N)
+
 ## App or API
+
+For creating an APP or API, follow the video tutorial below.
+
+[![Watch the video](assets/set_up_app.gif)](https://brandcentral.dnv.com/mars/embed?o=231C2B4325BC4746&c=10651&a=N)
 
 ## API product
 This is a package of one or more APIs that are bundled together and offered as a single product. This package includes documentation, support, and any other resources necessary to help developers integrate the APIs into their applications.

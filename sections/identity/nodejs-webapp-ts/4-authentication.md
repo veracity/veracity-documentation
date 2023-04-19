@@ -25,12 +25,12 @@ This approach only requires us the ensure we have the necessary configuration pa
 setupWebAppAuth({
 	app,
 	strategy: { // Fill these in with values from your Application Credential
-		clientId: "9a4c3b0d-215a-4010-92df-019bece1359d",
-		clientSecret: "OB48Q~t-J-.hN93ZdQo00ZyBFoZv6YxFwLrVjcuZ",
+		clientId: "",
+		clientSecret: "",
 		replyUrl: "https://localhost:3000/user"
 	},
 	session: {
-		secret: "sadasdsadsad", // Replace this with your own secret
+		secret: "12345678", // Replace this with your own secret
 		store: new MemoryStore() // Use MemoryStore only for local development
 	}
 })

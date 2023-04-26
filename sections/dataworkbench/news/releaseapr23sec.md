@@ -22,5 +22,5 @@ Now, you can sort (ascending and descending) some data columns. The columns you 
 * Now, filters are improved based on user feedback, resulting in a more user-friendly experience. For example, you can add and remove filters. Also, unused filters are hidden to avoid clutter.
 * Previously, List and ListSelectOne(Year) filters differed in behaviour from other filters. Now, they behave like other filters.
 
-### Improved date support for calendar
-* Now, the built-in calendar for choosing dates supports different ISO date formats.
+### Improved calendar
+* Now, the calendar is more user-friendly as it provides hints and adds some missing information required by Data Workbench. Because of that, you just need to provide the information required by the data sets you are filtering.

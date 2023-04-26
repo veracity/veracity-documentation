@@ -15,7 +15,6 @@ Read this page to learn what has changed in Veracity Data Workbench with the sec
 Now, you can sort (ascending and descending) some data columns. The columns you can sort depened on your data schema and on your data source.
 
 ### Improved filtering
-* Now, the data classification column is fixed and filterable.
 * Now, you can filter from a date, to a date, and in a range (between dates). Also, you can manually input the date.
 * Now, when you search for a filter from a list, you are offered live suggestions when you type the filter's name.
 

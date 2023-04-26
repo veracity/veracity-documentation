@@ -3,7 +3,7 @@ author: Veracity
 description: This is the changelog for the second April 2023 release of Data Workbench.
 ---
 
-# April 2023 release
+# April 2023 second release
 
 Release date: April 2023
 
@@ -12,7 +12,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the sec
 ## Changes in existing features
 
 ### Improved sorting
-Now, you can sort (ascending and descending) any data column.
+Now, you can sort (ascending and descending) some data columns. The columns you can sort depened on your data schema and on your data source.
 
 ### Improved filtering
 * Now, the data classification column is fixed and filterable.
@@ -25,7 +25,3 @@ Now, you can sort (ascending and descending) any data column.
 
 ### Improved date support for calendar
 * Now, the built-in calendar for choosing dates supports different ISO date formats.
-
-### Visual changes
-* Previously, filter pop-ups had a slightly different horizontal alignment. Now, it is standardized.
-* Previously, filter pop-ups had no minimum or maximum width set. Now, they have those values set, and the pop-up width is based on the content shown in the pop-up.

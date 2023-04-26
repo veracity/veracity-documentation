@@ -1,0 +1,31 @@
+---
+author: Veracity
+description: This is the changelog for the second April 2023 release of Data Workbench.
+---
+
+# April 2023 release
+
+Release date: April 2023
+
+Read this page to learn what has changed in Veracity Data Workbench with the second April 2023 release. The focus of this release was on making your periodic reporting easier.
+
+## Changes in existing features
+
+### Improved sorting
+Now, you can sort (ascending and descending) any data column.
+
+### Improved filtering
+* Now, the data classification column is fixed and filterable.
+* Now, you can filter from a date, to a date, and in a range (between dates). Also, you can manually input the date.
+* Now, when you search for a filter from a list, you are offered live suggestions when you type the filter's name.
+
+### Standardized filters
+* Now, filters are improved based on user feedback, resulting in a more user-friendly experience. For example, you can add and remove filters. Also, unused filters are hidden to avoid clutter.
+* Previously, List and ListSelectOne(Year) filters differed in behaviour from other filters. Now, they behave like other filters.
+
+### Improved date support for calendar
+* Now, the built-in calendar for choosing dates supports different ISO date formats.
+
+### Visual changes
+* Previously, filter pop-ups had a slightly different horizontal alignment. Now, it is standardized.
+* Previously, filter pop-ups had no minimum or maximum width set. Now, they have those values set, and the pop-up width is based on the content shown in the pop-up.

@@ -7,7 +7,7 @@ description: This is the changelog for the May 2023 release of Data Workbench.
 
 Release date: May 2023
 
-Read this page to learn what has changed in Veracity Data Workbench with the May 2023 release. The focus of this release was on making your periodic reporting easier.
+Read this page to learn what has changed in Veracity Data Workbench with the May 2023 release which was focused on making your periodic reporting easier.
 
 ## Changes in existing features
 

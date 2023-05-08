@@ -8,9 +8,12 @@ description: Overview of the Manage Entities tab in the admin tab.
 An entity:
 * Can contain one or more reports or other content types.
 * You share access to end users to one or more entities.
-* Is a way of groping and structuring your reports.
+* Is a way of grouping and structuring your reports.
 * Represents the top-level concepts such as companies, projects or assets.
 
+To understand better what an entity is, think of your VAP service as a filling cabinet. Then, entities would be folders inside this cabinet. Finally, Power BI reports, PDFs, images, and web apps would be documents within a folder inside the filling cabinet.
+
+## To manage entities
 The "Manage Entities" page shows all entities created in your VAP service. To sort them by a specific column, select the column. 
 
 In the right corner of each row, you can:

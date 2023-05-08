@@ -11,7 +11,7 @@ An entity:
 * Is a way of grouping and structuring your reports.
 * Represents the top-level concepts such as companies, projects or assets.
 
-To understand better what an entity is, think of your VAP service as a filling cabinet. Then, entities would be folders inside this cabinet. Finally, Power BI reports, PDFs, images, and web apps would be documents within a folder inside the filling cabinet.
+To understand better what an entity is, think of your VAP service as a filing cabinet. Then, entities would be folders inside this cabinet. Finally, Power BI reports, PDFs, images, and web apps would be documents within a folder inside the filing cabinet.
 
 ## To manage entities
 The "Manage Entities" page shows all entities created in your VAP service. To sort them by a specific column, select the column. 

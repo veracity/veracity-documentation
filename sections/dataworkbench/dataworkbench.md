@@ -107,7 +107,6 @@ To upload a data set from a CSV file:
 Note that now you have created a data set you can share with other users.
 
 ### To share a data set
-You can share a dynamic (live) version of a data set to file storage in [Data Fabric](https://developer.veracity.com/docs/section/datafabric/datafabric) and specify who can access it.
 
 To share a data set with one or more users:
 1. Hover over the row with a data set. Action icons will appear in the right corner of the row.

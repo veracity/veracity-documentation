@@ -2,13 +2,16 @@
 author: Veracity
 description: Give a general description of the Veracity Marketplace Service.
 ---
-# Creating your service page and go live
-When your service is at a mature stage, and you are ready to present it or sell it on our marketplace you have two options:  
-* Download marketplace [content form](https://veracity-static.azureedge.net/docs/marketplace/Ver_Marketplace_Guide_ServiceContentForm_2021_09.docx) and send it back to us with content and media requested, so that we can create a marketplace page for you;
-* Upload content for the presentation of the service yourself, through our Sanity content platform. Contact us to <onboarding@veracity.com> for more guidance.
+# Create your service page and go live
+When your service is at a mature stage, and you are ready to present it or sell it on our Marketplace you have two options:  
+* Download Marketplace [content form](https://veracity-static.azureedge.net/docs/marketplace/Ver_Marketplace_Guide_ServiceContentForm_2021_09.docx) and send it back to us with content and media requested, so that we can create a marketplace page for you;
+* Upload content for the presentation of the service yourself, through our Sanity content platform. Contact <onboarding@veracity.com> for sign in information, and then follow the tutorial below.
 
 In both cases, we also suggest that you read this online guideline and that you familiarize yourself with the different product pages at [store.veracity.com](https://store.veracity.com)
 
+## Sanity tutorial
+Watch this tutorial to learn how to edit your product page. To get access to Sanity, contact <onboarding@veracity.com>.
+[![Watch the video](assets/create_a_resource.gif)](https://brandcentral.dnv.com/mars/embed?o=0FB6CF531F0173F5&c=10651&a=N)
 
 ## Writing content
 When deciding the name of your service, and when writing content, you should think about being user-friendly and choosing the right words for SEO (Search Engine Optimization). Both in the name of the service and in the content it’s important to:

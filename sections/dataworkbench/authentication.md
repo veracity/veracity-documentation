@@ -23,7 +23,7 @@ Use the following request body:
 
 <figure>
 	<img src="assets/requestbody.png"/>
-	<figcaption>An application with direct user interaction can redirect the user to the login page to authenticate them.</figcaption>
+	<figcaption>Sample request body.</figcaption>
 </figure>
 
 To get `client_id` and `client_secret`:

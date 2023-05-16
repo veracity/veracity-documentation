@@ -8,6 +8,7 @@ If you want to query data, follow this tutorial for step-by-step instructions.
 To query data:
 1. Authenticate and authorize your API calls. See how to [here](authentication.md).
 2. Find your workspace ID. To do so, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.
+<figure>
 	<img src="assets/workspaceid.png"/>
 	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
 </figure>

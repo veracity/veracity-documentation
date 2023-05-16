@@ -11,6 +11,14 @@ You can use the following API endpoints for Data Workbench:
 
 To see response codes for the API, go [here](#response-codes).
 
+## Workspace ID
+
+To find your workspace ID, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.
+<figure>
+	<img src="assets/workspaceid.png"/>
+	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
+</figure>
+
 ## Workspace endpoints
 
 Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.

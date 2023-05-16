@@ -8,6 +8,9 @@ If you want to query data, follow this tutorial for step-by-step instructions.
 To query data:
 1. Authenticate and authorize your API calls. See how to [here](authentication.md).
 2. Find your workspace ID. To do so, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.
+	<img src="assets/workspaceid.png"/>
+	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
+</figure>
 3. Find the ID of a data set you want to query from. See how to do that [here](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#data-sets-endpoints).
 4. Once you have the ID of a workspace and a data set, you can query for data by workspace ID, data set ID, and some additional properties. To do so, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint.
 You must provide the `{workspaceId}` (string, $UUID) and the {datasetId} (string, $UUID). You can use additional properties in your query. 

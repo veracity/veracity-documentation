@@ -42,6 +42,6 @@ For example, for the endpoint base URL 'https://api-test.veracity.com/veracity/d
 US 451654
 
 ### Direct link to the documentation in API integrations
-Previously, the link to the documentaiton below  **API Integrations** and under **Endpoints base URL** was taking you to a general section of the docs. Now, it takes you directly to the documentation on the API endpoints. 
+Previously, the link to the documentation below  **API Integrations** and under **Endpoints base URL** was taking you to a general section of the docs. Now, it takes you directly to the documentation on the API endpoints. 
 
 US 451654

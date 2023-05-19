@@ -16,13 +16,6 @@ Now, [guest users](releasejan23.md) will see a marketing banner at the top of th
 
 US 444470
 
-### Endpoint for getting workspaces grouped by TenantID
-Now, you can use the following endpoint to see all the workspaces you have access to grouped by TenantId. This should help you in sharing access to those workspaces.
-
-Endpoint:
-
-450623
-
 ## Changes in existing features
 
 ### Redirect from guest access for tenant or workspace members

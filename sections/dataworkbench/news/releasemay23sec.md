@@ -3,7 +3,7 @@ author: Veracity
 description: This is the changelog for the May 2023 second release of Data Workbench.
 ---
 
-# May 2023 release
+# May 2023 second release
 
 Release date: May 2023
 
@@ -12,7 +12,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the sec
 ## New features
 
 ### Marketplace banner
-Now, at the top of your Data Workbench workspace, you may see a banner that, when selected, redirects to the Marketplace page for Data Workbench. The banner shows only when relevant to you, for example, if you are a guest user that is not a member of any tenant or workspace.
+Now, [guest users](releasejan23.md) will see a marketing banner at the top of the page, prompting them to purchase Data Workbench in the Veracity marketplace.
 
 US 444470
 

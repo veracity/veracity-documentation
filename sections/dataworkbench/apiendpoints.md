@@ -14,6 +14,9 @@ To see response codes for the API, go [here](#response-codes).
 ## Workspace ID
 
 To find your workspace ID, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.
+
+Note that 'workspaceId' is a string in UUID format.
+
 <figure>
 	<img src="assets/workspaceid.png"/>
 	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
@@ -23,7 +26,14 @@ To find your workspace ID, see the URL of your workspace in a browser. The part 
 
 Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
 
-To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. You must provide `{workspaceId}`(string, $UUID).
+To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas[?includeDefaultSchemaVersion] endpoint. 
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+
+In the request, you can add optional parameter:
+* '[?includeDefaultSchemaVersion]' which is a Boolean.
 
 Below you can see an example of a successful request (code 200).
 
@@ -60,10 +70,22 @@ Below you can see an example of a successful request (code 200).
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
 
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+
+In the request, you can add optional parameter:
+* '[?PageSize]' which is an integer in int32 format.
+* '[&PageIndex]' which is an integer in int32 format.
+
 ## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
 
-You can list all connections used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connections endpoint. You must provide `{workspaceId}` (string, #UUID) in your call.
+You can list all connections used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connections endpoint. 
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -123,7 +145,11 @@ Below you can see an example of a successful request (code 200).
 ]
 ```
 
-You can also list all the connectors used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. You must provide `{workspaceId}` (string, #UUID) in your call.
+You can list all the connectors used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. 
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -165,23 +191,33 @@ Below you can see an example of a successful request (code 200).
 
 ## Data sets endpoints
 
+<a name="datasetid"></a> Data set ID is a string in UUID format. 
+
+To check the 'datasetId' for a data set:
+1. In Data Workbench, go to *Data catalogue*.
+2. Open a data set.
+3. Copy the part of the URL after 'datasets'.
+
+For example, for the URL https://dw.veracity.com/demo/ws/6fa70833-de9a-4fca-8754-ed57cbfbded7/dataCatalogue/datasets/3b516e0c-6fa7-44c7-aa6c-7aef5aee4c73, the data set ID is 3b516e0c-6fa7-44c7-aa6c-7aef5aee4c73.
+
 You can use the following endpoints:
 * [Get all data sets for a workspace](#allData)
 * [Get specific data sets by ID](#data)
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets endpoint. You must provide `{workspaceId}` (string, $UUID).
+<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets[?isBaseDataset][&pageIndex][&pageSize][&sortColumn][&sortDirection] endpoint. 
 
-You can use additional properties in your query:
-* {isBaseDataset} – boolean; by default, no value; you can set it to "true" or "false"
-* {pageIndex} – integer($int32)
-* {pageSize} – integer($int32)
-* {sortColumn} – string
-* {sortDirection} – string; by default, no value; you can set it to "ascending" or "descending"
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-Below you can see an example of a request URL that uses all additional properties.
-https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets?isBaseDataset=true&pageIndex=1&pageSize=1&sortColumn=1&sortDirection=Ascending
+In the request, you can add optional parameters:
+* [isBaseDataset] – boolean
+* [pageIndex] – integer in the int32 format
+* [pageSize] – integer in the int32 format
+* [sortColumn] – string
+* [sortDirection] – string
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -219,7 +255,12 @@ Below you can see an example of a successful request (code 200).
 ]
 ```
 
-<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
+<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+* [{datasetId}](#datasetid)
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -255,7 +296,12 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
+<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+* [{datasetId}](#datasetid)
 
 Below you can see a sample request body.
 
@@ -296,7 +342,16 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
+<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+* [{datasetId}](#datasetid)
+
+In the request, you can add optional parameters:
+* [PageSize] - integer in the int 32 format.
+* [PageIndex] - integer in the int 32 format.
 
 ## Response codes
 

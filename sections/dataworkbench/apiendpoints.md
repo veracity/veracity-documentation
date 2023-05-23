@@ -194,9 +194,14 @@ Below you can see an example of a successful request (code 200).
 <a name="datasetid"></a> Data set ID is a string in UUID format. 
 
 To check the 'datasetId' for a data set:
-1. In Data Workbench, go to *Data catalogue*.
+1. In Data Workbench, go to **Data catalogue**.
 2. Open a data set.
 3. Copy the part of the URL after 'datasets'.
+
+<figure>
+	<img src="assets/datasetid.png"/>
+	<figcaption>The ID of a data set .</figcaption>
+</figure>
 
 For example, for the URL https://dw.veracity.com/demo/ws/6fa70833-de9a-4fca-8754-ed57cbfbded7/dataCatalogue/datasets/3b516e0c-6fa7-44c7-aa6c-7aef5aee4c73, the data set ID is 3b516e0c-6fa7-44c7-aa6c-7aef5aee4c73.
 

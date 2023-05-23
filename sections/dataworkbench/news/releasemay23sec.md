@@ -24,7 +24,7 @@ If you are a member of a Data Workbench tenant or workspace, when someone shares
 US 446805
 
 ### API endpoints for improved filtering and sorting
-In the previous release, we have improved filtering and sorting. For details, go [here](releasemay23.md). Now, you can benefit from them through API endpoints.
+In the previous release, we have improved filtering and sorting. For details, go [here](releasemay23.md). Now, you can benefit from them through [API endpoints](../apiendpoints.md).
 
 US 451971
 
@@ -38,3 +38,8 @@ US 451654
 Previously, the link to the documentation below  **API Integrations** and under **Endpoints base URL** was taking you to a general section of the docs. Now, it takes you directly to the documentation on the API endpoints. 
 
 US 451654
+
+### Improved error messages
+Previously, error messages auto closed after certain time. Now, the message dissapears only after you close it and you can contact the support directly from the error message.
+
+US 455779 and US 456536

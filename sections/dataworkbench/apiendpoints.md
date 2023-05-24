@@ -25,7 +25,7 @@ Each customer has one tenant in Data Workbench. A tenant can have multiple works
 
 To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. You must provide `{workspaceId}`(string, $UUID).
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 
 ```json
 [
@@ -65,7 +65,7 @@ To see the connections a workspace uses, go to the **Connections** tab in your w
 
 You can list all connections used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connections endpoint. You must provide `{workspaceId}` (string, #UUID) in your call.
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 [
   {
@@ -125,7 +125,7 @@ Below you can see an example of a successful request (code 200).
 
 You can also list all the connectors used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. You must provide `{workspaceId}` (string, #UUID) in your call.
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 [
   {
@@ -183,7 +183,7 @@ You can use additional properties in your query:
 Below you can see an example of a request URL that uses all additional properties.
 https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets?isBaseDataset=true&pageIndex=1&pageSize=1&sortColumn=1&sortDirection=Ascending
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 [
   {
@@ -221,7 +221,7 @@ Below you can see an example of a successful request (code 200).
 
 <a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID).
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -257,7 +257,7 @@ Below you can see an example of a successful request (code 200).
 
 <a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. You must provide the `{workspaceId}` (string, $UUID) and the {datasetId}(string, $UUID). You can use additional properties in your query. 
 
-Below you can see a sample request body.
+Below you can see an example of a succesfful respone.
 
 ```json
 {
@@ -280,7 +280,7 @@ Below you can see a sample request body.
 }
 ```
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 
 ```json
 {

@@ -297,38 +297,57 @@ You can add the following to the request:
 
 Below you can see an example of a successful response (code 200).
 ```json
-[
   {
-    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "name": "string",
-    "description": "string",
-    "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "createdOn": "2022-08-10T14:31:12.825Z",
-    "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "lastModifiedOn": "2022-08-10T14:31:12.825Z",
-    "schemaInfo": {
-      "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "schemaName": "string"
-    },
-    "queries": {
-      "additionalProp1": [
-        "string"
-      ],
-      "additionalProp2": [
-        "string"
-      ],
-      "additionalProp3": [
-        "string"
-      ]
-    },
-    "columns": [
-      "string"
-    ],
-    "isBaseDataset": true
-  }
-]
+
+    "result": [
+
+        {
+
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "name": "string",
+
+            "description": "string",
+
+            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
+
+            "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "createdOn": "2022-05-04T07:37:19.2074539Z",
+
+            "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
+
+            "schemaInfo": {
+
+                "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+                "schemaName": "string"
+
+            },
+
+            "queries": [],
+
+            "columns": [],
+
+            "isBaseDataset": true
+
+        }
+
+    ],
+
+    "pageIndex": 1,
+
+    "pageSize": 100,
+
+    "totalCount": 100,
+
+    "totalPages": 1
+
+}
 ```
 
 <a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
@@ -339,22 +358,15 @@ In the request, you must provide:
 * [{datasetId}](#datasetid)
 
 Below you can see an example of a successful response (code 200).
+
 ```json
 {
-"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-"name": "string",
-"description": "string",
-"workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-"connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-"createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-"createdOn": "2022-08-10T14:37:47.568Z",
-"lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-"lastModifiedOn": "2022-08-10T14:37:47.568Z",
-"schemaInfo": {
-"schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-"schemaName": "string"
-},
-"queries": [
+"pageIndex": 0,
+"pageSize": 0,
+"columnFilter": [
+"string"
+],
+"queryFilters": [
        {
            "column": "string",
            "filterType": "string",
@@ -362,11 +374,11 @@ Below you can see an example of a successful response (code 200).
                "string"
            ]
        }
-],
-"columns": [
-"string"
-],
-"isBaseDataset": true
+   ],
+"sorting": {
+       "column": "string",
+       "order": "Ascending"
+   }
 }
 ```
 

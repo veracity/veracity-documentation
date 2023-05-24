@@ -37,7 +37,6 @@ To get the schema, add to the request `includeDefaultSchemaVersion=true`.
 Below you can see an example of a successful response (code 200).
 
 ```json
- {
 
     "result": [
 
@@ -87,7 +86,6 @@ Below you can see an example of a successful response (code 200).
 
     "totalPages": 1
 
-}
 ```
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger providing the ID of the workspace.
@@ -101,8 +99,6 @@ You can add to the request a page size and page index, for example `PageSize=1&P
 Below you can see an example of a successful response (code 200).
 
 ```json
-{
-
     "result": [
 
         {
@@ -146,8 +142,6 @@ Below you can see an example of a successful response (code 200).
     "totalCount": 100,
 
     "totalPages": 100
-
-}
 ```
 
 ## Connectors and connections
@@ -161,8 +155,6 @@ In the request, you must provide:
 
 Below you can see an example of a successful response (code 200).
 ```json
-[
-  {
     "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "connectionName": "string",
     "connector": {
@@ -213,8 +205,6 @@ Below you can see an example of a successful response (code 200).
         }
       ]
     }
-  }
-]
 ```
 
 You can list all the connectors used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. 
@@ -225,8 +215,6 @@ In the request, you must provide:
 
 Below you can see an example of a successful response (code 200).
 ```json
-[
-  {
     "connectorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "name": "string",
     "connectorType": "string",
@@ -257,8 +245,6 @@ Below you can see an example of a successful response (code 200).
         }
       ]
     }
-  }
-]
 ```
 
 ## Data sets endpoints
@@ -297,8 +283,6 @@ You can add the following to the request:
 
 Below you can see an example of a successful response (code 200).
 ```json
-  {
-
     "result": [
 
         {
@@ -346,8 +330,6 @@ Below you can see an example of a successful response (code 200).
     "totalCount": 100,
 
     "totalPages": 1
-
-}
 ```
 
 <a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
@@ -392,8 +374,6 @@ In the request, you must provide:
 Below you can see an example of a successful response (code 200).
 
 ```json
-{
-
     "result": [
 
         {
@@ -441,11 +421,9 @@ Below you can see an example of a successful response (code 200).
     "totalCount": 100,
 
     "totalPages": 1
-
-}
 ```
 
-<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
+<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger endpoint providing the ID of the workspace and the dataset.
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)

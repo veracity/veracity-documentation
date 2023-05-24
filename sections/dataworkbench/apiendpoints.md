@@ -26,14 +26,13 @@ Note that 'workspaceId' is a string in UUID format.
 
 Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
 
-To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas[?includeDefaultSchemaVersion] endpoint. 
+To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-In the request, you can add optional parameter:
-* '[?includeDefaultSchemaVersion]' which is a Boolean.
+To get the schema, add to the request `includeDefaultSchemaVersion=true`.
 
 Below you can see an example of a successful request (code 200).
 
@@ -74,9 +73,7 @@ In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-In the request, you can add optional parameter:
-* '[?PageSize]' which is an integer in int32 format.
-* '[&PageIndex]' which is an integer in int32 format.
+You can add to the request a page size and page index, for example `PageSize=1&PageIndex=5`.
 
 ## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
@@ -211,18 +208,17 @@ You can use the following endpoints:
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets[?isBaseDataset][&pageIndex][&pageSize][&sortColumn][&sortDirection] endpoint. 
+<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-In the request, you can add optional parameters:
-* [isBaseDataset] – boolean
-* [pageIndex] – integer in the int32 format
-* [pageSize] – integer in the int32 format
-* [sortColumn] – string
-* [sortDirection] – string
+You can add the following to the request:
+* Get only base data sets with `isBaseDataset=true`.
+* Set page size and index, for example `PageSize=1&PageIndex=5`.
+* Sort columns with `sortColumn`.
+* Sort direction with `sortDirection=ascending` or `sortDirection=descending`.
 
 Below you can see an example of a successful request (code 200).
 ```json
@@ -354,9 +350,8 @@ In the request, you must provide:
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 * [{datasetId}](#datasetid)
 
-In the request, you can add optional parameters:
-* [PageSize] - integer in the int 32 format.
-* [PageIndex] - integer in the int 32 format.
+You can add the following to the request:
+* Page size and index, for example, `PageSize=1&PageIndex=5`.
 
 ## Response codes
 

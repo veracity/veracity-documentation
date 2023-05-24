@@ -266,7 +266,7 @@ In the request, you must provide:
 Below you can see an example of a successful request (code 200).
 ```json
 {
-  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 "name": "string",
 "description": "string",
 "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -354,22 +354,7 @@ Below you can see a sample request body.
     "totalCount": 100,
 
     "totalPages": 1
-}
-```
 
-Below you can see an example of a successful request (code 200).
-
-```json
-{
-  "data": [
-    {}
-  ],
-  "pagination": {
-    "pageIndex": 0,
-    "pageSize": 0,
-    "totalPages": 0,
-    "totalCount": 0
-  }
 }
 ```
 

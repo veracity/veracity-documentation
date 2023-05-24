@@ -25,11 +25,11 @@ Thanks to this, guest access does not limit you, and you can explore the shared 
 In the previous release, we have improved filtering and sorting. For details, go [here](releasemay23.md). Now, you can benefit from them through [API endpoints](../apiendpoints.md).
 
 ### Changed get data sets and query activity logs endpoints
-The endpoint for getting available data sets changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets[?isBaseDataset][&pageIndex][&pageSize][&sortColumn][&sortDirection]`.
+The endpoint for getting available data sets changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets`.
 
-The endpoint for querying activity logs (ledgers) changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex]`.
+The endpoint for querying for data by workspace ID changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query`.
 
-For details, go to [the API documentation](../apiendpoints.md).
+For current information on endpoints, go to [the API documentation](../apiendpoints.md).
 
 ### Endpoint base URL in API integrations
 In **API Integrations**, under **Endpoints base URL**, after 'workspaces', we have added your workspace ID. 

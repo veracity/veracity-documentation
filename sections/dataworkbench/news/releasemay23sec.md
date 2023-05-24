@@ -17,7 +17,7 @@ Now, [guest users](releasejan23.md) will see a marketing banner at the top of th
 ## Changes in existing features
 
 ### Redirect from guest access for tenant or workspace members
-If you are a member of a Data Workbench tenant or workspace, when someone shares access to their tenant or workspace with you, you see this under the **Shared with me** tab and not in a [guest access](releasejan23.md). Thanks to this, the guest access does not limit you, and you can explore the shared tenant or workspace, keeping access to all Data Workbench features.
+If you are a member of a Data Workbench tenant or workspace, when someone shares access to their tenant or workspace with you, you see this under the **Shared with me** tab and not in [guest access](releasejan23.md). Thanks to this, guest access does not limit you, and you can explore the shared tenant or workspace, keeping access to all Data Workbench features.
 
 ### API endpoints for improved filtering and sorting
 In the previous release, we have improved filtering and sorting. For details, go [here](releasemay23.md). Now, you can benefit from them through [API endpoints](../apiendpoints.md).

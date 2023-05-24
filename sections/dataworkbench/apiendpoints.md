@@ -34,7 +34,7 @@ In the request, you must provide:
 
 To get the schema, add to the request `includeDefaultSchemaVersion=true`.
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 
 ```json
 [

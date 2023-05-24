@@ -297,7 +297,7 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
+<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
@@ -343,7 +343,7 @@ Below you can see an example of a successful request (code 200).
 }
 ```
 
-<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
+<a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger[?PageSize][&PageIndex] endpoint providing the ID of the workspace and the dataset.
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)

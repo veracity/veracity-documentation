@@ -17,7 +17,7 @@ Now, [guest users](releasejan23.md) will see a marketing banner at the top of th
 ## Changes in existing features
 
 ### Redirect from guest access for tenant or workspace members
-If you are a member of a Data Workbench tenant or workspace, when someone shares access to their tenant or workspace with you, you see this under the **Shared with me** tab and not in [guest access](releasejan23.md). 
+If you are a member of a Data Workbench tenant or workspace, when someone shares access to their data set you, you see this under the **Shared with me** tab and not in [guest access](releasejan23.md). 
 
 Thanks to this, guest access does not limit you, and you can explore the shared tenant or workspace, keeping access to all Data Workbench features.
 
@@ -25,7 +25,9 @@ Thanks to this, guest access does not limit you, and you can explore the shared 
 In the previous release, we have improved filtering and sorting. For details, go [here](releasemay23.md). Now, you can benefit from them through [API endpoints](../apiendpoints.md).
 
 ### Changed get data sets and query activity logs endpoints
-The endpoint for getting available data sets changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets`.
+The endpoint for getting available data sets changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets`. The previous version of the endpoint (v1) still works, but it does not support filtering, so we recommend switching to the new version (v2).
+
+The endpoint for getting a specific data set by its ID changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint`.
 
 The endpoint for querying for data by workspace ID changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query`.
 

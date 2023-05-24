@@ -37,9 +37,7 @@ To get the schema, add to the request `includeDefaultSchemaVersion=true`.
 Below you can see an example of a successful response (code 200).
 
 ```json
-[
-    {
-        {
+ {
 
     "result": [
 
@@ -109,7 +107,7 @@ In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 [
   {
@@ -173,7 +171,7 @@ In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 [
   {
@@ -245,7 +243,7 @@ You can add the following to the request:
 * Sort columns with `sortColumn`.
 * Sort direction with `sortDirection=ascending` or `sortDirection=descending`.
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 [
   {
@@ -288,7 +286,7 @@ In the request, you must provide:
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 * [{datasetId}](#datasetid)
 
-Below you can see an example of a successful request (code 200).
+Below you can see an example of a successful response (code 200).
 ```json
 {
 "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",

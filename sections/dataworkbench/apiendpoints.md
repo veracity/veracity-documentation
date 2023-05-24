@@ -39,28 +39,31 @@ Below you can see an example of a successful response (code 200).
 ```json
     "result": [
         {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "name": "string",
-            "description": "string",
-            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
-            "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "createdOn": "2022-05-04T07:37:19.2074539Z",
-            "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
-            "schemaInfo": {
-                "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "schemaName": "string"
-            },
-            "queries": [],
-            "columns": [],
-            "isBaseDataset": true
-        }
-    ],
-    "pageIndex": 1,
-    "pageSize": 100,
-    "totalCount": 100,
-    "totalPages": 1
+            "id": "7c312976-3d3d-4te3-9234-12f238f71234",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "name": "DCS Period Summary",
+        "description": "Aggregated emissions per DCS period including verification status, grouped by owner and flag",
+        "industry": "Maritime",
+        "isPredefined": true,
+        "avatarColor": 55,
+        "createdBy": "c44e1e55-fa3a-4553-b974-87eb50e41234",
+        "createdOn": "2022-05-23T11:42:34.9558871Z",
+        "lastModifiedBy": "c44e1e55-1232-4553-b974-87eb50e41234",
+        "lastModifiedOn": "2022-05-23T11:42:34.9558871Z"
+    },
+ {
+        "id": "2a0b9aa7-b7d5-4fbb-9a59-850459cd1234",
+        "workspaceId": "e03c005e-1adf-456a-9d84-3f8694831234",
+        "name": "TEST Name",
+        "description": "TEST DESCRIPTION",
+        "industry": "",
+        "isPredefined": false,
+        "avatarColor": 60,
+        "createdBy": "2f3t7ee2-1234-4d25-af86-f5364fcb1234",
+        "createdOn": "2022-06-07T06:49:35.5587386Z",
+        "lastModifiedBy": "2f2e7ae3-1234-4d25-af86-f5364fcb1234",
+        "lastModifiedOn": "2022-06-17T08:55:25.063984Z"
+    }
 ```
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger providing the ID of the workspace.

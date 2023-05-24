@@ -256,7 +256,7 @@ Below you can see an example of a successful request (code 200).
 ]
 ```
 
-<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
+<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)

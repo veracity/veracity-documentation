@@ -37,55 +37,30 @@ To get the schema, add to the request `includeDefaultSchemaVersion=true`.
 Below you can see an example of a successful response (code 200).
 
 ```json
-
     "result": [
-
         {
-
             "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "name": "string",
-
             "description": "string",
-
             "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
-
             "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "createdOn": "2022-05-04T07:37:19.2074539Z",
-
             "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
-
             "schemaInfo": {
-
                 "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
                 "schemaName": "string"
-
             },
-
             "queries": [],
-
             "columns": [],
-
             "isBaseDataset": true
-
         }
-
     ],
-
     "pageIndex": 1,
-
     "pageSize": 100,
-
     "totalCount": 100,
-
     "totalPages": 1
-
 ```
 
 To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger providing the ID of the workspace.
@@ -284,51 +259,28 @@ You can add the following to the request:
 Below you can see an example of a successful response (code 200).
 ```json
     "result": [
-
         {
-
             "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "name": "string",
-
             "description": "string",
-
             "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
-
             "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "createdOn": "2022-05-04T07:37:19.2074539Z",
-
             "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
-
             "schemaInfo": {
-
                 "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
                 "schemaName": "string"
-
             },
-
             "queries": [],
-
             "columns": [],
-
             "isBaseDataset": true
-
         }
-
     ],
-
     "pageIndex": 1,
-
     "pageSize": 100,
-
     "totalCount": 100,
-
     "totalPages": 1
 ```
 
@@ -375,51 +327,28 @@ Below you can see an example of a successful response (code 200).
 
 ```json
     "result": [
-
         {
-
             "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "name": "string",
-
             "description": "string",
-
             "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
-
             "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "createdOn": "2022-05-04T07:37:19.2074539Z",
-
             "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
             "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
-
             "schemaInfo": {
-
                 "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-
                 "schemaName": "string"
-
             },
-
             "queries": [],
-
             "columns": [],
-
             "isBaseDataset": true
-
         }
-
     ],
-
     "pageIndex": 1,
-
     "pageSize": 100,
-
     "totalCount": 100,
-
     "totalPages": 1
 ```
 

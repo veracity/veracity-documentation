@@ -25,7 +25,10 @@ Thanks to this, guest access does not limit you, and you can explore the shared 
 In the previous release, we have improved filtering and sorting. For details, go [here](releasemay23.md). Now, you can benefit from them through [API endpoints](../apiendpoints.md).
 
 ### Changed get data sets and query activity logs endpoints
-The endpoint for getting available data sets changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets`. The previous version of the endpoint (v1) still works, but it does not support filtering, so we recommend switching to the new version (v2).
+
+The endpoints below were changed to version 2 that supports filtering and sorting. We recommend using them. However, the previous version (v1) of those endpoints still works.
+
+The endpoint for getting available data sets changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets`.
 
 The endpoint for getting a specific data set by its ID changed to `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint`.
 

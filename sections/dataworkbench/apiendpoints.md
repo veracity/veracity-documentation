@@ -90,13 +90,65 @@ Below you can see an example of a successful response (code 200).
 }
 ```
 
-To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger[?PageSize][&PageIndex] providing the ID of the workspace.
+To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger providing the ID of the workspace.
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
 You can add to the request a page size and page index, for example `PageSize=1&PageIndex=5`.
+
+Below you can see an example of a successful response (code 200).
+
+```json
+{
+
+    "result": [
+
+        {
+
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+            "userName": "string",
+
+            "resource": {
+
+                "3fa85f64-5717-4562-b3fc-2c963f66afa6": "string"
+
+            },
+
+            "payload": {
+
+                "additionalProp1": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+                "additionalProp2": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+
+                "eventType": "string"
+
+            },
+
+            "eventName": "string",
+
+            "timestamp": "2023-05-24T08:45:08.1759463Z"
+
+        }
+
+    ],
+
+    "pageIndex": 1,
+
+    "pageSize": 1,
+
+    "totalCount": 100,
+
+    "totalPages": 100
+
+}
+```
 
 ## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
@@ -325,7 +377,7 @@ In the request, you must provide:
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 * [{datasetId}](#datasetid)
 
-Below you can see a sample request body.
+Below you can see an example of a successful response (code 200).
 
 ```json
 {

@@ -37,55 +37,57 @@ To get the schema, add to the request `includeDefaultSchemaVersion=true`.
 Below you can see an example of a successful response (code 200).
 
 ```json
- {
+[
+    {
+        {
 
-    "result": [
+Â Â Â  "result":Â [
 
-        {
+Â Â Â Â Â Â Â Â {
 
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "id":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "name": "string",
+Â Â Â Â Â Â Â Â Â Â Â  "name":Â "string",
 
-            "description": "string",
+Â Â Â Â Â Â Â Â Â Â Â  "description":Â "string",
 
-            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
+Â Â Â Â Â Â Â Â Â Â Â  "workspaceId":Â "3fa85f64-5717-4562-b3fc-2c963f66afa68",
 
-            "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "connectionId":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "createdBy":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "createdOn": "2022-05-04T07:37:19.2074539Z",
+Â Â Â Â Â Â Â Â Â Â Â  "createdOn":Â "2022-05-04T07:37:19.2074539Z",
 
-            "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "lastModifiedBy":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
+Â Â Â Â Â Â Â Â Â Â Â  "lastModifiedOn":Â "2022-05-04T07:37:19.2074539Z",
 
-            "schemaInfo": {
+Â Â Â Â Â Â Â Â Â Â Â  "schemaInfo":Â {
 
-                "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  "schemaVersionId":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-                "schemaName": "string"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  "schemaName":Â "string"
 
-            },
+Â Â Â Â Â Â Â Â Â Â Â Â },
 
-            "queries": [],
+Â Â Â Â Â Â Â Â Â Â Â  "queries":Â [],
 
-            "columns": [],
+Â Â Â Â Â Â Â Â Â Â Â  "columns":Â [],
 
-            "isBaseDataset": true
+Â Â Â Â Â Â Â Â Â Â Â  "isBaseDataset":Â true
 
-        }
+Â Â Â Â Â Â Â Â }
 
-    ],
+Â Â Â Â ],
 
-    "pageIndex": 1,
+Â Â Â  "pageIndex":Â 1,
 
-    "pageSize": 100,
+Â Â Â  "pageSize":Â 100,
 
-    "totalCount": 100,
+Â Â Â  "totalCount":Â 100,
 
-    "totalPages": 1
+Â Â Â  "totalPages":Â 1
 
 }
 ```
@@ -107,7 +109,7 @@ In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-Below you can see an example of a successful response (code 200).
+Below you can see an example of a successful request (code 200).
 ```json
 [
   {
@@ -171,7 +173,7 @@ In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-Below you can see an example of a successful response (code 200).
+Below you can see an example of a successful request (code 200).
 ```json
 [
   {
@@ -243,7 +245,7 @@ You can add the following to the request:
 * Sort columns with `sortColumn`.
 * Sort direction with `sortDirection=ascending` or `sortDirection=descending`.
 
-Below you can see an example of a successful response (code 200).
+Below you can see an example of a successful request (code 200).
 ```json
 [
   {
@@ -286,7 +288,7 @@ In the request, you must provide:
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 * [{datasetId}](#datasetid)
 
-Below you can see an example of a successful response (code 200).
+Below you can see an example of a successful request (code 200).
 ```json
 {
 "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -303,13 +305,13 @@ Below you can see an example of a successful response (code 200).
 "schemaName": "string"
 },
 "queries": [
-       {
-           "column": "string",
-           "filterType": "string",
-           "filterValues": [
-               "string"
-           ]
-       }
+Â Â Â Â Â Â  {
+Â Â Â Â Â Â Â Â Â Â  "column": "string",
+Â Â Â Â Â Â Â Â Â Â  "filterType": "string",
+Â Â Â Â Â Â Â Â Â Â  "filterValues": [
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â  "string"
+Â Â Â Â Â Â Â Â Â Â  ]
+Â Â Â Â Â Â  }
 ],
 "columns": [
 "string"
@@ -330,53 +332,53 @@ Below you can see a sample request body.
 ```json
 {
 
-    "result": [
+Â Â Â  "result":Â [
 
-        {
+Â Â Â Â Â Â Â Â {
 
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "id":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "name": "string",
+Â Â Â Â Â Â Â Â Â Â Â  "name":Â "string",
 
-            "description": "string",
+Â Â Â Â Â Â Â Â Â Â Â  "description":Â "string",
 
-            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
+Â Â Â Â Â Â Â Â Â Â Â  "workspaceId":Â "3fa85f64-5717-4562-b3fc-2c963f66afa68",
 
-            "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "connectionId":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "createdBy":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "createdOn": "2022-05-04T07:37:19.2074539Z",
+Â Â Â Â Â Â Â Â Â Â Â  "createdOn":Â "2022-05-04T07:37:19.2074539Z",
 
-            "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â  "lastModifiedBy":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-            "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
+Â Â Â Â Â Â Â Â Â Â Â  "lastModifiedOn":Â "2022-05-04T07:37:19.2074539Z",
 
-            "schemaInfo": {
+Â Â Â Â Â Â Â Â Â Â Â  "schemaInfo":Â {
 
-                "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  "schemaVersionId":Â "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 
-                "schemaName": "string"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  "schemaName":Â "string"
 
-            },
+Â Â Â Â Â Â Â Â Â Â Â Â },
 
-            "queries": [],
+Â Â Â Â Â Â Â Â Â Â Â  "queries":Â [],
 
-            "columns": [],
+Â Â Â Â Â Â Â Â Â Â Â  "columns":Â [],
 
-            "isBaseDataset": true
+Â Â Â Â Â Â Â Â Â Â Â  "isBaseDataset":Â true
 
-        }
+Â Â Â Â Â Â Â Â }
 
-    ],
+Â Â Â Â ],
 
-    "pageIndex": 1,
+Â Â Â  "pageIndex":Â 1,
 
-    "pageSize": 100,
+Â Â Â  "pageSize":Â 100,
 
-    "totalCount": 100,
+Â Â Â  "totalCount":Â 100,
 
-    "totalPages": 1
+Â Â Â  "totalPages":Â 1
 
 }
 ```

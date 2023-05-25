@@ -181,8 +181,6 @@ Below you can see an example of a successful response (code 200).
           "key": "string",
           "value": "string"
         }
-      ]
-    }
 ```
 
 You can list all the connectors used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. 

@@ -217,10 +217,6 @@ Below you can see an example of a successful response (code 200).
               "type": "string",
               "description": "string"
             }
-          ]
-        }
-      ]
-    }
 ```
 
 ## Data sets endpoints
@@ -394,7 +390,6 @@ You can add the following to the request:
 Below you can see an example of a successful response (code 200).
 
 ```json
-{
     "result": [
         {
             "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -417,7 +412,6 @@ Below you can see an example of a successful response (code 200).
     "pageSize": 1,
     "totalCount": 100,
     "totalPages": 100
-}
 ```
 ## Response codes
 

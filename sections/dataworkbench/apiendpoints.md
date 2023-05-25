@@ -298,6 +298,46 @@ Below you can see an example of a successful response (code 200).
 
 ```json
 {
+"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"name": "string",
+"description": "string",
+"workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"createdOn": "2022-08-10T14:37:47.568Z",
+"lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"lastModifiedOn": "2022-08-10T14:37:47.568Z",
+"schemaInfo": {
+"schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+"schemaName": "string"
+},
+"queries": [
+       {
+           "column": "string",
+           "filterType": "string",
+           "filterValues": [
+               "string"
+           ]
+       }
+],
+"columns": [
+"string"
+],
+"isBaseDataset": true
+}
+```
+
+<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+* [{datasetId}](#datasetid)
+
+Below you can see an example of a request.
+
+```json
+{
 "pageIndex": 0,
 "pageSize": 0,
 "columnFilter": [
@@ -316,43 +356,31 @@ Below you can see an example of a successful response (code 200).
        "column": "string",
        "order": "Ascending"
    }
-}
+} 
 ```
-
-<a name="dataMore"></a>To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
-
-In the request, you must provide:
-* [Authorization and authentication](authentication.md)
-* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
-* [{datasetId}](#datasetid)
 
 Below you can see an example of a successful response (code 200).
 
 ```json
-    "result": [
-        {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "name": "string",
-            "description": "string",
-            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
-            "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "createdOn": "2022-05-04T07:37:19.2074539Z",
-            "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
-            "schemaInfo": {
-                "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "schemaName": "string"
-            },
-            "queries": [],
-            "columns": [],
-            "isBaseDataset": true
-        }
+    {
+    "data": [
+
+        {}
+
     ],
-    "pageIndex": 1,
-    "pageSize": 100,
-    "totalCount": 100,
-    "totalPages": 1
+
+    "pagination": {
+
+        "pageIndex": 1,
+
+        "pageSize": 10,
+
+        "totalPages": 10,
+
+        "totalCount": 100
+
+    }
+}
 ```
 
 <a name="ledger"></a>To query activity logs (ledgers) for a dataset, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetId}/ledger endpoint providing the ID of the workspace and the dataset.
@@ -365,6 +393,34 @@ In the request, you must provide:
 You can add the following to the request:
 * Page size and index, for example, `PageSize=1&PageIndex=5`.
 
+Below you can see an example of a successful response (code 200).
+
+```json
+{
+    "result": [
+        {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "userName": "string",
+            "resource": {
+                "3fa85f64-5717-4562-b3fc-2c963f66afa6": "string"
+            },
+            "payload": {
+                "additionalProp1": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "additionalProp2": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "eventType": "string"
+            },
+            "eventName": "string",
+            "timestamp": "2023-05-24T08:45:08.1759463Z"
+        }
+    ],
+    "pageIndex": 1,
+    "pageSize": 1,
+    "totalCount": 100,
+    "totalPages": 100
+}
+```
 ## Response codes
 
 You can get the following response codes when you send API calls:

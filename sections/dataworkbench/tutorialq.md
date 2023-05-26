@@ -74,3 +74,79 @@ Below you can see an example of a successful response (code 200).
 "totalCount":100
 }
 ```
+
+## To add filters to data set query
+
+
+You can add the following query filter operators to your query:
+* List
+* Equals
+* Greater
+* GreaterOrEqual
+* Less
+* LessOrEqual
+* NonFromList
+* StringContains
+
+**Note that** not all columns are filtrable and different columns may support different filters. So, check which filters are supported by the columns in your data set. 
+
+You can do that by getting the default schema version with column information and information on supported query filters. To get it, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas?includeDefaultSchemaVersion=true`.
+
+Below you can see a sample response that tells which columns are filtrable and what filter operators they support.
+
+```json
+"id": "7c31d976-4d3d-45ea-9234-12f238f7ceaa",
+"workspaceId": "00000000-0000-0000-0000-000000000000",
+"name": "Lorem ipsum name",
+"description": "Lorem ipsum description", 
+"schemaVersions": [
+	{ "id": "89153dc4-2323-45c9-b70e-241503697315",
+	"schemaVersionName": "DCS Period Summary v1",
+	"description": "Lorem ipsum description",
+	"columns": [
+		{ "name": "IMO",
+		"displayName": "",
+		"type": "Int32",
+		"description": "",
+		"isFilterable": true, 
+		"filterType": "List", 
+		"filterTypes": [
+			"List",
+			"Equals"
+		],
+		"isSortable": true
+		},
+		{
+			"name": "Vessel_Name",
+			"displayName": "",
+			"type": "String",
+			"description": "",
+			"isFilterable": false,
+			"filterTypes": [],
+			"isSortable": true
+			},
+			{
+				"name": "Period_Start_Date",
+				"displayName": "",
+				"type": "DateOnly",
+				"description": "",
+				"isFilterable": true,
+				"filterType": "From",
+				"filterTypes": [
+					"Greater",
+					"GreaterOrEqual",
+					"Less",
+					"LessOrEqual"
+				],
+				"format": "YYYY-MM-DD",
+				"isSortable": true },
+				],
+				"industry": "Maritime",
+				"isPredefined": true,
+				"avatarColor": 28,
+				"createdBy": "c44e1e55-fa3a-4553-b974-87eb50e41da9",
+				"createdOn": "2022-06-07T09:29:57.9584074Z",
+				"lastModifiedBy": "c44e1e55-fa3a-4553-b974-87eb50e41da9",
+				"lastModifiedOn": "2022-06-07T09:29:57.9584074Z"
+			}
+```

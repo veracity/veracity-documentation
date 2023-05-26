@@ -41,7 +41,6 @@ In the request, you must provide:
 Below you can see an example of a request.
 
 ```json
-{
 "pageIndex": 0,
 "pageSize": 0,
 "columnFilter": [
@@ -60,29 +59,18 @@ Below you can see an example of a request.
        "column": "string",
        "order": "Ascending"
    }
-} 
 ```
 
 Below you can see an example of a successful response (code 200).
 
 ```json
-    {
     "data": [
-
         {}
-
     ],
-
     "pagination": {
-
         "pageIndex": 1,
-
         "pageSize": 10,
-
         "totalPages": 10,
-
         "totalCount": 100
-
     }
-}
 ```

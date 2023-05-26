@@ -88,11 +88,11 @@ You can add the following query filter operators to your query:
 * NonFromList
 * StringContains
 
-**Note that** not all columns are filtrable and different columns may support different filters. So, check which filters are supported by the columns in your data set. 
+**Note that** not all columns are filterable and different columns may support different filters. So, check which filters are supported by the columns in your data set. 
 
 You can do that by getting the default schema version with column information and information on supported query filters. To get it, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas?includeDefaultSchemaVersion=true`.
 
-Below you can see a sample response that tells which columns are filtrable and what filter operators they support.
+Below you can see a sample response that tells which columns are filterable and what filter operators they support.
 
 ```json
 "id": "7c31d976-4d3d-45ea-9234-12f238f7ceaa",

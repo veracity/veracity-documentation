@@ -47,30 +47,30 @@ Below you can see an example of a request.
 "string"
 ],
 "queryFilters": [
-       {
-           "column": "string",
-           "filterType": "string",
-           "filterValues": [
-               "string"
-           ]
-       }
-   ],
+ {
+"column": "string",
+"filterType": "string",
+"filterValues": [
+"string"
+ ]
+ }
+ ],
 "sorting": {
-       "column": "string",
-       "order": "Ascending"
-   }
+ "column": "string",
+ "order": "Ascending"
+ }
 ```
 
 Below you can see an example of a successful response (code 200).
 
 ```json
-    "data": [
-        {}
-    ],
-    "pagination": {
-        "pageIndex": 1,
-        "pageSize": 10,
-        "totalPages": 10,
-        "totalCount": 100
-    }
+ "data":[
+{}
+],
+ "pagination":{
+ "pageIndex":1,
+ "pageSize":10,
+ "totalPages":10,
+  "totalCount":100
+}
 ```

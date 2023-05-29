@@ -38,8 +38,6 @@ In the request, you must provide:
 * {workspaceId}
 * {datasetId}
 
-Below you can see an example of a request.
-
 ```json
 "pageIndex": 0,
 "pageSize": 0,
@@ -88,11 +86,26 @@ You can add the following query filter operators to your query:
 * NonFromList
 * StringContains
 
+You can combine different filters for a column (assuming it suports them). Add query filter operators in the `filterType` property in your request. See an example below.
+```json
+"queryFilters": [
+{
+...
+"filterType": "string",
+...
+}]
+```
+
 **Note that** not all columns are filterable and different columns may support different filters. So, check which filters are supported by the columns in your data set. 
 
 You can do that by getting the default schema version with column information and information on supported query filters. To get it, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas?includeDefaultSchemaVersion=true`.
 
 Below you can see a sample response that tells which columns are filterable and what filter operators they support.
+
+Use the response as follows:
+1. In the schema version, find the name of the column you want to filter.
+2. Under the column's name, look for `isFilterable`. If it is `true`, then you can filter this column.
+3. Under `filterTypes`, check the supported filter operators.
 
 ```json
 "id": "7c31d976-4d3d-45ea-9234-12f238f7ceaa",

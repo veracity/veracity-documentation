@@ -11,7 +11,7 @@ description: Description of Operational Vessel Data Standards in Veracity
   <img src="assets/Btn-OVDGuide.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-OVDGuide" height="30">
 </a>
 
-[<img src="assets/Btn-CSVfileConverter.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-CSVfileConverter" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20CSV%20file%20converter%20v1.81.xlsm)
+[<img src="assets/Btn-CSVfileConverter.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-CSVfileConverter" height="30">](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FCSV%2520file%2520converter%2520v1.83.xlsm&wdOrigin=BROWSELINK)
 
 [<img src="assets/Btn-Samples.png" style="float:left; padding-right:10px" alt="assets/Btn-Samples" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip)
 

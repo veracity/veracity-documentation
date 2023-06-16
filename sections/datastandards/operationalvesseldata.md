@@ -35,4 +35,4 @@ Have a look at the [Sample Files](https://veracitycdnprod.blob.core.windows.net/
 
 Data can be submitted to DNV’s Veracity OVD via continuous and automated transfer using modern REST API interfaces, or via manual upload of CSV files. Please contact [Veracity Support](mailto:support@veracity.com) if you want to know more about how to establish automated transfer of OVD data. 
 
-The [CSV File Converter](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20CSV%20file%20converter%20v1.81.xlsm) is an easy-to-use tool to get your data into OVD format. This is intended only for smaller cases where IT capabilities are not available to automate the output of data in OVD format. 
+The [CSV File Converter]((https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FCSVfileconverterv1.83.xlsm&wdOrigin=BROWSELINK)) is an easy-to-use tool to get your data into OVD format. This is intended only for smaller cases where IT capabilities are not available to automate the output of data in OVD format. 

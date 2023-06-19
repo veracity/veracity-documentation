@@ -9,6 +9,8 @@ description: Description of Operational Vessel Data Standards in Veracity
     <img src="assets/Btn-InterfaceDescription.png" alt="Interface Description" height="40">
   </a>
 
+  <br>
+
   <a href="https://ovdguide.veracityapp.com" target="_blank">
     <img src="assets/Btn-OVDGuide.png" alt="OVD Guide" height="30">
   </a>

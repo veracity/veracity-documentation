@@ -5,13 +5,10 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-<div>
   <a href="https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.2%20interface%20description.xlsx" target="_blank">
     <img src="assets/Btn-InterfaceDescription.png" alt="Interface Description" height="40">
   </a>
-</div>
 
-<div style="display: flex; align-items: center;">
   <a href="https://ovdguide.veracityapp.com" target="_blank">
     <img src="assets/Btn-OVDGuide.png" alt="OVD Guide" height="30">
   </a>
@@ -27,7 +24,8 @@ description: Description of Operational Vessel Data Standards in Veracity
   <a href="https://www.veracity.com/ovd-whitepaper" target="_blank">
     <img src="assets/Btn-OVDWhitepaper.png" alt="OVD Whitepaper" height="30">
   </a>
-</div><br>
+
+<br>
 
 Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data Platform. To learn more about the purpose, history and background of OVD, have a look at the <a href="https://www.veracity.com/ovd-whitepaper" target="_blank">OVD Whitepaper</a>.
 

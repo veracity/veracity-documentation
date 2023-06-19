@@ -5,23 +5,31 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-[<img src="assets/Btn-InterfaceDescription.png" alt="assets/Btn-InterfaceDescription" height="40">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.2%20interface%20description.xlsx)
+<div>
+  <a href="https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%203.2%20interface%20description.xlsx" target="_blank">
+    <img src="assets/Btn-InterfaceDescription.png" alt="Interface Description" height="40">
+  </a>
+</div>
 
-<a href="https://ovdguide.veracityapp.com" target="_blank">
-  <img src="assets/Btn-OVDGuide.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-OVDGuide" height="30">
-</a>
+<div style="display: flex; align-items: center;">
+  <a href="https://ovdguide.veracityapp.com" target="_blank">
+    <img src="assets/Btn-OVDGuide.png" alt="OVD Guide" height="30">
+  </a>
 
-[<img src="assets/Btn-CSVfileConverter.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-CSVfileConverter" height="30">](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FCSVfileconverterv1.83.xlsm&wdOrigin=BROWSELINK)
+  <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FCSVfileconverterv1.83.xlsm&wdOrigin=BROWSELINK" target="_blank">
+    <img src="assets/Btn-CSVfileConverter.png" alt="CSV File Converter" height="30">
+  </a>
 
-[<img src="assets/Btn-Samples.png" style="float:left; padding-right:10px" alt="assets/Btn-Samples" height="30">](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip)
+  <a href="https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip" target="_blank">
+    <img src="assets/Btn-Samples.png" alt="Samples" height="30">
+  </a>
 
-<br>
+  <a href="https://www.veracity.com/ovd-whitepaper" target="_blank">
+    <img src="assets/Btn-OVDWhitepaper.png" alt="OVD Whitepaper" height="30">
+  </a>
+</div><br>
 
-Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data Platform.
-
-<a href="https://www.veracity.com/ovd-whitepaper" target="_blank">
-  <img src="assets/Btn-OVDWhitepaper.png" align="left" style="float:left; padding-right:10px" alt="assets/Btn-OVDWhitepaper" height="30">
-</a>
+Operational Vessel Data (OVD) is a standard for log abstracts and other operational data from vessels, and a data service on DNV’s Veracity Data Platform. To learn more about the purpose, history and background of OVD, have a look at the <a href="https://www.veracity.com/ovd-whitepaper" target="_blank">OVD Whitepaper</a>.
 
 The OVD data service on Veracity is continuously assuring data from thousands of vessels. By submitting data to Veracity OVD, your data is structured, analyzed, enriched and quality assured before you have the option to use it in one of the many services running on Veracity, like MRV and DCS/CII verification, Emissions Connect, or to share quality assured data via the Veracity Data Workbench with stakeholders or other parties or solutions that will utilize your data, like Poseidon Principles or Sea Cargo Charter. 
 
@@ -39,4 +47,4 @@ Have a look at the [Sample Files](https://veracitycdnprod.blob.core.windows.net/
 
 Data can be submitted to DNV’s Veracity OVD via continuous and automated transfer using modern REST API interfaces, or via manual upload of CSV files. Please contact [Veracity Support](mailto:support@veracity.com) if you want to know more about how to establish automated transfer of OVD data. 
 
-The [CSV File Converter](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FCSVfileconverterv1.83.xlsm&wdOrigin=BROWSELINK)
+The [CSV File Converter](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FCSVfileconverterv1.83.xlsm&wdOrigin=BROWSELINK) can be used to enter OVD data via Excel for selected, basic use cases.

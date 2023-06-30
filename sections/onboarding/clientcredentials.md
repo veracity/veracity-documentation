@@ -5,11 +5,11 @@ description: Veracity client credentials flow tokens documentation
 
 # Veracity client credentials flow tokens documentation
 
-In short: Client credentials flow tokens are used when you need to call Veracity API's without a user being present and you therefore are unable to get tokens with the code authorization flow. 
+In short: Client credentials flow tokens are used when you need to call Veracity API's without a user being present and you therefore are unable to get tokens with the authorization code flow. 
 
 **Why would I want a client credentials flow token?**
 
-Tokens from the client credentials flow are great if you have a use case where you absolutely are unable to retrieve a token for a logged in user. App-to-app calls are an example of this, or applications with multiple authentication options for the user. In these cases you will not have access to a user token from code authorization flow all of the time, but you&#39;d like to make calls towards your Veracity service anyways. Other cases are where you have a service which should administrate its own Data Fabric containers, e.g. a data container with ship data that should be updated independent of the logged in user. 
+Tokens from the client credentials flow are great if you have a use case where you absolutely are unable to retrieve a token for a logged in user. App-to-app calls are an example of this, or applications with multiple authentication options for the user. In these cases you will not have access to a user token from authorization code flow all of the time, but you&#39;d like to make calls towards your Veracity service anyways. Other cases are where you have a service which should administrate its own Data Fabric containers, e.g. a data container with ship data that should be updated independent of the logged in user. 
 
 **How do I get one?**
 
@@ -19,18 +19,18 @@ Some documentation here, for client credentials flow:
 
 [https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows)
 
-**Important informmation**
+**Important information**
 
 •	"resource" is used when calling this endpoint to get tokens: 
 https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token
 
 •	"scope" is used when calling these endpoints to get tokens: 
-https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/token/.default
+https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/token
 or
-https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/B2C_1A_SignInWIthADFSIdp/oauth2/v2.0/token/.default
+https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/B2C_1A_SignInWIthADFSIdp/oauth2/v2.0/token (recommended flow)
 
 Generally the scope determines which kind of token you want returned. You can combine multiple of the values:
-•	scope=<client id value>/.default grants a token for the API registered with an ID with this value.
+•	scope= https://dnvglb2cprod.onmicrosoft.com/<client id value>/.default grants an access token for the API registered with an ID with this value.
 •	scope=openid grants and ID token. An ID token cannot be used to call API's. Not applicable when you want a client credentials token.
 •	scope=offline_access grants a refresh token. Refresh tokens can be used to get new access tokens without having the user re-authenticate. Not applicable when you want a client credentials token.
 
@@ -39,7 +39,7 @@ Generally the scope determines which kind of token you want returned. You can co
 
     $clientid = '<client ID>'
     $clientSecret = '<client secret>'
-    $scope = 'https://dnvglb2cprod.onmicrosoft.com/<your app scope>/.default'
+    $scope = 'https://dnvglb2cprod.onmicrosoft.com/<application ID of the API you want access token for>/.default'
     $GrantType = "client_credentials"
     $Uri = "https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/B2C_1A_SignInWIthADFSIdp/oauth2/v2.0/token"
  
@@ -79,7 +79,7 @@ For services created before 2022 the tokens will be version 1.0, and the script 
 
 You need full resource path (&quot;app ID URI&quot; in B2C lingo) to make this work:
 
-ResourceURL for Veracity API service (this is the most commonly used one):
+ResourceURL for Veracity Service API (this is the most commonly used one):
 
 https://dnvglb2cprod.onmicrosoft.com/dfc0f96d-1c85-4334-a600-703a89a32a4c
 

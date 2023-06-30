@@ -415,6 +415,109 @@ Below you can see an example of a successful response (code 200).
     "totalCount": 100,
     "totalPages": 100
 ```
+## Sample Python for calling the endpoints
+You can use the sample Python code below to call Data Workbench endpoints.
+```json
+import requests
+
+# Configuration
+client_id = "YOUR_CLIENT_ID"
+client_secret = "YOUR_CLIENT_SECRET"
+subscription_key = "YOUR_SUBSCRIPTION_KEY"
+workspace_id = "YOUR_WORKSPACE_ID"
+dataset_id = "YOUR_DATASET_ID"
+
+# Query endpoint URL    
+query_endpoint = f"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspace_id}/datasets/{dataset_id}/query"
+
+# Token URL for authentication 
+token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
+
+# Token payload for authentication request
+token_payload = {
+    "grant_type": "client_credentials",
+    "client_id": client_id,
+    "client_secret": client_secret,
+    "resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75"
+}
+
+# Function to retrieve access token
+def get_token():
+    try:
+        response = requests.post(token_url, data = token_payload)
+        return response.json()["access_token"]
+    except Exception as e:
+        print(f"Failed to retrieve access token: {e}")
+
+# Headers for the API request    
+headers = {
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Authorization': f"Bearer {get_token()}"
+}
+
+# Payload for the query request
+query_payload = {
+  # Request body
+  # Add properties as needed
+  # See documentation 
+}
+
+# Function to call the query endpoint and return the response as a dictionary object
+def call_query_endpoint(url):
+    try:
+        response = requests.post(url = url, headers = headers, json = query_payload)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTP error occurred: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred during the request: {e}")
+    except Exception as e:
+        print(f"error occured: {e}")
+
+# Call the query endpoint and retrieve the result
+query_res_dict = call_query_endpoint(query_endpoint)
+print(query_res_dict)
+
+''' 
+Response Schema:
+
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {}
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "pageIndex": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+'''
+```
+
 ## Response codes
 
 You can get the following response codes when you send API calls:

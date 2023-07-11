@@ -5,7 +5,7 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-  <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fveracitycdnprod.blob.core.windows.net%2Fdigisales%2Fmyservices%2Fcdn%2Fcontent%2Fmarketplace%2Fdocs%2FOVD%25203.3%2520interface%2520description.xlsx&data=05%7C01%7CMichal.Zieba%40dnv.com%7Cbd63d39e3a10432e42d508db81fd5e75%7Cadf10e2bb6e941d6be2fc12bb566019c%7C0%7C0%7C638246697434262404%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=1wHrcFGMxbxU2sFAzdgO2dcCqgJXY0toJeMrZNRsNX4%3D&reserved=0" target="_blank">
+  <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fveracitycdnprod.blob.core.windows.net%2Fdigisales%2Fmyservices%2Fcdn%2Fcontent%2Fmarketplace%2Fdocs%2FOVD%25203.3%2520interface%2520description.xlsx&data=05%7C01%7CMichal.Zieba%40dnv.com%7Cbd63d39e3a10432e42d508db81fd5e75%7Cadf10e2bb6e941d6be2fc12bb566019c%7C0%7C0%7C638246697434262404%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=1wHrcFGMxbxU2sFAzdgO2dcCqgJXY0toJeMrZNRsNX4%3D&reserved=0" download>
     <img src="assets/Btn-InterfaceDescription.png" alt="Interface Description" height="40">
   </a>
 
@@ -15,7 +15,7 @@ description: Description of Operational Vessel Data Standards in Veracity
     <img src="assets/Btn-OVDGuide.png" alt="OVD Guide" height="30">
   </a>
 
-  <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fveracitycdnprod.blob.core.windows.net%2Fdigisales%2Fmyservices%2Fcdn%2Fcontent%2Fmarketplace%2Fdocs%2FOVD%2520CSV%2520file%2520converter%2520v1.83.xlsm&data=05%7C01%7CMichal.Zieba%40dnv.com%7Cbd63d39e3a10432e42d508db81fd5e75%7Cadf10e2bb6e941d6be2fc12bb566019c%7C0%7C0%7C638246697434262404%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=jvdrDIRPcnseditHGJYIpq6yXfcldPTJnzrqrno8t6Q%3D&reserved=0" target="_blank">
+  <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fveracitycdnprod.blob.core.windows.net%2Fdigisales%2Fmyservices%2Fcdn%2Fcontent%2Fmarketplace%2Fdocs%2FOVD%2520CSV%2520file%2520converter%2520v1.83.xlsm&data=05%7C01%7CMichal.Zieba%40dnv.com%7Cbd63d39e3a10432e42d508db81fd5e75%7Cadf10e2bb6e941d6be2fc12bb566019c%7C0%7C0%7C638246697434262404%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=jvdrDIRPcnseditHGJYIpq6yXfcldPTJnzrqrno8t6Q%3D&reserved=0" download>
     <img src="assets/Btn-CSVfileConverter.png" alt="CSV File Converter" height="30">
   </a>
 

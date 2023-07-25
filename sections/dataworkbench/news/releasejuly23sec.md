@@ -29,4 +29,4 @@ The new columns are:
 * Consumption Methanol
 * Consumption Ethanol
 * Consumption Other
-* Other Type Carbon Factor
+* Other Type Carbon Factor 

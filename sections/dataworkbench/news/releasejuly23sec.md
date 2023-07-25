@@ -15,7 +15,7 @@ Now, you can include 16 new Poseidon columns in your data sets for DCS Period Su
 
 The new columns are:
 * AER Denominator
-* Vessel Category PP
+* Vessel Type PP
 * Year Of Build
 * EEDI
 * EEXI

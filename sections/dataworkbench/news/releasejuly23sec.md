@@ -3,9 +3,9 @@ author: Veracity
 description: This is the changelog for the July 2023 release of Data Workbench.
 ---
 
-# July 2023 release
+# July 2023 second release
 
-Release date: July 2023
+Release date: 25 July 2023
 
 Read this page to learn what has changed in Veracity Data Workbench with the July 2023 second release.
 

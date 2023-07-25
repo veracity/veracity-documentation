@@ -14,19 +14,19 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jul
 Now, you can include 16 new Poseidon columns in your data sets for DCS Period Summary. This should let you do correct reporting. 
 
 The new columns are:
-* Segment specific capacity denominator
-* Vessel size / capacity
-* Year of Build
+* AER Denominator
+* Vessel Category PP
+* Year Of Build
 * EEDI
 * EEXI
-* Marine Diesel Oil
-* Marine Gas Oil
-* LFO
-* HFO
-* LPG Propane
-* LGP Buthane
-* LNG
-* Methanol
-* Ethanol
-* Other fuel (specify)
-* Documented Cf factor other fuel
+* Consumption MDO
+* Consumption MGO
+* Consumption LFO
+* Consumption HFO
+* Consumption LPGP
+* Consumption LPGB
+* Consumption LNG
+* Consumption Methanol
+* Consumption Ethanol
+* Consumption Other
+* Other Type Carbon Factor

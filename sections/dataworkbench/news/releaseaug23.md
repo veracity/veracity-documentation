@@ -16,7 +16,7 @@ This section covers changes in existing features.
 In preparation for new customer categories, we have made templates accessible only if you can use them (that is, you have access to their data source).
 US 455161
 
-### Filter vessels by year for Poseidon template page
+### Filter by year for Poseidon template page
 Now, on the Poseidon Principles template page, you do not have to set the "from" and "to" date to see data for a year. Instead, you can pick a single year for which you want to see the data.
 US 467853
 

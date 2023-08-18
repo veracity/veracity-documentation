@@ -14,11 +14,9 @@ This section covers changes in existing features.
 
 ### See only the templates you can use
 In preparation for new customer categories, we have made templates accessible only if you can use them (that is, you have access to their data source).
-US 455161
 
 ### Filter by year for Poseidon template page
 Now, on the Poseidon Principles template page, you do not have to set the "from" and "to" date to see data for a year. Instead, you can pick a single year for which you want to see the data.
-US 467853
 
 ### Create data sets for DCS Period and Statement of Compliance for Poseidon
 Now, for the Poseidon Principles template page, when you create data sets, two data sets are created. One is based on DCS Period Summary and the other on Statement of Compliance. The latter requieres having an MPP SoC Connector configured. If you do not have it, the data set based on Statement of Compliance will not be created. 
@@ -28,8 +26,6 @@ You can see which data sets are being created in the dialog window as shown belo
 <figure>
 	<img src="assets/savetwodatasets.png"/>
 </figure>
-
-US 467885
 
 ### Removed expanding / contracting for Poseidon Principles table
 Previously, the Poseidon Principles table was expanding and contracting based on vessel category as shown below.
@@ -42,19 +38,14 @@ Now,the table is flat and looks like below.
 	<img src="assets/currenttable.png"/>
 </figure>
 
-US 467895
-
 ### Added Statement of Compliance table in Poseidon
 Now, the Poseidon Principles template page has a State of Compliance table that contains links to certificates for statement of compliance for fuel oil consumption reporting and operational carbon intensity rating. The image below shows the links for downloading the certificates.
 <figure>
 	<img src="assets/linkstatementofcompliance.png"/>
 </figure>
 
-US 467897
-
 ### Show only verified data in DCS Period Summary in Poseidon
 Now, on the Poseidon Principles template page in DCS Period Summary, we have added a filter that is automatically applied and uses the Data Classification column to show you only verified data.
-US 478157
 
 ### Technical changes for filterable columns
 Now, you:
@@ -62,4 +53,3 @@ Now, you:
 * Can deselect a column after removing the filter you applied on it.
 * Cannot apply a filter on a column if the column is deselected.
 Also, we have added tooltips with explanations.
-US 480875

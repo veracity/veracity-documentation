@@ -5,7 +5,7 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
-  <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2Fveracity-documentation%2Fmaster%2Fsections%2Fdatastandards%2Fassets%2FOVD3.5interfacedescription.xlsx&wdOrigin=BROWSELINK" download>
+ <a href=https::/raw.githubusercontent.com/veracity/veracity-documentation/master/sections/datastandards/assets/OVD3.5interfacedescription.xlsx download>
     <img src="assets/Btn-InterfaceDescription.png" alt="Interface Description" height="40">
   </a>
 

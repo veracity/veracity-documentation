@@ -9,6 +9,18 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "Release 4.8",
+					"href": "news/releasesept23.md"
+				},
+				{
+					"text": "Release 4.7",
+					"href": "news/releasejun23.md"
+				},
+				{
+					"text": "Release 4.6",
+					"href": "news/releasemar23.md"
+				},
+				{
 					"text": "Release 4.5",
 					"href": "news/releasefeb23.md"
 				},

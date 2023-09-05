@@ -3,16 +3,10 @@ author: Veracity
 description: This is the changelog for the release 4.8 of Veracity Adapter for Power BI (VAP).
 ---
 # VAP 4.8 release
-Release date: 13 September 2023
-
 Read this page to learn what has changed in Veracity Adapter for Power BI.
 
 ## New features
-This section covers new features:
-* [Export all pages to PDF or Power Point](#export-all-pages-to-pdf-or-power-point)
-* [See the tutorial again](#see-the-tutorial-again)
-* [Stricter personal data handling](#stricter-personal-data-handling)
-* [New background module for time consuming tasks](#new-background-module-for-time-consuming-tasks)
+This section covers new features.
 
 ### Statistics for reports and entities
 In the Admin panel, we have added a tile called "Statistics". There, you can see usage statistics for your reports and entities in a selected time period. To see details, you can select an element you want to check. For example, you can select a column or a pie chart to see detailed statistics related to it.
@@ -68,6 +62,7 @@ To set a privacy level for a data source, in the Admin Panel > Manage Files, in 
 </figure>
 
 ## Changes in existing features
+This section covers changes in existing features.
 
 ### Show Report Page Menus moved
 

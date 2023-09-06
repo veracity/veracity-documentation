@@ -13,7 +13,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the Sep
 This section covers changes in existing features.
 
 ### Data classification filterable for new schemas
-In the previous release, we enabled filtering by the data classification column for the DCS Period Summary so that you can use only verified data. Now, you can do that also for the following OVD schemas:
+In the previous release, we enabled filtering by the data classification column for the DCS Period Summary. Now, you can do that also for the following OVD schemas:
 * Leg emissions summary
 * Monthly emissions summary
 * SCC voyage summary

@@ -77,6 +77,35 @@
 			]
 		},
 		{
+			"text": "Client Credentials Tutorial",
+			"items": [
+				{
+					"text": "1. What is Client Credentials and when should you use it",
+					"href": "client-credentials-api-access/1-client-credentials-introduction.md"
+				},
+				{
+					"text": "2. How to create an API in Veracity",
+					"href": "client-credentials-api-access/2-api-creation-in-veracity.md"
+				},
+				{
+					"text": "3. How to create a Client Credentials client in Veracity",
+					"href": "client-credentials-api-access/3-client-creation-in-veracity.md"
+				},
+				{
+					"text": "4. How to create an access token using MSAL in C#",
+					"href": "client-credentials-api-access/4-msal-access-token.md"
+				},
+				{
+					"text": "5. How to validate a Client Credentials token in our API in C#",
+					"href": "client-credentials-api-access/5-validating-cc-token.md"
+				},
+				{
+					"text": "6. Summary",
+					"href": "client-credentials-api-access/7-summary.md"
+				}
+			]
+		},
+		{
 			"text": "Services API",
 			"items": [
 				{

@@ -80,7 +80,7 @@ The response status code describes whether or not the request succeeded. Current
 |300|Ambiguous|Your request could point to multiple resources. You should augment it with additional identifying information.|
 |400|Bad Request|The view-point/action exists, but the way you formatted the request was incorrect. Check `http verb`, `headers` or `body`.|
 |403|Forbidden|The requester has insufficient permissions to perform the action or authorization information is missing from the request. Check that you provide a valid OAuth2 `Authorization` header.|
-|406|Not Acceptable|Returned from the validate policy actions, the error body wil contain the url to the veracity accept terms page|
+|406|Not Acceptable|Returned from the validate policy actions, the error body wil contain the url to the Veracity accept terms page|
 |404|Not Found|The requested resource/view-point/action was not found or is not known.|
 |500|Internal Server Error|Something went wrong on the server when processing your request. Try to include the `x-supportcode` header content if you wish to submit a support request.|
 |501|Not Implemented|The view-point or action is not currently implemented, but may be in the future.|

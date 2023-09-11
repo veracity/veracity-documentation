@@ -21,7 +21,7 @@ Through the Azure portal you commision a new Databricks workspace, by clicking "
 
 ![](https://veracityprod.blob.core.windows.net/static-documentation/databricks/CreateResource.JPG "Commision the Databricks resource")
 
-When the resource is ordered, azure may take some minutes to get the clusters ready for you to use.
+When the resource is ordered, Azure may take some minutes to get the clusters ready for you to use.
 
 ### Connect cluster to Veracity storage
 When the Databricks cluster is ready, you can go to the resource in Azure, and click the "Launch Workspace" button. 

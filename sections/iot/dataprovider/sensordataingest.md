@@ -20,7 +20,7 @@ The data channel properties  is based on ISO19848 standard for meta-data.
 |ShortId  |	Tag id used by system on asset. Tag used to identify datapoint at ingest |  
 |Name| Name of channel	|
 |Remarks| Description of channel|
-|Path| used to group channels for visualization in IOT Explorer|
+|Path| used to group channels for visualization in IoT Explorer|
 |LowerLimit |Boundaries |
 |UpperLimit |Boundaries |
 |QuantityName| I.e celsius, kilo|
@@ -36,9 +36,9 @@ In addition several identifiers can be modeled for the channels such as
 - Local ID
 - Short ID
 
-## IOT Hub
-Sensor-data (datapoints) are sent as JSON to veracity IOT hub using different protocols.
-Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client)
+## IoT Hub
+Sensor-data (datapoints) are sent as JSON to Veracity IoT Hub using different protocols.
+Microsoft supports nuget pacakges for sending data to IoT Hub by connection string. (Microsoft.Azure.Devices.Client)
 ```cs
 using Microsoft.Azure.Devices.Client;
 
@@ -49,7 +49,7 @@ await device.OpenAsync();
 var json = JsonConvert.SerializeObject(myObj);
 byte[] msgByteArray = Encoding.ASCII.GetBytes(json);
 var message = new Message(msgByteArray);
-//max payload size is 256KB for Azure IOT hub
+//max payload size is 256KB for Azure IoT Hub
 await device.SendEventAsync(message);
 await device.CloseAsync();
 ````

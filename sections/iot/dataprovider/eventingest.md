@@ -133,7 +133,7 @@ You will need the following information to be able to publish events to the IoT 
 - IoT Hub device ID   (this is part of the connection string)
 
 ### C# example
-An event can be streamed to an Azure IoT hub by wrapping it into a Veracity-event-message format
+An event can be streamed to an Azure IoT Hub by wrapping it into a Veracity-event-message format
 ```json
   {
  "TenantId": "tenant id",
@@ -146,7 +146,7 @@ An event can be streamed to an Azure IoT hub by wrapping it into a Veracity-even
   }
 ```
 
-Microsoft supports nuget pacakges for sending data to IOTHub by connection string. (Microsoft.Azure.Devices.Client)
+Microsoft supports nuget pacakges for sending data to IoT Hub by connection string. (Microsoft.Azure.Devices.Client)
 ```cs
   using Microsoft.Azure.Devices.Client;
 
@@ -157,7 +157,7 @@ Microsoft supports nuget pacakges for sending data to IOTHub by connection strin
  var json = JsonConvert.SerializeObject(myObj);
  byte[] msgByteArray = Encoding.ASCII.GetBytes(json);
  var message = new Message(msgByteArray);
- //max payload size is 256KB for Azure IOT hub
+ //max payload size is 256KB for Azure IoT Hub
  await device.SendEventAsync(message);
  await device.CloseAsync();
  

@@ -54,7 +54,7 @@ public class DataFabricClient
         //Set your subscription key, best practice is to not hard code it. So remember to get it from app settings or other places
         var subscriptionKey = "{subscriptionKey}";
 
-        //Best practice from microsoft is to have a global httpclient registered in dependency config(Lifestyle: Singleton).
+        //Best practice from Microsoft is to have a global httpclient registered in dependency config(Lifestyle: Singleton).
         var httpClient = new System.Net.Http.HttpClient();
 
         //We add the subscription key to the header

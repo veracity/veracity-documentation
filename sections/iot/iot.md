@@ -1,6 +1,6 @@
 ---
 author: Benedikte Kallåk
-description: This section provides overview of IOT
+description: This section provides overview of IoT
 ---
 
 # Veracity IoT

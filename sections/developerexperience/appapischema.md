@@ -53,7 +53,7 @@ A Veracity application represents your app/api in Veracity Identity and allow yo
 ### Advanced
 |Property|Description|Accepted value|
 |--------|-----------|--------------|
-|apiProductSubscriptions|the list of api products to create subscriptions for. Adding the veracity platform apis is not nessesary as this is added in the backend.||
+|apiProductSubscriptions|the list of api products to create subscriptions for. Adding the Veracity platform apis is not nessesary as this is added in the backend.||
 |apiProductSubscriptions.productId|the product id that you will add (mandatory)||
 |apiProductSubscriptions.productName|The name of the api product (optional)||
 |apiAcceses|Set up access to api scopes (only for client applications)||

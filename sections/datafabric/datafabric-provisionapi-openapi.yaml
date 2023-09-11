@@ -103,8 +103,8 @@ paths:
     delete:
       tags:
         - v1.0 Container
-      summary: Delete a azure storage container.
-      description: "Delete the azure container.<br /> \r\nYou need to be the owner of the resource to be able to delete the container.<br /> \r\nWhat happens when the container is deleted: All active keys will stop working.<br /> \r\nAll content on the container will be deleted and this action is not reversible <br />"
+      summary: Delete an Azure storage container.
+      description: "Delete the Azure container.<br /> \r\nYou need to be the owner of the resource to be able to delete the container.<br /> \r\nWhat happens when the container is deleted: All active keys will stop working.<br /> \r\nAll content on the container will be deleted and this action is not reversible <br />"
       operationId: v1-0Container_DeleteAzureBlobContainer
       parameters:
         - name: id

@@ -37,7 +37,7 @@ Where the used variables are:
 
 The following code returns an object of `Task<AuthenticationResult>`. AuthenticationResult has a property of AccessToken which will serve as the token you will send to your API.
 
-Remember, just because your `appId` is registered in Veracity, does it mean these are the only steps that require your attention. Make sure, your API validates each request, its appId and the permissions you want to grant it. 
+Remember, just because your `appId` is registered in Veracity, doesn't mean these are the only steps that require your attention. Make sure, your API validates each request, its appId and the permissions you want to grant it. 
 
 Next up, we will validate the token we just acquired.
 

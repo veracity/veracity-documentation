@@ -9,7 +9,7 @@ description: Creating an API in Veracity's Developer Portal
 
 <figure>
 	<img src="assets/ccapi-step-1-create-a-new-resource.png"/>
-	<figcaption>Create a new resource in a chosen resource group in Developer Potal on Veracity.</figcaption>
+	<figcaption>Create a new resource in a chosen resource group in Developer Portal on Veracity.</figcaption>
 </figure>
 
 ## Pick resource type
@@ -30,10 +30,8 @@ description: Creating an API in Veracity's Developer Portal
 
 <figure>
 	<img src="assets/ccapi-step-4-configure-your-API.png"/>
-	<figcaption></figcaption>
+	<figcaption>Write the API name under **Application name**.</figcaption>
 </figure>
-
-Write the API name under **Application name**.
 
 For client application leave None.
 
@@ -41,7 +39,7 @@ Check the "This is an API" checkbox.
 
 If you need to, add scopes.
 
-## Advances tab
+## Advanced tab
 
 <figure>
 	<img src="assets/ccapi-step-5-advanced-tab.png"/>
@@ -52,11 +50,11 @@ If you need to, add scopes.
 
 In the Summary tab, confirm the presented information for your API and click **Submit**.
 
-Once finished, you will be redirected to your resource, where you can edit any data. In the Settings tab you can find your API's ID under **App / Api ID**, and also **Subscriptions keys** and **Scopes**.
+Once finished, you will be redirected to your resource, where you can edit any data. 
 
 <figure>
 	<img src="assets/ccapi-summary-settings-tab.png"/>
-	<figcaption></figcaption>
+	<figcaption>In the Settings tab you can find your API's ID under **App / Api ID**, and also **Subscriptions keys** and **Scopes**.</figcaption>
 </figure>
 
 Next up, we will configure a client application that will call to this API.

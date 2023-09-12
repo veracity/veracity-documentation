@@ -9,7 +9,7 @@ description: Configuring Client application in Veracity
 
 <figure>
 	<img src="assets/cc-client-step-1-create-a-new-resource.png"/>
-	<figcaption>Create a new resource in a chosen resource group in Developer Potal on Veracity.</figcaption>
+	<figcaption>Create a new resource in a chosen resource group in Developer Portal on Veracity.</figcaption>
 </figure>
 
 ## Pick resource type
@@ -30,10 +30,8 @@ description: Configuring Client application in Veracity
 
 <figure>
 	<img src="assets/cc-client-step-4-configure-your-client.png"/>
-	<figcaption></figcaption>
+	<figcaption>Write the application name under **Application name**.</figcaption>
 </figure>
-
-Write the application name under **Application name**.
 
 For client application check Client Credentials.
 
@@ -50,11 +48,11 @@ Press Next.
 
 Confirm the presented information for your application and click **Submit**.
 
-Once finished, you will be redirected to your resource, where you can edit any data. In the Settings tab you can find your API's ID under **App / Api ID**, and also **Subscriptions keys** and **Scopes**.
+Once finished, you will be redirected to your resource, where you can edit any data. 
 
 <figure>
 	<img src="assets/cc-client-step-6-summary.png"/>
-	<figcaption></figcaption>
+	<figcaption>In the Settings tab you can find your API's ID under **App / Api ID**, and also **Subscriptions keys** and **Scopes**.</figcaption>
 </figure>
 
 From this part of the screen you should note:
@@ -67,4 +65,4 @@ Next up, we will show you how to acquire an access token using MSAL in C#.
 
 ---
 
-[Previous - 2. Introduction to the Client Credentials flow](2-api-creation-in-veracity.md) --- [Next - 4. Acquiring access token using MSAL in C#](4-msal-access-token.md)
+[Previous - 2. Creating an API in Veracity's Developer Portal](2-api-creation-in-veracity.md) --- [Next - 4. Acquiring access token using MSAL in C#](4-msal-access-token.md)

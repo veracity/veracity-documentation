@@ -35,7 +35,7 @@ description: Configuring Client application in Veracity
 
 For client application check Client Credentials.
 
-## Advanced Tab
+## Advanced tab
 
 <figure>
 	<img src="assets/cc-client-step-5-add-api-access.png"/>

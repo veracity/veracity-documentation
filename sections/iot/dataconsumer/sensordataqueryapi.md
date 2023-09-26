@@ -126,7 +126,7 @@ async Task<string> GetToken()
     return token;
 }
 
-// Query iot using bearer token
+// Query IoT using bearer token
 var token = await GetToken();
 var subscriptionKey = "[Subscription key]";
 

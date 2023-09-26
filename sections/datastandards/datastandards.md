@@ -64,7 +64,7 @@ There are several ongoing data standard activities provided through DNV and the 
 
 - DNV (Maritime Class) can do certification services of 19847 data servers and network infrastructures handling ISO 19848 data files.
 
-- Veracity will support ingest of IOT data following the ISO 19848 standard by end of May.  
+- Veracity will support ingest of IoT data following the ISO 19848 standard by end of May.  
 
 [More information on ISO 19847 and ISO 19848.](iso19847iso19848.md)
 

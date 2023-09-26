@@ -1,6 +1,6 @@
 ---
 author: Benedikte Kallåk
-description: This section describes how to use veracity api portal
+description: This section describes how to use Veracity api portal
 ---
 
 # Veracity Api Portal
@@ -46,7 +46,7 @@ Authorization Code in the menu of B2C PROD Oauth – V2 Endpoint
 	<img src="assets/authentication1.png"/>
 	<figcaption>Authentication</figcaption>
 </figure>
-8. If your user has access to assets in veracity IoT, it should now be possible to make requests from the API portal. Just make desired 
+8. If your user has access to assets in Veracity IoT, it should now be possible to make requests from the API portal. Just make desired 
 changes to the Request Body and click at Send on bottom of page. 
  
 

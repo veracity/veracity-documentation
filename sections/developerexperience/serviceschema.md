@@ -5,27 +5,27 @@ description: Veracity Service schema
 
 # Veracity Service
 
-A veracity service is the representation of your application within Veracity. The service is where we connect user subscriptions and Service spesific terms to. 
+A Veracity service is the representation of your application within Veracity. The service is where we connect user subscriptions and Service spesific terms to. 
 
 ## Schema
 
 |Field path|Description|accepted values|
 |----------|-----------|---------------|
-|name|The name of the service, shown in the veracity navigation menu|string  <br /> Character limit: 4-200 <br />Valid characters: Alphanumerics, underscores, commas, whitespaces, and hyphens|
+|name|The name of the service, shown in the Veracity navigation menu|string  <br /> Character limit: 4-200 <br />Valid characters: Alphanumerics, underscores, commas, whitespaces, and hyphens|
 |resourceType|schema used by veracity|veracity.service|
 |locked|Locked state will determine if the user can edit the service through the user interface in developer. Manual override is still possible. VRM ignores this field and will make chages regardless |true/false|
 |sku|Not used in the current release|standard|
 |properties.serviceUrl|The url to the frontpage of the application  |must be https|
-|properties.visible|Sets if the service should be visible in the veracity MyServices and in the novigation menu. Will not take full effect for non production environments|true/false|
+|properties.visible|Sets if the service should be visible in the Veracity MyServices and in the novigation menu. Will not take full effect for non production environments|true/false|
 |properties.openInNewTab|Open in new tab when cliking the tile in myServices|true/false|
 |properties.shortName|Legacy property (optional)|||
 |properties.description|A description of the service (optional)|||
-|properties.businessOwnerId|The veracity id of the business owner (optional)|||
+|properties.businessOwnerId|The Veracity id of the business owner (optional)|||
 |properties.technicalContactEmail|Email address for the technical contact (optional)|||
 |properties.providerCompanyName|Company name of the service provider (optional)|||
 |properties.tags|tagging of the service in myServices (optional)|||
 |properties.productionService|Is the resource a production service (optional)|true/false|
-|advanced.passwordPolicy|Used if your usecase require a password policy to meet regulatory demands. Please refrain from setting th policy as a global veracity policy|||
+|advanced.passwordPolicy|Used if your usecase require a password policy to meet regulatory demands. Please refrain from setting th policy as a global Veracity policy|||
 |advanced.passwordPolicy.enforcePasswordPolicy|Turn the policy on and off. setting this a false is the same as not specifing a policy. |true/false|
 |advanced.passwordPolicy.scope|Does the policy apply for the service only or for all of Veracity if the user has a subscription to the service|service=0 <br/>veracity=1|
 |advanced.passwordPolicy.intervalType|Set the unit type for the interval|days=0 <br/> months=1 <br/>years=2|
@@ -36,7 +36,7 @@ A veracity service is the representation of your application within Veracity. Th
 
 ## Examples
 
-A basic veracity service 
+A basic Veracity service 
 ```json
 {
   "name": "$parameter('serviceName')",
@@ -63,7 +63,7 @@ A basic veracity service
 }
 ```
 
-A veracity service with access levels and password policy correctly configured
+A Veracity service with access levels and password policy correctly configured
 
 ```json
 {

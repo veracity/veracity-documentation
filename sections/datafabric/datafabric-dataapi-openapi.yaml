@@ -10,7 +10,7 @@ paths:
       tags:
         - v1.0 Access
       summary: Retrieves a list of Providers that have access to a specified resource.
-      description: "Get a list of all providers with accesses for a given storage item per page, using a page number and page size.\r\nNote the variable keyCreatedTimeUTC is the time the SAS key generated is valid from,\r\nthis is set one hour in the past from the time created this to avoid azure time skew issues."
+      description: "Get a list of all providers with accesses for a given storage item per page, using a page number and page size.\r\nNote the variable keyCreatedTimeUTC is the time the SAS key generated is valid from,\r\nthis is set one hour in the past from the time created this to avoid Azure time skew issues."
       operationId: v1-0Access_Get
       parameters:
         - name: resourceId

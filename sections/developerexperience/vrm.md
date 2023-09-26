@@ -69,7 +69,7 @@ The variables can be used to create naming conventions for your service and the 
 In principle you can have 1 parameter that changes between your environments.
 
 ### resources
-this is the main section of the message defining the structure of your solution. A simple web app that has a tile on veracity MyServices has two nodes here. a veracity.services and a veracity.application.
+this is the main section of the message defining the structure of your solution. A simple web app that has a tile on Veracity MyServices has two nodes here. a veracity.services and a veracity.application.
 
 #### resource dependencies
 
@@ -124,7 +124,7 @@ Some resource types support, or require, references to other resource type insta
 ## Resource Type Schemas
 |Schema name                               |description|
 |------------------------------------------|---------------------------------------------|
-[veracity.service](serviceschema.md)    |Define a veracity service. A service is the representation of yor application within Veracity and where we connect user subscriptions to|
+[veracity.service](serviceschema.md)    |Define a Veracity service. A service is the representation of yor application within Veracity and where we connect user subscriptions to|
 [veracity.application](appapischema.md) |A Veracity application represents your app/api in Veracity Identity and allow you to connect to api's and/or expose api scopes|
 
 ## Sample

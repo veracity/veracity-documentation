@@ -88,7 +88,7 @@ The endpoint will return a list active and expired accesses.
 
 Need to be owner or data steward of container to see access of other users/applications in the results.
 
-_Note the variable keyCreatedTimeUTC is the time the SAS key generated is valid from, this is set one hour in the past from the time created this to avoid azure time skew issues._
+_Note the variable keyCreatedTimeUTC is the time the SAS key generated is valid from, this is set one hour in the past from the time created this to avoid Azure time skew issues._
 
 **Url**
 
@@ -949,7 +949,7 @@ https://api.veracity.com/veracity/datafabric/provisioning/api/1/[end-point]
 |:---------|:---------|:-------|:----------|
 |V1.0 Container | `/container` | `POST` | Provision a blob storage container, requires a short name and storage container. |
 |V1.0 Container | `/container/{id}/metadata` | `PATCH` | Update container metadata. |
-|V1.0 Container | `/container{id}` | `DELETE` | Delete a azure storage container |
+|V1.0 Container | `/container{id}` | `DELETE` | Delete an Azure storage container |
 |V1.0 Regions | `/regions` | `GET` | Get all supported regions |
 
 
@@ -1024,7 +1024,7 @@ A other example for update of tags (NOTE: remember to update the list of tags wi
 ```
  This operation would replace the tags
 
-The metadata is used by the veracity frontend
+The metadata is used by the Veracity frontend
 
 **Url**
 
@@ -1081,7 +1081,7 @@ https://api.veracity.com/veracity/datafabric/provisioning/api/1/container/{id}/m
 
 ##### DELETE /container/{id}
 
-Delete the azure container.
+Delete the Azure container.
 You need to be the owner of the resource to be able to delete the container.
 What happens when the container is deleted:
 
@@ -1103,7 +1103,7 @@ https://api.veracity.com/veracity/datafabric/provisioning/api/1/container/{id}
 #### V1.0 Regions
 
 ##### POST /regions
-A list of active regions supported by veracity
+A list of active regions supported by Veracity
 
 **Url**
 
@@ -1354,7 +1354,7 @@ public class DataFabricClient
         //Set your subscription key, best practice is to not hard code it. So remember to get it from app settings or other places
         var subscriptionKey = "{subscriptionKey}";
 
-        //Best practice from microsoft is to have a global httpclient registered in dependency config(Lifestyle: Singleton).
+        //Best practice from Microsoft is to have a global httpclient registered in dependency config(Lifestyle: Singleton).
         var httpClient = new System.Net.Http.HttpClient();
 
         //We add the subscription key to the header

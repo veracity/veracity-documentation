@@ -40,7 +40,7 @@ This grant type is used for service-to-service scenarios where no user login hap
 * Are your apps using the Veracity .net package?
 If this is how your apps authenticate, [consult this documentation](https://github.com/veracity/Veracity-Identity-and-Services-Api) and update accordingly. 
 * Are your apps not using the Veracity .net package?
-If your app is NOT using the veracity .net package, you can find more documentation [here](https://developer.veracity.com/docs/section/identity/authentication/web-native).
+If your app is NOT using the Veracity .net package, you can find more documentation [here](https://developer.veracity.com/docs/section/identity/authentication/web-native).
 
 ### Need help?
 If you have questions or need help, [use this form to contact support](https://services.veracity.com/form/SupportAnonymous).

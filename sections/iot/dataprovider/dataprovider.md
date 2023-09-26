@@ -24,7 +24,7 @@ Using IoT Hub, data provider needs a private connection string and when using re
 -   Users or applications must have the appropriate read/write access to ingest on a given asset
 
 ## Data format for sensor stream
-High frequency data is streamed into Veracity IOT hub from edge solution or from another data platform.  The data format supported are ISO 19848, Veracity-message,  Arundo, Wits, Trisense and CSV. [For more details](sensordataingest.md)
+High frequency data is streamed into Veracity IoT Hub from edge solution or from another data platform.  The data format supported are ISO 19848, Veracity-message,  Arundo, Wits, Trisense and CSV. [For more details](sensordataingest.md)
 
 ## Data format for events
 The payload of the event can be any data structure in JSON format. Each data-structure is defined as a event-type (template). Each event require some meta-data such as asset, topic and timestamp and event-type. [More more information](eventingest.md)

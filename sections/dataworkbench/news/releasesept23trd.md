@@ -11,11 +11,11 @@ Read this page to learn what has changed in Veracity Data Workbench with the thi
 
 ## New features
 
-### Share data set with a person
-Now, you can share your data sets with other people. To do so:
+### Share data set with a business partner
+Now, you can share your data sets with your business partners. To do so:
 1. In **Data catalogue**, open the data set you want to share.
 2. Select the share icon.
-3. Enter the email address of the person you want to share the data set with. Alternatively, select the people icon to choose the recipient from the list of previously used contacts.
+3. Enter the email address of the person or workspace you want to share the data set with. Alternatively, select the contact list icon to choose the recipient from the list of previously used contacts. Note that sharing with workspace is possible only when some conditions are met. For details, see  "Shara data set with workspace" below.
 4. Optionally, to allow the recipient to share the data set with other people, tick the box next to **Allow recipients to share this data set with others**. You can revoke the sharing permission later.
 5. Optionally, under **Add note to recipient**, add a message to the person with whom you are sharing the data set.
 6. To share the data set, select the **Share** button. The recipient will receive an email notification with a link to the data set.
@@ -51,4 +51,4 @@ Now, you can apply filters for a data set that was shared with you and save this
 
 Note that if you share a data set with certain filters applied, the recipient cannot see more than those filters allow. Using this, you can share only some information from a data set.  
 
-For example, you can have a data set with information on your ten vessels but apply filters that show only two relevant ships and then share it with your partner.
+For example, you can have a data set with information on your ten vessels but apply filters that show only two relevant ships and then share it with your business partner.

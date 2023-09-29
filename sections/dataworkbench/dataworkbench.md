@@ -59,6 +59,8 @@ The **Predefined data sets** tab shows data sets that are queried by connections
 
 The **Created data sets** tab shows the data sets that workspace members created.
 
+The **Shared with me** tab shows the data sets that were shared with you.
+
 For each data set, in the top right corner, you can select the following action icons.
 1. Data set info - see data set name and its description.
 2. Edit table properties - disable or enable column picker and select what data columns to show.

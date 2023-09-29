@@ -107,52 +107,41 @@ To upload a data set from a CSV file:
 Note that now you have created a data set you can share with other users.
 
 ### To share a data set
-
-To share a data set with one or more users:
-1. Hover over the row with a data set. Action icons will appear in the right corner of the row.
-2. Select the **Share** icon.
-3. Under **Share with user**, enter the email address of a user. You can add multiple users.
-4. Select the **Add** button to confirm.
-5. Select the **Share** button. 
+1. In the **Data catalogue** tab, open the data set you want to share.
+2. In the top right corner, select the share icon.
+3. Under **Share with**, enter the email address of the person or workspace you want to share the data set with. Alternatively, select the contact list icon to choose the recipient from the list of previously used contacts.
+4. Optionally, to allow the recipient to share the data set with other people, tick the box next to **Allow recipients to share this data set with others**. You can revoke the sharing permission later.
+5. Optionally, under **Add note to recipient**, add a message to the person with whom you are sharing the data set.
+6. To share the data set, select the **Share** button. The recipient will receive an email notification with a link to the data set.
 
 Note that:
-* Users are notified by email when they get access to a data set.
-* If you try to share a data set with an email account that is not registered with Veracity, Veracity will show the **Invite** button. If you select it, Veracity will invite this person to register, and they must register in Veracity to get access to the data set you have shared with them.
-
-Alternatively:
-1. Go to a data set you want to share.
-2. In the top-right corner, select the **Share** icon.
-3. Under **Share with user**, enter the email address of a user. You can add multiple users.
-4. Select the **Add** button to confirm.
-5. Select the **Share** button. 
+* You can share a data set with workspace only if someone from your workspace has already shared a data set with the target workspace and its admin has added it to the target workspace.
 
 ### To see data sets shared with you
-To see the data sets that have been shared with you:
-1. From the main page of Data Workbench, go to **Recent data sets** and then select **See all data sets**.
-2. Go to the **Shared with me** tab.
+To see data sets shared with you, in the **Data catalogue** tab, go to the **Shared with me** tab.
 
-Alternatively:
-1. Go to the **Data Catalogue** tab.
-2. Go to the **Shared with me** tab.
+Note that:
+* You cannot edit data sets that are shared with you.
+* You can reshare the data sets only if the person who has shared them has enabled resharing.
+* If you apply filter to a data set and then reshare it, the receiver will see only as much as the filters allow. For example, you can have a data set with information on your ten vessels but apply filters that show only two relevant ships and then share it with your business partner.
 
-Note that you cannot edit data sets that are shared with you.
+### To add a shared data set to your workspace
+
+1. Open the data set that was shared with you. You can follow the link from the email notification you received or find it in the "Shared with me" tab.
+2. Select the **Add to your workspace** button and then select a workspace.
+3. Select the button to go forward. This will add the data set to your workspace.
+
+Note that, to add a shared data set to a workspace, you must be an admin of this workspace.
 
 ### To revoke access to a data set
 To revoke access to a data set:
 1. Go to the data set.
 2. Go to the **Details** tab.
 3. Under **Shared with**, select the pencil icon. A pop-up window with the list of users will appear.
-4. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
+4. In the row with the user's or workspace's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked access by accident, select the "Undo" icon to revert it.
 5. Select the **Save and Close** button.
 
-When you revoke a user's access to a data set, they are notified about that by email.
-
-Alternatively:
-1. Go to **Data Catalogue** and select the tab with the data set you want to revoke access to.
-2. In the row with the data set, under the **Shared with** column, select a user avatar. A pop-up window with the list of users will appear.
-3. In the row with the user's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked user's access by accident, select the "Undo" icon to revert it.
-4. Select the **Save and Close** button.
-
+When you revoke a user's or workspace's access to a data set, they are notified about that by email. Also, if they have reshared the data set with other people, they will loose access to the data set too.
 
 ## Activity logs
 Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).

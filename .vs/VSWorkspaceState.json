@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\schemas",
     "\\sections",
-    "\\sections\\datafabric\\authentication",
-    "\\sections\\datafabric\\iot",
-    "\\sections\\developerexperience"
+    "\\sections\\dataworkbench",
+    "\\sections\\vap",
+    "\\sections\\vap\\news"
   ],
-  "SelectedNode": "\\sections\\developerexperience\\introduction.md",
+  "SelectedNode": "\\sections\\dataworkbench\\dataworkbench.md",
   "PreviewInSolutionExplorer": false
 }

@@ -2,7 +2,7 @@
 author: Veracity
 description: This is a tutorial how to call API endpoints of Data Workbench with sample Python code.
 ---
-# Overview
+# Tutorial: call API endpoints
 This page gives you sample Python code for calling API endpoints, links to Connector SDK GitHub repository, and recaps relevant information.
 
 ## Connectors and Connector SDK

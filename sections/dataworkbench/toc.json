@@ -109,6 +109,10 @@
 		{
 			"text": "Tutorial: query data",
 			"href": "tutorialq.md"
+		},
+		{
+			"text": "Tutorial: call API endpoints",
+			"href": "tutorial2.md"
 		}
 	]
 }

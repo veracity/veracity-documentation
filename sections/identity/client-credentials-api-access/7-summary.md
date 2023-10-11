@@ -3,9 +3,9 @@ author: Mariusz Klimek (DNV)
 description: A summary of the Client Credentials tutorial
 ---
 
-[Previous - 5. Validating a Client Credentials Token](5-validating-cc-token.md)
+# Summary
 
-## Summary
+[Previous - 5. Validating a Client Credentials Token](5-validating-cc-token.md)
 
 Throughout this tutorial we have learned how to:
 

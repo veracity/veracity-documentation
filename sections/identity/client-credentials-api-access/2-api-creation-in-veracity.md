@@ -1,7 +1,9 @@
 ---
 author: Mariusz Klimek (DNV)
-description: Creating an API in Veracity's Developer Portal
+description: Creating an API in Veracity Developer Portal
 ---
+
+# Create an API in Veracity Developer Portal
 
 [Previous - 1. Introduction to the Client Credentials flow](1-client-credentials-introduction.md)
 

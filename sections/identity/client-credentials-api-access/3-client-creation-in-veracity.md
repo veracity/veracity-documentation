@@ -2,6 +2,7 @@
 author: Mariusz Klimek (DNV)
 description: Configuring Client application in Veracity
 ---
+# Configure client application 
 
 [Previous - 2. Introduction to the Client Credentials flow](2-api-creation-in-veracity.md)
 

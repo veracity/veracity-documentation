@@ -3,6 +3,8 @@ author: Mariusz Klimek (DNV)
 description: Validating access token in your API in C#
 ---
 
+# Validate access token in your API in C#
+
 [Previous - 4. Acquiring access token using MSAL in C#](4-msal-access-token.md)
 
 This tutorial will help you build a Client Credentials validator in your .NET 6 API. Note that all code samples are for C#.

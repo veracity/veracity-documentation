@@ -3,6 +3,8 @@ author: Mariusz Klimek (DNV)
 description: Introduction to the Client Credentials flow
 ---
 
+# Introduction to the Client Credentials flow
+
 Client credentials refer to a set of credentials that a client (usually a software application or service) uses to authenticate itself to a server or an identity provider in a networked system.
 
 ## How Client Credentials Flow usually works:

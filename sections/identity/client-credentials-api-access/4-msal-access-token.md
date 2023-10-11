@@ -3,6 +3,8 @@ author: Mariusz Klimek (DNV)
 description: Acquiring access token using MSAL in C#
 ---
 
+# Get access token using MSAL in C#
+
 [Previous - 3. Configuring Client application in Veracity](3-client-creation-in-veracity.md)
 
 In order to acquire a client credentials token in your .NET application, first you need to make sure you have the following NuGet package added to your dependencies:

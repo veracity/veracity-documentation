@@ -27,3 +27,12 @@ For example, if you want to add a tag 'Tonnage : 5000':
 2. For value, enter '5000'.
 
 
+## Changes in existing features
+
+## Bugs fixed
+
+Previously, in API integrations > Service accounts, the Endpoints base URL was calling the first version of the API. Now, it is updated and calls the second (the current) version of the API.
+
+Bug 499239
+
+

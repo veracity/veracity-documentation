@@ -11,7 +11,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the sec
 
 ### Generate ready-to-use Python script for API integrations
 
-Now, in API integrations, you can generate a sample Python code that will include your credentials. Then, you can download it and immediately start making API calls with it!
+Now, in API integrations, you can generate a sample Python code that will include your credentials. Then, you can download it and immediately start making API calls with it.
 
 To generate the code:
 1. Go to API integrations > Service accounts.
@@ -20,13 +20,14 @@ To generate the code:
 
 US 495134
 
-### Tag data sets
+### Use tags for data sets
 
 Now, you can add tags to data sets so that you can find the data sets you are looking for easier and faster. You can also edit and delete tags.
 
 To edit or delete tags for a data set, open the data set, go to the **Details** tab, and next to **Tags**, select the pencil icon. To delete a tag, select the **X** icon next to its name. To edit a tag, remove the old one and create a new tag.
 
 To add a tag to a data set:
+
 1.In **Data catalogue**, open the data set.
 2.Go to the **Details** tab.
 3. Under **Tags**, select **Add tags**.
@@ -56,6 +57,7 @@ Previously, in API integrations > Service accounts > Access to data sets, when y
 Bug 499245
 
 Previously, recent data sets were not displayed on Home page. Now, this is fixed.
+
 Bug 500473
 
 

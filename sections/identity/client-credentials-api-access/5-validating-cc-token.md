@@ -5,11 +5,11 @@ description: Validating access token in your API in C#
 
 [Previous - 4. Acquiring access token using MSAL in C#](4-msal-access-token.md)
 
-This tutorial will help you build a Client Credentials validator in your .NET 6 API.
+This tutorial will help you build a Client Credentials validator in your .NET 6 API. Note that all code samples are for C#.
 
 First we need to declare a class that inherits from `AuthenticationSchemeOptions`:
 
-```c#
+```c
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 
@@ -23,7 +23,7 @@ public class MyAuthenticationOptions : AuthenticationSchemeOptions
 
 Then we need to declare a class that inherits from `AuthenticationHandler`:
 
-```c#
+```c
 public class MyAuthenticationHandler : AuthenticationHandler<MyAuthenticationOptions>
 {
     public MyAuthenticationHandler(
@@ -41,7 +41,7 @@ public class MyAuthenticationHandler : AuthenticationHandler<MyAuthenticationOpt
 
 Next we will implement the `Authenticate()` method:
 
-```c#
+```c
 using Microsoft.AspNetCore.Authentication;
 
 ...
@@ -88,7 +88,7 @@ private static string ExtractBearerToken(string authorizationHeader)
 
 To validate the token we will use the Stardust NuGet package which is made by Veracity developers. The main logic for validating a token is within the Validate method which you can see below:
 
-```c#
+```c
 using Stardust.Aadb2c.AuthenticationFilter.Core;
 using Stardust.Particles;
 
@@ -128,7 +128,7 @@ In this code we used an object named `configuration` in which we stored some val
 
 All these classes should now be declared in the `Program.cs` class. To make it more readable I suggest to create it as an extension method declated in a separate class:
 
-```c#
+```c
 internal static class AuthorizationExtensions
 {
     const string AuthenticationDefaultScheme = "DefaultScheme";
@@ -156,7 +156,7 @@ internal static class AuthorizationExtensions
 
 And then simply using it:
 
-```c#
+```c
 builder.SetupAuthorization();
 ```
 

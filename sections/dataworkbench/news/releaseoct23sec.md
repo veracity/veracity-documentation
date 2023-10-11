@@ -22,9 +22,9 @@ US 495134
 
 ### Tag data sets
 
-Now, you can add tags to data sets. This lets you add meta data information that can improve searching.
+Now, you can add tags to data sets so that you can find the data sets you are looking for easier and faster. You can also edit and delete tags.
 
-To see or edit tags for a data set, open the data set, go to the **Details** tab, and look under **Tags**.
+To edit or delete tags for a data set, open the data set, go to the **Details** tab, and next to **Tags**, select the pencil icon. To delete a tag, select the **X** icon next to its name. To edit a tag, remove the old one and create a new tag.
 
 To add a tag to a data set:
 1.In **Data catalogue**, open the data set.
@@ -33,11 +33,15 @@ To add a tag to a data set:
 4. Enter key and value, and then select **Add**.
 5. To save the tag, select **Save and close**.
 
+Note that you can also add tags when you are creating a new data set.
+
 For example, if you want to add a tag 'Tonnage : 5000':
 1. For key, enter 'Tonnage'.
 2. For value, enter '5000'.
 
-US 493225
+Each data set can have up to 100 tags. For each tag, maximum length is 65 characters for the key and 256 characters for the value
+
+US 493225, 495313, 490896, and others
 
 ## Changes in existing features
 

@@ -4,8 +4,12 @@ description: Gives an overview of the Veracity Data Fabric services and related 
 ---
 
 # Overview of the Veracity Data fabric
-Veracity Data Fabric provides data management functionality for cloud and on-premise for an improved data visibility, insights, access control and security.
-Data Fabric support two roles: Data Manager, create and manage data lake; Data Consumer, read only access to data lake.
+Veracity Data Fabric provides cloud and on-premise data management functionality for improved data visibility, insights, access control and security.
+
+Data Fabric support three roles: 
+* Data Manager, create and manage the data lake.
+* Data Steward, share and manage accesses on behalf of the Data Manager
+* Data Consumer, access level is defined at the time of sharing. Options: read, write, delete and list.
 
 Data managers can takes advantage of the Veracity ecosystem whereby they can combine their datasets with others available from Veracity Marketplace to enrich their own data to create new insights and solutions.
 
@@ -17,8 +21,8 @@ Data of any type that could be currently stored in files, database tables, data 
 
 ## Self-service and APIs at core
 
-Data fabric is built with self-service at core, and the users are able to access the fabric to ingress and egress data using Veracity or Azure storage explorer as well as Veracity APIs.
+Data fabric is built with self-service at core, and the users can access the fabric to ingress and egress data using Veracity or Azure storage explorer as well as Veracity APIs.
 
 ## Security and data protection
 
-Sharing of data is done using Shared Access Signature (SAS) keys which provide a way to granting and revoking access at any time. Activities related to stored data in the container can be tracked in the ledger and reviewed by the container owner. Keys can only be shared with other authorized platform users.
+Data sharing is done using Shared Access Signature (SAS) keys which provide a way to grant and revoke access. Activities related to stored data in the container can be tracked in the ledger and reviewed by the container owner. Keys can only be shared with other authorized platform users.

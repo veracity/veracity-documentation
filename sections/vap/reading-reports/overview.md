@@ -18,37 +18,71 @@ To access your VAP service:
 
 The Home tab of your Veracity Power Adapter for Power BI (VAP) shows the entities you have access to and the reports in them. 
 
-To navigate to an entity or a report:
-1. In your VAP service, go to the **Home** tab.
-2. Select the tile with the name of the entity or report you want to go to.
+Here, you can:
+1. Switch between card and table view.
+2. See informative tags. For example, "Self Subscribe" for entities joinable for everyone with a Veracity account or "Public View" for entities that can be seen without signing into a Veracity account.
+3. See how many reports are included in an entity and navigate to any of the reports.
+
+<figure>
+	<img src="assets/homemenu.png"/>
+</figure>
+
 
 ## Reading reports
 
-To navigate to a report tab, under the **Home tab**, select the report tab you want to go to.
-
-In the top right corner of the window, you can see the following icons.
-* "Full screen" - Shows the report in the full screen mode.
-* "Generate a link for current report" - Select it to see the URL to the report. To copy it, select the **Copy to clipboard** button.
+### Action icons for all reports
+For each report, in the top right corner of the window, you can see some of the following icons:
+* "Generate a link" - Select it to see the URL to the report. To copy it, select the **Copy to clipboard** button.
 * The bookmark icon - Add bookmarks, share them, and navigate to available bookmarks. For details, go [here](bookmarks.md).
-* Tenant documents -
+* Tenant documents - Documents related to this tenant, for example, background information giving context to the report.
+* "Full screen" - Shows the report in the full screen mode.
 * Export - Export the report as a PDF or PPT.
 * The attached files icon - After selecting it, shows a dropdown with the files attached to the report. To see a file, select it from the dropdown.
 
-Note that these options are configured by the report author and because of that some of them might be unavailable for the report you are reading.
+Note that what icons are available and in which order depends on the report author.
+
+### Actions icons for report elements
+
+After opening a report, you can read it and interact with its elements by, for example, filtering values, showing charts as tables, spotlighting an element, and so on. To see available actions for an element, hover over it and watch for icons that will appear above this element, on the right. Note that the available actions depenend on the report author.
+
+<figure>
+	<img src="assets/elementfilters.png"/>
+</figure>
+
+## Switch between reports
+To switch between reports you are viewing, select the name of the report you are viewing and, from the dropdown that appears, select another one. 
+
+<figure>
+	<img src="assets/switch.png"/>
+</figure>
+
+## Collapse or expand left sidebar
+To get more view space, you can select the blue icon next to the report name to collapse the left report section.
+
+To expand the left report section, select the blue icon again.
+
+<figure>
+	<img src="assets/collapseexpand.png"/>
+</figure>
+
+## Not supported on small screens
+Note that the following is not supported on small screens:
+* Release and report tutorial
+* Share bookmark
+* Full screen
+* Admin menu
+To access these features, use a monitor or laptop.
 
 ### See a tutorial again
 Some reports have tutorials or release notes that show when you open them for the first time.
 
 For all [user roles](../user-roles.md), to see a tutorial for a report again:
 1. Open a report with a tutorial.
-2. In the top bar, select **Show tutorial again**.
-
-For [admin roles](../user-roles.md), to see VAP release tutorials again:
-1. In the top bar, next to the notification icon, select the question mark icon.
-2. Select **See tutorials again**.
+2. In the top bar, on the right, select Support (the question mark icon).
+3. Select **Show Release Tutorial**.
 
 <figure>
-	<img src="assets/tutorials-again.png"/>
+	<img src="assets/showtutorial.png"/>
 </figure>
 
 

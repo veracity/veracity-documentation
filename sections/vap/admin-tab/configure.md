@@ -9,11 +9,6 @@ description: Overview of the Configure tab in the admin tab.
 
 Under "Header Icon", you can edit the favicon (header) icon for your VAP service or reset it to the default. To upload your own icon, select the **Edit Head Icon** button. To reset the icon to the default, select the **Reset to default icon**. If this a DNV or Veracity-owned service, leave the default logo.
 
-
-## Statistics Report
-
-Under "Statistics Report", you can see the statistics for your VAP service including VAP usage, historical data, who is using your tenant, and the information on key fields.
-
 ## Entity types
 
 Under "Entity types", you can add entity types, see what types are already created, edit or delete them.

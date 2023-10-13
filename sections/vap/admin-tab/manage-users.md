@@ -32,3 +32,11 @@ To batch add users to an entity:
 For a template for batch importing users, look below the **Choose File** button. If you try to add an already existing user, their data (role, entity) will get updated instead.
 
 Note that you can check the status of batch adding users in the [Background Jobs](background-jobs.md).
+
+## To see statistics for a user
+
+For each user, you can check the number of their interactions with your entities (year to date) and what they looked at. Also, you can check admin actions taken on this user (for example, create or modify the user). To do so, in the row with the user's name, select the icon shown below.
+
+<figure>
+	<img src="assets/userhistory.png"/>
+</figure>

@@ -85,6 +85,10 @@
 				{
 					"text": "Background jobs",
 					"href": "admin-tab/background-jobs.md"
+				},
+				{
+					"text": "Statistics",
+					"href": "admin-tab/statistics.md"
 				}
 			]
 		},

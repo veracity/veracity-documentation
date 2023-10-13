@@ -86,6 +86,6 @@ You can set the following properties for the footer:
 
 Note that to see the changes in footer, entity types or tenant properties, you need to refresh the page first.
 
-## Report Release Note
+## Tutorial Template
 
-Under "Report Release Note", you can download a JSON template file for a tutorial. You can use it to walk your users through new reports and the latest changes. After modifying the template, upload it in [the "Manage Files" tab](manage-files.md) and connect it to the report in [the "Manage Reports" tab](manage-reports.md).
+Under "Tutorial Template", you can download a JSON template file for a tutorial. You can use it to walk your users through new reports and the latest changes. After modifying the template, upload it in [the "Manage Files" tab](manage-files.md) and connect it to the report in [the "Manage Reports" tab](manage-reports.md).

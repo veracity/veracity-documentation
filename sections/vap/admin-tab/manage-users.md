@@ -21,6 +21,7 @@ To add a user to an entity:
 5. Optionally, deselect "Send notification to this user" if you do not want to notify the user that they have been added to an entity in VAP.
 
 ## To batch add users
+In one batch add, you can import up to 200 users.
 
 To batch add users to an entity:
 1. Select the **Batch Add Users** button.

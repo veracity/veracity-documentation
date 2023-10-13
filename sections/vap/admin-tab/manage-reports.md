@@ -13,14 +13,16 @@ To create a new report object:
 3. In the **Display name**, provide the name that will be visible to everyone with access.
 4. Optionally, deselect the toggle **Use Display Name as Report URL Name**, and below in the field **Report URL name** provide your custom URL for the report. The URL name must be unique and cannot contain spaces or special characters. You can use alphanumeric values, underscore, and hyphen.
 5. Optionally, in the **Description** field, describe your report for the end users. Note that currently the description is not shown to the users.
-6. From the **File title** dropdown, select what file you want your report to connect to. If you do not see the file, go to [Manage Files to upload it](manage-files.md).
+6. From the **File title** dropdown, select what file you want your report to connect to. If you do not see the file, go to [Manage Files to upload it](manage-files.md).	
 7. Below **File title**, you can enable the following toggles:
 
 	Printable - allows printing the report.
 	
 	Able to export data - allows exporting data from visuals in the report.
-	Able to export as PDF  - allows exporting your report to a PDF document.
-	Able to export to PPT - allows exporting your report to Power Point.
+	
+	Able to export as PDF  - allows exporting your entire report to a PDF document which gives users a snapshot of the current data and the state of the report. This uses Microsoft Power BI APIs so it may be a time-consuming process and some features and visualizations are not supported or shown properly in the exported file. For details on issues and limitations, see [Microsoft documentation](https://learn.microsoft.com/en-us/power-bi/collaborate-share/end-user-pdf?tabs=powerbi-service#visuals-that-arent-supported).
+	
+	Able to export as PPT - allows exporting your report to Power Point  which gives users a snapshot of the current data and the state of the report. This uses Microsoft Power BI APIs so it may be a time-consuming process and some features and visualizations are not supported or shown properly in the exported file. For details on issues and limitations, see [Microsoft documentation](https://learn.microsoft.com/en-us/power-bi/collaborate-share/end-user-powerpoint#visuals-that-arent-supported).
 	
 	Show filter panel - if your reports uses filter pane, disable this option to show the filter.
 	

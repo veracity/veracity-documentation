@@ -30,6 +30,7 @@ In the top right corner of the window, you can see the following icons.
 * "Full screen" - Shows the report in the full screen mode.
 * "Generate a link for current report" - Select it to see the URL to the report. To copy it, select the **Copy to clipboard** button.
 * The bookmark icon - Add bookmarks, share them, and navigate to available bookmarks. For details, go [here](bookmarks.md).
+* Tenant documents -
 * Export - Export the report as a PDF or PPT.
 * The attached files icon - After selecting it, shows a dropdown with the files attached to the report. To see a file, select it from the dropdown.
 

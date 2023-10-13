@@ -95,3 +95,12 @@ A personal bookmark is associated with the User GUID, Entity ID, and Report ID. 
 
 
 If you are updating the report in the "Manage Reports" tab by changing the reference for the report file from one PBIX file to another, VAP will ask if you want to preserve users' personal bookmarks. If you have done major changes to the report, preserving the bookmarks is not recommended.
+
+## Report statistics
+
+You can see who and when interacted with the report for each report. You can also see the number of interactions with the report (year to date) and the entity that was used. To do so, in the row with the entity, select the icon below and then select the **User Visit History** tab in the pop-up window that opens.
+
+<figure>
+	<img src="assets/reporthistory.png"/>
+</figure>
+

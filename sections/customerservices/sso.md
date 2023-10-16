@@ -27,8 +27,8 @@ Veracity's SSO supports the following protocols:
 * SAML 2.0
 
 The setup depends on who is your company's identity provider:
-* If your company's identity provider is Microsoft Entra ID (formerly named Azure Active Directory/Azure AD), go [here](#sso-with-azure-ad).
-* If you have another identity provider, go [here](#identity-providers-other-than-azure-ad).
+* If your company's identity provider is Microsoft Entra ID (formerly named Azure Active Directory/Azure AD), go [here](#sso-with-entra-id).
+* If you have another identity provider, go [here](#identity-providers-other-than-entra-id).
 
 The setup applies to all users with email addresses matching the email domain that has been configured for SSO.
     

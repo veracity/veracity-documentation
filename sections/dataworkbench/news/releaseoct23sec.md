@@ -18,8 +18,6 @@ To generate the code:
 2. Select a service account.
 3. Under **Generate sample Python code**, select the **Generate** button.
 
-US 495134
-
 ### Use tags for data sets
 
 Now, you can add tags to data sets so that you can find the data sets you are looking for easier and faster. You can also edit and delete tags.
@@ -42,14 +40,10 @@ For example, if you want to add a tag 'Tonnage : 5000':
 
 Each data set can have up to 100 tags. For each tag, the key length should be between 1 and 20 characters and the maximum value length is  50 characters.
 
-US 493225, 495313, 490896, and others
-
 ## Changes in existing features
 
 ## Bugs fixed
 
 Previously, in API integrations > Service accounts, the Endpoints base URL was calling the first version of the API. Now, it is updated and calls the second (the current) version of the API.
-
-Bug 499239
 
 

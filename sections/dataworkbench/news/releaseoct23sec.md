@@ -40,7 +40,7 @@ For example, if you want to add a tag 'Tonnage : 5000':
 1. For key, enter 'Tonnage'.
 2. For value, enter '5000'.
 
-Each data set can have up to 100 tags. For each tag, maximum length is 65 characters for the key and 256 characters for the value
+Each data set can have up to 100 tags. For each tag, the key length should be between 1 and 20 characters and the maximum value length is  50 characters.
 
 US 493225, 495313, 490896, and others
 
@@ -51,13 +51,5 @@ US 493225, 495313, 490896, and others
 Previously, in API integrations > Service accounts, the Endpoints base URL was calling the first version of the API. Now, it is updated and calls the second (the current) version of the API.
 
 Bug 499239
-
-Previously, in API integrations > Service accounts > Access to data sets, when you removed access to a data set, this change wasn't visible in the UI unless you refreshed the page. Now, this is fixed.
-
-Bug 499245
-
-Previously, recent data sets were not displayed on Home page. Now, this is fixed.
-
-Bug 500473
 
 

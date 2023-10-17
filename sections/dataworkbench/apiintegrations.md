@@ -65,3 +65,12 @@ To delete a service account:
 2. In the left sidebar, select a service account.
 3. In the bottom right corner, select the **Remove service account** button. A pop-up window will appear.
 4. In the pop-up window, select the **Delete** button.
+
+## Ready for use Python script for API integrations
+Now, in API integrations, you can generate a sample Python code that will include your credentials. Then, you can download it and immediately start making API calls with it.
+
+To generate the code:
+1. Go to API integrations > Service accounts.
+2. Select a service account.
+3. Under **Generate sample Python code**, select the **Generate** button.
+

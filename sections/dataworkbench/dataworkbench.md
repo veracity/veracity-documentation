@@ -79,7 +79,30 @@ For each data set, in the top right corner, you can select the following action 
 
 ### Types of data sets
 Data sets can be saved and shared as:
-* **Data live streams (dynamic)** dynamic - when there is a change in a data set, it gets automatically updated.
+* Data live streams (dynamic) dynamic - When there is a change in a data set, it gets automatically updated.
+* Snapshots - When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
+
+### Tags for data sets
+
+You can add tags to data sets so that you can find the data sets you are looking for easier and faster. You can also edit and delete tags.
+
+To edit or delete tags for a data set, open the data set, go to the **Details** tab, and next to **Tags**, select the pencil icon. To delete a tag, select the **X** icon next to its name. To edit a tag, remove the old one and create a new tag.
+
+To add a tag to a data set:
+
+1.In **Data catalogue**, open the data set.
+2.Go to the **Details** tab.
+3. Under **Tags**, select **Add tags**.
+4. Enter key and value, and then select **Add**.
+5. To save the tag, select **Save and close**.
+
+Note that you can also add tags when you are creating a new data set.
+
+For example, if you want to add a tag 'Tonnage : 5000':
+1. For key, enter 'Tonnage'.
+2. For value, enter '5000'.
+
+Each data set can have up to 100 tags. For each tag, the key length should be between 1 and 20 characters and the maximum value length is  50 characters.
 
 ### To create a data set
 To create a derived data set:

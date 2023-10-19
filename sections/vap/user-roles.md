@@ -34,9 +34,11 @@ This role is suitable for data administrators who organize how your reports are 
 
 ## UserAdmin
 
-This role is suitable for user administrators who should be able:
+This role is suitable for user administrators who should be able to:
 * Create, edit, and delete users.
-* Assign and revoke user roles.
+* Assign and revoke the following user roles: DataReader and UserAdmin.
+
+If you need to assign or revoke a DataAdmin or ReportAdmin role, ask a System Admin to do so.
 
 ## SystemAdmin
 

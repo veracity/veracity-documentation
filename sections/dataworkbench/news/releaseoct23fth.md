@@ -17,6 +17,6 @@ Now, when calling the following endpoints with the GET method, you also get the 
 * '/gateway/api/v2/workspaces/{workspaceId}/datasets'
 * '/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}'
 
-Once you got the shared data sets, you can add them to your Service Account's scope so that your API consumers can access it.
+Once you got the shared data sets, you can add them to your Service Account's scope so that your API consumers can access them.
 
 

@@ -13,7 +13,9 @@ Read this page to learn what has changed in Veracity Data Workbench with the fou
 
 When a business partner has shared with you access to a data set, you can add it to your workspace. Then, it is available through Data Workbench UI. However, before this change, you couldn't access your shared data sets through API calls. 
 
-Now, when calling the following endpoints with the GET method, you also get the data sets that were shared with you and added to your workspace:
-* `/gateway/api/v2/workspaces/{workspaceId}/datasets`
-* `/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}`
+Now, when calling the following endpoints, you also get the data sets that were shared with you and added to your workspace:
+* With GET, to get all data sets: `/gateway/api/v2/workspaces/{workspaceId}/datasets`.
+* With GET, to get a data set by its ID: `/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}`.
+* With POST, to query for data by workspace and data set ID: `/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query`.
 
+For details on API endpoints, go [here](../apiendpoints.md).

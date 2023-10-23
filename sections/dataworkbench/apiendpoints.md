@@ -241,7 +241,7 @@ You can use the following endpoints:
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all available data sets, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets endpoint. 
+<a name="allData"></a>To get all available data sets (including those shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
@@ -281,7 +281,7 @@ Below you can see an example of a successful response (code 200).
     "totalPages": 1
 ```
 
-<a name="data"></a>To get a specific data set by its ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
+<a name="data"></a>To get a specific data set by its ID (including data sets shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)

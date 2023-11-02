@@ -15,7 +15,23 @@ This section covers changes in existing features.
 ### Data classification column renamed to DCS Verification Status
 Based on customer feedback, we have changed the display name of the `Data classification` column to `DCS Verification Status`.
 
-### OVD Voyage_Number column filterable
-Now, you can filter the `Voyage_Number` column by the name (text) of the data set you want to find and you will see the matching results (including partial matches).
+### Sortable columns SCC Voyage and Voyage Leg CII
 
-`Voyage_Number` is the column used in OVDS-LE (Leg emissions summary v1) and OVDS-LCII (Voyage Leg CII Summary V1).
+Now, you can sort the `SCC Voyage summary` column by:
+* CO2 Emitted Mt
+* Port From Code
+* Port To Code
+* Vessel Category PP
+* Vessel Type
+* Vessel Type Other
+* Voyage Id
+
+Now, you can sort the `Voyage Leg CII summary` column by:
+* CO2 Emitted Mt
+* Leg Mode
+* Port From Code
+* Port To Code
+* Vessel Type DCS
+* Vessel Type Other
+* Voyage Number
+* Year

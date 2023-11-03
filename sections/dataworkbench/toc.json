@@ -127,7 +127,7 @@
 			"items": [
 				{
 					"text": "Video tutorials",
-					"href": "tutorial/videtutorials.md"
+					"href": "tutorial/videotutorials.md"
 				},
 				{
 					"text": "Query data",
@@ -135,7 +135,7 @@
 				},
 				{
 					"text": "Call API endpoints",
-					"href": "tutorial/tutorial2.md.md"
+					"href": "tutorial/tutorial2.md"
 				}
 			]
 		}

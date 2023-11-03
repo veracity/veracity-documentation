@@ -123,12 +123,20 @@
 			"href": "apiendpoints.md"
 		},
 		{
-			"text": "Tutorial: query data",
-			"href": "tutorialq.md"
-		},
-		{
-			"text": "Tutorial: call API endpoints",
-			"href": "tutorial2.md"
+			"text": "Tutorials",
+			"items": [
+				{
+					"text": "Video tutorials",
+					"href": "tutorials/videotutorials.md"
+				},
+				{
+					"text": "Tutorial: query data",
+					"href": "tutorials/tutorialq.md"
+				},
+				{
+					"text": "Tutorial: call API endpoints",
+					"href": "tutorials/tutorial2.md"
+				}
+			]
 		}
-	]
 }

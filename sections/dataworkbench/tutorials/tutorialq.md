@@ -15,7 +15,7 @@ Get your API key and a bearer token to authenticate and authorize your calls. Se
 
 Find your workspace ID. To do so, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.
 <figure>
-	<img src="assets/workspaceid.png"/>
+	<img src="../assets/workspaceid.png"/>
 	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
 </figure>
 
@@ -26,7 +26,7 @@ Find the 'datasetId' for a data set you want to query:
 3. Copy the part of the URL after 'datasets'.
 
 <figure>
-	<img src="assets/datasetid.png"/>
+	<img src="../assets/datasetid.png"/>
 	<figcaption>The ID of a data set .</figcaption>
 </figure>
 

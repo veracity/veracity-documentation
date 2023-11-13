@@ -122,6 +122,27 @@ Below you can see an example of a successful response (code 200).
     "totalPages": 100
 ```
 
+<a name="ingest"></a> To get data ingest endpoint for current workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Ingest endpoint providing the ID of the workspace.
+
+In the request, you must provide:
+* [Authorization and authentication](authentication.md)
+* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
+
+Below you can see an example of a successful response (code 200).
+
+```json
+Request-Context: appId=cid-v1:859301ec-5104-4138-985a-c996fc1ecd3e
+X-Correlation-ID: 7799cc2c-8cf7-4170-95f3-275249f51b6f
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Expect-CT: max-age=2592000; enforce; report-uri="https://veracitycommon.report-uri.com/r/d/ct/enforce"
+Date: Mon, 13 Nov 2023 10:37:15 GMT
+WWW-Authenticate: Bearer,Bearer
+Content-Length: 0
+```
+
 ## Connectors and connections
 To see the connections a workspace uses, go to the **Connections** tab in your workspace.
 
@@ -415,6 +436,7 @@ Below you can see an example of a successful response (code 200).
     "totalCount": 100,
     "totalPages": 100
 ```
+
 ## Sample Python for calling the endpoints
 You can use the sample Python code below to call Data Workbench endpoints.
 ```json

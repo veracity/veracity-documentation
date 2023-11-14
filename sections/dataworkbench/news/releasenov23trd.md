@@ -35,7 +35,7 @@ US 500478
 Previously, data sets shared to your workspace were available in Data catalogue > Shared with me. Now, they are moved to Data catalogue > Created data sets.
 US 505804, US 502144, US 490227
 
-### Service accounts in Shared with me subtab
+### Service accounts on Shared with list in data set details
 Previously, in Data catalogue > data set > Shared with list, you didn't see the service accounts with the scope giving them access to the data sets shared with you. Now, you can see them in the data set info, and you can revoke their access.
 US 500869, US 500870, US 500871
 

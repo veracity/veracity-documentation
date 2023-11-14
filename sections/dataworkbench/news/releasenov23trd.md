@@ -20,14 +20,6 @@ US 490225
 Now, as a user, you can delete a data set that was shared with you. To do so, find the data set in Data catalogue > Shared with me and select the delete button.
 US 501196, US 508174, US 508175
 
-### See shared data sets in the Created data sets subtab
-Now, when a business partner has shared with you a data set, you see this data set in Data catalogue > Created data sets along with the data sets created in your workspace. 
-US 490227
-
-### See who shared the data set with you
-Now, a shared data set has the 'Shared by' column indicating who shared the data set.
-US 502144
-
 ### Data set type column
 Now, in the 'Created data sets' subtab, there is a new column called 'Type' that indicates whether a data set was created in the workspace ('Created'), shared to it ('Shared'), or uploaded ('Uploaded').
 US 490227, US 501622
@@ -36,15 +28,15 @@ US 490227, US 501622
 This section covers changes in existing features.
 
 ### Shared data sets on Home page
-Previously, shared data sets were not shown on your workspace's Home page. Now, they are visible on your Home page.
+Previously, data sets shared with your workspace were not shown on the Home page. Now, they are visible on your Home page.
 US 500478
 
 ### Workspace shares moved to Created data sets
 Previously, data sets shared to your workspace were available in Data catalogue > Shared with me. Now, they are moved to Data catalogue > Created data sets.
-US 505804
+US 505804, US 502144, US 490227
 
 ### Service accounts in Shared with me subtab
-Previously, in Data catalogue > Shared with me, you didn't see the service accounts with the scope giving them access to the data sets shared with you. Now, you can see them in the data set info, and you can revoke their access.
+Previously, in Data catalogue > data set > Shared with list, you didn't see the service accounts with the scope giving them access to the data sets shared with you. Now, you can see them in the data set info, and you can revoke their access.
 US 500869, US 500870, US 500871
 
 ### Column picker for shared data sets

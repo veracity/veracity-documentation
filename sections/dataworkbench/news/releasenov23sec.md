@@ -3,7 +3,7 @@ author: Veracity
 description: This is the changelog for the November 2023 second release of Data Workbench.
 ---
 
-# November 2023 release
+# November 2023 second release
 
 Release date: November 2023
 

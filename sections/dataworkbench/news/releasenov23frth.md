@@ -10,6 +10,4 @@ Read this page to learn what has changed in Veracity Data Workbench with the fou
 This section covers changes in existing features.
 
 ### Leg emissions summary renamed
-The following was renamed:
-* Schema named 'Leg emissions summary v1' renamed to 'Leg part emissions summary v1'.
-* Predefined data set 'Leg emissions summary v1' renamed to 'Leg part emissions summary v1'.
+Schema and predefined data set named 'Leg emissions summary v1' were renamed to 'Leg part emissions summary v1'.

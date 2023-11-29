@@ -16,7 +16,7 @@ If you want to see or use the Connector SDK API demo, [go to this repository](ht
 If you want to use the sample code provided below, you will need to check for the following information.
 
 ### API endpoints
-For a list of API endpoints, go [here](apiendpoints.md).
+For a list of API endpoints, go [here](../apiendpoints.md).
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](authentication.md).

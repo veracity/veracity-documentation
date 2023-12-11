@@ -4,9 +4,8 @@
     "\\schemas",
     "\\sections",
     "\\sections\\dataworkbench",
-    "\\sections\\vap",
-    "\\sections\\vap\\news"
+    "\\sections\\dataworkbench\\news"
   ],
-  "SelectedNode": "\\sections\\dataworkbench\\dataworkbench.md",
+  "SelectedNode": "\\sections\\dataworkbench\\news\\releasedec23.md",
   "PreviewInSolutionExplorer": false
 }

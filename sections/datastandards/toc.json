@@ -34,6 +34,10 @@
 					"href": "guides/portcalls.md"
 				},
 				{
+					"text": "How to report port codes where no UN/LOCODE exists",
+					"href": "guides/portcodes.md"
+				},
+				{
 					"text": "Start and end the OVD reporting",
 					"href": "guides/startendreporting.md"
 				},
@@ -44,6 +48,10 @@
 				{
 					"text": "Report for DNV’s Emissions Connect service",
 					"href": "guides/reportemissionsconnect.md"
+				},
+				{
+					"text": "Report Contract change for Emissions Connect",
+					"href": "guides/contractchange.md"
 				},
 				{
 					"text": "Report InPort shiftings",

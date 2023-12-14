@@ -9,5 +9,5 @@ Biofuels and their blends require additional parameter to be reported. Details o
 
 Please see also the document [How to report fuel consumption and ROBs using the BDN based method](http://standard.no/).
 
-## Service
+### Applicable services
 MRV / DCS/ EC

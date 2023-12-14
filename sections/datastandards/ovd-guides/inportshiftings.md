@@ -7,6 +7,6 @@ description: Description of Data Standards in Veracity
 
 [Related document](http://standard.no/)
 
-## Services
+### Applicable services
 MRV
 

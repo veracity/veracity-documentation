@@ -15,51 +15,51 @@
 			"items": [
 				{
 					"text": "Overview",
-					"href": "guides/overview.md"
+					"href": "ovd-guides/overview.md"
 				},
 				{
 					"text": "Report fuel consumption and ROBs using the BDN based method",
-					"href": "guides/fuelconsumption.md"
+					"href": "ovd-guides/fuelconsumption.md"
 				},
 				{
 					"text": "Report biofuels in the OVD Bunker report",
-					"href": "guides/biofuels.md"
+					"href": "ovd-guides/biofuels.md"
 				},
 				{
 					"text": "Correct discrepancies between fuel consumption and sounded ROBs",
-					"href": "guides/discrepancies.md"
+					"href": "ovd-guides/discrepancies.md"
 				},
 				{
 					"text": "Report port codes where no UN/LOCODE exists",
-					"href": "guides/portcalls.md"
+					"href": "ovd-guides/portcalls.md"
 				},
 				{
 					"text": "How to report port codes where no UN/LOCODE exists",
-					"href": "guides/portcodes.md"
+					"href": "ovd-guides/portcodes.md"
 				},
 				{
 					"text": "Start and end the OVD reporting",
-					"href": "guides/startendreporting.md"
+					"href": "ovd-guides/startendreporting.md"
 				},
 				{
 					"text": "Report STS operations for CII corrections",
-					"href": "guides/stsoperations.md"
+					"href": "ovd-guides/stsoperations.md"
 				},
 				{
 					"text": "Report for DNV’s Emissions Connect service",
-					"href": "guides/reportemissionsconnect.md"
+					"href": "ovd-guides/reportemissionsconnect.md"
 				},
 				{
 					"text": "Report Contract change for Emissions Connect",
-					"href": "guides/contractchange.md"
+					"href": "ovd-guides/contractchange.md"
 				},
 				{
 					"text": "Report InPort shiftings",
-					"href": "guides/inportshiftings.md"
+					"href": "ovd-guides/inportshiftings.md"
 				},
 				{
 					"text": "Report port calls not considered as port-of-call as per MRV regulation",
-					"href": "guides/portcalls.md"
+					"href": "ovd-guides/portcalls.md"
 				}
 			]
 		},

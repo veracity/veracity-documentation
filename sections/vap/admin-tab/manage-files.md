@@ -40,7 +40,7 @@ Note that:
 * If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
 * If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
 
-#### To use Azure Analysis Service as a data source
+### To use Azure Analysis Service as a data source
 <a id="AAS"></a>
 To be able to load data, add a Veracity VAP service account to your your Azure Analysis Services Cube for PowerBI:
 * If your VAP service URL starts with insight.**dnv**.com, add 'srvPBIAppPBIEProd@dnv.onmicrosoft.com' to your Azure Analysis Services Cube for PowerBI.

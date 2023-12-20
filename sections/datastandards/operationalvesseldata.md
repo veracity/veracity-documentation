@@ -5,7 +5,7 @@ description: Description of Operational Vessel Data Standards in Veracity
 
 # Operational Vessel Data (OVD)
 
- <a href="https://raw.githubusercontent.com/veracity/veracity-documentation/master/sections/datastandards/assets/OVD3.5interfacedescription.xlsx" download>
+ <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/OVD%203.6%20interface%20description.xlsx" download>
     <img src="assets/Btn-InterfaceDescription.png" alt="Interface Description" height="40">
   </a>
 
@@ -33,7 +33,7 @@ Operational Vessel Data (OVD) is a standard for log abstracts and other operatio
 
 The OVD data service on Veracity is continuously assuring data from thousands of vessels. By submitting data to Veracity OVD, your data is structured, analyzed, enriched and quality assured before you have the option to use it in one of the many services running on Veracity, like MRV and DCS/CII verification, Emissions Connect, or to share quality assured data via the Veracity Data Workbench with stakeholders or other parties or solutions that will utilize your data, like Poseidon Principles or Sea Cargo Charter. 
 
-A full and comprehensive description of the OVD standard can be found in the [OVD Interface Description](https://raw.githubusercontent.com/veracity/veracity-documentation/master/sections/datastandards/assets/OVD3.5interfacedescription.xlsx). To further learn, play with and test your OVD data, the [OVD Guide](https://ovdguide.veracityapp.com) has interactive guidance to the most important elements of OVD and allow you to test upload files. 
+A full and comprehensive description of the OVD standard can be found in the [OVD Interface Description](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/OVD%203.6%20interface%20description.xlsx). To further learn, play with and test your OVD data, the [OVD Guide](https://ovdguide.veracityapp.com) has interactive guidance to the most important elements of OVD and allow you to test upload files. 
 
 OVD consists of several schemas. A schema is a definition of how to fill in the operational vessel data, with defined columns and clear rules for what to put into each of the columns/rows. The two most used schemas in OVD are Log Abstract (LA), listing all key events from the vessels’ operations, and the Bunker Reports (BR), listing all bunkers in the relevant period. Both the Log Abstract and the Bunker Reports are required for DNV’s verification services, like MRV and DCS/CII verification. 
 

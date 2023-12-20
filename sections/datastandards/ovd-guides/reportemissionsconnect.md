@@ -5,7 +5,7 @@ description: Description of Data Standards in Veracity
 
 # How to report contract change for Emissions Connect
 
-<a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/SamplePDF.pdf" download>
+<a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20'contract%20change'.pdf" download>
     <img src="assets/download.png" alt="Download PDF" height="40">
   </a>
   <br>

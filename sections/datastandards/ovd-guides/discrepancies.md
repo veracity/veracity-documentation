@@ -5,7 +5,7 @@ description: Description of Data Standards in Veracity
 
 # How to correct discrepancies between fuel consumption and sounded ROBs
 
-<a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/SamplePDF.pdf" download>
+<a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20bunker%20corrections.pdf" download>
     <img src="assets/download.png" alt="Download PDF" height="40">
   </a>
   <br>

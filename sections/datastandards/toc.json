@@ -11,6 +11,59 @@
 			"href": "operationalvesseldata.md"
 		},
 		{
+			"text": "DNV guides on using OVD",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "ovd-guides/overview.md"
+				},
+				{
+					"text": "Report fuel consumption and ROBs using the BDN based method",
+					"href": "ovd-guides/fuelconsumption.md"
+				},
+				{
+					"text": "Report biofuels in the OVD Bunker report",
+					"href": "ovd-guides/biofuels.md"
+				},
+				{
+					"text": "Correct discrepancies between fuel consumption and sounded ROBs",
+					"href": "ovd-guides/discrepancies.md"
+				},
+				{
+					"text": "Report port codes where no UN/LOCODE exists",
+					"href": "ovd-guides/portcalls.md"
+				},
+				{
+					"text": "How to report port codes where no UN/LOCODE exists",
+					"href": "ovd-guides/portcodes.md"
+				},
+				{
+					"text": "Start and end the OVD reporting",
+					"href": "ovd-guides/startendreporting.md"
+				},
+				{
+					"text": "Report STS operations for CII corrections",
+					"href": "ovd-guides/stsoperations.md"
+				},
+				{
+					"text": "Report for DNV’s Emissions Connect service",
+					"href": "ovd-guides/reportemissionsconnect.md"
+				},
+				{
+					"text": "Report Contract change for Emissions Connect",
+					"href": "ovd-guides/contractchange.md"
+				},
+				{
+					"text": "Report InPort shiftings",
+					"href": "ovd-guides/inportshiftings.md"
+				},
+				{
+					"text": "Report port calls not considered as port-of-call as per MRV regulation",
+					"href": "ovd-guides/portcalls.md"
+				}
+			]
+		},
+		{
 			"text": "ISO 19847 and ISO 19848",
 			"href": "iso19847iso19848.md"
 		},

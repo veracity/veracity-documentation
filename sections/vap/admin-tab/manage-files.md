@@ -29,15 +29,31 @@ To upload a file:
 3. For Power BI reports, decide on the **Privacy Level**. For details, see the subsection below.
 4. Toggle "I accept and understand that I'm responsible for the content I share in my report".
 5. In the **Name** field, provide the name for the file. Veracity recommends including in the file name information that would help recognize the latest version of the file, such as, for example, the client's name, the report's date, and the upload date.
-6. Under **Personal data policy**, confirm whether you are uploading personal data. If you upload personal data, you agree to process it according to Veracity DPA (linked in the upload window).
-7. If you are using Azure Analysis Service, toggle "I am using Azure Analysis Service".
-8. In the right corner, select the **Upload** button.
+6. Optionally, toggle **I am using Azure Analysis Service**. Using this as a data source will load your data significantly faster than from Azure SQL DB. **Before enabling this toggle**, check the prerequisites under <a href="#AAS">'To use Azure Analysis Service as a data source'</a>.
+7. Under **Personal data policy**, confirm whether you are uploading personal data. If you upload personal data, you agree to process it according to Veracity DPA (linked in the upload window).
+8. If you are using Azure Analysis Service, toggle "I am using Azure Analysis Service".
+9. In the right corner, select the **Upload** button.
 
 If you get a warning when VAP checks your report's data sources, follow the troubleshooting recommended in the warning. 
 
 Note that:
 * If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
 * If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
+
+#### To use Azure Analysis Service as a data source
+<a id="AAS"></a>
+To be able to load data, add a Veracity VAP service account to your your Azure Analysis Services Cube for PowerBI:
+* If your VAP service URL starts with insight.**dnv**.com, add 'srvPBIAppPBIEProd@dnv.onmicrosoft.com' to your Azure Analysis Services Cube for PowerBI.
+* If your VAP service URL starts with insight.**veracity**.com, add 'srvPBIAppPBIEProdVAP@dnv.onmicrosoft.com' to your Azure Analysis Services Cube for PowerBI.
+
+When uploading your report file (step six above), enable 'I am using Azure Analysis Service'.
+<figure>
+	<img src="assets/aas.png"/>
+</figure>
+
+After this, VAP will pass the Veracity user 'GUID' (the unique Veracity user ID) to the 'CustomData' field in your report. The CustomData feature lets you add a Row filter in your Power BI report. Then, your report can control what Power BI data the user can view.
+
+For more information, refer to [Power BI documentation](https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fpower-bi%2Fdeveloper%2Fembedded%2Fembedded-row-level-security&data=05%7C02%7CMichal.Zieba%40dnv.com%7Cf56e31065363481d6fdc08dbfc95dc7e%7Cadf10e2bb6e941d6be2fc12bb566019c%7C0%7C0%7C638381492816141580%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=l%2FsdbYT6obGcAl6T8ijvWheeWEariONKXRPzvPFYKOE%3D&reserved=0).
 
 ### Privacy Level
 

@@ -42,7 +42,7 @@ Note that:
 
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>
-To be able to load data, add a Veracity VAP service account to your your Azure Analysis Services Cube for PowerBI:
+To be able to load data, add a Veracity VAP service account to your Azure Analysis Services Cube for PowerBI:
 * If your VAP service URL starts with insight.**dnv**.com, add 'srvPBIAppPBIEProd@dnv.onmicrosoft.com' to your Azure Analysis Services Cube for PowerBI.
 * If your VAP service URL starts with insight.**veracity**.com, add 'srvPBIAppPBIEProdVAP@dnv.onmicrosoft.com' to your Azure Analysis Services Cube for PowerBI.
 

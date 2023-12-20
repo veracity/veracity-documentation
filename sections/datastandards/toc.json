@@ -54,10 +54,6 @@
 					"href": "ovd-guides/contractchange.md"
 				},
 				{
-					"text": "Report InPort shiftings",
-					"href": "ovd-guides/inportshiftings.md"
-				},
-				{
 					"text": "Report port calls not considered as port-of-call as per MRV regulation",
 					"href": "ovd-guides/portcalls.md"
 				}

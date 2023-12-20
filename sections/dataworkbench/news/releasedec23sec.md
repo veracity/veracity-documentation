@@ -18,7 +18,7 @@ Now, in the Data catalogue tab, you can select the **Add filter** button and add
 * **Created** meaning filter by the time the data set was created. Optionally, you can add start and end dates.
 * **Tags** meaning the data set key (search with text), and after finding and selecting a matching key, you can select the value you want to filter by. 
 
-Note that the 'Add filter' button is disabled for data sets that were shared with you (Data catalogue > Shared with me).
+Note that there is no 'Add filter' button for data sets that were shared with you (Data catalogue > Shared with me).
 
 <figure>
 	<img src="assets/filter.png"/>

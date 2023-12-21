@@ -11,7 +11,8 @@ description: Description of Data Standards in Veracity
   <br>
   <br>
 
-The OVD data must be aligned with the verification periods for MRV and DCS. Guidance on how to ensure this is given [in this document](http://standard.no/).
+The OVD data must be aligned with the verification periods for MRV and DCS. Guidance on how to ensure this is given [in this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20start%20and%20end%20reporting.pdf).
+
 
 **Applicable services**
 MRV/DCS/EC

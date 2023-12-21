@@ -11,7 +11,7 @@ description: Description of Data Standards in Veracity
   <br>
   <br>
 
-[This document](http://standard.no/) describes the differences between Fuel Type and BDN based consumption and ROB reporting. Furthermore, you find details and examples on fuel mixing and topping up.
+[This document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/BDN%20based%20reporting%20in%20OVD.pdf) describes the differences between Fuel Type and BDN based consumption and ROB reporting. Furthermore, you find details and examples on fuel mixing and topping up.
 
 
 **Applicable services**

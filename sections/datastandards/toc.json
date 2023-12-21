@@ -18,8 +18,12 @@
 					"href": "ovd-guides/overview.md"
 				},
 				{
+					"text": "Report for DNV’s Emissions Connect service",
+					"href": "ovd-guides/reportemissionsconnect.md"
+				},
+				{
 					"text": "Report fuel consumption and ROBs using the BDN based method",
-					"href": "ovd-guides/fuelconsumption.md"
+					"href": "ovd-guides/bdn-based-reporting.md"
 				},
 				{
 					"text": "Report biofuels in the OVD Bunker report",
@@ -27,14 +31,10 @@
 				},
 				{
 					"text": "Correct discrepancies between fuel consumption and sounded ROBs",
-					"href": "ovd-guides/discrepancies.md"
+					"href": "ovd-guides/rob-discrepancies.md"
 				},
 				{
 					"text": "Report port codes where no UN/LOCODE exists",
-					"href": "ovd-guides/portcalls.md"
-				},
-				{
-					"text": "How to report port codes where no UN/LOCODE exists",
 					"href": "ovd-guides/portcodes.md"
 				},
 				{
@@ -43,11 +43,7 @@
 				},
 				{
 					"text": "Report STS operations for CII corrections",
-					"href": "ovd-guides/stsoperations.md"
-				},
-				{
-					"text": "Report for DNV’s Emissions Connect service",
-					"href": "ovd-guides/reportemissionsconnect.md"
+					"href": "ovd-guides/stsoperations-cii.md"
 				},
 				{
 					"text": "Report Contract change for Emissions Connect",

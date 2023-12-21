@@ -11,7 +11,8 @@ description: Description of Data Standards in Veracity
   <br>
   <br>
 
-The CII can be reduced for eligible ships and under certain voyage conditions when performing STS operations. [In this document](http://standard.no/) it is described how to report STS operations such that the reduction is applied to the CII.
+The CII can be reduced for eligible ships and under certain voyage conditions when performing STS operations. [In this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20STS%20operations%20for%20CII%20corrections.pdf) it is described how to report STS operations such that the reduction is applied to the CII.
+
 
 **Applicable services**
 DCS

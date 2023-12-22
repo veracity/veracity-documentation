@@ -1,9 +1,9 @@
 ---
 author: Veracity
-description: Description of Data Standards in Veracity
+description: Additional reporting requirements for DNV’s Emissions Connect service
 ---
 
-# How to report contract change for Emissions Connect
+# Additional reporting requirements for DNV's Emissions Connect service
 
 <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20for%20DNV%E2%80%99s%20Emissions%20Connect%20service.pdf" download>
     <img src="assets/download.png" alt="Download PDF" height="40">
@@ -11,12 +11,9 @@ description: Description of Data Standards in Veracity
   <br>
   <br>
 
-EU ETS is following the berth-to-berth concept introduces by EU and IMO. Hence, the total emissions and finally the EUAs are applied to voyages between berths of different ports and at berth of the same port.
 
-However, in the commercial setting it might be wanted to get the emissions and the EUAs verified for different periods, e.g., the charter period. How to report a break of voyages ant their associated emissions and EUAs is described [in this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20for%20DNV%E2%80%99s%20Emissions%20Connect%20service.pdf).
+Generally speaking, the OVD data one uses for DNV's MRV and DCS verification services is the same as used for Emissions Connect. There are only a few additional requirements which are described [in this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20for%20DNV%E2%80%99s%20Emissions%20Connect%20service.pdf).
 
 
 **Applicable services**
 EC
-
-

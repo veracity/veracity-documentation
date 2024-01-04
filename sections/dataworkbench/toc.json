@@ -9,7 +9,11 @@
 			"text": "What is new?",
 			"items": [
 				{
-					"text": "December 2023",
+					"text": "December 2023 second release",
+					"href": "news/releasedec23sec.md"
+				},
+				{
+					"text": "December 2023 release",
 					"href": "news/releasedec23.md"
 				},
 				{

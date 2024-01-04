@@ -1,11 +1,11 @@
 ---
 author: Veracity
-description: This is the changelog for the second December 2023 release of Data Workbench.
+description: This is the changelog for the January 2024 release of Data Workbench.
 ---
 
-# December 2023 second release
+# January 2024 release
 
-Read this page to learn what has changed in Veracity Data Workbench with the second December 2023 release.
+Read this page to learn what has changed in Veracity Data Workbench with the January 2024 release.
 
 ## New features
 This section covers new features.

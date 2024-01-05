@@ -9,8 +9,8 @@ paths:
     get:
       tags:
         - v1.0 Access
-      summary: Retrieves a list of Providers that have access to a specified resource.
-      description: "Get a list of all providers with accesses for a given storage item per page, using a page number and page size.\r\nNote the variable keyCreatedTimeUTC is the time the SAS key generated is valid from,\r\nthis is set one hour in the past from the time created this to avoid Azure time skew issues."
+      summary: List Resource Providers
+      description: "Get a list of all providers with accesses for a given storage item per page, using a page number and page size.\r\nNote the variable keyCreatedTimeUTC is the time the SAS key generated is valid from,\r\nthis is set one hour in the past from the time created this to avoid azure time skew issues."
       operationId: v1-0Access_Get
       parameters:
         - name: resourceId
@@ -33,12 +33,68 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedResult_ProviderAccessVM_'
+              example:
+                results:
+                  - userId: string
+                    ownerId: string
+                    grantedById: string
+                    accessSharingId: string
+                    keyCreated: true
+                    autoRefreshed: true
+                    keyCreatedTimeUTC: string
+                    keyExpiryTimeUTC: string
+                    resourceType: string
+                    accessHours: 0
+                    accessKeyTemplateId: string
+                    attribute1: true
+                    attribute2: true
+                    attribute3: true
+                    attribute4: true
+                    resourceId: string
+                    ipRange:
+                      startIp: string
+                      endIp: string
+                    comment: string
+                page: 0
+                resultsPerPage: 0
+                totalPages: 0
+                totalResults: 0
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PagedResult_ProviderAccessVM_'
+              example:
+                results:
+                  - userId: string
+                    ownerId: string
+                    grantedById: string
+                    accessSharingId: string
+                    keyCreated: true
+                    autoRefreshed: true
+                    keyCreatedTimeUTC: string
+                    keyExpiryTimeUTC: string
+                    resourceType: string
+                    accessHours: 0
+                    accessKeyTemplateId: string
+                    attribute1: true
+                    attribute2: true
+                    attribute3: true
+                    attribute4: true
+                    resourceId: string
+                    ipRange:
+                      startIp: string
+                      endIp: string
+                    comment: string
+                page: 0
+                resultsPerPage: 0
+                totalPages: 0
+                totalResults: 0
     post:
       tags:
         - v1.0 Access
-      summary: Share access to another user for the specified resource
+      summary: Share Resource Access to User
       description: Share access to another user for the specified resource
       operationId: v1-0Access_Post
       parameters:
@@ -57,19 +113,57 @@ paths:
       requestBody:
         description: ''
         content:
-          application/json: { }
-          text/json: { }
-          application/xml: { }
-          text/xml: { }
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingResourceInputData'
+            example:
+              userId: string
+              accessKeyTemplateId: string
+              comment: string
+              ipRange:
+                startIp: string
+                endIp: string
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SharingResourceInputData'
+            example:
+              userId: string
+              accessKeyTemplateId: string
+              comment: string
+              ipRange:
+                startIp: string
+                endIp: string
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SharingResourceInputData'
+            example: <SharingResourceInputData> <userId>string</userId> <accessKeyTemplateId>string</accessKeyTemplateId> <comment>string</comment> <ipRange> <startIp>string</startIp> <endIp>string</endIp> </ipRange> </SharingResourceInputData>
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/SharingResourceInputData'
+            example: <SharingResourceInputData> <userId>string</userId> <accessKeyTemplateId>string</accessKeyTemplateId> <comment>string</comment> <ipRange> <startIp>string</startIp> <endIp>string</endIp> </ipRange> </SharingResourceInputData>
           application/x-www-form-urlencoded: { }
       responses:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShareResourceVM'
+              example:
+                accessSharingId: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ShareResourceVM'
+              example:
+                accessSharingId: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShareResourceVM'
+              example: <ShareResourceVM> <accessSharingId>string</accessSharingId> </ShareResourceVM>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ShareResourceVM'
+              example: <ShareResourceVM> <accessSharingId>string</accessSharingId> </ShareResourceVM>
         '400':
           description: BadRequest
           content:
@@ -88,8 +182,8 @@ paths:
     put:
       tags:
         - v1.0 Access
-      summary: Revoke an users ability to refresh keys on a resource
-      description: Revoke an users ability to refresh keys on a resource
+      summary: Update SAS Key Access
+      description: Revokes user access to refresh sas keys on a resource
       operationId: v1-0Access_Put
       parameters:
         - name: resourceId
@@ -130,8 +224,8 @@ paths:
     put:
       tags:
         - v1.0 Access
-      summary: Fetch a SAS key to access the storage item shared with you
-      description: Fetch a SAS key to access the storage item shared with you
+      summary: Update SAS Key
+      description: "Generate and update new SAS Key for the storage item to access storage items\r\nSuccess response returns the newly generate SAS Key"
       operationId: v1-0Access_ClaimKey
       parameters:
         - name: resourceId
@@ -146,14 +240,49 @@ paths:
           required: true
           schema:
             type: string
+        - name: accessUserId
+          in: query
+          description: 'Format - uuid. Access owner Id - only if owner is different than context user, provided by allowed application'
+          schema:
+            type: string
       responses:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example:
+                sasKey: string
+                sasuRi: string
+                fullKey: string
+                sasKeyExpiryTimeUTC: string
+                isKeyExpired: true
+                autoRefreshed: true
+                ipRange:
+                  startIp: string
+                  endIp: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example:
+                sasKey: string
+                sasuRi: string
+                fullKey: string
+                sasKeyExpiryTimeUTC: string
+                isKeyExpired: true
+                autoRefreshed: true
+                ipRange:
+                  startIp: string
+                  endIp: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example: <SASToken> <sasKey>string</sasKey> <sasuRi>string</sasuRi> <fullKey>string</fullKey> <sasKeyExpiryTimeUTC>string</sasKeyExpiryTimeUTC> <isKeyExpired>true</isKeyExpired> <autoRefreshed>true</autoRefreshed> <ipRange> <startIp>string</startIp> <endIp>string</endIp> </ipRange> </SASToken>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example: <SASToken> <sasKey>string</sasKey> <sasuRi>string</sasuRi> <fullKey>string</fullKey> <sasKeyExpiryTimeUTC>string</sasKeyExpiryTimeUTC> <isKeyExpired>true</isKeyExpired> <autoRefreshed>true</autoRefreshed> <ipRange> <startIp>string</startIp> <endIp>string</endIp> </ipRange> </SASToken>
         '404':
           description: Resource or access sharing not found
           content:
@@ -172,10 +301,28 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example:
+                id: string
+                companyId: string
+                role: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example:
+                id: string
+                companyId: string
+                role: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example: <Application> <id>string</id> <companyId>string</companyId> <role>string</role> </Application>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example: <Application> <id>string</id> <companyId>string</companyId> <role>string</role> </Application>
         '404':
           description: NotFound
           content:
@@ -186,16 +333,34 @@ paths:
     post:
       tags:
         - v1.0 Application
-      summary: Add a new application to Veracity data fabric.
-      description: Needs to have the role "DataAdmin" to perform this action
+      summary: Create Application
+      description: "Creates a new application in veracity data fabric.\r\nNote: User should have \"DataAdmin\" role to perform this action"
       operationId: v1-0Application_Create
       requestBody:
         description: ''
         content:
-          application/json: { }
-          text/json: { }
-          application/xml: { }
-          text/xml: { }
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+            example:
+              id: string
+              companyId: string
+              role: string
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+            example:
+              id: string
+              companyId: string
+              role: string
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Application'
+            example: <Application> <id>string</id> <companyId>string</companyId> <role>string</role> </Application>
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/Application'
+            example: <Application> <id>string</id> <companyId>string</companyId> <role>string</role> </Application>
           application/x-www-form-urlencoded: { }
       responses:
         '200':
@@ -223,8 +388,8 @@ paths:
     get:
       tags:
         - v1.0 Application
-      summary: Gets information about an application in Veracity data fabric.
-      description: Gets information about an application in Veracity data fabric.
+      summary: Get Application Detail
+      description: Returns information about an application in Veracity Data Fabric
       operationId: v1-0Application_Get
       parameters:
         - name: applicationId
@@ -237,10 +402,28 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example:
+                id: string
+                companyId: string
+                role: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example:
+                id: string
+                companyId: string
+                role: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example: <Application> <id>string</id> <companyId>string</companyId> <role>string</role> </Application>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Application'
+              example: <Application> <id>string</id> <companyId>string</companyId> <role>string</role> </Application>
         '404':
           description: The application was not found.
           content:
@@ -251,8 +434,8 @@ paths:
     put:
       tags:
         - v1.0 Application
-      summary: Update role of a application on Veracity data fabric.
-      description: Needs to have the role "DataAdmin" to perform this action
+      summary: Update Application Role
+      description: "Update application role on Veracity Data Fabric\r\nNeeds to have the role \"DataAdmin\" to perform this action"
       operationId: v1-0Application_UpdateRole
       parameters:
         - name: applicationId
@@ -270,7 +453,6 @@ paths:
               - none
               - manager
               - consumer
-              - fullAll
               - identity
               - dataAdmin
             type: string
@@ -293,8 +475,8 @@ paths:
     get:
       tags:
         - v1.0 DataStewards
-      summary: Retrieve a list of data stewards for the resource
-      description: Retrieve a list of data stewards for the resource
+      summary: List Resource Data Stewards
+      description: Returns the list of data stewards for the resource
       operationId: v1-0DataStewards_GetDataStewardsByResourceId
       parameters:
         - name: resourceId
@@ -307,10 +489,30 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataStewardVMArray'
+              example:
+                - userId: string
+                  resourceId: string
+                  grantedBy: string
+                  comment: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DataStewardVMArray'
+              example:
+                - userId: string
+                  resourceId: string
+                  grantedBy: string
+                  comment: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DataStewardVMArray'
+              example: <DataStewardVMArray> <userId>string</userId> <resourceId>string</resourceId> <grantedBy>string</grantedBy> <comment>string</comment> </DataStewardVMArray>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DataStewardVMArray'
+              example: <DataStewardVMArray> <userId>string</userId> <resourceId>string</resourceId> <grantedBy>string</grantedBy> <comment>string</comment> </DataStewardVMArray>
         '404':
           description: ''
           content:
@@ -322,8 +524,8 @@ paths:
     put:
       tags:
         - v1.0 DataStewards
-      summary: "Transfer the ownership of the Azure resource to a specified user. \r\nBoth previous and the new owner should be affiliated with the same company."
-      description: Returns the Azure resource with updated OwnerId field.
+      summary: Update Azure Resource Transfer Ownership
+      description: "Transfer ownership of the Azure resource to a specified user. \r\nBoth previous and the new owner should be affiliated with the same company.\r\nReturns the Azure resource with updated OwnerId field."
       operationId: v1-0DataStewards_TransferOwnership
       parameters:
         - name: resourceId
@@ -347,10 +549,60 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageResourcesVM'
+              example:
+                resourceId: string
+                resourceName: string
+                resourceUrl: string
+                lastModifiedUTC: string
+                creationDateTimeUTC: string
+                ownerId: string
+                resourceType: string
+                resourceRegion: string
+                mayContainPersonalData: unknown
+                metadata:
+                  title: string
+                  description: string
+                  icon:
+                    id: string
+                    backgroundColor: string
+                  tags:
+                    - id: string
+                      title: string
+                      type: tag
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StorageResourcesVM'
+              example:
+                resourceId: string
+                resourceName: string
+                resourceUrl: string
+                lastModifiedUTC: string
+                creationDateTimeUTC: string
+                ownerId: string
+                resourceType: string
+                resourceRegion: string
+                mayContainPersonalData: unknown
+                metadata:
+                  title: string
+                  description: string
+                  icon:
+                    id: string
+                    backgroundColor: string
+                  tags:
+                    - id: string
+                      title: string
+                      type: tag
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StorageResourcesVM'
+              example: <StorageResourcesVM> <resourceId>string</resourceId> <resourceName>string</resourceName> <resourceUrl>string</resourceUrl> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <resourceType>string</resourceType> <resourceRegion>string</resourceRegion> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </StorageResourcesVM>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/StorageResourcesVM'
+              example: <StorageResourcesVM> <resourceId>string</resourceId> <resourceName>string</resourceName> <resourceUrl>string</resourceUrl> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <resourceType>string</resourceType> <resourceRegion>string</resourceRegion> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </StorageResourcesVM>
         '400':
           description: 'During the validation none of the users were set as the new Owner of the resource. The reasons can be following: the resource doesn''t exist in Veracity system, you don''t have the ownership of the resource, you provided the same userId that owns the resource (yourself), provided user doesn''t have a role of Data Manager or provided user doesn''t exist in the Veracity Identity System'
           content:
@@ -362,8 +614,8 @@ paths:
     post:
       tags:
         - v1.0 DataStewards
-      summary: Delegate the rights to use the Azure resource to another Veracity user.
-      description: "If a DataSteward with this user id exist on this resource, it will be updated.\r\nReturns the Users that DataSteward for the provided resource was assigned to."
+      summary: Create Azure resource rights to user
+      description: "Assign the azure resource usage rights to another veracity user. \r\nIf datasteward with userId exist on this resource then record will be updated.\r\nSuccess response returns the user that DataSteward for the provided resource was assigned to."
       operationId: v1-0DataStewards_Post
       parameters:
         - name: resourceId
@@ -381,19 +633,53 @@ paths:
       requestBody:
         description: Data-stewardship optional details
         content:
-          application/json: { }
-          text/json: { }
-          application/xml: { }
-          text/xml: { }
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataStewardInputVm'
+            example:
+              comment: string
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DataStewardInputVm'
+            example:
+              comment: string
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DataStewardInputVm'
+            example: <DataStewardInputVm> <comment>string</comment> </DataStewardInputVm>
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DataStewardInputVm'
+            example: <DataStewardInputVm> <comment>string</comment> </DataStewardInputVm>
           application/x-www-form-urlencoded: { }
       responses:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataStewardVM'
+              example:
+                userId: string
+                resourceId: string
+                grantedBy: string
+                comment: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DataStewardVM'
+              example:
+                userId: string
+                resourceId: string
+                grantedBy: string
+                comment: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DataStewardVM'
+              example: <DataStewardVM> <userId>string</userId> <resourceId>string</resourceId> <grantedBy>string</grantedBy> <comment>string</comment> </DataStewardVM>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DataStewardVM'
+              example: <DataStewardVM> <userId>string</userId> <resourceId>string</resourceId> <grantedBy>string</grantedBy> <comment>string</comment> </DataStewardVM>
         '400':
           description: 'During the validation the users were not saved as the Data Steward for the provided Azure Resource.The reasons can be following: the resource doesn''t exist in Veracity system, you don''t have the ownership of the resource, user already is a Data Steward for this container, user is an owner of the resource (yourself), or user doesn''t exist in the Veracity Identity System'
           content:
@@ -404,8 +690,8 @@ paths:
     delete:
       tags:
         - v1.0 DataStewards
-      summary: Delete a data stewards
-      description: The user must be the owner of the resource to be able to delete datastewards
+      summary: Delete Data Steward
+      description: "Deletes the datasteward for the resource\r\nNote: The user must be the owner of the resource to delete the datasteward."
       operationId: v1-0DataStewards_Delete
       parameters:
         - name: resourceId
@@ -422,7 +708,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Datasteward is deleted
+          description: Data steward is deleted
           content:
             application/json: { }
             text/json: { }
@@ -436,7 +722,7 @@ paths:
             application/xml: { }
             text/xml: { }
         '404':
-          description: If resource or datasteward was not found.
+          description: If resource or data steward was not found.
           content:
             application/json: { }
             text/json: { }
@@ -446,75 +732,114 @@ paths:
     get:
       tags:
         - v1.0 KeyTemplates
-      summary: Returns the templates for the different types of keys you can generate.
-      description: "Returns the template for the different types of keys you can generate.\r\nBlob Storage is the only storage type supported at the moment.\r\n            \r\nSupported access types for the Blob Storage types are as follows:\r\n    1. Write key\r\n    2. Read and list key\r\n    3. Read, write and list key\r\n    4. Read, write, delete and list key\r\nFor Each access type there are key templates that lasts 1 h, 8 h, 1 month, 2 months, 3 months, 4 months, 5 months and 6 months.\r\n            \r\nNote : \"IsSystemKey\" field in the result data is not relevant for the functionality currently supported. Please ignore that field."
+      summary: List SASKey Templates
+      description: "Returns the templates for the different types of keys you can generate.\r\nBlob Storage is the only storage type supported at the moment.\r\n            \r\nSupported access types for the Blob Storage types are as follows:\r\n    1. Write key\r\n    2. Read and list key\r\n    3. Read, write and list key\r\n    4. Read, write, delete and list key\r\nFor Each access type there are key templates that lasts 1 h, 8 h, 1 month, 2 months, 3 months, 4 months, 5 months and 6 months.\r\n            \r\nNote : \"IsSystemKey\" field in the result data is not relevant for the functionality currently supported. Please ignore that field."
       operationId: v1-0KeyTemplates_GetStorageKeyTemplates
       responses:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
-  '/api/1/resource/{resourceId}/ledger':
-    get:
-      tags:
-        - v1.0 Ledger
-      summary: Returns a list of ledger records
-      description: "Endpoint returns a list of ledger records.\r\nA ledger record is an action done to a container, ex; creating a file, sharing a key."
-      operationId: v1-0Ledger_Get
-      parameters:
-        - name: resourceId
-          in: path
-          description: Format - uuid. Veracity resource id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Returns a list ledger records
-          content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
-        '403':
-          description: Not owner of container
-          content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
-        '404':
-          description: Resource was not found
-          content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
-        '500':
-          description: Unexpected server error
-          content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyTemplateVMArray'
+              example:
+                - id: string
+                  name: string
+                  totalHours: 0
+                  isSystemKey: true
+                  description: string
+                  attribute1: true
+                  attribute2: true
+                  attribute3: true
+                  attribute4: true
+            text/json:
+              schema:
+                $ref: '#/components/schemas/KeyTemplateVMArray'
+              example:
+                - id: string
+                  name: string
+                  totalHours: 0
+                  isSystemKey: true
+                  description: string
+                  attribute1: true
+                  attribute2: true
+                  attribute3: true
+                  attribute4: true
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/KeyTemplateVMArray'
+              example: <KeyTemplateVMArray> <id>string</id> <name>string</name> <totalHours>0</totalHours> <isSystemKey>true</isSystemKey> <description>string</description> <attribute1>true</attribute1> <attribute2>true</attribute2> <attribute3>true</attribute3> <attribute4>true</attribute4> </KeyTemplateVMArray>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KeyTemplateVMArray'
+              example: <KeyTemplateVMArray> <id>string</id> <name>string</name> <totalHours>0</totalHours> <isSystemKey>true</isSystemKey> <description>string</description> <attribute1>true</attribute1> <attribute2>true</attribute2> <attribute3>true</attribute3> <attribute4>true</attribute4> </KeyTemplateVMArray>
   /api/1/resources:
     get:
       tags:
         - v1.0 Resources
-      summary: Fetches all storage resources that you can claim keys for
-      description: Fetches all storage resources that you can claim keys for
+      summary: List User Storage Accounts
+      description: "Return the list of user storage accounts\r\nNote: The user must be the owner of the resource to delete the datasteward."
       operationId: v1-0Resources_Get
       responses:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceArray'
+              example:
+                - id: string
+                  reference: string
+                  url: string
+                  lastModifiedUTC: string
+                  creationDateTimeUTC: string
+                  ownerId: string
+                  accessLevel: owner
+                  region: string
+                  keyStatus: noKeys
+                  mayContainPersonalData: unknown
+                  metadata:
+                    title: string
+                    description: string
+                    icon:
+                      id: string
+                      backgroundColor: string
+                    tags:
+                      - id: string
+                        title: string
+                        type: tag
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResourceArray'
+              example:
+                - id: string
+                  reference: string
+                  url: string
+                  lastModifiedUTC: string
+                  creationDateTimeUTC: string
+                  ownerId: string
+                  accessLevel: owner
+                  region: string
+                  keyStatus: noKeys
+                  mayContainPersonalData: unknown
+                  metadata:
+                    title: string
+                    description: string
+                    icon:
+                      id: string
+                      backgroundColor: string
+                    tags:
+                      - id: string
+                        title: string
+                        type: tag
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceArray'
+              example: <ResourceArray> <id>string</id> <reference>string</reference> <url>string</url> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <accessLevel>owner</accessLevel> <region>string</region> <keyStatus>noKeys</keyStatus> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </ResourceArray>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceArray'
+              example: <ResourceArray> <id>string</id> <reference>string</reference> <url>string</url> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <accessLevel>owner</accessLevel> <region>string</region> <keyStatus>noKeys</keyStatus> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </ResourceArray>
   '/api/1/resources/{resourceId}':
     get:
       tags:
@@ -533,10 +858,62 @@ paths:
         '200':
           description: Returns a single resource
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example:
+                id: string
+                reference: string
+                url: string
+                lastModifiedUTC: string
+                creationDateTimeUTC: string
+                ownerId: string
+                accessLevel: owner
+                region: string
+                keyStatus: noKeys
+                mayContainPersonalData: unknown
+                metadata:
+                  title: string
+                  description: string
+                  icon:
+                    id: string
+                    backgroundColor: string
+                  tags:
+                    - id: string
+                      title: string
+                      type: tag
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example:
+                id: string
+                reference: string
+                url: string
+                lastModifiedUTC: string
+                creationDateTimeUTC: string
+                ownerId: string
+                accessLevel: owner
+                region: string
+                keyStatus: noKeys
+                mayContainPersonalData: unknown
+                metadata:
+                  title: string
+                  description: string
+                  icon:
+                    id: string
+                    backgroundColor: string
+                  tags:
+                    - id: string
+                      title: string
+                      type: tag
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example: <Resource> <id>string</id> <reference>string</reference> <url>string</url> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <accessLevel>owner</accessLevel> <region>string</region> <keyStatus>noKeys</keyStatus> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </Resource>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example: <Resource> <id>string</id> <reference>string</reference> <url>string</url> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <accessLevel>owner</accessLevel> <region>string</region> <keyStatus>noKeys</keyStatus> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </Resource>
         '403':
           description: Missing the correct access to view the resource
           content:
@@ -555,8 +932,8 @@ paths:
     get:
       tags:
         - v1.0 Resources
-      summary: "Fetch a SAS key to access a storage item shared with you\r\nDeprecated. Please use PUT /api/resources/{resourceId}/accesses/{accessId}/key"
-      description: "Fetch a SAS key to access a storage item shared with you\r\nDeprecated. Please use PUT /api/resources/{resourceId}/accesses/{accessId}/key"
+      summary: Get SAS Key(Deprecated)
+      description: "Retrieve sas key to access the items from the storage accounts shared with user\r\nDeprecated. Please use PUT /api/resources/{resourceId}/accesses/{accessId}/key"
       operationId: v1-0Resources_FetchKeyForStorageContainer
       parameters:
         - name: resourceId
@@ -575,10 +952,40 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example:
+                sasKey: string
+                sasuRi: string
+                fullKey: string
+                sasKeyExpiryTimeUTC: string
+                isKeyExpired: true
+                autoRefreshed: true
+                ipRange:
+                  startIp: string
+                  endIp: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example:
+                sasKey: string
+                sasuRi: string
+                fullKey: string
+                sasKeyExpiryTimeUTC: string
+                isKeyExpired: true
+                autoRefreshed: true
+                ipRange:
+                  startIp: string
+                  endIp: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example: <SASToken> <sasKey>string</sasKey> <sasuRi>string</sasuRi> <fullKey>string</fullKey> <sasKeyExpiryTimeUTC>string</sasKeyExpiryTimeUTC> <isKeyExpired>true</isKeyExpired> <autoRefreshed>true</autoRefreshed> <ipRange> <startIp>string</startIp> <endIp>string</endIp> </ipRange> </SASToken>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/SASToken'
+              example: <SASToken> <sasKey>string</sasKey> <sasuRi>string</sasuRi> <fullKey>string</fullKey> <sasKeyExpiryTimeUTC>string</sasKeyExpiryTimeUTC> <isKeyExpired>true</isKeyExpired> <autoRefreshed>true</autoRefreshed> <ipRange> <startIp>string</startIp> <endIp>string</endIp> </ipRange> </SASToken>
         '404':
           description: Resource or access sharing not found
           content:
@@ -590,8 +997,8 @@ paths:
     get:
       tags:
         - v1.0 Tags
-      summary: Retrieve metadata tags in Veracity.
-      description: "Default returns approved and non deleted tags.\r\nUse Query parameters to includes non approved and deleted (needs to be DataAdmin to perform this action)"
+      summary: Get Metadata Tags
+      description: "Returns approved and not deleted metadata tags.\r\nUse Query parameters to includes non approved and deleted (needs to be DataAdmin to perform this action)"
       operationId: v1-0Tags_GetTags
       parameters:
         - name: includeDeleted
@@ -606,10 +1013,28 @@ paths:
         '200':
           description: Returns a list of tags
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example:
+                - id: string
+                  title: string
+                  type: tag
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example:
+                - id: string
+                  title: string
+                  type: tag
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example: <TagArray> <id>string</id> <title>string</title> <type>tag</type> </TagArray>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example: <TagArray> <id>string</id> <title>string</title> <type>tag</type> </TagArray>
         '403':
           description: Missing correct role to perform this action
           content:
@@ -620,39 +1045,93 @@ paths:
     post:
       tags:
         - v1.0 Tags
-      summary: "Inserts tags and returns the inserted new inserted tags with ID's\r\n<remarks>\r\nId is not required for the input\r\n</remarks>"
-      description: "Inserts tags and returns the inserted new inserted tags with ID's\r\n<remarks>\r\nId is not required for the input\r\n</remarks>"
+      summary: Create Resource Tags
+      description: Inserts new  resource tags and returns the inserted new inserted resource tags with ID's
       operationId: v1-0Tags_InsertTags
       requestBody:
         content:
-          application/json: { }
-          text/json: { }
-          application/xml: { }
-          text/xml: { }
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagArray'
+            example:
+              - id: string
+                title: string
+                type: tag
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TagArray'
+            example:
+              - id: string
+                title: string
+                type: tag
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TagArray'
+            example: <TagArray> <id>string</id> <title>string</title> <type>tag</type> </TagArray>
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/TagArray'
+            example: <TagArray> <id>string</id> <title>string</title> <type>tag</type> </TagArray>
           application/x-www-form-urlencoded: { }
       responses:
         '200':
           description: Returns a list of tags
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example:
+                - id: string
+                  title: string
+                  type: tag
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example:
+                - id: string
+                  title: string
+                  type: tag
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example: <TagArray> <id>string</id> <title>string</title> <type>tag</type> </TagArray>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/TagArray'
+              example: <TagArray> <id>string</id> <title>string</title> <type>tag</type> </TagArray>
   /api/1/users/me:
     get:
       tags:
         - v1.0 Users
-      summary: Returns information about the current user.
-      description: Returns information about the current user.
+      summary: Get Current User Detail
+      description: Returns information about current user
       operationId: v1-0Users_Me
       responses:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                userId: string
+                companyId: string
+                role: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                userId: string
+                companyId: string
+                role: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+              example: <User> <userId>string</userId> <companyId>string</companyId> <role>string</role> </User>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+              example: <User> <userId>string</userId> <companyId>string</companyId> <role>string</role> </User>
         '404':
           description: NotFound
           content:
@@ -664,8 +1143,8 @@ paths:
     get:
       tags:
         - v1.0 Users
-      summary: Gets information about an user.
-      description: Gets information about an user.
+      summary: Get User
+      description: Returns the information about user
       operationId: v1-0Users_Get
       parameters:
         - name: userId
@@ -678,10 +1157,28 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                userId: string
+                companyId: string
+                role: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                userId: string
+                companyId: string
+                role: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+              example: <User> <userId>string</userId> <companyId>string</companyId> <role>string</role> </User>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+              example: <User> <userId>string</userId> <companyId>string</companyId> <role>string</role> </User>
         '404':
           description: The user was not found.
           content:
@@ -693,39 +1190,109 @@ paths:
     get:
       tags:
         - v1.0 Groups
-      summary: Retrieve a list of all groups for the User.
-      description: Retrieve a list of all groups for the User.
+      summary: Get user's groups
+      description: Returns the list of groups for the user
       operationId: v1-0Groups_Get
       responses:
         '200':
           description: List of groups for this user.
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupViewModelArray'
+              example:
+                - id: string
+                  title: string
+                  description: string
+                  resourceIds:
+                    - string
+                  sortingOrder: 0
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GroupViewModelArray'
+              example:
+                - id: string
+                  title: string
+                  description: string
+                  resourceIds:
+                    - string
+                  sortingOrder: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GroupViewModelArray'
+              example: <GroupViewModelArray> <id>string</id> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupViewModelArray>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GroupViewModelArray'
+              example: <GroupViewModelArray> <id>string</id> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupViewModelArray>
     post:
       tags:
         - v1.0 Groups
-      summary: Creates a Group from the input parameters for User.
-      description: Creates a Group from the input parameters for User.
+      summary: Create new user's group
+      description: Creates a new group for user
       operationId: v1-0Groups_Post
       requestBody:
         description: ''
         content:
-          application/json: { }
-          text/json: { }
-          application/xml: { }
-          text/xml: { }
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example:
+              title: string
+              description: string
+              resourceIds:
+                - string
+              sortingOrder: 0
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example:
+              title: string
+              description: string
+              resourceIds:
+                - string
+              sortingOrder: 0
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example: <GroupCreationInputParameters> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupCreationInputParameters>
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example: <GroupCreationInputParameters> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupCreationInputParameters>
           application/x-www-form-urlencoded: { }
       responses:
         '201':
           description: Group created successfully
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example:
+                id: string
+                title: string
+                description: string
+                resourceIds:
+                  - string
+                sortingOrder: 0
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example:
+                id: string
+                title: string
+                description: string
+                resourceIds:
+                  - string
+                sortingOrder: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example: <GroupViewModel> <id>string</id> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupViewModel>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example: <GroupViewModel> <id>string</id> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupViewModel>
         '400':
           description: Resource ID not found.
           content:
@@ -737,8 +1304,8 @@ paths:
     get:
       tags:
         - v1.0 Groups
-      summary: Retrieve Group by Id for the User.
-      description: Retrieve Group by Id for the User.
+      summary: Get group by Id
+      description: Returns the group by id for the user
       operationId: v1-0Groups_GetById
       parameters:
         - name: Id
@@ -751,10 +1318,34 @@ paths:
         '200':
           description: Group with given Id found for user.
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example:
+                id: string
+                title: string
+                description: string
+                resourceIds:
+                  - string
+                sortingOrder: 0
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example:
+                id: string
+                title: string
+                description: string
+                resourceIds:
+                  - string
+                sortingOrder: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example: <GroupViewModel> <id>string</id> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupViewModel>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GroupViewModel'
+              example: <GroupViewModel> <id>string</id> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupViewModel>
         '404':
           description: Group with given Id not found for user
           content:
@@ -765,7 +1356,7 @@ paths:
     put:
       tags:
         - v1.0 Groups
-      summary: Updates the given group with the parameters from the request body.
+      summary: Update user's group
       description: Updates the given group with the parameters from the request body.
       operationId: v1-0Groups_Put
       parameters:
@@ -778,10 +1369,32 @@ paths:
       requestBody:
         description: The group parameters.
         content:
-          application/json: { }
-          text/json: { }
-          application/xml: { }
-          text/xml: { }
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example:
+              title: string
+              description: string
+              resourceIds:
+                - string
+              sortingOrder: 0
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example:
+              title: string
+              description: string
+              resourceIds:
+                - string
+              sortingOrder: 0
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example: <GroupCreationInputParameters> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupCreationInputParameters>
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/GroupCreationInputParameters'
+            example: <GroupCreationInputParameters> <title>string</title> <description>string</description> <resourceIds>string</resourceIds> <sortingOrder>0</sortingOrder> </GroupCreationInputParameters>
           application/x-www-form-urlencoded: { }
       responses:
         '200':
@@ -808,8 +1421,8 @@ paths:
     delete:
       tags:
         - v1.0 Groups
-      summary: 'Will delete the Users given group, and remove references to resources, will NOT delete resources.'
-      description: 'Will delete the Users given group, and remove references to resources, will NOT delete resources.'
+      summary: Delete user's by  group
+      description: 'Deletes the users for given group, and remove references to resources, will not delete resources.'
       operationId: v1-0Groups_Delete
       parameters:
         - name: Id
@@ -837,8 +1450,8 @@ paths:
     get:
       tags:
         - v1.0 Users
-      summary: Get the list of the users with whom storage accounts shared.
-      description: Get the list of the users with whom storage accounts shared.
+      summary: List Shared Storage Account Users
+      description: Return the list of users with whom storage accounts shared.
       operationId: v1-0Users_ResourceDistributionList
       parameters:
         - name: userId
@@ -851,10 +1464,24 @@ paths:
         '200':
           description: OK
           content:
-            application/json: { }
-            text/json: { }
-            application/xml: { }
-            text/xml: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDistributedUser'
+              example:
+                userId: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDistributedUser'
+              example:
+                userId: string
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceDistributedUser'
+              example: <ResourceDistributedUser> <userId>string</userId> </ResourceDistributedUser>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ResourceDistributedUser'
+              example: <ResourceDistributedUser> <userId>string</userId> </ResourceDistributedUser>
         '403':
           description: Not allowed to access the list.
           content:
@@ -862,7 +1489,458 @@ paths:
             text/json: { }
             application/xml: { }
             text/xml: { }
+  '/api/1/resources/tag/{Tag}':
+    get:
+      tags:
+        - v1.0 Resources
+      summary: Get Resource
+      description: Returns resource by resourceId.
+      operationId: v1-0Resources_GetByIMetadataTag
+      parameters:
+        - name: Tag
+          in: path
+          description: Tag Title
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a single resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example:
+                id: string
+                reference: string
+                url: string
+                lastModifiedUTC: string
+                creationDateTimeUTC: string
+                ownerId: string
+                accessLevel: owner
+                region: string
+                keyStatus: noKeys
+                mayContainPersonalData: unknown
+                metadata:
+                  title: string
+                  description: string
+                  icon:
+                    id: string
+                    backgroundColor: string
+                  tags:
+                    - id: string
+                      title: string
+                      type: tag
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example:
+                id: string
+                reference: string
+                url: string
+                lastModifiedUTC: string
+                creationDateTimeUTC: string
+                ownerId: string
+                accessLevel: owner
+                region: string
+                keyStatus: noKeys
+                mayContainPersonalData: unknown
+                metadata:
+                  title: string
+                  description: string
+                  icon:
+                    id: string
+                    backgroundColor: string
+                  tags:
+                    - id: string
+                      title: string
+                      type: tag
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example: <Resource> <id>string</id> <reference>string</reference> <url>string</url> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <accessLevel>owner</accessLevel> <region>string</region> <keyStatus>noKeys</keyStatus> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </Resource>
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Resource'
+              example: <Resource> <id>string</id> <reference>string</reference> <url>string</url> <lastModifiedUTC>string</lastModifiedUTC> <creationDateTimeUTC>string</creationDateTimeUTC> <ownerId>string</ownerId> <accessLevel>owner</accessLevel> <region>string</region> <keyStatus>noKeys</keyStatus> <mayContainPersonalData>unknown</mayContainPersonalData> <metadata> <title>string</title> <description>string</description> <icon> <id>string</id> <backgroundColor>string</backgroundColor> </icon> <tags> <id>string</id> <title>string</title> <type>tag</type> </tags> </metadata> </Resource>
+        '403':
+          description: Missing the correct access to view the resource
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
+        '404':
+          description: Resource was not found
+          content:
+            application/json: { }
+            text/json: { }
+            application/xml: { }
+            text/xml: { }
 components:
+  schemas:
+    PagedResult_ProviderAccessVM_:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProviderAccessVM'
+          readOnly: true
+        page:
+          type: integer
+          format: int32
+          readOnly: true
+        resultsPerPage:
+          type: integer
+          format: int32
+          readOnly: true
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+        totalResults:
+          type: integer
+          format: int64
+          readOnly: true
+      x-apim-schema-name: 'PagedResult[ProviderAccessVM]'
+    ProviderAccessVM:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        ownerId:
+          type: string
+          format: uuid
+        grantedById:
+          type: string
+          format: uuid
+        accessSharingId:
+          type: string
+          format: uuid
+        keyCreated:
+          type: boolean
+        autoRefreshed:
+          type: boolean
+        keyCreatedTimeUTC:
+          type: string
+          format: date-time
+        keyExpiryTimeUTC:
+          type: string
+          format: date-time
+        resourceType:
+          type: string
+        accessHours:
+          type: integer
+          format: int32
+        accessKeyTemplateId:
+          type: string
+          format: uuid
+        attribute1:
+          type: boolean
+        attribute2:
+          type: boolean
+        attribute3:
+          type: boolean
+        attribute4:
+          type: boolean
+        resourceId:
+          type: string
+          format: uuid
+        ipRange:
+          $ref: '#/components/schemas/IpRange'
+        comment:
+          type: string
+    IpRange:
+      type: object
+      properties:
+        startIp:
+          type: string
+        endIp:
+          type: string
+    SharingResourceInputData:
+      required:
+        - userId
+        - accessKeyTemplateId
+      type: object
+      properties:
+        userId:
+          type: string
+          description: Id of the target user
+          format: uuid
+        accessKeyTemplateId:
+          type: string
+          description: Id of the sharing template from GET /api/1/keytemplates
+          format: uuid
+        comment:
+          type: string
+          description: Optional comment field
+        ipRange:
+          $ref: '#/components/schemas/IpRange'
+      description: Type that contains required fields to perform a Resource Sharing
+    ShareResourceVM:
+      type: object
+      properties:
+        accessSharingId:
+          type: string
+          format: uuid
+    SASToken:
+      type: object
+      properties:
+        sasKey:
+          type: string
+        sasuRi:
+          type: string
+        fullKey:
+          type: string
+          readOnly: true
+        sasKeyExpiryTimeUTC:
+          type: string
+          format: date-time
+        isKeyExpired:
+          type: boolean
+        autoRefreshed:
+          type: boolean
+        ipRange:
+          $ref: '#/components/schemas/IpRange'
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        companyId:
+          type: string
+          format: uuid
+        role:
+          type: string
+    DataStewardVM:
+      required:
+        - userId
+        - resourceId
+        - grantedBy
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        resourceId:
+          type: string
+          format: uuid
+        grantedBy:
+          type: string
+          format: uuid
+        comment:
+          type: string
+    StorageResourcesVM:
+      type: object
+      properties:
+        resourceId:
+          type: string
+          format: uuid
+        resourceName:
+          type: string
+        resourceUrl:
+          type: string
+        lastModifiedUTC:
+          type: string
+          format: date-time
+        creationDateTimeUTC:
+          type: string
+          format: date-time
+        ownerId:
+          type: string
+          format: uuid
+        resourceType:
+          type: string
+        resourceRegion:
+          type: string
+        mayContainPersonalData:
+          enum:
+            - unknown
+            - 'true'
+            - 'false'
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ResourceMetadata'
+    ResourceMetadata:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        icon:
+          $ref: '#/components/schemas/Icon'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    Icon:
+      type: object
+      properties:
+        id:
+          type: string
+        backgroundColor:
+          type: string
+    Tag:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        type:
+          enum:
+            - tag
+            - systemtag
+          type: string
+    DataStewardInputVm:
+      type: object
+      properties:
+        comment:
+          type: string
+    GroupViewModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        resourceIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sortingOrder:
+          type: number
+          format: double
+    GroupCreationInputParameters:
+      required:
+        - title
+        - description
+        - resourceIds
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        resourceIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sortingOrder:
+          type: number
+          format: double
+    KeyTemplateVM:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        totalHours:
+          type: integer
+          format: int32
+        isSystemKey:
+          type: boolean
+        description:
+          type: string
+        attribute1:
+          type: boolean
+        attribute2:
+          type: boolean
+        attribute3:
+          type: boolean
+        attribute4:
+          type: boolean
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        reference:
+          type: string
+        url:
+          type: string
+        lastModifiedUTC:
+          type: string
+          format: date-time
+        creationDateTimeUTC:
+          type: string
+          format: date-time
+        ownerId:
+          type: string
+          format: uuid
+        accessLevel:
+          enum:
+            - owner
+            - dataSteward
+            - consumer
+          type: string
+        region:
+          type: string
+        keyStatus:
+          enum:
+            - noKeys
+            - expired
+            - available
+            - active
+          type: string
+        mayContainPersonalData:
+          enum:
+            - unknown
+            - 'true'
+            - 'false'
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ResourceMetadata'
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        companyId:
+          type: string
+          format: uuid
+        role:
+          type: string
+    ResourceDistributedUser:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+    DataStewardVMArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/DataStewardVM'
+    GroupViewModelArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/GroupViewModel'
+    KeyTemplateVMArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/KeyTemplateVM'
+    ResourceArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/Resource'
+    TagArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
   securitySchemes:
     apiKeyHeader:
       type: apiKey

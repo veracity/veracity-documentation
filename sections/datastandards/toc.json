@@ -30,6 +30,10 @@
 					"href": "ovd-guides/biofuels.md"
 				},
 				{
+					"text": "Report biofuels for verification - interim solution",
+					"href": "ovd-guides/biofuels-interim.md"
+				},
+				{
 					"text": "Correct discrepancies between fuel consumption and sounded ROBs",
 					"href": "ovd-guides/rob-discrepancies.md"
 				},

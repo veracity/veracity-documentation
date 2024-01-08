@@ -1,9 +1,9 @@
 ---
 author: Veracity
-description: Description of Data Standards in Veracity
+description: How to report biofuels for verification - interim solution
 ---
 
-# How to report biofuels in the OVD Bunker report
+# How to report biofuels for verification - interim solution
 
 <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20biofuels%20for%20verification%20-%20interim%20solution.pdf" download>
     <img src="assets/download.png" alt="Download PDF" height="40">

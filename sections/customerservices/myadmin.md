@@ -20,8 +20,8 @@ On the Developer portal, create a project and resource group ([see help](https:/
 
 Still, use MyDNVGL admin for: 
 
-* Managing Channels and sending notifications (‘Send Message’). Do it in Services > Channels. 
-* Editing administrator’s role for a service, mainly for sending notifications and managing channels. Do it in Services > Administrators. 
+* Managing Channels and sending notifications ('Send Message'). Do it in Services > Channels. 
+* Editing administrator's role for a service, mainly for sending notifications and managing channels. Do it in Services > Administrators. 
 * Editing the settings for managing read directory access for service principle. Do it in Settings > Administrator. 
 
 ## Manage user roles 

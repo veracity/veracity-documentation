@@ -5,7 +5,7 @@ description: Description of Data Standards in Veracity
 
 # Overview
 
-The left sidebar presents DNV requirements and use cases for reporting in OVD.
+**The left sidebar presents DNV requirements and use cases for reporting in OVD.**
 
 ## Useful links 
 
@@ -25,4 +25,4 @@ The EUs main page on the MRV reporting scheme. You will find answers to:
 This is an FAQ page for the EU ETS regulations. You will find useful information about timing & scope, buying and surrendering EUAs, and the use of alternative fuels.
 
 
-To get in touch with us use either our [support portal](https://support.veracity.com/) or email [support](mailto:support@veracity.com).
+To get in touch with us use either our [support portal](https://support.veracity.com/) or email [support](mailto:support@veracity.com?subject=OVD).

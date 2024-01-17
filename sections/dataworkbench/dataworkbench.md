@@ -84,7 +84,7 @@ Data sets can be saved and shared as:
 
 In Data catalogue > Created data sets, you see the following types of data sets:
 * **Created** - Data sets created in your workspace.
-* **Shared** - Data sets shared with you or your workspace. You cannot modify them (but you can create and modify a copy), and the original sharer has decided if you can share this data set with others.
+* **Shared** - Data sets shared with you or your workspace. You cannot modify them (but you can create a copy and modify it), and the original sharer has decided if you can share this data set with others.
 * **Uploaded** - Data sets that were uploaded from CSV files.
 
 You can check the data set type in the **Type** column.

@@ -59,7 +59,7 @@ The **Predefined data sets** tab shows data sets that are queried by connections
 
 The **Created data sets** tab shows the data sets that workspace members created.
 
-The **Shared with me** tab shows the data sets that were shared with you.
+The **Shared with me** tab shows the data sets that were shared with you. You cannot modify the original data sets that were shared with you. However, you can copy those data sets and modify the copies.
 
 For each data set, in the top right corner, you can select the following action icons.
 1. Data set info - See data set name and its description.
@@ -81,6 +81,13 @@ For each data set, in the top right corner, you can select the following action 
 Data sets can be saved and shared as:
 * Data live streams (dynamic) dynamic - When there is a change in a data set, it gets automatically updated.
 * Snapshots - When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
+
+In Data catalogue > Created data sets, you see the following types of data sets:
+* **Created** - Data sets created in your workspace.
+* **Shared** - Data sets shared with you or your workspace. You cannot modify them (but you can create and modify a copy), and the original sharer has decided if you can share this data set with others.
+* **Uploaded** - Data sets that were uploaded from CSV files.
+
+You can check the data set type in the **Type** column.
 
 ### Tags for data sets
 

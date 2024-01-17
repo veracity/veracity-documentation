@@ -62,13 +62,13 @@ The **Created data sets** tab shows the data sets that workspace members created
 The **Shared with me** tab shows the data sets that were shared with you.
 
 For each data set, in the top right corner, you can select the following action icons.
-1. Data set info - see data set name and its description.
-2. Edit table properties - disable or enable column picker and select what data columns to show.
-3. Filter - apply and clear the filters available for the data set.
+1. Data set info - See data set name and its description.
+2. Edit table properties - Disable or enable column picker and select what data columns to show.
+3. Filter - Apply and clear the filters available for the data set.
 4. Save - **Save** the current view of the data set (including applied filters and shown columns) or **Save as new** to create a new data set with the applied filters and shown data columns.
-5. Download - download the data set as a CSV file.
-6. Share - share the data set with someone else.
-7. Delete - if you are an admin, delete the data set.
+5. Download - Download the data set as a CSV file.
+6. Share - Share the data set with someone else.
+7. Delete - If you are an admin, delete the data set.
 
  Note that, depending on your [user role](usermanagement.md), you might not see some icons.
 
@@ -134,13 +134,29 @@ Note that now you have created a data set you can share with other users.
 ### To share a data set
 1. In the **Data catalogue** tab, open the data set you want to share.
 2. In the top right corner, select the share icon.
-3. Under **Share with**, enter the email address of the person or workspace you want to share the data set with. Alternatively, select the contact list icon to choose the recipient from the list of previously used contacts.
+3. Under **Share access with**, enter the email address of the person or workspace you want to share the data set with. Alternatively, select the contact list icon to choose the recipient from the list of previously used contacts.
 4. Optionally, to allow the recipient to share the data set with other people, tick the box next to **Allow recipients to share this data set with others**. You can revoke the sharing permission later.
 5. Optionally, under **Add note to recipient**, add a message to the person with whom you are sharing the data set.
 6. To share the data set, select the **Share** button. The recipient will receive an email notification with a link to the data set.
 
 Note that:
 * You can share a data set with workspace only if someone from your workspace has already shared a data set with the target workspace and its admin has added it to the target workspace.
+
+### To modify, save, and share a data set
+1. In the **Data catalogue** tab, open the data set you want to modify.
+2. Modify the data set.
+3. In the top right corner, select the share icon.
+4. In **Data set name**, you name the new (modified) data set you create.
+5. In **Share access with**, you select with whom you want to share the data set.
+6. If you tick the box saying 'Allow recipients to share this data set with others', they can reshare the data set.
+7. Optionally, you can add **tags** to the data set.
+8. Optionally, you can add a **description** to the data set.
+9. Optionally, you can add a **Note to recipient**. This message will be sent together with the link to the shared data set.
+10. To save your new data set and share it, select the **Save and share** button.
+
+To see how to save and share a new data set, click on the image below to play the video.
+
+[![Watch the video](news/assets/saveshare.png)](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/dataworkbench/save%20and%20share%20dataset.mp4)
 
 ### To see data sets shared with you
 To see data sets shared with you, in the **Data catalogue** tab, go to the **Shared with me** tab.

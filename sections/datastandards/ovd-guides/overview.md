@@ -7,7 +7,7 @@ description: Description of Data Standards in Veracity
 
 **The left sidebar presents DNV requirements and use cases for reporting in OVD.**
 
-## Useful links 
+Useful links 
 
 <a href ="https://www.dnv.com/maritime/insights/topics/dcs/index.html" target="_blank">IMO DCS reporting DNV resource page</a>
 

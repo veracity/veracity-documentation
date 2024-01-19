@@ -9,6 +9,10 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "January 2024 third release",
+					"href": "news/releasejan24trd.md"
+				},
+				{
 					"text": "January 2024 second release",
 					"href": "news/releasejan24sec.md"
 				},
@@ -131,8 +135,8 @@
 			"href": "usermanagement.md"
 		},
 		{
-			"text": "API integrations",
-			"href": "apiintegrations.md"
+			"text": "API management",
+			"href": "apimanagement.md"
 		},
 		{
 			"text": "Activity log",

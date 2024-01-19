@@ -3,7 +3,7 @@ author: Veracity
 description: This is the changelog for the January 2024 second release of Data Workbench.
 ---
 
-# January 2024 release
+# January 2024 second release
 
 Read this page to learn what has changed in Veracity Data Workbench with the January 2024 second release.
 

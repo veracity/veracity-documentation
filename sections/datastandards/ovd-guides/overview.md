@@ -10,7 +10,6 @@ description: Description of Data Standards in Veracity
 Useful links 
 
 <a href ="https://www.dnv.com/maritime/insights/topics/dcs/index.html" target="_blank">IMO DCS reporting DNV resource page</a>
-
 On this page you will find DCS Regulation [FAQs](https://www.dnv.com/maritime/insights/topics/dcs/FAQs-IMO-DCS.html), how DCS, CII and SEEMP Part III are connected, as well as links to related CII, MEPC and EEXI pages. 
 
 [MRV reporting (EU and UK) DNV resource page](https://www.dnv.com/maritime/insights/topics/mrv/index.html) 

@@ -3,14 +3,12 @@ author: Veracity
 description: This is a tutorial how to call API endpoints of Data Workbench with sample Python code.
 ---
 # Tutorial: call API endpoints
-This page gives you sample Python code for calling API endpoints, links to Connector SDK GitHub repository, and recaps relevant information.
+This page gives you sample Python code for calling API endpoints, links to our SDK GitHub repository, and recaps relevant information.
 
-## Connectors and Connector SDK
-Data Workbench uses connectors as an integration layer allowing connection to data providers. You might want to see:
-* [Brief explanation.](https://developer.veracity.com/docs/section/dataworkbench/dataworkbench#connectors-and-connections)
-* [Detailed explanation including Connector SDK.](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2FData-Workbench-Connector%2Fmain%2FConnector%2520SDK.docx&wdOrigin=BROWSELINK)
+## Data Integrations and SDK
+Data Workbench uses data integrationsors as an integration layer allowing data integrationsn to data providers. You might want to see [detailed explanation including SDK.](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2FData-Workbench-Connector%2Fmain%2FConnector%2520SDK.docx&wdOrigin=BROWSELINK)
 
-If you want to see or use the Connector SDK API demo, [go to this repository](https://github.com/veracity/Data-Workbench-Connector/tree/main).
+If you want to see or use the SDK API demo, [go to this repository](https://github.com/veracity/Data-Workbench-Connector/tree/main).
 
 ## Prerequisites
 If you want to use the sample code provided below, you will need to check for the following information.

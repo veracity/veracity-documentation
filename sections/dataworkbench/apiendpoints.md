@@ -6,7 +6,6 @@ description: This page lists API endpoints for Data Workbench.
 
 You can use the following API endpoints for Data Workbench:
 * [Workspace endpoints](#workspace-endpoints)
-* [Connector and connections endpoints](#connectors-and-connections)
 * [Data sets endpoints](#data-sets-endpoints)
 
 To see response codes for the API, go [here](#response-codes).
@@ -141,103 +140,6 @@ Expect-CT: max-age=2592000; enforce; report-uri="https://veracitycommon.report-u
 Date: Mon, 13 Nov 2023 10:37:15 GMT
 WWW-Authenticate: Bearer,Bearer
 Content-Length: 0
-```
-
-## Connectors and connections
-To see the connections a workspace uses, go to the **Connections** tab in your workspace.
-
-You can list all connections used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connections endpoint. 
-
-In the request, you must provide:
-* [Authorization and authentication](authentication.md)
-* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
-
-Below you can see an example of a successful response (code 200).
-```json
-    "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "connectionName": "string",
-    "connector": {
-      "connectorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "name": "string",
-      "connectorType": "string",
-      "description": "string",
-      "dataProvider": "string",
-      "connectorConfiguration": {
-        "connectionSettings": [
-          {
-            "key": "string",
-            "name": "string",
-            "description": "string"
-          }
-        ]
-      },
-      "schemaSupport": {
-        "supportedSchemaVersions": [
-          {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "schemaVersionName": "string",
-            "settings": [
-              {
-                "key": "string",
-                "value": "string",
-                "type": "string",
-                "description": "string"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "schemaSupport": {
-      "supportedSchemaVersions": [
-        {
-          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-          "schemaVersionName": "string"
-        }
-      ]
-    },
-    "connectionConfiguration": {
-      "connectionSettingValues": [
-        {
-          "key": "string",
-          "value": "string"
-        }
-```
-
-You can list all the connectors used by a workspace by calling the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/connectors endpoint. 
-
-In the request, you must provide:
-* [Authorization and authentication](authentication.md)
-* [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
-
-Below you can see an example of a successful response (code 200).
-```json
-    "connectorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "name": "string",
-    "connectorType": "string",
-    "description": "string",
-    "dataProvider": "string",
-    "connectorConfiguration": {
-      "connectionSettings": [
-        {
-          "key": "string",
-          "name": "string",
-          "description": "string"
-        }
-      ]
-    },
-    "schemaSupport": {
-      "supportedSchemaVersions": [
-        {
-          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-          "schemaVersionName": "string",
-          "settings": [
-            {
-              "key": "string",
-              "value": "string",
-              "type": "string",
-              "description": "string"
-            }
 ```
 
 ## Data sets endpoints

@@ -7,7 +7,7 @@ Authenticate your API calls with an API key and a bearer token (`tokenUrl`) plac
 
 ## API key
 To get the API key:
-1. In your Data Workbench workspace, select the **API Integrations** tab.
+1. In your Data Workbench workspace, select the **API management** tab.
 2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).
 3. Find the **API key**, and copy it.
 
@@ -27,6 +27,6 @@ Use the following request body:
 </figure>
 
 To get `client_id` and `client_secret`:
-1. In your Data Workbench workspace, select the **API Integrations** tab.
+1. In your Data Workbench workspace, select the **API management** tab.
 2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).
 3. Find and copy the values. The **Service account ID** is the `client_id`. The **Service account secret** is the `client_secret`.

@@ -12,7 +12,8 @@ You can sort the **User Name** and **Email** columns alphabetically. To sort a c
 
 To filter users:
 1. In the right corner, select the search icon. After this, the following will appear below the search icon: **Name**, **Email**, **Entity**, **Roles**, and **Clear all filters**.
-2. To apply a filter, select its name, enter or select a value by which you want to filter, and select the **Apply** button. You can apply multiple filters.
+2. To apply a filter, select its name.
+3. Enter or select a value by which you want to filter, and select the **Apply** button. You can apply multiple filters.
 <figure>
 	<img src="assets/users_filter.png"/>
 </figure>

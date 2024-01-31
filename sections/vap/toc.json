@@ -9,6 +9,10 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "Release 4.9",
+					"href": "news/releasefeb24.md"
+				},
+				{
 					"text": "Release 4.8",
 					"href": "news/releasesept23.md"
 				},
@@ -59,12 +63,12 @@
 					"href": "admin-tab/overview.md"
 				},
 				{
-					"text": "Manage files",
-					"href": "admin-tab/manage-files.md"
+					"text": "Resource",
+					"href": "admin-tab/resource.md"
 				},
 				{
 					"text": "Manage reports",
-					"href": "admin-tab/manage-reports.md"
+					"href": "admin-tab/reports.md"
 				},
 				{
 					"text": "Manage entities",
@@ -72,11 +76,11 @@
 				},
 				{
 					"text": "Manage users",
-					"href": "admin-tab/manage-users.md"
+					"href": "admin-tab/userss.md"
 				},
 				{
 					"text": "Manage webs",
-					"href": "admin-tab/manage-webs.md"
+					"href": "admin-tab/webs.md"
 				},
 				{
 					"text": "Configure",
@@ -113,7 +117,7 @@
 				},
 				{
 					"text": "Manage reports",
-					"href": "vap-saas-tutorial/3-manage-reports.md"
+					"href": "vap-saas-tutorial/3-reports.md"
 				},
 				{
 					"text": "Manage entities",

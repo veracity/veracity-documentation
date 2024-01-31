@@ -4,6 +4,7 @@ description: Overview of the Configure tab in the admin tab.
 ---
 
 # Configure
+At the top of the page, you see the information about the location of your Power BI files and the ID of your workspace. For example:'The location of your Power BI files is EU. The workspace id is 7ybu39ba-eb50-2m22-8119-e454r564e20a.'
 
 ## Header Icon
 
@@ -35,9 +36,6 @@ To edit tenant properties, select the **Edit** button and edit the fields you ne
 	Enable Power BI - enable Power BI in your VAP service.
 	
 	Enable Web Apps - enable connecting web applications to your VAP service.
-	
-
-* Background image - add a background image to your VAP service.
 
 ## Tenant Documents
 

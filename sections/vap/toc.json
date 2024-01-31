@@ -72,11 +72,11 @@
 				},
 				{
 					"text": "Manage entities",
-					"href": "admin-tab/manage-entities.md"
+					"href": "admin-tab/entities.md"
 				},
 				{
 					"text": "Manage users",
-					"href": "admin-tab/userss.md"
+					"href": "admin-tab/users.md"
 				},
 				{
 					"text": "Manage webs",

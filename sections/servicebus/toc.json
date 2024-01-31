@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/toc.json",
+  "items": [
+    {
+      "text": "Veracity Service Bus",
+      "href": "servicebus.md"
+    }
+  ]
+}

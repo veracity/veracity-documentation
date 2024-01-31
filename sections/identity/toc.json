@@ -88,6 +88,11 @@
 					"href": "policy-service.md"
 				}
 			]
+		},
+		{
+			
+			"text": "Veracity Identity client credentials flow information",
+			"href": "clientcredentials.md"
 		}
 	]
 }

@@ -1,0 +1,9 @@
+{
+  "$schema": "../../schemas/toc.json",
+  "items": [
+    {
+      "text": "Veracity Tenant Management",
+      "href": "tenantmanagement.md"
+    }
+  ]
+}

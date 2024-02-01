@@ -7,12 +7,7 @@ description: Veracity Tenant Management for Developers
 
 ## Overview
 
-Veracity Tenant Management (VTM) is the technology that powers Veracity
-Access Hub and Veracity MyServices. VTM handles access permissions for
-Veracity applications and the services connected to them. VTM follows
-standardized conventions and formats, responds to various events, and
-manages tenants, profiles, and groups to ensure smooth integration with
-other systems and services. VTM comes with an API.
+Veracity Tenant Management (VTM) is the technology that powers Veracity Access Hub and Veracity MyServices. VTM handles access permissions for Veracity applications and the services connected to them. VTM follows standardized conventions and formats, responds to various events, and manages tenants, profiles, and groups to ensure smooth integration with other systems and services. VTM comes with an API.
 
 Each tenant has three main entity types:
 

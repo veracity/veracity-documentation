@@ -31,8 +31,9 @@ In specific, the variant name (1) and description (2) are shown at the top blue 
 
 <figure>
 	<img src="assets/onecolumn.png"/>
-	<figcaption>Example from Rules and Standards Explorer</figcaption>
+	<figcaption>Example of one-column pricing plan from Rules and Standards Explorer+</figcaption>
 </figure>
+
 
 ## Side-by-side pricing plan​
 With this visualization, pricing plans are displayed beside each other. Customers can easily compare prices (1), and eventual differences in features (2), usage (3), delivery periods, or extensions (see paragraph on extension to learn more). For better readability Veracity suggests displaying no more than four columns in a page.  
@@ -45,7 +46,6 @@ In general try to keep the description in the plan short and if needed refer to 
 	<img src="assets/sidebyside.png"/>
 	<figcaption>Example from Veracity Data Fabric</figcaption>
 </figure>
-
 
 ## Offering trials
 Offering a free trial for a short period will show your customers the value of your service and help them make an informed decision. When purchasing your service with trial, the customers share their payment information and after the trial period ends, they are automatically charged, prior cancellation. 
@@ -75,7 +75,7 @@ You can decide to sell your service together with extensions (1). Extensions can
 </figure>
 
 ## Pricing plan selector
-If you need to display different price plans with a common differentiating element (like “users” as in the example below), you can use a drop-down selector. The selector shows only one plan at a time in a drop-down list. It helps the user choose without being overwhelmed with too many options and buy buttons. 
+If you need to display different price plans for the same variant but want to show them one at a time (like the two period options in the example below, both belonging to a premium variant), you can use a drop-down selector. The selector displays only one plan at a time, helping the user choose without feeling overwhelmed by too many options and buy buttons.
 
 Pricing plan selector can be shown on “one-column” or “side-by-side” pricing plans display options.
 
@@ -83,7 +83,6 @@ Pricing plan selector can be shown on “one-column” or “side-by-side” pri
 	<img src="assets/pricingplanselector.png"/>
 	<figcaption>Selector of different pricing plans</figcaption>
 </figure>
-
 
 ## Grouping options
 As explained previously, a variant can gather one or more plans. Sometimes, displaying different variants can lead to a quite long page with many plans and buy buttons. To avoid this complexity and increase readability, you have the possibility to gather different variants in a button group (or switch button). 
@@ -95,8 +94,6 @@ Grouping option can be enabled for both “one-column” and “side-by-side" pr
 	<img src="assets/groupingoption.png"/>
 	<figcaption>Example of pricing plan with grouping option</figcaption>
 </figure>
- 
-
 
 ## Online contracting
 To do online contracting, you need terms and conditions of your service that the customer can select to accept. Veracity supports only B2B purchases, so your customers must provide their company information when buying your service.
@@ -107,7 +104,6 @@ See an example of terms and conditions below.
 	<img src="assets/ServiceTerms.png"/>
 	<figcaption>Terms and conditions example</figcaption>
 </figure>
-
 
 ## Payment options
 After accepting the terms and conditions of your service, the customer needs to enter details about themselves and their company. If the customer is already a Veracity user, the information they already provided will be prefilled.

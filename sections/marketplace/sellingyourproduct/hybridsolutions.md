@@ -13,6 +13,6 @@ Also, you can show a plan with customized button (2) – which can link to an ex
 <figure>
 	<img src="assets/custombutton.png"/>
 </figure>
-If you need another pricing model or help with complex pricing configuration, contact the [onboarding team](mailto:onboarding@veracity.com).
+If you need another pricing model or help with complex pricing configuration, contact the [onboarding team](mailto:onboarding@veracity.com)
 
 

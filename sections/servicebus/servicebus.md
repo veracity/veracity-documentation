@@ -7,11 +7,7 @@ description: Service bus documentation
 
 ### Overview 
 
-The service bus is useful for service providers and Veracity developers
-because it binds a service bus connection to the service and sends
-notifications whenever a change in the Veracity ecosystem occurs. Thus,
-the service bus lets the applications react to changes rather than
-periodically pull data and check for changes. 
+The service bus is useful for service providers and Veracity developers because it binds a service bus connection to the service and sends notifications whenever a change in the Veracity ecosystem occurs. Thus, the service bus lets the applications react to changes rather than periodically pull data and check for changes. 
 
 Before using the service bus, you must configure it in the Developer
 portal and specify what kind of notifications you want to receive. 

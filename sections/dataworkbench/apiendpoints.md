@@ -164,7 +164,7 @@ You can use the following endpoints:
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all available data sets (including those shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets endpoint. 
+<a name="allData"></a>To get all available data sets (including those shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/query endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)

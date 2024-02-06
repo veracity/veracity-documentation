@@ -172,48 +172,260 @@ In the request, you must provide:
 
 Below you can see a sample request body:
 ```json
-    {
-  "isBaseDataset": true,
-  "pageIndex": 0,
-  "pageSize": 0,
-  "sortColumn": "string",
-  "sortDirection": "Ascending",
-  "datasetName": "string",
-  "tags": {},
-  "createdAfter": "string",
-  "createdBefore": "string",
-  "schemaVersionIds": [
-    "string"
-  ]
-}
+   {
+  "isBaseDataset": false,
+  "pageIndex": 1,
+  "pageSize": 10,
+  "sortColumn": "Name",
+  "sortDirection": "Descending",
+  "datasetName": "S",
+  "createdAfter": "2023-01-01T00:00:00.000Z",
+  "schemaVersionIds": ["89153dc4-2323-45c9-b70e-241503697315"]
+
 ```
 
 Below you can see an example of a successful response (code 200).
 ```json
-    "result": [
-        {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "name": "string",
-            "description": "string",
-            "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa68",
-            "connectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "createdBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "createdOn": "2022-05-04T07:37:19.2074539Z",
-            "lastModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "lastModifiedOn": "2022-05-04T07:37:19.2074539Z",
-            "schemaInfo": {
-                "schemaVersionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "schemaName": "string"
-            },
-            "queries": [],
-            "columns": [],
-            "isBaseDataset": true
-        }
-    ],
-    "pageIndex": 1,
-    "pageSize": 100,
-    "totalCount": 100,
-    "totalPages": 1
+   
+{
+  "result": [{
+    "id": "397ea7e9-e55e-41f6-a947-8faa71315d0d",
+    "name": "zzzz Poseidon Principles (DCS FOC-R)",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "a226d3f8-eb45-4230-a0c1-1b4082176a30",
+    "createdOn": "2023-11-14T14:00:03.7159724Z",
+    "lastModifiedBy": "a226d3f8-eb45-4230-a0c1-1b4082176a30",
+    "lastModifiedOn": "2023-11-14T14:00:03.7159724Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [{
+      "column": "PERIOD_START_DATE",
+      "filterType": "GreaterOrEqual",
+      "filterValues": ["2021-01-01T00:00:00.0000000Z"]
+    }, {
+      "column": "PERIOD_END_DATE",
+      "filterType": "LessOrEqual",
+      "filterValues": ["2022-01-01T00:00:00.0000000Z"]
+    }],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "DISTANCE", "GROSS_TONNAGE", "DEADWEIGHT", "ICE_CLASS", "VESSEL_FLAG", "DATA_CLASSIFICATION", "VESSEL_TYPE_PP", "YEAR_OF_BUILD", "EEDI", "EEXI", "CONSUMPTION_MDO", "CONSUMPTION_MGO", "CONSUMPTION_LFO", "CONSUMPTION_HFO", "CONSUMPTION_LPGP", "CONSUMPTION_LPGB", "CONSUMPTION_LNG", "CONSUMPTION_METHANOL", "CONSUMPTION_ETHANOL", "CONSUMPTION_OTHER", "OTHER_TYPE_CARBON_FACTOR"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "ce0fecfa-e7ff-47e1-b409-c5d3ecd327dd",
+    "name": "testtestesttest",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "ef56da93-753d-422a-89d7-d9f8fc42bce1",
+    "createdOn": "2023-04-20T08:28:29.6010341Z",
+    "lastModifiedBy": "ef56da93-753d-422a-89d7-d9f8fc42bce1",
+    "lastModifiedOn": "2023-04-20T08:28:29.6010341Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [{
+      "column": "IMO",
+      "filterType": "List",
+      "filterValues": ["9253856", "9253870"]
+    }, {
+      "column": "PERIOD_START_DATE",
+      "filterType": "GreaterOrEqual",
+      "filterValues": ["2021-01-01T00:00:00.0000000Z"]
+    }, {
+      "column": "PERIOD_END_DATE",
+      "filterType": "LessOrEqual",
+      "filterValues": ["2022-01-01T00:00:00.0000000Z"]
+    }],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "d8f961ac-51ca-42c0-8b50-62bc27528871",
+    "name": "testkk Poseidon Principles (DCS FOC-R)",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "a226d3f8-eb45-4230-a0c1-1b4082176a30",
+    "createdOn": "2023-11-09T09:13:08.0898667Z",
+    "lastModifiedBy": "a226d3f8-eb45-4230-a0c1-1b4082176a30",
+    "lastModifiedOn": "2023-11-09T09:13:08.0898667Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [{
+      "column": "PERIOD_START_DATE",
+      "filterType": "GreaterOrEqual",
+      "filterValues": ["2022-01-01T00:00:00.0000000Z"]
+    }, {
+      "column": "PERIOD_END_DATE",
+      "filterType": "LessOrEqual",
+      "filterValues": ["2023-01-01T00:00:00.0000000Z"]
+    }],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "DISTANCE", "GROSS_TONNAGE", "DEADWEIGHT", "ICE_CLASS", "VESSEL_FLAG", "DATA_CLASSIFICATION", "VESSEL_TYPE_PP", "YEAR_OF_BUILD", "EEDI", "EEXI", "CONSUMPTION_MDO", "CONSUMPTION_MGO", "CONSUMPTION_LFO", "CONSUMPTION_HFO", "CONSUMPTION_LPGP", "CONSUMPTION_LPGB", "CONSUMPTION_LNG", "CONSUMPTION_METHANOL", "CONSUMPTION_ETHANOL", "CONSUMPTION_OTHER", "OTHER_TYPE_CARBON_FACTOR"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "f4258eb5-7ad3-4068-95d1-22c02512a578",
+    "name": "testingkinga",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "a226d3f8-eb45-4230-a0c1-1b4082176a30",
+    "createdOn": "2023-02-15T13:16:01.1120865Z",
+    "lastModifiedBy": "a226d3f8-eb45-4230-a0c1-1b4082176a30",
+    "lastModifiedOn": "2023-02-15T13:16:01.1120865Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [{
+      "column": "IMO",
+      "filterType": "List",
+      "filterValues": ["1234567", "9999995"]
+    }],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "eb9939e9-4652-4273-829d-d74f4233712b",
+    "name": "testBug7",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "createdOn": "2023-03-03T14:58:08.1962849Z",
+    "lastModifiedBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "lastModifiedOn": "2023-03-03T14:58:08.1962849Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "2f68615f-5d8a-42e0-8f0e-90a7c6f89ba6",
+    "name": "testBug6",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "createdOn": "2023-03-03T14:53:04.3776665Z",
+    "lastModifiedBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "lastModifiedOn": "2023-03-03T14:53:04.3776665Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "6cc87d24-9a16-49d6-af17-caccda32f5d5",
+    "name": "testBug5",
+    "description": "qi.rui.mary.ma@dnv.com",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "createdOn": "2023-03-03T14:50:19.3431098Z",
+    "lastModifiedBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "lastModifiedOn": "2023-03-03T14:50:19.3431098Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "59fe3529-aa70-4d7b-b4c2-4290b05243b7",
+    "name": "testBug4",
+    "description": "qi.rui.mary.ma@dnv.com",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "createdOn": "2023-03-03T14:46:35.4585816Z",
+    "lastModifiedBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "lastModifiedOn": "2023-03-03T14:46:35.4585816Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "e87a4e55-5a76-4124-830f-a4093f56d172",
+    "name": "testBug3",
+    "description": "",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "createdOn": "2023-03-03T14:33:05.8142741Z",
+    "lastModifiedBy": "b497e4a0-177d-4178-97c6-b27383b288a9",
+    "lastModifiedOn": "2023-03-03T14:33:05.8142741Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [{
+      "column": "IMO",
+      "filterType": "List",
+      "filterValues": ["9999996"]
+    }, {
+      "column": "PERIOD_START_DATE",
+      "filterType": "GreaterOrEqual",
+      "filterValues": ["2020-01-01T00:00:00.0000000Z"]
+    }, {
+      "column": "PERIOD_END_DATE",
+      "filterType": "LessOrEqual",
+      "filterValues": ["2020-12-31T00:00:00.0000000Z"]
+    }],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }, {
+    "id": "37f6097d-ea3f-4885-bb5a-b5579f50f16e",
+    "name": "test4",
+    "description": "test4",
+    "workspaceId": "f6627574-6a67-45d0-8895-b878313630d8",
+    "connectionId": "67af728c-4fb0-4638-8758-ebd6f8857ad9",
+    "createdBy": "ba30865c-f5b7-40ed-9f2b-b54198daea95",
+    "createdOn": "2023-02-01T06:08:02.358094Z",
+    "lastModifiedBy": "ba30865c-f5b7-40ed-9f2b-b54198daea95",
+    "lastModifiedOn": "2023-02-01T06:08:02.358094Z",
+    "schemaInfo": {
+      "schemaVersionId": "89153dc4-2323-45c9-b70e-241503697315",
+      "schemaName": "DCS Period Summary v1"
+    },
+    "queries": [{
+      "column": "PERIOD_START_DATE",
+      "filterType": "GreaterOrEqual",
+      "filterValues": ["2023-01-01T00:00:00.0000000Z"]
+    }, {
+      "column": "PERIOD_END_DATE",
+      "filterType": "LessOrEqual",
+      "filterValues": ["2023-02-01T00:00:00.0000000Z"]
+    }],
+    "columns": ["IMO", "VESSEL_NAME", "PERIOD_START_DATE", "PERIOD_END_DATE", "HOURS_UNDERWAY", "TOTAL_REPORTED_TIME", "CO2_EMITTED_MT", "DISTANCE", "GROSS_TONNAGE", "NET_TONNAGE", "DEADWEIGHT", "PROPULSION_POWER", "AE_POWER", "ICE_CLASS", "VESSEL_FLAG", "VESSEL_TYPE", "VESSEL_TYPE_OTHER", "VESSEL_CATEGORY_PP", "DATA_CLASSIFICATION", "AIS_DISTANCE", "AIS_DURATION", "AIS_CO2_EMITTED"],
+    "isBaseDataset": false,
+    "tags": {}
+  }],
+  "pageIndex": 1,
+  "pageSize": 10,
+  "totalCount": 272,
+  "totalPages": 28
+}
 ```
 
 <a name="data"></a>To get a specific data set by its ID (including data sets shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId} endpoint. 

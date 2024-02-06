@@ -164,17 +164,29 @@ You can use the following endpoints:
 * [Query for data sets by ID and with additional properties](#dataMore)
 * [Query for activity logs for a data set](#ledger)
 
-<a name="allData"></a>To get all available data sets (including those shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/query endpoint. 
+<a name="allData"></a>To get all available data sets (including those shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/query endpoint with the POST method.
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-You can add the following to the request:
-* Get only base data sets with `isBaseDataset=true`.
-* Set page size and index, for example `PageSize=1&PageIndex=5`.
-* Sort columns with `sortColumn`.
-* Sort direction with `sortDirection=ascending` or `sortDirection=descending`.
+Below you can see a sample request body:
+```json
+    {
+  "isBaseDataset": true,
+  "pageIndex": 0,
+  "pageSize": 0,
+  "sortColumn": "string",
+  "sortDirection": "Ascending",
+  "datasetName": "string",
+  "tags": {},
+  "createdAfter": "string",
+  "createdBefore": "string",
+  "schemaVersionIds": [
+    "string"
+  ]
+}
+```
 
 Below you can see an example of a successful response (code 200).
 ```json

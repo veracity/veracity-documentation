@@ -3,13 +3,13 @@ author: Veracity
 description: Overview of the Background Jobs tab in the admin tab.
 ---
 
-# Background jobs
+# Background Jobs
 
-The "Background jobs" page shows all the jobs running in the background of your VAP service. For each job, you can check its:
-* type
-* creation date
-* completion date
-* status
+The "Background Jobs" tab shows all the jobs running in the background of your VAP service. For each job, you can check its:
+* Type
+* Creation date
+* Completion date
+* Status
 
 To see the details of a job, in the row with the job, select the details icon.
 

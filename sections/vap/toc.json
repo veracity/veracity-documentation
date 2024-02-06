@@ -63,23 +63,23 @@
 					"href": "admin-tab/overview.md"
 				},
 				{
-					"text": "Resource",
+					"text": "Resources",
 					"href": "admin-tab/resource.md"
 				},
 				{
-					"text": "Manage reports",
+					"text": "Reports",
 					"href": "admin-tab/reports.md"
 				},
 				{
-					"text": "Manage entities",
+					"text": "Entities",
 					"href": "admin-tab/entities.md"
 				},
 				{
-					"text": "Manage users",
+					"text": "Users",
 					"href": "admin-tab/users.md"
 				},
 				{
-					"text": "Manage webs",
+					"text": "Webs",
 					"href": "admin-tab/webs.md"
 				},
 				{
@@ -91,7 +91,7 @@
 					"href": "admin-tab/background-jobs.md"
 				},
 				{
-					"text": "Statistics",
+					"text": "Activity Statistics",
 					"href": "admin-tab/statistics.md"
 				}
 			]

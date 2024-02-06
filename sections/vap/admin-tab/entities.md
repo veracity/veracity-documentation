@@ -3,7 +3,7 @@ author: Veracity
 description: Overview of the Manage Entities tab in the admin tab.
 ---
 
-# Manage Entities
+# Entities
 
 An entity:
 * Can contain one or more reports or other content types.
@@ -40,7 +40,7 @@ Note that, when using **Self Subscribe** or **Public View**, the data you are sh
 
 ## Entity statistics
 
-for each entity, you can see when it was accessed from the Home menu and by whom. You can also see the number of interactions with the entity (year to date). To do so, in the row with the entity, select the icon below and then select the **User Visit History** tab in the pop-up window that opens.
+For each entity, you can see when it was accessed from the Home menu and by whom. You can also see the number of interactions with the entity (year to date). To do so, in the row with the entity, select the icon below and then select the **User Visit History** tab in the pop-up window that opens.
 
 <figure>
 	<img src="assets/manageentitieshistory.png"/>

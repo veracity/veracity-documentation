@@ -3,9 +3,9 @@ author: Veracity
 description: Overview of the Statistics tab in the admin tab.
 ---
 
-# Statistics
+# Activity Statistics
 
-The "Statistics" page is divided into two tabs:
+The "Activity Statistics" page is divided into two tabs:
 * Report Statistics - Show usage statistics for reports.
 * Entity Statistics - Show usage statistics for entities.
 

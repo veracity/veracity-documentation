@@ -3,8 +3,8 @@ author: Veracity
 description: Overview of the Manage Reports tab in the admin tab.
 ---
 
-# Manage Reports
-This page describes administrator tasks you can do in "Manage Reports".
+# Reports
+This page describes administrator tasks you can do in "Reports".
 
 ## To create a new report property object and connect it to your file or web app
 To create a new report object:

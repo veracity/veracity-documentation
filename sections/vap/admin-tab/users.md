@@ -3,7 +3,7 @@ author: Veracity
 description: Overview of the Manage Users tab in the admin tab.
 ---
 
-# Manage Users
+# Users
 
 The 'Users' page shows all users in your VAP service.
 

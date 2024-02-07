@@ -2,7 +2,10 @@
 author: Veracity
 description: This is the changelog for the release 4.12 of Veracity Adapter for Power BI (VAP).
 ---
-# VAP 4.12 release
+# VAP 4.12 release PLACEHOLDER
+
+**This is a placeholder for the 4.12 release. We will remove update this information and remove this disclaimer when we do the VAP 4.12 release.**
+
 Read this page to learn what has changed in the Veracity Adapter for Power BI. 
 
 This release brings quality improvements by redesigning **Manage File** and **Manage User** modules in the Admin Panel. Note that there are no changes in functionalities. However, VAP looks a bit different now, and you do some things in different places than before. The changes are based on the feedback from our users.

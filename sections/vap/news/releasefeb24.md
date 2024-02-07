@@ -68,8 +68,5 @@ We have changed how you filter resources. For details, [see the updated document
 ### Moved data location and workspace ID to Configure
 Now, the information on the ID of your workspace and the location of your Power BI files is at the top of the 'Configure' page. For details, [see the updated documentation page](../admin-tab/configure.md).
 
-### Stopped supporting background image for reports
-Now, you cannot add a background image to your VAP report.
-
 ## Security improvements
 Before this release, we have done several releases focused on security improvements. Also, in October 2023, we had penetration tests and acted on all the findings in order of importance, finishing the improvement process in November 2023.

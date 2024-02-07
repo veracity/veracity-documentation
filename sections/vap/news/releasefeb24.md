@@ -4,7 +4,7 @@ description: This is the changelog for the release 4.12 of Veracity Adapter for 
 ---
 # VAP 4.12 release PLACEHOLDER
 
-**This is a placeholder for the 4.12 release. We will remove update this information and remove this disclaimer when we do the VAP 4.12 release.**
+**This is a placeholder for the 4.12 release. We will update this information and remove this disclaimer when we do the VAP 4.12 release.**
 
 Read this page to learn what has changed in the Veracity Adapter for Power BI. 
 

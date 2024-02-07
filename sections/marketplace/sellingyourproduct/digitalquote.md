@@ -10,6 +10,7 @@ To increase sales reach or maintain a good ​conversation with clients, provide
 To create a digital quote, providers must contact our Veracity onboarding team, which can set it up for you.​
 
 The quote includes Overview and Details sections taken from the original marketplace product page and shows also Terms and Conditions (1).​ It is downloadable as a pdf, so that the client can forward it internally for approval (2).​ Moreover, the quote includes details from the buyer and the seller (3) and a tag on the top left corner with extra specifications of the offer (see yellow tag).​
+
 In the top right corner, we display a validity period that sets a time frame for the quote, but it doesn't prevent the client from making a purchase after the validity end date.
 
 <figure>

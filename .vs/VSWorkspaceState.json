@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\schemas",
     "\\sections",
-    "\\sections\\dataworkbench",
-    "\\sections\\dataworkbench\\news"
+    "\\sections\\marketplace\\sellingyourproduct",
+    "\\sections\\vap",
+    "\\sections\\vap\\admin-tab",
+    "\\sections\\vap\\news"
   ],
-  "SelectedNode": "\\sections\\dataworkbench\\news\\releasedec23.md",
+  "SelectedNode": "\\sections\\vap\\news\\assets",
   "PreviewInSolutionExplorer": false
 }

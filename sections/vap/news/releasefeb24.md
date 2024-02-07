@@ -22,7 +22,7 @@ To hide filtering options, select the magnifying glass icon again.
 	<img src="../admin-tab/assets/users_filter.png"/>
 </figure>
 
-If you can sort a column, two arrows next to its name. The arrow in the dark blue colour shows the current sorting direction. For example, if the bottom arrow is dark blue, the column is sorted in the descending order. 
+If you can sort a column, it has two arrows next to its name. The arrow in the dark blue colour shows the current sorting direction. For example, if the bottom arrow is dark blue, the column is sorted in the descending order. 
 
 **To change the column's sorting order**, select the column's name.
 

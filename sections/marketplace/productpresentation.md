@@ -9,15 +9,16 @@ When your service is at a mature stage, and you are ready to present it or sell 
 
 In both cases, we also suggest that you read this online guideline and that you familiarize yourself with the different product pages at [store.veracity.com](https://store.veracity.com)
 
+## Sanity tutorial
+Watch this tutorial to learn how to edit your product page. To get access to Sanity, contact <onboarding@veracity.com>.
+[![Watch the video](assets/create_a_resource.gif)](https://brandcentral.dnv.com/mars/embed?o=0FB6CF531F0173F5&c=10651&a=N)
 
 ## Writing content
 When deciding the name of your service, and when writing content, you should think about being user-friendly and choosing the right words for SEO (Search Engine Optimization). Both in the name of the service and in the content it’s important to:
-* write what the service is about in a simple and short way; 
-* avoid using abbreviations, and if needed explain what the abbreviation means; 
-* write in a user-friendly way so that also non-expert customers can understand – our pages are targeted also at businesspeople and non-engineers;
-* do research about the most typical words used by your target group - we suggest [trends.google.com](https://trends.google.com) as a smart tool to get insight into words used in search (e.g. If your users are more exposed to the word “ship”, use that instead of vessel).  
-
-
+* Write what the service is about in a simple and short way. 
+* Avoid using abbreviations, and if needed explain what the abbreviation means. 
+* Write in a user-friendly way so that also non-expert customers can understand – our pages are targeted also at businesspeople and non-engineers.
+* Do research about the most typical words used by your target group - we suggest [trends.google.com](https://trends.google.com) as a smart tool to get insight into words used in search (e.g. If your users are more exposed to the word “ship”, use that instead of vessel).
 
 ## Service card 
 Your service page will be accessed by clicking on a service card in the marketplace home. The text on the service card will be the same as the subtitle at the top of the service page and it should be short and to the point (max 100 characters).

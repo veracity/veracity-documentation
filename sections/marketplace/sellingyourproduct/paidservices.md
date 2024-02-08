@@ -75,8 +75,7 @@ You can decide to sell your service together with extensions (1). Extensions can
 </figure>
 
 ## Pricing plan selector
-If you need to display different price plans for the same variant but want to show them one at a time (like the two period options in the example below, both belonging to a premium variant), you can use a drop-down selector. The selector displays only one plan at a time, helping the user choose without feeling overwhelmed by too many options and buy buttons.
-
+If you need to display different price plans with a common differentiating element (like “users” as in the example below), you can use a drop-down selector. The selector shows only one plan at a time in a drop-down list. It helps the user choose without being overwhelmed with too many options and buy buttons. 
 Pricing plan selector can be shown on “one-column” or “side-by-side” pricing plans display options.
 
 <figure>

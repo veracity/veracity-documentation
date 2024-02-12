@@ -4,6 +4,8 @@ description: How to transpile code for production in the NodeJS Webapp tutorial.
 ---
 
 # 6. Transpiling for production
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
+
 [Previous - 5. Calling APIs](5-calling-apis.md)
 
 Now that we have a fully working application that is able to authenticate users and call APIs we only need to put it somewhere where users can access it. If we had written everything in plain JavaScript this would be a trivial task of copying our code over to the server where we want it to run and start it up. But since we are using TypeScript we need to do one additional thing first. This step is called transpiling.

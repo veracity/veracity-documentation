@@ -4,6 +4,8 @@ description: Introduction to the NodeJS Webapp tutorial on Veraicty.
 ---
 
 # Tutorial: Building a Node.JS application with Veracity
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
+
 Welcome to this tutorial on building Node powered web applications with Veraicty. Here you will learn how to:
 
 - build basic web applications with Node and ExpressJs.

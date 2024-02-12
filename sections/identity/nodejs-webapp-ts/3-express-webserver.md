@@ -4,6 +4,8 @@ description: Describes how to set up a basic ExpressJS web server in the NodeJS 
 ---
 
 # 3. Express webserver
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
+
 [Previous - 2. Development environment](2-development-environment.md)
 
 Previously we set up our development environment and installed all the necessary dependencies needed to build our application. Now we can start writing the actual code :)

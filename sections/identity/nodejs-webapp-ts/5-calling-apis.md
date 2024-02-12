@@ -4,6 +4,8 @@ description: Describes how to handle calling Veracity APIs from an web app in th
 ---
 
 # 5. Calling APIs
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
+
 [Previous - 4. Authentication](4-authentication.md)
 
 In the previous section we set up authentication so that users can log in and return to our application. Once they do we can be sure they are who they claim to be. Now we will use an access token to communicate with another API in the Veracity eco-system. We will focus on the Services API though the process is virtually identical for any other API as well.

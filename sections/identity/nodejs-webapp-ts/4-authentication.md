@@ -4,6 +4,8 @@ description: Describes how to perform authentication with the Veracity IDP.
 ---
 
 # 4. Authentication
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
+
 [Previous - 3. Express webserver](3-express-webserver.md)
 
 In the previous section we set up our webserver to handle https requests and even managed to return some text from it. In this section we will expand it to allow users to log in via Veracity and return to our application when done. We will also set up our code to negotiate for access tokens so that we can call other APIs on behalf of the currently logged in user.

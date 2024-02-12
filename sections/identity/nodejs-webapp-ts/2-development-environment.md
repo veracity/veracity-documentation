@@ -4,6 +4,8 @@ description: Describes how to set up a basic dev environment for the NodeJS Weba
 ---
 
 # 2. Development environment
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
+
 [Previous - Introduction](1-introduction.md)
 
 Every project starts with an empty development environment. In this tutorial we will build our application using Microsofts excellent [Visual Studio Code](https://code.visualstudio.com/) as our Interactive Development Environment (IDE). It has full support for TypeScript and Git out of the box which is ideal for our project. Allthough this tutorial will use Visual Studio Code (VSCode) you are free to use any IDE you want (including notepad if you are so inclined). The code will work regardless.

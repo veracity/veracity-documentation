@@ -4,6 +4,7 @@ description: The summary of the NodeJS Webapp tutorial.
 ---
 
 # 7. Summary
+**This tutorial is deprecated, and we advise against following it. Still, it can give you an overview of how to build a Node JS application with Veracity, but you will need to update yourself with current information (for example, by talking to the Application Team Network).**
 [Previous - 6. Transpiling for production](6-transpiling-for-production.md)
 
 Throughout this tutorial we have learned how to:

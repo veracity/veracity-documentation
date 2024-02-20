@@ -5,7 +5,7 @@ description: Description of Data Standards in Veracity
 
 # How to report port calls which shall not be considered as port-of-call as per MRV regulation
 
-<a href=https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20port%20calls.pdf" download>
+<a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20port%20calls.pdf" download>
     <img src="assets/download.png" alt="Download PDF" height="40">
   </a>
   <br>

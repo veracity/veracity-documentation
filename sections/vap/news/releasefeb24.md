@@ -2,15 +2,12 @@
 author: Veracity
 description: This is the changelog for the release 4.12 of Veracity Adapter for Power BI (VAP).
 ---
-# VAP 4.12 release PLACEHOLDER
-
-**This is a placeholder for the 4.12 release. We will update this information and remove this disclaimer when we do the VAP 4.12 release.**
+# VAP 4.12 release
 
 Read this page to learn what has changed in the Veracity Adapter for Power BI. 
 
 This release brings quality improvements by redesigning **Manage File** and **Manage User** modules in the Admin Panel. Note that there are no changes in functionalities. However, VAP looks a bit different now, and you do some things in different places than before. The changes are based on the feedback from our users.
 
-Note that this is a placeholder for the release, and we will update it when we make the release 4.12
 ## New Features
 This section covers new features.
 
@@ -55,6 +52,12 @@ Now, you select the plus icon in the left sidebar and  select the object you wan
 
 ### Renamed Manage File to Resources
 Now, the 'Manage File' page is called 'Resources'. For details, [see the updated documentation page](../admin-tab/resource.md).
+
+### Removed Report ID on Resource
+On Resources, we have removed the 'Report ID' column.
+
+### Added Last Update Date in Resources
+On Resources, we have added the 'Last Update Date' column. If there was no update to the resource, your VAP will show that the last update was in the year 2000. 
 
 ### Merged Manage Web into Resources
 Now, the 'Manage Web' page is a part of the 'Resources' page. For details, [see the updated documentation page](../admin-tab/resource.md).

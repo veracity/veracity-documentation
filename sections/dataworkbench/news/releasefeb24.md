@@ -25,9 +25,7 @@ Below is an example.
 Now, when a template page is loaded, under the navigation menu, you see a banner for the connector you are using. You can close the banner if you want to. The banner shows some information about the connector and may link to its Marketplace page.
 
 ### Use connector template
-Now, you can use template pages for connectors to share data sets more efficiently. To start doing so, contact the Data Workbench team and inform them of your needs so that the team can set up the template page for you.
-
-In connector templates (Solution Partner templates), you can save and share data sets in bulk. You see a list of the data sets you're sharing and saving, and you can only share them with your verified contacts (users or workspaces) to avoid accidentally sharing data with people outside of your trust network.
+Now, you can use template pages for connectors to share data sets more efficiently. In connector templates (Solution Partner templates), you can save and share data sets in bulk. You see a list of the data sets you're sharing and saving, and you can only share them with your verified contacts (users or workspaces) to avoid accidentally sharing data with people outside of your trust network.
 
 ### Info banner on connector template pages
 Now, when you are on a page of a connector template, there is an informational banner at the top that explains what a connector template page is and how you can use it.
@@ -40,5 +38,4 @@ We have increased the maximum length of a data set name from 64 to 128 character
 
 ## Exceptions for the Poseidon and SSC templates
 The following changes don't apply to Poseidon and SSC templates:
-* 'See what connectors you're using' so for these templates, so we don't display the tiles of connectors that are in use for these templates.
 * There are no verified contacts when you share data sets, and you can share the data sets with any Data Workbench user or workspace.

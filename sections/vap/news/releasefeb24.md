@@ -54,10 +54,15 @@ Now, you select the plus icon in the left sidebar and  select the object you wan
 Now, the 'Manage File' page is called 'Resources'. For details, [see the updated documentation page](../admin-tab/resource.md).
 
 ### Removed Report ID on Resource
-On Resources, we have removed the 'Report ID' column.
+On Resources, we don't show the 'Report ID' ('File ID') column by default.
 
-### Added Last Update Date in Resources
-On Resources, we have added the 'Last Update Date' column. If there was no update to the resource, your VAP will show that the last update was in the year 2000. 
+To show this column on your reports:
+1. Go to the **Config** tab.
+2. Edit **Tenant Properties**.
+3. Under **Notified Group**, toggle **Show dataset and report id**.
+
+### Added Upload Date and Last Update Date in Resources
+On Resources, we have added the 'Upload Date' and 'Last Update Date' column. If there was no update to the resource, your VAP will show that the last update was in the year 2000. 
 
 ### Merged Manage Web into Resources
 Now, the 'Manage Web' page is a part of the 'Resources' page. For details, [see the updated documentation page](../admin-tab/resource.md).

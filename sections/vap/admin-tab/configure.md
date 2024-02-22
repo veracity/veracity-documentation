@@ -31,7 +31,7 @@ To edit tenant properties, select the **Edit** button and edit the fields you ne
 	
 	Enable manage filters - if you enable this default setting, a "Manage Filters" button will be shown under "Manage Reports", and you wil be able to configure reusable report filters for your users.
 	
-	Show dataset and report id - enable to show the ID of data sets and reports on Power BI reports in "Manage File".
+	Show dataset and report id - enable to show the ID of data sets and reports on Power BI reports in "Resources".
 	
 	Enable Power BI - enable Power BI in your VAP service.
 	
@@ -64,7 +64,7 @@ To add a scheduled refresh:
 6. In the **Apply to PBI reports**, select which Power BI files should use this refresh plan. Note that the files need to be stored in a cloud.
 7. Select the **Save & Apply** button.
 
-If you want to apply a refresh plan or change it to another, you can do so for each report under "Manage file" or in the "Configure" tab.
+If you want to apply a refresh plan or change it to another, you can do so for each report under "Resources" or in the "Configure" tab.
 
 ## Footer Properties
 
@@ -81,4 +81,4 @@ Note that to see the changes in footer, entity types or tenant properties, you n
 
 ## Tutorial Template
 
-Under "Tutorial Template", you can download a JSON template file for a tutorial. You can use it to walk your users through new reports and the latest changes. After modifying the template, upload it in [the "Manage Files" tab](manage-files.md) and connect it to the report in [the "Manage Reports" tab](manage-reports.md).
+Under "Tutorial Template", you can download a JSON template file for a tutorial. You can use it to walk your users through new reports and the latest changes. After modifying the template, upload it in [the "Resourcess" tab](manage-files.md) and connect it to the report in [the "Manage Reports" tab](manage-reports.md).

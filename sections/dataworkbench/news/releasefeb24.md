@@ -15,12 +15,6 @@ Now, on your workspace's Home page, below the navigation, you see the connectors
 
 If you need a connector configured in your workspace, request it from the Data Workbench team.
 
-Below is an example.
-
-<figure>
-<img src="assets/templatepage.png"/>
-</figure>
-
 ### See connector banners
 Now, when a template page is loaded, under the navigation menu, you see a banner for the connector you are using. You can close the banner if you want to. The banner shows some information about the connector and may link to its Marketplace page.
 

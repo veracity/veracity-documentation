@@ -30,8 +30,8 @@ This section covers changes in existing features.
 ### Longer data set names
 We have increased the maximum length of a data set name from 64 to 128 characters.
 
-## Exceptions for the Poseidon and SSC templates
-The following changes don't apply to Poseidon and SSC templates:
+## Exceptions for the Poseidon and SCC templates
+The following changes don't apply to Poseidon and SCC templates:
 * There are no verified contacts when you share data sets, and you can share the data sets with any Data Workbench user or workspace.
 
 

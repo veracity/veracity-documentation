@@ -11,7 +11,7 @@ Data Fabric support three roles:
 * Data Steward, share and manage accesses on behalf of the Data Manager
 * Data Consumer, access level is defined at the time of sharing. Options: read, write, delete and list.
 
-Data managers can takes advantage of the Veracity ecosystem whereby they can combine their datasets with others available from Veracity Marketplace to enrich their own data to create new insights and solutions.
+Data managers can take advantage of the Veracity ecosystem whereby they can combine their datasets with others available from Veracity Marketplace to enrich their own data to create new insights and solutions.
 
 ## Combine data with world class analytics tools
 
@@ -21,7 +21,7 @@ Data of any type that could be currently stored in files, database tables, data 
 
 ## Self-service and APIs at core
 
-Data fabric is built with self-service at core, and the users can access the fabric to ingress and egress data using Veracity or Azure storage explorer as well as Veracity APIs.
+Data fabric is built with self-service at its core, and the users can access the fabric to ingress and egress data using Veracity or Azure storage explorer as well as Veracity APIs.
 
 ## Security and data protection
 

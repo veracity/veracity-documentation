@@ -15,15 +15,15 @@ This section covers changes in existing features.
  
 The OVD team has updated the following schemas:
  
-* Monthly Emissions Summary - Added new columns.
+* Monthly Emissions Summary - Added three new columns.
 
-* Leg Part Emissions Summary - Added 24 new columns and changed filters.
+* Leg Part Emissions Summary - Added 24 new columns and added one filter.
 
-* Leg Emissions Summary - Added 75 new columns and changed filters.
+* Leg Emissions Summary - Added schema with 75 columns and 8 filters.
 
 * Voyage Leg CII Summary - Added a new filter.
 
-* Data Quality Voyage Leg Verification - Added one new column and new filters.
+* Data Quality Voyage Leg Verification - Added one new column and 4 new filters.
 
 * Data Quality DCS - Added a new filter.
 

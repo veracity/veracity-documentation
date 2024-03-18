@@ -7,37 +7,67 @@ description: This is the changelog for the release 4.13 of Veracity Adapter for 
 
 Read this page to learn what has changed in the Veracity Adapter for Power BI. 
 
-This release brings quality improvements by redesigning **Manage File** and **Manage User** modules in the Admin Panel. Note that there are no changes in functionalities. However, VAP looks a bit different now, and you do some things in different places than before. The changes are based on the feedback from our users.
-
 ## New Features
 This section covers new features.
 
-### New filters and sorting columns
-On the 'Users' page (previously 'Manage Users') and on the 'Resources' page (previously 'Manage File'), we have enabled new filtering options for you and made some columns sortable.
+### Can filter on Home and Background Jobs
 
-**To filter**, in the right corner, select the magnifying glass icon, select a filter, select filter settings, and select the **Apply** button.
+In the previous release, we added filtering for Resources and Users. Now, you can also use filters on the following pages:
+* Home
+* Background Jobs
 
-To hide filtering options, select the magnifying glass icon again.
-
-<figure>
-	<img src="../admin-tab/assets/users_filter.png"/>
-</figure>
-
-If you can sort a column, it has two arrows next to its name. The arrow in the dark blue colour shows the current sorting direction. For example, if the bottom arrow is dark blue, the column is sorted in the descending order. 
-
-**To change the column's sorting order**, select the column's name.
+To filter:
+1. In the right corner, select the magnifying glass icon.
+2. Select a filter.
+3. Select filter settings.
+4. Select the **Apply** button.
 
 <figure>
-	<img src="assets/sort.png"/>
+	<img src="assets/filter-background-job.png"/>
 </figure>
 
-For details on the Resource page, [see the updated documentation page](../admin-tab/resource.md).
+### Added Refresh Schedule Plan in Resources
+Now, Data Admins and Report Admins can access Refresh Schedule Plans on the Resources page and plan when the reports they uploaded should be refreshed.
 
-For details on the Users page, [see the updated documentation page](../admin-tab/users.md).
+To schedule refresh plans for reports:
+1. In the top right corner of Resources > File, select the schedule icon.
+2. In the panel that appears, **Add** a new plan, **Edit** an existing plan, or **Delete** a plan.
+
+When you have scheduled a refresh plan, you can apply it to reports.
+
+<figure>
+	<img src="assets/entity-text-search.png"/>
+</figure>
+
+To apply a refresh plan to a file:
+1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
+2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
+3. In the bottom right corner of the panel, select **Save**.
+
+<figure>
+	<img src="assets/scheduleicon.png"/>
+</figure>
 
 ## Changes in existing features
 This section covers changes in existing features.
 
-### Filtering extended to
+### Text search for Entities in Users
+We have improved filtering for Entities on the Users page, adding a text search option. To use it:
 
-In the previous release, we have added filtering for Resources and Users. Now, you can also filter in Home, 
+1. In the right corner, select the magnifying glass icon.
+2. Select **Entity**
+3. Start typing the name of the entity. The list of entities you can select will show only those with matching names.
+
+<figure>
+	<img src="assets/entity-text-search.png"/>
+</figure>
+
+### Background Jobs redesigned
+
+The Background Jobs page was redesigned to improve user experience. 
+
+### Removing background jobs
+Now, only the Admin user who created the job or the System Admin role can delete background jobs.
+
+### Removed Refresh Schedule Plan from Configure
+We removed the option to schedule a report refresh plan from the Configure page, where only System Admins could access it. Now, it is on the Resource page, where Data Admins and Report Admins can also use it.

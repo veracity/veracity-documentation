@@ -8,6 +8,10 @@
 		{
 			"text": "Single Sign-On (SSO)",
 			"href": "sso.md"
+		},
+		{
+			"text": "Veracity Access Hub",
+			"href": "accesshub.md"
 		}
 	]
 }

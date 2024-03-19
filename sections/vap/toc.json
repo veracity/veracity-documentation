@@ -113,39 +113,6 @@
 			"href": "user-roles.md"
 		},
 		{
-			"text": "Tutorial: Quick start",
-			"items": [
-				{
-					"text": "Introduction",
-					"href": "vap-saas-tutorial/1-introduction.md"
-				},
-				{
-					"text": "Manage files",
-					"href": "vap-saas-tutorial/2-manage-files.md"
-				},
-				{
-					"text": "Manage reports",
-					"href": "vap-saas-tutorial/3-manage-reports.md"
-				},
-				{
-					"text": "Manage entities",
-					"href": "vap-saas-tutorial/4-manage-entities.md"
-				},
-				{
-					"text": "Manage users",
-					"href": "vap-saas-tutorial/5-manage-users.md"
-				},
-				{
-					"text": "Summary and next steps",
-					"href": "vap-saas-tutorial/6-summary.md"
-				},
-				{
-					"text": "Advanced settings",
-					"href": "vap-saas-tutorial/7-advanced-settings.md"
-				}
-			]
-		},
-		{
 			"text": "Tutorial: Using Veracity container as a data source",
 			"items": [
 				{

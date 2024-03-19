@@ -16,8 +16,6 @@ Veracity Adapter for Power BI (VAP) allows you to:
 
 For details about the service, see the [VAP Marketplace page](https://store.veracity.com/veracity-adapter-for-power-bi-vap).
 
-For a quick-start tutorial, go [here](vap-saas-tutorial/1-introduction.md).
-
 ## User guide
 
 If you are a user of a VAP service, see the [view and interact section](reading-reports/overview.md).
@@ -29,5 +27,3 @@ If you are an administrator of a VAP service, see the [admin tab overview](admin
 ## Tutorials
 
 For a basic VAP tutorial, go the [quick start](vap-saas-tutorial/1-introduction.md).
-
-For a tutorial on how to use a Veracity container (Data Fabric) as a data source in your reprot, go [here](veracity-container-as-data-source/introduction.md).

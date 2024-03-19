@@ -22,10 +22,28 @@ In the **Actions** column, you can:
 
 Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
 
-In the **File** subtab in the **Refresh** column, you can schedule refreshes (1) or manually refresh (1) data source(s) for a Power BI report or anotehr file with data sources.
+### Refresh Schedule Plan
+
+Data Admins, Report Admins, and System Admins can access Refresh Schedule Plans on the Resources page and plan when the reports should be refreshed.
+
+To schedule refresh plans for reports:
+1. In the top right corner of Resources > File, select the schedule icon.
+2. In the panel that shows, **Add** a new plan, **Edit** an existing plan, or **Delete** a plan.
+
+When you have scheduled a refresh plan, you can apply it to reports.
 
 <figure>
-	<img src="assets/file_refresh.png"/>
+	<img src="assets/schedule.png"/>
+</figure>
+
+### To refresh a report
+To apply a refresh plan to a file:
+1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
+2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
+3. In the bottom right corner of the panel, select **Save**.
+
+<figure>
+	<img src="assets/scheduleicon.png"/>
 </figure>
 
 ### To upload a file

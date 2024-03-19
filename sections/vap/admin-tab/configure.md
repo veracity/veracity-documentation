@@ -49,23 +49,6 @@ To add a document:
 3. In the **Display name**, add the name for the document that should be shown to users.
 4. Select the **Save** button.
 
-## Refresh Schedule Plan
-
-Under "Refresh Schedule Plan", you can schedule when the reports in your VAP service should refresh data. The table shows all the schedled refreshes. To sort them by column, select the column's name. In the right corner of each row, you can:
-* Edit the scheduled refresh.
-* Delete the scheduled refresh.
-
-To add a scheduled refresh:
-1. Select the **Add** button.
-2. In the **Title**, provide a name for the refresh plan. This is only shown to Report and System Admin users.
-3. In the time zone, select a time zone for the refresh, the start time, the intervals, and the number of daily refreshes (maximum 48 per day which means a refresh every 30 minutes). Note that scheduled refresh is a memory intensive background task and may be postponed during high memory usage by Power BI. Because of that, set the refreshes only in the necessary intervals.
-4. Optionally, select the **Generate refresh times** to set the time for each refresh. To add another scheduled refresh, select the **Add another time** button.
-5. Under **Weekdays**, select the days on which report data should be refreshed.
-6. In the **Apply to PBI reports**, select which Power BI files should use this refresh plan. Note that the files need to be stored in a cloud.
-7. Select the **Save & Apply** button.
-
-If you want to apply a refresh plan or change it to another, you can do so for each report under "Resources" or in the "Configure" tab.
-
 ## Footer Properties
 
 Under "Footer Properties", you can see what is shown in the footer of your VAP service. To edit this, select the icon in the right corner of the row.

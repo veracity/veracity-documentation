@@ -13,4 +13,4 @@ The "Background Jobs" tab shows all the jobs running in the background of your V
 
 To see the details of a job, in the row with the job, select the details icon.
 
-To remove a background job, in the row with the job, select the remove icon.
+To remove a background job, in the row with the job, select the remove icon. Note that only System Admins can remove background jobs.

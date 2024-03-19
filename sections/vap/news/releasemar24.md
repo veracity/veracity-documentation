@@ -36,7 +36,7 @@ To schedule refresh plans for reports:
 When you have scheduled a refresh plan, you can apply it to reports.
 
 <figure>
-	<img src="assets/entity-text-search.png"/>
+	<img src="assets/schedule.png"/>
 </figure>
 
 To apply a refresh plan to a file:

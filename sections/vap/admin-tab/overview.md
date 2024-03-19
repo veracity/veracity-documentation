@@ -17,3 +17,22 @@ If you are a SystemAdministrator, you can see the full list of tasks:
 * [Background Jobs](background-jobs.md) - See and delete the jobs that run in the background (for example, batch add users).
 * [Activity Statistics](statistics.md) - See statistics for your reports or entity.
 * [Config](configure.md) - Configure scaffolding and other properties.
+
+## Filtering and sorting
+On some pages, you can filter and sort data. Below is an example of how to use on the Users page.
+
+**To filter**, in the right corner, select the magnifying glass icon, select a filter, select filter settings, and select the **Apply** button.
+
+To hide filtering options, select the magnifying glass icon again.
+
+<figure>
+	<img src="../admin-tab/assets/users_filter.png"/>
+</figure>
+
+If you can sort a column, it has two arrows next to its name. The arrow in the dark blue colour shows the current sorting direction. For example, if the bottom arrow is dark blue, the column is sorted in the descending order. 
+
+**To change the column's sorting order**, select the column's name.
+
+<figure>
+	<img src="assets/sort.png"/>
+</figure>

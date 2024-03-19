@@ -20,6 +20,7 @@ The Home tab of your Veracity Power Adapter for Power BI (VAP) shows the entitie
 
 Here, you can:
 1. Switch between card and table view.
+2. Filter entities by their name or type.
 2. See informative tags. For example, "Self Subscribe" for entities joinable for everyone with a Veracity account or "Public View" for entities that can be seen without signing into a Veracity account.
 3. See how many reports are included in an entity and navigate to any of the reports.
 

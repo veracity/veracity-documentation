@@ -5,11 +5,10 @@ description: This page explains how to filter and sort reports in VAP.
 
 # Filtering and sorting
 
-This page explains how to filter and sort reports in VAP. 
+When you open a Power BI report in VAP, you can use filtering and sorting if the report's author configured it.
 
 Note that:
-* Filtering and sorting options are configured by the report author.
-* The available options come from Power BI.
+* The available filtering and sorting options come from Power BI.
 * Slicers are report elements that are a type of canvas visual filters. For details, see the [Power BI documentation](https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers).
 
 ## Showing filtering and sorting

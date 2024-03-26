@@ -143,6 +143,10 @@
 			]
 		},
 		{
+			"text": "Data catalogue",
+			"href": "datacatalogue.md"
+		},
+		{
 			"text": "User management",
 			"href": "usermanagement.md"
 		},

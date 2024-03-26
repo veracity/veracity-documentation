@@ -1,0 +1,167 @@
+---
+author: Veracity
+description: This page contains an overview of Data Workbench.
+---
+# Data catalogue
+
+To see data sets available in your workspace, go to the **Data Catalogue** tab. 
+
+The **Predefined data sets** tab shows data sets that are queried by data integrations from their corresponding source systems. These data sets are inherited, and you cannot modify them. However, you can use them to create new data sets.
+
+The **Created data sets** tab shows the data sets that workspace members created.
+
+The **Shared with me** tab shows the data sets that were shared with you. You cannot modify the original data sets that were shared with you. However, you can copy those data sets and modify the copies.
+
+For each data set, in the top right corner, you can select the following action icons.
+1. Data set info - See data set name and its description.
+2. Edit table properties - Disable or enable column picker and select what data columns to show.
+3. Filter - Apply and clear the filters available for the data set.
+4. Save - **Save** the current view of the data set (including applied filters and shown columns) or **Save as new** to create a new data set with the applied filters and shown data columns.
+5. Download - Download the data set as a CSV file.
+6. Share - Share the data set with someone else.
+7. Delete - If you are an admin, delete the data set.
+
+ Note that, depending on your [user role](usermanagement.md), you might not see some icons.
+
+<figure>
+	<img src="assets/dataseticons2.png"/>
+	<figcaption>Action icons for data sets.</figcaption>
+</figure>
+
+## Types of data sets
+Data sets can be saved and shared as:
+* Data live streams (dynamic) dynamic - When there is a change in a data set, it gets automatically updated.
+* Snapshots - When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
+
+In Data catalogue > Created data sets, you see the following types of data sets:
+* **Created** - Data sets created in your workspace.
+* **Shared** - Data sets shared with you or your workspace. You cannot modify them (but you can create a copy and modify it), and the original sharer has decided if you can share this data set with others.
+* **Uploaded** - Data sets that were uploaded from CSV files.
+
+You can check the data set type in the **Type** column.
+
+## Tags for data sets
+
+You can add tags to data sets so that you can find the data sets you are looking for easier and faster. You can also edit and delete tags.
+
+To edit or delete tags for a data set, open the data set, go to the **Details** tab, and next to **Tags**, select the pencil icon. To delete a tag, select the **X** icon next to its name. To edit a tag, remove the old one and create a new tag.
+
+To add a tag to a data set:
+
+1.In **Data catalogue**, open the data set.
+2.Go to the **Details** tab.
+3. Under **Tags**, select **Add tags**.
+4. Enter key and value, and then select **Add**.
+5. To save the tag, select **Save and close**.
+
+Note that you can also add tags when you are creating a new data set.
+
+For example, if you want to add a tag 'Tonnage : 5000':
+1. For key, enter 'Tonnage'.
+2. For value, enter '5000'.
+
+Each data set can have up to 100 tags. For each tag, the key length should be between 1 and 20 characters and the maximum value length is  50 characters.
+
+## To create a data set
+To create a derived data set:
+1. Select an existing data set.
+2. Apply filters to get relevant data.
+3. Save the data set.
+
+Veracity suggests using an existing template for creating your data sets. The templates are shown in the **Home** tab under the navigation menu. Note that a template can contain one or more data sets.
+
+To create a new data set from a template:
+1. In the **Home** tab, select a template.
+2. If there is more than one data set in the template, select a data set.
+2. In the right corner, select the **Save as new** icon and save a copy of the data set.
+3. Edit the data set to suit your needs. Consider using "Edit table properties" (the pencil icon) and filters (the three vertical lines icon).
+4. Optionally, to download the data set from as a CSV file, in the right corner, select the **Download** icon.
+
+
+## To upload a data set from a CSV file
+If you are an [admin](usermanagement.md), you can upload a data set from a CSV file.
+
+To upload a data set from a CSV file:
+1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
+2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
+3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
+4. To upload the data set created from the CSV file, select the **Upload** button.
+
+Note that now you have created a data set you can share with other users.
+
+## To share a data set
+1. In the **Data catalogue** tab, open the data set you want to share.
+2. In the top right corner, select the share icon.
+3. Under **Share access with**, enter the email address of the person or workspace you want to share the data set with. Alternatively, select the contact list icon to choose the recipient from the list of previously used contacts.
+4. Optionally, to allow the recipient to share the data set with other people, tick the box next to **Allow recipients to share this data set with others**. You can revoke the sharing permission later.
+5. Optionally, under **Add note to recipient**, add a message to the person with whom you are sharing the data set.
+6. To share the data set, select the **Share** button. The recipient will receive an email notification with a link to the data set.
+
+Note that:
+* You can share a data set with workspace only if someone from your workspace has already shared a data set with the target workspace and its admin has added it to the target workspace.
+
+## To request sharing a data set
+You can ask a data provider to share a data set with your workspace. A data provider has stored large amounts of data, such as time series data (IoT) for solar plants, and they can share a subset of this data with you.
+
+To request that a data provider shares a data set with you:
+1. In Data Workbench UI, go to **Data catalogue**.
+2. In the upper right corner, select **Request data**. 
+3. In the window that shows, under **Data set name**, enter a name for the data set you want to create. 
+4. Under **Data provider**, select a data provider. 
+5. Fill in other fields in the form.
+6. To send your data request, select **Request** 
+
+Your data request will be processed, and when it's complete, you will see your new data set with the requested data in your workspace's **Data Catalogue** in the **Created data sets** subtab.
+
+Below are detailed information on the fields in a data request:
+* For **Data provider**, you can select only one data provider from the providers subscribed to your Data Workbench.
+* For **Portfolio**, a portfolio is a grouping of sites (assets), and you can select only one portfolio.
+* A **Site** is an asset (for example, a solar plant or a windmill), and you can select only one.
+* For **Device type**, you can add one or multiple devices based on site (for example, a transformer or inverter). A device is a different component of the site that can provide data (usually, it is time series data).
+* For **Add parameters**, each device type has different parameters that can be configured for the request, and a parameter can only be selected once for a device type. A parameter is one data channel where time series data are logged. There can be many parameters per device. A parameter can only have one value at any given time, for example, for a car's speedometer a parameter can be the current speed of the car in kilometers per hour. 
+* For **Aggregation**, each parameter has an aggregation setting (for example, default, min, max). A parameter can only have one aggregation for a device type. This is how data is aggregated given the granularity time period; for example, "min" would aggregate with the lowest value recorded in the time period (for example, within 5 minutes if that was the granularity)
+* For **Granularity**, this is the time unit for the granularity. For example, it can be in minutes.
+* For **Interval**, select the start and end date for the data you are requesting. For example, you can request data from 20 January 2024 to 10 March 2024. 
+* You can tick the tickbox **Run Python execution analytics** and select an available Python script. This script will transform the data you are getting from your request, which can give you additional contextualization or transformation of the data and thus increase its quality and relevance.
+
+## To modify, save, and share a data set
+1. In the **Data catalogue** tab, open the data set you want to modify.
+2. Modify the data set.
+3. In the top right corner, select the share icon.
+4. In **Data set name**, you name the new (modified) data set you create.
+5. In **Share access with**, you select with whom you want to share the data set.
+6. If you tick the box saying 'Allow recipients to share this data set with others', they can reshare the data set.
+7. Optionally, you can add **tags** to the data set.
+8. Optionally, you can add a **description** to the data set.
+9. Optionally, you can add a **Note to recipient**. This message will be sent together with the link to the shared data set.
+10. To save your new data set and share it, select the **Save and share** button.
+
+To see how to save and share a new data set, click on the image below to play the video.
+
+[![Watch the video](news/assets/saveshare.png)](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/dataworkbench/save%20and%20share%20dataset.mp4)
+
+## To see data sets shared with you
+To see data sets shared with you, in the **Data catalogue** tab, go to the **Shared with me** tab.
+
+Note that:
+* You cannot edit data sets that are shared with you.
+* You can reshare the data sets only if the person who has shared them has enabled resharing.
+* If you apply filter to a data set and then reshare it, the receiver will see only as much as the filters allow. For example, you can have a data set with information on your ten vessels but apply filters that show only two relevant ships and then share it with your business partner.
+
+## To add a shared data set to your workspace
+
+1. Open the data set that was shared with you. You can follow the link from the email notification you received or find it in the "Shared with me" tab.
+2. Select the **Add to your workspace** button and then select a workspace.
+3. Select the button to go forward. This will add the data set to your workspace.
+
+Note that, to add a shared data set to a workspace, you must be an admin of this workspace.
+
+## To revoke access to a data set
+To revoke access to a data set:
+1. Go to the data set.
+2. Go to the **Details** tab.
+3. Under **Shared with**, select the pencil icon. A pop-up window with the list of users will appear.
+4. In the row with the user's or workspace's name, to revoke their access, select the **X** icon. After that, the icon changes to the "Undo" icon. If you have revoked access by accident, select the "Undo" icon to revert it.
+5. Select the **Save and Close** button.
+
+When you revoke a user's or workspace's access to a data set, they are notified about that by email. Also, if they have reshared the data set with other people, they will loose access to the data set too.

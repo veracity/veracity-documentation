@@ -13,8 +13,7 @@ For developer documentation, go [here](../tenantmanagement/tenantmanagement.md).
 
 It is up to you how much access control you delegate to VAH. Veracity Access Hub offers three types of access control:
 
-* Fully managed by Veracity 
-* You configure access rights only in Veracity.
+* Fully managed by Veracity - You configure access rights only in Veracity.
 * Hybrid access control – You configure basic access rights in Veracity and the details in an application.
 * Complex access models – The application handles access rights, and Veracity shows you the applications, the users having access to them, and some other general information.
 
@@ -25,18 +24,9 @@ For hybrid and complex access, note that some applications do not support user g
 This document uses the following terms:
 
 -   User – A person added to a company account.
-
 -   To subscribe to an application – To give access to an application.
-
 -   To unsubscribe from an application – To revoke access to an application.
-
--   To add a user (group) to a user group – To make the user (group) a member of the user group. Note that this gives them a subscription to the applications from the group they join.
-
--   To remove a user from a group – To revoke user’s membership in a group.
-
 -   To remove a user from the company account – To revoke user’s membership in the company account. This does not delete their user account.
-
--   To delete a user group – To make a user group disappear from the company account.
 
 ## Sample use case
 
@@ -112,22 +102,6 @@ Note that:
 
 -   Users who do not have a Veracity account will get email invitations to create it. It is recommended that they create their Veracity accounts, but this is not strictly necessary for using Veracity Access Hub.
 
-### To manage user’s membership in a group
-
-If you are an admin, to add, edit, or remove user’s membership in a group, select a user. This will open their details in the Group tab where you can:
-
--   Remove the user from the company account (1).
-
--   Add the user to a group (2).
-
--   See all the groups the user belongs to (3). If you select a group, you navigate to its details. For details, see [User groups](#user-groups).
-
--   Remove the user from a group (4).
-
-<figure>
-	<img src="assets/image2.png"/>
-</figure>
-
 ### To manage user’s application subscriptions
 
 If you are an admin, select a user and go to the Applications tab where you can:
@@ -144,115 +118,6 @@ If you are an admin, select a user and go to the Applications tab where you can:
 <figure>
 	<img src="assets/image3.png"/>
 </figure>
-
-### 
-
-### User Groups
-
-User groups are a convenient and scalable way of managing access to applications. For each user group, you decide which applications it has access to and who should be a member of the group. Being a member of the group gives access to the application(s) the group is subscribed to.
-
-In the User group tab, you can:
-
--   Create a new user group (1).
-
--   Search for a user group (2).
-
--   See existing user groups (3).
-
--   Delete a group (4).
-
-Note that only admins can create, edit, and delete user groups. When creating user groups, be consistent in their naming. You can see a
-[sample naming](#_Naming_user_groups ) convention here.
-
-<figure>
-	<img src="assets/image4.png"/>
-</figure>
-
-### 
-
-### To manage applications available for user groups
-
-If you are an admin, select a user group. This will open its details in the Applications tab where you can:
-
--   Delete the group (1).
-
--   Give the group access to an application (2).
-
--   See all the applications the group has access to (3). If you select an application, you navigate to its details. For details, see
-    [Applications.](#_Applications )
-
--   Revoke access to an application from the group (4).
-
-Note that you can subscribe the group only to the applications your company account has access to. If you need to add a new application subscription to your account, [go to Marketplace](https://store.veracity.com/).
-
-<figure>
-	<img src="assets/image5.png"/>
-</figure>
-
-### 
-
-### To manage group's membership in a group
-
-If you are an admin, after opening a group in Members tab, you can:
-
--   Delete the group (1).
-
--   Change the members view to Direct users and groups or Expanded users. For details, [see the section below.](#direct-users-and-groups-vs-expanded-users) (2)
-
--   See all the groups and members that belong to the group (3).
-
--   Add a user or user group to the group (4).
-
--   Remove a member (user group or user) from the group (5).
-
-<figure>
-	<img src="assets/image6.png"/>
-</figure>
-
-#### Direct users and groups vs expanded users
-
-Groups can be added to other groups, and we call it nesting. To each group, you can add up to five groups. All nested groups get access to the applications the top group is subscribed to.
-
-‘Direct users and groups’ were added directly to the group you are viewing, and they get their application access from this group.
-
-‘Extended users’ means both ‘direct user and groups’ and the users and groups that have access from the group you are viewing because the group they belong to was nested in this group.
-
-To illustrate who are expanded users, see the screenshot above where we have a group called Oslo\_Office and we have added to it the following three other groups (they are members of the Oslo\_Office).
-
-The groups are:
-
--   Engineering\_Team
-
--   Finance\_Team
-
--   Legal\_Team
-
-Now, imagine that:
-
--   Not everyone in those groups works from the Oslo office, but everyone visits it regularly.
-
--   The office uses an application for booking meeting rooms and desks and we give access to this application to everyone who belongs to the Oslo\_Office group.
-
-So, people from the groups above and anyone who happens to be added directly to the Oslo\_Office group will have access to this app and we will see all of them under Expanded users.
-
-So, as you see, people in those three groups get access to this application because their groups were added (as members) to the Oslo\_Office. Also, anyone who was added directly to the Oslo\_Office group would have access to the booking app.
-
-####  Naming user groups 
-
-When naming user groups, inform who should belong to them (either by role or by subscriptions they give) and avoid ambiguous names. To reach these goals, be consistent in naming groups and consider adding explanatory descriptions for each group.
-
-Veracity suggests following your own naming convention. However, you might base it on the following suggestions:
-
--   The name should describe for whom the group is meant and what they can do. For example, 'Finance\_Department', 'Auditors', or
-    'MPP\_Admins'. 
-
--   Avoid using spaces, special characters, and reserved words\* in User Group names. Spaces and special characters can cause problems with some applications and scripts that interact with Veracity Access Hub.  
-
--   Establish a naming convention across your company account, document it, and follow it to ensure consistency and avoid conflicts and errors. For example, you can use a format like
-    '\[Prefix\]\_\[Name\]\_\[Suffix\]' for all User Groups and define what each element means and how to use it. 
-
-\* Reserved words are words that have a specific meaning or function in Veracity Access Hub or Windows, such as 'Administrator', 'Domain', or
-'Everyone'. Using these words in User Group names can cause confusion. Instead, use underscores (\_) or hyphens (-) to separate words in User Group names, and avoid using reserved words or abbreviate them. 
 
 ## Applications 
 
@@ -271,16 +136,16 @@ This tab shows the applications available to the company account. Here, you can:
 
 When you select an application, you can:
 
--   Subscribe users and user groups to this application (1)
+-   Subscribe users to this application (1).
 
 -   Change the subscriptions' view (2). Direct users or groups have been given access to this app directly while Expanded users lists all the users with access to the application including those that got it from being members of a [nested group](#direct-users-and-groups-vs-expanded-users).
 
--   See the groups and users who subscribed to this application (3).
+-   See the users who subscribed to this application (3).
 
--   Control Access level that users and groups have in the application
+-   Control Access level that users have in the application
     (4). This is possible only for apps that are fully managed by Veracity and have application levels built in.
 
--   Unsubscribe users and user groups from this application (5).
+-   Unsubscribe users from this application (5).
 
 Note that some users are service principals meaning they are machines performing necessary background tasks. You cannot unsubscribe them from the application which is indicated by the padlock symbol (6).
 
@@ -335,40 +200,9 @@ If you want to switch to Automatic discoverability:
 
 This section shows the administrators of the company account. Here, you can:
 
--   Add administrator (1) and decide on their access level. Note that you can only add existing users as administrators.
-
--   See administrators and access level they have (2).
-
--   Edit administrator’s access level (3).
-
--   Revoke administrator’s access from a user (4).
+-   Add administrator (1).
+-   Revoke administrator’s access from a user (2).
 
 <figure>
 	<img src="assets/image10.png"/>
 </figure>
-
-Administrators can have the following types of access:
-
--   Full access:
-
-    -   Can change the account’s name, icon, and discoverability.
-
-    -   Can grant and revoke administrator’s rights.
-
-    -   Can grant and revoke access to the company account.
-
-    -   Can manage users, their membership in groups, and their subscriptions to applications.
-
-    -   Can manage user groups and their subscriptions to applications.
-
--   Limited access that can be 'Can manage users and groups' and 'Can assign application access'. An admin can have one or both types of permissions.
-
-    -   For 'Can manage users and groups', admin can:
-
-        -   Grant access to the company account.
-
-        -   Manage users and user groups.
-
-    -   For 'Can assign application access', admin can:
-
-        -   Grant and revoke user and user group access to applications.

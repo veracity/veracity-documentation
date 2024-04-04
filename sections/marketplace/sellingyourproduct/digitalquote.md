@@ -5,7 +5,7 @@ description: Describes the option of sending a digital quote to customers
 
 
 # Digital Quote
-To increase sales reach or maintain a good ​conversation with clients, providers have the option to send their customers a digital quote based on an existing marketplace product page.​ The primary benefit of our digital quote solution is the ability to offer clients different pricing variations for the product, such as based on a different quantity or a discount for a specific customer.​
+To increase sales reach or maintain a good ​conversation with clients, providers have the option to send their customers a digital quote based on an existing marketplace product page.​ **The quote page is available only for services that are already sold digitally via marketplace.** The primary benefit of our digital quote solution is the ability to offer clients different pricing variations for the product, such as based on a different quantity or a discount for a specific customer.​
 
 To create a digital quote, providers must contact our Veracity onboarding team, which can set it up for you.​
 
@@ -15,5 +15,5 @@ In the top right corner, we display a validity period that sets a time frame for
 
 <figure>
 	<img src="assets/Digital-quote.png"/>
-	<figcaption>Example of digital quote for Smart Cable Guard</figcaption>
+	<figcaption>Example of digital quote for Rules and Standards</figcaption>
 </figure>

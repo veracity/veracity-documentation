@@ -4,12 +4,10 @@ description: Describes Multi Factor Authentication with Veracity Identity
 ---
 
 # Multi-Factor Authentication (MFA)
-*Note!* Currently only phone-based MFA (SMS or call) is supported.
-
 
 ## Types of Multi-Factor Authentication offered by Veracity
 
-### Service-specific MFA
+### Service-initiated MFA
 A service can invoke MFA for all users of its service or for certain functions within its service. This is accomplished by sending the following parameter in the login request:
 
 **NOTE! Due to a bug that has not been solved yet, the value of mfa_required must be in lower case (_true_)**
@@ -26,34 +24,19 @@ https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=
 
 
 ### User-initiated MFA
-A user can choose to always use MFA for any service they use in Veracity. This can be done on the **Security** page in the user’s profile as follows:
-
-If the user has not already defined a phone number in his profile, he will need to click on the link shown below to do so:
-
-
-![enable-mfa-step1](assets/enable-mfa-step1.png)
-
-Once a phone number is present in the profile, the number must be verified. Clicking on the link shown below will send an SMS to the user’s registered phone number with a code that must be given as input:
-
-![enable-mfa-step2](assets/enable-mfa-step2.png)
-
-![enable-mfa-step3](assets/enable-mfa-step3.png)
-
-Once the user has clicked **Verify**, he will be given the option to turn on user-initiated MFA:
-
-![enable-mfa-step4](assets/enable-mfa-step4.png)
-
-Upon clicking **Yes**, this result will be shown in the user’s profile and the user will be prompted for MFA on subsequent logins:
-
-![enable-mfa-step5](assets/enable-mfa-step5.png)
+A user can choose to always use MFA for any service they use in Veracity. This can be done on the **Security** page in the user’s profile ref. _link to end user doc_.
 
 
 ## Invoking MFA on user authentication
-When MFA is invoked, it will by default only be invoked once during the lifetime of the user’s session. The session lifetime for B2C is set to 8 hours but will be terminated if user closes the browser. This means that if the user has already done MFA previously in the session, e.g. a service requested it, he will by default not be prompted again if he navigates to a new service that also requires MFA.
+When MFA is invoked, it will by default only be invoked once during the lifetime of the user’s session. The session lifetime for Veracity login is set to 8 hours but will be terminated if user closes the browser. This means that if the user has already done MFA previously in the session, e.g. a service requested it, he will by default not be prompted again if he navigates to a new service that also requires MFA.
 
 A service can decide to force MFA even if it has already been done earlier in the session by sending the parameters *&mfa_required=true&prompt=login* in the login request. User will then be asked both to log in and do MFA.
 
 ## Verifying that MFA has been done
-In order to verify that MFA has been completed in the session, you can look for the claim *mfaType* which should have the value *phone*. If no MFA has been done, it has the value *none*.
+In order to verify that MFA has been completed in the session, you can look for the following claims:
 
-If it is a federated user, meaning the user logs in to Veracity with an account in their own company, and MFA is invoked on the federated company side, MFA will not be prompted again on Veracity side. The claim *mfaType* will then have the value *federatedIdp*.
+Claim name | Description
+--- | ---
+mfa | <div>Indicates whether multi-factor authentication (MFA) was part of the logon process:<ul><li>true/false</li></ul></div>
+mfaMethod | <div>Indicates what type of multi-factor authentication (MFA) was done:<ul><li>none – No MFA</li><li>totp – MFA was completed using Veracity's MFA solution with verification by code from user's authenticator app</li><li>phone – MFA was completed using Veracity's MFA solution with verification by SMS or call to user's phone</li><li>federatedIdp - Only relevant for SSO-based users that log in to Veracity with an account in their own company. This value means that MFA is invoked in the user's own company and Veracity will by design not prompt for MFA again. </li></ul></div>
+mfaType | <div>Legacy - indicates whether multi-factor authentication (MFA) was part of the logon process:<ul><li>none – No MFA</li><li>phone – MFA was completed using Veracity's MFA solution (either TOTP or SMS/Call).</li><li>federatedIdp - Only relevant for SSO-based users that log in to Veracity with an account in their own company. This value means that MFA is invoked in the user's own company and Veracity will by design not prompt for MFA again. </li><li>DO NOT USE. Use "mfa" and "mfaMethod" instead. Will be deprecated at some point, but information will be provided to services well in advance.</li></ul>

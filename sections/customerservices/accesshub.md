@@ -22,7 +22,7 @@ For hybrid and complex access, note that some applications do not support user g
 ## With or without user groups?
 User groups can be beneficial when you have a large user count in your company account. It is a good way to group and administrate application access based on different roles and functions for users.
 
-By default, user groups are disabled in your VAH. However, you can enable them in Settings > User groups > Current settings. If you do this, go to [the version of this guide that includes user groups]().
+By default, user groups are disabled in your VAH. However, you can enable them in Settings > User groups > Current settings. If you do this, go to [the version of this guide that includes user groups](accesshub2.md).
 
 ## Sample use case
 
@@ -138,7 +138,9 @@ Note that some users are service principals meaning they are machines performing
 
 ## Pending requests
 
-This page shows user requests to join the company account. If you are an admin, you can **Approve** or **Reject** them. Note that you will see this page only if joining your account is set to require admin approval (Settings > Discoverability > Apply for).
+This page shows user requests to join the company account. If you are an admin, you can **Approve** or **Reject** them.
+
+Note that you will see this page only if joining your account is set to require admin approval (Settings > Discoverability > Apply for).
 
 ## Settings 
 
@@ -157,6 +159,8 @@ Under Discoverability, you can choose how users can join your company account:
 
 -   Automatic – Everyone registered with your email domain is automatically added to the company account. For example, for DNV, everyone with a Veracity account registered for an email in @dnv.com domain would be added to the company account.  
 
+Note that your default discoverability is set to Restricted. If you want to change it, [contact Veracity support](https://support.veracity.com/?loggedin=1) so we can confirm that you own the email domain you wish to use. After confirming your domain ownership, you can change your account's discoverability settings.
+
 If you want to switch to Automatic discoverability:
 
 -   Consider doing it outside regular working hours, for example, at the weekend or night. The reason is that this job may take a long time to complete, and your company account might not work properly until the job is finished.
@@ -166,7 +170,7 @@ If you want to switch to Automatic discoverability:
 ### User groups
 User groups can be beneficial when you have a large user count in your company account. It is a good way to group and administrate application access based on different roles and functions for users.
 
-If you want to use them, under **Current setting**, select the toggle so that it becomes blue and says 'On'. Then, start using [the version of this guide that includes user groups]().
+If you want to use them, under **Current setting**, select the toggle so that it becomes blue and says 'On'. Then, start using [the version of this guide that includes user groups](accesshub2.md).
 
 #### Administrators
 This section shows the administrators of the company account. Here, you can:

@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: This is the changelog for the April 2024 release of Data Workbench.
+description: This is the changelog for the second April 2024 release of Data Workbench.
 ---
 
 # April 2024 second release

@@ -128,7 +128,7 @@ Sample response
             "isServicePrincipal": false,
             "roleScope": {
                 "role": "administrator",
-                "scopeType": "Workspace",
+                "scopeType": "Tenant",
                 "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
             }
         },
@@ -139,7 +139,7 @@ Sample response
             "isServicePrincipal": false,
             "roleScope": {
                 "role": "reader",
-                "scopeType": "Workspace",
+                "scopeType": "Tenant",
                 "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
             }
         }
@@ -168,7 +168,7 @@ Sample response
             "isServicePrincipal": false,
             "roleScope": {
                 "role": "administrator",
-                "scopeType": "Tenant",
+                "scopeType": "Workspace",
                 "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
             }
         },
@@ -179,7 +179,7 @@ Sample response
             "isServicePrincipal": false,
             "roleScope": {
                 "role": "reader",
-                "scopeType": "Tenant",
+                "scopeType": "Workspace",
                 "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
             }
         }

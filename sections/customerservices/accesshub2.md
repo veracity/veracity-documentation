@@ -7,7 +7,7 @@ description: Veracity Access Hub Guide with user groups
 
 ## Overview
 
-Veracity Access Hub (VAH) lets you manage access to your applications and the apps you are subscribing to in the Veracity ecosystem.
+Veracity Access Hub (VAH) lets you manage access to your applications and the apps you are addedibing to in the Veracity ecosystem.
 
 For developer documentation, go [here](../tenantmanagement/tenantmanagement.md).
 
@@ -63,7 +63,7 @@ If you are an admin, select a user group. This will open its details in the Appl
 
 -   Revoke access to an application from the group (4).
 
-Note that you can subscribe the group only to the applications your company account has access to. If you need to add a new application subscription to your account, [go to Marketplace](https://store.veracity.com/).
+Note that you can add the group only to the applications your company account has access to. If you need to add a new application addediption to your account, [go to Marketplace](https://store.veracity.com/).
 
 <figure>
 	<img src="assets/image5.png"/>
@@ -71,7 +71,7 @@ Note that you can subscribe the group only to the applications your company acco
 
 ### 
 
-### To manage group's membership in a group
+### To manage group's membership
 
 If you are an admin, after opening a group in Members page, you can:
 
@@ -91,7 +91,7 @@ If you are an admin, after opening a group in Members page, you can:
 
 #### Direct users and groups vs expanded users
 
-Groups can be added to other groups, and we call it nesting. To each group, you can add up to five groups. All nested groups get access to the applications the top group is subscribed to.
+Groups can be added to other groups, and we call it nesting. To each group, you can add up to five groups. All nested groups get access to the applications the top group is added to.
 
 ‘Direct users and groups’ were added directly to the group you are viewing, and they get their application access from this group.
 
@@ -119,7 +119,7 @@ So, as you see, people in those three groups get access to this application beca
 
 ####  Naming user groups 
 
-When naming user groups, inform who should belong to them (either by role or by subscriptions they give) and avoid ambiguous names. To reach these goals, be consistent in naming groups and consider adding explanatory descriptions for each group.
+When naming user groups, inform who should belong to them (either by role or by addediptions they give) and avoid ambiguous names. To reach these goals, be consistent in naming groups and consider adding explanatory descriptions for each group.
 
 Veracity suggests following your own naming convention. However, you might base it on the following suggestions:
 
@@ -162,7 +162,7 @@ When you select an application, you can:
 
 -   Revoke the users' and user groups' access from this application (5).
 
-Note that some users are service principals meaning they are machines performing necessary background tasks. You cannot unsubscribe them from the application which is indicated by the padlock symbol (6).
+Note that some users are service principals meaning they are machines performing necessary background tasks. You cannot you cannot revoke their access from the application which is indicated by the padlock symbol (6).
 
 <figure>
 	<img src="assets/image8.png"/>
@@ -202,14 +202,15 @@ If you want to switch to Automatic discoverability:
 
 ### User groups
 User groups can be beneficial when you have a large user count in your company account. It is a good way to group and administrate application access based on different roles and functions for users.
+
 If you want to use them, under **Current setting**, select the toggle so that it becomes blue and says 'On'. Now, you are reading the version of the guide that includes user groups. However, if you disable them, you may want to navigate to [the user guide that omits sections on user groups](accesshub.md).
 
 ### Administrators
 
 This section shows the administrators of the company account. Here, you can:
 
--   Add administrator (1).
-- -   Revoke the administrator’s access from a user (2).
+* Add administrator (1).
+* Revoke the administrator’s access from a user (2).
 
 <figure>
 	<img src="assets/image10.png"/>

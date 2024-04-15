@@ -21,7 +21,7 @@ Note that 'workspaceId' is a string in UUID format.
 	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
 </figure>
 
-## Workspace endpoints
+## Workspace and tenant endpoints
 
 Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
 
@@ -142,6 +142,147 @@ WWW-Authenticate: Bearer,Bearer
 Content-Length: 0
 ```
 
+### Create a workspace in a tenant
+You can create a workspace belonging to a specified tenant by using the POST method and calling the following endpoint.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId:guid}/workspaces`
+
+Below you can see a sample request payload.
+
+```json
+{
+     "name": "string",
+     "description": "string"
+}
+```
+
+Below you can see a sample response.
+
+```json
+{
+  "id": "196a8ff4-dfbc-4ee7-ae08-4f38b84d9c86",
+  "name": "SHANGHAI",
+  "description": "WS SHANGHAI"
+}
+```
+
+### Get workspace by its ID
+You can retrieve a workspace through its ID by using the GET method and calling the following endpoint.
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}`
+
+Below you can see a sample response.
+
+```json
+{
+    "id": "6113fcaa-a29e-4804-b9a9-dac331676008",
+    "name": "Workspace Name1",
+    "description": "Workspace created by test1"
+}
+```
+
+
+### Get all workspaces in a tenant
+You can get all workspaces that belong to a specified tenant by using the GET method and calling the following endpoint.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId:guid}/workspaces`
+
+Below you can see a sample response.
+
+```json
+[
+    {
+        "id": "6113fcaa-a29e-4804-b9a9-dac331676008",
+        "name": "Workspace Name1",
+        "description": "Workspace created by test1"
+    },
+    {
+        "id": "89a1fcaa-D43e-9802-c879-cad886785129",
+        "name": "Workspace Name2",
+        "description": "Workspace created by test2"
+    }
+]
+```
+
+### Get all users and role scopes in a tenant
+You can get all users and their assigned role scopes in a specified tenant by using the GET method and calling the following endpoint.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId:guid}/users/roles`
+
+Below you can see a sample response.
+
+```json
+{
+    "result": [
+        {
+            "userId": "ddbf7526-abc3-45e2-bfd9-a2223a431a12",
+            "email": "name.surname@dnv.com",
+            "name": "Name Surname",
+            "isServicePrincipal": false,
+            "roleScope": {
+                "role": "administrator",
+                "scopeType": "Tenant",
+                "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
+            }
+        },
+        {
+            "userId": "e574383d-994e-4a3d-9a7d-5d76755552e1",
+            "email": "Name.Surname@dnv.com",
+            "name": "Name Surname",
+            "isServicePrincipal": false,
+            "roleScope": {
+                "role": "reader",
+                "scopeType": "Tenant",
+                "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
+            }
+        }
+    ],
+    "pageIndex": 1,
+    "pageSize": 2,
+    "totalCount": 65,
+    "totalPages": 33
+}
+```
+
+### Get all users and role scopes in a workspace
+You can get all users and their assigned role scopes in a specified workspace by using the GET method and calling the following endpoint.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}/users/roles`
+
+Below you can see a sample response.
+
+```json
+{
+    "result": [
+        {
+            "userId": "ddbf7526-abc3-45e2-bfd9-a2223a431a12",
+            "email": "name.surname@dnv.com",
+            "name": "Name Surname",
+            "isServicePrincipal": false,
+            "roleScope": {
+                "role": "administrator",
+                "scopeType": "Workspace",
+                "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
+            }
+        },
+        {
+            "userId": "e574383d-994e-4a3d-9a7d-5d76755552e1",
+            "email": "Name.Surname@dnv.com",
+            "name": "Name Surname",
+            "isServicePrincipal": false,
+            "roleScope": {
+                "role": "reader",
+                "scopeType": "Workspace",
+                "scopeRef": "c39867d7-a4c0-4ae2-8281-7d45936a3bec"
+            }
+        }
+    ],
+    "pageIndex": 1,
+    "pageSize": 2,
+    "totalCount": 65,
+    "totalPages": 33
+}
+```
+
 ## Data sets endpoints
 
 <a name="datasetid"></a> Data set ID is a string in UUID format. 
@@ -170,7 +311,8 @@ In the request, you must provide:
 * [Authorization and authentication](authentication.md)
 * [{workspaceId}](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id)
 
-Below you can see a sample request body:
+Below you can see a sample request body.
+
 ```json
    {
   "isBaseDataset": false,
@@ -178,13 +320,14 @@ Below you can see a sample request body:
   "pageSize": 10,
   "sortColumn": "Name",
   "sortDirection": "Descending",
-  "datasetName": "S",
+
   "createdAfter": "2023-01-01T00:00:00.000Z",
   "schemaVersionIds": ["89153dc4-2323-45c9-b70e-241503697315"]
 
 ```
 
 Below you can see an example of a successful response (code 200).
+
 ```json
    
 {
@@ -563,8 +706,49 @@ Below you can see an example of a successful response (code 200).
     "totalPages": 100
 ```
 
+### Query share owners by data set ID list
+You can query who shared the data sets with you so that you understand the data set context by using the POST method and calling the following endpoint.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/{workspaceId:guid}/shares/sharedBy/Query`
+
+Below you can see a sample request payload.
+
+```json
+{
+"datasetIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  ]
+}
+```
+
+Below you can see a sample response.
+
+```json
+[ {
+        "datasetId": "f80b0de1-3b1d-4a64-aa4d-88d6073ff1cd",    // ID of the data set
+        "sharedBy": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",   // ID of the shared user
+            "sharedByType": "User",
+            "name": "User Name"  // Name of the shared user
+        }
+    },
+    {
+        "datasetId": "6113fcaa-a29e-4804-b9a9-dac331676ee8",    // ID of the data set
+        "sharedBy": {
+            "id": "a1d9ef10-39c3-4d3a-8c33-241a0b1138a1",   // ID of the shared workspace
+            "sharedByType": "Workspace",
+            "name": "Workspace Name"  // Name of the shared workspace
+        }
+    }]
+```
+
+Note that:
+* If the data sets were shared with a person, you must be this person or the person who initiated the share. 
+* If the data sets were shared with a workspace, you must be a member of this workspace.
+
 ## Sample Python for calling the endpoints
 You can use the sample Python code below to call Data Workbench endpoints.
+
 ```json
 import requests
 

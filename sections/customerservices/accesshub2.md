@@ -50,7 +50,7 @@ Note that only admins can create, edit, and delete user groups. When creating us
 	<img src="assets/image4.png"/>
 </figure>
 
-### To manage applications available for user groups
+## To manage applications available for user groups
 
 If you are an admin, select a user group. This will open its details in the Applications page where you can:
 
@@ -69,9 +69,7 @@ Note that you can add the group only to the applications your company account ha
 	<img src="assets/image5.png"/>
 </figure>
 
-### 
-
-### To manage group's membership
+## To manage group's membership
 
 If you are an admin, after opening a group in Members page, you can:
 
@@ -89,7 +87,7 @@ If you are an admin, after opening a group in Members page, you can:
 	<img src="assets/image6.png"/>
 </figure>
 
-#### Direct users and groups vs expanded users
+## Direct users and groups vs expanded users
 
 Groups can be added to other groups, and we call it nesting. To each group, you can add up to five groups. All nested groups get access to the applications the top group is added to.
 
@@ -117,7 +115,7 @@ So, people from the groups above and anyone who happens to be added directly to 
 
 So, as you see, people in those three groups get access to this application because their groups were added (as members) to the Oslo\_Office. Also, anyone who was added directly to the Oslo\_Office group would have access to the booking app.
 
-####  Naming user groups 
+## Naming user groups 
 
 When naming user groups, inform who should belong to them (either by role or by addediptions they give) and avoid ambiguous names. To reach these goals, be consistent in naming groups and consider adding explanatory descriptions for each group.
 

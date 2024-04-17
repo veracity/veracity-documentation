@@ -253,8 +253,7 @@ Below is sample information you might get from this request:
 
 ## Service Bus
 
-For the Veracity service bus documentation, go
-[here](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared%20Documents/Tenant%20Management/Documentation/Service%20Bus%20Documentation.docx?d=w0536c436c6764da79e2931529f639628&csf=1&web=1&e=6AAbAX).
+The Service Bus documentation will be made available shortly.
 
 ## Use case scenarios
 

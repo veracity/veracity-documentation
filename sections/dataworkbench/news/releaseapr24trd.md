@@ -11,29 +11,22 @@ Read this page to learn what has changed in Veracity Data Workbench with the Apr
 ## New features
 This section covers new features.
 
-### Connector page
+### Connectors page
 
 On your Home page, you see tiles with your connectors. Now, you can select the tile that says 'See all connectors' and navigate to a separate page with all your connectors. 
 
-On the connector page, you see:
+On the Connectors page, you see:
 * A banner that links to the page on Solution Partners.
 * Your connectors.
 * Available connectors for your workspace and a search field to find more connectors.
 
-When you click on a connector page, you navigate to the page dedicated to this connector.
+When you click on a connector, you navigate to the page dedicated to this connector.
 
 ### Limit what columns can be saved in a data set
-Now, when you are using a connector, the owner of the connector template can limit what columns can be saved and shared in the data sets. The limitations are decided and implemented when a Data Workbench admin onboards the connector.
+Now, when you are using a connector, the owner of the connector template can limit the boundary of what columns can be shown, saved and shared in the data sets. The limitations are implemented when a Data Workbench admin onboards the connector.
 
 ## Changes in existing features
 This section covers changes in existing features.
-
-### Remove filters in Activity log
-We have removed the following filters from Activity log:
-* Data range
-* Action
-* Entity
-* Modified by
 
 ### Visual changes
 We have made the following changes to the user UI:

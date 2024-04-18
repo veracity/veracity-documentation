@@ -4,7 +4,6 @@ description: This is the changelog for the April 2024 third release of Data Work
 ---
 
 # April 2024 third release
-Release date: 12 April 2024
 
 Read this page to learn what has changed in Veracity Data Workbench with the April 2024 third release.
 

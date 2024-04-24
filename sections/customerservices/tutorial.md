@@ -3,7 +3,7 @@ author: Veracity
 description: Video tutorial for Veracity Access Hub
 ---
 
-# Video tutorial for Veracity Access Hub
+# Video tutorials for Veracity Access Hub
 
-Do you want to watch a video tutorial that explains what Veracity Access Hub is and how to use it? If yes, [go here](https://help-center.veracity.com/en/articles/9233589-video-overview-of-veracity-access-hub).
+Do you want to watch video tutorials for Veracity Access Hub? If yes, [go here](https://help-center.veracity.com/en/collections/7810653-video-tutorials).
 

@@ -7,7 +7,7 @@ description: Service bus documentation
 
 ### Overview 
 
-The service bus is useful for service providers and Veracity developers because it binds a service bus connection to the service and sends notifications whenever a change in the Veracity ecosystem occurs. Thus, the service bus lets the applications react to changes rather than periodically pull data and check for changes. 
+The service bus is useful for service providers and Veracity developers because it binds a service bus connection to the service and sends notifications about what happens to your service. Thus, the service bus lets the applications react to changes rather than periodically pull data and check for changes. 
 
 Before using the service bus, you must configure it in the Developer
 portal and specify what kind of notifications you want to receive. 
@@ -468,7 +468,7 @@ can have multiple schemas mapping to it. 
 
 In the Developer portal, you can check connection strings for the
 service bus and then save them to your key vault for later use. Note
-that, as of December 2023, this is not possible yet. 
+that, as of May 2024, this is not possible yet. 
 
 ### Entity types 
 

@@ -16,13 +16,13 @@ portal and specify what kind of notifications you want to receive. 
 
 To use the Veracity service bus: 
 
-1.  Create Veracity service. Alternatively, use an existing service. 
-2.  In the Developer portal, choose which type of information you want
-    to listen to. For example, you can listen to changes regarding users
-    (user subscriptions) or tenants.  
-3.  In Developer, choose how long the messages from the bus will live.
-    You can also check the connection string and put it in the key vault
-    for later use. 
+1. On developer.veracity.com, go to **My projects**, and [create a Veracity service](../developerexperience/introduction.md). Alternatively, use an existing service.  For this service, create a Resource of the **Domain Event Management** type.
+2. When setting up a Domain Event Management resource, on the **Configure** step, under **Service**, select the service for which you want to get notifications about events. Then, under **Subscriptions**, select about what event types you want to be notified.
+3. In the **Advanced** step, set **Max delivery count**. For example, if the 'Max delivery count' is set to 3, if you are notified about an event but your code fails to pick up the message, it will retry getting it 3 times. If those attempts fail, the message returns to the queue.
+4. In the **Advanced** step, set **Default message time to live (days)**. This setting determines how long an event message will wait in the queue before your code picks it up. The message will be deleted if it isn't picked up within this time. Note that this time is defined in days, and the default value is 1.00:00:00, which means 'one day'.
+5. Optionally, on the **Advanced** step, toggle on **Require session**. When this toggle is on, you get notifications and messages in the chronological order in which the events happened.
+6. In the **Summary** step, ensure that everything is set up correctly, and when it is, select **Submit** to publish your resource.
+
 
 After the setup, the Veracity service bus notifies you about changes in
 the information you listen to. 

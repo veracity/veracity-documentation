@@ -470,9 +470,13 @@ In the Developer portal, you can check connection strings for the
 service bus and then save them to your key vault for later use. Note
 that, as of May 2024, this is not possible yet. 
 
-### Entity types 
+### Events you can listen to
 
-Entity types are things you want information about, mainly: 
+When you create a Domain Evement Management resource, you choose the service about which you want to get notifications, and you choose the type of notifications you want to subscribe to.
+
+An `entityType` is the thing about which you want to get information, and in the event messages you get, you can see different types of entities such as `Subscription`, `Service`, `User`, `Company`, `Tenant`, and so on.
+
+Below is a description of the main entity types:
 
 -   User – Information tied primarily to the user. For example, email
     address change. It also has information on the opt-in states

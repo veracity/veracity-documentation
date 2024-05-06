@@ -151,6 +151,8 @@ Under Name, you can change the name of your company account.
 Under Icon, you can change the logo of your company account. The logo appears together with the company name in applications that support company accounts.
 
 ### Discoverability
+**Note that you might not see this tab** if you haven't been asked to provide your company email domain. In this case, someone from Veracity has handled the necessary settings for you.
+
 Under Discoverability, you can choose how users can join your company account:
 
 -   Restricted – Users cannot find your company account, but you can invite them to join.  

@@ -5,10 +5,10 @@ description: Overview of the admin tab.
 
 # Admin tab overview
 
-To do administrator tasks in Veracity Adapter for Power BI (VAP), [sign in to your VAP service](../reading-reports/overview.md), and select the **Admin tab**. Note that your [user role](../user-roles.md) might not give you access to all the tasks.
+To do administrator tasks in Veracity Adapter for Power BI (VAP), [sign in to your VAP service](../reading-reports/overview.md), and select the **Admin button**. Note that your [user role](../user-roles.md) might not give you access to all the tasks.
 
 If you are a SystemAdministrator, you can see the full list of tasks:
-* Add - Add a resource. You can add a file, web app, user or batch add users.
+* Add - Add a resource. You can add a file, web app, entity, user or batch add users.
 * Home - Go to your Home page.
 * [Resources](resource.md) - In the **File** subtab, upload and delete files. Supported formats are PBIX, PDF, PNG, JPEG, GIF,JSON. In the **Web App** subtab, [manage web applications](manage-webs.md).
 * [Reports](manage-reports.md) - Select reports and connect them to files or web applications and set properties.
@@ -19,7 +19,7 @@ If you are a SystemAdministrator, you can see the full list of tasks:
 * [Config](configure.md) - Configure scaffolding and other properties.
 
 ## Filtering and sorting
-On some pages, you can filter and sort data. Below is an example of how to use on the Users page.
+On most pages, you can filter and sort data. Below is an example of how to use on the Users page.
 
 **To filter**, in the right corner, select the magnifying glass icon, select a filter, select filter settings, and select the **Apply** button.
 

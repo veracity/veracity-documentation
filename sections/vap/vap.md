@@ -22,8 +22,8 @@ If you are a user of a VAP service, see the [view and interact section](reading-
 
 ## Admin guide
 
-If you are an administrator of a VAP service, see the [admin tab overview](admin-tab/overview.md) and the available [user roles](user-roles.md).
+If you are an administrator of a VAP service, see [admin overview](admin-tab/overview.md) and the available [user roles](user-roles.md).
 
-## Tutorials
+## How to read reports
 
-For a basic VAP tutorial, go the [quick start](vap-saas-tutorial/1-introduction.md).
+To start using VAP, see [how to read reports](reading-reports/overview.md).

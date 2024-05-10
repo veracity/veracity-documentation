@@ -1,9 +1,9 @@
 ---
 author: Veracity
-description: Overview of the Configure tab in the admin tab.
+description: Overview of the Config tab in the admin tab.
 ---
 
-# Configure
+# Config
 
 ## Statistics Report
 Under "Statistics Report", you see statistics for your tenant (VAP service) and other statistical information divided into subtabs for easier navigation.

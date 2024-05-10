@@ -34,7 +34,7 @@ To create a new report object:
 
 8. In the **Role name**, if you have enabled [Row Level Security (RLS)](../data.md), provide the role name as defined in your PBI report (Manage roles > Roles).
 9. In the **Row level security parameter**, if you have enabled [RLS](../data.md), provide filter key and from the dropdown, select its type. To add another filter key, select the plus button next to the dropdown.
-10. In the **Connect Tutorial**, you can select which tutorial for your report should be shown to the users. You can use tutorials to present new features, teach users how to read your reports, and so on. If you do not see the file, go to [Manage Files to upload it](manage-files.md). In the "Configure" tab under "Report release note", you can find a tutorial template.
+10. In the **Connect Tutorial**, you can select which tutorial for your report should be shown to the users. You can use tutorials to present new features, teach users how to read your reports, and so on. If you do not see the file, go to [Manage Files to upload it](manage-files.md). In the "Config" tab under "Report release note", you can find a tutorial template.
 11. In the right corner, select the **Add** button.
 
 ## To create a new Web app report
@@ -48,7 +48,7 @@ To create a new Web app report:
 6. Optionally, in the **Description** field, describe your report for the end users. Note that currently the description is not shown to the users.
 7. From the **File title** dropdown, select what web app you want to connect to. The one you defined in Manage Webs.
 8. In the **Row level security parameter**, if you want you web app to change content of diable features based on criteria, provide filter key and from the dropdown, select its type. To add another filter key, select the plus button next to the dropdown.
-9. In the **Connect Tutorial**, you can select which tutorial to your report should be shown to your users. You can use tutorials to present new features, teach users how to interact with your web apps, and so on. Note that a report tutorial needs to be added in Manage File before it can be selected here. In the "Configure" tab under "Report release note", you can find a tutorial template.
+9. In the **Connect Tutorial**, you can select which tutorial to your report should be shown to your users. You can use tutorials to present new features, teach users how to interact with your web apps, and so on. Note that a report tutorial needs to be added in Manage File before it can be selected here. In the "Config" tab under "Report release note", you can find a tutorial template.
 10. In the right corner, select the **Add** button.
 
 

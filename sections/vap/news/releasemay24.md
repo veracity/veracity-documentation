@@ -6,7 +6,7 @@ description: This is the changelog for the release 4.14 of Veracity Adapter for 
 
 Read this page to learn what has changed in the Veracity Adapter for Power BI. 
 
-This release brings significant quality improvements. We've redesigned the **Entity** and **Configure modules** in the Admin Panel, enhancing their functionality. We've also improved the message when the subdomain is incorrect, making it easier for you to troubleshoot.
+This release brings significant quality improvements. We've redesigned the **Entity** and **Config modules** in the Admin Panel, enhancing their functionality. We've also improved the message when the subdomain is incorrect, making it easier for you to troubleshoot.
 
 ## New Features
 This section covers new features.
@@ -41,7 +41,7 @@ As a System Admin or Data Admin, you can access the Activity Statistics tab to s
 This section covers changes in existing features.
 
 ### Entity type moved to Entities
-Previously, as a SytemAdmin, you could access Entity types in the Configure tab. Now, we have moved them to a tab that is also accessible for Data Admins so that they can manage entity types independently.
+Previously, as a SytemAdmin, you could access Entity types in the Config tab. Now, we have moved them to a tab that is also accessible for Data Admins so that they can manage entity types independently.
 
 Now, you can access entity types in the top right corner of the Entities tab, as shown below.
 
@@ -49,8 +49,8 @@ Now, you can access entity types in the top right corner of the Entities tab, as
 	<img src="assets/entitytype.png"/>
 </figure>
 
-### Redesigned the Configure tab
-Previously, the Configure tab contained functionalities that different admin types could use. We have redesigned it to show only what System Admin users can do.
+### Redesigned the Config tab
+Previously, the Config tab contained functionalities that different admin types could use. We have redesigned it to show only what System Admin users can do.
 
 As a part of this redesign, we have moved the functionalities accessible to Data and ReportAdmin to other locations where they can easily find them. Another part of the redesign was creating the following categories and putting relevant information in them:
 * Statistics Report
@@ -58,4 +58,4 @@ As a part of this redesign, we have moved the functionalities accessible to Data
 * Tenant Documents
 * Header & Footer
 
-Note that **Workspace ID** is available in the Configure tab in the Tenant Properties category.
+Note that **Workspace ID** is available in the Config tab in the Tenant Properties category.

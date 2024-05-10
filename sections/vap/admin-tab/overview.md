@@ -16,7 +16,7 @@ If you are a SystemAdministrator, you can see the full list of tasks:
 * [Users](users.md) - Create, edit, and delete users. Assign and revoke user roles and entities.
 * [Background Jobs](background-jobs.md) - See and delete the jobs that run in the background (for example, batch add users).
 * [Activity Statistics](statistics.md) - See statistics for your reports or entity.
-* [Config](configure.md) - Configure scaffolding and other properties.
+* [Config](configure.md) - Config scaffolding and other properties.
 
 ## Filtering and sorting
 On most pages, you can filter and sort data. Below is an example of how to use on the Users page.

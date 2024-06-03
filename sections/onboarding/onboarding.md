@@ -32,7 +32,7 @@ Once you have created the resources you need, you will be able to get informatio
 
 ## Technical requirements
 If your company only needs a lead-generating site on Veracity, skip this section.
-However, if you want to integrate your application with Veracity, you must meet the requirements described below. 
+You must meet the requirements described below if you want to integrate your application with Veracity. 
 
 The Veracity platform is built on Microsoft Azure and uses Azure Active Directory B2C (OpenID Connect OAuth 2.0) for managing authentication with Veracity IDP. Because of that, the integration with Veracity will be easier for apps written in common languages and hosted on Azure, Amazon Web Services (AWS) or another large cloud platform.
 
@@ -54,7 +54,7 @@ Your app should have a sign-in button integrated with [Veracity IDP](https://dev
 
 ### Sign-out button
 Your app should have a sign-out button that is easy to find. 
-The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint sings out the user both from ADFS and Azure AD B2C.
+The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint signs out the user both from ADFS and Azure AD B2C.
 
 If applicable, all local session info (including cookies) should be deleted when the user signs out.
 Note that this applies to all Digital Services on Veracity.
@@ -68,11 +68,11 @@ Because of that, please stay in sync with Veracity. To do that, every time you a
 If you delete or deactivate a user in your app's database, call a corresponding API endpoint to notify Veracity that we should revoke this user's access to your app. 
 
 Veracity recommends creating an admin panel in your app for user management, so that non-technical admins can select buttons for actions that trigger API calls to Veracity.
+You can also grant and remove subscriptions in the [Veracity for Developers portal](https://developer.veracity.com/).
 
 To see Veracity MyServices endpoints for managing subscriptions, go [here](https://developer.veracity.com/docs/section/identity/services-openapi). Note that:
 * The viewpoints "My" and "This" are available to you.
 * The viewpoints "Directory" and "Options" are not available to you. 
-* When you test API calls, you can do it in the browser for the "My" viewpoint. For the "This" viewpoint, use Postman or a similar tool.
 
 ### Consider authorization
 Veracity provides user authentication but offers limited authorization options. 

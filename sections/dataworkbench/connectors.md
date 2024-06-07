@@ -18,7 +18,7 @@ To share data sets with your partners:
 1. Go to the **Connectors** page and select a tile representing a partner you want to share data with.
 2. Alternatively, on the **Home** page, under **Securely share your data with our partners**, select a tile representing a partner with whom you want to share data.
 3. Optionally, after selecting a partner, select **Read about connectors** in the top right corner to learn more about the connector that lets you share data with the partner.
-4. Select the data sets that you want to share with your partner. If you do not want to share a data set, select the **X** icon in the row with the data set, which will exclude it. You can also apply filters to data sets to share only some information from the data set.
+4. Select the data sets that you want to share with your partner. If you do not want to share a data set, select the **X** icon in the row with the data set, which will exclude it. You can also apply filters to data sets to share only some information from the data set.
 5. When you have decided what data sets you want to share, in the top right corner, select the **Share** button.
 6. In the window that shows, under **Data set name**, name the data set.
 7. Under **Share access with**, decide if the partner with whom you are sharing data should be able to share it with other parties. If so, tick the box next to **Allow recipients to share this data with others**. If you prefer not to allow further sharing, leave the tickbox empty.

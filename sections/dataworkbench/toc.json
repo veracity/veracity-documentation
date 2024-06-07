@@ -171,6 +171,10 @@
 			"href": "datacatalogue.md"
 		},
 		{
+			"text": "Connectors",
+			"href": "connectors.md"
+		},
+		{
 			"text": "User management",
 			"href": "usermanagement.md"
 		},

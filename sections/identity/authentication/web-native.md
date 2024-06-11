@@ -151,3 +151,16 @@ To sign out the user:
 2. To centrally sign out the user, redirect them to `https://www.veracity.com/auth/logout`. This clears any  remaining session data. 
 
 Note that Veracity does not provide any mechanism for routing the user back to your application after being redirected to the Single-Sign-Out endpoint. This is by design to prompt them to close their browser to complete the sign-out process.
+
+## Redirecting users back to your service after reset password or create account
+
+When users try to access a service that is integrated with the Veracity platform, the user is redirected to the Veracity login page. If the user needs to reset the password or create an account, the user will jump out of the login flow. If you want users to be redirected back to your service after they have reset the password or created an account, you can add the following parameter to the login request:
+
+&appUrl=\<the URL you want the user to be redirected back to\>
+
+Example of logon request:
+
+https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SignInWithADFSIdp&client_id=58d531de-c4f6-4fce-b792-4a1edfe32e2d&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=code+id_token&appUrl=https://myservice.com
+
+**NOTE!**
+The value of the appUrl parameter must be registered as a “Service URL” on a resource type veracity.service in Veracity Developer.

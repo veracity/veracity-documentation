@@ -14,12 +14,12 @@ This section covers new features.
 ### Improved admin user interface
 We have improved the admin user interface and made navigation easier to provide a better user experience.
 
-### API toggles
+### New properties for API consumers
 On the **Config** page, in the **Tenant Properties**, we have added the following properties:
 * Admin API Consumer
 * Embed API Consumer
 
-You can toggle those properties on and off if your service is an API consumer.
+These properties can have values "Yes" and "No," depending on whether your service is an API consumer.
 
 ### Improved security
 We have improved the security of your VAP service by implementing Azure Virtual Network, Azure Front Door, and Web Application Firewall.

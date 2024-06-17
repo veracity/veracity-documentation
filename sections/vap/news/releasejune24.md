@@ -21,6 +21,9 @@ On the **Config** page, in the **Tenant Properties**, we have added the followin
 
 These properties can have values "Yes" and "No," depending on whether your service is an API consumer.
 
+### Details on where resources are used
+If you want to check in which reports a resource is used, go to the Resources tab, find the resource, and hover over the number in the column "Used in Reports".
+
 ### Improved security
 We have improved the security of your VAP service by implementing Azure Virtual Network, Azure Front Door, and Web Application Firewall.
 
@@ -34,7 +37,7 @@ You can sort columns with two arrows (1) next to the column name. To sort a colu
 
 To apply filters to the report list, in the top right corner, select the magnifying glass (2) icon and apply filters.
 
-The number of entities connected to a report is shown in the **Used in Entities** column (3).
+The number of entities connected to a report is shown in the **Used in Entities** column (3). If you hover over this number, you will see in which entities this report is used.
 
 <figure>
 	<img src="assets/reports.png"/>

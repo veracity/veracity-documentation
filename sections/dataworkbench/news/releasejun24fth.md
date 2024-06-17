@@ -1,11 +1,11 @@
 ---
 author: Veracity
-description: This is the changelog for the June 2024 third release of Data Workbench.
+description: This is the changelog for the June 2024 fourth release of Data Workbench.
 ---
 
-# June 2024 third release
+# June 2024 fourth release
 
-Read this page to learn what has changed in Veracity Data Workbench with the June 2024 third release.
+Read this page to learn what has changed in Veracity Data Workbench with the June 2024 fourth release.
 
 ## New features
 This section covers new features.

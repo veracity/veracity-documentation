@@ -746,6 +746,15 @@ Note that:
 * If the data sets were shared with a person, you must be this person or the person who initiated the share. 
 * If the data sets were shared with a workspace, you must be a member of this workspace.
 
+### Download SoC from a data set
+You can download Statement of Compliance (SoC) PDF file from a data set based on workspaceId, datasetId, and documentId.
+
+To download SoC, call the following endpoint using your [workspaceId](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id), [datasetId](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#data-sets-endpoints) (see Data set endpoints), and documentId.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/documents/download`
+
+To get documentID, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query` endpoint. In the response, locate the **File_Link** field and copy it; this **is the documentId**.
+
 ## Sample Python for calling the endpoints
 You can use the sample Python code below to call Data Workbench endpoints.
 

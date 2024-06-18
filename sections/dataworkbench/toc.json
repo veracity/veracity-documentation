@@ -179,6 +179,10 @@
 			"href": "datacatalogue.md"
 		},
 		{
+			"text": "Analytics",
+			"href": "analytics.md"
+		},
+		{
 			"text": "Connectors",
 			"href": "connectors.md"
 		},

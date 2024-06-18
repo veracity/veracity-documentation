@@ -753,6 +753,16 @@ To download SoC, call the following endpoint using your [workspaceId](https://de
 
 `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/documents/download`
 
+Below you can see a sample request payload.
+
+```json
+{
+"datasetId": "DatasetId",
+"documentId": "DocumentId"
+  ]
+}
+```
+
 To get documentID, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query` endpoint. In the response, locate the **File_Link** field and copy it; this **is the documentId**.
 
 ## Sample Python for calling the endpoints

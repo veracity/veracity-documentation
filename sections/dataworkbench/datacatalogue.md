@@ -10,7 +10,7 @@ The **Predefined data sets** tab shows data sets that are queried by data integr
 
 The **Created data sets** tab shows the data sets that workspace members created.
 
-The **File storage*** tab shows the files uploaded to the workspace and lets you download them. Note that this feature is only available for the workspaces that have a subscription for File storage.
+The **File storage** tab shows the files uploaded to the workspace and lets you download them. Note that this feature is only available for the workspaces that have a subscription for File storage.
 
 The **Shared with me** tab shows the data sets that were shared with you. You cannot modify the original data sets that were shared with you. However, you can copy those data sets and modify the copies.
 

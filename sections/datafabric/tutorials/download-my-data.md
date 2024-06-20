@@ -1,3 +1,7 @@
+---
+author: Veracity
+description: How to download data from Dat Fabric
+---
 # Download my data manually
 To download data from Data Fabric manually, there are two ways to do it.
 1) Download directly from the Data Fabric website.

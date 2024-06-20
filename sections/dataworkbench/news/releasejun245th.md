@@ -14,3 +14,4 @@ This section covers new features.
 In [the first release in June 2024](releasejun24.md), we added the Analytics page to the workspaces that have a subscription for it. Initially, this page had only one tab called Python Execution, where users could execute Python scripts to perform analytics on their data sets.
 
 Now, we have added another tab called **History of all executions**. In this tab, you can see the history of all Python scripts executed in your workspace.
+

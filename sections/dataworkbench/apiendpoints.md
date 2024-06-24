@@ -759,7 +759,6 @@ Below you can see a sample request payload.
 {
 "datasetId": "DatasetId",
 "documentId": "DocumentId"
-  ]
 }
 ```
 

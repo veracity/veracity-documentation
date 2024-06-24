@@ -5,6 +5,24 @@ description: Public changelog with important announcments.
 
 # Latest news
 This page contains latest news about Veracity Identity Provider and its [changelog](#changelog).
+
+## Improved sign-in experience for federated users
+Last updated: 24 June 2024
+
+We've improved the sign-in experience for federated users of Veracity Identity Provider.
+
+### Previous state
+Previously, federated users using Entra ID with a userPrincipalName (UPN) different from their email address encountered repeated prompts to select the correct user in their home company when navigating to new services. 
+
+### Current state
+Now, to streamline this process, we are removing the "login_hint" parameter sent with the login request to Entra ID's "common" endpoint.
+
+### To whom it applies
+This change will only apply to companies with the specific setup described above. If your company uses SSO with Veracity and has UPNs that are different from email addresses, you'll benefit from this improvement.
+
+### Configuration
+If this change applies to you, configure your company to use "homerealm=B2B_2" in the parsedDomainToHomeRealm Claims Transformation within the B2C extensions policy.
+
 ## Rotation of the Veracity Identity Token Signing Key
 Last updated: 18 August 2022
 

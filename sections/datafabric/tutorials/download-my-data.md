@@ -59,9 +59,9 @@ If you do not have any folders, these are the steps needed. Note if you have a l
 9) To download more files from the list, just repeat the above steps.
 
 ### Files in folders
-If your files are stored in folders inside the container, then the process is similar to the one above, but you would not need to download each inidividual file, you would instead download the entire folder as shown below.
+If you're files are stored in folders inside the container then the process is similar to the one above, but you would not need to download each inidividual file, you would instead download the entire folder as shown below.
 
-1) Click on the three dots on the right hand side of the folder to download
+1) Click on the three dotts on the right hand side of the folder to download
 <figure>
     <img src="assets/container_folder_dots.png" width="75%" />
     <figcaption>Three dotted button highlighted in yellow</figcaption>
@@ -140,7 +140,7 @@ As previously mentioned, if you have a lot of files or lots of data, using Azure
     <figcaption>SAS</figcaption>
 </figure>
 
-7) It will display a window with two empty input fields. _Display name_, in which you can enter the name by which you want to refer to the container you want to download the files from. This is just used inside the Azure Storage Explorer app. In the _Blob container SAS URL_ we will enter the SAS key which we will find on the Data Fabric web site.
+7) It will display a windows with two empty input fields. _Display name_, in which you can enter the name by which you want to refer to the container you want to download the files from. This is just used inside the Azure Storage Explorer app. In the _Blob container SAS URL_ we will enter the SAS key which we will find on the Data Fabric web site.
 <figure>
     <img src="assets/storage_explorer_input.png" width="75%" />
     <figcaption>SAS</figcaption>
@@ -183,10 +183,7 @@ As previously mentioned, if you have a lot of files or lots of data, using Azure
 </figure>
 
 14) Click _Connect_ and then the contents of the container will be displayed in the Storage Explorer.
-<figure>
-    <img src="assets/storage_explorer_next.png" width="75%" />
-    <figcaption>Storage explorer conntect button</figcaption>
-</figure>
+Storage explorer next button
 
 15) The contents of the container
 <figure>

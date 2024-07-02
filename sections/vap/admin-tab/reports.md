@@ -88,8 +88,14 @@ A personal bookmark is associated with the User GUID, Entity ID, and Report ID. 
 * Delete any of the elements the bookmark is associated with.
 * Remove the entity, report or the report object on which the bookmark was saved.
 
-
 If you are updating the report by changing the reference for the report file from one PBIX file to another, VAP will ask if you want to preserve users' personal bookmarks. If you have done major changes to the report, preserving the bookmarks is not recommended.
+
+### Role name
+In the **Role name**, if you have enabled [Row Level Security (RLS)](../data.md), provide the role name as defined in your PBI report (Manage roles > Roles).
+
+### Role level security
+In the **Row level security parameter**, if you have enabled [RLS](../data.md), provide filter key and from the dropdown, select its type.
+
 
 ## To delete a report
 1. In the row with the report, in the **Actions** column, select the **Delete Report** icon.

@@ -195,6 +195,10 @@
 			"href": "datacatalogue.md"
 		},
 		{
+			"text": "Data streaming",
+			"href": "streaming.md"
+		},
+		{
 			"text": "Analytics",
 			"href": "analytics.md"
 		},

@@ -43,7 +43,7 @@ Below is an example of how the OVD Log Abstract would look for a vessel sailing 
     <img src="assets/data-table.png"/>
 </figure>
 
-Have a look at the [Sample Files](https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip) to find more examples. 
+Have a look at the [Sample Files](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/sample_files.zip) to find more examples. 
 
 Data can be submitted to DNV’s Veracity OVD via continuous and automated transfer using modern REST API interfaces, or via manual upload of CSV files. Please contact [Veracity Support](mailto:support@veracity.com) if you want to know more about how to establish automated transfer of OVD data. 
 

@@ -124,9 +124,9 @@ As previously mentioned, if you have a lot of files or lots of data, using Azure
     <figcaption>Attach to a resource</figcaption>
 </figure>
 
-5) Select _Blob container_
+5) Select _Blob container or directory_
 <figure>
-    <img src="assets/storage_explorer_blob.png" width="75%" />
+    <img src="assets/updated_resource_view.png" width="75%" />
     <figcaption>Blob container</figcaption>
 </figure>
 

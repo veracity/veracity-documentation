@@ -195,6 +195,10 @@
 			"href": "datacatalogue.md"
 		},
 		{
+			"text": "File storage",
+			"href": "filestorage.md"
+		},
+		{
 			"text": "Analytics",
 			"href": "analytics.md"
 		},

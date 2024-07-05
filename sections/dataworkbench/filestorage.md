@@ -5,7 +5,12 @@ description: This page contains an overview of File storage in Data Workbench.
 # File storage in Data Catalogue
 In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage**. There, you can upload files (pdf, png, txt, doc, excel, and more) to your Data Workbench workspace.
 
-Note that File Storage is replacing Data Fabric. If you are migrating from Data Fabric, you can contact the [onboarding team](mailto:onboarding@veracity.com) for assistance.
+## Migrating from Data Fabric?
+File Storage is replacing Data Fabric. If you are migrating from Data Fabric:
+1. Follow the [migration guide](../datafabric/tutorials/download-my-data.md) to download your data manually.
+2. Upload your data to File Storage.
+
+Note that you can also contact the [onboarding team](mailto:onboarding@veracity.com) for assistance.
 
 ## To go to File storage
 1. In your workspace, go to **Data catalogue** page.

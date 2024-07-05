@@ -18,11 +18,11 @@ Both workspace admins and readers can do the following.
 
 **To get a schema by its ID**
 
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces//{workspaceId}/Schemas/{schemaId}` endpoint with the GET method.
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}` endpoint with the GET method.
 
 **To get schema version ID**
 
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/Versions/{schemaVersionId}` endpoint with the GET method.
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/{schemaVersionId}` endpoint with the GET method.
 
 #### Only workspace admins
 Only workspace admins can do the following.
@@ -38,9 +38,7 @@ Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{worksp
 
 **To add schema version**
 
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/Versions/add` endpoint with the POST method.
-
-
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/add` endpoint with the POST method.
 
 **To make schema version default**
 

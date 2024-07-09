@@ -613,7 +613,7 @@ Below you can see an example of a successful response (code 200).
 
 <a name="dataMore"></a>To query for data by workspace and data set ID (including data sets shared with you and added to your workspace), call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
 
-**For a tutorial on this endpoint**, go [here](tutorialq.md).
+**For a tutorial on this endpoint**, go [here](tutorial/tutorialq.md).
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)

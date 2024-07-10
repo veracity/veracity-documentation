@@ -19,7 +19,7 @@ description: Description of Operational Vessel Data Standards in Veracity
     <img src="assets/Btn-CSVfileConverter.png" alt="CSV File Converter" height="30">
   </a>
 
-  <a href="https://veracitycdnprod.blob.core.windows.net/digisales/myservices/cdn/content/marketplace/docs/OVD%20sample%20files.zip" target="_blank">
+  <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/OVDsamplefiles.zip" target="_blank">
     <img src="assets/Btn-Samples.png" alt="Samples" height="30">
   </a>
 

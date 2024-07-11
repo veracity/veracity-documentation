@@ -6,7 +6,7 @@ description: This page lists API endpoints for Data Workbench.
 
 You can use the following API endpoints for Data Workbench:
 * [Schema endpoints](#schema-endpoints)
-* [Workspace and tenant endpoints](#workspace-endpoints)
+* [Workspace and tenant endpoints](#workspace-and-tenant-endpoints)
 * [Data sets endpoints](#data-sets-endpoints)
 
 To see response codes for the API, go [here](#response-codes).
@@ -67,10 +67,13 @@ Below you can see an example of a successful response (code 200).
 ```
 
 ### To get a schema by its ID
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}` endpoint with the GET method.
+Call the following endpoint with the GET method.
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}`
 
 ### To get schema version ID
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/{schemaVersionId}` endpoint with the GET method.
+Call the following endpoint with the GET method.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/{schemaVersionId}`
 
 ### To create a new schema
 Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/add` endpoint with the POST method.
@@ -78,17 +81,20 @@ Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{worksp
 Note that only a workspace admin can do this.
 
 ### To patch a schema (change name, short name, or description)
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}` endpoint with the PATCH method.
+Call the following  endpoint with the PATCH method.
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}`
 
 Note that only a workspace admin can do this.
 
 ### To add schema version
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/add` endpoint with the POST method.
+Call the following endpoint with the POST method.
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/add`
 
 Note that only a workspace admin can do this.
 
 ### To make schema version default
-Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}/schemaversions/{schemaVersionId}` endpoint with the PATCH method.
+Call the following endpoint with the PATCH method.
+`https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}/schemaversions/{schemaVersionId}`
 
 Note that only a workspace admin can do this.
 

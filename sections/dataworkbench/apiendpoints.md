@@ -5,7 +5,8 @@ description: This page lists API endpoints for Data Workbench.
 # API endpoints
 
 You can use the following API endpoints for Data Workbench:
-* [Workspace endpoints](#workspace-endpoints)
+* [Schema endpoints](#schema-endpoints)
+* [Workspace and tenant endpoints](#workspace-endpoints)
 * [Data sets endpoints](#data-sets-endpoints)
 
 To see response codes for the API, go [here](#response-codes).
@@ -21,15 +22,11 @@ Note that 'workspaceId' is a string in UUID format.
 	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
 </figure>
 
-## Workspace and tenant endpoints
+## Schema endpoints
+You can manage your workspace's schema with API calls. You can do CRUD operations for the following endpoints.
 
-Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
-
-To check what workspaces you can access within a tenant, call the following endpoint with a GET method.
-
-`https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId}/workspaces`
-
-To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. 
+### To get a list of workspace schemas for a specific workspace
+Call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. 
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
@@ -69,7 +66,42 @@ Below you can see an example of a successful response (code 200).
     }
 ```
 
-To query activity logs for a workspace, call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger providing the ID of the workspace.
+### To get a schema by its ID
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}` endpoint with the GET method.
+
+### To get schema version ID
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/{schemaVersionId}` endpoint with the GET method.
+
+### To create a new schema
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/add` endpoint with the POST method.
+
+Note that only a workspace admin can do this.
+
+### To patch a schema (change name, short name, or description)
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}` endpoint with the PATCH method.
+
+Note that only a workspace admin can do this.
+
+### To add schema version
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/schemaversions/add` endpoint with the POST method.
+
+Note that only a workspace admin can do this.
+
+### To make schema version default
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Schemas/{schemaId}/schemaversions/{schemaVersionId}` endpoint with the PATCH method.
+
+Note that only a workspace admin can do this.
+
+## Workspace and tenant endpoints
+
+Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
+
+### To check what workspaces you can access within a tenant
+Call the `https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId}/workspaces` endpoint with a GET method.
+
+
+### To query activity logs for a workspace
+Call the endpoint https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/ledger providing the ID of the workspace.
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
@@ -125,7 +157,9 @@ Below you can see an example of a successful response (code 200).
     "totalPages": 100
 ```
 
-<a name="ingest"></a> To get data ingest endpoint for current workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Ingest endpoint providing the ID of the workspace.
+### <a name="ingest"></a> To get data ingest endpoint for current workspace
+
+Call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/Ingest endpoint providing the ID of the workspace.
 
 In the request, you must provide:
 * [Authorization and authentication](authentication.md)
@@ -146,7 +180,7 @@ WWW-Authenticate: Bearer,Bearer
 Content-Length: 0
 ```
 
-### Create a workspace in a tenant
+### To create a workspace in a tenant
 You can create a workspace belonging to a specified tenant by using the POST method and calling the following endpoint.
 
 `https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId:guid}/workspaces`
@@ -170,7 +204,7 @@ Below you can see a sample response.
 }
 ```
 
-### Get workspace by its ID
+### To get workspace by its ID
 You can retrieve a workspace through its ID by using the GET method and calling the following endpoint.
 `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}`
 
@@ -185,7 +219,7 @@ Below you can see a sample response.
 ```
 
 
-### Get all workspaces in a tenant
+### To get all workspaces in a tenant
 You can get all workspaces that belong to a specified tenant by using the GET method and calling the following endpoint.
 
 `https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId:guid}/workspaces`
@@ -207,7 +241,7 @@ Below you can see a sample response.
 ]
 ```
 
-### Get all users and role scopes in a tenant
+### To get all users and role scopes in a tenant
 You can get all users and their assigned role scopes in a specified tenant by using the GET method and calling the following endpoint.
 
 `https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId:guid}/users/roles`
@@ -247,7 +281,7 @@ Below you can see a sample response.
 }
 ```
 
-### Get all users and role scopes in a workspace
+### To get all users and role scopes in a workspace
 You can get all users and their assigned role scopes in a specified workspace by using the GET method and calling the following endpoint.
 
 `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}/users/roles`
@@ -710,7 +744,7 @@ Below you can see an example of a successful response (code 200).
     "totalPages": 100
 ```
 
-### Query share owners by data set ID list
+### To query share owners by data set ID list
 You can query who shared the data sets with you so that you understand the data set context by using the POST method and calling the following endpoint.
 
 `https://api.veracity.com/veracity/dw/gateway/api/v1/{workspaceId:guid}/shares/sharedBy/Query`
@@ -750,7 +784,7 @@ Note that:
 * If the data sets were shared with a person, you must be this person or the person who initiated the share. 
 * If the data sets were shared with a workspace, you must be a member of this workspace.
 
-### Download SoC from a data set
+### To download SoC from a data set
 You can download Statement of Compliance (SoC) PDF file from a data set based on workspaceId, datasetId, and documentId.
 
 To download SoC, call the following endpoint using your [workspaceId](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id), [datasetId](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#data-sets-endpoints) (see Data set endpoints), and documentId.

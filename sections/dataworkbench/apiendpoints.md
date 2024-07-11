@@ -25,6 +25,10 @@ Note that 'workspaceId' is a string in UUID format.
 
 Each customer has one tenant in Data Workbench. A tenant can have multiple workspaces.
 
+To check what workspaces you can access within a tenant, call the following endpoint with a GET method.
+
+`https://api.veracity.com/veracity/dw/gateway/api/v1/tenants/{tenantId}/workspaces`
+
 To get a list of workspace schemas for a specific workspace, call the https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/schemas endpoint. 
 
 In the request, you must provide:

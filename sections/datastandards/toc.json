@@ -5,7 +5,10 @@
 			"text": "Data standards",
 			"href": "datastandards.md"
 		},
-
+		{
+			"text": "Maintenance Activity Data",
+			"href": "mad.md"
+		},
 		{
 			"text": "Operational Vessel Data",
 			"href": "operationalvesseldata.md"

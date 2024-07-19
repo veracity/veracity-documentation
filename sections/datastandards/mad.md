@@ -9,7 +9,7 @@ Maintenance Activity Data (MAD) is the DNV standard for maintenance activity dat
 
 The MAD data service on Veracity is continuously assuring data from vessels independent of class society. By submitting data to Veracity MAD, your data is structured, analyzed, enriched and quality assured before you can use it for digital class surveys or in services running on Veracity, like Machinery Maintenance Connect and Safety Connect.
 
-A full and comprehensive description of the MAD standard can be found in the MAD User Guide.
+A full and comprehensive description of the MAD standard can be found in the MAD User Guide (work in progress, we will link to it once it is ready).
 
 ## Transfer data to MAD through API
 Data can be submitted to DNV’s Veracity MAD via continuous and automated transfer using modern REST API interfaces. Please contact Veracity Support if you want to know more about how to establish automated transfer of MAD data.

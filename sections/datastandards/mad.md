@@ -14,9 +14,17 @@ A full and comprehensive description of the MAD standard can be found in the MAD
 ## Transfer data to MAD through API
 Data can be submitted to DNV’s Veracity MAD via continuous and automated transfer using modern REST API interfaces. Please contact Veracity Support if you want to know more about how to establish automated transfer of MAD data.
 
+## MAD API specification
+* [API specification in yaml format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/mad/mad.yaml)
+
+Later, you will also be able to [see and download the specification in API Explorer](https://developer.veracity.com/docs/section/api-explorer/ppazc03b2c1f-c27a-4748-a03e-9065d5504fda/apis/provider/8f41f575445d4491920432654c671360).
+
 ## Data template
-* [Data Template - MMC v 1.0 in PDF](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/mad/Data%20Template%20-%20MMC%20v1.0.pdf)
-* [Data Template - MMC v 1.0. in Power Point](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/mad/Data%20Template%20-%20MMC.pptx)
+* [Data Template - MAD v 1.0 in PDF](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/mad/Data%20Template%20-%20MAD%20v1.0.pdf)
+* [Data Template - MAD v 1.0. in Power Point](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/mad/Data%20Template%20-%20MAD.pptx)
+
+## MAD data fields
+* [MAD data fields](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/mad/MAD%20datafields.xlsx)
 
 ## MAD schema
 MAD consists of one schema. A schema is a definition of how to fill in the maintenance activity data, with defined columns and clear rules for what to put into each of the columns/rows.

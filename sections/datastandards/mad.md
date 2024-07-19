@@ -245,7 +245,7 @@ Below is the MAD schema.
 }
 ```
 
-## Sample MAD schema
+## Data sample for MAD
 ```json
 {
   "company":"Test company",

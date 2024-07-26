@@ -7,7 +7,7 @@ description: How to publish an API to Veracity API Explorer.
 
 Veracity API Explorer lets you browse APIs that use the Veracity ecosystem. This document explains how to publish your API in Veracity API Explorer.
 
-Note that Veracity API Explorer replaced Veracity API Portal which was deprecated by Microsoft. They offer the same functionalities with one exception: you can’t test endpoints from Veracity API Explorer.
+Note that Veracity API Explorer replaced Veracity API Portal which was deprecated by Microsoft. They offer the same functionalities with one exception: you can't test endpoints from Veracity API Explorer.
 
 
 ## Prerequisites
@@ -16,12 +16,12 @@ If you are not a Veracity customer yet, [follow the onboarding process](https://
 
 If you are a Veracity customer with a project and resource group published to production (Developer Portal > My projects), you can add your API product there and when you finish configuration, it will show in Veracity API Explorer (assuming you set the visibility to public; otherwise, if you set it to private, you can share a link to give people access). 
 
-If you don’t want to reuse a resource group published to production or don’t have one, follow the instructions in this document to publish your API product to the test or staging environment. Then, test if it works correctly, and if it does, contact the [onboarding team](mailto:onboarding@veracity.com) with a request to publish your resource group to production.
+If you don't want to reuse a resource group published to production or don't have one, follow the instructions in this document to publish your API product to the test or staging environment. Then, test if it works correctly, and if it does, contact the [onboarding team](mailto:onboarding@veracity.com) with a request to publish your resource group to production.
 
 ## Types of APIs
 There are two types of APIs:
-* Public APIs – Show in API Explorer. 
-* Private (unlisted) APIs – Don’t show in API Explorer. To access them, you need to get a direct URL, for example, from the API owner.
+* Public APIs - Show in API Explorer. 
+* Private (unlisted) APIs - Don't show in API Explorer. To access them, you need to get a direct URL, for example, from the API owner.
 
 * As an API provider, you decide whether to make your API public or private.
 
@@ -96,9 +96,15 @@ Your API Product must meet the following conditions to show in Veracity API Expl
 * Be in a resource group that was approved to the production environment. If you are unsure whether your resource group is in production or need to publish a new group, contact the [onboarding team](mailto:onboarding@veracity.com). If you are new to Veracity, [read about the onboarding process](https://developer.veracity.com/docs/section/onboarding/onboarding).
 
 ## To share access to a private API
-1.	On Developer Portal, go to My Projects.
-2.	Find your API Product and open it.
-3. Copy the URL
-3.	On the Settings tab, under API Product ID, copy the ID of the product.
-4.	If your product requires subscription, go the Subscriptions and copy the subscription key that for the person with whom you want to share the API.
-5.	Share the API Product ID and, if needed, the subscription key, with the person who should get access to the private API.
+Share the URL to your API. The URL structure is:
+https://developer.veracity.com/docs/section/api-explorer/{API Product ID}/apis/provider/{ResourceID}
+
+To get API Product ID:
+1.On Developer Portal, go to My Projects.
+2. Find your API Product and open it.
+3. Go to the **Settings** tab and copy **API Product ID**.
+
+To get Resource ID:
+1.On Developer Portal, go to My Projects.
+2. Find your API Specifications and open them.
+3. Copy the last part of the URL after **resources/**. For example, for the URL https://developer.veracity.com/projects/173ea244-e04d-4209-90e4-02b0d2ff773e/rg/5dc9223f-6bf9-4949-a70e-f5e6d0b1a15e/resources/3bbab863977d43f49ff1cc497ad85d59, the Resource ID is 3bbab863977d43f49ff1cc497ad85d59.

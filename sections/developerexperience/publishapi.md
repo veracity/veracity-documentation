@@ -3,7 +3,7 @@ author: Veracity
 description: How to publish an API to Veracity API Explorer.
 ---
 
-# Project and resource overview
+# How to publish an API in API Explorer
 
 Veracity API Explorer lets you browse APIs that use the Veracity ecosystem. This document explains how to publish your API in Veracity API Explorer.
 

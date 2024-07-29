@@ -16,7 +16,9 @@ Here, if you are a workspace admin, you can:
 
 * Upload Python scripts (1) and use them to analyze your data sets.
 * See scripts (2).
-* Execute scripts (3).
+* Download scripts (3).
+* Delete scripts (4).
+* Execute scripts (5).
 
 <figure>
 	<img src="assets/python_execution.png"/>
@@ -24,6 +26,7 @@ Here, if you are a workspace admin, you can:
 
 However, if you have only reader access to this page, you can:
 * See scripts.
+* Download scripts.
 
 ## History of all executions
 In this tab, you can see the history of all Python scripts executed in your workspace.

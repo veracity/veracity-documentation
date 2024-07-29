@@ -97,7 +97,7 @@ Your API Product must meet the following conditions to show in Veracity API Expl
 
 ## To share access to a private API
 Share the URL to your API. The URL structure is:
-https://developer.veracity.com/docs/section/api-explorer/{API Product ID}/apis/provider/{ResourceID}
+https://developer.veracity.com/docs/section/api-explorer/{API Product ID}/apis/provider/{API-Specifications-ID}
 
 To get API Product ID:
 
@@ -105,8 +105,8 @@ To get API Product ID:
 2. Find your API Product and open it.
 3. Go to the **Settings** tab and copy **API Product ID**.
 
-To get Resource ID:
+To get API Specification ID:
 
 1. On Developer Portal, go to My Projects.
 2. Find your API Specifications and open them.
-3. Copy the last part of the URL after **resources/**. For example, for the URL https://developer.veracity.com/projects/173ea244-e04d-4209-90e4-02b0d2ff773e/rg/5dc9223f-6bf9-4949-a70e-f5e6d0b1a15e/resources/3bbab863977d43f49ff1cc497ad85d59, the Resource ID is 3bbab863977d43f49ff1cc497ad85d59.
+3. Go to the **Settings** tab and copy **API Specification ID**.

@@ -20,6 +20,10 @@ Here, if you are a workspace admin, you can:
 * Delete scripts (4).
 * Execute scripts (5).
 
+Before you execute a script, download and examine a sample script to familiarize yourself with accessing data sets and assets models.
+
+When you choose to execute a script, you can select the data sets on which it should run. Depending on the script, it can produce a certain number of new datasets, do analytics on the data sets, and more.
+
 <figure>
 	<img src="assets/python_execution.png"/>
 </figure>

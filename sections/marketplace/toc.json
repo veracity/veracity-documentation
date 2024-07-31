@@ -49,6 +49,59 @@
 		{
 			"text": "Marketplace Insight",
 			"href": "marketplaceinsight.md"
+		},
+		{
+			"text": "The Developer’s Blueprint",
+			"items": [
+				{
+					"text": "Overview",
+					"href": "developerblueprint/overview.md"
+				},
+				{
+					"text": "Understanding the Veracity Marketplace",
+					"href": "developerblueprint/understandingveracitymarketplace.md"
+				},
+				{
+					"text": "Legal and compliance",
+					"href": "developerblueprint/legalandcompliance.md"
+				},
+				{
+					"text": "Business model and sales stategy",
+					"href": "developerblueprint/businessmodelsalesstrategy.md"
+				},
+				{
+					"text": "Trial versions and freemium models",
+					"href": "developerblueprint/trialandfreemiummodels.md"
+				},
+				{
+					"text": "Access tiers and capabilities",
+					"href": "developerblueprint/accesstierscapabilities.md"
+				},
+				{
+					"text": "Product delivery",
+					"href": "developerblueprint/productdelivery.md"
+				},
+				{
+					"text": "Customer onboarding",
+					"href": "developerblueprint/customeronboarding.md"
+				},
+				{
+					"text": "Subscription management",
+					"href": "developerblueprint/subscriptionmanagement.md"
+				},
+				{
+					"text": "Access termination",
+					"href": "developerblueprint/accesstermination.md"
+				},
+				{
+					"text": "Supporting communications",
+					"href": "developerblueprint/supportingcommunications.md"
+				}
+			]
+		},
+		{
+			"text": "Marketplace Insight",
+			"href": "marketplaceinsight.md"
 		}
 	]
 }

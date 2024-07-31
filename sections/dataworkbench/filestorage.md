@@ -29,6 +29,20 @@ To create a folder:
 2. Name the folder.
 3. Select **Save**.
 
+## To share files and folders
+1. In a row with a file or folder to share, select three dots and then **Share**.
+2. In the window that shows, under **Share access with**, add the email address of the person with whom you are sharing the file or folder.
+	1. Optionally, to allow further sharing, tick the tickbox that reads "Allow recipients to share...".
+	1. Optionally, add a **Note to recipient**.
+1. Select the **Share** button.
+
+Shared files and folders show in Data catalogue in the **Shared with me** tab.
+
+## To revoke access to shared files or folders
+1. In a row with a file or folder to share, select three dots and then **Revoke sharing**.
+2. Next to the person who's access you're revoking, select the X icon.
+1. Select the **Save and Close** button to complete the revoking.
+
 ## To delete files and folders
 If you are a workspace admin, you can delete files and folders. To do so:
 1. In the row with the file or folder you want to delete, on the right, select three dots.

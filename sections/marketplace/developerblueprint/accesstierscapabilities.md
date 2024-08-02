@@ -30,13 +30,14 @@ Ensure that the tiers can accommodate future enhancements, quantity updates (lik
 ## Feature Limitations and Unlocking
 
 **Greyed-Out Features:** In the basic plan, you can intentionally grey out or disable certain features. Users can see them but cannot access them. For example:
-**Strategic Placement:** 
-Place these features prominently in the UI to raise awareness.
 
 <figure>
 	<img src="assets\dataimport-example.png"/>
 	<figcaption>Grey-out feature</figcaption>
 </figure>
+
+**Strategic Placement:** 
+Place these features prominently in the UI to raise awareness.
 
 ### Unlocking Mechanism :
 - **Upgrade Prompt**: When users attempt to access a locked feature, prompt them to upgrade to a higher tier.

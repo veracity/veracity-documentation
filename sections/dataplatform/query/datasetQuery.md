@@ -3,18 +3,10 @@ author: Veracity
 description: This is a tutorial how to call API endpoints of Data Workbench with sample Python code.
 ---
 # Query datasets using API
-This page gives you sample Python code for calling API endpoints, links to our Data Integrations and SDK GitHub repository, and recaps relevant information.
+This page gives you sample code for calling API endpoints, links to our Data Integrations and SDK GitHub repository, and recaps relevant information.
 
-## Data Integrations and SDK
-Data Workbench uses data integrations as an integration layer allowing integrating with data providers. You might want to see [detailed explanation including SDK.](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2FData-Workbench-Connector%2Fmain%2FConnector%2520SDK.docx&wdOrigin=BROWSELINK)
-
-If you want to see or use the SDK API demo, [go to this repository](https://github.com/veracity/Data-Workbench-Connector/tree/main).
-
-## Prerequisites
-If you want to use the sample code provided below, you will need to check for the following information.
-
-### API endpoints
-For a list of API endpoints, go [here](../apiendpoints.md).
+## API endpoints
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../authentication.md).
@@ -125,3 +117,10 @@ Response Schema:
 }
 '''
 ```
+
+
+## Data Integrations and SDK ??
+Data Workbench uses data integrations as an integration layer allowing integrating with data providers. You might want to see [detailed explanation including SDK.](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fveracity%2FData-Workbench-Connector%2Fmain%2FConnector%2520SDK.docx&wdOrigin=BROWSELINK)
+
+If you want to see or use the SDK API demo, [go to this repository](https://github.com/veracity/Data-Workbench-Connector/tree/main).
+

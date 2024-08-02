@@ -2,16 +2,8 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Overview",
-			"href": "overview.md"
-		},
-    {
-      "text": "Concepts",
+			"text": "Concepts",			
 			"items": [
-				{
-					"text": "Overview",
-					"href": "concepts/overview.md"
-				},
 				{
 					"text": "Data Lake",
 					"href": "concepts/datalake.md"
@@ -27,7 +19,7 @@
 				{
 					"text": "AssetModel",
 					"href": "concepts/assetmodel.md"
-				},
+				},				
 				{
 					"text": "Data transformation and aggregation",
 					"href": "concepts/transformation.md"
@@ -36,11 +28,11 @@
 					"text": "Tenant and workspace",
 					"href": "concepts/workspace.md"
 				}
-			]
-    },
+				]
+		},
 		{
 			"text": "Reference architecture",
-			"href": "referenceArchitcture.md"
+			"href": "referenceArchitecture.md"
 		},
 		{
 			"text": "How to get started",
@@ -55,10 +47,10 @@
 			"href": "authentication.md"
 		},
 		{
-			"text": "Data storage and ingest",
+			"text": "Data storage and ingest",			
 			"items": [
 				{
-					"text": "Storage",
+					"text": "Overview",
 					"href": "storage/storage.md"
 				},
 				{
@@ -77,11 +69,12 @@
 					"text": "FAQ",
 					"href": "storage/faq.md"
 				}
-			]
+				
+				]
 
 		},
 		{
-			"text": "Data query",
+			"text": "Data query",			
 			"items": [
 				{
 					"text": "Datalake queries",
@@ -95,38 +88,44 @@
 					"text": "Event subscription",
 					"href": "query/eventconsumer.md"
 				}
-			]
+				
+				]
 
 		},
 		{
-			"text": "Asset Model",
+			"text": "Asset Model",			
 			"items": [
 				{
-					"text": "Asset model",
-					"href": "mma/assetmodel.md"
+					"text": "Overview",
+					"href": "mms/mmsIntroduction.md"
 				},
 				{
 					"text": "Standard",
-					"href": "mma/standard.md"
+					"href": "mms/standard.md"
+				},
+				{
+					"text": "Access control",
+					"href": "mms/accesscontrol.md"
 				},
 				{
 					"text": "Update assets/sites",
 					"href": "mms/assetmodelIngest.md"
-				},
+				},	
 				{
 					"text": "Query assets/sites",
 					"href": "mms/assetmodelQuery.md"
-				}
-			]
+				},
+				{
+					"text": "Validate site using ruleset",
+					"href": "mms/rulesetValidation.md"
+				}					
+				
+				]
 
 		},
 		{
-			"text": "Analytics",
+			"text": "Analytics",			
 			"items": [
-				{
-					"text": "Analytics",
-					"href": "analytics/Analytics.md"
-				},
 				{
 					"text": "Python development",
 					"href": "analytics/analyticsDevelopment.md"
@@ -138,8 +137,10 @@
 				{
 					"text": "Visualization",
 					"href": "analytics/visualization.md"
-				}
-			]
+				}					
+				
+				]
+
 		},
 		{
 			"text": "Data validation",

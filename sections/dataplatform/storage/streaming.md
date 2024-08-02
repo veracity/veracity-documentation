@@ -39,7 +39,7 @@ Additionally:
 
 
 
-| Step | Step Name | | 
+| Step | Step Name | |
 |--|--|--|
 | 1 | Create Tenant | if not exist customer |
 | 2 | Create Workspace | if not exist customer |

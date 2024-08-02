@@ -23,7 +23,7 @@ Automated post-purchase communications can drive user engagement and product ado
 ### Upselling
 Strategically promote higher-tier plans or additional features to existing users.
 
-#### In-App Marketing
+### In-App Marketing
 - Use banners, pop-ups, or notifications to highlight premium features.
 - Personalize messages based on user behavior.
 
@@ -51,5 +51,5 @@ Strategically promote higher-tier plans or additional features to existing users
 ### Renewal Reminders
 - Send in-app prompts as renewal dates approach.
 
-## Customer Success
+### Customer Success
 Ensuring customer success is paramount. Developers, together with designers, should contribute by planning customer follow-ups, embedded satisfaction surveys, and providing personalized support options within the product. This might need to be decided with the Product Manager and according to CX principles and strategy

@@ -2,9 +2,16 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Concepts",
-			"href": "concepts/overview.md",
+			"text": "Overview",
+			"href": "overview.md"
+		},
+    {
+      "text": "Concepts",
 			"items": [
+				{
+					"text": "Overview",
+					"href": "concepts/overview.md"
+				},
 				{
 					"text": "Data Lake",
 					"href": "concepts/datalake.md"
@@ -20,7 +27,7 @@
 				{
 					"text": "AssetModel",
 					"href": "concepts/assetmodel.md"
-				},				
+				},
 				{
 					"text": "Data transformation and aggregation",
 					"href": "concepts/transformation.md"
@@ -29,8 +36,8 @@
 					"text": "Tenant and workspace",
 					"href": "concepts/workspace.md"
 				}
-				]
-		},
+			]
+    },
 		{
 			"text": "Reference architecture",
 			"href": "referenceArchitcture.md"
@@ -49,8 +56,11 @@
 		},
 		{
 			"text": "Data storage and ingest",
-			"href": "storage.md",
 			"items": [
+				{
+					"text": "Storage",
+					"href": "storage/storage.md"
+				},
 				{
 					"text": "Ingest datasets",
 					"href": "storage/datasets.md"
@@ -67,11 +77,11 @@
 					"text": "FAQ",
 					"href": "storage/faq.md"
 				}
-				]
+			]
 
 		},
 		{
-			"text": "Data query",			
+			"text": "Data query",
 			"items": [
 				{
 					"text": "Datalake queries",
@@ -85,13 +95,16 @@
 					"text": "Event subscription",
 					"href": "query/eventconsumer.md"
 				}
-				]
+			]
 
 		},
 		{
 			"text": "Asset Model",
-			"href": "AssetModel.md",
 			"items": [
+				{
+					"text": "Asset model",
+					"href": "mma/assetmodel.md"
+				},
 				{
 					"text": "Standard",
 					"href": "mma/standard.md"
@@ -99,18 +112,21 @@
 				{
 					"text": "Update assets/sites",
 					"href": "mms/assetmodelIngest.md"
-				},	
+				},
 				{
 					"text": "Query assets/sites",
 					"href": "mms/assetmodelQuery.md"
-				}				
-				]
+				}
+			]
 
 		},
 		{
 			"text": "Analytics",
-			"href": "Analytics.md",
 			"items": [
+				{
+					"text": "Analytics",
+					"href": "analytics/Analytics.md"
+				},
 				{
 					"text": "Python development",
 					"href": "analytics/analyticsDevelopment.md"
@@ -122,9 +138,8 @@
 				{
 					"text": "Visualization",
 					"href": "analytics/visualization.md"
-				}					
-				]
-
+				}
+			]
 		},
 		{
 			"text": "Data validation",

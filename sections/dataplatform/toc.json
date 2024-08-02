@@ -2,8 +2,149 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Overview",
-			"href": "overview.md"
+			"text": "Concepts",
+			"href": "concepts/overview.md",
+			"items": [
+				{
+					"text": "Data Lake",
+					"href": "concepts/datalake.md"
+				},
+				{
+					"text": "Structured/Unstructured data",
+					"href": "concepts/structuredData.md"
+				},
+				{
+					"text": "Schema",
+					"href": "concepts/structuredData.md"
+				},
+				{
+					"text": "AssetModel",
+					"href": "concepts/assetmodel.md"
+				},				
+				{
+					"text": "Data transformation and aggregation",
+					"href": "concepts/transformation.md"
+				},
+				{
+					"text": "Tenant and workspace",
+					"href": "concepts/workspace.md"
+				}
+				]
+		},
+		{
+			"text": "Reference architecture",
+			"href": "referenceArchitcture.md"
+		},
+		{
+			"text": "How to get started",
+			"href": "howToGetStarted.md"
+		},
+		{
+			"text": "Schema management",
+			"href": "schemaManagement.md"
+		},
+		{
+			"text": "Authentication",
+			"href": "authentication.md"
+		},
+		{
+			"text": "Data storage and ingest",
+			"href": "storage.md",
+			"items": [
+				{
+					"text": "Ingest datasets",
+					"href": "storage/datasets.md"
+				},
+				{
+					"text": "Upload any file",
+					"href": "storage/files.md"
+				},
+				{
+					"text": "Stream",
+					"href": "storage/streaming.md"
+				},
+				{
+					"text": "FAQ",
+					"href": "storage/faq.md"
+				}
+				]
+
+		},
+		{
+			"text": "Data query",			
+			"items": [
+				{
+					"text": "Datalake queries",
+					"href": "query/datasetQuery.md"
+				},
+				{
+					"text": "Asset model queries",
+					"href": "mms/assetmodelQuery.md"
+				},
+				{
+					"text": "Event subscription",
+					"href": "query/eventconsumer.md"
+				}
+				]
+
+		},
+		{
+			"text": "Asset Model",
+			"href": "AssetModel.md",
+			"items": [
+				{
+					"text": "Standard",
+					"href": "mma/standard.md"
+				},
+				{
+					"text": "Update assets/sites",
+					"href": "mms/assetmodelIngest.md"
+				},	
+				{
+					"text": "Query assets/sites",
+					"href": "mms/assetmodelQuery.md"
+				}				
+				]
+
+		},
+		{
+			"text": "Analytics",
+			"href": "Analytics.md",
+			"items": [
+				{
+					"text": "Python development",
+					"href": "analytics/analyticsDevelopment.md"
+				},
+				{
+					"text": "Python execution",
+					"href": "analytics/analyticsExecution.md"
+				},
+				{
+					"text": "Visualization",
+					"href": "analytics/visualization.md"
+				}					
+				]
+
+		},
+		{
+			"text": "Data validation",
+			"href": "datavalidation.md"
+		},
+		{
+			"text": "Access control",
+			"href": "accessControl.md"
+		},
+		{
+			"text": "Data sharing",
+			"href": "dataSharing.md"
+		},
+		{
+			"text": "API endpoints",
+			"href": "apiEndpoints.md"
+		},
+		{
+			"text": "SDKs",
+			"href": "sdk.md"
 		}
 	]
 }

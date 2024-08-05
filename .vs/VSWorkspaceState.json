@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\sections",
-    "\\sections\\marketplace\\sellingyourproduct",
-    "\\sections\\vap",
-    "\\sections\\vap\\admin-tab",
-    "\\sections\\vap\\news"
+    "\\sections\\dataplatform",
+    "\\sections\\datastandards",
+    "\\sections\\vap"
   ],
-  "SelectedNode": "\\sections\\vap\\news\\assets",
+  "SelectedNode": "\\sections\\dataplatform\\toc.json",
   "PreviewInSolutionExplorer": false
 }

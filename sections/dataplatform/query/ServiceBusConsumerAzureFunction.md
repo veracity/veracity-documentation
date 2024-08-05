@@ -165,7 +165,7 @@ In order to test the ServiceBus consumer function, we'll be sending some test ev
 
 Now that we have published an event to the IoT Hub, it should be routed to the Service Bus queue and ready to be consumed by the Azure Function.  
 
-We can test this by runing the `func start` command again:  
+We can test this by runing the `func start` command again:
 ```json
 func start
 ``` 

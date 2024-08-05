@@ -5,8 +5,8 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 # Structured and unstructured data
 
-##Structured data
+## Structured data
 
-##Scehma
+## Scehma
 
-##Unstructured data
+## Unstructured data

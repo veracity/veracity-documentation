@@ -12,7 +12,7 @@ Veracity Event Broker is built on Azure Service Bus, a fully managed enterprise 
 - [Query events](eventqueryapi.md).
 
 ## How to consume events from the queue
-There are several options for how to consume the events. The following patterns are explained and code examples exist on github
+There are several options for how to consume the events. The following patterns are explained and code examples exist on github.
 
 - [Service Bus consumer using Azure Functions](ServiceBusConsumerAzureFunction.md). This guide will walk you through the process of creating a new Azure Function that uses a Service Bus trigger to consume messages in real-time. Code example written in C#.
 - [Service Bus consumer using WebPubSub](ServiceBusConsumerWebPubSub.md). This tutorial will guide you through the process of creating a single page application (SPA) that connects to an Azure ServiceBus queue and consumes messages in real-time via a WebSocket connection.

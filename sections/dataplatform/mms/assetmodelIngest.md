@@ -21,7 +21,7 @@ Use bearer token and subscription key [for more details how to acquire a token](
 Only users or service principles with access to an site can access the site; [for more details how to manage users](accesscontrol.md)
 
 
-##Ingest a new site with a given id
+## Ingest a new site with a given id
 Site ID must be a unique string (does not have to be a guid)
 Minimum body when ingesting:
 ```

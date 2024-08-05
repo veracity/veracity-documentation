@@ -104,7 +104,7 @@ async Task<string> GetToken()
 ### C# code example using Veracity IoT SDK
 
 Use nuget package **Veracity.IoT.SDK.Client**
-Client id, secret and subscription key must be provided
+Client id, secret and subscription key must be provided.
 
 ```cs
 using Veracity.IoT.SDK.Client;

@@ -3,7 +3,7 @@ author: Veracity
 description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
-# Frequently Asked Questions
+# Frequently Asked Questions 
 
 |Question| Answer |
 |--|--|

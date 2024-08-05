@@ -3,7 +3,7 @@ author: Veracity
 description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
-#Azure data Lake
+# Azure data Lake
 
 Azure Data Lake Storage is a cloud-based, enterprise data lake solution. We are currently using ADLS Gen2.
 

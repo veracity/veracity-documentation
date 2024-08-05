@@ -5,7 +5,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 # Streaming
 
-"Streaming" is an valuable additional feature which enhances and expands the capabilities of the Veracity Data Platform. It is built on top of and extends the functionality within the Data Workbench BYOD component (bring your own data). It is the successor to parts of the (now legacy) Veracity IoT Platform.
+"Streaming" is a valuable additional feature which enhances and expands the capabilities of the Veracity Data Platform. It is built on top of and extends the functionality within the Data Workbench BYOD component (bring your own data). It is the successor to parts of the (now legacy) Veracity IoT Platform.
 
 # What is Streaming Data?
 

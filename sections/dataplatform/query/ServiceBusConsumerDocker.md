@@ -246,7 +246,7 @@ private static Task WhenCancelled(CancellationToken cancellationToken)
 }
 ```
 ## 2. Run the console app
-Now we're ready to run the console app. Refer to the Developer documentation for information on how to publish messages to the Veracity IoT Platform. 
+Now, we're ready to run the console app. Refer to the Developer documentation for information on how to publish messages to the Veracity IoT Platform. 
 When you publish one or more messages to the Veracity IoT Platform, the message will be routed to the Service Bus queue and the console app will receive the message.
 To run the console app, open a command prompt and navigate to the `ServiceBusConsumer` folder. Run the following command:
 ```cs

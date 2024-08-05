@@ -4,7 +4,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # How to get started
-In order to use the Veracity Dataplatform you need access to a tenant and at least one workspace. 
+In order to use the Veracity Dataplatform you need access to a tenant and at least one workspace.
 
 ## Testing/Piloting
 You can get access to a pilot area for a limited time-period.

@@ -12,7 +12,7 @@ To browse the api, go [here](https://developer.veracity.com/docs/section/api-exp
 To authenticate and authorize your calls, get your API key and a bearer token [here](../authentication.md).
 
 ### Workspace ID and dataset ID
-To find your workspace ID, see the URL of your workspace in a browser or use api XXX
+To find your workspace ID, see the URL of your workspace in a browser or use api XXX.
 
 
 ## Sample Python code for calling API endpoints

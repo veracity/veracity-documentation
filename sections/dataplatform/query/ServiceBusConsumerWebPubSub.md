@@ -48,7 +48,7 @@ Create the `notify` function with the following command:
 ```cs
 func new -n notify -t "Azure Service Bus Queue trigger"
 ```
-Next we'll configure the function to connect to our ServiceBus queue. 
+Next, we'll configure the function to connect to our ServiceBus queue. 
 Open `local.settings.json` and add a `ServiceBusConnectionString` property to the `Values` section, as shown below (replace the `<your-servicebus-connection-string>` string with your own ServiceBus connection string for the Veracity IoT platform):
 
 ```cs

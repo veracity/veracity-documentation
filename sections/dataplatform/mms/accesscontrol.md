@@ -14,25 +14,25 @@ A portfolio is a group of assets. A portfolio in Veracity Asset Model correspond
 Currently on Admin and Reader is available as roles. 
 
 **Admin**
-- Can add sites in a portfolio
-- Can update site (metadata, devices, hierarchies and parameters)
-- Can delete site, devices
-- Can evaluate ruleset
-- Can create assessments
+- Can add sites in a portfolio.
+- Can update site (metadata, devices, hierarchies and parameters).
+- Can delete site, devices.
+- Can evaluate ruleset.
+- Can create assessments.
 
 **Reader**
-- Can view site information
-- Can export devices
-- Can evaluate ruleset
-- Can view standard
+- Can view site information.
+- Can export devices.
+- Can evaluate ruleset.
+- Can view standard.
 
 ##Tenant manager
 Tenant managers must be added by Onboarding team, contact (mail: support@veracity.com)
-- Can access all assets with admin rights
-- Can create new portfolio
-- Can delete portfolio. 
-- Can update standard
-- Can publish new version of standard
+- Can access all assets with admin rights.
+- Can create new portfolio.
+- Can delete portfolio.
+- Can update standard.
+- Can publish new version of standard.
 
 
 ## Query for permissions

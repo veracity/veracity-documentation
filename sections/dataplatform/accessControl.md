@@ -7,7 +7,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 Access control is defined within the security bounday of a Workspace.
 
 ## Tenant
-A tenant can contain one or several workspaces
+A tenant can contain one or several workspaces.
 
 ## Workspace
 Each workspace has a dedicated data container.

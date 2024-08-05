@@ -33,7 +33,7 @@ Additionally:
 
 ## Setup an end-to-end working example:
 
-* Enable set up of a streaming dataset with correct schema
+* Enable set up of a streaming dataset with correct schema.
 * Send data
 * Query data
 

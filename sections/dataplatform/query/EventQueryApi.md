@@ -68,7 +68,7 @@ assetId, assetIdIssuer, topic, eventType, fromUtcDate, toUtcDate, maxNumberOfIte
 ```
 
 ### C# code example using Http client
-Alternatively using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
+Alternatively, using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
 
 ```cs
 var token = await GetToken(); 

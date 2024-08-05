@@ -24,7 +24,7 @@ Only users or service principles with access to an site can access the site; [fo
 
 ## Search for sites
 ### By name
-Search for all sites that contains "ter" in its name (using naming filter)
+Search for all sites that contains "ter" in its name (using naming filter).
 - Pagesize: Indicate max no of sites in return.
 - SortD
 

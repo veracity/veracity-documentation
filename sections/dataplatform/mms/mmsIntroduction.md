@@ -18,7 +18,4 @@ The model representing the asset (currently named site) consists of lists of met
 
 Hierarchies can be build, for each instance, to represent different tree-structures of devices.
 
-The names of the metadata fields, their default values (if any), available values (if defined) and parameter-names (signal names) are defined in the standard of the tenant. 
-
-
-
+The names of the metadata fields, their default values (if any), available values (if defined) and parameter-names (signal names) are defined in the standard of the tenant.

@@ -83,10 +83,6 @@
           "href": "query/datasetquery.md"
         },
         {
-          "text": "Asset model queries",
-          "href": "mms/assetmodelquery.md"
-        },
-        {
           "text": "Event subscription",
           "href": "query/eventconsumer.md"
         },
@@ -96,15 +92,15 @@
         },
         {
           "text": "Service Bus Consumer Azure Function",
-          "href": "servicebusconsumerazurefunction.md"
+          "href": "query/servicebusconsumerazurefunction.md"
         },
         {
           "text": "Service Bus Consumer Docker",
-          "href": "servicebusconsumerdocker.md"
+          "href": "query/servicebusconsumerdocker.md"
         },
         {
           "text": "Service Bus Consumer Web Pub Sub",
-          "href": "servicebusconsumerwebpubsub.md"
+          "href": "query/servicebusconsumerwebpubsub.md"
         }
       ]
     },

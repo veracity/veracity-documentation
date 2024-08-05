@@ -10,7 +10,7 @@ How to define input
 How to store output
 How to visualize
 Transform data
-Scheduler
+Scheduler 
 
 ## How to debug
 At the moment this is not possible. We are planning to support an IDE environment-

@@ -11,7 +11,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 "Streaming" data refers to continuous, real-time data which is generated, transmitted, processed and transmitted in a steady-flow. Such data is typically produced by sources such as sensors, control systems, IoT devices or telemetry from applications. It is delivered continuously rather than sent in batch uploads. 
 
-Applications for such data could be monitoring systems, weather data, electric grid data or financial trading.
+Applications for such data could be monitoring systems, weather data, electric grid data or financial trading. 
 
 Veracity is supporting the Maritime and Renewable Energy industries with the collection of such data and the further development/exploration of relevant use cases.
 

@@ -10,4 +10,4 @@ How to use data from DWB in scripts
 How to upload analytics script
 How to onboard more advanced Analytic Provider scripts
 
-How to define input 
+How to define input

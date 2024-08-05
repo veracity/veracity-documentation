@@ -39,7 +39,7 @@ Create a new file called `appsettings.Localhost.json` in the root of your projec
   "QueueName": "<your-queue-name>"
 }
 ```
-The connection string and queue name have been issued to you when you have been on-boarded to the Veracity DataFabric.  
+The connection string and queue name have been issued to you when you have been on-boarded to the Veracity DataFabric.
 
 > **Important:**  
 > Make sure to add the `appsettings.Localhost.json` file to your `.gitignore` file.

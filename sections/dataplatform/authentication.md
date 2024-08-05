@@ -14,7 +14,6 @@ To get the API key:
 When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
 
 ## Bearer token
-
 There are two ways of making requests to the Veracity dataplatform endpoints:
 * You can request as a user through using B2C authentication, or
 * as application using client credentials (i.e. from Postman or application) 

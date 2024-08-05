@@ -4,7 +4,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # Standard or taxonomy definition
-A standards defines the asset models within your tenants. All instances of your assets will be based on the standard.
+A standards defines the asset models within your tenants. All instances of your assets will be based on the standard. 
 
 
 ## Managing standards

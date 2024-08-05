@@ -26,7 +26,7 @@ Create a new directory for the project and initialize it with the following comm
 ```cs
 func init --worker-runtime javascript
 ```
-Update `host.json`'s extensionBundle to version `3.3.0` or later to get Web PubSub support.
+Update `host.json`'s extensionBundle to version `3.3.0` or later to get Web PubSub support. 
     
 ```json
 {

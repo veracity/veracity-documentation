@@ -9,7 +9,7 @@ This page gives you sample code for calling API endpoints, links to our Data Int
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
 ### Authentication and authorization
-To authenticate and authorize your calls, get your API key and a bearer token [here](../authentication.md).
+To authenticate and authorize your calls, get your API key and a bearer token [here](../authentication.md). 
 
 ### Workspace ID and dataset ID
 To find your workspace ID, see the URL of your workspace in a browser or use api XXX.

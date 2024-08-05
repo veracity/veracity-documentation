@@ -12,7 +12,7 @@ Explore the api [Asset Model Ingest](https://developer.veracity.com/docs/section
 Base url: https://api.veracity.com/veracity/mms/ingest/
 
 Each post/put request is within a tenant and tenant is hence part of query path. 
-The tenant-alias to be used in query is given for the environment setup for you.
+The tenant-alias to be used in query is given for the environment setup for you. 
 
 ## Authentication
 Use bearer token and subscription key [for more details how to acquire a token](..authentication.md)

@@ -14,7 +14,7 @@ You can call the api directly from your application using standard tooling in yo
 	- [C# code example using Http client](#c#-code-example-using-http-client)
 
 ## Security Model
-Users or applications can only access data for assets, tenants and respective topics they have access to. 
+Users or applications can only access data for assets, tenants and respective topics they have access to.
 
 ## Querying Events using API
 [Browse api definition](apiendpoints.md)

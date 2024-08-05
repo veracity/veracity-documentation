@@ -6,4 +6,4 @@ description: Gives an overview of the Veracity Data Platform services and relate
 # Schema management 
 
 How to create schema
-How to maintain schemas
+How to maintain schemas 

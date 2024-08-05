@@ -14,7 +14,7 @@
         },
         {
           "text": "Structured/Unstructured data",
-          "href": "concepts/structureddata.md"
+          "href": "concepts/structuredData.md"
         },
         {
           "text": "Schema",
@@ -22,7 +22,7 @@
         },
         {
           "text": "AssetModel",
-          "href": "concepts/assetmodel.md"
+          "href": "concepts/assetModel.md"
         },
         {
           "text": "Data transformation and aggregation",
@@ -40,11 +40,11 @@
     },
     {
       "text": "How to get started",
-      "href": "howtogetstarted.md"
+      "href": "howToGetStarted.md"
     },
     {
       "text": "Schema management",
-      "href": "schemamanagement.md"
+      "href": "schemaManagement.md"
     },
     {
       "text": "Authentication",
@@ -66,6 +66,10 @@
           "href": "storage/files.md"
         },
         {
+          "text": "Events",
+          "href": "storage/events.md"
+        },
+        {
           "text": "Stream",
           "href": "storage/streaming.md"
         },
@@ -80,27 +84,27 @@
       "items": [
         {
           "text": "Datalake queries",
-          "href": "query/datasetquery.md"
+          "href": "query/datasetQuery.md"
         },
         {
           "text": "Event subscription",
-          "href": "query/eventconsumer.md"
+          "href": "query/eventConsumer.md"
         },
         {
           "text": "Event query api",
-          "href": "query/eventqueryapi.md"
+          "href": "query/EventQueryApi.md"
         },
         {
           "text": "Service Bus Consumer Azure Function",
-          "href": "query/servicebusconsumerazurefunction.md"
+          "href": "query/ServiceBusConsumerAzureFunction.md"
         },
         {
           "text": "Service Bus Consumer Docker",
-          "href": "query/servicebusconsumerdocker.md"
+          "href": "query/ServiceBusConsumerDocker.md"
         },
         {
           "text": "Service Bus Consumer Web Pub Sub",
-          "href": "query/servicebusconsumerwebpubsub.md"
+          "href": "query/ServiceBusConsumerWebPubSub.md"
         }
       ]
     },
@@ -109,7 +113,7 @@
       "items": [
         {
           "text": "Overview",
-          "href": "mms/mmsintroduction.md"
+          "href": "mms/mmsIntroduction.md"
         },
         {
           "text": "Standard",
@@ -121,15 +125,15 @@
         },
         {
           "text": "Update assets/sites",
-          "href": "mms/assetmodelingest.md"
+          "href": "mms/assetmodelIngest.md"
         },
         {
           "text": "Query assets/sites",
-          "href": "mms/assetmodelquery.md"
+          "href": "mms/assetmodelQuery.md"
         },
         {
           "text": "Validate site using ruleset",
-          "href": "mms/rulesetvalidation.md"
+          "href": "mms/rulesetValidation.md"
         }
       ]
     },
@@ -138,11 +142,11 @@
       "items": [
         {
           "text": "Python development",
-          "href": "analytics/analyticsdevelopment.md"
+          "href": "analytics/analyticsDevelopment.md"
         },
         {
           "text": "Python execution",
-          "href": "analytics/analyticsexecution.md"
+          "href": "analytics/analyticsExecution.md"
         },
         {
           "text": "Visualization",
@@ -153,19 +157,19 @@
     },
     {
       "text": "Data validation",
-      "href": "datavalidation.md"
+      "href": "dataValidation.md"
     },
     {
       "text": "Access control",
-      "href": "accesscontrol.md"
+      "href": "accessControl.md"
     },
     {
       "text": "Data sharing",
-      "href": "datasharing.md"
+      "href": "dataSharing.md"
     },
     {
       "text": "API endpoints",
-      "href": "apiendpoints.md"
+      "href": "apiEndpoints.md"
     },
     {
       "text": "SDKs",

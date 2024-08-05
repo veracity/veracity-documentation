@@ -4,3 +4,5 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # Analytics
+
+Azure data Lake is optimized for leading cloud analytic engines. Is tightly integrated with all elements of the Azure Big Data Analytics stack to deliver fast insights. 

@@ -96,7 +96,10 @@ Your API Product must meet the following conditions to show in Veracity API Expl
 * Be in a resource group that was approved to the production environment. If you are unsure whether your resource group is in production or need to publish a new group, contact the [onboarding team](mailto:onboarding@veracity.com). If you are new to Veracity, [read about the onboarding process](https://developer.veracity.com/docs/section/onboarding/onboarding).
 
 ## To share access to a private API
-Share the URL to your API. The URL structure is:
+If you want someone to access your private API, share with them the URL to your API in API Explorer. To do so, use the URL structure below but replace 
+`{API Product ID}` with the ID of your API Product and `{API-Specifications-ID}` with the ID of your API Specification that is connected to the API Product.
+
+The URL structure is:
 https://developer.veracity.com/docs/section/api-explorer/{API Product ID}/apis/provider/{API-Specifications-ID}
 
 To get API Product ID:
@@ -110,3 +113,7 @@ To get API Specification ID:
 1. On Developer Portal, go to My Projects.
 2. Find your API Specifications and open them.
 3. Go to the **Settings** tab and copy **API Specification ID**.
+
+**Important - note that:**
+* The URL you construct and share in this section is only for showing your API specification on Developer Portal. Another URL should be used to access your API.
+* The only thing that makes your API specification "private" is that it's not shown on Developer Portal and to access it, a person needs to know the right URL. However, anyone with the right URL can access your API specification.

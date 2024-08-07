@@ -14,7 +14,7 @@
         },
         {
           "text": "Structured/Unstructured data",
-          "href": "concepts/structuredData.md"
+          "href": "concepts/structdata.md"
         },
         {
           "text": "Schema",
@@ -22,7 +22,7 @@
         },
         {
           "text": "AssetModel",
-          "href": "concepts/assetModel.md"
+          "href": "concepts/assetmod.md"
         },
         {
           "text": "Data transformation and aggregation",

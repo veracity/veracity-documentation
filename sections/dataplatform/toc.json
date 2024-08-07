@@ -49,6 +49,35 @@
     {
       "text": "Authentication",
       "href": "auth.md"
+    },
+    {
+      "text": "Data storage and ingest",
+      "items": [
+        {
+          "text": "Overview",
+          "href": "storage/storage.md"
+        },
+        {
+          "text": "Ingest datasets",
+          "href": "storage/datasets.md"
+        },
+        {
+          "text": "Upload any file",
+          "href": "storage/files.md"
+        },
+        {
+          "text": "Events",
+          "href": "storage/events.md"
+        },
+        {
+          "text": "Stream",
+          "href": "storage/streaming.md"
+        },
+        {
+          "text": "FAQ",
+          "href": "storage/faq.md"
+        }
+      ]
     }
   ]
 }

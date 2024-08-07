@@ -2,6 +2,7 @@
 author: Veracity
 description: This section describes how to subscribe to events.
 ---
+
 # Subscribe to events
 Using the Veracity Event broker as infrastructure, applications (services) can be built that have real time access to data and events are received to private queues for that application.
 

@@ -80,27 +80,27 @@
       "items": [
         {
           "text": "Datalake queries",
-          "href": "query/datasetq.md"
+          "href": "query/datasetquery.md"
         },
         {
           "text": "Event subscription",
-          "href": "query/eventc.md"
+          "href": "query/eventconsumer.md"
         },
         {
           "text": "Event query api",
-          "href": "query/eventqa.md"
+          "href": "query/eventqueryapi.md"
         },
         {
           "text": "Service Bus Consumer Azure Function",
-          "href": "query/servicebusconsumeraf.md"
+          "href": "query/servicebusconsumerazurefunction.md"
         },
         {
           "text": "Service Bus Consumer Docker",
-          "href": "query/servicebusconsumerd.md"
+          "href": "query/servicebusconsumerdocker.md"
         },
         {
           "text": "Service Bus Consumer Web Pub Sub",
-          "href": "query/servicebusconsumerwps.md"
+          "href": "query/servicebusconsumerwebpubsub.md"
         }
       ]
     }

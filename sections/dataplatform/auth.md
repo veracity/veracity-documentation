@@ -5,7 +5,7 @@ description: This page explains how to authenticate API calls for Data Workbench
 # Authentication
 Authenticate your API calls with an API key and a bearer token (`tokenUrl`) placed in the header of your API call.
 
-## API key
+## API key 
 To get the API key:
 1. In your Data Workbench workspace, select the **API Integrations** tab.
 2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).

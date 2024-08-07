@@ -1,6 +1,6 @@
 ﻿---
-author: Benedikte Kallåk
-description: This section describes event ingest
+author: BenedikteKallåk
+description: This section describes event ingest.
 ---
 
 # Event ingest

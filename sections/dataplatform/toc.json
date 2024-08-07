@@ -88,19 +88,19 @@
         },
         {
           "text": "Event query api",
-          "href": "query/eventqueryapi.md"
+          "href": "query/eventqueryapi2.md"
         },
         {
           "text": "Service Bus Consumer Azure Function",
-          "href": "query/servicebusconsumerazurefunction.md"
+          "href": "query/servicebusconsumerazurefunction2.md"
         },
         {
           "text": "Service Bus Consumer Docker",
-          "href": "query/servicebusconsumerdocker.md"
+          "href": "query/servicebusconsumerdocker2.md"
         },
         {
           "text": "Service Bus Consumer Web Pub Sub",
-          "href": "query/servicebusconsumerwebpubsub.md"
+          "href": "query/servicebusconsumerwebpubsub2.md"
         }
       ]
     }

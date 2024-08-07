@@ -1,9 +1,9 @@
 ﻿---
 author: Veracity
-description: This section describes event query api.
+description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
-# Event query api
+# Event query API
 
 You can call the api directly from your application using standard tooling in your platform. For .Net and Python we provide SDK and examples.  When invoking the api, the consumer needs a token for authentication.
 

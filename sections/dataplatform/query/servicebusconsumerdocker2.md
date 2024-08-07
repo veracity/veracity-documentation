@@ -1,9 +1,9 @@
 ﻿---
 author: Veracity
-description: This section describes consumer console app in docker.
+description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
-# ServiceBus consumer console app in Docker container
+# Service bus consumer app using Docker
 This tutorial will walk you through the steps to create an Azure ServiceBus consumer which receives messages from a queue. We'll create a C# console application which can optionally be run in a Docker container. 
 
 ## 1. Create a new C# console application

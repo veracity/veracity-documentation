@@ -1,9 +1,10 @@
 ﻿---
 author: Veracity
-description: This section describes how to subscribe to events.
+description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
 # Subscribe to events
+
 Using the Veracity Event broker as infrastructure, applications (services) can be built that have real time access to data and events are received to private queues for that application.
 
 Veracity Event Broker is built on Azure Service Bus, a fully managed enterprise message broker which is used to build applications and services that use an event-driven architecture. It provides message queues and publish-subscribe topics with at-least-once delivery guarantees. It also supports sessions, transactions, and dead-letter queues. 

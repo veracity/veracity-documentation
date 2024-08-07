@@ -1,6 +1,6 @@
 ﻿---
 author: Veracity
-description: This section describes how to use web pub sub pattern.
+description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
 # Service Bus consumer using Azure Functions and WebPubSub

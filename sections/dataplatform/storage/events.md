@@ -5,7 +5,7 @@ description: This section describes event ingest.
 
 # Event ingest
  Veracity supports ingesting events via two main channels:
-- HTTP API 
+- HTTP API
 	- [How to authenticate](Authenticate.md)
 	- [C# code example using http client](#c#-code-example-using-http-client)
 	- [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)

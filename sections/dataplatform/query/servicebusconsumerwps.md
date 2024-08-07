@@ -1,8 +1,7 @@
 ﻿---
-author: Benedikte Kallåk
-description: This section describes how to use web pub sub pattern
+author: Veracity
+description: This section describes how to use web pub sub pattern.
 ---
-
 # Service Bus consumer using Azure Functions and WebPubSub
 
 This tutorial will guide you through the process of creating a single page application (SPA) that connects to an Azure ServiceBus queue and consumes messages in real-time via a WebSocket connection. 

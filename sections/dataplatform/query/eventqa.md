@@ -1,8 +1,7 @@
 ﻿---
-author: Benedikte Kallåk
-description: This section describes event query api
+author: Veracity
+description: This section describes event query api.
 ---
-
 # Event query api
 
 You can call the api directly from your application using standard tooling in your platform. For .Net and Python we provide SDK and examples.  When invoking the api, the consumer needs a token for authentication.

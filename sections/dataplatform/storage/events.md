@@ -1,5 +1,5 @@
 ﻿---
-author: BenedikteKallåk
+author: Veracity
 description: This section describes event ingest.
 ---
 
@@ -254,6 +254,3 @@ Replace the `<YOUR_TEST_ASSETID>`, `YOUR_TEST_ASSETID_ISSUER`, and `<YOUR_TEST_T
 node test_publisher.js
 ``` 
 If all is well, you should have an event published and ready to be consumed by the Azure Function.
- 
-
-

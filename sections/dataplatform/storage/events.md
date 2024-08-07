@@ -6,11 +6,11 @@ description: This section describes event ingest.
 # Event ingest
  Veracity supports ingesting events via two main channels:
 - HTTP API
-	- [How to authenticate](Authenticate.md)
-	- [C# code example using http client](#c#-code-example-using-http-client)
-	- [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
+	- [How to authenticate](auth.md)
+	- [C# code example using http client](#c#-code-example-using-http-client.md)
+	- [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk.md)
 - IoT Hub
-	- [Stream events to IoT Hub](#submit-events-to-iot-hub)
+	- [Stream events to IoT Hub](submit-events-to-iot-hub.md)
 ## Use api
 
 Explore the api [Asset Model Standard](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-IoTEventBrokerIngestAPI-swagger.json). 
@@ -26,7 +26,7 @@ Any eventtype can be ingested by POSTing a JSON object to Veracity with some hea
 Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
 ```
 - Base url: https://api.veracity.com/veracity
-- Authorization: [Bearer token](Authenticate.md)
+- Authorization: [Bearer token](auth.md)
 - Ocp-Apim-Subscription-Key: from application client or B2C user
 
 ### Header parameters

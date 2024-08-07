@@ -13,8 +13,16 @@
           "href": "concepts/datalake.md"
         },
         {
+          "text": "Structured/Unstructured data",
+          "href": "concepts/structuredData.md"
+        },
+        {
           "text": "Schema",
           "href": "concepts/overview.md"
+        },
+        {
+          "text": "AssetModel",
+          "href": "concepts/assetModel.md"
         },
         {
           "text": "Data transformation and aggregation",

@@ -33,6 +33,109 @@
           "href": "concepts/workspace.md"
         }
       ]
+    },
+    {
+      "text": "Reference architecture",
+      "href": "refarchitecture.md"
+    },
+    {
+      "text": "How to get started",
+      "href": "howtostart.md"
+    },
+    {
+      "text": "Schema management",
+      "href": "schemamanage.md"
+    },
+    {
+      "text": "Authentication",
+      "href": "authentication.md"
+    },
+    {
+      "text": "Data storage and ingest",
+      "items": [
+        {
+          "text": "Overview",
+          "href": "storage/storage.md"
+        },
+        {
+          "text": "Ingest datasets",
+          "href": "storage/datasets.md"
+        },
+        {
+          "text": "Upload any file",
+          "href": "storage/files.md"
+        },
+        {
+          "text": "Events",
+          "href": "storage/events.md"
+        },
+        {
+          "text": "Stream",
+          "href": "storage/streaming.md"
+        },
+        {
+          "text": "FAQ",
+          "href": "storage/faq.md"
+        }
+      ]
+    },
+    {
+      "text": "Data query",
+      "items": [
+        {
+          "text": "Datalake queries",
+          "href": "query/datasetq.md"
+        },
+        {
+          "text": "Event subscription",
+          "href": "query/eventconsum.md"
+        },
+        {
+          "text": "Event query api",
+          "href": "query/eventqapi.md"
+        },
+        {
+          "text": "Service Bus Consumer Azure Function",
+          "href": "query/servicebusconsumerazf.md"
+        },
+        {
+          "text": "Service Bus Consumer Docker",
+          "href": "query/servicebusconsumerd.md"
+        },
+        {
+          "text": "Service Bus Consumer Web Pub Sub",
+          "href": "query/servicebusconsumerwps.md"
+        }
+      ]
+    },
+    {
+      "text": "Asset Model",
+      "items": [
+        {
+          "text": "Overview",
+          "href": "mms/mmsintro.md"
+        },
+        {
+          "text": "Standard",
+          "href": "mms/standard.md"
+        },
+        {
+          "text": "Access control",
+          "href": "mms/accesscont.md"
+        },
+        {
+          "text": "Update assets/sites",
+          "href": "mms/assetmodeling.md"
+        },
+        {
+          "text": "Query assets/sites",
+          "href": "mms/assetmodelq.md"
+        },
+        {
+          "text": "Validate site using ruleset",
+          "href": "mms/rulesetvalid.md"
+        }
+      ]
     }
   ]
 }

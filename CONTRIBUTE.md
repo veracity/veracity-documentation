@@ -49,6 +49,8 @@ Now that you have the document available on your computer locally you can start 
 
 ### 1)	Creating a new section
 
+**Before creating a section**, go to [Documentation](https://developer.veracity.com/docs) and ensure the section that you want to create is not already published on the Developer Portal. This is important because some sections are maintainted internally so you will not see them in GitHub files; as of August 2024, the sections [Veracity Identity](https://developer.veracity.com/docs/section/identity/identity) and [API Explorer](https://developer.veracity.com/docs/section/api-explorer/api-explorer) fall under this category.
+
 To create a new section, you simply have to create a new folder inside the "sections" folder of the local clone of the repository. Locate the project on your computer. Name it with the topic that you want to publish on. The name of the folder has to be all lowercase letters. *Be aware that the name of the folder will be the name of the URL path in Veracity for Developers.*
 
 ![New section folder](/assets/newsectionfolder.png)

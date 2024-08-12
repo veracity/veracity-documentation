@@ -64,6 +64,10 @@
         {
           "text": "Upload any file",
           "href": "storage/files.md"
+         },
+        {
+          "text": "Events",
+          "href": "storage/events2.md"
         },
         {
           "text": "Stream",

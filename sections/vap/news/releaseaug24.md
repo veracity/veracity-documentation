@@ -5,4 +5,4 @@ description: This is the changelog for the release 4.16 of Veracity Adapter for 
 # VAP 4.16 release
 
 It is a placeholder for the VAP 4.16 release.
-We will ad more information closer to the release date.
+We will add more information closer to the release date.

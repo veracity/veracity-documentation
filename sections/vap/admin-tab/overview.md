@@ -20,11 +20,22 @@ If you are a SystemAdministrator, in the left sidebar, you can see the full list
 
 ## To create a resource
 No matter where you are in VAP, you can create a resource in the following way:
-1. In the left sidebar, select the plus icon.
-2. Select the resource type you want to create.
+1. When you are interacting from Home, select the **Admin** button.
+2. In the left sidebar, select the plus icon.
+3. Select the resource type you want to create.
 <figure>
 	<img src="../admin-tab/assets/create.png"/>
 </figure>
+
+## To edit a resource from Home
+As a Data Admin, you can now edit a report or entity. To do it, on the **Home** page, select a report or entity you want to edit.
+1. In the top right corner of the page, select **Edit**.
+2. Select either **Edit Entity** or **Edit Report**. This will open the current entity or report.
+<figure>
+	<img src="../admin-tab/assets/edit_report.png"/>
+</figure>
+
+Make changes to your report or entity. To save changes, select **Save**.
 
 ## Filtering and sorting
 On most pages, you can filter and sort data. Below is an example of how to use on the Users page.

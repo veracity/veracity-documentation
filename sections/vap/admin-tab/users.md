@@ -90,3 +90,8 @@ For each user, you can check the number of their interactions with your entities
 <figure>
 	<img src="assets/see_user.png"/>
 </figure>
+
+Here, on the **Admin Operate History** tab, you can also check who upgraded or downgraded a user role. 
+* Under **Operate user**, see who upgraded or downgraded a user role.
+* Under **Description**, see the names of new and old user roles.
+* Under **Date time**, see when the user role was changed.

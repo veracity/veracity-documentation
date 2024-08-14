@@ -13,6 +13,12 @@ In the **Actions** column, you can:
 * See the history of the changes done to the resource (1).
 * Edit the resource (2).
 * Delete the resource (3).
+* Download the resource which file type is .PBIX (4). 
+
+Note that:
+* Due to limitations set by Microsoft, you cannot download a .pbix where the data model size is larger than 50 GB. For more information, go [here](https://learn.microsoft.com/en-us/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).
+* Downloading .PBIX file types is only possible if a System Admin enabled it. To enable the download of Power BI files, on the **Config** page, in the **Tenant Properties**, select **Edit** and toggle on **Allow download Pbix**.
+
 
 <figure>
 	<img src="assets/resource_actions.png"/>

@@ -66,6 +66,10 @@
           "href": "storage/files.md"
         },
         {
+          "text": "Events",
+          "href": "storage/events.md"
+        },
+        {
           "text": "Stream",
           "href": "storage/streaming.md"
         },

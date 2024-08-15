@@ -112,6 +112,23 @@
           "href": "mms/rulesetvalidation.md"
         }
       ]
+    },
+    {
+      "text": "Analytics",
+      "items": [
+        {
+          "text": "Python development",
+          "href": "analytics/analyticsdevelopment.md"
+        },
+        {
+          "text": "Python execution",
+          "href": "analytics/analyticsexecution.md"
+        },
+        {
+          "text": "Visualization",
+          "href": "analytics/visualization.md"
+        }
+      ]
+        }
+      ]
     }
-  ]
-}

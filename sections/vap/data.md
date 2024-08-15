@@ -32,4 +32,5 @@ Use row-level security (RLS) if you want to store all data in one report and sho
 
 To use RLS:
 1. Implement RLS in your Power BI report file. For details, follow the [Microsoft tutorial](https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-rls).
-2. [When creating a report in VAP](admin-tab/manage-reports.md), provide the required values for row-level security.
+2. [When creating a report in VAP](admin-tab/reports.md), provide the required role name for row-level security.
+3. When creating an entity in VAP, provide the required value for [row-level security](admin-tab/entities.md).

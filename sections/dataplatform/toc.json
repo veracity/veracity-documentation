@@ -129,6 +129,26 @@
           "href": "analytics/visualization.md"
         }
       ]
-        }
-      ]
+    },
+    {
+      "text": "Data validation",
+      "href": "datavalidation.md"
+    },
+    {
+      "text": "Access control",
+      "href": "accesscontrol.md"
+    },
+    {
+      "text": "Data sharing",
+      "href": "datasharing.md"
+    },
+    {
+      "text": "API endpoints",
+      "href": "apiendpoints.md"
+    },
+    {
+      "text": "SDKs",
+      "href": "sdk.md"
     }
+  ]
+}

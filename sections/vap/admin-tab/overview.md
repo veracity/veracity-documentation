@@ -28,7 +28,7 @@ No matter where you are in VAP, you can create a resource in the following way:
 </figure>
 
 ## To edit a resource from Home
-As a Data Admin, you can now edit a report or entity. To do it, on the **Home** page, select a report or entity you want to edit.
+As a System, Report or Data Admin, you can now edit a report or entity. To do it, on the **Home** page, select a report or entity you want to edit.
 1. In the top right corner of the page, select **Edit**.
 2. Select either **Edit Entity** or **Edit Report**. This will open the current entity or report.
 <figure>

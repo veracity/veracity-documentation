@@ -215,8 +215,8 @@
 			"href": "datacatalogue.md"
 		},
 		{
-			"text": "File storage",
-			"href": "filestorage.md"
+			"text": "Migrating from Data Fabric",
+			"href": "migratingfromdf.md"
 		},
 		{
 			"text": "Analytics",

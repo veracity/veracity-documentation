@@ -2,19 +2,44 @@
 author: Veracity
 description: This page contains an overview of File storage in Data Workbench.
 ---
-# File storage in Data Catalogue
+# Migrating from Data Fabric
 In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
 
-For each file, you can find the three dots in the row with the file (1) and open the action menu that lets you:
+For each file, you can find the three dots in the row with the file (1) and open the action menu.
+
+<figure>
+	<img src="assets/dotsmenu.png"/>
+</figure>
+
+The action menu lets you:
 - Download the file (2).
+
+<figure>
+	<img src="assets/download.png"/>
+</figure>
+
 - Share the file (3). After sharing, the recipient will see the file in the **Shared with me** tab in Data catalogue.
+
+<figure>
+	<img src="assets/share.png"/>
+</figure>
+
 - Revoke access (4) to the file.
+
+<figure>
+	<img src="assets/revoke.png"/>
+</figure>
+
 - As an admin, generate SaS keys (5) for accessing files through external systems.
+
+<figure>
+	<img src="assets/generatekeys.png"/>
+</figure>
+
 - As a file owner, delete (6) the files you uploaded.
 
 <figure>
-	<img src="assets/fst2.png"/>
-	<figcaption>Location of File Storage.</figcaption>
+	<img src="assets/delete.png"/>
 </figure>
 
 ## Migrating from Data Fabric?
@@ -22,7 +47,9 @@ File Storage is replacing Data Fabric. If you are migrating from Data Fabric:
 1. Follow the [migration guide](../datafabric/tutorials/download-my-data.md) to download your data manually.
 2. Upload your data to File Storage.
 
-Note that you can also contact the [onboarding team](mailto:onboarding@veracity.com) for assistance.
+## Need Support?
+
+You can contact the [onboarding team](mailto:support@veracity.com) for assistance.
 
 ## To go to File storage
 1. In your workspace, go to **Data catalogue** page.

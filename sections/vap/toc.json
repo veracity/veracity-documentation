@@ -152,35 +152,6 @@
 					"href": "veracity-container-as-data-source/5-upload-report.md"
 				}
 			]
-		},
-		{
-			"text": "Tutorial: Using File storage as a data source",
-			"items": [
-				{
-					"text": "Introduction",
-					"href": "file-storage-as-data-source/introduction.md"
-				},
-				{
-					"text": "Create your container",
-					"href": "file-storage-as-data-source/create-power-bi-report.md"
-				},
-				{
-					"text": "Upload data",
-					"href": "file-storage-as-data-source/upload-data.md"
-				},
-				{
-					"text": "Configure file url",
-					"href": "file-storage-as-data-source/upload-power-bi.md"
-				},
-				{
-					"text": "Create your report",
-					"href": "file-storage-as-data-source/enable-scheduled-refresh.md"
-				},
-				{
-					"text": "Upload in VAP",
-					"href": "file-storage-as-data-source/update-old-power-bi-file.md"
-				}
-			]
 		}
 	]
 }

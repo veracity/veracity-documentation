@@ -9,7 +9,7 @@ If you want to query data, follow this tutorial for step-by-step instructions.
 Prepare the folowing before calling the endpoint for querying data from a data set.
 
 ### Authenticate and authorize
-Get your API key and a bearer token to authenticate and authorize your calls. See how to do it [here](authentication.md).
+Get your API key and a bearer token to authenticate and authorize your calls. See how to do it [here](../authentication.md).
 
 ### Workspace ID
 

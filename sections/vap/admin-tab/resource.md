@@ -49,7 +49,7 @@ To apply a refresh plan to a file:
 3. In the bottom right corner of the panel, select **Save**.
 
 <figure>
-	<img src="assets/scheduleicon.png"/>
+	<img src="assets/scheduleicon2.png"/>
 </figure>
 
 ### To upload a file

@@ -60,6 +60,7 @@ We have improved the response speed for resources from VAP to user clients.
 ### Paginated report support
 For demo purposes, we have prepared a PoC of paginated reports.
 
+
 ## Changes in existing features
 
 This section covers changes in existing features.
@@ -67,3 +68,6 @@ This section covers changes in existing features.
 ### Updated fields in Tenant Properties
 
 We have changed the type of the **Business Owner** and **Contact Email** fields to e-mail.
+
+### Veracity migrates Veracity Data Fabric/My data to Veracity Data Workbench
+If you built a report using Data Fabric, we now recommend you to start using Data Workbench File storage for new reports which require client data.

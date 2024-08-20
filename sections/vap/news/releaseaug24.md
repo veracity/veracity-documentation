@@ -70,4 +70,4 @@ This section covers changes in existing features.
 We have changed the type of the **Business Owner** and **Contact Email** fields to e-mail.
 
 ### Veracity migrates Veracity Data Fabric/My data to Veracity Data Workbench
-If you built a report using Data Fabric, we now recommend you to start using Data Workbench File storage for new reports which require client data.
+If you built a report using Data Fabric, we now recommend you to start using Data Workbench File storage for new reports which require client data. For more information, go [here](../file-storage-as-data-source/introduction.md). 

@@ -16,7 +16,7 @@ Follow the steps below to create your report with a Data Workbench File storage.
 
 3. Go to Data Workbench and select the **Data Catalogue** tab (1).
 4. Select **File storage** (2).
-5. In the **File storage*** row, select the three dots menu (3). This will open a dropdown menu with more options.
+5. In the **File storage** row, select the three dots menu (3). This will open a dropdown menu with more options.
 6. From the dropdown menu, select **Generate keys** (4). This will open a pop-up window where you can generate your key.
 
 <figure>
@@ -42,7 +42,7 @@ Follow the steps below to create your report with a Data Workbench File storage.
 12. Under **URL parts** (2), paste the access key you just generated in Data Workbench in the following way:
 	* In the upper part, paste the part of the access key which is before **?** symbol. Do not include the **?** symbol here.
 	* In the lower part, paste the part of the URL which begins with the **?** symbol, including the **?** symbol.
-	Note that you can use a parameter to save the access key and URL. To see how to do it, see the section below.
+	Note that you can use a parameter to save the access key and URL. To see how to do it, see [this section](#use-parameter-to-save-access-key-and-URL).
 13.	Select **Ok** (3).
 
 <figure>

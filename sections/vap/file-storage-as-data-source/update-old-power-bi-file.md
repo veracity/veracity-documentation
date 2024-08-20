@@ -44,7 +44,7 @@ If you use a parameter to contain a Data Fabric source, then, to update your old
 </figure>
 
 2. Update the parameter context under **access** (1) and **URL** (2).
-3. Select Ok (3). This will update all queries which use Data Fabric.
+3. Select **Ok** (3). This will update all queries which use Data Fabric.
 
 <figure>
 	<img src="assets/16.png"/>

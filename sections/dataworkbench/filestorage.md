@@ -48,7 +48,10 @@ File Storage is replacing Data Fabric. If you are migrating from Data Fabric:
 2. Upload your data to File Storage.
 
 ## Need Support?
-You can contact the [onboarding team](mailto:support@veracity.com) for assistance.
+If you need any support:
+1. Visit [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) where you will find articles and video tutorials on Data Workbench.
+2. Contact the [support team](mailto:support@veracity.com) for assistance.
+
 
 ## To go to File storage
 1. In your workspace, go to **Data catalogue** page.

@@ -22,7 +22,8 @@ VAP supports the following refreshable data sources:
 * Veracity Data Fabric containers (to see your containers, in Veracity's top navigation bar, select "My data"). You can set up data to refresh daily, weekly, or monthly. The maximum number of daily refreshes is 48 which means the data would be refreshed approximately every 30 minutes. 
 If you want to create a Veracity Data Fabric container and do not have the necessary access level, you can obtain it [here](https://store.veracity.com/veracity-data-fabric-secure-data-sharing).
 * Azure Analysis Services. VAP refreshes data each time the users views the report.
-* On Permises Databases through Gateway.
+* On Premises Databases through Gateway.
+* Data Workbench data resource.
 
 Azure Analysis Services can offer the fastest way of refreshing report data, while Azure SQL Database may be the slowest (depending on the data model and the amount of data).
 

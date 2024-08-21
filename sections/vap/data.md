@@ -23,7 +23,7 @@ VAP supports the following refreshable data sources:
 If you want to create a Veracity Data Fabric container and do not have the necessary access level, you can obtain it [here](https://store.veracity.com/veracity-data-fabric-secure-data-sharing).
 * Azure Analysis Services. VAP refreshes data each time the users views the report.
 * On Premises Databases through Gateway.
-* Data Workbench data resource.
+* Data Workbench File storage.
 
 Azure Analysis Services can offer the fastest way of refreshing report data, while Azure SQL Database may be the slowest (depending on the data model and the amount of data).
 

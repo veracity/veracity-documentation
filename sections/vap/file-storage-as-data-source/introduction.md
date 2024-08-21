@@ -14,6 +14,6 @@ The guide will take you through the following steps.
 2. Update data in Data Workbench and refresh file to get new data in VAP.
 3. Upload a Power BI file in VAP.
 4. Enable a scheduled refresh on report to get fresh data.
-5. Update an old Power BI file connected to Data Fabric to connect to Data Workbench File storage.
+5. Optionally, if your Power BI file was connected to Data Fabric, connect it to Data Workbench File storage.
 
-For more information about Veracity Data Workbench File storage, see its documentation [here](https://developer.veracity.com/docs/section/dataworkbench/datacatalogue). 
+For more information about Veracity Data Workbench File storage, see its documentation [here](https://developer.veracity.com/docs/section/dataworkbench/datacatalogue#file-storage). 

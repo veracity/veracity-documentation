@@ -81,10 +81,6 @@
         {
           "text": "Datalake queries",
           "href": "query/datasetquery.md"
-        },
-        {
-          "text": "Event subscription",
-          "href": "query/eventconsumer.md"
         }
       ]
     },

@@ -3,7 +3,7 @@ author: Veracity
 description: This section describes how to update an old Power BI file connected to Data Fabric to connect to Data Workbench File storage.
 ---
 
-# Update old Power BI file connected to Data Fabric to connect to Data Workbench File storage
+# Update an old data source to a new data source
 
 Learn how to update your old Power BI file connected to Data Fabric to connect to Data Workbench File storage. If you are creating a new Power BI file, you have nothing to update, and you can skip this page.
 

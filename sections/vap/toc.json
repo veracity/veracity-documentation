@@ -161,24 +161,12 @@
 					"href": "file-storage-as-data-source/introduction.md"
 				},
 				{
-					"text": "Create a Power BI report using Data Workbench File storage",
-					"href": "file-storage-as-data-source/create-power-bi-report.md"
+					"text": "Create a report with a Data Workbench source and upload it in VAP",
+					"href": "file-storage-as-data-source/create-report.md"
 				},
 				{
-					"text": "Update data",
-					"href": "file-storage-as-data-source/update-data.md"
-				},
-				{
-					"text": "Upload Power BI",
-					"href": "file-storage-as-data-source/upload-power-bi.md"
-				},
-				{
-					"text": "Enable scheduled refresh",
-					"href": "file-storage-as-data-source/enable-scheduled-refresh.md"
-				},
-				{
-					"text": "Update old Power BI file",
-					"href": "file-storage-as-data-source/update-old-power-bi-file.md"
+					"text": "Update old data source to a new data source",
+					"href": "file-storage-as-data-source/update-old-data-source.md"
 				}
 			]
 		}

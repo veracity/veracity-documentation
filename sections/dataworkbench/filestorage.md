@@ -3,6 +3,12 @@ author: Veracity
 description: This page contains an overview of File storage in Data Workbench.
 ---
 # Migrating from Data Fabric
+
+## Account activation process
+Before you can start using Data Workbench with storage functionality, your account needs to be activated. Once you have completed the subscription process, Veracity will set up your account. Once the setup is complete, you will receive an activation email. After receiving this email, you can begin using Data Workbench with full storage capabilities.
+
+## File storage
+
 In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
 
 For each file, you can find the three dots in the row with the file (1) and open the action menu.

@@ -5,7 +5,7 @@ description: This page contains an overview of File storage in Data Workbench.
 # Migrating from Data Fabric
 
 ## Account activation process
-Before you can start using Data Workbench with storage functionality, your account needs to be activated. Once you have completed the subscription process, Veracity will set up your account. Once the setup is complete, you will receive an activation email. After receiving this email, you can begin using Data Workbench with full storage capabilities.
+Before you can start using Data Workbench with storage functionality, your account needs to be activated. Once you have completed the subscription purchase, Veracity will set up your account. Once the setup is complete, you will receive an activation email. After receiving this email, you can begin using Data Workbench with full storage capabilities.
 
 ## File storage
 

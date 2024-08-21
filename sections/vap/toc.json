@@ -165,8 +165,8 @@
 					"href": "file-storage-as-data-source/create-power-bi-report.md"
 				},
 				{
-					"text": "Upload data",
-					"href": "file-storage-as-data-source/upload-data.md"
+					"text": "Update data",
+					"href": "file-storage-as-data-source/update-data.md"
 				},
 				{
 					"text": "Upload Power BI",

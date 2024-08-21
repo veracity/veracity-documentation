@@ -56,9 +56,7 @@ Your app should have a sign-in button integrated with [Veracity IDP](https://dev
 Your app should have a sign-out button that is easy to find. 
 The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint signs out the user from Azure AD B2C.
 
-You can add the "redirectUri" parameter to the logout call, for example https://www.veracity.com/auth/logout?redirectUri=https://store.veracity.com
-
-If the URL specified in the parameter is valid, the user will be redirected to this URL.
+You can add the "redirectUri" parameter to the logout call, for example https://www.veracity.com/auth/logout?redirectUri=https://store.veracity.com. If the URL specified in the parameter is valid, the user will be redirected to this URL.
 
 Note that:
 * The "redirectUri" parameter must be a registered URL in a service (Developer portal).

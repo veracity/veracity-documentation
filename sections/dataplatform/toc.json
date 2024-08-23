@@ -66,6 +66,10 @@
           "href": "storage/files.md"
         },
         {
+          "text": "Events",
+          "href": "storage/events.md"
+        },
+        {
           "text": "Stream",
           "href": "storage/streaming.md"
         },
@@ -81,6 +85,26 @@
         {
           "text": "Datalake queries",
           "href": "query/datasetquery.md"
+        },
+        {
+          "text": "Event subscription",
+          "href": "query/eventconsumer2.md"
+        },
+        {
+          "text": "Event query api",
+          "href": "query/eventqueryapi2.md"
+        },
+        {
+          "text": "Service Bus Consumer Azure Function",
+          "href": "query/servicebusconsumerazurefunction2.md"
+        },
+        {
+          "text": "Service Bus Consumer Docker",
+          "href": "query/servicebusconsumerdocker2.md"
+        },
+        {
+          "text": "Service Bus Consumer Web Pub Sub",
+          "href": "query/servicebusconsumerwebpubsub2.md"
         }
       ]
     },

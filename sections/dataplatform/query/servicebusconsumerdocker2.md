@@ -9,14 +9,18 @@ This tutorial will walk you through the steps to create an Azure ServiceBus cons
 ## 1. Create a new C# console application
 To create a new C# console application, you can use Visual Studio (or another IDE of choice) or the .NET Core CLI. We'll use the [.NET Core CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) in this tutorial.
 Create a new directory for your project and navigate to it:
+
 ```cs
 mkdir ServiceBusConsumer
 cd ServiceBusConsumer
 ```
+
 Create a new C# console application:
+
 ```cs
 dotnet new console
 ```
+
 ### 1.1. Add the Azure ServiceBus NuGet package
 To add the Azure ServiceBus NuGet package, run the following command:
 ```cs
@@ -31,14 +35,17 @@ dotnet add package Microsoft.Extensions.Configuration.EnvironmentVariables
 dotnet add package Newtonsoft.Json
 dotnet add package CommandLineParser
 ```
+
 ### 1.2. Create the configuration file
 Create a new file called `appsettings.Localhost.json` in the root of your project and add the following content:
+
 ```json
 {
   "ServiceBusConnectionString": "<your connection string>",
   "QueueName": "<your-queue-name>"
 }
 ```
+
 The connection string and queue name have been issued to you when you have been on-boarded to the Veracity DataFabric.
 
 > **Important:**  
@@ -164,6 +171,7 @@ static async Task Main(string[] args)
     Console.WriteLine($"ServiceBus queue name: {serviceBusQueueName}");
 }
 ```
+
 ### 1.5. Receive messages from the queue
 Now we're ready to receive messages from the ServiceBus queue. Messages are received via a task list, and the code uses batching.
 We'll use the official `Azure.Messaging.ServiceBus` SDK and we'll use the code from official [Update inventory](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal#receive-messages) tutorial from the Azure docs as reference.
@@ -207,6 +215,7 @@ private static async Task ReceiveMessages(IConfigurationRoot configuration, Canc
     }
 }
 ```
+
 The `ReceiveMessages` method receives the `configuration` object as a parameter, so that it can access the configuration settings. It also receives a `CancellationToken` object, which is used to cancel the task when the user presses `Ctrl+C`.
 The `ReceiveMessages` method creates a `ServiceBusClient` instance, which is used to receive messages from the queue. 
 The receive call to the Service Bus is kept open for while the console app is running and if messages arrive, they're returned immediately and a new receive call is issued. This concept is called _long polling_. You can read more about how Service Bus queues work in the [Azure docs](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal).
@@ -245,6 +254,7 @@ private static Task WhenCancelled(CancellationToken cancellationToken)
     return tcs.Task;
 }
 ```
+
 ## 2. Run the console app
 Now, we're ready to run the console app. Refer to the Developer documentation for information on how to publish messages to the Veracity IoT Platform. 
 When you publish one or more messages to the Veracity IoT Platform, the message will be routed to the Service Bus queue and the console app will receive the message.
@@ -258,6 +268,7 @@ ServiceBus connection string: <your connection string>
 ServiceBus queue name: <your queue name>
 Press control-C to exit.
 ```
+
 ## 3. Add Docker support
 To run the console app in a Docker container, we need to add Docker support to the project. 
 
@@ -322,13 +333,17 @@ Create a new file named `.dockerignore` in the `ServiceBusConsumer` folder with 
 **/values.dev.yaml
 appsettings.Localhost.json
 ```
+
 ## 4. Build the Docker image
 To build the Docker image, open a command prompt and navigate to the `ServiceBusConsumer` folder. Run the following command:
 ```cs
 docker build -t servicebusconsumer .
 ```
+
 The Docker image is now built and you can run it in a container.
+
 ## 5. Run the Docker container
+
 ### 5.1. Pass the connection string to the Docker container
 Since we have excluded the `appsettings.Localhost.json` file, we need to pass the connection string as an environment variable to the Docker container.
 
@@ -343,6 +358,7 @@ ServiceBus connection string: <your connection string>
 ServiceBus queue name: <your queue name>
 Press control-C to exit.
 ```
+
 ### 5.2. Pass the connection string to the Docker container using a secrets file
 To avoid passing the connection string as an environment variable, we can use the `Secret Manager` tool which stores sensitive data during the development of an ASP.NET Core project. 
 Refer to the [Secret Manager tool documentation](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) for more information.
@@ -360,6 +376,7 @@ To get the container id, run the following command:
 ```cs
 docker ps
 ```
+
 ## 6. Publish the Docker image to Azure Container Registry
 To publish the Docker image to Azure Container Registry (ACR), you need to create a Container Registry instance. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) for information on how to create an Azure Container Registry.
 

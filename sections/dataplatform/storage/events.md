@@ -4,6 +4,7 @@ description: This section describes event ingest
 ---
 
 # Event ingest
+
  Veracity supports ingesting events via two main channels:
 - HTTP API 
 	- [How to authenticate](Authenticate.md)
@@ -11,6 +12,7 @@ description: This section describes event ingest
 	- [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
 - IoT Hub
 	- [Stream events to IoT Hub](#submit-events-to-iot-hub)
+
 ## Use api
 
 Explore the api [Asset Model Standard](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-IoTEventBrokerIngestAPI-swagger.json). 
@@ -41,6 +43,7 @@ Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1
 ```
 POST https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?eventType=Topology&topic=TopologyHealth&timeStampUTC=2023-01-01T12:00:00Z&assetId=123&assetIdIssuer=imo
 ```
+
 ### C# code example using http client
 For C# you can use Veracity nuget package or alternatively using http client. Fetching bearer token and ingesting Event. Example is written in C#. This approach is transferable to other languages utilizing http clients.
 
@@ -128,6 +131,7 @@ var jsonPayload =
 
 var ingestResult = await eventsClient.Events.IngestEvent(jsonPayload, eventType, topic, timeStampUtc, assetId, assetIdIssuer);
 ```
+
 ## Submit events to Iot Hub
 You will need the following information to be able to publish events to the IoT Hub:
 - IoT Hub connection string
@@ -174,14 +178,17 @@ We'll be writing a simple Node.js application that will publish events to the Io
 cd ../test
 npm init -y
 ``` 
+
 2) Install the `azure-iot-device` and the `azure-iot-device-mqtt` packages:
 ```json
 npm install azure-iot-device azure-iot-device-mqtt
 ```
+
 Also install the `dotenv` package to be able to read the configuration values from a `.env` file and the `uuid` package to generate a unique device ID: 
 ```json
 npm install dotenv uuid
 ```
+
 3) Create a new file named `.env` and add the following configuration values:  
 
 ```json
@@ -190,6 +197,7 @@ IOTHUB_DEVICE_ID="<YOUR_DEVICE_ID>"``
 
 Replace the `<iot-hub-connection-string>` and `<YOUR_DEVICE_ID>` placeholders with the actual values. Make sure to add the `.env` file to the `.gitignore` file.  
 ```
+
 4) Create a new file named `test_publisher.js` and add the following code:
 
 ```js

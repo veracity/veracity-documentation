@@ -1,6 +1,6 @@
 ﻿---
-author: xyz
-description: xyz
+author: Veracity
+description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
 # heading 1

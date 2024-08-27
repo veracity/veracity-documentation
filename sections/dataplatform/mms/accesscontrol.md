@@ -11,7 +11,7 @@ A portfolio is a group of assets. A portfolio in Veracity Asset Model correspond
 
 
 ## Roles
-Currently on Admin and Reader is available as roles. 
+Currently on Admin and Reader is available as roles. New roles will be added shortly.
 
 **Admin**
 - Can add sites in a portfolio.

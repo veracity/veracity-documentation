@@ -7,7 +7,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 "Streaming" is a valuable additional feature which enhances and expands the capabilities of the Veracity Data Platform. It is built on top of and extends the functionality within the Data Workbench BYOD component (bring your own data). It is the successor to parts of the (now legacy) Veracity IoT Platform.
 
-# What is Streaming Data?
+## What is Streaming Data?
 
 "Streaming" data refers to continuous, real-time data which is generated, transmitted, processed and transmitted in a steady-flow. Such data is typically produced by sources such as sensors, control systems, IoT devices or telemetry from applications. It is delivered continuously rather than sent in batch uploads. 
 
@@ -16,7 +16,7 @@ Applications for such data could be monitoring systems, weather data, electric g
 Veracity is supporting the Maritime and Renewable Energy industries with the collection of such data and the further development/exploration of relevant use cases.
 
 
-# Streaming Feature
+## Streaming Feature
 
 The streaming feature of the Veracity Data Platform is designed to provide a managed solution to support the following needs:
 

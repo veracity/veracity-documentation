@@ -20,7 +20,8 @@ Orange Button taxonomy for asset metadata
 ## Managing standards
 Managing the standard and publishing new versions can be done using api or from the web portal (https://assetmodel.veracity.com)
 
-Base url: https://api.veracity.com/veracity/dw/gateway/api/v2/
+### API
+Base url: https://api.veracity.com/veracity/mms/schema/
 
 Explore the api [Asset Model Standard](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Schema-API-swagger.json). 
 
@@ -32,3 +33,8 @@ Multiple versions of the same schema is supported and enables renaming and addin
 Remove parameters and metadata should be avoided because of back-compatibility.
 
 ### Publish version
+To publish a new verson, select Publish from Draft model (action column). From api use endpoint: (and provide version in body)
+
+```
+POST base url/{tenant}/api/v1/standards
+```

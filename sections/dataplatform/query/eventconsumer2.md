@@ -1,7 +1,6 @@
-﻿---
+---
 author: Veracity
-description: Gives an overview of the Veracity Data Platform services and related components.
+description: This is a tutorial how to call API endpoints of Data Workbench with sample Python code.
 ---
 
-# heading 1
-text
+# Query datasets using API

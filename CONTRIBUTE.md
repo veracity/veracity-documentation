@@ -188,14 +188,14 @@ You can see an example of a full table of contents here:
 *	Commit only changes to content (.md and .json file, any images you added in /assets). **Avoid committing any .ds-store files.**
 *	Push your changes to your forked repository on GitHub:
 
-2.	**Navigate to the Original Repository:**
-* Go to the original repository (veracity-documentation) on GitHub where you want to open the pull request.
+2.	**Navigate to your forked repository:**
+* Go to your forked repository (veracity-documentation) on GitHub (in the browser), and open the Pull Requests tab. If you are unsure how to open your repository in a browser, in GitHub Desktop, select any file you want to commit, right-click with your mouse, and select the last option on the list.
 
 3.	**Open a Pull Request:**
 *	Click on the "Pull requests" tab.
 *	Click the "New pull request" button.
 *	Select the branch of your forked repository that contains your changes.
-*	Compare it with the branch of the original repository you want to merge into (usually main or master).
+*	Compare it with the branch of the original repository you want to merge into (master).
 
 4.	**Create the Pull Request:**
 *	Add a title and description for your pull request. Be clear and concise about the changes you made and why they are necessary.

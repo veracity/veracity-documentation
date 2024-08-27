@@ -183,7 +183,7 @@ You can see an example of a full table of contents here:
 *	Ensure all pages you added are reflected in the TOC in the correct section. 
 *	Ensure all pages you added have **author**, **description**, and **heading** properties. For each page, go to its GitHub URL (in your forked repository) and see if it looks like the example below.
 
-![Correct preview](/assets/correctpreview.png)  
+![Correct preview](/assets/correct-preview.png)  
 
 *	Commit only changes to content (.md and .json file, any images you added in /assets). **Avoid committing any .ds-store files.**
 *	Push your changes to your forked repository on GitHub:

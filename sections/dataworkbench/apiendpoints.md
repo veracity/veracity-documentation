@@ -5,9 +5,11 @@ description: This page lists API endpoints for Data Workbench.
 # API endpoints
 
 You can use the following API endpoints for Data Workbench:
+
 * [Schema endpoints](#schema-endpoints)
 * [Workspace and tenant endpoints](#workspace-and-tenant-endpoints)
 * [Data sets endpoints](#data-sets-endpoints)
+* **File storage endpoints**[details here](#file-storage-endpoints)
 
 To see response codes for the API, go [here](#response-codes).
 

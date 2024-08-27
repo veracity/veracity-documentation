@@ -11,6 +11,8 @@ Before you can start using Data Workbench with storage functionality, your accou
 
 In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
 
+**If you want to access it via API**, see [File storage API endpoints in API docs](apiendpoints.md).
+
 For each file, you can find the three dots in the row with the file (1) and open the action menu.
 
 <figure>

@@ -33,7 +33,7 @@ As a Data Manager you need to download your data before the deadline provided ab
   1\. Download your data from Data Fabric / My data (please refer to our [Download Guide](https://developer.veracity.com/docs/section/datafabric/tutorials/download-my-data)).
   2\. Subscribe to "[Data Workbench Storage](https://store.veracity.com/6-ea69-4b8c-9c72-df35f2a00)" and upload your data here.
   \
-  Once your subscription is confirmed, you will receive an activation email. Please note that this might take up to a few days. When the activation is completed, you are ready to start using Veracity Data Workbench. Read the How-To Guide for a better introduction.
+  Once your subscription is confirmed, you will receive an activation email. Please note that this might take up to a few days. When the activation is completed, you are ready to start using Veracity Data Workbench. [Read the How-To Guide for an introduction](https://developer.veracity.com/docs/section/dataworkbench/filestorage).
 &nbsp;
 2. __Download your data and manage them with your own solution (please refer to our [Download Guide](https://developer.veracity.com/docs/section/datafabric/tutorials/download-my-data))__
 

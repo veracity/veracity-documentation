@@ -18,7 +18,7 @@
         },
         {
           "text": "Schema",
-          "href": "concepts/overview.md"
+          "href": "concepts/structdata.md"
         },
         {
           "text": "AssetModel",
@@ -72,6 +72,10 @@
         {
           "text": "Stream",
           "href": "storage/streaming.md"
+        },
+        {
+          "text": "Events",
+          "href": "storage/eventbroker.md"
         },
         {
           "text": "FAQ",

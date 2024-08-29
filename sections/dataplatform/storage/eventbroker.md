@@ -6,6 +6,15 @@ description: Gives an overview of the Veracity Data Platform services and relate
 # Events
 Events are json objects with a topic that can be published to a database and subscribers can subscribe to events or request events from database. 
 
+## API endpoints
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-IoTEventBrokerIngestAPI-swagger.json).
+
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
 ## Event ingest
  Veracity supports ingesting events via two main channels:
 - HTTP API	
@@ -14,18 +23,10 @@ Events are json objects with a topic that can be published to a database and sub
 - IoT Hub
 	- [Stream events to IoT Hub](#submit-events-to-iot-hub)
 
-## Use api
-[Browse api definition](apiendpoints.md)
-
-You can call the api directly from your application using standard tooling in your platform. For .Net and Python we provide SDK and examples.  When invoking the api, the consumer needs a token for authentication.
-
-- How to authenticate
-- How to explore the api in the portal
-- How to use Veracity IoT SDK
 
 Any eventtype can be ingested by POSTing a JSON object to Veracity with some header paramerters.
 ```
-Request url: POST  https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
+Request url: POST  {baseurl}/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
 ```
 
 

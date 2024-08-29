@@ -22,7 +22,7 @@
         },
         {
           "text": "AssetModel",
-          "href": "concepts/assetmod.md"
+          "href": "mms/mmsintroduction.md"
         },
         {
           "text": "Data transformation and aggregation",
@@ -43,12 +43,16 @@
       "href": "howtogetstart.md"
     },
     {
-      "text": "Schema management",
-      "href": "schemamanagem.md"
-    },
+      "text": "API endpoints",
+      "href": "apiendpoints.md"
+    },   
     {
       "text": "Authentication",
       "href": "auth.md"
+    },
+    {
+      "text": "Schema management",
+      "href": "schemamanagem.md"
     },
     {
       "text": "Data storage and ingest",
@@ -83,9 +87,22 @@
       "text": "Data query",
       "items": [
         {
-          "text": "Datalake queries",
+          "text": "Data catalogue",
+          "href": "query/datacatalogue.md"
+        },
+        {
+          "text": "Dataset queries",
           "href": "query/datasetquery.md"
+        },
+        {
+          "text": "File queries",
+          "href": "query/filequery.md"
+        },
+        {
+          "text": "Event queries",
+          "href": "query/eventquery.md"
         }
+        
       ]
     },
     {
@@ -145,11 +162,7 @@
     {
       "text": "Data sharing",
       "href": "datasharing.md"
-    },
-    {
-      "text": "API endpoints",
-      "href": "apiendpoints.md"
-    },
+    },   
     {
       "text": "SDKs",
       "href": "sdk.md"

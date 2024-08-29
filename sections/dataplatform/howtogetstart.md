@@ -14,5 +14,9 @@ Typically a tenant is customer specific. A tenant corresponds with a tenant in V
 A tenant will also be linked to Salesforce customer id.
 
 ## Way forward
-
 Upload data to your workspace
+
+
+## Client account 
+
+See how to [create a client service principle that can access your workspace](https://developer.veracity.com/docs/section/dataworkbench/apimanagement)

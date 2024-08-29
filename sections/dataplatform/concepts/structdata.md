@@ -9,8 +9,11 @@ Structured data has a predefined data model and is formatted to a set data struc
 ## Structured data
 Veracity dataplatform datasets are structured data and can be uploaded/ingested using a pre-defined schema or allow the ingest process to create a schema based on the columns in the CSV file.
 
+## Unstructured data
+When uploading files to file storage, there is no schema validation and the file is stored in its native format and can be of any file type.
+
+
 ## Schema
 A schema defines the model for the data.
 
-## Unstructured data
-When uploading files to file storage, there is no schema validation and the file is stored in its native format and can be of any file type.
+[See schema management](https://developer.veracity.com/docs/section/dataplatform/schemamanagem)

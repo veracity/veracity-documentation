@@ -178,29 +178,25 @@ You can see an example of a full table of contents here:
 
 ## Step 3: Publishing pages with pull requests
 
-After you have added all documents and assets, and after linking them correctly, you are now ready to push the changes to GitHub.
+1.	**Push Your Changes to Your Fork**:
+* Make sure all your changes are committed.
+*	Ensure all pages you added are reflected in the TOC in the correct section. 
+*	Ensure all pages you added have **author**, **description**, and **heading** properties. For each page, go to its GitHub URL (in your forked repository) and see if it looks like the example below.
 
-Before you start a pull request, we would like you to contact us at <developer@veracity.com> so that we are aware of the changes you want to make.
+![Correct preview](/assets/correct-preview.png)  
 
-*Please make sure to delete all .ds-store files that come with the cloning of the project before you start doing this process.*
+*	Commit only changes to content (.md and .json file, any images you added in /assets). **Avoid committing any .ds-store files.**
+*	Push your changes to your forked repository on GitHub:
 
-Open GitHub desktop. Now you will be able to see the changes you have made to the entire clone of the repository, and how this matches with what you have on GitHub.
+2.	**Navigate to your forked repository:**
+* Go to your forked repository (veracity-documentation) on GitHub (in the browser), and open the Pull Requests tab. If you are unsure how to open your repository in a browser, in GitHub Desktop, select any file you want to commit, right-click with your mouse, and select the last option on the list.
 
-Review your changes, write a short description of the additions or changes you have done in the title field and select "Commit to master" on the bottom-left.
+3.	**Open a Pull Request:**
+*	Click on the "Pull requests" tab.
+*	Click the "New pull request" button.
+*	Select the branch of your forked repository that contains your changes.
+*	Compare it with the branch of the original repository you want to merge into (master).
 
-![Changes in GitHub Desktop](/assets/changesgithub.png)
-
-
-You will now see a "Push to origin" button on the right. Click on this.
-
-![Push to origin](/assets/pushtoorigin.png)
-
-After doing this you can visit your repository page in GitHub and try to find the "Pull requests" tab at the top. After going to the pull-request page, click on the "New Pull Request button" on the right side.
-
-![Pull Requests](/assets/pullrequests.png)
-
-After clicking this button you will get another page where you can compare your changes. Make sure, before you click on "Create pull request", that you are merging your changes to the original "master" branch of the Veracity documentation. Here is an example
-
-![Create Pull Requests](/assets/createpr.png)
-
-After clicking "Create pull request" we will be automatically notified to approve it. Now there are just a couple of simple steps that need to be done on our end, and your new files and section should be visible on Veracity for Developers. We will contact you in case we need any changes in the repository.
+4.	**Create the Pull Request:**
+*	Add a title and description for your pull request. Be clear and concise about the changes you made and why they are necessary.
+*	Click the "Create pull request" button.

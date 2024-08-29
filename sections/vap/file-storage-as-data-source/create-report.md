@@ -1,10 +1,10 @@
 ---
 author: Veracity
-description: This section describes how to  create a Power BI report using a Data Workbench File storage.
+description: This section describes how to create a report with a Data Workbench source and upload it in VAP
 ---
 ---
 
-# Create Power BI report using Data Workbench File storage
+# Create a report with a Data Workbench source and upload it in VAP
 
 Follow the steps below to create your report with a Data Workbench File storage.
 1. Open Power BI Desktop.
@@ -94,3 +94,48 @@ To use a parameter to save access key and URL, follow the steps below.
 <figure>
 	<img src="assets/11.png"/>
 </figure>
+
+## Update data in Data Workbench and refresh file to get new data in VAP
+
+To update a file in Data Workbench, ensure that the file you want to upload has the same name as the old one.
+
+Overwrite the existing file in Data Workbench.
+
+New data will be shown in the report in VAP when a scheduled refresh is set up or you trigger an on-demand refresh from VAP Resources.
+
+## Upload Power BI file in VAP
+
+To upload a Power BI File in VAP, follow the steps below.
+1. Open your VAP service.
+2. Open Admin Module with Data/Report/System Admin role user. This will open a side menu.
+3. From the side menu, select the **+** icon and select **Add File**.
+
+<figure>
+	<img src="assets/12.png"/>
+</figure>
+
+4. Specify what is needed and continue using VAP as usual.
+5. When the file is uploaded, you will see the information below.
+
+<figure>
+	<img src="assets/13.png"/>
+</figure>
+
+6. Select the **+** icon and select **Add Report**. Then, add a report for the new uploaded file.
+
+For more information, go [here](https://developer.veracity.com/docs/section/vap/admin-tab/resource).
+
+## Enable scheduled refresh on report to get fresh data
+
+To learn more about the Refresh Schedule Plan, go [here](../admin-tab/resource.md).
+
+When a scheduled refresh is set on the data in VAP, fresh data from the report is shown at the intervals you have set. 
+
+**Note that** a scheduled refresh will fail if:
+* The file does not have the same file structure as before.
+* The access key is no longer valid.
+* The file was deleted, or the newly uploaded file does not have the same name.
+
+Enable scheduled refresh or demand refresh on your report.
+
+[Next](update-old-data-source.md)

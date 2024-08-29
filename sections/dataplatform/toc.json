@@ -70,6 +70,10 @@
           "href": "storage/files.md"
         },
         {
+          "text": "Events",
+          "href": "storage/events.md"
+        },
+        {
           "text": "Stream",
           "href": "storage/streaming.md"
         },
@@ -100,9 +104,8 @@
         },
         {
           "text": "Event queries",
-          "href": "query/eventquery.md"
-        }
-        
+          "href": "query/eventquery.md"         
+        }        
       ]
     },
     {
@@ -154,10 +157,6 @@
     {
       "text": "Data validation",
       "href": "datavalidation.md"
-    },
-    {
-      "text": "Access control",
-      "href": "accesscontrol.md"
     },
     {
       "text": "Data sharing",

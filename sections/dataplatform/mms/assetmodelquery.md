@@ -10,13 +10,14 @@ Veracity Asset model allows consumers to query data using REST api or grapghQL.
 ## Query Rest api
 Explore the api [Asset Model Query](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Query-API-swagger.json). 
 
-Base url: https://api.veracity.com/veracity/mms/query/
-
 Each query is within a tenant and tenant is hence part of query path. 
 The tenant-alias to be used in query is given for the environment setup for you.
 
-## Authentication
-Use bearer token and subscription key [for more details how to acquire a token](..authentication.md)
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
 ## Access rights
 Only users or service principles with access to an site can access the site; [for more details how to manage users](accesscontrol.md)

@@ -6,7 +6,10 @@ description: This page explains how to utilize the analytics capabilities
 # Develop analytics scripts
 
 ## Upload analytics script to tenant
-How to upload analytics script
+
+See how to [upload scripts from UI in data Workbench](https://developer.veracity.com/docs/section/dataworkbench/analytics)
+
+
 
 ## Connect to Asset model
 How to connect to Asset model from Python

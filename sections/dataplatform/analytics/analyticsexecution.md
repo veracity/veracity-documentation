@@ -9,6 +9,14 @@ Analytics scripts can be executed from UI in Data Workbench or by using APIs.
 ## API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
+## Execute analytics from API
+
 ```
 POST: {base url}/workspaces/{workspaceId}/Analysis/execution 
 ```
@@ -27,8 +35,6 @@ Body
 - Script: Name of analytic script to run
 - OutputdatasetName: Name of the result dataset that will be uploaded to same workspace as the input dataset(s)
 
-### Authentication and authorization
-To authenticate and authorize your calls, get your API key and a bearer token [here](../authentication.md).
 
 ## How to debug
 At the moment this is not possible. We are planning to support an IDE environment-

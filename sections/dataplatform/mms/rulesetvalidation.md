@@ -7,6 +7,17 @@ description: Gives an overview of the Veracity Data Platform services and relate
 Ruleset can be defined as a set of rules. Rulesets are defined as part of the standard.
 Rulesets are used to validate a site
 
+
+## API
+Explore the api [Asset Model Standard](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Schema-API-swagger.json). 
+
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
+
 ## Add ruleset
 Provide ruleset-name and a description. Ruleset-name must be unique.
 
@@ -43,9 +54,4 @@ For site level, verify thar AkkiwStuck is within the allowed range.
   ]
 }
 ```
-
-### API
-Base url: https://api.veracity.com/veracity/mms/schema/
-
-Explore the api [Asset Model Standard](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Schema-API-swagger.json). 
 

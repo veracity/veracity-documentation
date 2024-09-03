@@ -68,11 +68,7 @@
         {
           "text": "Upload any file",
           "href": "storage/files.md"
-        },
-        {
-          "text": "Events",
-          "href": "storage/events.md"
-        },
+        },      
         {
           "text": "Stream",
           "href": "storage/streaming.md"
@@ -151,6 +147,23 @@
         {
           "text": "Visualization",
           "href": "analytics/visualization.md"
+        }
+      ]
+    },
+    {
+      "text": "Real time event consumption",
+      "items": [
+        {
+          "text": "Using Azure function",
+          "href": "query/servicebusazurefunctionconsumer.md"
+        },
+        {
+          "text": "Azure functions and WebPubSub",
+          "href": "query/servicebuswebpubsubconsumer.md"
+        },
+        {
+          "text": "Console app in Docker container",
+          "href": "query/servicebusdockerconsumer.md"
         }
       ]
     },

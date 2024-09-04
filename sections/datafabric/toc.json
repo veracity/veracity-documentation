@@ -12,16 +12,7 @@
 		{
 			"text": "Overview",
 			"href": "overview.md"
-		},
-		{
-			"text": "Veracity IoT Sensors",
-			"items": [
-				{
-					"text": "Overview",
-					"href": "iot/overview.md"
-				}
-			]
-		},
+		},		
 		{
 			"text": "Data Fabric Data API Specification",
 			"href": "datafabric-dataapi-openapi.yaml"

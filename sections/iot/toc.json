@@ -2,78 +2,8 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Veracity IoT Sensors",
+			"text": "Veracity IoT",
 			"href": "iot.md"
-		},
-		{
-			"text": "HowTos",
-			"href": "howtos.md"
-		},
-		{
-			"text": "Contextualization",
-			"href": "contextualization.md"
-		},
-		{
-			"text": "API Portal",
-			"href": "apiportal.md"
-		},
-		{
-			"text": "Data provider",
-			"items": [
-				{
-					"text": "Data provider",
-					"href": "dataprovider/dataprovider.md"
-				},
-				{
-					"text": "Sensor Data Ingest",
-					"href": "dataprovider/sensordataingest.md"
-				},
-				{
-					"text": "Event Ingest",
-					"href": "dataprovider/eventingest.md"
-				}
-			]
-		},
-		{
-			"text": "Data consumer",
-			"items": [
-				{
-					"text": "Data consumer",
-					"href": "dataconsumer/dataconsumer.md"
-				},
-				{
-					"text": "Sensor Data Query API",
-					"href": "dataconsumer/sensordataqueryapi.md"
-				},
-				{
-					"text": "Event Query API",
-					"href": "dataconsumer/eventqueryapi.md"
-				},
-				{
-					"text": "Authenticate",
-					"href": "dataconsumer/authenticate.md"
-				},
-				{
-					"text": "Sensor data Python",
-					"href": "dataconsumer/sensordatapython.md"
-				},
-				{
-					"text": "Event Service Bus Consumer",
-					"href": "dataconsumer/eventservicebusconsumer.md"
-				},
-				{
-					"text": "Service Bus Consumer Docker",
-					"href": "dataconsumer/servicebusconsumerdocker.md"
-				},
-				{
-					"text": "Service Bus Consumer Web Pub Sub",
-					"href": "dataconsumer/servicebusconsumerwebpubsub.md"
-				},
-				{
-					"text": "Servuce Bus Consumer Azure Function",
-					"href": "dataconsumer/servicebusconsumerazurefunction.md"
-				}
-			]
-		}
+		}	
 	]
 }

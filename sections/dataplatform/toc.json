@@ -101,6 +101,10 @@
         {
           "text": "Event queries",
           "href": "query/eventquery.md"         
+        },
+        {
+          "text": "Sensor data query",
+          "href": "query/sensordataqueryproxy.md"
         }        
       ]
     },

@@ -11,7 +11,7 @@ The purpose of Veracity Asset Model is to offer a single Asset registry enabling
 The model representing the asset (currently named site) consists of lists of metadata, signals (parameters) and devices (components). A device has a type and the device type defines a set of metadata  and signals applicable for this device type (product type).
 
 <figure>
-	<img src="assets/assetmodel.png"/>
+	<img src="assets/assetmodel.PNG"/>
 	<figcaption>Asset model</figcaption>
 </figure>
 

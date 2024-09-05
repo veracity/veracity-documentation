@@ -46,13 +46,15 @@ Datachannels ids can be tagId or guid
 
 ```
 https://api.veracity.com/veracity/timeseries3/api/v3/assets/{assetid}/dataChannels/
-{datachannelId}/timeSeries/latest?nLatest=50```
+{datachannelId}/timeSeries/latest?nLatest=50
+```
 
 Note:	add in the header of the api call: x-tenant-id = tenantAlias 
 
 Datachannels ids can be tagId or guid
 
-### C Sharp code using Http client
+## Example C Sharp code using Http client
+
 Alternatively using http client. Fetching bearer token and querying Events. Example is written in C#. This approach is portable to other languages using http clients.
 
 ```cs
@@ -120,7 +122,6 @@ content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
 result = httpClient.PostAsync(url, content).Result;
 contentresult = result.Content.ReadAsStringAsync().Result;
-
 
 public class RequestPayload
 {

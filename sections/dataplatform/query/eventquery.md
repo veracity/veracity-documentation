@@ -19,17 +19,14 @@ To browse the api, go [here](https://developer.veracity.com/docs/section/api-exp
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
-
+*Note:*
 Use resource: https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
-The api is accessible from [api-portal](https://api-portal.veracity.com/).  Select api **Data Fabric IoT Event Broker Query API**
-
 ## Security Model
 Users or applications can only access data for assets, tenants and respective topics they have access to. 
-
 
 ### Get Events
 

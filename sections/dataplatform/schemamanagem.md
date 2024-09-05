@@ -4,11 +4,14 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # Schema management 
-You can manage your workspace's schema with API calls. You can do CRUD operations for the following endpoints.
+Within a catalogue (workspace) you have several schemas. A schema is like the definition of a table.
+
+You can manage your workspace's schemas with API calls. You can do CRUD operations for the following endpoints.
+You need to be admin to do these operations.
 
 ## Schema API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
-(see subsection Scehma)
+(see subsection Schema)
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
@@ -66,6 +69,32 @@ Call the following endpoint with the GET method.
 ### To create a new schema
 Call the `{baseUrl}/workspaces/{workspaceId}/Schemas/add` endpoint with the POST method.
 
+The body contains metadata about the columns
+
+```
+{
+  "name": "string",
+  "shortName": "string",
+  "description": "string",
+  "columns": [
+    {
+      "name": "string",
+      "displayName": "string",
+      "type": "String",
+      "description": "string",
+      "isFilterable": true,
+      "filterType": "List",
+      "filterTypes": [
+        "List"
+      ],
+      "format": "string",
+      "isSortable": true,
+      "order": 0
+    }
+  ]
+}
+```
+
 Note that only a workspace admin can do this.
 
 ### To patch a schema (change name, short name, or description)
@@ -74,9 +103,38 @@ Call the following  endpoint with the PATCH method.
 
 Note that only a workspace admin can do this.
 
-### To add schema version
+### Modify schenma
+To modify a schema, you need to make a new schema version
+
 Call the following endpoint with the POST method.
 `{baseUrl}/workspaces/{workspaceId}/Schemas/schemaversions/add`
+
+Body:
+```
+{
+  "schemaId": "string",
+  "schemaVersionName": "string",
+  "description": "string",
+  "columns": [
+    {
+      "name": "string",
+      "displayName": "string",
+      "type": "String",
+      "description": "string",
+      "isFilterable": true,
+      "filterType": "List",
+      "filterTypes": [
+        "List"
+      ],
+      "format": "string",
+      "isSortable": true,
+      "order": 0
+    }
+  ],
+  "extensions": {}
+}
+```
+
 
 Note that only a workspace admin can do this.
 

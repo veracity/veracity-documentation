@@ -12,3 +12,5 @@ A workspace belongs to a tenant. A tenant typically represents a customer. A cus
 
 ## Workspaces
 Within a workspace users can have roles which gives access to different features such as who can upload data, analyse data, add users, edit analytics scripts etc.
+
+For more information, see [Tenant and Workspace management](../tenantmgm.md)

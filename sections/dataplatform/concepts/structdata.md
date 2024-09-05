@@ -14,6 +14,10 @@ When uploading files to file storage, there is no schema validation and the file
 
 
 ## Schema
-A schema defines the model for the data.
+A schema defines the model for the data in a table.
 
 [See schema management](https://developer.veracity.com/docs/section/dataplatform/schemamanagem)
+
+
+## Catalogue
+The catalogue within the workspace shows all schemas defined for this security coundary. 

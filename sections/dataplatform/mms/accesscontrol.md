@@ -37,9 +37,8 @@ Tenant managers must be added by Onboarding team, contact (mail: support@veracit
 
 ## Query for permissions
 The query api has an endpoint for retunring the permissions for the user
-```C#
-https://baseurl/dnves/api/v1/permissions
-```
+
+`{baseurl}/{tenantAlias}/api/v1/permissions`
 
 **Response**
 This user has view access to all sites in one portfilio and  admin (full access) to all sites in the first portfolio

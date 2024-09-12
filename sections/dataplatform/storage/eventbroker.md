@@ -12,6 +12,10 @@ To browse the api, go [here](https://developer.veracity.com/docs/section/api-exp
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
+*NOTE:* When authenticating for event data use resource
+var resource = "https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a00c3d948d5";
+
+
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
@@ -20,27 +24,26 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 - HTTP API	
 	* [C# code example using http client](#c#-code-example-using-http-client)
 	* [C# code example using Veracity IoT SDK](#c#-code-example-using-veracity-iot-sdk)
-- IoT Hub
-	- [Stream events to IoT Hub](#submit-events-to-iot-hub)
-
 
 Any eventtype can be ingested by POSTing a JSON object to Veracity with some header paramerters.
 ```
-Request url: POST  {baseurl}/api/v1/events?tenantId={tenantId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
+Request url: POST  {baseurl}/api/v1/events?tenantId={tenantId}&workspaceId={workspaceId}&assetIdIssuer={assetIdIssuer}&assetId={assetId}&eventType={eventType}&timeStampUtc={timeStampUtc}&topic={topic}
 ```
 
 
 ### Header parameters
+- tenantId: tenant id (guid)
+- workspaceid: workspace is (guid)
 - assetId: E.g. "123456". Used together with AssetIdIssuer to identify an asset
 - assetIdIssuer: E.g. "IMO", "MMSI", "JSMEA".Used together with AssetId to identify an asset
 - eventType: E.g: Voyagereport, Topologyreport  (name of template for event)
-- timeStampUtc: timestamp for Event, UTC: format: "2021-04-06T14:22:48.950716+02:00" (yyyy-mm-ddTHH:
+- timeStampUtc: timestamp for when event occured, UTC: format: "2021-04-06T14:22:48.950716+02:00" (yyyy-mm-ddTHH:
 - topic: Messages are filtered on topic when subscribing to Events. Can be any keyword that is meaningful or useful for subscription purposes E.g: "Engines","Cylinders","Arrival","Delivery". See MC-topics.
 - tenantId: optional. If the user or application is only registered to a single tenant it will be using this tenant on ingest
 
 **Example**
 ```
-POST https://api.veracity.com/veracity/ioteventbrokeringest/api/v1/events?eventType=Topology&topic=TopologyHealth&timeStampUTC=2023-01-01T12:00:00Z&assetId=123&assetIdIssuer=imo
+POST {baseUrl}/api/v1/events?eventType=Topology&topic=TopologyHealth&timeStampUTC=2023-01-01T12:00:00Z&assetId=123&assetIdIssuer=imo
 ```
 ### C# code example using http client
 For C# you can use Veracity nuget package or alternatively using http client. Fetching bearer token and ingesting Event. Example is written in C#. This approach is transferable to other languages utilizing http clients.
@@ -164,93 +167,3 @@ Microsoft supports nuget pacakges for sending data to IOTHub by connection strin
  await device.CloseAsync();
  
 ```
-
-### Node.js example
-
-We'll be writing a simple Node.js application that will publish events to the IoT Hub. 
-
-1) Navigate to the `test` folder and create a new Node.js project:  
-```json
-cd ../test
-npm init -y
-``` 
-2) Install the `azure-iot-device` and the `azure-iot-device-mqtt` packages:
-```json
-npm install azure-iot-device azure-iot-device-mqtt
-```
-Also install the `dotenv` package to be able to read the configuration values from a `.env` file and the `uuid` package to generate a unique device ID: 
-```json
-npm install dotenv uuid
-```
-3) Create a new file named `.env` and add the following configuration values:  
-
-```json
-IOTHUB_CONNECTION_STRIN="<iot-hub-connection-string>"
-IOTHUB_DEVICE_ID="<YOUR_DEVICE_ID>"`` 
-
-Replace the `<iot-hub-connection-string>` and `<YOUR_DEVICE_ID>` placeholders with the actual values. Make sure to add the `.env` file to the `.gitignore` file.  
-```
-4) Create a new file named `test_publisher.js` and add the following code:
-
-```js
-require('dotenv').config();
-const { Mqtt } = require('azure-iot-device-mqtt');
-const { Client, Message } = require('azure-iot-device');
-const {v4: uuidv4} = require('uuid');  
-const  ConnectionString = process.env.IOTHUB_CONNECTION_STRING;
-const  DeviceId = process.env.IOTHUB_DEVICE_ID;
-const  TestAssetId = '<YOUR_TEST_ASSETID>';
-const  TestTopic = '<YOUR_TEST_TOPIC>';
-const  TestAssetIdIssuer = '<YOUR_TEST_ASSETID_ISSUER>';
-const  TestEventType = 'TestEvent';
-const publishMessage = async (eventData) => {
-let client; 
-try {
-client = Client.fromConnectionString(ConnectionString, Mqtt);
-await client.open();
-} catch (err) {
-const error = new  Error(`Error connecting to the IoTHub: ${err.message}`);
-throw error;
-}
-  
-eventData.deviceId = DeviceId;
-const data = JSON.stringify(eventData);
-const message = new  Message(data);
-return  new  Promise((resolve, reject) => {
-// send the message
-client.sendEvent(message, function(err, res) {
-// close the connection
-client.close(function() {
-if (err) {
-return reject(err);
-}
-resolve(res);
-});
-});
-});
-}
-
-publishMessage({
-AssetId: TestAssetId,
-Topic: TestTopic,
-AssetIdIssuer: TestAssetIdIssuer,
-Payload: {
-TestPayloadItem: 'test-value-1',
-TestPayloadItem2: 'test-value-2'
-},
-EventType: TestEventType,
-TimeStampUtc: new  Date().toISOString(),
-id: uuidv4()
-})
-.then(() => console.log('Message was sent successfully.'))
-
-.catch((err) => console.error('An error has occurred:'. err));
-```
- 
-Replace the `<YOUR_TEST_ASSETID>`, `YOUR_TEST_ASSETID_ISSUER`, and `<YOUR_TEST_TOPIC>` placeholders with actual values from your application.  
-
-5) Run the `test_publisher.js` script:
-```js
-node test_publisher.js
-``` 
-If all is well, you should have an event published and ready to be consumed by the Azure Function.

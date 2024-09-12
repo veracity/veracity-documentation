@@ -6,9 +6,18 @@ description: This section describes how to query for sensor data using api
 # Sensor Query Api
 This REST api function as a proxy on top of dataplatform query api.
 
+## API endpoints
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-IoT-TimeSeriesAPI-V3-swagger.json).
+
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
+
 ## Get timeseries data
 Returns timeseries data for a set of datachannels on an asset (or set of assets) by specifying request payload. 
-- Base URL: *https://api.veracity.com/veracity/*
 
 ```
 POST https://api.veracity.com/veracity/timeseries3/api/v3/timeSeries

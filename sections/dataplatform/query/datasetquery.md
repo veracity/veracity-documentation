@@ -19,10 +19,11 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 
 ### Get all datasets
 
-```
-POST: {baseurl}/workspaces/{workspaceId}/datasets/query
+
+`POST: {baseurl}/workspaces/{workspaceId}/datasets/query`
 
 Body in request:
+```json
 {
   "isBaseDataset": true,
   "pageIndex": 0,
@@ -50,9 +51,8 @@ Example
 ```
 
 ### Get information about a dataset
-```
-GET: {baseurl}/workspaces/{workspaceId}/datasets/{datasetId}
-```
+
+`GET: {baseurl}/workspaces/{workspaceId}/datasets/{datasetId}`
 
 Example response
 
@@ -84,9 +84,8 @@ Example response
 
 ### Query data within a dataset
 
-```
-POST: {baseurl}/workspaces/{workspaceId}/datasets/{datasetId}/query
-```
+`POST: {baseurl}/workspaces/{workspaceId}/datasets/{datasetId}/query`
+
 The request body contains the filters
 ```json
 {
@@ -108,11 +107,10 @@ The request body contains the filters
     "column": "string",
     "order": "Ascending"
   }
-}```
+}
+```
 
-
-
-Example
+** Example **
 The following filter will filter on timestamp and data channel ids. In addition return datapoints in descending order.
 ```json
 {
@@ -173,7 +171,7 @@ GET {baseurl}workspaces/{workspaceid}/schemas/schemaversions/{schemaVersionId}
 ### To query share owners by data set ID list
 You can query who shared the data sets with you so that you understand the data set context by using the POST method and calling the following endpoint.
 
-`https://api.veracity.com/veracity/dw/gateway/api/v1/{workspaceId:guid}/shares/sharedBy/Query`
+`{baseUrl}/{workspaceId:guid}/shares/sharedBy/Query`
 
 Below you can see a sample request payload.
 
@@ -203,6 +201,22 @@ Note that:
 * If the data sets were shared with a person, you must be this person or the person who initiated the share. 
 * If the data sets were shared with a workspace, you must be a member of this workspace.
 
+
+## Download SoC from a data set
+You can download Statement of Compliance (SoC) PDF file from a data set based on workspaceId, datasetId, and documentId.
+
+`{baseUrl}/workspaces/{workspaceId}/datasets/documents/download`
+
+Below, you can see a sample request payload.
+
+```json
+{
+"datasetId": "DatasetId",
+"documentId": "DocumentId"
+}
+```
+
+To get documentID, call the `{baseUrl}/workspaces/{workspaceId}/datasets/{datasetId}/query` endpoint. In the response, locate the **File_Link** field and copy it; this **is the documentId**.
 
 
 ## Sample Python code for calling API endpoints

@@ -14,7 +14,7 @@ Veracity Copilot Builder (VCB) is a specialized toolkit that simplifies integrat
 
 Note that you need to use .NET to write plugins and customize VCB. However, you can make chat bots that call applications made in other languages through API regardless of the language in which those apps were written.
 
-Please note that VCB is restricted to use by internal projects and teams, and access is granted by contacting the Application Network team.
+Please note that VCB is restricted to use by internal projects and teams, and access is granted by contacting [support@veracity.com](mailto:support@veracity.com).
 
 ## Features
 * **Easy Plugin Creation**: Build plugins (functions/tools) in .NET that seamlessly integrate with Veracity’s authorization system. These plugins can retrieve information or control functionalities within your application.

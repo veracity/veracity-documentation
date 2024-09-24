@@ -10,7 +10,7 @@ description: Overview of Veracity Copilot Builder
 
   <br></br>
 
-Veracity Copilot Builder is a specialized toolkit that simplifies integrating chatbots (copilot projects) into applications within the Veracity ecosystem. It focuses on a code-first approach, enabling the creation of more advanced solutions compared to Microsoft Copilot Studio’s low-code/no-code solutions.
+Veracity Copilot Builder (VCB) is a specialized toolkit that simplifies integrating chatbots (copilot projects) into applications within the Veracity ecosystem. It focuses on a code-first approach, enabling the creation of more advanced solutions compared to Microsoft Copilot Studio’s low-code/no-code solutions.
 
 Note that you need to use .NET to write plugins and customize VCB. However, you can make chat bots that call applications made in other languages through API regardless of the language in which those apps were written.
 

@@ -13,9 +13,7 @@ Note that you need to use .NET to write plugins and customize VCB. However, you 
 
 Please note that VCB is restricted to use by internal projects and teams, and access is granted by contacting [support@veracity.com](mailto:support@veracity.com).
 
-## New features
-This section covers new features.
-
+## Features
 ### Easy Plugin Creation
 Build plugins (functions/tools) in that seamlessly integrate with Veracity Identity. Retrieve information or perform actions in your application, such as calling your API to update information through these plugins.
 
@@ -32,8 +30,6 @@ Monitor copilot usage to identify potential abuse and gain insights. Track usage
 Organize your copilot's functionalities using a hierarchical structure. Avoid context window limitations by grouping plugins by agent responsibility. Share your agent as a NuGet package for others to integrate into their applications.
 
 ## Benefits for users
-This section covers benefits for users:
-
 * **Reduced Complexity**: Simplifies the process of integrating chatbots into applications.
 * **Advanced Solutions**: Create more powerful and versatile chatbots compared to low-code/no-code solutions.
 * **Enhanced Functionality**: Allows code execution for complex tasks and creative text generation.

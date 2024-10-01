@@ -4,15 +4,11 @@ description: Overview of Veracity Copilot Builder
 ---
 
 # Veracity Copilot Builder
-<a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vcb/Veracity%20Copilot%20Builder%20documentation.pdf" download>
-    <img src="assets/vcbbutton.png" alt="Veracity Copilot Builder documentation" height="40">
-  </a>
-
-  <br></br>
-
-Veracity Copilot Builder is a specialized toolkit that simplifies integrating chatbots (copilot projects) into applications within the Veracity ecosystem. It focuses on a code-first approach, enabling the creation of more advanced solutions compared to Microsoft Copilot Studio’s low-code/no-code solutions.
+Veracity Copilot Builder (VCB) is a specialized toolkit that simplifies integrating chatbots (copilot projects) into applications within the Veracity ecosystem. It focuses on a code-first approach, enabling the creation of more advanced solutions compared to Microsoft Copilot Studio’s low-code/no-code solutions.
 
 Note that you need to use .NET to write plugins and customize VCB. However, you can make chat bots that call applications made in other languages through API regardless of the language in which those apps were written.
+
+Please note that VCB is restricted to use by internal projects and teams, and access is granted by contacting [support@veracity.com](mailto:support@veracity.com).
 
 ## Features
 * **Easy Plugin Creation**: Build plugins (functions/tools) in .NET that seamlessly integrate with Veracity’s authorization system. These plugins can retrieve information or control functionalities within your application.

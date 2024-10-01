@@ -55,6 +55,10 @@
 				{
 					"text": "Report of port calls",
 					"href": "ovd-guides/portcalls.md"
+				},
+				{
+					"text": "Shifting in port",
+					"href": "ovd-guides/shiftinginport.md"
 				}
 			]
 		},

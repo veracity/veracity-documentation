@@ -51,7 +51,7 @@ In one batch add, you can import up to 200 users.
 
 To batch-add users to an entity:
 1. From the left sidebar, select the plus icon and **Batch Add User**.
-2. Under **User Excel File for Batch Add**, select **Upload** to add a CSV file from your local machine to batch import users. In this section, you can also find a template for the file (see the text 'Click here to download the template file').
+2. Under **User Excel File for Batch Add**, drag and drop the CSV file from your local machine onto **Drop file here or click to upload** or select **Drop file here or click to upload** to add a CSV file from your local machine to batch import users. In this section, you can also find a template for the file (see the text 'Click here to download the template file').
 3. Under **Entity List**, select the entity (entities)  to which you want to add the users and confirm with the **Add to Entity List** button.
 4. Under **Roles**, select one or more [roles](../user-roles.md) for the users. Each role gives different kinds of permissions in your VAP.
 5. Optionally, select **Send notification to this user** if you want to notify the users that they have been added to an entity in VAP.

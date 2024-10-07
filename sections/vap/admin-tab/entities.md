@@ -35,7 +35,7 @@ The "Entities" page shows all entities created in your VAP service. To sort them
 In the right corner of each row, in the **Actions** column, you can:
 * See history (1).
 * Add an icon for the entity (2).
-* Edit the entity and see its ID (3).
+* Edit the entity and see its ID (3). Note that you can drag and drop the reports to arrange them in the desired order.
 * Delete the entity (4).
 
 <figure>

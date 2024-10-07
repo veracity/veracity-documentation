@@ -8,7 +8,7 @@ This page describes administrator tasks you can do in "Reports".
 
 ## To upload a file
 1. In the left navigation sidebar, select the plus icon.
-2. Select **Add File**.
+2. Select **Add Resource File**.
 3. Under **File Name**, name the file.
 4. Under **Uploaded File**, select **Choose File**, and upload the file.
 5. In the bottom right corner, select **Save**.

@@ -108,7 +108,7 @@ New data will be shown in the report in VAP when a scheduled refresh is set up o
 To upload a Power BI File in VAP, follow the steps below.
 1. Open your VAP service.
 2. Open Admin Module with Data/Report/System Admin role user. This will open a side menu.
-3. From the side menu, select the **+** icon and select **Add File**.
+3. From the side menu, select the **+** icon and select **Add Resource File**.
 
 <figure>
 	<img src="assets/12.png"/>

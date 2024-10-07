@@ -56,7 +56,7 @@ You can see who and when interacted with the report for each report. You can als
 
 To do so:
 1. In the row with the report, select **View History** (the icon from the picture below).
-2. Select the **User Visit History** tab.
+2. Select the **User Visit History** tab. Note that you can sort and filter the data.
 
 <figure>
 	<img src="assets/reporthistory.png"/>

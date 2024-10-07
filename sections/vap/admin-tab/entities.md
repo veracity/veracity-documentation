@@ -61,7 +61,7 @@ Note that when using **Allo Self Subscribe** or **Allow Public View**, the data 
 Note that if one or more reports use Row Level Security, in the **Row level security configuration** section, under **Value**, enter the value.
 ## Entity statistics
 
-For each entity, you can see when it was accessed from the Home menu and by whom. You can also see the number of interactions with the entity (year to date). To do so, in the row with the entity, select the icon below and then select the **User Visit History** tab in the pop-up window that opens.
+For each entity, you can see when it was accessed from the Home menu and by whom. You can also see the number of interactions with the entity (year to date). To do so, in the row with the entity, select the icon below and then select the **User Visit History** tab in the pop-up window that opens. Here, you can sort and filter the data.
 
 <figure>
 	<img src="assets/history.png"/>

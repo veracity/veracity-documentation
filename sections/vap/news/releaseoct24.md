@@ -10,29 +10,30 @@ Read this page to learn what has changed in the Veracity Adapter for Power BI.
 
 This section covers new features.
 
-### Order reports sequence
+### Drag and drop to arrange reports
 
-Now, you can arrange reports in the desired order. To do it, go to the **Entities** page, select the reports you want to reorder, and then drag and drop them.
+Now, you can drag and drop reports to arrange them in the desired order. To do it, on the **Entities** page:
+* Select the report you want to reorder.
+* While holding the report, drag it to a new location.
+* Drop the report in the desired location.
 
+### Drag and drop to upload files
 
-### Drag-and-drop functionality
-
-Now, you can drag and drop files to upload them. Use this functionality to add resources in **Add Resource File** and users in **Batch Add User**.  To do it:
+Now, you can drag and drop files to upload them. Use this functionality to add resources in **Add Resource File** and to batch add users in **Batch Add User**. To do it:
 * Select and hold the file you want to move.
 * While holding the file, drag it to the desired location.
 * Drop the file onto the **Drop file here or click to upload** field.
 
-### Feedback for upload of Power BI files
+### Step-by-step feedback for Power BI files upload
 
-Now, to ensure a successful upload of Power BI files, you get information on each step of the proccess. If the upload of a Power BI file fails, you get informed which step you need to fix.
+To ensure a successful upload of Power BI files, we have introduced step-by-step feedback on the upload process. If a Power BI file upload fails, you will see what step of the upload failed and you will be able to fix it easily.
 
 ### Sort and filter User Visit History
 
-Now, you can sort and filter user visit history. To do it:
-* Go the **User Visit History** tab.
-* To sort, select the tab with data by which you want to sort. You can sort in descending or ascending order.
-* To apply a filter, select **Entity Name** and enter the data by which you want to filter. To apply filter, select **Apply**. To remove filter, select **Remove filter**.
+Now, you can filter the data on the **User Visit History** tab and sort it in descending or ascending order.
 
-## Changes in existing features
+### New VAP services use Service Principal
+Now, new VAP services use Service Principal.
 
-This section covers changes in existing features.
+### Paginated report MVP
+We have worked on preparing an MVP for a paginated report.

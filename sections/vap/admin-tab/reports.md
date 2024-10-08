@@ -10,7 +10,7 @@ This page describes administrator tasks you can do in "Reports".
 1. In the left navigation sidebar, select the plus icon.
 2. Select **Add Resource File**.
 3. Under **File Name**, name the file.
-4. Under **Uploaded File**, select **Choose File**, and upload the file.
+4. Then, drag and drop the file from your local machine onto **Drop file here or click to upload** or select **Drop file here or click to upload** to add the file from your local machine.
 5. In the bottom right corner, select **Save**.
 
 ## To refresh a report with new content 

@@ -52,11 +52,11 @@ To add an entity:
 4. In the **Type** dropdown, select the type of the entity you want to create.
 5. If you want users to be able to add themselves to the entity, toggle **Allow Self Subscribe** (if the toggle is blue, it means you said "yes" to the setting). If you are creating a demo entity, this access might be suitable. If this option is disabled, contact your VAP System Admin user, or if this is you, go to the "Config" tab to enable it.
 6. If you want users to access the entity wihout signing in to Veracity, toggle **Allow Public View**. If you are creating a freemium model, this might be suitable.
-7. In the **Reports** dropdown, select one or more reports that should be available to the users who will have access to the entity you are creating. Then, select the **Add to Report List** button.
+7. In the **Reports** dropdown, select one or more reports that should be available to the users who will have access to the entity you are creating. Then, click the **Add to Report List** button.
 1. Decide whether you want to **Show report's parameter(s) and value in Entity display in Home page** and if you do, toggle this setting.
 8. In the right corner, select the **Save** button.
 
-Note that when using **Allo Self Subscribe** or **Allow Public View**, the data you are sharing is available to everyone with access. Because of that, ensure it does not contain client secrets or personal data.
+Note that when using **Allow Self Subscribe** or **Allow Public View**, the data you are sharing is available to everyone with access. Because of that, ensure it does not contain client secrets or personal data.
 
 Note that if one or more reports use Row Level Security, in the **Row level security configuration** section, under **Value**, enter the value.
 ## Entity statistics

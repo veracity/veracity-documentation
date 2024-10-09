@@ -8,9 +8,9 @@ This page describes administrator tasks you can do in "Reports".
 
 ## To upload a file
 1. In the left navigation sidebar, select the plus icon.
-2. Select **Add File**.
+2. Select **Add Resource File**.
 3. Under **File Name**, name the file.
-4. Under **Uploaded File**, select **Choose File**, and upload the file.
+4. Then, drag and drop the file from your local machine onto **Drop file here or click to upload** or select **Drop file here or click to upload** to add the file from your local machine.
 5. In the bottom right corner, select **Save**.
 
 ## To refresh a report with new content 
@@ -56,7 +56,7 @@ You can see who and when interacted with the report for each report. You can als
 
 To do so:
 1. In the row with the report, select **View History** (the icon from the picture below).
-2. Select the **User Visit History** tab.
+2. Select the **User Visit History** tab. Note that you can sort and filter the data.
 
 <figure>
 	<img src="assets/reporthistory.png"/>

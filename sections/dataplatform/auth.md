@@ -89,6 +89,8 @@ def get_token():
 
 ### Node.ds example
 
+
 ## User credentials 
 
+How to identify using user token and Veracity Idp, see [Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity)
 

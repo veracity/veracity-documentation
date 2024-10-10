@@ -9,6 +9,10 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "September 2024 release",
+					"href": "news/releasesep24.md"
+				},
+				{
 					"text": "July 2024 sixth release",
 					"href": "news/releasejul246th.md"
 				},

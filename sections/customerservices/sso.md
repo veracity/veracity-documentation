@@ -82,6 +82,9 @@ When you have implemented SSO, verify if it works properly by following the step
 7. You should be redirected to the [Veracity home page](https://www.veracity.com). 
 8. To verify you are signed in, in the upper-right corner of the page, find your initials or profile picture.
 
+**For customers with Entra ID:**
+If you notice that your users are repeatedly prompted to select which account they should log in with when they navigate between services in Veracity, this can happen if your email addresses are different from the UserPrincipalNames you log on with in your Entra ID tenant. We have a workaround for this. Please contact [support@veracity.com](mailto:support@veracity.com).
+
 ## SSO user experience
 To see the SSO sign-in flow for a user, consult the diagram below.
 <figure>

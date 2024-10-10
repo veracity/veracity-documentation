@@ -41,6 +41,11 @@ Please refer to our [Download Guide](https://developer.veracity.com/docs/section
 
 Whether you decide for option 1 or 2 above, you must communicate the change to the users of your data.   
 
+__Are you using data from Data Fabric into a Power BI reports?__
+1. Download your data from Data Fabric / My data (please refer to our [Download Guide](https://developer.veracity.com/docs/section/datafabric/tutorials/download-my-data)).
+2. Subscribe to "[Data Workbench Storage](https://store.veracity.com/6-ea69-4b8c-9c72-df35f2a00)" and upload your data here. Once your subscription is confirmed, you will receive an activation email. Please note that this might take up to a few days. When the activation is completed, you are ready to start using Veracity Data Workbench. [Read the How-To Guide for an introduction](https://developer.veracity.com/docs/section/dataworkbench/filestorage).
+3. When you have completed the onboarding on Data Workbench, please refer to the guide [Using Veracity Data Workbench File storage as a data source for Power BI](https://developer.veracity.com/docs/section/vap/file-storage-as-data-source/introduction). 
+
 ## Inform users of your data
 As a Data Manager, it is your responsibility to communicate these changes to the users of your data. Ensure they are aware of the intended timeline and have access to the necessary resources.
 

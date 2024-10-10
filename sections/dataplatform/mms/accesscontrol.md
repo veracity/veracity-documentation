@@ -6,7 +6,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 # Access control for assets
 Users and service principles can only access assets they have access to. User and service principles are handled in Data Workbench.
 
-##Portfolio and Workspace
+## Portfolio and Workspace
 A portfolio is a group of assets. A portfolio in Veracity Asset Model corresponds to a Workspace in Data Workbench (portfolio Id = workspace Id). Only members of a workspace can access the assets in the portfolio. 
 
 
@@ -26,7 +26,7 @@ Currently on Admin and Reader is available as roles. New roles will be added sho
 - Can evaluate ruleset.
 - Can view standard.
 
-##Tenant manager
+## Tenant manager
 Tenant managers must be added by Onboarding team, contact (mail: support@veracity.com)
 - Can access all assets with admin rights.
 - Can create new portfolio.
@@ -61,5 +61,3 @@ This user has view access to all sites in one portfilio and  admin (full access)
     ]
   },
 ````
-
-

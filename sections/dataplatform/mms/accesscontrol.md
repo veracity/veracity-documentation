@@ -61,5 +61,3 @@ This user has view access to all sites in one portfilio and  admin (full access)
     ]
   },
 ````
-
-

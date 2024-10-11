@@ -75,15 +75,6 @@ Search for all sites that contains "ter" in its name (using naming filter).
 - Pagesize: Indicate max no of sites in return.
 - SortD
 
-```cs
-https://api.veracity.com/veracity/mms/query/dnves/api/v1/sites?start=0&pageSize=10&sortColumn=SiteName&sortDirection=0&nameFilter=ter
-```
-
-### By name
-Search for all sites that contains "ter" in its name (using naming filter).
-- Pagesize: Indicate max no of sites in return.
-- SortD
-
 
 `{baseUrl}/{tenantAlias}/api/v1/sites?start=0&pageSize=10&sortColumn=SiteName&sortDirection=0&nameFilter=ter`
 ## Query for Devices

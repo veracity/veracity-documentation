@@ -1,8 +1,19 @@
 ---
 author: Veracity
-description: This page contains an overview of File storage in Data Workbench.
+description: This page explains how to use File storage in Data Workbench and how to migrate to it from Data Fabric.
 ---
-# Migrating from Data Fabric
+# File storage
+This page explains how to use File storage in Data Workbench and **how to migrate to it from Data Fabric**.
+
+## Prerequisites
+1. You need Veracity Data Workbench. 
+2. You need File storage, which is an additional feature for Data Workbench.
+
+You can purchase them on Veracity Marketplace:
+* [Purchase Veracity Data Workbench](https://store.veracity.com/data-workbench).
+* [Purchase file storage for Veracity Data Workbench](https://store.veracity.com/veracity-file-storage-data-workbench).
+
+Note that you might already have access to them as a part of another service you purchased from Veracity.
 
 ## Account activation process
 Before you can start using Data Workbench with storage functionality, your account needs to be activated. Once you have completed the subscription purchase, Veracity will set up your account. Once the setup is complete, you will receive an activation email. After receiving this email, you can begin using Data Workbench with full storage capabilities.

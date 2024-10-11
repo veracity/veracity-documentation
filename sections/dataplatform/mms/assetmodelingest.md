@@ -20,7 +20,7 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
 Each post/put request is within a tenant and tenant is hence part of query path. 
-The tenant-alias to be used in query is given for the environment setup for you.
+The tenant-alias to be used in query is given for the environment setup for you.  In these example "dnves" is used as example tenant.
 
 ## Access rights
 Only users or service principles with access to an site can access the site; [for more details how to manage users](accesscontrol.md)
@@ -353,5 +353,3 @@ Use the response, and build an array of metadata to modify for the site
 `PUT:   {baseurl}/{tenantAlias}/api/v1/sites/{siteId}/assessments/{assessmentName}`
 
 assessmentName is the name of the assessment to edit (not the assessment type)
-
-request body is the complete set of metadata that belongs to this assessment.

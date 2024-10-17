@@ -59,7 +59,10 @@ The main idea is that we will use the two SAS tokens, connect to both resources 
 
 ### Connect to Azure Storage Explorer using SAS-token from Veracity Data Fabric
 
-1) Navigate to https://azure.microsoft.com/en-us/products/storage/storage-explorer and download the Azure Storage Explorer for your operating system. (Windows, macOS and Linux are supported)
+1) Navigate to https://azure.microsoft.com/en-us/products/storage/storage-explorer and download the Azure Storage Explorer for your operating system. (Windows, macOS and Linux are supported). Note you will need a newer version of Azure Storage Explorer, so make sure to upgrade if you have an old version. You will need minimum 1.36.0
+<figure>
+    <img src="assets/azc-version.png" width="75%" />
+</figure>
 
 2) Install the Azure Storage Explorer
 
@@ -206,7 +209,7 @@ Now the Azure Storage Explorer has been connected to both the Veracity Data Fabr
     <img src="assets/df-to-dwb-ase9.png" width="75%" />
 </figure>
 
-5) Click _Paste_ 
+5) Click _Paste_ (_If you have an older version of Azure Storage Explorer than the recommended 1.36.0, this step might not work for you, in that case, upgrade to at least 1.36.0_)
 <figure>
     <img src="assets/df-to-dwb-ase10.png" width="75%" />
 </figure>

@@ -4,13 +4,13 @@ description: How to move data from Data Fabric to Data Workbench
 ---
 # How to move data from Veracity Data Fabric to Veracity Data Workbench
 There are multiple ways of moving data from Veracity Data Fabric to Veracity Data Workbench
-1) Download files from Veracity Data Fabric to your computer and reupload to Veracity Data Workbench.
+1) Download files from Veracity Data Fabric to your computer and reupload them to Veracity Data Workbench.
 2) Move files with Microsoft Azure Storage Explorer.
 3) Move files with Microsoft AzCopy.
 
-Option 1 is good if you would like to reorganize the data, only re-uploads parts of the data etc. For download and upload please see our documentation here [Data Fabric Download my data manually](https://developer.veracity.com/docs/section/datafabric/tutorials/download-my-data) and here [Data Workbench File storage](https://developer.veracity.com/docs/section/dataworkbench/filestorage)
+Option 1 is good if you would like to reorganize the data, only re-upload parts of the data etc. For download and upload please see our documentation here [Data Fabric Download my data manually](https://developer.veracity.com/docs/section/datafabric/tutorials/download-my-data) and here [Data Workbench File storage](https://developer.veracity.com/docs/section/dataworkbench/filestorage)
 
-Option 2 and 3 is fitting when you want to move large amount of data from Veracity Data Fabric to Veracity Data Workbench without changing too much of the structure.
+Option 2 and 3 is fitting when you want to move large amount of data from Veracity Data Fabric to Veracity Data Workbench without changing too much of the structure. These approaches moves the data directly from Veracity Data Fabric to Veracity Data Workbench without having to first download it onto your machine. This saves time and resources and is the recommended way for moving a lot of data.
 
 Note: Moving data from Veracity Data Fabric to Veracity Data Workbench requires a Veracity Data Workbench storage subscription. It can be ordered in the Veracity Marketplace here: https://store.veracity.com/veracity-file-storage-data-workbench 
 
@@ -21,10 +21,10 @@ In Veracity Data Workbench there is no concept of a container, but there is now 
 
 When moving data from Veracity Data Fabric containers to Veracity Data Workbench storage, we suggest you create new folders with the same name as the containers, and move data from the containers into the respective folders to maintain the logical structure of your data.
 
-We also suggest you add a folder on the root and put your data in subfolders beneath the root folder.
+We also suggest you add a folder on the root and put your data in subfolders beneath the root folder for easier management.
 
 ## Move files with Microsoft Azure Storage Explorer
-To move the files with Microsoft Azure Storage Explorer we are going to utilize SAS-tokens. You will need to create a read token for a Veracity Data Fabric container and a Read/Write token for a Veracity Data Workbench storage folder.
+To move the files with Microsoft Azure Storage Explorer we are going to utilize SAS-tokens. You will need to create a token for a Veracity Data Fabric container and a Read/Write token for a Veracity Data Workbench storage folder.
 
 The main idea is that we will use the two SAS tokens, connect to both resources in the _same Azure Storage Explorer instance_ and copy the files from Veracity Data Fabric to Veracity Data Workbench.
 
@@ -221,7 +221,7 @@ Now the Azure Storage Explorer has been connected to both the Veracity Data Fabr
 
 7) Note that log messages appear in the _Activities_ window below the file view. Here you can keep track of the progress of the file transfer.
 <figure>
-    <img src="assets/df-to-dwb-ase13.png" width="100%" />
+    <img src="assets/df-to-dwb-activ.png" width="100%" />
 </figure>
 
 8) When all files are transferred the log messages will turn green and inform that all items were transferred successfully
@@ -237,6 +237,52 @@ Now the Azure Storage Explorer has been connected to both the Veracity Data Fabr
 
 
 ## Move files with Microsoft AzCopy
+Azure Storage Explorer is a good tool to use when you want to move data in a straight forward fashion. But if you have more complex needs which require greater control of what is moved, where it should move to and you also want to move a lot of data, the command line tool AzCopy is a great option. AzCopy allows you to script the copying of data without having to download the data onto your local machine.
+
+Azure Storage Explorer uses AzCopy as the underlying technology for copying data.
+
+AzCopy have a lot of options and adjustment possibilities. In this guide we will focus on moving files from a Veracity Data Fabric container to a Veractiy Data Workbench storage folder. Please refer to this page for more guidance on AzCopy: https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf
+
+### Instructions
+1) Download AzCopy. https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#download-the-azcopy-portable-binary If you already have AzCopy make sure it is up to date, at least using v10.
+&nbsp;
+2) Extract the AzCopy, we have chosen to extract it to c:\tools\azc\
+&nbsp;
+3) Open powershell or the command line. Note in powershell please use single quotes (we will be using single quotes in our examples), if you are using cmd.exe please use double quotes " where we are using single quotes.
+&nbsp;
+4) Navigate to the AzCopy folder: ```cd c:\tools\azc```
+&nbsp;
+5) Generate SAS tokens for Veracity Data Fabric by following the steps outlined in the [previous section](#generate-sas-token-in-veracity-data-fabric) and store it temporarily in a text file or similar.
+&nbsp;
+6) Generate SAS token for a Veracity Data Workbench folder by following the steps outline the [previous section](#generate-sas-token-in-veracity-data-workbench) and store it temporarily in a text file or similar.
+&nbsp;
+7) The basic command that we are going to run is: ```AzCopy 'data-fabric-sas' 'data-workbench-sas'```. Depending on what shell you are using, you might need to prefix AzCopy with a dot and a back-slash like this ```.\AzCopy```.
+&nbsp;
+8) If you just add the SAS tokens to the command mentioned in 7) AzCopy will complain about the following ```failed to perform copy command due to error: failed to initialize enumerator: cannot use directory as source without --recursive or a trailing wildcard (/*)```. If you add ```--recursive``` to the command it will generate a new folder inside your existing Data Workbench storage folder with the system-name of the container as illustrated below. This may or may not be ok according to your specifications. To copy the files without the contanier subfolder, please se next step.
+<figure>
+    <img src="assets/df-to-dwb-ase20.png" width="100%" />
+    <label>Subfolder with container system name created</label>
+</figure>
+
+9) To copy the files to Data Workbench storage folder without creating the subfolder we need to do the other thing that was suggested in the error message of the previous step. We need to add a trailing wildcard ```/*```. This wildcard must be placed at the end of the path in the Veracity Data Fabric sas token. Essentially before the question mark in the SAS token. As illustrated in the code block.
+```https://....blob.core.windows.net/datamove...4b5/*?sv=2018-03...sp=rwdl```
+&nbsp;
+10) Now we are ready to copy the files from Veracity Data Fabric to Veracity Data Workbench storage using AzCopy. We are using powershell so our command will be ```.\azcopy copy 'https://ne1dnvglpstgcus0000e.blob.core.windows.net/datamovedemoe13b47a7-4443-4fc9-b909-b9ed7e0e24b5/*?sv=2018-03-28&sr=c...snipped...' 'https://prdstorageconst01weu.dfs.core.windows.net/81bfe3e3-7f2b-4f04-9d00-0ca31bc46568/9d6f9282-70fc-4be1-90cd-e66c9c9def64/DataFabricContainers/DataMoveDemo?sv=2023-11-03&sp...snipped...' ```. Please replace the sas-tokens with your own tokens, starting with the modified Veracity Data Fabric token (you have added the /*) and then giving the Veracity Data Workbench storage token as the second parameter.
+&nbsp;
+11) When the command has finished executing you will be given a summary of what has happened
+<figure>
+    <img src="assets/df-to-dwb-azcopy-done.png" width="100%" />
+    <label>Our total number of transfers is 5</label>
+</figure>
+
+12) Now when we navigate to the Veracity Data Workbench storage folder we see that the data that was previously in Veracity Data Fabric is now also in Veracity Data Workbench
+<figure>
+    <img src="assets/df-to-dwb-same-files.png" width="100%" />
+</figure>
+
+
+
+
 
 
 

@@ -12,7 +12,7 @@ Option 1 is good if you would like to reorganize the data, only re-upload parts 
 
 Option 2 and 3 is fitting when you want to move large amount of data from Veracity Data Fabric to Veracity Data Workbench without changing too much of the structure. These approaches moves the data directly from Veracity Data Fabric to Veracity Data Workbench without having to first download it onto your machine. This saves time and resources and is the recommended way for moving a lot of data.
 
-Note: Moving data from Veracity Data Fabric to Veracity Data Workbench requires a Veracity Data Workbench storage subscription. It can be ordered in the Veracity Marketplace here: https://store.veracity.com/veracity-file-storage-data-workbench 
+Note: Moving data from Veracity Data Fabric to Veracity Data Workbench requires a Veracity Data Workbench storage subscription. It can be ordered in the Veracity Marketplace here: [https://store.veracity.com/veracity-file-storage-data-workbench](https://store.veracity.com/veracity-file-storage-data-workbench) 
 
 ## Key differences in terms of storage
 In Veracity Data Fabric your data is organized in containers. Folders are virtual and only part of the file name. This means that you can not have empty folders. Since folder support is lacking it is common to create new containers when you want to separate your data and share it with other groups of people.
@@ -59,7 +59,7 @@ The main idea is that we will use the two SAS tokens, connect to both resources 
 
 ### Connect to Azure Storage Explorer using SAS-token from Veracity Data Fabric
 
-1) Navigate to https://azure.microsoft.com/en-us/products/storage/storage-explorer and download the Azure Storage Explorer for your operating system. (Windows, macOS and Linux are supported). Note you will need a newer version of Azure Storage Explorer, so make sure to upgrade if you have an old version. You will need minimum 1.36.0
+1) Navigate to [https://azure.microsoft.com/en-us/products/storage/storage-explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer) and download the Azure Storage Explorer for your operating system. (Windows, macOS and Linux are supported). Note you will need a newer version of Azure Storage Explorer, so make sure to upgrade if you have an old version. You will need minimum 1.36.0
 <figure>
     <img src="assets/azc-version.png" width="75%" />
 </figure>
@@ -241,10 +241,10 @@ Azure Storage Explorer is a good tool to use when you want to move data in a str
 
 Azure Storage Explorer uses AzCopy as the underlying technology for copying data.
 
-AzCopy have a lot of options and adjustment possibilities. In this guide we will focus on moving files from a Veracity Data Fabric container to a Veractiy Data Workbench storage folder. Please refer to this page for more guidance on AzCopy: https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf
+AzCopy have a lot of options and adjustment possibilities. In this guide we will focus on moving files from a Veracity Data Fabric container to a Veractiy Data Workbench storage folder. Please refer to this page for more guidance on AzCopy: [https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf)
 
 ### Instructions
-1) Download AzCopy. https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#download-the-azcopy-portable-binary If you already have AzCopy make sure it is up to date, at least using v10.
+1) Download AzCopy. [https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#download-the-azcopy-portable-binary](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#download-the-azcopy-portable-binary) If you already have AzCopy make sure it is up to date, at least using v10.
 &nbsp;
 2) Extract the AzCopy, we have chosen to extract it to c:\tools\azc\
 &nbsp;

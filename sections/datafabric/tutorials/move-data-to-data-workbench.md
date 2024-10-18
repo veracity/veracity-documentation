@@ -81,7 +81,7 @@ The main idea is that we will use the two SAS tokens, connect to both resources 
     <img src="assets/df-to-dwb-blob-container.png" width="50%" />
 </figure>
 
-6) Select _Shared access signature URL (SAS)
+6) Select _Shared access signature URL (SAS)_
 <figure>
     <img src="assets/df-to-dwb-sas.png" width="50%" />
 </figure>

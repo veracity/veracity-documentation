@@ -63,12 +63,12 @@ Customers use Veracity Access Hub to manage access to their applications and dec
 To see sample scenarios for each kind of access control, go to [Sample use case scenarios](#use-case-scenarios).
 
 ### Admin roles
-Customers can assign different admin roles depending on how much power they want to assign to somebody.
--   **User Admin** - A User Admin can add, approve, and remove users in a tenant.
+Customers can assign different admin roles depending on how many permissions they want to grant.
+-   **User Admin** - A User Admin can add, approve, and remove users within a tenant.
 
 -   **Group Admin** - A Group Admin can add or remove users from a group they administer within a tenant.
 
--   **Application Admin** - A User Admin can view, add, and delete liceses to applications.
+-   **Application Admin** - An Application Admin can view, add, and delete liceses for users and groups to the application. They can also change setting for the application such as automatic license assignment.
 
 ## VTM terminology and tips
 

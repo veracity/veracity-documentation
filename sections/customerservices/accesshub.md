@@ -108,6 +108,34 @@ If you are an admin, select a user and go to the Applications page where you can
 	<img src="assets/image3.png"/>
 </figure>
 
+## Admins
+
+To manage admins, go to the **Admins** page.
+
+
+### User admins
+
+This tab lists all user admins. A user admin can add, approve, and remove users within a tenant. If there are no user admins in a tenant, the list is empty.
+
+To find a user admin, type their name or email in the search box.
+
+If you have a super admin role, you can assign a user admin role in the following way.
+
+1. Select the **Add user admin** button.
+
+2. Enter the email address or name of the person you want to assign the user admin role to.
+
+3. To confirm, select the **Add** button.
+
+Note that:
+
+-   You can add multiple user admins but separate each email address by tab or space.
+
+-   Users who do not have a Veracity account will get email invitations to create it.
+
+As a super admin, you can also remove the user admin role from a user. Note that this user will remain associated with your company account.
+
+
 ## Applications 
 
 This page shows the applications available to the company account. Here, you can:

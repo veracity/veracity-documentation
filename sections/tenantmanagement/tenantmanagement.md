@@ -63,7 +63,9 @@ Customers use Veracity Access Hub to manage access to their applications and dec
 To see sample scenarios for each kind of access control, go to [Sample use case scenarios](#use-case-scenarios).
 
 ### Admin roles
-Customers can assign different admin roles depending on how many permissions they want to grant.
+
+Customers can assign users different admin roles depending on how many permissions they want to grant them.
+
 -   **User Admin** - A User Admin can add, approve, and remove users within a tenant.
 
 -   **Group Admin** - A Group Admin can add or remove users from a group they administer within a tenant.
@@ -108,156 +110,202 @@ Veracity suggests using the PATCH method (mutate) to change things through the A
 
 Ideally, querying data and adding and removing subscriptions to groups and profiles should be the only mutation you will need to do in Veracity Tenant Management.
 
-#### To check for violated policies for the signed in user and service subscription status
+#### Applications
 
-To check for violated polices for the signed in user and the subscription status to specified service, call the following endpoint with a GET method:
+The **Applications** interface provides methods to interact with applications within a tenant. Use it to retrieve applications, verify user licenses, manage user and group licenses.
 
-```json
- GET
- https://api.veracity.com/Veracity/Services/V3/my/policies/\[serviceid\]/validate()  
- Host: api.veracity.com  
- Ocp-Apim-Subscription-Key: \[subscription-key\]  
- Authorization: Bearer \[token\]
- ```
+##### Get applications installed in tenant with support for OData query parameters
+To get the applications installed in the tenant with support for OData query parameters, use the **GetApplications** method: 
+* (GET /tenants/{tenantId}/applications) 
 
-If the signed in user doesn’t violate any policy and has a subscription to the service, you will get a 204 OK response.
+##### Get application by public ID
+To get a specific application by its public ID, use the **GetApplication** method: 
+* (GET /tenants/{tenantId}/applications/{applicationId})
 
-If they user doesn’t have a valid subscription, you will get a 406 Not Acceptable response:
+##### Get direct users and groups with licenses for application
+To get all direct users and groups with licenses for an application, use the **GetLicenses** method: 
+* (GET /tenants/{tenantId}/applications/{applicationId}/licenses) 
 
-```json
-{  
-"url":"https://servicestest.veracity.com",  
- "violatedPolicies":\["Subscription"\],  
- "SubscriptionMissing":true,  
- "message":"No subscription found",  
- "information":null,  
- "subCode":0,  
- "supportCode":"\[generated\_id\]"  
- }
- ```
+##### Verify user's license for application
+To verify if a user has a license for an application, use the **VerifyUserLicense** method: 
+* (GET /tenants/{tenantId}/applications/{applicationId}/licenses/{userId})
 
-If the user has other policies that are violated, like not accepting terms and conditions, you will get a 406 Not Acceptable response and the user should be redirected to the returned URL:
+##### Get all users
+To get all users, including users inherited from groups, with deduplication support, use the **GetApplicationUsersExploded** method:
+* (GET /tenants/{tenantId}/applications/{applicationId}/users)
+Note that you can disable deduplication to detect users with multiple paths to the application in the tenant.
 
-```json
- {  
- "url":"\[url\]/terms-of-use?mode=accept&redirect-url=&id=\[serviceid\]",  
- "violatedPolicies":\["Terms needs acceptance"\],  
- "SubscriptionMissing":null,  
- "message":"Terms need acceptance",  
- "information":"please accept policy \[serviceid\]",  
- "subCode":3,  
- "supportCode":"\[generated\_id\]"  
- }
- ```
+##### Add user or group license to application
+To add a user or group license to an application, use the **AddUserOrGroupLicense** method: 
+* (POST /tenants/{tenantId}/applications/{applicationId}/licenses)
 
-#### To check subscription to a service
+##### Set access level on existing subscription
+To set access level on an existing subscription, use the **SetAccessLevel** method: 
+* (PUT /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId})
+Note that you can use it only with applications which have access levels.
 
-To check if a user has a subscription (flow) to a specified service, call the following endpoint with a GET method:
+##### Update license details
+To update license details using a JSON patch document, use the **UpdateLicense** method: 
+* (PATCH /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId})
 
- https://api.veracity.com/Veracity/Services/V3/this/services/\[serviceid\]/subscribers/\[userid\] HTTP/1.1
+##### Remove subscription
+To remove a subscription, use the **DeleteLicense** method: 
+* (DELETE /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId})
 
- Host: api.veracity.com  
- Ocp-Apim-Subscription-Key: \[subscription-key\]  
- Authorization: Bearer \[token\]
+##### Get all tenants
+To get all tenants where the application is installed, use the **GetTenantsForApplication** method: 
+* (GET /applications/{applicationId}/tenants)
 
-If the user has a subscription to the specified service, you will get a
-200 OK response:
+##### Update application extension properties
+To updates application extension properties using a JSON patch document, use the **PatchApplication** method: 
+* (PATCH /tenants/{tenantId}/applications/{applicationId})
 
-```json
- {  
- "state": "Subscribing",  
- "identity": "/directory/users/\[userid\]",  
- "email": "\[useremail\]",  
- "activated": true,  
- "name": "\[username\]",  
- "id": "\[userid\]"  
- }
- ```
+##### Get application administrators
+To get all application administrators, use the **GetAdministrators** method: 
+* (GET /tenants/{tenantId}/applications/{applicationId}/administrators)
 
-If the user doesn’t have a subscription to the specified service, you will get a 404 Not Found response:
+##### Add application administrator
+To add a user as an application administrator, use the **AddAdministrator** method: 
+* (POST /tenants/{tenantId}/applications/{applicationId}/administrators/{userId})
 
-```json
- {  
- "message":"Service subscription not found. with id =
- \[userid\]:\[serviceid\] not found",  
- "information":"Type: System.Security.Claims.ClaimsIdentity, Identity:
- \[generated\_id\], , Claim: \[generated\_id\]",  
- "subCode":0,  
- "supportCode":"\[generated\_id\]"  
- }
- ```
+##### Remove application administrator
+To removes an application administrator, use the **DeleteAdministrator** method: 
+* (DELETE /tenants/{tenantId}/applications/{applicationId}/administrators/{userId})
 
-#### To add a user to a service
 
-To add a user to a service, call the following endpoint with a PUT method:
+#### Groups
+The **Groups** interface provides methods to manage groups and their members within a tenant. Use it to retrieve groups, group members, and update group properties.
 
-```json
- PUT
- https://api.veracity.com/Veracity/Services/V3/this/services/\[serviceid\]/subscribers/\[userid\]
- HTTP/1.1  
- Host: api.veracity.com  
- Ocp-Apim-Subscription-Key: \[subscription-key\]  
- Authorization: Bearer \[token\]
- ```
+##### Get groups in tenant with support for OData query parameters
+To get the groups in the tenant with support for OData query parameters, use the **GetGroups** method: 
+* (GET /tenants/{tenantId}/groups)
 
-If the call is successful, you will get a 204 OK response.
+##### Get group
+To get a specific group by its ID, use the **GetGroup** method: 
+* (GET /tenants/{tenantId}/groups/{groupId})
 
-#### To remove a user from a service
+##### Get direct users and groups in group
+To get all direct users and groups within a group, use the **GetGroupMembers** method: 
+* (GET /tenants/{tenantId}/groups/{groupId}/members)
 
-To remove a user from a service, call the following endpoint with a PUT method:
+##### Get users
+To get all users, including users inherited from groups, use the **GetMembersExploded** method: 
+* (GET /tenants/{tenantId}/groups/{groupId}/members/exploded): 
 
-```json
- DELETE
- https://api.veracity.com/Veracity/Services/V3/this/services/\[serviceid\]/subscribers/\[userid\]
- HTTP/1.1  
- Host: api.veracity.com  
- Ocp-Apim-Subscription-Key: \[subscription-key\]  
- Authorization: Bearer \[token\]
- ```
+##### Update member
+To udate member properties using a JSON patch document, use the **PatchMember** method: 
+* (PATCH /tenants/{tenantId}/groups/{groupId}/members/{memberId})
 
-If the call is successful, you will get a 204 OK response.
+##### Update group
+To updates group properties using a JSON patch document, use the **PatchGroup** method: 
+* (PATCH /tenants/{tenantId}/groups/{groupId})
 
-#### To get information on the signed in user
+##### Get groups of group
+To list all the groups a specific group is a member of, use the **GetMemberOf** method: 
+* (GET /tenants/{tenantId}/groups/{groupId}/memberOf)
 
-To information on the signed in user, call the following endpoint with a GET method:
+##### Get applications group has license for
+To get all the applications licensed for the group, use the **GetApplications** method: 
+* (GET /tenants/{tenantId}/groups/{groupId}/applications) 
 
-```json
- GET https://api.veracity.com/Veracity/Services/V3/my/profile
- HTTP/1.1  
- Host: api.veracity.com  
- Ocp-Apim-Subscription-Key: \[subscription-key\]  
- Authorization: Bearer \[token\]
- ```
+#### Me
+The **Me** interface provides methods to retrieve information about the logged-in user, including their applications, groups, and tenants.
 
-Below is sample information you might get from this request:
+##### Get details for logged-in user
+To get the details for the logged-in user, use the **GetMyInfo** method: 
+* (GET /me)
 
-```json
- {  
- "profilePageUrl": "https://mytest.dnvgl.com/EditProfile",  
- "messagesUrl": "/my/messages",  
- "identity": "/my/profile",  
- "servicesUrl": "/my/services?page=0&pageSize=10",  
- "companiesUrl": "/my/companies",  
- "name": "Spersrud, Arild",  
- "email": "john.brown@dnv.com",  
- "id": "6d0766d9-46fe-44e0-aea0-43803ee8707d",  
- "company": {  
- "identity":
- "/directory/companies/4558b6b9-6144-461b-83ac-f22c3a139edb",  
- "name": "111111111",  
- "id": "4778b6b9-6199-461b-83ac-f22c3a139edb"  
- },  
- "#companies": 19,  
- "verifiedEmail": true,  
- "phone": "+47 45018303",  
- "verifiedPhone": true,  
- "firstName": "John",  
- "lastName": "Brown",  
- "countryCode": "NO",  
- "managedAccount": false,  
- "activated": true  
- }
- ```
+##### Get all applications user has access to
+To get all the applications the user has access to, use the **GetMyApplications** method:
+* (GET /me/applications)
+
+##### Get all applications in tenant that user has access to
+To get all the  applications in a tenant the user has access to, use the **GetMyTenantApplications** method:
+* (GET /me/tenants/{tenantId}/applications): 
+
+##### Get groups logged-in user belongs to
+To get all the groups that the logged-in user belongs to, use the **GetMyGroups** method: 
+* (GET /me/tenants/{tenantId}/groups)
+
+##### Get  all tenants logged-on user is member of.
+To get all the tenants the logged-on user is a member of, use the **GetMyTenants** method:
+* (GET /me/tenants)
+
+##### Get all tenants logged-on user is member of and has access to specific application
+To get all the tenants the logged-on user is a member of and has access to a specific application, use the **GetMyTenantsWithApplication** method:
+* (GET /me/applications/{applicationId}/tenants)
+
+##### Verify Veracity user policies and return appropriate responses based on policy compliance
+To Verify Veracity user policies and return appropriate responses based on policy compliance, use the **VerifyUserPolicy** method:
+* (POST /me/applications/{applicationId}/.policy())
+It returns an empty 202 response if all policies are correct, and 406 with an error response with the URL to send the user to the correct the policy issue.
+
+#### StatusService
+To get information about the status of the service, use:
+* (GET /health)
+
+You will get:
+* A 200 OK response if all dependencies are correct.
+* A 424 Failed Dependency response if there are some non-essential dependency failures. 
+* A 500 Internal Server response when some essential dependencies are unreachable or the service is down.
+
+#### Tenants
+The **Tenants** interface provides methods to interact with tenants, including retrieving tenant details and managing tenant administrators.
+
+##### Get tenant by ID
+To get a tenant by its ID, use the **GetTenant** method:
+* (GET /tenants/{tenantId})
+
+##### Get tenants linked to your service
+To get a list of tenants linked to a specific service, use the **GetTenants** method. 
+* (GET /tenants)
+
+##### Get admin details for user by ID
+To get admin details for a user by their ID, use the **GetAdmin** method:
+* (GET /tenants/{tenantId}/admins/{userId})
+
+##### Get admins of tenant
+To get all global and local admins of a tenant, use the **GetAdmins** method: 
+* (GET /tenants/{tenantId}/admins)
+
+#### Users
+The **Users** interface provides methods to manage users within a tenant, including retrieving user details, groups, and applications.
+
+##### Get user by email
+To get a user by their email address, use the **GetUserByEmail** method:
+* (GET /tenants/{tenantId}/users/.email({email}))
+
+##### Get user by ID
+To get a user by their ID, use the **GetUser** method:
+* (GET /users/{userId})
+
+#####  List users in tenant
+To get a list of users in a tenant with support for OData query parameters, use the **ListUsers** method:
+* (GET /tenants/{tenantId}/users):
+
+##### Get user details in tenant
+To get the details of a user in a tenant, use the **GetUserInTenant** method:
+* (GET /tenants/{tenantId}/users/{userId})
+
+##### Get groups of user
+To get the groups associated with a user, use the **GetGroupsForUser** method:
+* (GET /tenants/{tenantId}/users/{userId}/groups)
+
+##### Get applications of user
+To get the applications associated with a user, use the **GetApplicationsForUser** method:
+* (GET /tenants/{tenantId}/users/{userId}/applications): Retrieves the applications associated with a user.
+
+##### Get tenants user is member of
+To get the tenants a user is a member of, use the **GetTenantsForUser** method:
+* (GET /users/{userId}/tenants)
+* 
+#### Get full user details for list of user IDs
+To get full user details for a list of user IDs, use the **ResolveUsers** method:
+* (POST /tenants/{tenantId}/users)
+
+##### Update user extension properties
+To update the extension properties for a user using a JSON patch document, use the **UpdateUserProperties** method:
+* (PATCH /tenants/{tenantId}/users/{userId})
 
 ## Service Bus
 

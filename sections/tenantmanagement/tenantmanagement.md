@@ -121,7 +121,7 @@ Veracity suggests using the PATCH method (mutate) to change things through the A
 
 Ideally, querying data and adding and removing subscriptions to groups and profiles should be the only mutation you will need to do in Veracity Tenant Management.
 
-See an example of patching.
+See an example of using the PATCH method.
 
 ```json
 [{"op":"replace","path":"/affiliationMode","value":"restricted"}]
@@ -131,7 +131,7 @@ See an example of patching.
 
 You can use JsonPatch to update data within the graph, such as adding, updating, or removing extension properties. See a sample scenario on how to do it.
 
-Start with the following properties collection:
+You start with a payload with the following properties collection.
 
 ```json
 "properties": [
@@ -142,9 +142,7 @@ Start with the following properties collection:
       ]
 ```
 
-Then, do the following to:
-* Update the user to indicate the vessels which the user can see in the app.
-* Mark the new application user as seen by an admin.
+Then, you can update the user to indicate the vessels which the user can see in the app and mark the new application user as seen by an admin.
 
 
 ```json
@@ -168,7 +166,7 @@ Then, do the following to:
 ]
 ```
 
-This results in the following properties:
+This will result in the following properties:
 
 ```json
 "properties": [
@@ -183,13 +181,9 @@ This results in the following properties:
       ]
 ```
 
-Then, to remove the `allowedVessels` list and reset the isSeen flag: 
-1. Remove the `vtmd2_allowedVessels` property by its index and then.
-2. Do other operations.
+Then, you can remove the `allowedVessels` list and reset the `isSeen` flag. To do it, first remove the `vtmd2_allowedVessels` property by its index and then, do any other operations. Do these actions in this order, because when you do other operations, the elements can change, and the REMOVE method does not support removing by name.
 
-You need to do these actions in this order, because when you do other operations, the elements can change, and remove does not support removing by name.
-
-You can do the same type of operations on any entity or relationship in the graph. See the example below.
+You can do the same type of operations on any entity or relationship in the graph. See the example of a payload below.
 
 ```json
 [
@@ -218,7 +212,7 @@ This results in the following properties:
       ]
 ```
 
-Note that the nuget packages Veracity provides have helper methods to construct these queries and run tem directly against the API.
+Note that the NuGet packages provided by Veracity have helper methods to construct these queries and run them directly against the API.
 
 ```json
     user.MakeJsonPatch()
@@ -231,201 +225,201 @@ For more information about patching, go [here](https://jsonpatch.com/).
 
 #### Applications
 
-The **Applications** interface provides methods to interact with applications within a tenant. Use it to retrieve applications, verify user licenses, manage user and group licenses.
+The **Applications** interface provides methods to interact with applications within a tenant. Use it to retrieve applications, verify user licenses, and manage user and group licenses.
 
-##### Get applications installed in tenant with support for OData query parameters
-To get the applications installed in the tenant with support for OData query parameters, use **GetApplications**: 
-* GET /tenants/{tenantId}/applications
+##### Check applications installed in the tenant with support for OData query parameters
+To check the applications installed in the tenant with support for OData query parameters, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications`
 
-##### Get application by public ID
-To get a specific application by its public ID, use **GetApplication**: 
-* GET /tenants/{tenantId}/applications/{applicationId}
+##### Check an application by its public ID
+To check a specific application by its public ID, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}`
 
-##### Get direct users and groups with licenses for application
-To get all direct users and groups with licenses for an application, use **GetLicenses**: 
-* GET /tenants/{tenantId}/applications/{applicationId}/licenses
+##### Check direct users and groups with licenses for the application
+To check all direct users and groups with licenses for an application, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses`
 
-##### Verify user's license for application
-To verify if a user has a license for an application, use **VerifyUserLicense**: 
-* GET /tenants/{tenantId}/applications/{applicationId}/licenses/{userId}
+##### Verify the user's license for the application
+To verify if a user has a license for an application, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
-##### Get all users
-To get all users, including users inherited from groups, with deduplication support, use **GetApplicationUsersExploded**:
-* GET /tenants/{tenantId}/applications/{applicationId}/users
+##### Check all users
+To check all users, including users inherited from groups, with deduplication support, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/users`
 Note that you can disable deduplication to detect users with multiple paths to the application in the tenant.
 
-##### Add user or group license to application
-To add a user or group license to an application, use **AddUserOrGroupLicense**: 
-* POST /tenants/{tenantId}/applications/{applicationId}/licenses
+##### Add a user or group license to the application
+To add a user or group license to an application, call the following endpoint with a POST method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses`
 
-##### Set access level on existing subscription
-To set access level on an existing subscription, use **SetAccessLevel**: 
-* PUT /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}
+##### Set access level on the existing subscription
+To set access level on the existing subscription, call the following endpoint with a PUT method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 Note that you can use it only with applications which have access levels.
 
 ##### Update license details
-To update license details using a JSON patch document, use **UpdateLicense**: 
-* PATCH /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}
+To update license details using a JSON patch document, call the following endpoint with a PATCH method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 
 ##### Remove subscription
-To remove a subscription, use **DeleteLicense**: 
-* DELETE /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}
+To remove a subscription, call the following endpoint with a DELETE method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 
-##### Get all tenants
-To get all tenants where the application is installed, use **GetTenantsForApplication**: 
-* GET /applications/{applicationId}/tenants
+##### Check all tenants
+To check all tenants where the application is installed, call the following endpoint with a GET method:
+* `/applications/{applicationId}/tenants`
 
 ##### Update application extension properties
-To updates application extension properties using a JSON patch document, use **PatchApplication**: 
-* PATCH /tenants/{tenantId}/applications/{applicationId}
+To update application extension properties using a JSON patch document, call the following endpoint with a PATCH method:
+* `/tenants/{tenantId}/applications/{applicationId}`
 
-##### Get application administrators
-To get all application administrators, use **GetAdministrators**: 
-* GET /tenants/{tenantId}/applications/{applicationId}/administrators
+##### Check application administrators
+To check all application administrators, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/administrators`
 
 ##### Add application administrator
-To add a user as an application administrator, use **AddAdministrator**: 
-* POST /tenants/{tenantId}/applications/{applicationId}/administrators/{userId}
+To add a user as an application administrator, call the following endpoint with a POST method:
+* `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
 
 ##### Remove application administrator
-To removes an application administrator, use **DeleteAdministrator**: 
-* DELETE /tenants/{tenantId}/applications/{applicationId}/administrators/{userId}
+To remove an application administrator, call the following endpoint with a DELETE method:
+* `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
 
 
 #### Groups
-The **Groups** interface provides methods to manage groups and their members within a tenant. Use it to retrieve groups, group members, and update group properties.
+The **Groups** interface provides methods to manage groups and their members within a tenant. Use it to retrieve groups andgroup members, and update group properties.
 
 ##### Get groups in tenant with support for OData query parameters
-To get the groups in the tenant with support for OData query parameters, use the **GetGroups** method: 
-* GET /tenants/{tenantId}/groups
+To check the groups in the tenant with support for OData query parameters, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/groups`
 
-##### Get group
-To get a specific group by its ID, use **GetGroup**: 
-* GET /tenants/{tenantId}/groups/{groupId}
+##### Check a group
+To check a specific group by its ID, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/groups/{groupId}`
 
-##### Get direct users and groups in group
-To get all direct users and groups within a group, use **GetGroupMembers**: 
-* GET /tenants/{tenantId}/groups/{groupId}/members
+##### Check direct users and groups in a group
+To check all direct users and groups within a group, call the following endpoint with a GET method: 
+* `/tenants/{tenantId}/groups/{groupId}/members`
 
 ##### Get users
-To get all users, including users inherited from groups, use **GetMembersExploded**: 
-* GET /tenants/{tenantId}/groups/{groupId}/members/exploded
+To check all users, including users inherited from groups, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/groups/{groupId}/members/exploded`
 
-##### Update member
-To udate member properties using a JSON patch document, use **PatchMember**: 
-* PATCH /tenants/{tenantId}/groups/{groupId}/members/{memberId}
+##### Update a member
+To update member properties using a JSON patch document,  call the following endpoint with a PATCH method: 
+* `/tenants/{tenantId}/groups/{groupId}/members/{memberId}`
 
-##### Update group
-To updates group properties using a JSON patch document, use **PatchGroup**: 
-* PATCH /tenants/{tenantId}/groups/{groupId}
+##### Update a group
+To update group properties using a JSON patch document, call the following endpoint with a PATCH method:
+* `/tenants/{tenantId}/groups/{groupId}`
 
-##### Get groups of group
-To list all the groups a specific group is a member of, use **GetMemberOf**: 
-* GET /tenants/{tenantId}/groups/{groupId}/memberOf
+##### Check what groups a group is a part of
+To list all the groups a specific group is a member of, call the following endpoint with a GET method: 
+* `/tenants/{tenantId}/groups/{groupId}/memberOf`
 
-##### Get applications group has license for
-To get all the applications licensed for the group, use **GetApplications**: 
-* GET /tenants/{tenantId}/groups/{groupId}/applications
+##### Get applications group has a license for
+To check all the applications licensed for the group, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/groups/{groupId}/applications`
 
 #### Me
 The **Me** interface provides methods to retrieve information about the logged-in user, including their applications, groups, and tenants.
 
-##### Get details for logged-in user
-To get the details for the logged-in user, use **GetMyInfo**: 
-* GET /me
+##### Check details for logged-in user
+To check the details for the logged-in user, call the following endpoint with a GET method:
+* `/me`
 
-##### Get all applications user has access to
-To get all the applications the user has access to, use **GetMyApplications**:
-* GET /me/applications
+##### Check all applications the user has access to
+To check all the applications to which the user has access, call the following endpoint with a GET method:
+* `/me/applications`
 
-##### Get all applications in tenant that user has access to
-To get all the  applications in a tenant the user has access to, use **GetMyTenantApplications**:
-* GET /me/tenants/{tenantId}/applications
+##### Check all applications in the tenant to which the user has access
+To check all the applications in the tenant to which the user has access, call the following endpoint with a GET method:
+* `/me/tenants/{tenantId}/applications`
 
-##### Get groups logged-in user belongs to
-To get all the groups that the logged-in user belongs to, use **GetMyGroups**:
-* GET /me/tenants/{tenantId}/groups
+##### Check groups to which the logged-in user belongs
+To check all the groups to which the logged-in user belongs, call the following endpoint with a GET method:
+* `/me/tenants/{tenantId}/groups`
 
-##### Get  all tenants logged-on user is member of.
-To get all the tenants the logged-on user is a member of, use **GetMyTenants**:
-* GET /me/tenants
+##### Check all the tenants to which the logged-on user belongs
+To check all the tenants to which the logged-on user belong, call the following endpoint with a GET method:
+* `/me/tenants`
 
-##### Get all tenants logged-on user is member of and has access to specific application
-To get all the tenants the logged-on user is a member of and has access to a specific application, use **GetMyTenantsWithApplication**:
-* GET /me/applications/{applicationId}/tenants
+##### Check all tenants to which the logged-on user belongs and has access to a specific application
+To check all the tenants the logged-on user is a member of and has access to a specific application, call the following endpoint with a GET method:
+* `/me/applications/{applicationId}/tenants`
 
-##### Verify Veracity user policies and return appropriate responses based on policy compliance
-To Verify Veracity user policies and return appropriate responses based on policy compliance, use **VerifyUserPolicy**:
-* POST /me/applications/{applicationId}/.policy()
+##### Verify Veracity user policies
+To Verify Veracity user policies and return appropriate responses based on policy compliance, call the following endpoint with a POST method:
+* `/me/applications/{applicationId}/.policy()`
 
 It returns an empty 202 response if all policies are correct, and 406 with an error response with the URL to send the user to the correct the policy issue.
 
 #### StatusService
-To get information about the status of the service, use:
-* GET /health
+To check information about the status of the service, call the following endpoint with a GET method:
+* `/health`
 
 You will get:
 * A 200 OK response if all dependencies are correct.
 * A 424 Failed Dependency response if there are some non-essential dependency failures. 
-* A 500 Internal Server response when some essential dependencies are unreachable or the service is down.
+* A 500 Internal Server response when some essential dependencies are unreachable, or the service is down.
 
 #### Tenants
 The **Tenants** interface provides methods to interact with tenants, including retrieving tenant details and managing tenant administrators.
 
-##### Get tenant by ID
-To get a tenant by its ID, use **GetTenant**:
-* GET /tenants/{tenantId}
+##### Get a tenant by ID
+To check a tenant by its ID, call the following endpoint with a GET method:
+* `/tenants/{tenantId}`
 
-##### Get tenants linked to your service
-To get a list of tenants linked to a specific service, use **GetTenants**: 
-* GET /tenants
+##### Check tenants linked to your service
+To get a list of tenants linked to a specific service, call the following endpoint with a GET method:
+* `/tenants`
 
-##### Get admin details for user by ID
-To get admin details for a user by their ID, use **GetAdmin**:
-* GET /tenants/{tenantId}/admins/{userId}
+##### Check admin details for the user by their ID
+To check admin details for the user by their ID, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/admins/{userId}`
 
-##### Get admins of tenant
-To get all global and local admins of a tenant, use **GetAdmins**: 
-* GET /tenants/{tenantId}/admins
+##### Get admins of the tenant
+To checl all global and local admins of a tenant, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/admins`
 
 #### Users
 The **Users** interface provides methods to manage users within a tenant, including retrieving user details, groups, and applications.
 
-##### Get user by email
-To get a user by their email address, use **GetUserByEmail**:
-* GET /tenants/{tenantId}/users/.email({email})
+##### Checka user by their email
+To check a user by their email address, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/users/.email({email})`
 
-##### Get user by ID
-To get a user by their ID, use **GetUser**:
-* GET /users/{userId}
+##### Check user by their ID
+To check a user by their ID, call the following endpoint with a GET method:
+* `/users/{userId}`
 
-#####  List users in tenant
-To get a list of users in a tenant with support for OData query parameters, use **ListUsers**:
-* GET /tenants/{tenantId}/users
+#####  List users in a tenant
+To get a list of users in a tenant with support for OData query parameters,  call the following endpoint with a GET method:
+* `/tenants/{tenantId}/users`
 
-##### Get user details in tenant
-To get the details of a user in a tenant, use **GetUserInTenant**:
-* GET /tenants/{tenantId}/users/{userId}
+##### Check user details in a tenant
+To check the details of a user in a tenant, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/users/{userId}`
 
-##### Get groups of user
-To get the groups associated with a user, use **GetGroupsForUser**:
-* GET /tenants/{tenantId}/users/{userId}/groups
+##### Check user's groups
+To check the groups associated with a user, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/users/{userId}/groups`
 
-##### Get applications of user
-To get the applications associated with a user, use **GetApplicationsForUser**:
-* GET /tenants/{tenantId}/users/{userId}/applications
+##### Check user's applications
+To check the applications associated with a user,call the following endpoint with a GET method:
+* `/tenants/{tenantId}/users/{userId}/applications`
 
-##### Get tenants user is member of
-To get the tenants a user is a member of, use **GetTenantsForUser**:
-* GET /users/{userId}/tenants
+##### Check tenants to which the user belongs
+To check the tenants a user is a member of, call the following endpoint with a GET method:
+* `/users/{userId}/tenants`
 
-##### Get full user details for list of user IDs
-To get full user details for a list of user IDs, use **ResolveUsers**:
-* POST /tenants/{tenantId}/users
+##### Check full user details for a list of user IDs
+To check full user details for a list of user IDs, call the following endpoint with a POST method:
+* `/tenants/{tenantId}/users`
 
 ##### Update user extension properties
-To update the extension properties for a user using a JSON patch document, use **UpdateUserProperties**:
-* PATCH /tenants/{tenantId}/users/{userId}
+To update the extension properties for a user using a JSON patch document, call the following endpoint with a PATCH method:
+* `/tenants/{tenantId}/users/{userId}`
 
 ## Service Bus
 

@@ -187,7 +187,8 @@ You can do the same type of operations on any entity or relationship in the grap
 
 ```json
 [
-      "path": "/properties/0",
+  {
+    "path": "/properties/0",
     "op": "remove"
   },
   {

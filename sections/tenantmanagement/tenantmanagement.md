@@ -64,13 +64,13 @@ To see sample scenarios for each kind of access control, go to [Sample use case 
 
 ### Admin roles
 
-Customers can assign to users different admin roles depending on how many permissions they want to grant them.
+Customers can assign users different admin roles depending on how many permissions they want to grant them.
 
 -   **User Admin** - A User Admin can add, approve, and remove users within a tenant.
 
--   **Group Admin** - A Group Admin can add or remove users from a group they administer within a tenant.
+-   **Group Admin** - A Group Admin can add or remove users from a group they manage within a tenant.
 
--   **Application Admin** - An Application Admin can view, add, and delete liceses for users and groups to the application. They can also change setting for the application such as automatic license assignment.
+-   **Application Admin** - An Application Admin can view, add, and delete licenses for users and groups to the application. They can also change application settings such as automatic license assignment.
 
 ## VTM terminology and tips
 
@@ -183,11 +183,11 @@ This results in the following properties:
       ]
 ```
 
-Then, to remove the allowedVessels list and reset the isSeen flag, 
-1. Remove the the vtmd2_allowedVessels property by its index and then.
+Then, to remove the `allowedVessels` list and reset the isSeen flag: 
+1. Remove the `vtmd2_allowedVessels` property by its index and then.
 2. Do other operations.
 
-You need to these actions in this order, because when you do other operations, the elements can change, and remove does not support removing by name.
+You need to do these actions in this order, because when you do other operations, the elements can change, and remove does not support removing by name.
 
 You can do the same type of operations on any entity or relationship in the graph. See the example below.
 
@@ -207,7 +207,7 @@ You can do the same type of operations on any entity or relationship in the grap
 ]
 ```
 
-This result in the following properties:
+This results in the following properties:
 
 ```json
  "properties": [
@@ -218,13 +218,13 @@ This result in the following properties:
       ]
 ```
 
-Note that the nuget packages Veracity provides does have helper methods to construct these queries and run tem directly against the API.
+Note that the nuget packages Veracity provides have helper methods to construct these queries and run tem directly against the API.
 
 ```json
-user.MakeJsonPatch()
-       .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
-       .AddOrUpdateProperty("isSeen", "true")
-       .ExecutePatchUserAsync();
+    user.MakeJsonPatch()
+        .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
+        .AddOrUpdateProperty("isSeen", "true")
+        .ExecutePatchUserAsync();
 ```
 
 For more information about patching, go [here](https://jsonpatch.com/).

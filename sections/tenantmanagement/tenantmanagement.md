@@ -214,7 +214,7 @@ This results in the following properties:
 
 Note that the NuGet packages provided by Veracity have helper methods to construct these queries and run them directly against the API.
 
-```json
+```c#
     user.MakeJsonPatch()
         .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
         .AddOrUpdateProperty("isSeen", "true")

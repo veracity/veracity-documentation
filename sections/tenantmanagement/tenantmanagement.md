@@ -106,12 +106,14 @@ For API specification, go to [Swagger UI.](https://tenantmanagement-jhzsxkv2oann
 
 For authentication and authorization of your API calls, follow [these instructions](https://developer.veracity.com/docs/section/identity/authentication/web-native#get-an-access-token-for-the-user).
 
-Veracity Services API version 4 is organized into the following groups of endpoints.
+Veracity Services API version 4 is organized into the following groups of endpoints to focus on tenants, applications, groups, and users, with more granular control and additional functionalities.
 * [Applications](#applications): Provides methods to interact with applications within a tenant. Supports retrieving applications, verifying user licenses, and managing user and group licenses.
 * [Groups](#groups): Provides methods to manage groups and their members within a tenant. Supports retrieving groups, group members, and updating group properties.
 * [Me](#me): Provides methods to retrieve information about the signed-in user, including their applications, groups, and tenants.
 * [Tenants](#tenants): Provides methods to interact with tenants, including retrieving tenant details, and managing tenant administrators.
 * [Users](#users):  Provides methods to manage users within a tenant, including retrieving user details, groups, and applications.
+
+
 
 #### Updating with JsonPatch
 
@@ -119,7 +121,7 @@ Veracity suggests using the PATCH method (mutate) to change things through the A
 
 Ideally, querying data and adding and removing subscriptions to groups and profiles should be the only mutation you will need to do in Veracity Tenant Management.
 
-An example of using patching:
+See an example of patching.
 
 ```json
 [{"op":"replace","path":"/affiliationMode","value":"restricted"}]
@@ -127,9 +129,103 @@ An example of using patching:
 
 ##### Example of updates with JsonPatch
 
-You can use JsonPatch to update data within the graph, such as adding, updating, or removing extension properties. 
+You can use JsonPatch to update data within the graph, such as adding, updating, or removing extension properties. See a sample scenario on how to do it.
 
-Start with the following properties collection.
+Start with the following properties collection:
+
+```json
+"properties": [
+        {
+          "name": "vtmd2_allowedVessels",
+          "value": ""
+        }
+      ]
+```
+
+Then, do the following to:
+* Update the user to indicate the vessels which the user can see in the app.
+* Mark the new application user as seen by an admin.
+
+
+```json
+[
+  {
+    "value": {
+      "Name": "vtmd2_allowedVessels",
+      "Value": "7911545;7911533"
+    },
+    "path": "/properties/-",
+    "op": "replace"
+  },
+  {
+    "value": {
+      "Name": "vtmd2_isSeen",
+      "Value": "true"
+    },
+    "path": "/properties/-",
+    "op": "add"
+  }
+]
+```
+
+This results in the following properties:
+
+```json
+"properties": [
+        {
+          "name": "vtmd2_allowedVessels",
+          "value": "7911545;7911533"
+        },
+        {
+          "name": "vtmd2_isSeen",
+          "value": "true"
+        }
+      ]
+```
+
+Then, to remove the allowedVessels list and reset the isSeen flag, 
+1. Remove the the vtmd2_allowedVessels property by its index and then.
+2. Do other operations.
+
+You need to these actions in this order, because when you do other operations, the elements can change, and remove does not support removing by name.
+
+You can do the same type of operations on any entity or relationship in the graph. See the example below.
+
+```json
+[
+      "path": "/properties/0",
+    "op": "remove"
+  },
+  {
+    "value": {
+      "Name": "vtmd2_isSeen",
+      "Value": "false"
+    },
+    "path": "/properties/-",
+    "op": "replace"
+  }
+]
+```
+
+This result in the following properties:
+
+```json
+ "properties": [
+        {
+          "name": "vtmd2_isSeen",
+          "value": "false"
+        }
+      ]
+```
+
+Note that the nuget packages Veracity provides does have helper methods to construct these queries and run tem directly against the API.
+
+```json
+ user.MakeJsonPatch()
+        .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
+        .AddOrUpdateProperty("isSeen", "true")
+        .ExecutePatchUserAsync();
+```
 
 For more information about patching, go [here](https://jsonpatch.com/).
 
@@ -138,61 +234,61 @@ For more information about patching, go [here](https://jsonpatch.com/).
 The **Applications** interface provides methods to interact with applications within a tenant. Use it to retrieve applications, verify user licenses, manage user and group licenses.
 
 ##### Get applications installed in tenant with support for OData query parameters
-To get the applications installed in the tenant with support for OData query parameters, use the **GetApplications** method: 
+To get the applications installed in the tenant with support for OData query parameters, use **GetApplications**: 
 * GET /tenants/{tenantId}/applications
 
 ##### Get application by public ID
-To get a specific application by its public ID, use the **GetApplication** method: 
+To get a specific application by its public ID, use **GetApplication**: 
 * GET /tenants/{tenantId}/applications/{applicationId}
 
 ##### Get direct users and groups with licenses for application
-To get all direct users and groups with licenses for an application, use the **GetLicenses** method: 
+To get all direct users and groups with licenses for an application, use **GetLicenses**: 
 * GET /tenants/{tenantId}/applications/{applicationId}/licenses
 
 ##### Verify user's license for application
-To verify if a user has a license for an application, use the **VerifyUserLicense** method: 
+To verify if a user has a license for an application, use **VerifyUserLicense**: 
 * GET /tenants/{tenantId}/applications/{applicationId}/licenses/{userId}
 
 ##### Get all users
-To get all users, including users inherited from groups, with deduplication support, use the **GetApplicationUsersExploded** method:
+To get all users, including users inherited from groups, with deduplication support, use **GetApplicationUsersExploded**:
 * GET /tenants/{tenantId}/applications/{applicationId}/users
 Note that you can disable deduplication to detect users with multiple paths to the application in the tenant.
 
 ##### Add user or group license to application
-To add a user or group license to an application, use the **AddUserOrGroupLicense** method: 
+To add a user or group license to an application, use **AddUserOrGroupLicense**: 
 * POST /tenants/{tenantId}/applications/{applicationId}/licenses
 
 ##### Set access level on existing subscription
-To set access level on an existing subscription, use the **SetAccessLevel** method: 
+To set access level on an existing subscription, use **SetAccessLevel**: 
 * PUT /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}
 Note that you can use it only with applications which have access levels.
 
 ##### Update license details
-To update license details using a JSON patch document, use the **UpdateLicense** method: 
+To update license details using a JSON patch document, use **UpdateLicense**: 
 * PATCH /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}
 
 ##### Remove subscription
-To remove a subscription, use the **DeleteLicense** method: 
+To remove a subscription, use **DeleteLicense**: 
 * DELETE /tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}
 
 ##### Get all tenants
-To get all tenants where the application is installed, use the **GetTenantsForApplication** method: 
+To get all tenants where the application is installed, use **GetTenantsForApplication**: 
 * GET /applications/{applicationId}/tenants
 
 ##### Update application extension properties
-To updates application extension properties using a JSON patch document, use the **PatchApplication** method: 
+To updates application extension properties using a JSON patch document, use **PatchApplication**: 
 * PATCH /tenants/{tenantId}/applications/{applicationId}
 
 ##### Get application administrators
-To get all application administrators, use the **GetAdministrators** method: 
+To get all application administrators, use **GetAdministrators**: 
 * GET /tenants/{tenantId}/applications/{applicationId}/administrators
 
 ##### Add application administrator
-To add a user as an application administrator, use the **AddAdministrator** method: 
+To add a user as an application administrator, use **AddAdministrator**: 
 * POST /tenants/{tenantId}/applications/{applicationId}/administrators/{userId}
 
 ##### Remove application administrator
-To removes an application administrator, use the **DeleteAdministrator** method: 
+To removes an application administrator, use **DeleteAdministrator**: 
 * DELETE /tenants/{tenantId}/applications/{applicationId}/administrators/{userId}
 
 
@@ -204,62 +300,62 @@ To get the groups in the tenant with support for OData query parameters, use the
 * GET /tenants/{tenantId}/groups
 
 ##### Get group
-To get a specific group by its ID, use the **GetGroup** method: 
+To get a specific group by its ID, use **GetGroup**: 
 * GET /tenants/{tenantId}/groups/{groupId}
 
 ##### Get direct users and groups in group
-To get all direct users and groups within a group, use the **GetGroupMembers** method: 
+To get all direct users and groups within a group, use **GetGroupMembers**: 
 * GET /tenants/{tenantId}/groups/{groupId}/members
 
 ##### Get users
-To get all users, including users inherited from groups, use the **GetMembersExploded** method: 
+To get all users, including users inherited from groups, use **GetMembersExploded**: 
 * GET /tenants/{tenantId}/groups/{groupId}/members/exploded
 
 ##### Update member
-To udate member properties using a JSON patch document, use the **PatchMember** method: 
+To udate member properties using a JSON patch document, use **PatchMember**: 
 * PATCH /tenants/{tenantId}/groups/{groupId}/members/{memberId}
 
 ##### Update group
-To updates group properties using a JSON patch document, use the **PatchGroup** method: 
+To updates group properties using a JSON patch document, use **PatchGroup**: 
 * PATCH /tenants/{tenantId}/groups/{groupId}
 
 ##### Get groups of group
-To list all the groups a specific group is a member of, use the **GetMemberOf** method: 
+To list all the groups a specific group is a member of, use **GetMemberOf**: 
 * GET /tenants/{tenantId}/groups/{groupId}/memberOf
 
 ##### Get applications group has license for
-To get all the applications licensed for the group, use the **GetApplications** method: 
+To get all the applications licensed for the group, use **GetApplications**: 
 * GET /tenants/{tenantId}/groups/{groupId}/applications
 
 #### Me
 The **Me** interface provides methods to retrieve information about the logged-in user, including their applications, groups, and tenants.
 
 ##### Get details for logged-in user
-To get the details for the logged-in user, use the **GetMyInfo** method: 
+To get the details for the logged-in user, use **GetMyInfo**: 
 * GET /me
 
 ##### Get all applications user has access to
-To get all the applications the user has access to, use the **GetMyApplications** method:
+To get all the applications the user has access to, use **GetMyApplications**:
 * GET /me/applications
 
 ##### Get all applications in tenant that user has access to
-To get all the  applications in a tenant the user has access to, use the **GetMyTenantApplications** method:
+To get all the  applications in a tenant the user has access to, use **GetMyTenantApplications**:
 * GET /me/tenants/{tenantId}/applications
 
 ##### Get groups logged-in user belongs to
-To get all the groups that the logged-in user belongs to, use the **GetMyGroups** method: 
+To get all the groups that the logged-in user belongs to, use **GetMyGroups**:
 * GET /me/tenants/{tenantId}/groups
 
 ##### Get  all tenants logged-on user is member of.
-To get all the tenants the logged-on user is a member of, use the **GetMyTenants** method:
+To get all the tenants the logged-on user is a member of, use **GetMyTenants**:
 * GET /me/tenants
 
 ##### Get all tenants logged-on user is member of and has access to specific application
-To get all the tenants the logged-on user is a member of and has access to a specific application, use the **GetMyTenantsWithApplication** method:
+To get all the tenants the logged-on user is a member of and has access to a specific application, use **GetMyTenantsWithApplication**:
 * GET /me/applications/{applicationId}/tenants
 
 ##### Verify Veracity user policies and return appropriate responses based on policy compliance
-To Verify Veracity user policies and return appropriate responses based on policy compliance, use the **VerifyUserPolicy** method:
+To Verify Veracity user policies and return appropriate responses based on policy compliance, use **VerifyUserPolicy**:
 * POST /me/applications/{applicationId}/.policy()
 
 It returns an empty 202 response if all policies are correct, and 406 with an error response with the URL to send the user to the correct the policy issue.
@@ -277,58 +373,58 @@ You will get:
 The **Tenants** interface provides methods to interact with tenants, including retrieving tenant details and managing tenant administrators.
 
 ##### Get tenant by ID
-To get a tenant by its ID, use the **GetTenant** method:
+To get a tenant by its ID, use **GetTenant**:
 * GET /tenants/{tenantId}
 
 ##### Get tenants linked to your service
-To get a list of tenants linked to a specific service, use the **GetTenants** method. 
+To get a list of tenants linked to a specific service, use **GetTenants**: 
 * GET /tenants
 
 ##### Get admin details for user by ID
-To get admin details for a user by their ID, use the **GetAdmin** method:
+To get admin details for a user by their ID, use **GetAdmin**:
 * GET /tenants/{tenantId}/admins/{userId}
 
 ##### Get admins of tenant
-To get all global and local admins of a tenant, use the **GetAdmins** method: 
+To get all global and local admins of a tenant, use **GetAdmins**: 
 * GET /tenants/{tenantId}/admins
 
 #### Users
 The **Users** interface provides methods to manage users within a tenant, including retrieving user details, groups, and applications.
 
 ##### Get user by email
-To get a user by their email address, use the **GetUserByEmail** method:
+To get a user by their email address, use **GetUserByEmail**:
 * GET /tenants/{tenantId}/users/.email({email})
 
 ##### Get user by ID
-To get a user by their ID, use the **GetUser** method:
+To get a user by their ID, use **GetUser**:
 * GET /users/{userId}
 
 #####  List users in tenant
-To get a list of users in a tenant with support for OData query parameters, use the **ListUsers** method:
+To get a list of users in a tenant with support for OData query parameters, use **ListUsers**:
 * GET /tenants/{tenantId}/users
 
 ##### Get user details in tenant
-To get the details of a user in a tenant, use the **GetUserInTenant** method:
+To get the details of a user in a tenant, use **GetUserInTenant**:
 * GET /tenants/{tenantId}/users/{userId}
 
 ##### Get groups of user
-To get the groups associated with a user, use the **GetGroupsForUser** method:
+To get the groups associated with a user, use **GetGroupsForUser**:
 * GET /tenants/{tenantId}/users/{userId}/groups
 
 ##### Get applications of user
-To get the applications associated with a user, use the **GetApplicationsForUser** method:
+To get the applications associated with a user, use **GetApplicationsForUser**:
 * GET /tenants/{tenantId}/users/{userId}/applications
 
 ##### Get tenants user is member of
-To get the tenants a user is a member of, use the **GetTenantsForUser** method:
+To get the tenants a user is a member of, use **GetTenantsForUser**:
 * GET /users/{userId}/tenants
 
 ##### Get full user details for list of user IDs
-To get full user details for a list of user IDs, use the **ResolveUsers** method:
+To get full user details for a list of user IDs, use **ResolveUsers**:
 * POST /tenants/{tenantId}/users
 
 ##### Update user extension properties
-To update the extension properties for a user using a JSON patch document, use the **UpdateUserProperties** method:
+To update the extension properties for a user using a JSON patch document, use **UpdateUserProperties**:
 * PATCH /tenants/{tenantId}/users/{userId}
 
 ## Service Bus

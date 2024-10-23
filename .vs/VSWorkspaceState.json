@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\sections",
+    "\\sections\\dataplatform",
     "\\sections\\datastandards",
-    "\\sections\\datastandards\\ovd-guides",
-    "\\sections\\tenantmanagement"
+    "\\sections\\vap"
   ],
-  "SelectedNode": "\\sections\\tenantmanagement\\tenantmanagement.md",
+  "SelectedNode": "\\sections\\dataplatform\\toc.json",
   "PreviewInSolutionExplorer": false
 }

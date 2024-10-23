@@ -64,7 +64,7 @@ To see sample scenarios for each kind of access control, go to [Sample use case 
 
 ### Admin roles
 
-Customers can assign users different admin roles depending on how many permissions they want to grant them.
+Customers can assign to users different admin roles depending on how many permissions they want to grant them.
 
 -   **User Admin** - A User Admin can add, approve, and remove users within a tenant.
 
@@ -221,10 +221,10 @@ This result in the following properties:
 Note that the nuget packages Veracity provides does have helper methods to construct these queries and run tem directly against the API.
 
 ```json
- user.MakeJsonPatch()
-        .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
-        .AddOrUpdateProperty("isSeen", "true")
-        .ExecutePatchUserAsync();
+user.MakeJsonPatch()
+       .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
+       .AddOrUpdateProperty("isSeen", "true")
+       .ExecutePatchUserAsync();
 ```
 
 For more information about patching, go [here](https://jsonpatch.com/).

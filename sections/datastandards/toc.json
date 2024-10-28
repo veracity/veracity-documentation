@@ -59,6 +59,10 @@
 				{
 					"text": "Shifting in port",
 					"href": "ovd-guides/shiftinginport.md"
+				},
+				{
+					"text": "Shore Power",
+					"href": "ovd-guides/shorepower.md"
 				}
 			]
 		},

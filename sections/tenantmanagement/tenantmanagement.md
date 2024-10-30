@@ -428,7 +428,7 @@ The Service Bus documentation will be made available shortly.
 
 ## Use case scenarios
 
-Below we present sample use case scenarios for VTM. The scenarios correspond to the [three types of access control](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared%20Documents/Tenant%20Management/Documentation/Veracity%20Access%20Hub%20Guide.docx?d=w8e4cd5772cbf4cefabd1a87f630f90f8&csf=1&web=1&e=ekpFBB&nav=eyJoIjoiMjc5ODE1ODkzIn0) that Veracity Tenant Management offers.
+Below we present sample use case scenarios for VTM. The scenarios correspond to the [three types of access control](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared+Documents/Tenant+Management/Documentation/Veracity+Access+Hub+Guide.docx?d=w8e4cd5772cbf4cefabd1a87f630f90f8&csf=1&web=1&e=ekpFBB&nav=eyJoIjoiMjc5ODE1ODkzIn0) that Veracity Tenant Management offers.
 
 ### Simple calculator (fully managed by Veracity)
 
@@ -440,8 +440,8 @@ All users can do everything in the service meaning there are no roles with varyi
 
 |Name|URL|
 |--------|-----------|
-|Policy| api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Subscription details|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
+|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
+|Subscription details|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
 
 
 #### Business case
@@ -452,7 +452,7 @@ An example of such an application might be an analysis tool that lets you run of
 
 In this example, we have a:
 
--   Multi-tenant application. When the user accesses the application’s root, if you follow [Veracity Tenant Selector guidelines](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared%20Documents/Tenant%20Management/Documentation/Veracity%20Tenant%20Management%20for%20Developers.docx?d=wca837b6c59844fd59ae5b187ed93cb3b&csf=1&web=1&e=gVEF38&nav=eyJoIjoiNjI5OTExMzY4In0), you can make an API call to check which tenants the user has access to. Then, if they only belong to one, you take them there directly and if they belong to multiple tenants, you ask them to choose to which tenant they want to sign in.   Note that, instead of using APIs to get the tenant, you can use a local copy synchronized through Veracity Service Bus.
+-   Multi-tenant application. When the user accesses the application’s root, if you follow [Veracity Tenant Selector guidelines](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared+Documents/Tenant+Management/Documentation/Veracity+Tenant+Management+for+Developers.docx?d=wca837b6c59844fd59ae5b187ed93cb3b&csf=1&web=1&e=gVEF38&nav=eyJoIjoiNjI5OTExMzY4In0), you can make an API call to check which tenants the user has access to. Then, if they only belong to one, you take them there directly and if they belong to multiple tenants, you ask them to choose to which tenant they want to sign in.   Note that, instead of using APIs to get the tenant, you can use a local copy synchronized through Veracity Service Bus.
 
 -   Support for access levels and permissions based on roles.
 
@@ -474,12 +474,12 @@ The application allows admins to manage floor plans by uploading “maps” and 
 
 |Name|URL|
 |--------|-----------|
-|Policy|https://api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Service tenants|https://api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
-|Access level|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-|Profile picture|https://api.veracity.com/veracity/services/v3/my/picture|
-|Profile picture for user|https://api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
-|All users|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
+|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
+|Service tenants|api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
+|Access level|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
+|Profile picture|api.veracity.com/veracity/services/v3/my/picture|
+|Profile picture for user|api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
+|All users|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
 
 
 Note that if the application needs to store a local copy, it must be able to provide the same results as the API (access level).
@@ -498,16 +498,16 @@ This application has a well-defined least privilege but requires more detailed p
 
 |Name|URL|
 |--------|-----------|
-|Policy|https://api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Service tenants|https://api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
-|Access level|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-|Profile picture|https://api.veracity.com/veracity/services/v3/my/picture|
-|Profile picture for user|https://api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
-|All users|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
-|Add subscription|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId{/services/{id}/subscribers/{entityId}?memberType={profile|
-|Get groups|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups?$filter=isBuiltIn%20eq%20false|
-|Get direct group members|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members|
-|Get all group members|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members/exploded|
+|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
+|Service tenants|api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
+|Access level|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
+|Profile picture|api.veracity.com/veracity/services/v3/my/picture|
+|Profile picture for user|api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
+|All users|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
+|Add subscription|api.veracity.com/veracity/vtm/v1/tenant/{tenantId{/services/{id}/subscribers/{entityId}?memberType={profile|
+|Get groups|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups?$filter=isBuiltIn+eq+false|
+|Get direct group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members|
+|Get all group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members/exploded|
 
 
 
@@ -525,16 +525,16 @@ This is an application with no clear least privilege defined and cannot use the 
 
 |Name|URL|
 |--------|-----------|
-|Policy|https://api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Service tenants|https://api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
-|Access level|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-|Profile picture|https://api.veracity.com/veracity/services/v3/my/picture|
-|Profile picture for user|https://api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
-|All users|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
-|Add subscription|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId{/services/{id}/subscribers/{entityId}?memberType={profile|
-|Get groups|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups?$filter=isBuiltIn%20eq%20false|
-|Get direct group members|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members|
-|Get all group members|https://api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members/exploded|
+|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
+|Service tenants|api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
+|Access level|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
+|Profile picture|api.veracity.com/veracity/services/v3/my/picture|
+|Profile picture for user|api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
+|All users|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
+|Add subscription|api.veracity.com/veracity/vtm/v1/tenant/{tenantId{/services/{id}/subscribers/{entityId}?memberType={profile|
+|Get groups|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups?$filter=isBuiltIn+eq+false|
+|Get direct group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members|
+|Get all group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members/exploded|
 
 
 In the application, the tenant admin or application access admins can assign additional permissions to individual users or groups. The application can, if required for performance or resiliency reasons, keep a local copy of the tenant structure that is relevant.

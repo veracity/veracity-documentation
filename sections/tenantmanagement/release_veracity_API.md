@@ -27,4 +27,5 @@ See [the API specification for Veracity Services API version 4](https://develope
 See examples of how to use this API in [Veracity Tenant Management for Developers](https://developer.veracity.com/docs/section/tenantmanagement/tenantmanagement).
 
 ## Veracity Access Hub
-You can use [Veracity Access Hub](https://developer.veracity.com/docs/section/customerservices/accesshub) to do most of the actions that you can do through the Veracity Services API version 4.
+Customers can manage access to their applications and the apps they are subscribing with [Veracity Access Hub](https://developer.veracity.com/docs/section/customerservices/accesshub).
+

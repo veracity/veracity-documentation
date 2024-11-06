@@ -16,7 +16,7 @@ Now, in VAP, you can upload a paginated report. Note that the report must be in 
 
 #### Service principal required
 
-To upload a paginated report, you must use a service principal account.Note that all VAP services set up after 4.18 use service principal. However, if your VAP service was set up before 4.18 with a master account, you must set up another service to use paginated reports.
+To upload a paginated report, you must use a Service Principal account. Note that all VAP services set up after 4.18 use Service Principal. However, if your VAP service was set up before 4.18 with a master account, you must set up another service to use paginated reports.
 
 #### How to upload a paginated report
 

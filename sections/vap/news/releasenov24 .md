@@ -43,13 +43,11 @@ If you do not interact with a paginated report for ten minutes, your session exp
 
 ### Direct interaction with report for user with one entity
 
-### Front Door improvements
+Now, if you have access to only one entity, you can interact with the report directly.
 
-We have worked on Front Door improvements.
+### Other improvements
 
-### Embed API supports Service Principal
-
-We have worked on the Embed API support for Service Principal.
+We have worked on Front Door improvements, Embed API support, and Service Principal.
 
 ## Changes in existing feaures
 

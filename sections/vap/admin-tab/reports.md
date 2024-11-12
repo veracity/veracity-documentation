@@ -4,7 +4,7 @@ description: Overview of the Manage Reports tab in the admin tab.
 ---
 
 # Reports
-This page describes administrator tasks you can do in "Reports".
+This page describes administrator tasks you can do to create and edit reports.
 
 ## To upload a file
 1. In the left navigation sidebar, select the plus icon.
@@ -15,7 +15,7 @@ This page describes administrator tasks you can do in "Reports".
 
 ## To refresh a report with new content 
 
-If your Power BI report contains imported data and you want to show its newer version with the fresh data, or if you need to replace an image or a PDF file with its newer version, upload the file again. For instructions, refer to the section above.
+If your Power BI report contains imported data and you want to show its newer version with the fresh data, or if you need to replace an image or a PDF file with its newer version, upload the file again in the **Resources** section. For instructions, refer to the section above.
 
 ## To create a new report
 1. In the left navigation sidebar, select the plus icon.
@@ -49,6 +49,9 @@ To add a new Web app report:
 1. In the row with the report, in the **Actions** column, select the **Report Filter** icon.
 2. Select the filters that you want to apply to the report.
 3. In the right corner of the window, select the **Save** button.
+
+Note that the **Report Filter** icon needs to be enabled in Config tenant properties to appear in the Reports user interface.
+
 
 ## To see report statistics
 

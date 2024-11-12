@@ -15,7 +15,11 @@ This page describes administrator tasks you can do to create and edit reports.
 
 ## To refresh a report with new content 
 
-If your Power BI report contains imported data and you want to show its newer version with the fresh data, or if you need to replace an image or a PDF file with its newer version, upload the file again in the **Resources** section. For instructions, refer to the section above.
+If your Power BI report contains imported data and you want to show its newer version with the fresh data, refer to [Resources](resource.md#refresh-schedule-plan).
+
+## To change to the latest file version 
+
+If you need to replace a file with a newer version, upload the file again in the **Resources** section. Then, edit the report here to connect to the latest file. It will allow your user to interact with the last version of the file.
 
 ## To create a new report
 1. In the left navigation sidebar, select the plus icon.

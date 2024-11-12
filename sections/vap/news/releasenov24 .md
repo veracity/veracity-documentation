@@ -16,7 +16,7 @@ Now, you can upload a paginated report. Note that the report must be in .rdl for
 
 #### Service Principal required
 
-To upload a paginated report, your VAP service must use a Service Principal account. If your service is a new setup using Service Principal, then the **Paginated Report** toggle buttons are turned on. You cannot upload the paginated report file for the legacy Power BI Service Principal. If you try to do so, you will get the error message 'Paginated report is not enabled to upload'. 
+To upload a paginated report, your VAP service must use a Service Principal account. If your service is a new setup using Service Principal, then the **Paginated Report** toggle button can be turned on in Admin. You cannot upload the paginated report file for the legacy Power BI Service Principal. If you try to do so, you will get the error message 'Paginated report is not enabled to upload'. 
 
 #### Supported data sources
 

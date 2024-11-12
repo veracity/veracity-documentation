@@ -57,7 +57,7 @@ To apply a refresh plan to a file:
 To upload a file:
 1. From the left sidebar, select the plus icon and the **Add Resource File** button.
 2. Under **File Name**, enter the name for the file. Veracity recommends including in the file name information that would help recognize the latest version of the file, such as, for example, the client's name, the report's date, and the upload date.
-3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF.
+3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF, RDL.
 4. Under **Personal data policy**, confirm if the file contains no personal data or it contains personal data and you agree to process it according to Veracity DPA.
 5. Select the **Upload** button.
 

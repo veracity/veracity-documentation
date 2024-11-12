@@ -28,4 +28,4 @@ This section covers changes in existing features.
 We have removed the back button for developers in the dataset details page and connector details page in the workspace. In guest view, the back button is still available for shared data sets.
 
 ### Improved schema column dialog box
-We have improved the schema column dialog box to correctly display the columns for the Log Abstract schema.
+We have improved the schema column dialog box to correctly display the columns for schemas.

@@ -24,7 +24,7 @@ Now, as a workspace user, you can see new banner images in Data Workbench.
 ## Changes in existing features
 This section covers changes in existing features.
 
-### Removed the back button removed for developers
+### Removed the back button for developers
 We have removed the back button for developers in the dataset details page and connector details page in the workspace. In guest view, the back button is still available for shared data sets.
 
 ### Improved schema column dialog box

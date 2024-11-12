@@ -30,12 +30,12 @@ To do so:
 1. Select the menu button at the end of the table row. It will display a menu list.
 1. Select the revoke button. It will pop up a revoke dialog. 
 1. Next to the person who's access your revoking, select the X icon.
-1. Select the “save and close” button to complete the revoking. 
+1. Select the "save and close" button to complete the revoking. 
 
 After revoking is completed, the recipient will get a notified email.
 
 ### Shared with me for files and folders
-If you belong to a workspace (as a member user), you can see 'Share with me' information for each file/folder on Data catalogue page under the ‘Shared with me’ tab.
+If you belong to a workspace (as a member user), you can see 'Share with me' information for each file/folder on Data catalogue page under the 'Shared with me' tab.
 
 If you don't belong to a workspace (as a guest user), you can see the shared files/folders under guest view.
 

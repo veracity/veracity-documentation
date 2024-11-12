@@ -13,15 +13,15 @@ Each tenant has three main entity types:
 
 -   Tenant
 
-    -   TenantService – An instance of a service or application within the parent tenant.
+    -   Application – An instance of a service or application within the parent tenant.
 
 -   Profile (either a user or a service principal).
 
--   User Group – A group of users intended for managing access to applications.
+-   Group – A group of users intended for managing access to applications.
 
 Note that in end-user documentation, tenants are called company accounts.
 
-Users may belong to multiple tenants. Veracity access levels and other attributes that are connected to a subscription come from the closest arrow to the service. In the sample below, that gives users a, b, c and e the same access level and attributes in their subscriptions, while user f has its own.
+Users may belong to multiple tenants. Veracity access levels and other attributes that are connected to a license come from the closest arrow to the service. In the sample below, that gives users a, b, c and e the same access level and attributes in their licenses, while user f has its own.
 
 <figure>
 	<img src="assets/image1.png"/>
@@ -40,7 +40,7 @@ Also, the application should allow switching between tenants.
 	<img src="assets/image2.png"/>
 </figure>
 
-After the normal login flow and policy check the application contacts VTM and requests the list of tenants where the user has a subscription to the service. This will confirm that the user has a subscription in one or more tenants and the application can decide if it is necessary to show the list.
+After the normal login flow and policy check the application contacts VTM and requests the list of tenants where the user has a license to the service. This will confirm that the user has a license in one or more tenants and the application can decide if it is necessary to show the list.
 
 If the list is empty, an error page should be shown. If there is one tenant, the user should be redirected to that tenant. And if there are two or more, the user needs to decide which tenant they are going to use the application on behalf of.
 
@@ -54,7 +54,7 @@ If the application uses the Veracity Domain Event system, application-specific i
 
 Customers use Veracity Access Hub to manage access to their applications and decide on how much control they delegate to VTM. VTM offers three types of access control:
 
--   **Fully managed by Veracity** - Suitable for applications with role-based access control if the roles are application-wide (for example, reader, contributor, and so on). Admins can create user groups in VTM, assign certain access permissions to them, and then add users to those groups. Then, Veracity handles access control for the application.
+-   **Fully managed by Veracity** - Suitable for applications with role-based access control if the roles are application-wide (for example, reader, contributor, and so on). Admins can create groups in VTM, assign certain access permissions to them, and then add users to those groups. Then, Veracity handles access control for the application.
 
 -   **Hybrid access control** – Admins configure basic access permissions in Veracity and the details in the application.
 
@@ -80,7 +80,7 @@ Customers can assign users different admin roles depending on how many permissio
 
 -   Tenant – An account for a specific company. In interface and documentation for admins, it is called a company account. Admins and the account owner can add users. Tenants can contain groups. A tenant is also a practical grouping of user profiles.
 
--   User group – A collection of user profiles within a tenant that can be assigned access permissions to Resource Groups or other entities.
+-   Group – A collection of user profiles within a tenant that can be assigned access permissions to Resource Groups or other entities.
 
 **Note that the user account ID** **is not the same as the user profile**. To use VTM, you need to look up user profiles (for example, from the API or the application database) and map users’ IDs to users’ profiles.
 
@@ -123,7 +123,7 @@ Veracity Services API version 4 is organized into the following groups of endpoi
 
 Veracity suggests using the PATCH method (mutate) to change things through the API. Note that it is not always possible, though.
 
-Ideally, querying data and adding and removing subscriptions to groups and profiles should be the only mutation you will need to do in Veracity Tenant Management.
+Ideally, querying data and adding and removing licenses to groups and profiles should be the only mutation you will need to do in Veracity Tenant Management.
 
 See an example of using the PATCH method.
 
@@ -257,8 +257,8 @@ Note that you can disable deduplication to detect users with multiple paths to t
 To add a user or group license to an application, call the following endpoint with a POST method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses`
 
-##### Set access level on the existing subscription
-To set access level on the existing subscription, call the following endpoint with a PUT method:
+##### Set access level on the existing license
+To set access level on the existing license, call the following endpoint with a PUT method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 Note that you can use it only with applications which have access levels.
 
@@ -266,8 +266,8 @@ Note that you can use it only with applications which have access levels.
 To update license details using a JSON patch document, call the following endpoint with a PATCH method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 
-##### Remove subscription
-To remove a subscription, call the following endpoint with a DELETE method:
+##### Remove license
+To remove a license, call the following endpoint with a DELETE method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 
 ##### Check all tenants
@@ -436,7 +436,7 @@ Below we present sample use case scenarios for VTM. The scenarios correspond to 
 
 ### Simple calculator (fully managed by Veracity)
 
-The user needs a license for this service but it doesn’t require more authorization. The application relies on normal Veracity sign-in flow with an additional subscription check.
+The user needs a license for this service but it doesn’t require more authorization. The application relies on normal Veracity sign-in flow with an additional license check.
 
 All users can do everything in the service meaning there are no roles with varying permissions.
 
@@ -517,7 +517,7 @@ This application has a well-defined least privilege but requires more detailed p
 
 In this scenario, the application will receive the basic permissions from Veracity and all these users will have a clear least privilege defined as being allowed to report new incidents and see the status of cases they have reported. The tenant admin or application access admins can assign additional permissions to individual users or groups in the application. The application can, if required for performance or resiliency reasons, keep a local copy of the tenant structure that is relevant.
 
-Additional permissions are then assigned to userGroups or individual profiles. In the permission configuration table/storage, each permission must tell if it is a group or profile that is assigned the permission.
+Additional permissions are then assigned to groups or individual profiles. In the permission configuration table/storage, each permission must tell if it is a group or profile that is assigned the permission.
 
 ### App with complex authorization and no clear least privilege defined (Data Workbench)
 
@@ -543,4 +543,4 @@ This is an application with no clear least privilege defined and cannot use the 
 
 In the application, the tenant admin or application access admins can assign additional permissions to individual users or groups. The application can, if required for performance or resiliency reasons, keep a local copy of the tenant structure that is relevant.
 
-Permissions are assigned to userGroups or individual profiles. In the permissions configuration table/storage each permission must tell if it is a group or profile that is assigned the permission. When a user/group is assigned permission, the application needs to ensure that the user/group has a subscription to the technical service in Veracity.
+Permissions are assigned to Groups or individual profiles. In the permissions configuration table/storage each permission must tell if it is a group or profile that is assigned the permission. When a user/group is assigned permission, the application needs to ensure that the user/group has a subscription to the technical service in Veracity.

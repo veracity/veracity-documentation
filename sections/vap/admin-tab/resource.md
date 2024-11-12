@@ -71,6 +71,28 @@ Note that:
 * If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
 * If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
 
+#### Paginated report
+
+You can upload a paginated report in .rdl format. Paginated reports are ideal for presenting content with tightly controlled rendering requirements, such as certificates, audit findings, test results, purchase orders, and long tabular data that must be printed on multiple pages. These reports ensure that your data is presented in a precise and organized manner, meeting the high standards of professional documentation.
+
+##### Service Principal required
+
+To upload a paginated report, your VAP service must use a Service Principal account. If your service is a new setup using Service Principal, then the **Paginated Report** toggle button can be turned on in Admin. You cannot upload the paginated report file for the legacy Power BI Service Principal. If you try to do so, you will get the error message 'Paginated report is not enabled to upload'. 
+
+##### Supported data sources
+
+We support the following methods to add a data source to a paginated report.
+* You can connect a database as a data source directly. We support Azure SQL database.
+* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .json, and more) and Azure Blob.
+
+##### Report reloading
+
+The report reloads after an hour of interacting with it. When it happens, you will see a reload icon. To continue reading the report, wait for the report to finish reloading.
+
+##### Session expiry
+
+If you do not interact with a paginated report for ten minutes, your session expires.
+
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>
 To be able to load data, add a Veracity VAP service account to your Azure Analysis Services Cube for PowerBI:

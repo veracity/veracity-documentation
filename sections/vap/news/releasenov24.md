@@ -53,5 +53,3 @@ This section covers changes in existing features.
 ### The name of the entity in the notification
 
 Now, when you grant a user access to an entity or revoke it and notify them about it, the notification includes the name of this entity.
-
-

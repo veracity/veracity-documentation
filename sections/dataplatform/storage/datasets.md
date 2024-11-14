@@ -19,11 +19,13 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 
 ## Ingest process
 
+### Create a new dataset
+
 - Get SAS token
 - Read CSV file from your location
 - Push file to storage using SAS token
 
-### Get SAS token
+#### Get SAS token
 To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method.
 
 Below, you can see a sample request payload. In the response, you will get a SAS token as a string.
@@ -37,7 +39,7 @@ Below, you can see a sample request payload. In the response, you will get a SAS
   "storageName": "string"
 }
 ```
-### Code examples
+#### Code examples
 
 ```csharp
 
@@ -48,3 +50,5 @@ Below, you can see a sample request payload. In the response, you will get a SAS
       var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);     
   };
 ```
+
+### Append to a dataset

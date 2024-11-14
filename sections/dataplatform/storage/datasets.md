@@ -73,7 +73,7 @@ You can generate a blob SAS token URL by calling `https://api.veracity.com/verac
             { "datasetName", datasetName },
             { "description", datasetDescription},
             { "tags", "{}" },
-            { "schemaId", schemaId } //optinal
+            { "schemaId", schemaId.ToString() } //optinal
         };
   var opts = new DataLakeFileUploadOptions { Metadata = metadata };
   using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))

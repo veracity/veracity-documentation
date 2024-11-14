@@ -24,7 +24,7 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 - Push file to storage using SAS token
 
 ### Get SAS token
-To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method.
+To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method.
 
 Below, you can see a sample request payload. In the response, you will get a SAS token as a string.
 

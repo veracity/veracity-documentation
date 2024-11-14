@@ -19,36 +19,94 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 
 ## Ingest process
 
-### Create a new dataset
-
 - Get SAS token
 - Read CSV file from your location
 - Push file to storage using SAS token
 
+### Create a new dataset
+
 #### Get SAS token
-To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method.
+To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method.
 
-Below, you can see a sample request payload. In the response, you will get a SAS token as a string.
+You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?type=blob`
 
-```json
-{
-"path": "string",
-  "readOrWritePermission": "Read",
-  "startsOn": "2024-05-14T09:04:12.297Z",
-  "expiresOn": "2024-05-14T09:04:12.297Z",
-  "storageName": "string"
-}
-```
 #### Code examples
 
 ```csharp
 
  var containerClient = new DataLakeDirectoryClient(sasToken);
  var containerFileClient = containerClient.GetFileClient(filename);
+ var correlationId = Guid.NewGuid();
+ var metadata = new Dictionary<string, string>
+        {
+            { "userId", veracityUserId },
+            { "correlationId", correlationId.ToString() },
+            { "datasetName", datasetName },
+            { "description", datasetDescription},
+            { "tags", "{}" }
+        };
+  var opts = new DataLakeFileUploadOptions { Metadata = metadata };
   using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
   {
       var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);     
   };
 ```
 
-### Append to a dataset
+### Append to a existing dataset
+
+#### Get append SAS token
+To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}` endpoint with the POST method.
+
+You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}&type=blob`
+
+#### Code examples
+
+```csharp
+
+ var containerClient = new DataLakeDirectoryClient(sasToken);
+ var containerFileClient = containerClient.GetFileClient(filename);
+ var correlationId = Guid.NewGuid();
+ var metadata = new Dictionary<string, string>
+        {
+            { "userId", veracityUserId },
+            { "correlationId", correlationId.ToString() },
+            { "datasetName", datasetName },
+            { "description", datasetDescription},
+            { "tags", "{}" }
+        };
+  var opts = new DataLakeFileUploadOptions { Metadata = metadata };
+  using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
+  {
+      var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);     
+  };
+```
+
+### Overwrite a existing dataset
+
+#### Get append SAS token
+To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}` endpoint with the POST method.
+
+You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}&type=blob`
+
+#### Code examples
+
+```csharp
+
+ var containerClient = new DataLakeDirectoryClient(sasToken);
+ var containerFileClient = containerClient.GetFileClient(filename);
+ var correlationId = Guid.NewGuid();
+ var metadata = new Dictionary<string, string>
+        {
+            { "userId", veracityUserId },
+            { "correlationId", correlationId.ToString() },
+            { "datasetName", datasetName },
+            { "description", datasetDescription},
+            { "tags", "{}" },
+            { "operation", "overwrite"}
+        };
+  var opts = new DataLakeFileUploadOptions { Metadata = metadata };
+  using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
+  {
+      var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);     
+  };
+```

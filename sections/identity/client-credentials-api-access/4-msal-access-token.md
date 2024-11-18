@@ -20,9 +20,9 @@ using Microsoft.Identity.Client;
 
 ...
 
-await ConfidentialClientApplicationBuilder.Create(clientId)
+await ConfidentialClientApplicationBuilder.Create(appId)
     .WithClientSecret(clientSecret)
-	.WithAuthority(authority)
+    .WithB2CAuthority(instance)
     .Build()
     .AcquireTokenForClient(scopes)
     .ExecuteAsync();
@@ -32,10 +32,10 @@ Where the used variables are:
 
 |Variable|Where to get it|
 |--|--|
-|clientId|In the Settings tab inside of your client application in developer.veracity.com|
-|clientSecret|In the Settings tab inside of your client application in developer.veracity.com. You can generate more than one, but it can be saved by you only on creation.|
-|authority|`https://login.veracity.com/tfp/a68572e3-63ce-4bc1-acdc-b64943502e9d/B2C_1A_SignInWithADFSIdp/v2.0`|
-|scopes|`https://dnvglb2cprod.onmicrosoft.com/{API_ID}/.default`, where you replace `{API_ID}` with the `App / Api ID` from your API's Settings tab in developer.veracity.com. Although we set up a `my_scope` scope, in order to get the token we still write `.default`|
+|appId|In the settings tab inside of Veracity Resource|
+|clientSecret|In the settings tab inside of Veracity Resource. You can generate more than one, but it can be saved by you only on creation. |
+|instance|Is composed of: `https://dnvglb2cprod.b2clogin.com/tfp/{tenant}/b2c_1a_signinwithadfsidp/` remember to replace `{tenant}` with the proper value.|
+|scopes|`https://dnvglb2cprod.onmicrosoft.com/{appId}/.default`, where you replace `{appId}` with the mentioned before appId from Veracity Developer Portal|
 
 The following code returns an object of `Task<AuthenticationResult>`. AuthenticationResult has a property of AccessToken which will serve as the token you will send to your API.
 

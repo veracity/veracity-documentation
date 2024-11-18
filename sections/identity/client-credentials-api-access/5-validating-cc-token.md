@@ -9,64 +9,160 @@ description: Validating access token in your API in C#
 
 This tutorial will help you build a Client Credentials validator in your .NET 6 API. Note that all code samples are for C#.
 
-First we need to create a simple **ASP.NET Core Web API** project in Visual Studio:
+First we need to declare a class that inherits from `AuthenticationSchemeOptions`:
 
-<figure>
-	<img src="assets/ccapi-step-6-make-an-api.png"/>
-	<figcaption>The project type ASP.NET Core Web API can be found among other templates</figcaption>
-</figure>
+```
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
-This template gives us a bare bones API, an unprotected API Controller with an example action that returns some data. Exactly what we need to test our token!
+...
 
-Inside the `appsettings.json` file add the following section:
-
-```json
-"AzureAdB2C": {
-  "Domain": "dnvglb2cprod.onmicrosoft.com",
-  "Instance": "https://login.veracity.com",
-  "SignUpSignInPolicyId": "B2C_1A_SignInWithADFSIdp",
-  "TenantId": "a68572e3-63ce-4bc1-acdc-b64943502e9d",
-  "ClientId": "{your client ID}",
-  "ClientSecret": "{your client secret}",
-  "Scopes": "https://dnvglb2cprod.onmicrosoft.com/{App ID}/{my_scope}"
+public class MyAuthenticationOptions : AuthenticationSchemeOptions
+{
+    public ClaimsIdentity Identity { get; set; } = default!;
 }
 ```
 
-Although, we used .default scope when asking for token, we still configure our API with the scope you chose when configuring it in [developer.veracity.com](https://developer.veracity.com/).
+Then we need to declare a class that inherits from `AuthenticationHandler`:
 
-You can find there all the variables you need. Both `Client ID` and `App ID` point to the `App / Api ID` you can find in the Settings tab. 
-
-In the Program.cs file add this code
-
-```csharp
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-	.AddMicrosoftIdentityWebApi(options => { }, options =>
-	{
-        builder.Configuration.GetRequiredSection("AzureAdB2C").Bind(options);
-	});
+```
+public class MyAuthenticationHandler : AuthenticationHandler<MyAuthenticationOptions>
+{
+    public MyAuthenticationHandler(
+        IOptionsMonitor<MyAuthenticationOptions> options,
+        ILoggerFactory logger,
+        UrlEncoder encoder,
+        ISystemClock clock) : base(options, logger, encoder, clock)
+    {
+    }
+ 
+    protected override Task<AuthenticateResult> HandleAuthenticateAsync() 
+        => Task.FromResult(Authenticate());
+}
 ```
 
-Place it before this line.
+Next we will implement the `Authenticate()` method:
 
-```csharp
-var app = builder.Build();
+```
+using Microsoft.AspNetCore.Authentication;
+
+...
+
+private AuthenticateResult Authenticate()
+{
+    try
+    {
+        // First we need to extract the Bearer token from the headers
+        // (for logic check below to see the implementation of the 
+        // ExtractBearerToken method)
+        var rawToken = ExtractBearerToken(Request.Headers["authorization"]);
+        if (string.IsNullOrWhiteSpace(rawToken))
+            return AuthenticateResult.Fail("Authorization header not provided");
+
+        // Next, we validate the token. For the purpose of clarity 
+        // it was extracted to a separate method
+        var tokenValidationResult = Validate(rawToken.Value);
+
+        if (tokenValidationResult == null)
+            return AuthenticateResult.Fail("Authorization failed: ");
+
+        var ticket = new AuthenticationTicket(tokenValidationResult.Value, new AuthenticationProperties(), Scheme.Name);
+
+        return AuthenticateResult.Success(ticket);
+    }
+    catch (Exception e)
+    {
+        return AuthenticateResult.Fail(e);
+    }
+}
+
+// This method verifies that the Authorization header is properly formed
+// and then extracts the token itself
+private static string ExtractBearerToken(string authorizationHeader)
+{
+    if (string.IsNullOrWhiteSpace(authorizationHeader) || !authorizationHeader.StartsWith("Bearer "))
+        return string.Empty;
+
+    var bearerToken = authorizationHeader.Replace("Bearer ", string.Empty, StringComparison.OrdinalIgnoreCase);
+    return bearerToken;
+}
 ```
 
-Make sure that you have
+To validate the token we will use the Stardust NuGet package which is made by Veracity developers. The main logic for validating a token is within the Validate method which you can see below:
 
-```csharp
-app.UseAuthorization();
+```
+using Stardust.Aadb2c.AuthenticationFilter.Core;
+using Stardust.Particles;
+
+...
+
+private ClaimsPrincipal? Validate(string rawToken)
+{
+    B2CGlobalConfiguration.ValidIssuer = configuration.Issuer;
+    B2CGlobalConfiguration.Audience = configuration.Audience;
+    B2CGlobalConfiguration.AadTenants = new[] { configuration.OpenIDConfiguration };
+    B2CGlobalConfiguration.AllowClientCredentialsOverV2 = true;
+    ConfigurationManagerHelper.SetValueOnKey("certificateRefresInterval", "30");
+    ClaimsPrincipal authenticatedUser;
+
+    try
+    {
+        authenticatedUser = TokenValidator.Validate(rawToken);
+
+        return authenticatedUser;
+    }
+    catch (Exception ex)
+    {
+        // log exception
+
+        return null;
+    }
+}
 ```
 
-Preferably before
+In this code we used an object named `configuration` in which we stored some values. This is where you can get them:
 
-```csharp
-app.MapControllers();
+|Variable|Where to get it|
+|--|--|
+|Issuer|`https://login.microsoftonline.com/{tenant}/v2.0/;https://dnvglb2cprod.b2clogin.com/{tenant}/v2.0/;https://login.veracity.com/{tenant}/v2.0/`|
+|Audience|`{appId}`. In the settings tab inside of Veracity Resource.|
+|OpenIDConfiguration|`https://login.veracity.com/{tenant}/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp`|
+
+All these classes should now be declared in the `Program.cs` class. To make it more readable I suggest to create it as an extension method declated in a separate class:
+
+```
+internal static class AuthorizationExtensions
+{
+    const string AuthenticationDefaultScheme = "DefaultScheme";
+
+    public static void SetupAuthorization(this WebApplicationBuilder builder)
+    {
+        builder.Services
+            .AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddScheme<MyAuthenticationOptions, MyAuthenticationHandler>(JwtBearerDefaults.AuthenticationScheme, string.Empty, o => { });
+
+        builder.Services.AddAuthorization(x =>
+        {
+            x.AddPolicy(
+                AuthenticationDefaultScheme,
+                policyBuilder => policyBuilder.RequireAuthenticatedUser());
+        });
+    }
+}
 ```
 
-The only thing you need to do now is to place the `[Authorize]` attribute next to an action or a controller. The test API we just created provides you with `WeatherForecastController` which you can adjust for your testing purposes.
+And then simply using it:
 
-Now when you will call the `/weatherforecast` endpoint will throw a `401 Unauthorized` result. In order to be authorized you need to add an `Authorization` header with the value `Bearer {token}` where in place of `{token}` you place the access token acquired in the previous step.
+```
+builder.SetupAuthorization();
+```
+
+All of the above code will help you validate the Client Credentials token, but it will only test the validity of the token based on the provided data (issuer, audience, OpenIDConfiguration, etc.). At this point, **it's good to implement authorization and check what can the given appId do, and what it can't, as this is something that should be implemented on the side of your API**.
 
 ---
 

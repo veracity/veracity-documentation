@@ -31,10 +31,8 @@ description: Configuring Client application in Veracity
 
 <figure>
 	<img src="assets/cc-client-step-4-configure-your-client.png"/>
-	<figcaption>Next is the Configure step</figcaption>
+	<figcaption>Write the application name under **Application name**.</figcaption>
 </figure>
-
-Write the application name under **Application name**.
 
 For client application check Client Credentials.
 
@@ -55,7 +53,7 @@ Once finished, you will be redirected to your resource, where you can edit any d
 
 <figure>
 	<img src="assets/cc-client-step-6-summary.png"/>
-	<figcaption>In the Settings tab you can find the data needed to configure your client application.</figcaption>
+	<figcaption>In the Settings tab you can find your API's ID under **App / Api ID**, and also **Subscriptions keys** and **Scopes**.</figcaption>
 </figure>
 
 From this part of the screen you should note:

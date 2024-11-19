@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\sections",
-    "\\sections\\dataplatform",
-    "\\sections\\datastandards",
-    "\\sections\\vap"
+    "\\sections\\datastandards"
   ],
-  "SelectedNode": "\\sections\\dataplatform\\toc.json",
+  "SelectedNode": "\\sections\\datastandards\\operationalvesseldata.md",
   "PreviewInSolutionExplorer": false
 }

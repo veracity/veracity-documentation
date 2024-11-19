@@ -553,22 +553,3 @@ This is an application with no clear least privilege defined and cannot use the 
 In the application, the tenant admin or application access admins can assign additional permissions to individual users or groups. The application can, if required for performance or resiliency reasons, keep a local copy of the tenant structure that is relevant.
 
 Permissions are assigned to Groups or individual profiles. In the permissions configuration table/storage each permission must tell if it is a group or profile that is assigned the permission. When a user/group is assigned permission, the application needs to ensure that the user/group has a subscription to the technical service in Veracity.
-
-
-## V4 Use case scenarios
-
-Below we present sample use case scenarios for VTM.
-
-### Health and Safety Tracker
-
-The Health and Safety Tracker is monitors and manages the health and safety conditions in a workplace. It keeps track of safety compliance, sends notifications and alerts, allows reporting health status and safety incidents, as well as monitoring and managing them.
-
-#### Implementation Using Veracity Platform API
-Health and Safety Tracker uses various endpoints and functionalities provided by the Veracity Platform API. See some key aspects of the implementation below.
-
-#### User Identity
-User identities are handled by Veracity Identity which provides self-service signup, password reset and other core identity management functions.
-
-#### Multi-Tenant Application Management
-The application supports multiple tenants, each representing a different workplace or department. The following endpoints are used to manage tenants and their associated applications.
-

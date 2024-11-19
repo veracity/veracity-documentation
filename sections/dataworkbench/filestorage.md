@@ -3,9 +3,17 @@ author: Veracity
 description: This page explains how to use File storage in Data Workbench and how to migrate to it from Data Fabric.
 ---
 # File storage
-This page explains how to use File storage in Data Workbench and **how to migrate to it from Data Fabric**.
+In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
+
+**If you want to access it via API**, see [File storage API endpoints in API docs](apiendpoints.md).
+
+## Migrating from Data Fabric?
+File Storage is replacing Data Fabric. If you are migrating from Data Fabric:
+1. Follow the [migration guide](../datafabric/tutorials/download-my-data.md) to download your data manually.
+2. Upload your data to File Storage.
 
 ## Prerequisites
+To use File storage:
 1. You need Veracity Data Workbench. 
 2. You need File storage, which is an additional feature for Data Workbench.
 
@@ -15,71 +23,27 @@ You can purchase them on Veracity Marketplace:
 
 Note that you might already have access to them as a part of another service you purchased from Veracity.
 
-## Account activation process
-Before you can start using Data Workbench with storage functionality, your account needs to be activated. Once you have completed the subscription purchase, Veracity will set up your account. Once the setup is complete, you will receive an activation email. After receiving this email, you can begin using Data Workbench with full storage capabilities.
-
-## File storage
-
-In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
-
-**If you want to access it via API**, see [File storage API endpoints in API docs](apiendpoints.md).
-
-For each file, you can find the three dots in the row with the file (1) and open the action menu.
-
-<figure>
-	<img src="assets/dotsmenu.png"/>
-</figure>
-
-The action menu lets you:
-- Download the file (2).
-
-<figure>
-	<img src="assets/download.png"/>
-</figure>
-
-- Share the file (3). After sharing, the recipient will see the file in the **Shared with me** tab in Data catalogue.
-
-<figure>
-	<img src="assets/share.png"/>
-</figure>
-
-- Revoke access (4) to the file.
-
-<figure>
-	<img src="assets/revoke.png"/>
-</figure>
-
-- As an admin, generate SaS keys (5) for accessing files through external systems.
-
-<figure>
-	<img src="assets/generatekeys.png"/>
-</figure>
-
-- As a file owner, delete (6) the files you uploaded.
-
-<figure>
-	<img src="assets/delete.png"/>
-</figure>
-
-## Migrating from Data Fabric?
-File Storage is replacing Data Fabric. If you are migrating from Data Fabric:
-1. Follow the [migration guide](../datafabric/tutorials/download-my-data.md) to download your data manually.
-2. Upload your data to File Storage.
-
-## Need Support?
-If you need any support:
-1. Visit [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) where you will find articles and video tutorials on Data Workbench.
-2. Contact the [support team](mailto:support@veracity.com) for assistance.
-
+After you purchase a subscription to File storage, Veracity sets up your account and sends you an email notification when it is ready.
 
 ## To go to File storage
 1. In your workspace, go to **Data catalogue** page.
 2. Select the **File storage** tab.
 
 <figure>
-	<img src="assets/fst1.png"/>
+	<img src="assets/access.png"/>
 	<figcaption>Location of File Storage.</figcaption>
 </figure>
+
+## Action menu in File storage
+For each file, you can find the three dots in the row with the file and open the action menu (1). In the menu, you can:
+* Download the file (2).
+* Share the file (3). After sharing, the recipient will see the file in the Shared with me tab in Data catalogue.
+* Revoke access (4) to the file.
+* Generate SaS keys (5) for accessing files through external systems.
+* As a file owner, delete (6) the files you uploaded.
+
+<figure>
+	<img src="assets/filestorage.png"/>
 
 ## To upload files
 1. In the top right corner, select **Upload files**. You can upload multiple files at once.
@@ -129,3 +93,8 @@ If you are a workspace admin, you can generate access keys to files and folders 
 4. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
 5. Select **Generate key** and a new field called **Access key** will show.
 6. Select **Copy key**. 
+
+## Need Support?
+If you need any support:
+1. Visit [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) where you will find articles and video tutorials on Data Workbench.
+2. Contact the [support team](mailto:support@veracity.com) for assistance.

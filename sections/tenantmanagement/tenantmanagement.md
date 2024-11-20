@@ -572,3 +572,23 @@ User identities are handled by Veracity Identity which provides self-service sig
 #### Multi-Tenant Application Management
 The application supports multiple tenants, each representing a different workplace or department. The following endpoints are used to manage tenants and their associated applications.
 
+#### To check if the user has access to the application
+To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
+* `/me/applications/{applicationId}/tenants`
+Depending on the response, the user will see different pages when trying to access the application.
+* If the response is an empty list, the user will be redirected to the unauthorized page. 
+* If the response contains one tenant, the user will be redirected to the application where they will use this tenant.
+* If the response containd two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
+Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. Make sure you can retrieve it later on.
+
+
+#### To determine the user’s role in the application:
+You can determine the role of the user by getting their license. To do it, call the following endpoint with a GET method
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+
+All tenant objects contain extension properties that applications can use to store application specific information. In this case, look for these two
+properties:
+* `demo_caseTypeHandler` - It contains a space separated list of case type names the user is a handler of.
+* `demo_caseRegionHandler` - It contains the region identifier the user is handling cases for. 
+If a user has both these properties, then they are a case handler. Otherwise, they are a regular user and can only report cases.

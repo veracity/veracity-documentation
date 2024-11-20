@@ -441,122 +441,6 @@ The Service Bus documentation will be made available shortly.
 
 ## Use case scenarios
 
-Below we present sample use case scenarios for VTM. The scenarios correspond to the [three types of access control](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared+Documents/Tenant+Management/Documentation/Veracity+Access+Hub+Guide.docx?d=w8e4cd5772cbf4cefabd1a87f630f90f8&csf=1&web=1&e=ekpFBB&nav=eyJoIjoiMjc5ODE1ODkzIn0) that Veracity Tenant Management offers.
-
-### Simple calculator (fully managed by Veracity)
-
-The user needs a license for this service but it doesn’t require more authorization. The application relies on normal Veracity sign-in flow with an additional license check.
-
-All users can do everything in the service meaning there are no roles with varying permissions.
-
-#### APIs used
-
-|Name|URL|
-|--------|-----------|
-|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Subscription details|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-
-
-#### Business case
-
-An example of such an application might be an analysis tool that lets you run offline operational scenarios for your compressor to optimise your machine’s configuration an quantify the effect of changing gas compositions such as adding Biogas, LNG, and Hydrogen.
-
-### Seating tracker for hot seating workplaces (complex access model)
-
-In this example, we have a:
-
--   Multi-tenant application. When the user accesses the application’s root, if you follow [Veracity Tenant Selector guidelines](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/Shared+Documents/Tenant+Management/Documentation/Veracity+Tenant+Management+for+Developers.docx?d=wca837b6c59844fd59ae5b187ed93cb3b&csf=1&web=1&e=gVEF38&nav=eyJoIjoiNjI5OTExMzY4In0), you can make an API call to check which tenants the user has access to. Then, if they only belong to one, you take them there directly and if they belong to multiple tenants, you ask them to choose to which tenant they want to sign in.   Note that, instead of using APIs to get the tenant, you can use a local copy synchronized through Veracity Service Bus.
-
--   Support for access levels and permissions based on roles.
-
--   User management tasks are delegated to Veracity.
-
-Note that:
-
--   You can check to which tenant(s) user belongs with API calls.
-
--   You can check user permissions through API calls.
-
--   You can delegate user management to Veracity APIs.
-
-Thanks to this, you can focus on the functional requirements of the application you are building.
-
-The application allows admins to manage floor plans by uploading “maps” and configuring seating locations. Normal users can register their desk for the day in the tool. It is a multi-tenant SaaS application.
-
-#### APIs used
-
-|Name|URL|
-|--------|-----------|
-|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Service tenants|api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
-|Access level|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-|Profile picture|api.veracity.com/veracity/services/v3/my/picture|
-|Profile picture for user|api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
-|All users|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
-
-
-Note that if the application needs to store a local copy, it must be able to provide the same results as the API (access level).
-
-#### Business case
-
-An example of such an application might be a data service that provides on-demand information for solar power plants. Users have access to data from different sites (multi-tenant structure), authentication and authorization is handled by calling Veracity APIs and the same is true for checking user permissions in the application (for example, engineers can automate site-screening and feasibility analysis, but external consultants can only read some data).
-
-### Health and safety tracker application (hybrid access model)
-
-The application is used for risk management and as a health and safety tracker. All users can register incidents and risks, and then the application assigns them to the ‘Case responsible’ based on some criteria (for example, case type or geographical region).
-
-This application has a well-defined least privilege but requires more detailed permissions for the ‘Case responsible’ granting permissions to objects not modeled in the VTM data structure.
-
-#### APIs used
-
-|Name|URL|
-|--------|-----------|
-|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Service tenants|api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
-|Access level|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-|Profile picture|api.veracity.com/veracity/services/v3/my/picture|
-|Profile picture for user|api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
-|All users|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
-|Add subscription|api.veracity.com/veracity/vtm/v1/tenant/{tenantId{/services/{id}/subscribers/{entityId}?memberType={profile|
-|Get groups|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups?$filter=isBuiltIn+eq+false|
-|Get direct group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members|
-|Get all group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members/exploded|
-
-
-
-In this scenario, the application will receive the basic permissions from Veracity and all these users will have a clear least privilege defined as being allowed to report new incidents and see the status of cases they have reported. The tenant admin or application access admins can assign additional permissions to individual users or groups in the application. The application can, if required for performance or resiliency reasons, keep a local copy of the tenant structure that is relevant.
-
-Additional permissions are then assigned to groups or individual profiles. In the permission configuration table/storage, each permission must tell if it is a group or profile that is assigned the permission.
-
-### App with complex authorization and no clear least privilege defined (Data Workbench)
-
-An example of such an application is [Data Workbench](https://store.veracity.com/data-workbench).
-
-This is an application with no clear least privilege defined and cannot use the Veracity subscription model directly. However, to get update notifications from Veracity Identity and other Veracity components, the application needs to register a subscription for all users that are granted access to the application.
-
-#### APIs used
-
-|Name|URL|
-|--------|-----------|
-|Policy|api.veracity.com/Veracity/Services/V3/my/policies/{serviceId}/validate()|
-|Service tenants|api.veracity.com/veracity/vtm/v1/me/services/{serviceId}/tenants|
-|Access level|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/{profileId}|
-|Profile picture|api.veracity.com/veracity/services/v3/my/picture|
-|Profile picture for user|api.veracity.com/veracity/services/v3/this/services/{serviceId}/subscribers/{userId}/picture|
-|All users|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/services/{serviced}/subscribers/exploded|
-|Add subscription|api.veracity.com/veracity/vtm/v1/tenant/{tenantId{/services/{id}/subscribers/{entityId}?memberType={profile|
-|Get groups|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups?$filter=isBuiltIn+eq+false|
-|Get direct group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members|
-|Get all group members|api.veracity.com/veracity/vtm/v1/tenant/{tenantId}/groups/{groupId}/members/exploded|
-
-
-In the application, the tenant admin or application access admins can assign additional permissions to individual users or groups. The application can, if required for performance or resiliency reasons, keep a local copy of the tenant structure that is relevant.
-
-Permissions are assigned to Groups or individual profiles. In the permissions configuration table/storage each permission must tell if it is a group or profile that is assigned the permission. When a user/group is assigned permission, the application needs to ensure that the user/group has a subscription to the technical service in Veracity.
-
-
-## V4 Use case scenarios
-
 The Veracity Platform API offers a comprehensive set of tools for managing applications, users, groups, and permissions within a multi-tenant environment. See some practical applications below.
 
 ### Health and Safety Tracker
@@ -701,3 +585,22 @@ The license object has an AccessLevel that is used to determined whether the use
 The application stores all the floor plans and seat bookings in its own database while users and permissions are handled by Veracity. This allows the product team to focus on the distinguishing features of the application while some of the security aspects are outsourced.
 
 The maps are stored in a blob storage while the seating arrangements and coordinates within the floor map is stored in a SQL database along with the bookings.
+
+### Shopping Mall Management Application
+
+The application is designed to manage employees and health and safety managers for all shops in a mall. It allows store managers to oversee their staff and ensures efficient crisis management by the mall administration. The application integrates with POS systems to provide real-time data on employee presence. Its core functionalities include:
+* Employee and Manager Tracking: Real-time record-keeping of all employees and health and safety managers.
+* Check-in and Check-out System: Easy tracking of attendance and work shifts.
+* Managerial Control for Store Managers: Autonomy for store managers to manage their staff and ensure compliance.
+* POS System Integration: Efficient tracking of employee presence.
+* Health and Safety Compliance: Monitoring and reporting of health and safety compliance.
+* Notifications and Alerts: Real-time push notifications for safety incidents using Firebase.
+
+
+#### Multi-Tenant Application Management
+
+The application supports multiple tenants, each representing a different workplace or department. 
+
+To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub). for more details.
+
+Also, you can use the following endpoints to manage tenants and their associated applications.

@@ -557,38 +557,147 @@ Permissions are assigned to Groups or individual profiles. In the permissions co
 
 ## V4 Use case scenarios
 
-Below we present sample use case scenarios for VTM.
+The Veracity Platform API offers a comprehensive set of tools for managing applications, users, groups, and permissions within a multi-tenant environment. See some practical applications below.
 
 ### Health and Safety Tracker
 
 The Health and Safety Tracker is monitors and manages the health and safety conditions in a workplace. It keeps track of safety compliance, sends notifications and alerts, allows reporting health status and safety incidents, as well as monitoring and managing them.
 
-#### Implementation Using Veracity Platform API
-Health and Safety Tracker uses various endpoints and functionalities provided by the Veracity Platform API. See some key aspects of the implementation below.
+It uses various endpoints and functionalities provided by the Veracity Platform API. See some key aspects of the implementation below.
 
 #### User Identity
+
 User identities are handled by Veracity Identity which provides self-service signup, password reset and other core identity management functions.
 
 #### Multi-Tenant Application Management
-The application supports multiple tenants, each representing a different workplace or department. The following endpoints are used to manage tenants and their associated applications.
 
-#### To check if the user has access to the application
+The application supports multiple tenants, each representing a different workplace or department. 
+
+To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub). for more details.
+
+Also, you can use the following endpoints to manage tenants and their associated applications.
+
+##### To check if the user has access to the application
+
 To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
 * `/me/applications/{applicationId}/tenants`
+
 Depending on the response, the user will see different pages when trying to access the application.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
-* If the response contains one tenant, the user will be redirected to the application where they will use this tenant.
-* If the response containd two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
-Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. Make sure you can retrieve it later on.
+* If the response contains one tenant, the user will be redirected to the application using this tenant
+* If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
 
+Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
 
-#### To determine the user’s role in the application:
+##### To determine the user’s role in the application
+
 You can determine the role of the user by getting their license. To do it, call the following endpoint with a GET method
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
-
-
 All tenant objects contain extension properties that applications can use to store application specific information. In this case, look for these two
 properties:
 * `demo_caseTypeHandler` - It contains a space separated list of case type names the user is a handler of.
-* `demo_caseRegionHandler` - It contains the region identifier the user is handling cases for. 
+* `demo_caseRegionHandler` - It contains the region identifier the user is handling cases for.
+
 If a user has both these properties, then they are a case handler. Otherwise, they are a regular user and can only report cases.
+
+##### To determine if the user can assign other case handlers
+
+To find the application administrator within the tenant, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/administrators`
+
+If the logged in user is in the list of administrators, the administration menu will be displayed.
+
+##### To assign a user as a case handler for ‘physical security’ in the EMEA region
+
+To assign a user as a case handler for ‘physical security’ in the EMEA region, call the following endpoing with a PATCH method.
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+
+Also, use the following request body.
+```json
+[
+    {
+        "value": {
+            "Name": "demo_caseTypeHandler",
+            "Value": "physical_security"
+        },
+        "path": "/properties/-",
+        "op": "add"
+    },
+    {
+        "value": {
+            "Name": "demo_caseRegionHandler",
+            "Value": "EMEA"
+        },
+        "path": "/properties/-",
+        "op": "add"
+    }
+]
+```
+
+##### To assign an application admin role to a user
+
+You can assign an application administrator role to a user by calling the following endpoint with a POST method.
+* `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
+
+##### To remove an application admin role from a user
+
+You can remove an application administrator role from a user by calling the following endpoint with a DELETE method.
+* `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
+
+##### To find users to assign them admin or case handler roles
+
+To search for users in the tenant, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/users`
+
+You can also search for users who are already users of the application by calling the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/users`
+
+Both these endpoints support odata queries.
+Example odata query: 
+* `[GET tenants/be0c84cb-7a4a-4114-aa17-9c0224b084cf/users?$filter=name eq 'Normann, Ola'&$top=1&$skip=0]`
+
+
+Note that in this example user groups can also be made case handlers. However, you can assign administrator roles only to single users.
+
+### Hot Seating Office Manager Application
+
+The Hot Seating Office Manager application is designed to optimize seating arrangements in a dynamic office environment. It helps track available seats, locate colleagues, and manage floor plans, ensuring an efficient and collaborative workspace.
+
+It uses various endpoints and functionalities provided by the Veracity Platform API. See some key aspects of the implementation below.
+
+#### User Identity
+
+User identities are handled by Veracity Identity which provides self-service signup, password reset and other core identity management functions.
+
+#### Multi-Tenant Application Management
+
+The application supports multiple tenants, each representing a different workplace or department. 
+
+To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub). for more details.
+
+Also, you can use the following endpoints to manage tenants and their associated applications.
+
+##### To check if the user has access to the application
+
+To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
+* `/me/applications/{applicationId}/tenants`
+
+
+Depending on the response, the user will see different pages when trying to access the application.
+* If the response is an empty list, the user will be redirected to the unauthorized page. 
+* If the response contains one tenant, the user will be redirected to the application using this tenant
+* If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
+
+Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
+
+##### To determine user roles and permissions
+To get the user license, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+The license object has an AccessLevel that is used to determined whether the user is a regular user who can book a seat for the day or if they are an admin can upload new floor plans and manage existing ones, ensuring they are always up to date.
+
+#### Application responsibilities
+The application stores all the floor plans and seat bookings in its own database while users and permissions are handled by Veracity. This allows the product team to focus on the distinguishing features of the application while some of the security aspects are outsourced.
+
+The maps are stored in a blob storage while the seating arrangements and coordinates within the floor map is stored in a SQL database along with the bookings.

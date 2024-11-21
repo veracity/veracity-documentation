@@ -457,7 +457,7 @@ User identities are handled by Veracity Identity which provides self-service sig
 
 The application supports multiple tenants, each representing a different workplace or department. 
 
-To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub). for more details.
+To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
 Also, you can use the following endpoints to manage tenants and their associated applications.
 
@@ -558,7 +558,7 @@ User identities are handled by Veracity Identity which provides self-service sig
 
 The application supports multiple tenants, each representing a different workplace or department. 
 
-To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub). for more details.
+To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
 Also, you can use the following endpoints to manage tenants and their associated applications.
 
@@ -579,7 +579,7 @@ Note that the tenant ID can be passed in a cookie, URL query parameter or a head
 To get the user license, call the following endpoint with a GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
-The license object has an AccessLevel that is used to determined whether the user is a regular user who can book a seat for the day or if they are an admin can upload new floor plans and manage existing ones, ensuring they are always up to date.
+The license object has an AccessLevel that is used to determine whether the user is a regular user who can book a seat for the day or if they are an admin can upload new floor plans and manage existing ones, ensuring they are always up to date.
 
 #### Application responsibilities
 The application stores all the floor plans and seat bookings in its own database while users and permissions are handled by Veracity. This allows the product team to focus on the distinguishing features of the application while some of the security aspects are outsourced.
@@ -601,6 +601,36 @@ The application is designed to manage employees and health and safety managers f
 
 The application supports multiple tenants, each representing a different workplace or department. 
 
-To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub). for more details.
+To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
 Also, you can use the following endpoints to manage tenants and their associated applications.
+
+##### To check if the user has access to the application
+
+To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
+* `/me/applications/{applicationId}/tenants`
+
+
+Depending on the response, the user will see different pages when trying to access the application.
+* If the response is an empty list, the user will be redirected to the unauthorized page. 
+* If the response contains one tenant, the user will be redirected to the application using this tenant
+* If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
+
+Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
+
+##### To determine user roles and permissions
+
+To get the user license, call the following endpoint with a GET method:
+* `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+
+The license object has an AccessLevel that is used to that determine whether the user is a regular user who can check in and out or an admin who can manage employees and health and safety compliance.
+
+
+Store managers are added to the system and granted user admin and application admin roles within the Veractiy Tenant Management system through the API. The storeId is added to the extension properties of the license.
+
+
+Then, the store manager can add and remove users from their own store. When adding a new user to the store, the storeId is saved in the extension properties. The app also saves a flag indicating if the user is a health and safety responsible for the store.
+
+The application stores info on the license for the mall administration, marking this person as the store’s primary contact. To check this info, call the following endpoint with a PATCH method:
+* `tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`

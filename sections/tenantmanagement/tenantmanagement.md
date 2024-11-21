@@ -242,23 +242,23 @@ For more information about patching, go [here](https://jsonpatch.com/).
 The **Applications** interface provides methods to interact with applications within a tenant. Use it to retrieve applications, verify user licenses, and manage user and group licenses.
 
 ##### Check applications installed in the tenant with support for OData query parameters
-To check the applications installed in the tenant with support for OData query parameters, call the following endpoint with a GET method:
+To check the applications installed in the tenant with support for OData query parameters, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications`
 
 ##### Check an application by its public ID
-To check a specific application by its public ID, call the following endpoint with a GET method:
+To check a specific application by its public ID, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}`
 
 ##### Check direct users and groups with licenses for the application
-To check all direct users and groups with licenses for an application, call the following endpoint with a GET method:
+To check all direct users and groups with licenses for an application, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses`
 
 ##### Verify the user's license for the application
-To verify if a user has a license for an application, call the following endpoint with a GET method:
+To verify if a user has a license for an application, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
 ##### Check all users
-To check all users, including users inherited from groups, with deduplication support, call the following endpoint with a GET method:
+To check all users, including users inherited from groups, with deduplication support, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/users`
 Note that you can disable deduplication to detect users with multiple paths to the application in the tenant.
 
@@ -267,28 +267,28 @@ To add a user or group license to an application, call the following endpoint wi
 * `/tenants/{tenantId}/applications/{applicationId}/licenses`
 
 ##### Set access level on the existing license
-To set access level on the existing license, call the following endpoint with a PUT method:
+To set access level on the existing license, call the following endpoint using the PUT method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 Note that you can use it only with applications which have access levels.
 
 ##### Update license details
-To update license details using a JSON patch document, call the following endpoint with a PATCH method:
+To update license details using a JSON patch document, call the following endpoint using the PATCH method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 
 ##### Remove license
-To remove a license, call the following endpoint with a DELETE method:
+To remove a license, call the following endpoint using the DELETE method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`
 
 ##### Check all tenants
-To check all tenants where the application is installed, call the following endpoint with a GET method:
+To check all tenants where the application is installed, call the following endpoint using the GET method:
 * `/applications/{applicationId}/tenants`
 
 ##### Update application extension properties
-To update application extension properties using a JSON patch document, call the following endpoint with a PATCH method:
+To update application extension properties using a JSON patch document, call the following endpoint using the PATCH method:
 * `/tenants/{tenantId}/applications/{applicationId}`
 
 ##### Check application administrators
-To check all application administrators, call the following endpoint with a GET method:
+To check all application administrators, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/administrators`
 
 ##### Add application administrator
@@ -296,7 +296,7 @@ To add a user as an application administrator, call the following endpoint with 
 * `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
 
 ##### Remove application administrator
-To remove an application administrator, call the following endpoint with a DELETE method:
+To remove an application administrator, call the following endpoint using the DELETE method:
 * `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
 
 
@@ -304,62 +304,62 @@ To remove an application administrator, call the following endpoint with a DELET
 The **Groups** interface provides methods to manage groups and their members within a tenant. Use it to retrieve groups andgroup members, and update group properties.
 
 ##### Get groups in tenant with support for OData query parameters
-To check the groups in the tenant with support for OData query parameters, call the following endpoint with a GET method:
+To check the groups in the tenant with support for OData query parameters, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/groups`
 
 ##### Check a group
-To check a specific group by its ID, call the following endpoint with a GET method:
+To check a specific group by its ID, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/groups/{groupId}`
 
 ##### Check direct users and groups in a group
-To check all direct users and groups within a group, call the following endpoint with a GET method: 
+To check all direct users and groups within a group, call the following endpoint using the GET method: 
 * `/tenants/{tenantId}/groups/{groupId}/members`
 
 ##### Get users
-To check all users, including users inherited from groups, call the following endpoint with a GET method:
+To check all users, including users inherited from groups, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/groups/{groupId}/members/exploded`
 
 ##### Update a member
-To update member properties using a JSON patch document,  call the following endpoint with a PATCH method: 
+To update member properties using a JSON patch document,  call the following endpoint using the PATCH method: 
 * `/tenants/{tenantId}/groups/{groupId}/members/{memberId}`
 
 ##### Update a group
-To update group properties using a JSON patch document, call the following endpoint with a PATCH method:
+To update group properties using a JSON patch document, call the following endpoint using the PATCH method:
 * `/tenants/{tenantId}/groups/{groupId}`
 
 ##### Check what groups a group is a part of
-To list all the groups a specific group is a member of, call the following endpoint with a GET method: 
+To list all the groups a specific group is a member of, call the following endpoint using the GET method: 
 * `/tenants/{tenantId}/groups/{groupId}/memberOf`
 
 ##### Get applications group has a license for
-To check all the applications licensed for the group, call the following endpoint with a GET method:
+To check all the applications licensed for the group, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/groups/{groupId}/applications`
 
 #### Me
 The **Me** interface provides methods to retrieve information about the logged-in user, including their applications, groups, and tenants.
 
 ##### Check details for logged-in user
-To check the details for the logged-in user, call the following endpoint with a GET method:
+To check the details for the logged-in user, call the following endpoint using the GET method:
 * `/me`
 
 ##### Check all applications the user has access to
-To check all the applications to which the user has access, call the following endpoint with a GET method:
+To check all the applications to which the user has access, call the following endpoint using the GET method:
 * `/me/applications`
 
 ##### Check all applications in the tenant to which the user has access
-To check all the applications in the tenant to which the user has access, call the following endpoint with a GET method:
+To check all the applications in the tenant to which the user has access, call the following endpoint using the GET method:
 * `/me/tenants/{tenantId}/applications`
 
 ##### Check groups to which the logged-in user belongs
-To check all the groups to which the logged-in user belongs, call the following endpoint with a GET method:
+To check all the groups to which the logged-in user belongs, call the following endpoint using the GET method:
 * `/me/tenants/{tenantId}/groups`
 
 ##### Check all the tenants to which the logged-on user belongs
-To check all the tenants to which the logged-on user belong, call the following endpoint with a GET method:
+To check all the tenants to which the logged-on user belong, call the following endpoint using the GET method:
 * `/me/tenants`
 
 ##### Check all tenants to which the logged-on user belongs and has access to a specific application
-To check all the tenants the logged-on user is a member of and has access to a specific application, call the following endpoint with a GET method:
+To check all the tenants the logged-on user is a member of and has access to a specific application, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
 ##### Verify Veracity user policies
@@ -369,7 +369,7 @@ To Verify Veracity user policies and return appropriate responses based on polic
 It returns an empty 202 response if all policies are correct, and 406 with an error response with the URL to send the user to the correct the policy issue.
 
 #### StatusService
-To check information about the status of the service, call the following endpoint with a GET method:
+To check information about the status of the service, call the following endpoint using the GET method:
 * `/health`
 
 You will get:
@@ -381,50 +381,50 @@ You will get:
 The **Tenants** interface provides methods to interact with tenants, including retrieving tenant details and managing tenant administrators.
 
 ##### Get a tenant by ID
-To check a tenant by its ID, call the following endpoint with a GET method:
+To check a tenant by its ID, call the following endpoint using the GET method:
 * `/tenants/{tenantId}`
 
 ##### Check tenants linked to your service
-To get a list of tenants linked to a specific service, call the following endpoint with a GET method:
+To get a list of tenants linked to a specific service, call the following endpoint using the GET method:
 * `/tenants`
 
 ##### Check admin details for the user by their ID
-To check admin details for the user by their ID, call the following endpoint with a GET method:
+To check admin details for the user by their ID, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/admins/{userId}`
 
 ##### Get admins of the tenant
-To checl all global and local admins of a tenant, call the following endpoint with a GET method:
+To checl all global and local admins of a tenant, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/admins`
 
 #### Users
 The **Users** interface provides methods to manage users within a tenant, including retrieving user details, groups, and applications.
 
 ##### Checka user by their email
-To check a user by their email address, call the following endpoint with a GET method:
+To check a user by their email address, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/users/.email({email})`
 
 ##### Check user by their ID
-To check a user by their ID, call the following endpoint with a GET method:
+To check a user by their ID, call the following endpoint using the GET method:
 * `/users/{userId}`
 
 #####  List users in a tenant
-To get a list of users in a tenant with support for OData query parameters,  call the following endpoint with a GET method:
+To get a list of users in a tenant with support for OData query parameters,  call the following endpoint using the GET method:
 * `/tenants/{tenantId}/users`
 
 ##### Check user details in a tenant
-To check the details of a user in a tenant, call the following endpoint with a GET method:
+To check the details of a user in a tenant, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/users/{userId}`
 
 ##### Check user's groups
-To check the groups associated with a user, call the following endpoint with a GET method:
+To check the groups associated with a user, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/users/{userId}/groups`
 
 ##### Check user's applications
-To check the applications associated with a user,call the following endpoint with a GET method:
+To check the applications associated with a user,call the following endpoint using the GET method:
 * `/tenants/{tenantId}/users/{userId}/applications`
 
 ##### Check tenants to which the user belongs
-To check the tenants a user is a member of, call the following endpoint with a GET method:
+To check the tenants a user is a member of, call the following endpoint using the GET method:
 * `/users/{userId}/tenants`
 
 ##### Check full user details for a list of user IDs
@@ -432,7 +432,7 @@ To check full user details for a list of user IDs, call the following endpoint w
 * `/tenants/{tenantId}/users`
 
 ##### Update user extension properties
-To update the extension properties for a user using a JSON patch document, call the following endpoint with a PATCH method:
+To update the extension properties for a user using a JSON patch document, call the following endpoint using the PATCH method:
 * `/tenants/{tenantId}/users/{userId}`
 
 ## Service Bus
@@ -441,32 +441,32 @@ The Service Bus documentation will be made available shortly.
 
 ## Use case scenarios
 
-The Veracity Platform API offers a comprehensive set of tools for managing applications, users, groups, and permissions within a multi-tenant environment. See some practical applications below.
+The Veracity Platform API offers comprehensive tools for managing applications, users, groups, and permissions within a multi-tenant environment. See some practical applications below.
 
 ### Health and Safety Tracker
 
-The Health and Safety Tracker is monitors and manages the health and safety conditions in a workplace. It keeps track of safety compliance, sends notifications and alerts, allows reporting health status and safety incidents, as well as monitoring and managing them.
+The Health and Safety Tracker monitors and manages workplace health and safety conditions. It keeps track of safety compliance, sends notifications and alerts, allows reporting health status and safety incidents, and monitors and manages them.
 
 It uses various endpoints and functionalities provided by the Veracity Platform API. See some key aspects of the implementation below.
 
 #### User Identity
 
-User identities are handled by Veracity Identity which provides self-service signup, password reset and other core identity management functions.
+Veracity Identity handles user identities, providing self-service signup, password reset, and other core identity management functions.
 
 #### Multi-Tenant Application Management
 
 The application supports multiple tenants, each representing a different workplace or department. 
 
-To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
+To grant users access to the application and set their roles, use Veracity Access Hub. The tenant administrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
 Also, you can use the following endpoints to manage tenants and their associated applications.
 
 ##### To check if the user has access to the application
 
-To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
+To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
-Depending on the response, the user will see different pages when trying to access the application.
+Depending on the response, the user will see different pages when accessing the application.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
 * If the response contains one tenant, the user will be redirected to the application using this tenant
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
@@ -475,25 +475,27 @@ Note that the tenant ID can be passed in a cookie, URL query parameter or a head
 
 ##### To determine the user’s role in the application
 
-You can determine the role of the user by getting their license. To do it, call the following endpoint with a GET method
+You can determine the role of the user by getting their license. To do it, call the following endpoint using the GET method
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+
 All tenant objects contain extension properties that applications can use to store application specific information. In this case, look for these two
 properties:
-* `demo_caseTypeHandler` - It contains a space separated list of case type names the user is a handler of.
-* `demo_caseRegionHandler` - It contains the region identifier the user is handling cases for.
+* `demo_caseTypeHandler` - It contains a space-separated list of case type names of which the user is a handler.
+* `demo_caseRegionHandler` - It contains the region identifier for which the user is handling cases.
 
-If a user has both these properties, then they are a case handler. Otherwise, they are a regular user and can only report cases.
+If a user has both these properties, it means that they are a case handler. Otherwise, they are a regular user and can only report cases.
 
 ##### To determine if the user can assign other case handlers
 
-To find the application administrator within the tenant, call the following endpoint with a GET method:
+To find the application administrator within the tenant, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/administrators`
 
-If the logged in user is in the list of administrators, the administration menu will be displayed.
+If the logged-in user is on the list of administrators, the administration menu will be displayed.
 
 ##### To assign a user as a case handler for ‘physical security’ in the EMEA region
 
-To assign a user as a case handler for ‘physical security’ in the EMEA region, call the following endpoing with a PATCH method.
+To assign a user as a case handler for ‘physical security’ in the EMEA region, call the following endpoint using the PATCH method.
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
 
@@ -521,20 +523,20 @@ Also, use the following request body.
 
 ##### To assign an application admin role to a user
 
-You can assign an application administrator role to a user by calling the following endpoint with a POST method.
+You can assign an application administrator role to a user by calling the following endpoint using the POST method.
 * `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
 
 ##### To remove an application admin role from a user
 
-You can remove an application administrator role from a user by calling the following endpoint with a DELETE method.
+You can remove an application administrator role from a user by calling the following endpoint using the DELETE method.
 * `/tenants/{tenantId}/applications/{applicationId}/administrators/{userId}`
 
 ##### To find users to assign them admin or case handler roles
 
-To search for users in the tenant, call the following endpoint with a GET method:
+To search for users in the tenant, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/users`
 
-You can also search for users who are already users of the application by calling the following endpoint with a GET method:
+You can also search for users who are already users of the application by calling the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/users`
 
 Both these endpoints support odata queries.
@@ -546,29 +548,29 @@ Note that in this example user groups can also be made case handlers. However, y
 
 ### Hot Seating Office Manager Application
 
-The Hot Seating Office Manager application is designed to optimize seating arrangements in a dynamic office environment. It helps track available seats, locate colleagues, and manage floor plans, ensuring an efficient and collaborative workspace.
+The Hot Seating Office Manager application optimizes seating arrangements in a dynamic office environment. It helps track available seats, locate colleagues, and manage floor plans, ensuring an efficient and collaborative workspace.
 
 It uses various endpoints and functionalities provided by the Veracity Platform API. See some key aspects of the implementation below.
 
 #### User Identity
 
-User identities are handled by Veracity Identity which provides self-service signup, password reset and other core identity management functions.
+Veracity Identity handles user identities, providing self-service signup, password reset, and other core identity management functions.
 
 #### Multi-Tenant Application Management
 
 The application supports multiple tenants, each representing a different workplace or department. 
 
-To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
+To grant users access to the application and set their roles, use Veracity Access Hub. The tenant administrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
 Also, you can use the following endpoints to manage tenants and their associated applications.
 
 ##### To check if the user has access to the application
 
-To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
+To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
 
-Depending on the response, the user will see different pages when trying to access the application.
+Depending on the response, the user will see different pages when accessing the application.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
 * If the response contains one tenant, the user will be redirected to the application using this tenant
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
@@ -576,7 +578,7 @@ Depending on the response, the user will see different pages when trying to acce
 Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
 
 ##### To determine user roles and permissions
-To get the user license, call the following endpoint with a GET method:
+To get the user license, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
 The license object has an AccessLevel that is used to determine whether the user is a regular user who can book a seat for the day or if they are an admin can upload new floor plans and manage existing ones, ensuring they are always up to date.
@@ -601,17 +603,17 @@ The application is designed to manage employees and health and safety managers f
 
 The application supports multiple tenants, each representing a different workplace or department. 
 
-To grant users acccess to the application and set their roles, use Veracity Access Hub. The tenant admininstrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups, or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
+To grant users access to the application and set their roles, use Veracity Access Hub. The tenant administrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
 Also, you can use the following endpoints to manage tenants and their associated applications.
 
 ##### To check if the user has access to the application
 
-To check if the user has access to the application through one or more tenants, call the following endpoint with a GET method:
+To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
 
-Depending on the response, the user will see different pages when trying to access the application.
+Depending on the response, the user will see different pages when accessing the application.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
 * If the response contains one tenant, the user will be redirected to the application using this tenant
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
@@ -620,7 +622,7 @@ Note that the tenant ID can be passed in a cookie, URL query parameter or a head
 
 ##### To determine user roles and permissions
 
-To get the user license, call the following endpoint with a GET method:
+To get the user license, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
 
@@ -632,5 +634,5 @@ Store managers are added to the system and granted user admin and application ad
 
 Then, the store manager can add and remove users from their own store. When adding a new user to the store, the storeId is saved in the extension properties. The app also saves a flag indicating if the user is a health and safety responsible for the store.
 
-The application stores info on the license for the mall administration, marking this person as the store’s primary contact. To check this info, call the following endpoint with a PATCH method:
+The application stores info on the license for the mall administration, marking this person as the store’s primary contact. To check this info, call the following endpoint using the PATCH method:
 * `tenants/{tenantId}/applications/{applicationId}/licenses/{entityId}`

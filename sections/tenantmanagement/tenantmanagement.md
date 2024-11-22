@@ -443,6 +443,8 @@ The Service Bus documentation will be made available shortly.
 
 The Veracity Platform API offers comprehensive tools for managing applications, users, groups, and permissions within a multi-tenant environment. See some practical applications below.
 
+You can also listen to a podcast discussing some fictional applications and how they benefit from using the Veracity Platform API.
+
 ### Health and Safety Tracker
 
 The Health and Safety Tracker monitors and manages workplace health and safety conditions. It keeps track of safety compliance, sends notifications and alerts, allows reporting health status and safety incidents, and monitors and manages them.
@@ -466,18 +468,17 @@ Also, you can use the following endpoints to manage tenants and their associated
 To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
-Depending on the response, the user will see different pages when accessing the application.
+The user will see different pages when accessing the application depending on the response.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
-* If the response contains one tenant, the user will be redirected to the application using this tenant
+* If the response contains one tenant, the user will be redirected to the application using this tenant.
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
 
-Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
+Note that the tenant ID can be passed in a cookie, URL query parameter or header value. 
 
 ##### To determine the user’s role in the application
 
 You can determine the role of the user by getting their license. To do it, call the following endpoint using the GET method
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
-
 
 All tenant objects contain extension properties that applications can use to store application specific information. In this case, look for these two
 properties:
@@ -569,24 +570,23 @@ Also, you can use the following endpoints to manage tenants and their associated
 To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
-
-Depending on the response, the user will see different pages when accessing the application.
+The user will see different pages when accessing the application depending on the response.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
-* If the response contains one tenant, the user will be redirected to the application using this tenant
+* If the response contains one tenant, the user will be redirected to the application using this tenant.
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
 
-Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
+Note that the tenant ID can be passed in a cookie, URL query parameter or header value. 
 
 ##### To determine user roles and permissions
 To get the user license, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
-The license object has an AccessLevel that is used to determine whether the user is a regular user who can book a seat for the day or if they are an admin can upload new floor plans and manage existing ones, ensuring they are always up to date.
+The license object has an AccessLevel that is used to determine whether the user is a regular user who can book a seat for the day or if they are an admin who can upload new floor plans and manage existing ones, ensuring they are always up to date.
 
 #### Application responsibilities
-The application stores all the floor plans and seat bookings in its own database while users and permissions are handled by Veracity. This allows the product team to focus on the distinguishing features of the application while some of the security aspects are outsourced.
+The application stores all the floor plans and seat bookings in its own database, while Veracity handles users and permissions. This allows the product team to focus on the distinguishing features of the application while some of the security aspects are outsourced.
 
-The maps are stored in a blob storage while the seating arrangements and coordinates within the floor map is stored in a SQL database along with the bookings.
+The maps are stored in a blob storage, while the seating arrangements and coordinates within the floor map are stored in an SQL database along with the bookings.
 
 ### Shopping Mall Management Application
 
@@ -612,25 +612,21 @@ Also, you can use the following endpoints to manage tenants and their associated
 To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
-
-Depending on the response, the user will see different pages when accessing the application.
+The user will see different pages when accessing the application depending on the response.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
-* If the response contains one tenant, the user will be redirected to the application using this tenant
+* If the response contains one tenant, the user will be redirected to the application using this tenant.
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
 
-Note that the tenant ID can be passed in a cookie, URL query parameter or a header value. 
+Note that the tenant ID can be passed in a cookie, URL query parameter or header value. 
 
 ##### To determine user roles and permissions
 
 To get the user license, call the following endpoint using the GET method:
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
-
-The license object has an AccessLevel that is used to that determine whether the user is a regular user who can check in and out or an admin who can manage employees and health and safety compliance.
-
+The license object has an AccessLevel that is used to determine whether the user is a regular user who can check in and out or an admin who can manage employees and health and safety compliance.
 
 Store managers are added to the system and granted user admin and application admin roles within the Veractiy Tenant Management system through the API. The storeId is added to the extension properties of the license.
-
 
 Then, the store manager can add and remove users from their own store. When adding a new user to the store, the storeId is saved in the extension properties. The app also saves a flag indicating if the user is a health and safety responsible for the store.
 

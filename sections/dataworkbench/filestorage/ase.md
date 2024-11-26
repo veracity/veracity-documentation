@@ -16,14 +16,15 @@ You will need a File storage SAS token to connect File storage with Azure Storag
 
 ## To connect DWB File storage with Azure Storage Explorer
 1. Launch Azure Storage Explorer on your computer.
-2. Click on the **Open Connect Dialog** button.
+2. Select the **Open Connect Dialog** button.
 3. In the dialog, select **ADLS Gen2 container or directory**.
-4. Select **Shared access signature URL (SAS)** as the connection method and click **Next**.
+4. Select **Shared access signature URL (SAS)** as the connection method and select **Next**.
 5. Generate an Access Key in Veracity Data Workbench as described in the section **To generate a SAS token** above.
-6. Review the connection summary and click **Connect**.
-7. Once connected, the new container will appear in the explorer. You can view files and folders on the right side.
+6. Paste the Access Key in **Blob container or directory SAS URL** and select **Next**.
+7. Review the connection summary and select **Connect**.
+8. Once connected, the new container will appear in the explorer. You can view files and folders on the right side.
 
 
 Note that:
-* You can use the buttons on the top or right-click to perform actions like open, download, and preview.
+* You can use the buttons on the top or right-select to perform actions like open, download, and preview.
 * Connected containers will remain available in the explorer as long as they are not expired.

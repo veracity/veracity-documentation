@@ -171,4 +171,4 @@ When you revoke a user's or workspace's access to a data set, they are notified 
 ## File storage
 Note that this feature is only available for the workspaces that have a subscription for File storage. You can [purchase File storage for Veracity Data Workbench here](https://store.veracity.com/veracity-file-storage-data-workbench).
 
-[Go here for File storage documentation](filestorage.md).
+[Go here for File storage documentation](filestorage/filestorage.md).

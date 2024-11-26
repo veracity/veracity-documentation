@@ -13,6 +13,6 @@ The guide will take you through the following steps.
 1. Create a Power BI report using Data Workbench File storage. In this part, you will also learn how to update data in Data Workbench and refresh file to get new data in VAP, upload a Power BI file in VAP, and enable a scheduled refresh on report to get fresh data.
 2. Optionally, if your Power BI file was connected to Data Fabric, connect it to Data Workbench File storage.
 
-For more information about Veracity Data Workbench File storage, see its documentation [here](../../dataworkbench/filestorage.md). 
+For more information about Veracity Data Workbench File storage, see its documentation [here](../../dataworkbench/filestorage/filestorage.md). 
 
 Let us get started with [step 1](create-report.md).

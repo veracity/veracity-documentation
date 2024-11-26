@@ -37,7 +37,7 @@ After you purchase a subscription to File storage, Veracity sets up your account
 2. Select the **File storage** tab.
 
 <figure>
-	<img src="assets/access.png"/>
+	<img src="../assets/access.png"/>
 	<figcaption>Location of File Storage.</figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ For each file, you can find the three dots in the row with the file and open the
 * As a file owner, delete (6) the files you uploaded.
 
 <figure>
-	<img src="assets/filestorage.png"/>
+	<img src="../assets/filestorage.png"/>
 
 ## To upload files
 1. In the top right corner, select **Upload files**. You can upload multiple files at once.

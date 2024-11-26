@@ -224,7 +224,20 @@
 		},
 		{
 			"text": "File storage",
-			"href": "filestorage.md"
+			"items": [
+				{
+					"text": "Migrating from Data Fabric",
+					"href": "filestorage/migrating.md"
+				},
+				{
+					"text": "File storage",
+					"href": "filestorage/filestorage.md"
+				},
+				{
+					"text": "Connect File storage with Azure Storage Explorer",
+					"href": "filestorage/ase.md"
+				}
+			]
 		},
 		{
 			"text": "Analytics",

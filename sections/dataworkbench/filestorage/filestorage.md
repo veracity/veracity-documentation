@@ -3,14 +3,19 @@ author: Veracity
 description: This page explains how to use File storage in Data Workbench and how to migrate to it from Data Fabric.
 ---
 # File storage
-In your [Data Catalogue](datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
+In your [Data Catalogue](../datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
 
-**If you want to access it via API**, see [File storage API endpoints in API docs](apiendpoints.md).
+**If you want to access it via API**, see [File storage API endpoints in API docs](../apiendpoints.md).
+
+Note you can [connect File storage with Azure Storage Explorer](ase.md).
 
 ## Migrating from Data Fabric?
 File Storage is replacing Data Fabric. If you are migrating from Data Fabric:
-1. Follow the [migration guide](../datafabric/tutorials/download-my-data.md) to download your data manually.
-2. Upload your data to File Storage.
+1. Follow the [migration guide](../../datafabric/tutorials/download-my-data.md) to download your data manually.
+2. Ensure you meet the prerequisites described below.
+3. Upload your data to File Storage.
+
+If you plan to use Azure Storage Explorer to connect to your files, read the section **Connect to DWB File storage with Azure Storage Explorer** on this page.
 
 ## Prerequisites
 To use File storage:
@@ -24,6 +29,8 @@ You can purchase them on Veracity Marketplace:
 Note that you might already have access to them as a part of another service you purchased from Veracity.
 
 After you purchase a subscription to File storage, Veracity sets up your account and sends you an email notification when it is ready.
+
+**Do you want to use Azure Storage Explorer to connect to your files**? If so, [download it](https://azure.microsoft.com/en-us/products/storage/storage-explorer#Download-4) and install it.
 
 ## To go to File storage
 1. In your workspace, go to **Data catalogue** page.

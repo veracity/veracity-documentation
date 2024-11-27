@@ -67,6 +67,10 @@
 			]
 		},
 		{
+			"text": "Migration from Data Fabric",
+			"href": "dfmigration.md"
+		},
+		{
 			"text": "Reading reports",
 			"items": [
 				{

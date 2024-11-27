@@ -64,8 +64,8 @@ From this part of the screen you should note:
 
 Remember to always protect this data and keep it confidential.
 
-Next up, we will show you how to acquire an access token using MSAL in C#.
+Next up, we will show you how to acquire an access token.
 
 ---
 
-[Previous - 2. Creating an API in Veracity's Developer Portal](2-api-creation-in-veracity.md) --- [Next - 4. Acquiring access token using MSAL in C#](4-msal-access-token.md)
+[Previous - 2. Creating an API in Veracity's Developer Portal](2-api-creation-in-veracity.md) --- [Next - 4. Acquiring an access token](4-msal-access-token.md)

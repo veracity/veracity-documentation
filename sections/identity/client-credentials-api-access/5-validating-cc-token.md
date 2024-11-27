@@ -7,7 +7,9 @@ description: Validating access token in your API in C#
 
 [Previous - 4. Acquiring access token using MSAL in C#](4-msal-access-token.md)
 
-This tutorial will help you build a Client Credentials validator in your .NET 6 API. Note that all code samples are for C#.
+In this tutorial we will validate a Client Credentials token. 
+
+Note that all code samples are written in .NET.
 
 First we need to create a simple **ASP.NET Core Web API** project in Visual Studio:
 

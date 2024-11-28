@@ -4,6 +4,7 @@ description: This is a migration guide for VAP reports from Data Fabric to Data 
 ---
 
 # Migration Guide for VAP Users: Data Fabric to Data Workbench File Storage
+**This is a draft and may not be fully accurate**. We will update this document soon.
 
 ## Introduction
 - **Purpose**: This guide aims to assist VAP users in migrating their data storage from Data Fabric to Data Workbench File Storage.

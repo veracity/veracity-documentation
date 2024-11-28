@@ -37,20 +37,25 @@ description: This is a migration guide for VAP reports from Data Fabric to Data 
      3. Upload the data you stored in Data Fabric to File Storage. You will need this data as a data source for your Power BI reports.
 
 ### Create a New Report with Data Workbench File Storage
-   - **Obtaining Access Key for Data Workbench File Storage**:
-     1. Decide which file or folder in File Storage will be your data source.
-     2. Navigate to the Data Workbench File Storage section in the Veracity platform.
-     3. Select the file or folder you need access to.
-     4. Click on the "Access Keys" tab to generate a new access key.
-     5. Copy the access key and use it in your VAP report to authenticate and access the data.
 
-   - **Creating a VAP Report Using Data Workbench File Storage**:
-     1. Start by creating a new Power BI report or opening an existing one.
-     2. In Power BI, go to the "Home" tab and select "Get Data".
-     3. Choose "Web" as the data source and enter the URL for the Data Workbench File Storage.
-     4. Provide the necessary authentication details using the access key generated earlier.
-     5. Load the data and design your report as needed.
-     6. Save the report with a meaningful name, including a version number or date for easy identification.
+**Obtaining Access Key for Data Workbench File Storage**:
+1. Open your workspace in Data Workbench.
+2. In your workspace, go to **Data catalogue** page.
+3. In the row with a file or folder you want to generate a SAS token for, on the right, select three dots.
+4. Under **Set access level**, choose access level (read or read and write).
+5. Optionally, under **Set access start**, choose a date from which this file or folder should be accessible.
+6. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
+7. Select **Generate key** and a new field called **Access key** will show.
+8. Select **Copy key**. 
+9. Copy the access key and use it in your VAP report to authenticate and access the data.
+
+**Creating a VAP Report Using Data Workbench File Storage**:
+1. Start by creating a new Power BI report or opening an existing one.
+2. In Power BI, go to the "Home" tab and select "Get Data".
+3. Choose "Web" as the data source and enter the URL for the Data Workbench File Storage.
+4. Provide the necessary authentication details using the access key generated earlier.
+5. Load the data and design your report as needed.
+6. Save the report with a meaningful name, including a version number or date for easy identification.
 
 ### Connect Report to New Data Source
    - Connect the report to the new data in Data Workbench File Storage.

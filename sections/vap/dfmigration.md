@@ -49,6 +49,8 @@ description: This is a migration guide for VAP reports from Data Fabric to Data 
 8. Select **Copy key**. 
 9. Copy the access key and use it in your VAP report to authenticate and access the data.
 
+Note that you must be a workspace admin in Data Workbench to generate access keys to files and folders.
+
 **Creating a VAP Report Using Data Workbench File Storage**:
 1. Start by creating a new Power BI report or opening an existing one.
 2. In Power BI, go to the "Home" tab and select "Get Data".

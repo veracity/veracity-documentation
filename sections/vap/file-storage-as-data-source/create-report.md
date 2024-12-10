@@ -66,7 +66,9 @@ Below, an example of what your report will look like.
 15. Finally, it is time to build your visuals in the report. Save the file in the storage folder of your choice.
 
 ## Use parameter to save access key and URL
-To use a parameter to save access key and URL, follow the steps below.
+You can also use a parameter to save the access key and URL. However, **note that** VAP currently has no user interface for setting the parameter. 
+
+If you still want to use the parameter, follow the steps below.
 
 1. In Power BI Desktop, in the **Home** tab (1), select **Transform data** (2). This will open a dropdown. Select **Transform data** (3).
 

@@ -13,7 +13,7 @@ This section covers new features.
 ### The Data Workbench header navigation tab highlighted
 Now, when you log into the Data Workbench website, the Data Workbench tab in the header is highlighted. Also,  it stays highlighted even when navigating different pages within the Data Workbench website.
 
-### Search feature in the members tab
+### Search feature in the Members tab
 We have added a search feature in the **Members** tab in a workspace. It allows you to search users by name or email.
 
 ## Changes in existing features

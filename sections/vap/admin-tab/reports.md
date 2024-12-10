@@ -22,8 +22,7 @@ If your Power BI report contains imported data and you want to show its newer ve
 If you need to replace a file with a newer version, upload the file again in the **Resources** section. Then, edit the report here to connect to the latest file. It will allow your user to interact with the last version of the file.
 
 ## To create a new report
-1. In the left navigation sidebar, select the plus icon.
-1. Select **Add report**.
+1. In the top right corner, select the plus icon. Alternatively, in the left navigation sidebar, select the plus icon and the **Add report** button.
 1. Under **Report Type**, select the type of the report that you want to add (either "Power BI / Paginated / PDF / Image" or "Web App"). Note that for the paginated report type, when you create an RDL file, the legacy report settings fields are not displayed.
 2. In the **Display name**, name the report. This is the name that will show in the Home menu.
 4. If you want to create a custom URL for your report, deselect the toggle **Use Display Name as Report URL Name**. Then, in the field **Report URL name** provide your custom URL for the report. The URL name must be unique and can't contain spaces or special characters. You can use alphanumeric values, underscore, and hyphen.

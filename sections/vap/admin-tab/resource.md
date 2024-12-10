@@ -60,7 +60,7 @@ You can apply an on-demand refresh on Power BI reports (File Type must be .PBIX 
 To refresh a file on demand, in the row with a Power BI report, under **Refresh**, select the **Refresh Report** icon.
 
 <figure>
-	<img src="assets/resfreshreport.png"/>
+	<img src="assets/refreshreport.png"/>
 </figure>
 
 **Note that** most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).

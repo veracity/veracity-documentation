@@ -42,15 +42,28 @@ When you have scheduled a refresh plan, you can apply it to reports.
 	<img src="assets/schedule.png"/>
 </figure>
 
-### To refresh a report
+### To apply a refresh plan
 To apply a refresh plan to a file:
 1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
 2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
 3. In the bottom right corner of the panel, select **Save**.
 
+Note that the scheduled refresh of paginated reports in .RDL format is not supported.
+
 <figure>
 	<img src="assets/scheduleicon2.png"/>
 </figure>
+
+### To refresh a file on demand
+You can apply an on-demand refresh on Power BI reports (File Type must be .PBIX ord .RDL) which datasource is a semantic model. This functions allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for the reports relying on real-time data or requiring frequent updates.
+
+To refresh a file on demand, in the row with a Power BI report, under **Refresh**, select the **Refresh Report** icon.
+
+<figure>
+	<img src="assets/resfreshreport.png"/>
+</figure>
+
+**Note that** most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
 
 ### To upload a file
 

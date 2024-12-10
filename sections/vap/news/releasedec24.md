@@ -23,9 +23,9 @@ Now, the on-demand refresh for paginated reports in Power BI is supported. It al
 We have improved the failure messages of on-demand refresh and scheduled refresh. Now, when you select the **Refresh History** button of a file, the status of the latest refreshes is displayed in a clearer way. The failure message has a tooltip over which you can hover to view and error code from Microsoft PBI.
 
 ### Make your VAP service ready to share paginated reports with your customers
-We have defined a process to migrate a VAP service workspace to a new service principal workspace to allow for paginated report. 
+We have defined a process to migrate a VAP service workspace to a new service principal workspace to allow for paginated reports.
 
-Now, VAP team can help you move your service to support paginated report. 
+Now, the VAP team can help you move your service to support paginated reports.
 
 Paginated reports are ideal for presenting content with tightly controlled rendering requirements, such as certificates, audit findings, test results, purchase orders, and long tabular data that must be printed on multiple pages. These reports ensure that your data is presented in a precise and organized manner, meeting the high standards of professional documentation.
 

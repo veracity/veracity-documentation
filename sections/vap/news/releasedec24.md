@@ -13,7 +13,7 @@ This section covers new features.
 We have added a new '+' button to all the modules' top right corner. It allows you to add resources, reports, entities, and users directly within the module, without navigating to the left-side menu.
 
 ### On-demand refresh of paginated reports supported
-Now, the on-demand refresh for paginated reports in Power BI is supported. It allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for reports relying on real-time data or requiring frequent updates.
+Now, the on-demand refresh for paginated reports with a semantic model as datasource in Power BI is supported. It allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for reports relying on real-time data or requiring frequent updates.
 
 **Note that**:
 * Scheduled refresh of paginated reports **is not** supported.

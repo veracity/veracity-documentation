@@ -45,8 +45,7 @@ In the right corner of each row, in the **Actions** column, you can:
 ## To add an entity
 
 To add an entity:
-1. In the left navigation sidebar, select the plus icon.
-1. Select **Add Entity**.
+1. In the top right corner, select the plus icon. Alternatively, in the left navigation sidebar, select the plus icon and the **Add Entity** button.
 2. In the **Title**, provide the internal name of the entity. It will be shown only to admin users. By default, the title will be used to create the URL for the entity.
 3. Optionally, deselect the toggle **Use Title as Entity URL Name** and then in the **Entity URL name** field provide a custom URL for the entity. The URL name must be unique and cannot contain spaces or special characters. You can use alphanumeric values, underscore, and hyphen.
 4. In the **Type** dropdown, select the type of the entity you want to create.

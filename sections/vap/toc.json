@@ -9,6 +9,10 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "Release 4.1-",
+					"href": "news/releasedec24.md"
+				},
+				{
 					"text": "Release 4.18",
 					"href": "news/releasenov24.md"
 				},

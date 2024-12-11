@@ -42,20 +42,33 @@ When you have scheduled a refresh plan, you can apply it to reports.
 	<img src="assets/schedule.png"/>
 </figure>
 
-### To refresh a report
+### To apply a refresh plan
 To apply a refresh plan to a file:
 1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
 2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
 3. In the bottom right corner of the panel, select **Save**.
 
+Note that the scheduled refresh of paginated reports in .RDL format is not supported.
+
 <figure>
 	<img src="assets/scheduleicon2.png"/>
 </figure>
 
+### To refresh a file on demand
+You can apply an on-demand refresh on Power BI reports (File Type must be .PBIX ord .RDL) which datasource is a semantic model. This functions allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for the reports relying on real-time data or requiring frequent updates.
+
+To refresh a file on demand, in the row with a Power BI report, under **Refresh**, select the **Refresh Report** icon.
+
+<figure>
+	<img src="assets/refreshreport.png"/>
+</figure>
+
+**Note that** most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
+
 ### To upload a file
 
 To upload a file:
-1. From the left sidebar, select the plus icon and the **Add Resource File** button.
+1. In the top right corner, select the plus icon. Alternatively, from the left sidebar, select the plus icon and the **Add Resource File** button.
 2. Under **File Name**, enter the name for the file. Veracity recommends including in the file name information that would help recognize the latest version of the file, such as, for example, the client's name, the report's date, and the upload date.
 3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF, RDL.
 4. Under **Personal data policy**, confirm if the file contains no personal data or it contains personal data and you agree to process it according to Veracity DPA.
@@ -83,7 +96,7 @@ To upload a paginated report, your VAP service must use a Service Principal acco
 
 We support the following methods to add a data source to a paginated report.
 * You can connect a database as a data source directly. We support Azure SQL database.
-* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .json, and more) and Azure Blob.
+* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .xlsx, and more) and Azure Blob.
 
 ##### Report reloading
 
@@ -91,7 +104,7 @@ The report reloads after an hour of interacting with it. When it happens, you wi
 
 ##### Session expiry
 
-If you do not interact with a paginated report for ten minutes, your session expires.
+If you do not interact with a paginated report for ten minutes, your session expires. You can close the session expiry dialog with the 'X' icon or select **Refresh**. It will extend the report session time and allow you to continue interacting with your report.
 
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>

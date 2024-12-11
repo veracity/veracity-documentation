@@ -98,19 +98,18 @@ For API specification, go to **API Explorer**.
 
 ### Eventual consistency of VTM
 
-Note that VTM is eventual consistent system,  meaning that you may not immediately read what you have just written.
+VTM operates as an eventually consistent system. This means there might be a delay before the data you write becomes visible when you attempt to read it.
 
-For example, when a user creates a new tenant in the API, MyServices and other services process the creation of a new tenant through the service bus.
+When a write endpoint returns a 202 Accepted response V4, it does not mean a successful data change. Even though the endpoint returns the new object, it does not mean that it has been persisted yet - the 202 Accepted response simply informs that the solution has accepted the change. Then, it will process the change and update the data in the background.
 
-Another example is when a new company is created in MyServices. Then, the message is passed by the service bus and a new tenant is created in Veracity Tenant Management.
+Once the change has been made, then, on the service bus, the solution will publish an event informing whether the operation was successful or not.
 
-**Note that** when the endpoint returns a 202 Accepted response for write operations in V4, it does not mean a successful data change. The 202 Accepted response informs that the solution has accepted the change. Then, it will process the change and update the data in the background. 
+How does this affect your application?
 
-Once the change has been made, then on the service bus, the solution will publish an event informing whether the operation was successful or not. 
+Eventual consistency is only important for applications that are calling endpoints that change data. If your application does these write operations, it needs to integrate with the Veracity Service Bus and listen for these events to get the result of the call.
 
-If your application does these write operations, it needs to integrate with the Veracity Service Bus and listen for these events to get the result of the call.
- 
-To get these messages, in Domain Events, configure that you want messages to the Tenant topic and use this connection to the service bus.
+To get these messages, in Domain Events, configure that you want messages to the Tenant topic and use this connection to the Service Bus.
+
 
 For more information, see the [Service Bus documentation](https://github.com/veracity/veracity-documentation/blob/VTM-docs/sections/servicebus/servicebus.md).
 
@@ -125,8 +124,6 @@ Veracity Services API version 4 is organized into the following groups of endpoi
 * [Me](#me): Provides methods to retrieve information about the signed-in user, including their applications, groups, and tenants.
 * [Tenants](#tenants): Provides methods to interact with tenants, including retrieving tenant details, and managing tenant administrators.
 * [Users](#users):  Provides methods to manage users within a tenant, including retrieving user details, groups, and applications.
-
-
 
 #### Updating with JsonPatch
 

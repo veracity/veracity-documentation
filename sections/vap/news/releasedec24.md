@@ -20,7 +20,7 @@ Now, the on-demand refresh for paginated reports with a semantic model as dataso
 * Most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
 
 ### Improved failure messages of on-demand refresh and scheduled refresh
-We have improved the failure messages of on-demand refresh and scheduled refresh. Now, when you select the **Refresh History** button of a file, the status of the latest refreshes is displayed in a clearer way. The failure message has a tooltip over which you can hover to view and error code from Microsoft PBI.
+We have improved the failure messages of on-demand refresh and scheduled refresh. Now, when you select the **Refresh History** button of a file, the status of the latest refreshes is displayed in a clearer way. The failure message has a tooltip over which you can hover to view an error code from Microsoft PBI.
 
 ### Make your VAP service ready to share paginated reports with your customers
 We have defined a process to migrate a VAP service workspace to a new service principal workspace to allow for paginated reports.

@@ -19,12 +19,12 @@ Now, as a developer, you can fetch a schema version detail by `schemaversionID`.
 ### Scope access based on subscriptions
 Now, the scope to which the user groups have access is based on the subscription of the workspace to which they belong.
 
-Users of the workspace with the 'schema management' subscription can access schema management.
+Users of the workspace with the SchemaManagement subscription can access the schema management.
 
-Users of the workspace whith the 'schema management' subscription and 'validation rule management' subscription can access schema management and validation rule management.
+Users of the workspace whith the SchemaManagement subscription and ValidationRuleManagement subscription can access the schema management and validation rule management.
 
-### Schema Management subscription for all workspaces
-Now, all workspaces can be granted the Schema Management subscription access based on their regions.
+### SchemaManagement subscription for all workspaces
+Now, all workspaces can be granted the SchemaManagement subscription access based on their regions.
 
 ### View DataMap subscriptions in ledger
 Now, as a developer, you can view the DataMap subscription events in ledger.

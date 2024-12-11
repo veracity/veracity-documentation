@@ -26,8 +26,5 @@ In this schema management feature, we support:
 * **Create schemas** - to create 'custom' workspace schema.
 * **Edit schemas** - to edit schema info, edit existing versions' details, create a new schema version, or change the active version.
 
-### Fetch a schema version detail
-Now, you can fetch a schema version detail by `schemaversionID`.
-
 ### View DataMap subscriptions in Ledger
 Now, you can view the DataMap subscription events in Ledger.

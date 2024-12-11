@@ -23,6 +23,9 @@ Users of the workspace with the 'schema management' subscription can access sche
 
 Users of the workspace whith the 'schema management' subscription and 'validation rule management' subscription can access schema management and validation rule management.
 
+### Schema Management subscription for all workspaces
+Now, all workspaces can be granted the Schema Management subscription access based on their regions.
+
 ### View DataMap subscriptions in ledger
 Now, as a developer, you can view the DataMap subscription events in ledger.
 
@@ -54,11 +57,13 @@ As a developer, you can retrieve a DataMap subscription by workspace using the G
 As a developer, you can create a schema by using `workspaceId` as a part of the route. To do it, use the POST method and call the following endpoint:
 `/api/v1/DataMaps/{workspaceId}/Schemas`
 
-You can also use this endpoint as a user if the workspace is the owner of the schema and has the Schema Management module subscription.
+As a user, you can also use this endpoint if:
+* The schema `workspaceId` must the same as the `workspaceId` being called.
+* The workspace must subscribed to the DataMap 'SchemaManagement.
 
 ### Patch a schema version using workspaceId
 As a developer, you can patch a schema version by using `workspaceId` as a part of the route. To do it, use the PATCH method and call the following endpoint:
-`/api/v2/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId})`
+`/api/v2/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}`
 
 As a user, you can also apply changes to the endpoint above to patch a schema version. To do it, use the PATCH method and call the following endpoint:
 `v1/facade/workspaces/{workspaceId}/schemas/{schemaId}/versions/{versionId}`
@@ -94,7 +99,47 @@ As a user, you can patch a schema by using the PATCH method and calling the foll
 * The schema `workspaceId` must the same as the `workspaceId` being called.
 * The workspace must subscribed to the DataMap 'SchemaManagement.
 
+## Activate a schema version
+As a developer, you can now activate a schema version by using the POST method and calling the following endpoint:
+`/api/v1/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}/activate`
+
+
 ## Changes in existing features
 This section covers changes in existing features.
 
+### Create a schema Facade endpoint update
+We have updated the following Facade endpoint which you could call with the POST method:
+`/api/v1/facade/workspaces/{workspaceId}/schemas` 
+Now, it points to the new endpoint in DataMaps which you can call with the POST method.
+`api/v1/DataMaps/{workspaceId}/Schemas`
+**Note that** the create schema functionality does not change even though it now internally refers to the new endpoint.
 
+### Create a schema Gateway endpoint update
+We have updated the following Gateway endpoint which you could call with the POST method:
+`/workspaces/{workspaceId}/schemas/add`
+Now, it points to the new endpoint in DataMaps which you can call with the POST method.
+`api/v1/DataMaps/{workspaceId}/Schemas`
+**Note that** the create schema functionality does not change even though it now internally refers to the new endpoint.
+
+### Patch a schema version Facade endpoint update
+We have updated the following Facade endpoint which you could call with the PATCH method:
+`/api/v1/facade/workspaces/{workspaceId}/schemas/{schemaId}/versions/{versionId}`
+Now, it points to the new endpoint in DataMaps which you can call with the POST method.
+`/api/v2/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}`
+**Note that** the patch schema functionality does not change even though it now internally refers to the new endpoint.
+
+### Activate a schema version Facade endpoint update
+We have updated the following Gateway endpoint which you could call with the POST method:
+`/api/v1/facade/workspaces/{workspaceId}/schemas/{schemaId}/versions/{schemaVersionId}/activate`
+Now, it points to the new endpoint in DataMaps which you can call with the POST method.
+`api/v1/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}/activate`
+**Note that** the activate a schema version functionality does not change even though it now internally refers to the new endpoint.
+
+### Activate a schema version Gateway endpoint update
+We have marked the following Gateway endpoint which you could call with the PATCH method as obsolete.
+`/workspaces/{workspaceId}/schemas/{schemaId}/schemaversions/{schemaVersionId}`
+To activate a schema version, we have introduced a new endpoint you can call with the POST method.
+`/workspaces/{workspaceId}/schemas/{schemaId}/schemaversions/{schemaVersionId}/activate`
+Now, this new endpoint points to the new endpoint in DataMaps which you can call with the POST method.
+`api/v1/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}/activate`
+**Note that** the activate a schema version functionality does not change even though it now internally refers to the new endpoint.

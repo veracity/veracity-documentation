@@ -11,20 +11,20 @@ Read this page to learn what has changed in Veracity Data Workbench with the Dec
 This section covers new features.
 
 ### Schema management
-The schema management is the feature to help user view and manage the schemas.
+Schema management is a feature that helps users view and manage the schemas.
 
 To access the 'Schema management' feature, your workspace needs to have the 'SchemaManagement' subscription. Contact the Data Workbench team to add 'SchemaManagement' subscription to your workspace.
  
-Once your workspace has subscription, you will see the ***Schema manager** button under the **Data catalogue** page to access it.
+Once your workspace has a subscription, you will see the **Schema manager** button under the **Data catalogue** page to access it.
  
 There are two types of schemas.
 * **Predefined schemas** - public schemas that may be used by other workspaces.
 * **Custom schemas** - workspaces created by your workspace.
 
 In this schema management feature, we support:
-* **View schemas** - to view schemas' details such as name, description, different schema versions and their columns information.
-* **Create schemas** - to create 'custom' workspace schema
-* **Edit schemas** - to edit schema info, edit existing versions' details, new schema version or change active version.
+* **View schemas** - to view schemas' details such as name, description, different schema versions, and their columns information.
+* **Create schemas** - to create 'custom' workspace schema.
+* **Edit schemas** - to edit schema info, edit existing versions' details, create a new schema version, or change the active version.
 
 ### Fetch a schema version detail
 Now, as a developer, you can fetch a schema version detail by `schemaversionID`.

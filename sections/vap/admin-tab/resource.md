@@ -96,7 +96,7 @@ To upload a paginated report, your VAP service must use a Service Principal acco
 
 We support the following methods to add a data source to a paginated report.
 * You can connect a database as a data source directly. We support Azure SQL database.
-* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .json, and more) and Azure Blob.
+* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .xlsx, and more) and Azure Blob.
 
 ##### Report reloading
 
@@ -104,7 +104,7 @@ The report reloads after an hour of interacting with it. When it happens, you wi
 
 ##### Session expiry
 
-If you do not interact with a paginated report for ten minutes, your session expires.
+If you do not interact with a paginated report for ten minutes, your session expires. You can close the session expiry dialog with the 'X' icon or select **Refresh**. It will extend the report session time and allow you to continue interacting with your report.
 
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>

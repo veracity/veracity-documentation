@@ -26,8 +26,8 @@ Users of the workspace with the SchemaManagement subscription and ValidationRule
 ### SchemaManagement subscription for all workspaces
 Now, all workspaces can be granted the SchemaManagement subscription access based on their regions.
 
-### View DataMap subscriptions in ledger
-Now, as a developer, you can view the DataMap subscription events in ledger.
+### View DataMap subscriptions in Ledger
+Now, as a developer, you can view the DataMap subscription events in Ledger.
 
 ### Get subscriptions by workspace
 As a developer, you can get subscriptions by workspace by using the GET method and calling the following endpoint.
@@ -176,7 +176,7 @@ To activate a schema version, we have introduced a new endpoint you can call wit
 
 `/workspaces/{workspaceId}/schemas/{schemaId}/schemaversions/{schemaVersionId}/activate`
 
-Now, this new endpoint points to the new endpoint in DataMaps which you can call with the POST method.
+Now, this endpoint points to the new endpoint in DataMaps which you can call with the POST method.
 
 `api/v1/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}/activate`
 

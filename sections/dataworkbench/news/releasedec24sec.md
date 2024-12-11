@@ -21,7 +21,7 @@ Now, the scope to which the user groups have access is based on the subscription
 
 Users of the workspace with the SchemaManagement subscription can access the schema management.
 
-Users of the workspace whith the SchemaManagement subscription and ValidationRuleManagement subscription can access the schema management and validation rule management.
+Users of the workspace within the SchemaManagement subscription and ValidationRuleManagement subscription can access the schema management and validation rule management.
 
 ### SchemaManagement subscription for all workspaces
 Now, all workspaces can be granted the SchemaManagement subscription access based on their regions.
@@ -55,12 +55,12 @@ As a developer, you can remove a SchemaManagement or ValidationRuleManagement su
 `/api/v1/subscriptions/{subscriptionId}`
 
 ### Retrieve a DataMap subscription by workspace
-As a developer, you can retrieve a DataMap subscription by workspace using the GET method and calling the following endpoint in Facade:
+As a developer, you can retrieve a DataMap subscription by workspace by using the GET method and calling the following endpoint in Facade:
 
 `/api/v1/subscriptions/workspaces/{workspaceId}/subscription`
 
-### Create a schema using workspaceId
-As a developer, you can create a schema by using `workspaceId` as a part of the route. To do it, use the POST method and call the following endpoint.
+### Create a schema using 'workspaceId'
+As a developer, you can create a schema using `workspaceId` as a part of the route. To do it, use the POST method and call the following endpoint.
 
 `/api/v1/DataMaps/{workspaceId}/Schemas`
 
@@ -78,7 +78,7 @@ As a user, you can patch a schema by using the PATCH method and calling the foll
 * The schema `workspaceId` must the same as the `workspaceId` being called.
 * The workspace must subscribed to the DataMap 'SchemaManagement.
 
-### Patch a schema version using workspaceId
+### Patch a schema version using 'workspaceId'
 As a developer, you can patch a schema version by using `workspaceId` as a part of the route. To do it, use the PATCH method and call the following endpoint.
 
 `/api/v2/DataMaps/{workspaceId}/Schemas/{schemaId}/Versions/{schemaVersionId}`
@@ -92,7 +92,7 @@ As a user, you can also apply changes to the endpoint above to patch a schema ve
 * The workspace must subscribed to the DataMap SchemaManagement.
 
 ### Add a schema version 
-As a user, you can add a schema version by using by using the POST method and calling the following endpoint.
+As a user, you can add a schema version by using the POST method and calling the following endpoint.
 
 `/api/v1/DataMaps/{workspaceId}/Schemas/Version`
 
@@ -112,7 +112,7 @@ As a user, you can make a schema version default by using the PATCH method and c
 * The workspace must subscribed to the DataMap SchemaManagement.
 
 ### Delete a schema version
-As a developer, you can delete schema version using `workspaceId` as part of the route. To do it, use the DELETE method and call the following endpoint.
+As a developer, you can delete schema version by by `workspaceId` as part of the route. To do it, use the DELETE method and call the following endpoint.
 
 `/api/v1/DataMaps/{workspaceId}/Schemas/Versions/{schemaVersionId}`
 

@@ -443,39 +443,36 @@ Veracity empowers you to streamline the development of secure, multi-tenant serv
 
 With Veracity, you can:
 * Easily create isolated, secure tenants for each of your customers.
-* Granular control over user licenses, roles, and permissions through a developer-friendly API.
+* Have granular control over user licenses, roles, and permissions through a developer-friendly API.
 * Leverage efficient data management features like JSON Patch and local data caching for optimal performance.
 * Build resilient, responsive services with real-time domain events to keep your service in sync.
 * Access comprehensive documentation, sample code, and a supportive developer community to accelerate your progress.
 
 Veracity gives you the power to simplify development and deliver an unparalleled experience.
 
+To show you that, we have prepared three use case scenarios of fictional applications. The scenarios correspond to the three veracity managemenet modes.
+
 ### Veracity Management Modes
-* **Veracity Managed**: all user management is done in Veracity Access Hub, so there’s no need to build your own user management front-end. [See our Veracity managed example](#hot-seating-office-manager).
-* **Hybrid**: this is for sevices with a well-defined lease privilege – meaning you can still manage most of your user access needs in Veracity Access Hub but can also extend this to individual services for more granular control. [See our hybrid example](#health-and-safety-tracker).
-* **Service managed**: this one has no defined lease privilege – it is built on your own authorisation policies and front-end interfaces, relying on Veracity Access Management’s robust back-end. This allows you to easily manage users, sharing and other experiences between multiple services on the Veracity platform for a superior user experience. [See our service managed example](#mall-management-application).
+* **Veracity-managed**: all user management is done in Veracity Access Hub, so there is no need to build your user management front-end. [See our Veracity managed example](#hot-seating-office-manager).
+* **Hybrid**: this is for services with a well-defined lease privilege – meaning you can still manage most of your user access needs in Veracity Access Hub, but can also extend this to individual services for more granular control. [See our hybrid example](#health-and-safety-tracker).
+* **Service-managed**: this one has no defined lease privilege – it is built on your own authorization policies and front-end interfaces, relying on Veracity Access Management’s robust back-end. This allows you to easily manage users, sharing other experiences between multiple services on the Veracity platform for a superior user experience. [See our service managed example](#mall-management-application).
 
 ### Download use cases
 You can access our use cases in a PDF Format.
-* [Hot Seating Office Manager](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf)
-* [Health And Safety Tracker](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf)
-* [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf)
+* [Hot Seating Office Manager](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf) (Veracity-managed)
+* [Health And Safety Tracker](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) (hybrid)
+* [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf) (service-managed)
 
 ### Listen to our podcasts
-Prefer to listen?
+For those who prefer to listen, we have prepared podcasts discussing the applications of the fictional SafeTech Solutions company:
+* [Health and Safety Tracker application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)
+* [Comparison of all SafeTech Solutions applications](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/ComparingSafeTechApps.wav)
 
-Listen to a podcast on the [Health and Safety Tracker app](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav).
-
-You can also [listen to another podcast](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/ComparingSafeTechApps.wav) which compares all three applications from SafeTech Solutions.
-
-
-### Hot Seating Office Manager
-
-**Leveraging Veracity API for Enhanced Workplace Collaboration**
+### Hot Seating Office Manager (Veracity-managed)
 
 SafeTech Solutions specializes in developing innovative software solutions for workplace management and efficiency. Their latest product, the Hot Seating Office Manager, leverages cutting-edge technology to ensure companies can manage seating arrangements, facilitate easy colleague location, and maintain up-to-date floor plans. SafeTech Solutions is known for its commitment to creating user-friendly and effective tools that enhance workplace productivity and improve overall employee collaboration.
 
-You can also view the Hot Seating Office Manager use case in a PDF format [here](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf).
+**You can also view the Hot Seating Office Manager use case in [a PDF format ](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf)**.
 
 #### Overview
 The Hot Seating Office Manager is designed to manage seating arrangements in a dynamic office environment, integrating functionalities such as tracking available seats, locating colleagues, and managing floor plans. The service’s primary goal is to ensure an efficient and collaborative working environment.
@@ -526,7 +523,7 @@ The Hot Seating Office Manager service exemplifies the practical use of the Vera
 
 Veracity cares about the privacy of the end-users. The service never stores any user information other than a reference to the users so they can be shown on the map and searched for. 
 
-### Health and Safety Tracker
+### Health and Safety Tracker (hybrid)
 SafeTech Solutions specializes in developing innovative software solutions for workplace safety and health management. 
 
 Their flagship product, the Health and Safety Tracker, leverages cutting-edge technology to ensure that companies can monitor employee health statuses, manage safety compliance, and respond quickly to health and safety incidents. SafeTech Solutions is known for its commitment to creating user-friendly and effective tools that enhance workplace safety and improve overall employee well-being. 
@@ -538,7 +535,7 @@ The Veracity Platform API, as described in the provided documentation, offers a 
 One practical service of this API is in the development and deployment of a Health and Safety Tracker for workplace sservice, can significantly enhance the safety and well-being of employees by leveraging the robust capabilities of the Veracity Platform API. 
 
 
-You can also view the Health and Safety Tracker use case in a [PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) or listen about it [in our podcast]((https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)
+**You can also view the Health and Safety Tracker use case in [a PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) or listen about it [in our podcast]((https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)**.
 
 #### Overview
 The Health and Safety Tracker is designed to monitor and manage the health and safety conditions within a workplace.
@@ -623,11 +620,11 @@ Also, use the following request body.
 ]
 ```
 
-### Mall Management Application
+### Mall Management Application (service-managed)
 SafeTech Solutions, renowned for developing innovative software solutions, has introduced a multi-tenant shopping mall management service. This service is designed to keep track of all employees and health and safety managers for all shops renting space in the mall. 
 
 
-You can also view the Mall Management Application use case in a PDF format [here]((https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf).
+**You can also view the Mall Management Application use case in [a PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf)**.
 
 ### Overview
 It allows each store manager to manage their own employees (including health and safety managers), while enabling all employees to check in and out of work. The service ensures efficient crisis management by the mall administration and integrates seamlessly with EPOS systems to provide real-time data on employee presence in a user-friendly manner. Each mall gets its own virtual ‘tenant’, and store managers can manage their store within the mall’s tenant. 

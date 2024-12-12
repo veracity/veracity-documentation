@@ -470,7 +470,7 @@ For those who prefer to listen, we have prepared podcasts discussing the applica
 
 ### Hot Seating Office Manager (Veracity-managed)
 
-SafeTech Solutions specializes in developing innovative software solutions for workplace management and efficiency. Their latest product, the Hot Seating Office Manager, leverages cutting-edge technology to ensure companies can manage seating arrangements, facilitate easy colleague location, and maintain up-to-date floor plans. SafeTech Solutions is known for its commitment to creating user-friendly and effective tools that enhance workplace productivity and improve overall employee collaboration.
+SafeTech Solutions specializes in developing innovative software solutions for workplace management and efficiency. Their latest product, the Hot Seating Office Manager, leverages cutting-edge technology to ensure companies can manage seating arrangements, facilitate easy colleague location, and maintain up-to-date floor plans. SafeTech Solutions is committed to creating user-friendly and effective tools that enhance workplace productivity and improve overall employee collaboration.
 
 **You can also view the Hot Seating Office Manager use case in [a PDF format ](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf)**.
 
@@ -480,19 +480,19 @@ The Hot Seating Office Manager is designed to manage seating arrangements in a d
 Core Features and Functionalities
 * Seat availability monitoring: allows employees to check the availability of seats in real-time, ensuring they can find a workspace easily. 
 * Colleague location: employees can locate their colleagues within the office space, facilitating easy collaboration and interaction. 
-* Floor plan management: admins can upload and manage detailed floor plans, which are updated in real-time to reflect current seating arrangements. 
-* Notifications and alerts: employees receive timely notification and alerts regarding any updates or changes in seating arrangements.
+* Floor plan management: admins can upload and manage detailed floor plans, which are updated in real time to reflect current seating arrangements. 
+* Notifications and alerts: employees receive timely notifications and alerts regarding any updates or changes in seating arrangements.
 
 #### Implementation Using Veracity Platform API
 Running in Veracity-managed mode, The Hot Seating Office Manager uses the powerful Veracity Platform API.
 
 ##### User management 
-User management is handled by Veracity Identity. This provides self-service signup, password reset and other core identity management functions – meaning little to no admin is required once it is set up. 
+Veracity Identity handles user identities, providing self-service signup, password reset, and other core identity management functions. As a redult, little to no admin is required once it is set up. 
 
 ##### 'Multi-Tenant' Service Management 
-Hot Seat Office Manager supports multiple tenants – this means that multiple offices and departments can be managed centrally though the Veracity Access Hub. It is used to grant users access and set their roles. By leveraging the Access Hub, the product team don’t need to spend time and effort on the user administration interface. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
+Hot Seat Office Manager supports multiple tenants – this means that multiple offices and departments can be managed centrally through the Veracity Access Hub. It is used to grant users access and set their roles. By leveraging the Access Hub, the product team does not need to spend time and effort on the user administration interface. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
-The following endpoints are used to manage tenants and their associated services.
+To manage tenants and their associated services, you can use the following endpoints.
 
 ##### User Session Establishment
 
@@ -506,12 +506,14 @@ The user will see different pages when accessing the service depending on the re
 
 Note that the tenant ID can be passed in a cookie, URL query parameter or header value. 
 
-##### Determining user roles and permissions
+##### Determine user roles and permissions
 * **Get user license**: to get the user license, call the following endpoint using the GET method:
 `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+
 The license object has an AccessLevel that is used to determine whether the user is a regular user who can book a seat for the day or if they are an admin who can upload new floor plans and manage existing ones, ensuring they are always up to date.
 
-* **Upload and Manage Floor Plans**: Admins can upload new floor plans and manage existing ones, ensuring they are always up to date. 
+* **Upload and Manage Floor Plans**: admins can upload new floor plans and manage existing ones, ensuring they are always up to date. 
 
 #### Service responsibilities
 The service stores all the floor plans and seat bookings in its own database, while Veracity handles users and permissions. This allows the product team to focus on the distinguishing features of the application while some of the security aspects are outsourced.
@@ -521,30 +523,35 @@ The maps are stored in a blob storage, while the seating arrangements and coordi
 #### Conclusion
 The Hot Seating Office Manager service exemplifies the practical use of the Veracity Platform API, creating a robust and efficient system for managing dynamic office environments. This fictional application demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems. 
 
-Veracity cares about the privacy of the end-users. The service never stores any user information other than a reference to the users so they can be shown on the map and searched for. 
+Veracity cares about the privacy of the end-users. The service does not store user information other than a reference to the users so they can be shown on the map and searched for. 
 
 ### Health and Safety Tracker (hybrid)
 SafeTech Solutions specializes in developing innovative software solutions for workplace safety and health management. 
 
-Their flagship product, the Health and Safety Tracker, leverages cutting-edge technology to ensure that companies can monitor employee health statuses, manage safety compliance, and respond quickly to health and safety incidents. SafeTech Solutions is known for its commitment to creating user-friendly and effective tools that enhance workplace safety and improve overall employee well-being. 
+Their flagship product, the Health and Safety Tracker, leverages cutting-edge technology to ensure that companies can
+* Monitor employee health statuses.
+* Manage safety compliance.
+* Respond quickly to health and safety incidents. 
+
+SafeTech Solutions is committed to creating user-friendly and effective tools that enhance workplace safety and improve employee well-being. 
 
 How is the Veracity Platform leveraged in their products and services?
 
-The Veracity Platform API, as described in the provided documentation, offers a comprehensive set of tools for managing services, users, groups, and permissions within a “multi-tenant ” environment. 
+The Veracity Platform API, as described in the provided documentation, offers a comprehensive set of tools for managing services, users, groups, and permissions within a 'multi-tenant' environment. 
 
-One practical service of this API is in the development and deployment of a Health and Safety Tracker for workplace sservice, can significantly enhance the safety and well-being of employees by leveraging the robust capabilities of the Veracity Platform API. 
+One practical service of this API is in the development and deployment of a Health and Safety Tracker for workplace service, which can significantly enhance the safety and well-being of employees by leveraging the robust capabilities of the Veracity Platform API. 
 
 
-**You can also view the Health and Safety Tracker use case in [a PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) or listen about it [in our podcast]((https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)**.
+**You can also view the Health and Safety Tracker use case in [a PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) or listen about it [in our podcast](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)**.
 
 #### Overview
 The Health and Safety Tracker is designed to monitor and manage the health and safety conditions within a workplace.
 
-Core Features and Functionalities 
-* Employee health status monitoring: serviceemployees can report their health status, which can be monitored in real-time by the management. 
+Core features and functionalities 
+* Employee health status monitoring: service employees can report their health status, which management can monitor in real-time. 
 * Safety compliance tracking: the service tracks safety compliance across different departments, ensuring that all safety protocols are being followed. 
 * Incident reporting and management: employees can report safety incidents, and the service facilitates the management and resolution of these incidents. 
-* Notifications and alerts: servicenotifications and alerts are sent to employees and management regarding any health and safety updates or incidents. 
+* Notifications and alerts: service notifications and alerts are sent to employees and management regarding any health and safety updates or incidents. 
 
 #### Implementation Using Veracity Platform API 
 The implementation of the Health and Safety Tracker leverages various endpoints and functionalities provided by the Veracity Platform. See some key aspects of the implementation below.
@@ -557,28 +564,28 @@ Veracity Identity handles user identities, providing self-service signup, passwo
 
 The service supports multiple tenants, each representing a different workplace or department. 
 
-To grant users access to the application and set their roles, use Veracity Access Hub. The tenant administrators or the application administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
+To grant users access to the service and set their roles, use Veracity Access Hub. The tenant administrators or the service administrators in the customer organization add users by assigning them direct licenses, which are inherited through groups or added automatically. See the [Veracity Access Hub documentation](https://developer.veracity.com/docs/section/customerservices/accesshub) for more details.
 
-Also, you can use the following endpoints to manage tenants and their associated applications.
+You can use the following endpoints to manage tenants and their associated services.
 
 ##### Upon establishing a user session
 
-To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method.
+To check if the user has access to the service through one or more tenants, call the following endpoint using the GET method.
 * `/me/applications/{applicationId}/tenants`
 
-The user will see different pages when accessing the application depending on the response.
+The user will see different pages when accessing the service depending on the response.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
-* If the response contains one tenant, the user will be redirected to the application using this tenant.
+* If the response contains one tenant, the user will be redirected to the service using this tenant.
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
 
 Note that the tenant ID can be passed in a cookie, URL query parameter or header value. 
 
 ##### To determine the user’s role in the service instance
 
-You can determine the role of the user by getting the user license object. To do it, call the following endpoint using the GET method.
+You can determine the user's role by getting the user license object. To do it, call the following endpoint using the GET method.
 * `/tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
 
-All tenant objects contain extension properties that applications can use to store application specific information. In this case, look for these two
+All tenant objects contain extension properties that servicea can use to store service-specific information. In this case, look for these two
 properties:
 * `demo_caseTypeHandler` - It contains a space-separated list of case type names of which the user is a handler.
 * `demo_caseRegionHandler` - It contains the region identifier for which the user is handling cases.
@@ -587,7 +594,7 @@ If a user has both these properties, it means that they are a case handler. Othe
 
 ##### To determine if the user can assign other case handlers
 
-To find the aservice administrator within the tenant, call the following endpoint using the GET method.
+To find the service administrator within the tenant, call the following endpoint using the GET method.
 * `/tenants/{tenantId}/applications/{applicationId}/administrators`
 
 If the logged-in user is on the list of administrators, the administration menu will be displayed.
@@ -630,12 +637,12 @@ SafeTech Solutions, renowned for developing innovative software solutions, has i
 It allows each store manager to manage their own employees (including health and safety managers), while enabling all employees to check in and out of work. The service ensures efficient crisis management by the mall administration and integrates seamlessly with EPOS systems to provide real-time data on employee presence in a user-friendly manner. Each mall gets its own virtual ‘tenant’, and store managers can manage their store within the mall’s tenant. 
 
 Core features and functionalities:
-* Employee and manager tracking: The service allows mall administration to keep an accurate and real-time record of all employees and health and safety managers working within it. This centralised tracking ensures that every store has the right personnel available at all times, enhancing overall efficiency and safety. 
-* Check-in and check-out system: All employees can easily check in and out of work using the service. This feature not only helps in tracking attendance, but also aids in managing work shifts more effectively. The real-time updates ensure that the administration is always aware of who is present in the mall, which is crucial during emergencies. 
-* Managerial Control for Store Managers: Store managers can update employee details and ensure compliance with health and safety regulations. This decentralized control empowers them to quickly address their specific needs, while maintaining overall coordination with the mall administration. 
-* EPOS System Integration: Integrating the service with EPOS systems allows for efficient tracking of who is at work in all the stores. This integration ensures that employee data is up-to-date and accurate, reducing administrative overhead and enhancing operational efficiency. 
-* Health and Safety Compliance:The service supports the management of health and safety compliance across all stores. Health and safety managers can monitor compliance, report and track incidents, and ensure that all safety protocols are followed. Notifications and alerts regarding health and safety updates are sent out promptly to ensure immediate action when necessary. 
-* Notifications and Alerts: The service uses FireBase to send out real time push notifications to the store employees that are at work at any given time. This is to make sure any evacuation or other crisis response is smooth and efficient. 
+* Employee and manager tracking: Real-time record of all employees and health and safety managers, enhancing efficiency and safety.
+* Check-in and check-out system: Tracks attendance and manages work shifts effectively, with real-time updates. 
+* Managerial control for store managers: Store managers can update employee details and ensure health and safety compliance, maintaining coordination with mall administration.
+* EPOS system integration: Efficient tracking of employee presence, reducing administrative overhead and enhancing operational efficiency.
+* Health and safety compliance: Monitors compliance, reports incidents, and ensures safety protocols are followed, with prompt notifications and alerts.
+* Notifications and alerts: FireBase is used for real-time push notifications for employees, ensuring smooth and efficient crisis response
 
 ### Implementation Using Veracity Platform API 
 
@@ -648,16 +655,16 @@ Veracity Identity handles user identities, providing self-service signup, passwo
 
 The service supports multiple tenants, representing different stores within the mall.
 
-Use the following endpoints to manage tenants and their associated applications.
+Use the following endpoints to manage tenants and their associated services.
 
 #### Upon establishing a user session
 
-To check if the user has access to the application through one or more tenants, call the following endpoint using the GET method:
+To check if the user has access to the service through one or more tenants, call the following endpoint using the GET method:
 * `/me/applications/{applicationId}/tenants`
 
-The user will see different pages when accessing the application depending on the response.
+The user will see different pages when accessing the service depending on the response.
 * If the response is an empty list, the user will be redirected to the unauthorized page. 
-* If the response contains one tenant, the user will be redirected to the application using this tenant.
+* If the response contains one tenant, the user will be redirected to the service using this tenant.
 * If the response contains two or more tenants, the user will be redirected to the page where they can choose which tenant they want to work with. 
 
 Note that the tenant ID can be passed in a cookie, URL query parameter or header value. 

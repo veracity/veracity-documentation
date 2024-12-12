@@ -458,8 +458,8 @@ Veracity gives you the power to simplify development and deliver an unparalleled
 ### Download use cases
 You can access our use cases in a PDF Format.
 * [Hot Seating Office Manager](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf)
-* [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf)
 * [Health And Safety Tracker](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf)
+* [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf)
 
 ### Listen to our podcasts
 Prefer to listen?
@@ -474,6 +474,8 @@ You can also [listen to another podcast](https://veracitycdnprod.blob.core.windo
 **Leveraging Veracity API for Enhanced Workplace Collaboration**
 
 SafeTech Solutions specializes in developing innovative software solutions for workplace management and efficiency. Their latest product, the Hot Seating Office Manager, leverages cutting-edge technology to ensure companies can manage seating arrangements, facilitate easy colleague location, and maintain up-to-date floor plans. SafeTech Solutions is known for its commitment to creating user-friendly and effective tools that enhance workplace productivity and improve overall employee collaboration.
+
+You can also view the Hot Seating Office Manager use case in a PDF format [here](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf).
 
 #### Overview
 The Hot Seating Office Manager is designed to manage seating arrangements in a dynamic office environment, integrating functionalities such as tracking available seats, locating colleagues, and managing floor plans. The service’s primary goal is to ensure an efficient and collaborative working environment.
@@ -534,6 +536,9 @@ How is the Veracity Platform leveraged in their products and services?
 The Veracity Platform API, as described in the provided documentation, offers a comprehensive set of tools for managing services, users, groups, and permissions within a “multi-tenant ” environment. 
 
 One practical service of this API is in the development and deployment of a Health and Safety Tracker for workplace sservice, can significantly enhance the safety and well-being of employees by leveraging the robust capabilities of the Veracity Platform API. 
+
+
+You can also view the Health and Safety Tracker use case in a [PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) or listen about it [in our podcast]((https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)
 
 #### Overview
 The Health and Safety Tracker is designed to monitor and manage the health and safety conditions within a workplace.
@@ -620,6 +625,9 @@ Also, use the following request body.
 
 ### Mall Management Application
 SafeTech Solutions, renowned for developing innovative software solutions, has introduced a multi-tenant shopping mall management service. This service is designed to keep track of all employees and health and safety managers for all shops renting space in the mall. 
+
+
+You can also view the Mall Management Application use case in a PDF format [here]((https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf).
 
 ### Overview
 It allows each store manager to manage their own employees (including health and safety managers), while enabling all employees to check in and out of work. The service ensures efficient crisis management by the mall administration and integrates seamlessly with EPOS systems to provide real-time data on employee presence in a user-friendly manner. Each mall gets its own virtual ‘tenant’, and store managers can manage their store within the mall’s tenant. 

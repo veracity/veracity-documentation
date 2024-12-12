@@ -455,12 +455,20 @@ Veracity gives you the power to simplify development and deliver an unparalleled
 * **Hybrid**: this is for sevices with a well-defined lease privilege – meaning you can still manage most of your user access needs in Veracity Access Hub but can also extend this to individual services for more granular control. [See our hybrid example](#health-and-safety-tracker).
 * **Service managed**: this one has no defined lease privilege – it is built on your own authorisation policies and front-end interfaces, relying on Veracity Access Management’s robust back-end. This allows you to easily manage users, sharing and other experiences between multiple services on the Veracity platform for a superior user experience. [See our service managed example](#mall-management-application).
 
-You can also access our use cases in a PDF Format.
+### Download use cases
+You can access our use cases in a PDF Format.
 * [Hot Seating Office Manager](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf)
 * [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf)
 * [Health And Safety Tracker](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf)
 
-[VTM case study](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)
+### Listen to our podcasts
+Prefer to listen?
+
+Listen to a podcast on the [Health and Safety Tracker app](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav).
+
+You can also [listen to another podcast](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/ComparingSafeTechApps.wav) which compares all three applications from SafeTech Solutions.
+
+
 ### Hot Seating Office Manager
 
 **Leveraging Veracity API for Enhanced Workplace Collaboration**

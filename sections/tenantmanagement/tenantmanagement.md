@@ -50,15 +50,13 @@ When a customer acquires an application from the Marketplace or through direct s
 
 If the application uses the Veracity Domain Event system, application-specific initialization tasks can be executed automatically like installing a new instance of the application in a Kubernetes cluster.
 
-### Granting access
+### Veracity management modes
 
 Customers use Veracity Access Hub to manage access to their applications and decide on how much control they delegate to VTM. VTM offers three types of access control:
 
--   **Fully managed by Veracity** - Suitable for applications with role-based access control if the roles are application-wide (for example, reader, contributor, and so on). Admins can create groups in VTM, assign certain access permissions to them, and then add users to those groups. Then, Veracity handles access control for the application.
-
--   **Hybrid access control** – Admins configure basic access permissions in Veracity and the details in the application.
-
--   **Complex access models** – The application handles access permissions, and Veracity shows the admins the applications, the users having access to them, and some other general information.
+* **Veracity-managed** - All user management is done in Veracity Access Hub, so there is no need to build your user management front-end. [See our Veracity managed example](#hot-seating-office-manager).
+* **Hybrid** - This is for services with a well-defined lease privilege – meaning you can still manage most of your user access needs in Veracity Access Hub, but can also extend this to individual services for more granular control. [See our hybrid example](#health-and-safety-tracker).
+* **Service-managed** - This one has no defined lease privilege – it is built on your own authorization policies and front-end interfaces, relying on Veracity Access Management’s robust back-end. This allows you to easily manage users, sharing other experiences between multiple services on the Veracity platform for a superior user experience. [See our service managed example](#mall-management-application).
 
 To see sample scenarios for each kind of access control, go to [Sample use case scenarios](#use-case-scenarios).
 
@@ -448,11 +446,6 @@ With Veracity, you can:
 * Access comprehensive documentation, sample code, and a supportive developer community to accelerate your progress.
 
 Veracity gives you the power to simplify development and deliver an unparalleled experience. See the examples below to learn more. 
-
-### Veracity management modes
-* **Veracity-managed** - All user management is done in Veracity Access Hub, so there is no need to build your user management front-end. [See our Veracity managed example](#hot-seating-office-manager).
-* **Hybrid** - This is for services with a well-defined lease privilege – meaning you can still manage most of your user access needs in Veracity Access Hub, but can also extend this to individual services for more granular control. [See our hybrid example](#health-and-safety-tracker).
-* **Service-managed** - This one has no defined lease privilege – it is built on your own authorization policies and front-end interfaces, relying on Veracity Access Management’s robust back-end. This allows you to easily manage users, sharing other experiences between multiple services on the Veracity platform for a superior user experience. [See our service managed example](#mall-management-application).
 
 ### Download use cases
 You can access our use cases in a PDF Format.

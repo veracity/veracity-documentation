@@ -429,7 +429,7 @@ For information about Veracity Tenant Management Domain Events, [see this docume
 
 ## Use case scenarios
 
-We have prepared three sample use case scenarios of fictional applications created by a fictional SafeTech Solutions company to demonstrate what Veracity has to offer. The scenarios correspond to the three Veracity managemenet modes.
+We have prepared three sample use case scenarios of fictional applications created by a fictional SafeTech Solutions company to demonstrate what Veracity has to offer. The scenarios correspond to the [three Veracity managemenet modes](#veracity-management-modes).
 
 
 ### Why choose Veracity?

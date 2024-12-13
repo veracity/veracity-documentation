@@ -37,6 +37,17 @@ When you choose to execute a script, you can select the data sets on which it sh
 	<img src="assets/pythonexecution-execute.png"/>
 </figure>
 
+No matter python script succeeds or fails, you will receive a email.
+Succeed email
+
+Fail email
+
+
 ## History of all executions
 In this tab, you can see the history of all Python scripts executed in your workspace.
 
+<figure>
+	<img src="assets/pythonexecution-history.png"/>
+</figure>
+
+nomatter 

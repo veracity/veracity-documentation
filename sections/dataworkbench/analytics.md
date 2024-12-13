@@ -20,17 +20,19 @@ Here, if you are a workspace admin, you can:
 * Delete scripts (4).
 * Execute scripts (5).
 
-Before you execute a script, download and examine a sample script to familiarize yourself with accessing data sets and assets models.
-
-When you choose to execute a script, you can select the data sets on which it should run. Depending on the script, it can produce a certain number of new datasets, do analytics on the data sets, and more.
+However, if you have only reader access to this page, you can:
+* See scripts (2).
+* Download scripts (3).
 
 <figure>
 	<img src="assets/python_execution.png"/>
 </figure>
 
-However, if you have only reader access to this page, you can:
-* See scripts.
-* Download scripts.
+Before you execute a script, download and examine a sample script to familiarize yourself with accessing data sets and assets models.
+See how to [access data sets and assets models in data Workbench](https://developer.veracity.com/docs/section/dataplatform/analytics)
+
+When you choose to execute a script, you can select the data sets on which it should run. Depending on the script, it can produce one new dataset, do analytics on the data sets, and more.
+
 
 ## History of all executions
 In this tab, you can see the history of all Python scripts executed in your workspace.

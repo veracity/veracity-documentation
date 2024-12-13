@@ -2,7 +2,7 @@
   "$schema": "../../schemas/toc.json",
   "items": [
     {
-      "text": "What's new'",
+      "text": "What's new",
       "href": "releasedec24.md"
     },
     {

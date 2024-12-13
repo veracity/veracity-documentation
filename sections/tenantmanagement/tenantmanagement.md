@@ -427,7 +427,7 @@ To update the extension properties for a user using a JSON patch document, call 
 The Service Bus documentation will be made available shortly.
 
 ## Domain Events
-For information about Veracity Tenant Management Domain Events,[see this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Veracity%20Tenant%20Management%20Events.pdf)
+For information about Veracity Tenant Management Domain Events, [see this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Veracity%20Tenant%20Management%20Events.pdf)
 
 ## Use case scenarios
 You have a vision for a service that can cater to the needs of multiple companies, teams, or projects - but the challenges of securely managing users, permissions, and access control can quickly become a roadblock, distracting you from your core innovation.

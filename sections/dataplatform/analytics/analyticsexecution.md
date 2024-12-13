@@ -31,6 +31,7 @@ Body
   "outputDatasetName": "string"
 }
 ```
+- DatasetIds: Array of input dataset(s)' id. Depending on the script, it can be empty array [] or one item or more itmes.
 - Provider: Name of script provider, Like workspaceId or "GPM"
 - Script: Name of analytic script to run
 - OutputdatasetName: Name of the result dataset that will be uploaded to same workspace as the input dataset(s), it is optional.

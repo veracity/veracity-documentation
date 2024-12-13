@@ -55,4 +55,7 @@ In this tab, you can see the history of all Python scripts executed in your work
 </figure>
 
 You can see the error information for failed python script by moving the mouse to the right side and clicking the information icon.
+<figure>
+	<img src="assets/pythonexecution-error.png"/>
+</figure>
 

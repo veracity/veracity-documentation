@@ -38,10 +38,15 @@ When you choose to execute a script, you can select the data sets on which it sh
 </figure>
 
 No matter python script succeeds or fails, you will receive a email.
+
 Succeed email
 <figure>
 	<img src="assets/pythonexecution-succeed.png"/>
 </figure>
+
+and meanwhile You will see the new dataset in the same workspace you executed the script.
+
+
 Fail email
 <figure>
 	<img src="assets/pythonexecution-fail.png"/>

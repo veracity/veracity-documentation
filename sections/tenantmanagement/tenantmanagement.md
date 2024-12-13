@@ -427,9 +427,15 @@ To update the extension properties for a user using a JSON patch document, call 
 The Service Bus documentation will be made available shortly.
 
 ## Domain Events
-For information about Veracity Tenant Management Domain Events, [see this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Veracity%20Tenant%20Management%20Events.pdf)
+For information about Veracity Tenant Management Domain Events, [see this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Veracity%20Tenant%20Management%20Events.pdf).
 
 ## Use case scenarios
+
+We have prepared three sample use case scenarios of fictional applications created by a fictional SafeTech Solutions company to demonstrate what Veracity has to offer. The scenarios correspond to the three Veracity managemenet modes.
+
+
+### Why choose Veracity?
+
 You have a vision for a service that can cater to the needs of multiple companies, teams, or projects - but the challenges of securely managing users, permissions, and access control can quickly become a roadblock, distracting you from your core innovation.
 
 Veracity empowers you to streamline the development of secure, multi-tenant services. By providing a comprehensive set of tools and APIs, Veracity handles the complex backend work, allowing you to focus on crafting the unique features that will delight your customers.
@@ -441,11 +447,9 @@ With Veracity, you can:
 * Build resilient, responsive services with real-time domain events to keep your service in sync.
 * Access comprehensive documentation, sample code, and a supportive developer community to accelerate your progress.
 
-Veracity gives you the power to simplify development and deliver an unparalleled experience.
+Veracity gives you the power to simplify development and deliver an unparalleled experience. See the examples below to learn more. 
 
-To show you that, we have prepared three use case scenarios of fictional applications. The scenarios correspond to the three veracity managemenet modes.
-
-### Veracity Management Modes
+### Veracity management modes
 * **Veracity-managed** - All user management is done in Veracity Access Hub, so there is no need to build your user management front-end. [See our Veracity managed example](#hot-seating-office-manager).
 * **Hybrid** - This is for services with a well-defined lease privilege – meaning you can still manage most of your user access needs in Veracity Access Hub, but can also extend this to individual services for more granular control. [See our hybrid example](#health-and-safety-tracker).
 * **Service-managed** - This one has no defined lease privilege – it is built on your own authorization policies and front-end interfaces, relying on Veracity Access Management’s robust back-end. This allows you to easily manage users, sharing other experiences between multiple services on the Veracity platform for a superior user experience. [See our service managed example](#mall-management-application).

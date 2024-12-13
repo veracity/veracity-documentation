@@ -56,8 +56,64 @@ df.write.format("delta").mode("overwrite").option("overwriteSchema", "true").opt
 ## Onoboard analytics
 DWB supports two kind of scripts, workspace script and provider script. Users can upload workspace scripts on his/her own, but cannot upload provider script.
 
-### Provider scripts
-Provider scripts are advanced and require folders of sub-scripts and additional files. Currently DWB Support needs to onboard the provider script. Provider scripts cannot be viewed and deleted in DWB UI.
+### Workspace scripts
+```Python
+import requests
+import json
+import pandas as pd
+ 
+# containerName, storageAccountName, datasets and outputFolderPath are parameters passed to the script
+# Do not override
+ 
+ 
+# Read Datasets passed as input, dataset ids are comma seperated in case of multiple datasets
+path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/{datasets}"
+ 
+# Write the output to the output path so as it will be converted to a dataset
+delta_output_path = f"abfss://{containerName}@{storageAccountName}.dfs.core.windows.net/{outputFolderPath}"
+ 
+df = spark.read.load(path).toPandas()
+df['TS'] = pd.to_datetime(df['TS'])
+ 
+ 
+# Get the site information from MMS API example to get site information for site :688e6e66-907a-4510-a60d-854125b41ff8
+# kindly replace the placeholders with actual values
+data = {'scope':"MMS_SCOPE",
+          'grant_type': 'client_credentials',
+          'client_id': "MMS_CLIENT_ID",
+          'client_secret' : "MMS_CLIENT_SECRET"}
+auth = requests.post("MMS_TOKEN_URL"
+  ,data= data) 
+token = auth.json()['access_token']
+res = requests.get(f"{'MMS_API_URL'}/v1/sites/688e6e66-907a-4510-a60d-854125b41ff8",
+        headers= {'Authorization': f'Bearer {token}','Ocp-Apim-Subscription-Key': "MMS_APIM_SUBSCRIPTION_KEY"})
+siteinfo = res.json()
+ 
+# Get the DC capacity from the site information
+dc_cap = [item['value'] for item in  res.json()['metadata'] if item['name'] == 'CapacityDC'][0]
+ 
+ 
+df_monthly = (df.resample("MS", on="TS")
+        .agg(
+            {
+                "Energy": "sum",
+                "GTI": "sum",
+            }
+        )
+        .reset_index()
+    )
+ 
+df_monthly["TS"] = pd.to_datetime(df_monthly["TS"]).dt.strftime(
+    "%m/%Y"
+)
+ 
+df_monthly['PR'] = 100*df_monthly["Energy"]/(dc_cap*df_monthly["GTI"])
+ 
+ 
+# Write the output to the output path so as it will be converted to a dataset
+spark.createDataFrame(df_monthly).write.format("delta").mode("overwrite").option("overwriteSchema", "true").option("header","True").save(delta_output_path)
+````
 
-## 
-How to define input
+### Provider scripts
+Provider scripts are advanced and require folders of sub-scripts and additional files. Currently DWB Support needs to onboard the provider script.
+User can cooperate with DWB Onboarding team to upload provider scripts. Provider scripts cannot be viewed and deleted in DWB UI.

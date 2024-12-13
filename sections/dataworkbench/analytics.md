@@ -33,6 +33,9 @@ See how to [access data sets and assets models in data Workbench](https://develo
 
 When you choose to execute a script, you can select the data sets on which it should run. Depending on the script, it can produce one new dataset, do analytics on the data sets, and more.
 
+<figure>
+	<img src="assets/pythonexecution-execute.png"/>
+</figure>
 
 ## History of all executions
 In this tab, you can see the history of all Python scripts executed in your workspace.

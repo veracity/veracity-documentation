@@ -20,7 +20,7 @@ It is up to you how much access control you delegate to VAH. Veracity Access Hub
 For hybrid and complex access, note that some applications do not support user groups, so you cannot grant bulk access with groups. However, you can still grant access to individual users.
 
 ## With or without user groups?
-User groups can be beneficial when you have a large user count in your company account. It is a good way to group and administrate application access based on different roles and functions for users.
+User groups can be beneficial when you have a large user count in your company account. It is a good way to group and manage application access based on different roles and functions for users.
 
 By default, user groups are disabled in your VAH. However, you can enable them in Settings > User groups > Current settings. If you do this, go to [the version of this guide that includes user groups](accesshub2.md).
 
@@ -170,7 +170,7 @@ If you want to switch to Automatic discoverability:
     500), you will not be able to do this change on your own. Instead, you can apply for help from Veracity. 
 
 ### User groups
-User groups can be beneficial when you have a large user count in your company account. It is a good way to group and administrate application access based on different roles and functions for users.
+User groups can be beneficial when you have a large user count in your company account. It is a good way to group and manage application access based on different roles and functions for users.
 
 If you want to use them, under **Current setting**, select the toggle so that it becomes blue and says 'On'. Then, start using [the version of this guide that includes user groups](accesshub2.md).
 

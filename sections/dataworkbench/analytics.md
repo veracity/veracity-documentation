@@ -37,17 +37,21 @@ When you choose to execute a script, you can select the data sets on which it sh
 	<img src="assets/pythonexecution-execute.png"/>
 </figure>
 
-No matter python script succeeds or fails, you will receive a email.
+### Execute result
 
-Succeed email
+#### Succeed
+You will receive a successful email with a dataset link and will see the new dataset in the same workspace you executed the script.
 <figure>
 	<img src="assets/pythonexecution-succeed.png"/>
 </figure>
 
-and meanwhile You will see the new dataset in the same workspace you executed the script.
+<figure>
+	<img src="assets/pythonexecution-datasets.png"/>
+</figure>
 
-
-Fail email
+#### Fail
+You will receive a fail email with correlationid, which you can use to contact DWB Support team to figure out what it is going on.
+and you also can find the real error message in History of all executions tab.
 <figure>
 	<img src="assets/pythonexecution-fail.png"/>
 </figure>

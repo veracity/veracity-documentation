@@ -62,16 +62,6 @@ Customers use Veracity Access Hub to manage access to their applications and dec
 
 To see sample scenarios for each kind of access control, go to [Sample use case scenarios](#use-case-scenarios).
 
-### Admin roles
-
-Customers can assign users different admin roles depending on how many permissions they want to grant them.
-
--   **User Admin** - A User Admin can add, approve, and remove users within a tenant.
-
--   **Group Admin** - A Group Admin can add or remove users from a group they manage within a tenant.
-
--   **Application Admin** - An Application Admin can view, add, and delete licenses for users and groups to the application. They can also change application settings such as automatic license assignment.
-
 ## VTM terminology and tips
 
 -   User account – A representation of the user as an identity.
@@ -436,6 +426,9 @@ To update the extension properties for a user using a JSON patch document, call 
 
 The Service Bus documentation will be made available shortly.
 
+## Domain Events
+For information about Veracity Tenant Management Domain Events,[see this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Veracity%20Tenant%20Management%20Events.pdf)
+
 ## Use case scenarios
 You have a vision for a service that can cater to the needs of multiple companies, teams, or projects - but the challenges of securely managing users, permissions, and access control can quickly become a roadblock, distracting you from your core innovation.
 
@@ -634,7 +627,6 @@ In this example, we care about the privacy of the end-users, and the application
 
 ### Mall Management Application (service-managed)
 SafeTech Solutions, renowned for developing innovative software solutions, has introduced a multi-tenant shopping mall management service. This service is designed to keep track of all employees and health and safety managers for all shops renting space in the mall. 
-
 
 **You can also view the Mall Management Application use case in [a PDF format](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf)**.
 

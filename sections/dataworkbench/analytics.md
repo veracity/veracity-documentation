@@ -45,7 +45,15 @@ Only be able to see the script uploaded by customer. Cannot see the script uploa
 
 ### Download scripts
 Only be able to download the script uploaded by customer, Cannot download the script uploaded by Provider, like GPM
+<figure>
+	<img src="assets/pythonexecution-download.png"/>
+</figure>
 
+### Delete scripts
+Only be able to delete the script uploaded by customer, Cannot delete the script uploaded by Provider, like GPM
+<figure>
+	<img src="assets/pythonexecution-delete.png"/>
+</figure>
 
 ### Execute script
 When you choose to execute a script, you can select the data sets on which it should run. Depending on the script, do analytics on the data sets, and more, it can produce one new dataset.

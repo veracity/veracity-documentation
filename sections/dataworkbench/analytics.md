@@ -31,20 +31,32 @@ However, if you have only reader access to this page, you can:
 Before you execute a script, download and examine a sample script to familiarize yourself with accessing data sets and assets models.
 See how to [access data sets and assets models in data Workbench](https://developer.veracity.com/docs/section/dataplatform/analytics)
 
-Upload Python scripts, Currently we only allow to upload the file with .py file extension and the size should large than 0.
+### Upload Python scripts
+Currently we only allow to upload the file with .py file extension and the size should large than 0.
 <figure>
 	<img src="assets/pythonexecution-upload.png"/>
 </figure>
 
+### See scripts
+Only be able to see the script uploaded by customer. Cannot see the script uploaded by Provider, like GPM
+<figure>
+	<img src="assets/pythonexecution-view.png"/>
+</figure>
+
+### Download scripts
+Only be able to download the script uploaded by customer, Cannot download the script uploaded by Provider, like GPM
+
+
+### Execute script
 When you choose to execute a script, you can select the data sets on which it should run. Depending on the script, do analytics on the data sets, and more, it can produce one new dataset.
 
 <figure>
 	<img src="assets/pythonexecution-execute.png"/>
 </figure>
 
-### Execute result
+#### Execute result
 
-#### Succeed
+##### Succeed
 You will receive a successful email with a dataset link and will see the new dataset in the same workspace you executed the script.
 <figure>
 	<img src="assets/pythonexecution-succeed.png"/>
@@ -54,7 +66,7 @@ You will receive a successful email with a dataset link and will see the new dat
 	<img src="assets/pythonexecution-datasets.png"/>
 </figure>
 
-#### Fail
+##### Fail
 You will receive a fail email with correlationid, which you can use to contact DWB Support team to figure out what it is going on.
 and you also can find the real error message in History of all executions tab.
 <figure>

@@ -22,11 +22,12 @@ For your Power BI report to read from a new location (File Storage), it must be 
 ## Steps for VAP report developers to migrate an old Power BI report 
 
 ### Step 1: Locate and Download Original Power BI File
-   - If you struggle to find the original Power BI file, download it from your service:
-     1. Go to the VAP Admin tab and navigate to the Resources section.
-     2. Use the filter to locate the .PBIX file by name.
-     3. Select the file and click on the download icon to save it to your local machine.
-     **Note that** if download is not enabled in your service, go to the **Config** page. Then, in **Tenant Properties**, select **Edit**, and enable **Allow Download Pbix**.
+- If you struggle to find the original Power BI file, download it from your service:
+1. Go to the VAP Admin tab and navigate to the Resources section.
+2. Use the filter to locate the .PBIX file by name.
+3. Select the file and click on the download icon to save it to your local machine.
+   
+   **Note that** if download is not enabled in your service, go to the **Config** page. Then, in **Tenant Properties**, select **Edit**, and enable **Allow Download Pbix**.
 
 ### Step 2: Change your Power BI report to read from new location (File Storage)
 1. Open the report in Power BI Desktop 
@@ -45,13 +46,13 @@ For your Power BI report to read from a new location (File Storage), it must be 
 8. Select **Generate key** (3). 
 
 <figure>
-	<img src="/file-storage-as-data-source/assets/3.png"/>
+	<img src="file-storage-as-data-source/assets/3.png"/>
 </figure>
 
 9. Select **Copy key** (1) and go to Power BI Desktop.
 
 <figure>
-	<img src="/file-storage-as-data-source/assets/4.png"/>
+	<img src="file-storage-as-data-source/assets/4.png"/>
 </figure>
 
 10. Make sure to save this access key. You will need it later.
@@ -75,35 +76,35 @@ For your Power BI report to read from a new location (File Storage), it must be 
 	<img src="file-storage-as-data-source/assets/5.png"/>
 </figure>
 
-### Step 4:Upload the Downloaded Report in your VAP service
-   - To upload the file you downloaded in step 1:
-     1. In the left navigation sidebar, select the plus icon.
-     2. Select **Add Resource File**.
-     3. Under **File Name**, name the file with including a version number or date for easy identification.
-     4. Then, drag and drop the file from your local machine onto **Drop file here or click to upload** or select **Drop file here or click to upload** to add the file from your local machine.
-     5. In the bottom right corner, select **Save**.
+### Step 4: Upload the Downloaded Report in your VAP service
+To upload the file you downloaded in step 1:
+1. In the left navigation sidebar, select the plus icon.
+1. Select **Add Resource File**.
+1. Under **File Name**, name the file with including a version number or date for easy identification.
+1. Then, drag and drop the file from your local machine onto **Drop file here or click to upload** or select **Drop file here or click to upload** to add the file from your local machine.
+1. In the bottom right corner, select **Save**.
 
-     #### Scheduled Refresh
-     1.	If the report needs to be refreshed with new data, follow the scheduled refresh steps [here](admin-tab/resource.md).
-     2. Test on-demand refresh from VAP by clicking the **Refresh Report** icon. Note that it might take some time, so wait, or you come back to this point later.
+#### Scheduled Refresh
+1. If the report needs to be refreshed with new data, follow the scheduled refresh steps [here](admin-tab/resource.md).
+1. Test on-demand refresh from VAP by clicking the **Refresh Report** icon. Note that it might take some time, so wait, or you come back to this point later.
 
 ### Step 5: Switch the file name to the newly uploaded file in Reports
-- Find the old report name in Resources and mouse over **Used in Reports**.
-  1. Note down the report title that is connected to the old Data Fabric file.
+#### Find the old report name in Resources and mouse over **Used in Reports**.
+1. Note down the report title that is connected to the old Data Fabric file.
 
-- Go to **Reports** to change the file connection to the latest file version.
-  Repeat these steps for all report titles you noted down in the step above.
-  1. Search for the Report title by using the Filter option.
-  2. Edit the report by switching the file name to the newly uploaded file (latest version or today’s date).
-  3. Select **Save**.
+#### Go to **Reports** to change the file connection to the latest file version.
+Repeat these steps for all report titles you noted down in the step above.
+1. Search for the Report title by using the Filter option.
+1. Edit the report by switching the file name to the newly uploaded file (latest version or today’s date).
+1. Select **Save**.
 
-- Mouse over **Used in Entities**
-  1. Make sure you have access to these entities.
-  2. Run the reports from Home to ensure it works correctly.
+#### Mouse over **Used in Entities**
+1. Make sure you have access to these entities.
+1. Run the reports from Home to ensure it works correctly.
 
-- Navigate back to Resources to delete the old file connected to Data Fabric.
-  1. Find the old Power BI report File Name and make sure the column **Used in reports** is zero.
-  2. Select **Delete** to delete the old Power BI file that used datasource from Data Fabric.
+#### Navigate back to Resources to delete the old file connected to Data Fabric.
+1. Find the old Power BI report File Name and make sure the column **Used in reports** is zero.
+1. Select **Delete** to delete the old Power BI file that used datasource from Data Fabric.
 
 #### Repeat from step 1 for all Power BI File Names on your migration list
 For all Power BI File Names that you need to migrate, follow all the above steps. Start with step 1.

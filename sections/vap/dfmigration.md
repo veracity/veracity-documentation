@@ -37,7 +37,7 @@ For your Power BI report to read from a new location (File Storage), it must be 
 
 
 <figure>
-	<img src="../file-storage-as-data-source/assets/2.png"/>
+	<img src="file-storage-as-data-source/assets/2.png"/>
 </figure>
 
 6. Under **Set access level**, select **Read** (1).
@@ -45,13 +45,13 @@ For your Power BI report to read from a new location (File Storage), it must be 
 8. Select **Generate key** (3). 
 
 <figure>
-	<img src="../file-storage-as-data-source/assets/3.png"/>
+	<img src="file-storage-as-data-source/assets/3.png"/>
 </figure>
 
 9. Select **Copy key** (1) and go to Power BI Desktop.
 
 <figure>
-	<img src="../file-storage-as-data-source/assets/4.png"/>
+	<img src="file-storage-as-data-source/assets/4.png"/>
 </figure>
 
 10. Make sure to save this access key. You will need it later.
@@ -61,7 +61,7 @@ In Power BI Desktop, in the **Home** tab (1), select **Transform data** (2). Thi
 
 
 <figure>
-	<img src="assets/8.png"/>
+	<img src="file-storage-as-data-source/assets/8.png"/>
 </figure>
 
 ### Upload the Downloaded Report

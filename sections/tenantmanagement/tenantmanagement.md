@@ -429,7 +429,7 @@ For information about Veracity Tenant Management Domain Events, [see this docume
 
 ## Use case scenarios
 
-We have prepared three sample use case scenarios of fictional applications created by a fictional SafeTech Solutions company to demonstrate what Veracity has to offer. The scenarios correspond to the [three Veracity management modes](#veracity-management-modes).
+We have prepared three sample use case scenarios of fictious applications created by a fictious SafeTech Solutions company to demonstrate what Veracity has to offer. The scenarios correspond to the [three Veracity management modes](#veracity-management-modes).
 
 
 ### Why choose Veracity?
@@ -448,13 +448,13 @@ With Veracity, you can:
 Veracity gives you the power to simplify development and deliver an unparalleled experience. See the examples below to learn more. 
 
 ### Download use cases
-You can access our use cases in a PDF Format.
+You can access our use cases in a PDF Format. Note that these applications are fictious and SafeTech is a fictious company.
 * [Hot Seating Office Manager](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Hot%20Seating%20Office%20Manager.pdf) (Veracity-managed)
 * [Health And Safety Tracker](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Health%20And%20Safety%20Tracker.pdf) (hybrid)
 * [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf) (service-managed)
 
 ### Listen to our podcasts
-For those who prefer to listen, we have prepared podcasts discussing the applications of the fictional SafeTech Solutions company:
+For those who prefer to listen, we have prepared podcasts discussing the applications of the fictious SafeTech Solutions company:
 * [Health and Safety Tracker app](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/VTMCaseStudy.wav)
 * [Comparison of SafeTech Solutions apps](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/ComparingSafeTechApps.wav)
 
@@ -511,7 +511,7 @@ The service stores all the floor plans and seat bookings in its own database, wh
 The maps are stored in a blob storage, while the seating arrangements and coordinates within the floor map are stored in an SQL database along with the bookings.
 
 #### Conclusion
-The Hot Seating Office Manager service exemplifies the practical use of the Veracity Platform API, creating a robust and efficient system for managing dynamic office environments. This fictional application demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems. 
+The Hot Seating Office Manager service exemplifies the practical use of the Veracity Platform API, creating a robust and efficient system for managing dynamic office environments. This fictious application demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems. 
 
 Veracity cares about the privacy of the end-users. The service does not store user information other than a reference to the users so they can be shown on the map and searched for. 
 
@@ -618,7 +618,7 @@ Also, use the following request body.
 ```
 
 #### Conclusion
-The Health and Safety Tracker application exemplifies the practical use of the Veracity Platform API in creating a robust and efficient system for managing workplace safety. By leveraging the multi-tenant capabilities, user and group management, and detailed permission settings provided by the API, the application ensures a safe and compliant working environment. This fictional application demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems.
+The Health and Safety Tracker application exemplifies the practical use of the Veracity Platform API in creating a robust and efficient system for managing workplace safety. By leveraging the multi-tenant capabilities, user and group management, and detailed permission settings provided by the API, the application ensures a safe and compliant working environment. This fictious application demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems.
 
 In this example, we care about the privacy of the end-users, and the application never stores any user information unless the user reports a case. In that case, we need to store enough information to comply with regulations. The same goes for the ones handling cases.
 
@@ -682,4 +682,4 @@ The service does not need to save any personal information about the users, only
 #### Conclusion
 The shopping mall management service by SafeTech Solutions is a robust and efficient system designed to enhance workplace management and safety. By leveraging the multi-tenant capabilities, user and group management, and detailed permission settings provided by the Veracity Platform API, the service ensures a well-coordinated and safe working environment. 
 
-This fictional service demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems, and showcases SafeTech Solutions' commitment to creating user-friendly and effective tools that improve overall security and collaboration within the workplace.
+This fictious service demonstrates the versatility and power of the Veracity Platform API in addressing complex, real-world problems, and showcases SafeTech Solutions' commitment to creating user-friendly and effective tools that improve overall security and collaboration within the workplace.

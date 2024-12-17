@@ -7,21 +7,62 @@ description: This is a migration guide for VAP reports from Data Fabric to Data 
 **This is a draft and may not be fully accurate**. We will update this document soon.
 
 ## Introduction
-- **Purpose**: This guide aims to assist VAP users in migrating their data storage from Data Fabric to Data Workbench File Storage.
+- **Purpose**:This guide aims to assist VAP report developers in making their Power BI report work after migrating their data storage from Data Fabric to Data Workbench File Storage. 
+
+
+For your Power BI report to read from a new location (File Storage), it must be changed in the Power BI Desktop. Then, upload it to VAP and switch the file connection in Report to the newly updated report. 
 - **Audience**: VAP users with existing reports using Data Fabric.
 
 ## Prerequisites
 - Access to the original Power BI files.
 - Access to VAP and Data Workbench File Storage.
+- Follow the migration guide from Veracity Data Workbench File Storage. See the following documentation: [Veracity Data Workbench migration](https://developer.veracity.com/docs/section/datafabric/datafabric-migration) , [Migration from Data Fabric](https://developer.veracity.com/docs/section/dataworkbench/filestorage/migrating), and [File storage](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage).
 - Necessary permissions to upload and manage reports in VAP.
 
-## Steps for Migration
+## Steps for VAP report developers to migrate an old Power BI report 
 
-### Locate and Download Original Power BI File
+### Step 1: Locate and Download Original Power BI File
    - If you struggle to find the original Power BI file, download it from your service:
      1. Go to the VAP Admin tab and navigate to the Resources section.
      2. Use the filter to locate the .PBIX file by name.
      3. Select the file and click on the download icon to save it to your local machine.
+     **Note that** if download is not enabled in your service, go to the **Config** page. Then, in **Tenant Properties**, select **Edit**, and enable **Allow Download Pbix**.
+
+### Step 2: Change your Power BI report to read from new location (File Storage)
+1. Open the report in Power BI Desktop 
+2. Go to Data Workbench and select the **Data Catalogue** tab (1).
+3. Select **File storage** (2).
+4. In the **File storage** row, select the three dots menu (3). This will open a dropdown menu with more options.
+5. From the dropdown menu, select **Generate keys** (4). This will open a pop-up window where you can generate your key.
+
+
+<figure>
+	<img src="../file-storage-as-data-source/assets/2.png"/>
+</figure>
+
+6. Under **Set access level**, select **Read** (1).
+7. Under **Set access end** set a date far in the future (2). It is important because the report can refresh the data as long as the access key is inside the Set access end period.
+8. Select **Generate key** (3). 
+
+<figure>
+	<img src="../file-storage-as-data-source/assets/3.png"/>
+</figure>
+
+9. Select **Copy key** (1) and go to Power BI Desktop.
+
+<figure>
+	<img src="../file-storage-as-data-source/assets/4.png"/>
+</figure>
+
+10. Make sure to save this access key. You will need it later.
+
+### Step 3: Open your old Power BI file with Power BI Desktop
+In Power BI Desktop, in the **Home** tab (1), select **Transform data** (2). This will open a dropdown. Select **Transform data** (3).
+
+
+<figure>
+	<img src="assets/8.png"/>
+</figure>
 
 ### Upload the Downloaded Report
    - To upload the file you downloaded in step 1:

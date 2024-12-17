@@ -92,4 +92,3 @@ You can see the error information for failed python script by moving the mouse t
 <figure>
 	<img src="assets/pythonexecution-error.png"/>
 </figure>
-

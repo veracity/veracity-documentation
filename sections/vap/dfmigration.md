@@ -110,7 +110,7 @@ Go to **Resources** to delete the old file connected to Data Fabric. To do it:
 1. In the **Actions** column, select **Delete** to delete the old Power BI file that used datasource from Data Fabric.
 
 ### Step 6: Repeat the steps for all Power BI file names you need to migrate 
-For all Power BI file names that you need to migrate, follow all the above steps starting with [step 1](#step-1:-locate-and-download-the-original-power-bi-file).
+For all Power BI file names that you need to migrate, follow all the above steps starting with [step 1](#step-1-locate-and-download-the-original-power-bi-file).
 
 ## Conclusion
 - Now you should have migrated all your Power BI reports to be connected to Data Workbench File Storage. Your reports will run as expected and should refresh data from File Storage if set up.

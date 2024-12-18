@@ -8,7 +8,8 @@ description: This is a migration guide for VAP reports from Data Fabric to Data 
 
 ## Introduction
 - **Purpose**: This guide aims to assist VAP report developers in making their Power BI report work after migrating their data storage from Data Fabric to Data Workbench File Storage.
-  For your Power BI report to read from a new location (File Storage), you need to change it in the Power BI Desktop. Then, upload it to VAP and switch the file connection in Report to the newly updated report. 
+  
+	For your Power BI report to read from a new location (File Storage), you need to change it in the Power BI Desktop. Then, upload it to VAP and switch the file connection in Reports to the newly updated report. 
 - **Audience**: VAP users with existing reports using Data Fabric.
 
 ## Prerequisites
@@ -17,16 +18,16 @@ description: This is a migration guide for VAP reports from Data Fabric to Data 
 - Follow the migration guide from Veracity Data Workbench File Storage. See the following documentation:
 	- [Veracity Data Workbench migration](https://developer.veracity.com/docs/section/datafabric/datafabric-migration)
 	- [Migration from Data Fabric](https://developer.veracity.com/docs/section/dataworkbench/filestorage/migrating)
-	- [File storage](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage).
+	- [File storage](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage)
 - Necessary permissions to upload and manage reports in VAP.
 
 ## Steps for VAP report developers to migrate an old Power BI report 
 
 ### Step 1: Locate and download the original Power BI file
-If you struggle to find the original Power BI file, download it from your service:
+If you cannot find the original Power BI file, download it from your service:
 1. Go to the VAP Admin tab and navigate to the Resources section.
 2. Use the filter to locate the .PBIX file by name.
-3. Select the file and click on the download icon to save it to your local machine.
+3. Select the file and click the download icon to save it to your local machine.
 
 **Note that** if download is not enabled in your service, you need to go to the **Config** page. Then, in **Tenant Properties**, select **Edit**, and enable **Allow Download Pbix**.
 
@@ -42,7 +43,7 @@ If you struggle to find the original Power BI file, download it from your servic
 </figure>
 
 6. Under **Set access level**, select **Read** (1).
-7. Under **Set access end**, set a date far in the future (2). It is important because the report can refresh the data as long as the access key is inside the 'Set access end' period.
+7. Under **Set access end**, set a date far in the future (2). It is important because the report can refresh the data if the access key is inside the 'Set access end' period.
 8. Select **Generate key** (3). 
 
 <figure>
@@ -85,16 +86,16 @@ To upload the file you downloaded in step 1:
 #### Scheduled Refresh
 If the report needs to be refreshed with new data, follow [the scheduled refresh steps](admin-tab/resource.md).
 
-Then, test the on-demand refresh from VAP by clicking the **Refresh Report** icon. Note that it might take some time, so wait, or you come back to this point later.
+Then, test the on-demand refresh from VAP by clicking the **Refresh Report** icon. It might take some time, so wait, or you come back to this point later.
 
 ### Step 5: Change the file name to the newly uploaded file in Reports
 1. Go to **Resources** and locate the old report name.
-1. Then, hover over the **Used in Reports** column for that report to view the report title that is connected to the old Data Fabric file.
+1. Then, hover over the **Used in Reports** column for that report to view the report title connected to the old Data Fabric file.
 1. Note down this report title.
 
 Then, go to **Reports** to change the file connection to the latest file version. 
 
-**Note that** you need to repeat the steps below for all the report titles you noted down in the step above.
+**Note that you need to repeat the steps below for all the report titles you noted down in the step above.**
 
 1. In **Reports**, search for the report title using the Filter option.
 1. Edit the report by changing the file name to the newly uploaded file (latest version or today’s date).
@@ -116,7 +117,7 @@ For all Power BI file names that you need to migrate, follow all the above steps
 - Need Support? If you need any support, contact the [support team](mailto:support@veracity.com).
 
 ## Summary of Key Points
-- **Download and upload**: Download the original Power BI files if you do not have it in your source control repository.
+- **Download and upload**: Download the original Power BI files if you do not have them in your source control repository.
 - **Prepare for migration**: Familiarize yourself with File Storage and upload your data from Data Fabric to File Storage.
 - **Connect and update**: Change the old reports. Connect your reports to the new data source. Obtain access keys for your data in File Storage and change the Power BI reports using these keys.
 - **Upload**: Upload in VAP, and ensure they are correctly configured.

@@ -70,13 +70,14 @@ If you cannot find the original Power BI file, download it from your service:
 	* In the upper part (3), paste the part of the access key which is before **?** symbol. Do not include the **?** symbol here.
 	* In the lower part (4), paste the part of the URL which begins with the **?** symbol, including the **?** symbol.
 5. Select **Ok** (5).
+6. Save the new .PBIX file. You can include today's date in the file name
 
 <figure>
 	<img src="file-storage-as-data-source/assets/14.png"/>
 </figure>
 
 ### Step 4: Upload the downloaded report in your VAP service
-To upload the file you downloaded in step 1:
+To upload the newly saved file from step 3 which connects to Data Workbench:
 1. In the left navigation sidebar, select the plus icon.
 1. Select **Add Resource File**.
 1. Under **File Name**, name the file. In the name, include a version number or date for easy identification.
@@ -98,7 +99,7 @@ Then, go to **Reports** to change the file connection to the latest file version
 **Note that you need to repeat the steps below for all the report titles you noted down in the step above.**
 
 1. In **Reports**, search for the report title using the Filter option.
-1. Edit the report by changing the file name to the newly uploaded file (latest version or today’s date).
+1. Edit the report by changing the file name to the newly uploaded file (latest version or today's date).
 1. Select **Save**.
 1. Hover over the **Used in Entities** column for that report to view the entities where the report is used.
 1. Make sure you have access to these entities.

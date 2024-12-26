@@ -70,7 +70,7 @@ If you cannot find the original Power BI file, download it from your service:
 	* In the upper part (3), paste the part of the access key which is before **?** symbol. Do not include the **?** symbol here.
 	* In the lower part (4), paste the part of the URL which begins with the **?** symbol, including the **?** symbol.
 5. Select **Ok** (5).
-6. Save the new .PBIX file. You can include today's date in the file name
+6. Save the new .PBIX file. You can include today's date in the file name.
 
 <figure>
 	<img src="file-storage-as-data-source/assets/14.png"/>

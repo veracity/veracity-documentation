@@ -16,4 +16,4 @@ Generally speaking, the OVD data one uses for DNV's MRV and DCS verification ser
 
 
 **Applicable services**
-EC
+EC.

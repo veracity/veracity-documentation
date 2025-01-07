@@ -146,11 +146,8 @@ Then, you can update the user to indicate the vessels which the user can see in 
 ```json
 [
   {
-    "value": {
-      "Name": "vtmd2_allowedVessels",
-      "Value": "7911545;7911533"
-    },
-    "path": "/properties/-",
+    "value":  "7911545;7911533",
+    "path": "/properties/0/value",
     "op": "replace"
   },
   {
@@ -186,16 +183,13 @@ You can do the same type of operations on any entity or relationship in the grap
 ```json
 [
   {
-    "path": "/properties/0",
-    "op": "remove"
+    "value": "false",
+    "path": "/extensionProperties/1/value",
+    "op": "replace"
   },
   {
-    "value": {
-      "Name": "vtmd2_isSeen",
-      "Value": "false"
-    },
-    "path": "/properties/-",
-    "op": "replace"
+    "path": "/properties/0",
+    "op": "remove"
   }
 ]
 ```
@@ -214,8 +208,8 @@ This results in the following properties:
 Note that the NuGet packages provided by Veracity have helper methods to construct these queries and run them directly against the API.
 
 ```c#
-    user.MakeJsonPatch()
-        .AddOrUpdateProperty("allowedVessels", "7911545;7911533")
+      user.MakeJsonPatch()
+        .AddOrUpdateProperty("allowedVessels", "7911545;7911533") // add or update the allowed vessels, the name is prefixed with the prefix value from the configuration file.
         .AddOrUpdateProperty("isSeen", "true")
         .ExecutePatchUserAsync();
 ```

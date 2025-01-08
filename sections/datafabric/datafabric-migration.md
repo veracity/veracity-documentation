@@ -4,7 +4,23 @@ description: Gives an overview over what is happening to Data Fabric and availab
 ---
 
 # Veracity Data Workbench Migration
-## Important Information
+## Data Fabric Is Now Closed
+As of **January 1, 2025**, the Data Fabric service has been discontinued.
+
+We have provided multiple notifications about this closure, including **four emails** to all Data Managers and registered application owners since **July 2024** and a prominent banner on the Data Fabric platform. If you were unaware of the sunsetting, please review the information below for next steps.
+
+**Next Steps for Users:**
+1. **Subscribe to Data Workbench**
+
+	If you have not yet transitioned, we encourage you to explore and subscribe to Veracity Data Workbench.
+	* Visit the subscription page here: [**Data Workbench - File Storage**](https://store.veracity.com/6-ea69-4b8c-9c72-df35f2a00).
+2.	**Retrieve Your Files**	
+	
+	If you need assistance retrieving your data from the closed Data Fabric service, please contact [**Veracity Support**](mailto:support@veracity.com). Note that data retrieval after closure may involve service fees, as outlined in prior communications.
+
+We appreciate your understanding as we transition to a more robust platform in Veracity Data Workbench. Thank you for your cooperation throughout this process.
+
+## Veracity Data Workbench Migration information
 Welcome to the Veracity Data Workbench migration page. Here you find all the relevant information and resources that you need to prepare for the transition from Veracity Data Fabric/My Data to Veracity Data Workbench.
 
 

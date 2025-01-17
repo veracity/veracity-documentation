@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\sections",
-    "\\sections\\datastandards",
-    "\\sections\\datastandards\\ovd-guides",
-    "\\sections\\tenantmanagement"
+    "\\sections\\vap",
+    "\\sections\\vap\\file-storage-as-data-source",
+    "\\sections\\vap\\news"
   ],
+  "SelectedNode": "\\sections\\vap\\news\\releasejan25.md",
   "PreviewInSolutionExplorer": false
 }

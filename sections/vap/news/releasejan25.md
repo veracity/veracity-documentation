@@ -22,14 +22,6 @@ What changes:
 ### Support for reports with data from Data Workbench File Storage
 You can now develop and share reports that use data from Data Workbench File Storage. For details, go [here](../file-storage-as-data-source/introduction.md).
 
-## Changes in existing features
-
-### Database migration tool
-A database migration tool is now available to automatically migrate database changes to SQL databases in the TEST, STAG, and PROD environments through the CI/CD pipeline.
-
-### Delete old data source connection
-After updating Data Fabric and Data Workbench File Storage data source URLs, old data source connections will now be deleted automatically.
-
 ## Action required for Data Fabric
 If your reports use data from Veracity My Data (Data Fabric), you must update them now. Otherwise, they will no longer show updated data.
 

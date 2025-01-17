@@ -28,7 +28,7 @@ Note that:
 Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
 
 To generate a SAS token in Data Workbench UI, follow [the instructions](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-a-sas-token).
-TO generate a SAS token with Data Workbench API, refer to the API specification:
+To generate a SAS token with Data Workbench API, refer to the API specification:
 1. Under Datasets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas endpoint to get a readonly SAS token for a workspace dataset. Read endpoint information to learn about the mandatory parameters in the call.
 1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas to get a SAS token for a data set in File Storage that was shared with you. Read endpoint information to learn about the mandatory parameters in the call.
 

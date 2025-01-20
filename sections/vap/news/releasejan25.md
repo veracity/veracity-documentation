@@ -4,7 +4,7 @@ description: This is the changelog for the release 4.20 of Veracity Adapter for 
 ---
 # VAP 4.20 release
 
-We released a new landing page, added support for reports with data from Data Workbench File Storage, and made some technical improvements. 
+We released a new landing page, added support for Data Workbench uploaded data sets as data source in VAP reports, and made some technical improvements. 
 
 Also, Veracity has discontinued Data Fabric, which might mean you need to migrate your data and update your reports if you were using Data Fabric.
 

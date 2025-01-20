@@ -19,8 +19,8 @@ What changes:
 - If you type the wrong service URL, you are redirected to the landing page where you can select the correct service.
 
 
-### Support for reports with data from Data Workbench File Storage
-You can now develop and share reports that use data from Data Workbench File Storage. For details, go [here](../file-storage-as-data-source/introduction.md).
+### New data source for reports: uploaded data sets
+We have added another type of Data Workbench data set you can use as the data source in your reports: uploaded data sets. [See how to use them in your reports](../file-storage-as-data-source/introduction.md).
 
 ## Action required for Data Fabric
 If your reports use data from Veracity My Data (Data Fabric), you must update them now. Otherwise, they will no longer show updated data.

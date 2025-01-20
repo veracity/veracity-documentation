@@ -29,8 +29,8 @@ Your report can use Data Workbench data sets as data source. If it does, you wil
 
 To generate a SAS token in Data Workbench UI, follow [the instructions](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-a-sas-token).
 To generate a SAS token with Data Workbench API, refer to the API specification:
-1. Under Datasets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas endpoint to get a readonly SAS token for a workspace dataset. Read endpoint information to learn about the mandatory parameters in the call.
-1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas to get a SAS token for a data set in File Storage that was shared with you. Read endpoint information to learn about the mandatory parameters in the call.
+1. Under Data sets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas` endpoint to get a readonly SAS token for a workspace data set, including an uploaded data set. [See the detailed instructions here](../file-storage-as-data-source/create-report.md).
+1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas` to get a SAS token for a data set in File Storage that was shared with you. [See the Data Workbench API specification for the details on this endpoint](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
 
 ## File

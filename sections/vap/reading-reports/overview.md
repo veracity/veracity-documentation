@@ -14,6 +14,8 @@ To access your VAP service:
 2. In the top navigation menu, select ["My Services"](https://services.veracity.com/).
 3. Find the tile with the name of your VAP service and select it.
 
+Alternatively, go to [https://insight.dnv.com/](https://insight.dnv.com/) or [https://insight.veracity.com/](https://insight.veracity.com/) to see all VAP services you can access.
+
 ## Home tab
 
 The Home tab of your Veracity Power Adapter for Power BI (VAP) shows the entities you have access to and the reports in them. 

@@ -145,7 +145,7 @@
 			"href": "user-roles.md"
 		},
 		{
-			"text": "Tutorial: Using File storage as a data source",
+			"text": "Tutorial: Using Data Workbench data set as a source",
 			"items": [
 				{
 					"text": "Introduction",

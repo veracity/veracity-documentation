@@ -8,33 +8,21 @@ description: This page explains user management for a workspace in Data Workbenc
 To see the user list, go to **Workspace** > **Members**. Users are listed in two tables, one containing only workspace members, and another containing only tenant members.
 
 Each table:
-* Shows user count in the top right corner.
+* Displays user count in the top right corner.
 * Shows the name, email, and role of each member.
 * Becomes paginated if there are more than 20 members.
 
-## Tenant versus workspace
-**Tenant:** Represents an organization or company. A single tenant can have multiple workspaces.
-
-**Workspace:** Represents a specific area or project within a tenant. Workspaces can be used to isolate data, teams, and permissions within an organization. For example, a company might have a separate workspace for each department, each geographical region, or each project.
-
-## Tenant user roles
-There are three roles for tenant users:
-* Tenant Admin: This level has the highest level of access. They can fully manage the account and all workspaces within it. This includes managing users, data, and all other aspects of the account.
-* Tenant Contributor: This level has access to all workspaces within the account. They can manage the data within these workspaces. However, they cannot manage users.
-* Tenant Reader: This level has the lowest level of access. They can only view all workspaces within the account. This is useful for oversight or auditing purposes.
-
-Note that:
-* Tenant users have the same role in each workspace within a tenant unless explicitly changed on the workspace level.
-* User roles can only be upgraded within a workspace, not downgraded.
-* Users cannot be removed from a workspace.
-
-## Workspace user roles
-There are three roles for workspace users:
-* Workspace Admin: Has full control over the workspace. This includes managing users and all workspace functions.
-* Workspace Contributor: Has access to all workspace functions except user and workspace management.
-* Workspace Reader: Has limited access to the workspace. They can view content, share data, and download data within the workspace.
+## User roles
+There are two roles for the users:
+* admin
+* reader
 
 A user can only have one role. There must be at least one admin per workspace.
+
+Workspace admin can:
+* add users
+* change users' roles
+* remove users
 
 ## To add users
 To add one or more users to the workspace:

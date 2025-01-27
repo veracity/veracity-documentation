@@ -31,7 +31,41 @@ As a workspace admin, to edit workspace description, go to Workspace > Details a
 ### See user's tenant access level
 Now, in Workspace > Members, you can see user's tenant access level and workspace access level. If your role allows it, you can also change user's access level.
 
-See [details on user access level](../usermanagement.md).
+Users can have the following access levels in a tenant.
+
+Tenant Admin:
+* This level has the highest level of access.
+* They can fully manage the account and all workspaces within it.
+* This includes managing users, data, and all other aspects of the account.
+
+Tenant Contributor:
+* This level has access to all workspaces within the account.
+* They can manage the data within these workspaces.
+* However, they cannot manage users.
+
+Tenant Reader:
+* This level has the lowest level of access.
+* They can only view all workspaces within the account.
+* This is useful for oversight or auditing purposes.
+
+Important Notes:
+* Unless explicitly changed, users have the same role in each workspace within the tenant.
+* User roles can only be upgraded within a workspace, not downgraded.
+* Users cannot be removed from a workspace.
+
+Users can have the following access levels in a workspace.
+
+Workspace Admin:
+* Has full control over the workspace.
+* This includes managing users and all workspace functions.
+
+Workspace Contributor:
+* Has access to all workspace functions.
+* However, they cannot manage users or the workspace itself.
+
+Workspace Reader:
+* Has limited access to the workspace.
+* They can view content, share data, and download data within the workspace.
 
 ### Data set schema information
 You can now view the schema description for each dataset in the datasets list. This provides additional context and understanding of the data within the dataset. The `schemaDescription` field is now included in the response of the `/workspaces/{workspaceId}/datasets/query` endpoint.

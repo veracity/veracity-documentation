@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: This is the changelog for the January 2025 second release of Data Workbench.
+description: This is the changelog for the January 2025 release of Data Workbench.
 ---
 
 # January 2025 second release

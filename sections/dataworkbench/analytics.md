@@ -29,7 +29,7 @@ However, if you have only reader access to this page, you can:
 </figure>
 
 Before you execute a script, download and examine a sample script to familiarize yourself with accessing data sets and assets models.
-See how to [access data sets and assets models in data Workbench](https://developer.veracity.com/docs/section/dataplatform/analytics)
+See how to [access data sets and assets models in data Workbench.](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment)
 
 ### Upload Python scripts
 Currently we only allow to upload the file with .py file extension and the size should large than 0.

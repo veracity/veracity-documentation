@@ -9,6 +9,10 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "February 2025 second release",
+					"href": "news/releasefeb25sec.md"
+				},
+				{
 					"text": "February 2025 release",
 					"href": "news/releasefeb25.md"
 				},
@@ -237,6 +241,10 @@
 		{
 			"text": "Data catalogue",
 			"href": "datacatalogue.md"
+		},
+		{
+			"text": "Data validator",
+			"href": "datavalidator.md"
 		},
 		{
 			"text": "File storage",

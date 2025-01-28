@@ -28,6 +28,14 @@ To use Data Validator, you must:
 To activate Data Validator:
 * Step 1?
 
+**To open Data Validator**:
+1. Go to Data Catalogue.
+1. In the top right corner, select **Schema manager**.
+
+## To create a validation rule
+1. Select the **Validation rules** tab. 
+1. In the top right corner, select **Create validation rule**.
+
 ## Loading Your Dataset
 
 Before you can validate your data, you need to load it into Data Validator.

@@ -44,11 +44,7 @@ In detail: 
     services that the user has a relationship with. However,
     notifications are sent through separate channels to ensure
     confidentiality. 
-
-Note that
-[tenants](https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/_layouts/15/Doc.aspx?sourcedoc=%7BCA837B6C-5984-4FD5-9AE5-B187ED93CB3B%7D&file=Veracity%20Tenant%20Management%20for%20Developers.docx&action=default&mobileredirect=true%22%20%EF%B7%9FHYPERLINK%20%22https://dnv.sharepoint.com/:w:/r/teams/VeracityIdentityTrustNetwork/_layouts/15/Doc.aspx?sourcedoc=%7BCA837B6C-5984-4FD5-9AE5-B187ED93CB3B%7D&file=Veracity%20Tenant%20Management%20for%20Developers.docx&action=default&mobileredirect=true)
-can get all information relating to tenant users (profiles) and user
-groups. So, every application installed on a tenant has access to it.  
+Note that [tenants](../tenantmanagement/tenantmanagement.md) can get all information relating to tenant users (profiles) and user groups. So, every application installed on a tenant has access to it.  
 
 ### Messages from the service bus 
 
@@ -89,14 +85,16 @@ Below is the base class of the data sent over the bus. The payload
 contains a JSON string (like below) and the actual data. 
 
 ```json
- public abstract class EventPayload : IEventPayload   
- {   
-   public string PrimaryId { get; set; }   
-    \[Obsolete("Typo, will be removed in the future", false)\]   
-    public string SecondaryId { get; set; }   
-    public string SupportCode { get; set; }   
-    public EntityTypes EntityType { get; set; }   
-    public string Actor { get; set; }   
+public abstract class EventPayload: IEventPayload
+{
+    public string PrimaryId { get; set; }
+
+    [Obsolete("Typo, will be removed in the future", false)]
+    public string SecondaryId { get; set; }
+    public string SupportCode { get; set; }
+
+    public EntityTypes EntityType { get; set; }
+    public string Actor { get; set; }
 } 
 ```
  
@@ -466,9 +464,7 @@ can have multiple schemas mapping to it. 
 
 ### How to get connection strings 
 
-In the Developer portal, you can check connection strings for the
-service bus and then save them to your key vault for later use. Note
-that, as of May 2024, this is not possible yet. 
+In the Developer portal, you can check connection strings for the service bus and then save them to your key vault for later use. To do so, create a Domain Event Management resource and connect it to your Veracity Service in Developer.
 
 ### Events you can listen to
 

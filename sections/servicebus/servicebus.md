@@ -17,10 +17,10 @@ portal and specify what kind of notifications you want to receive. 
 To use the Veracity service bus: 
 
 1. On developer.veracity.com, go to **My projects**, and [create a Veracity service](../developerexperience/introduction.md). Alternatively, use an existing service.  For this service, create a Resource of the **Domain Event Management** type.
-2. When setting up a Domain Event Management resource, on the **Configure** step, under **Service**, select the service for which you want to get notifications about events. Then, under **Subscriptions**, select about what event types you want to be notified.
-3. In the **Advanced** step, set **Max delivery count**. For example, if the 'Max delivery count' is set to 3, if you are notified about an event but your code fails to pick up the message, it will retry getting it 3 times. If those attempts fail, the message returns to the queue.
+2. When setting up a Domain Event Management resource, on the **Configure** step, under **Service**, select the service for which you want to get notifications about events. Then, under **Subscriptions**, select the event types for which you want to be notified.
+3. In the **Advanced** step, set **Max delivery count**. For example, if the 'Max delivery count' is set to 3, if you are notified about an event but your code fails to pick up the message, it will retry retrieving it 3 times. If those attempts fail, the message returns to the queue.
 4. In the **Advanced** step, set **Default message time to live (days)**. This setting determines how long an event message will wait in the queue before your code picks it up. The message will be deleted if it isn't picked up within this time. Note that this time is defined in days, and the default value is 1.00:00:00, which means 'one day'.
-5. Optionally, on the **Advanced** step, toggle on **Require session**. When this toggle is on, you get notifications and messages in the chronological order in which the events happened.
+5. Optionally, on the **Advanced** step, toggle on **Require session**. When this toggle is on, you get notifications and messages in the chronological order in which the events happened.  **Note that** you cannot change this setting later; you can only delete the resource and create a new one which means losing any messages that were in the queue.
 6. In the **Summary** step, ensure that everything is set up correctly, and when it is, select **Submit** to publish your resource.
 
 
@@ -29,6 +29,15 @@ the information you listen to. 
 
 Note that you can enable and disable service bus notifications for your
 applications. 
+
+### To get connection strings
+In the Developer portal, you can check connection strings for the service bus and then save them to your key vault for later use. 
+
+To do so:
+1. On developer.veracity.com, go to **My projects**, and open the Domain Event Management resource you created during setup.
+1. Select the Settings tab.
+1. Now, you can copy or regenerate your connection strings.
+
 
 ### Confidentiality 
 
@@ -461,11 +470,6 @@ can have multiple schemas mapping to it. 
  } 
  ```
   
-
-### How to get connection strings 
-
-In the Developer portal, you can check connection strings for the service bus and then save them to your key vault for later use. To do so, create a Domain Event Management resource and connect it to your Veracity Service in Developer.
-
 ### Events you can listen to
 
 When you create a Domain Evement Management resource, you choose the service about which you want to get notifications, and you choose the type of notifications you want to subscribe to.

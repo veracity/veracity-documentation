@@ -1,0 +1,28 @@
+---
+author: Veracity
+description: Release Notes for Data Platform.
+---
+
+# Release Notes
+
+## 2025-02-10 Veracity Asset Model, Release 2.0.0.0
+
+
+Multiple technology support within one standard (i.e. Solar, Wind, Storage, Preconstruction Solar).
+
+Each assetmodel must adhere to one technology.
+
+Each site must adhere to one technology.
+
+Each device must adhere to one technology. Technology from site is used.
+
+API ingest - needs to use technology.
+
+Show changed from one version of the standard to another from list of versions.
+
+Renamed Parameters to Timeseries.
+
+
+## 2025-01-14 Dataplatform Ingest
+
+Upgrade of backend technology for processing ingested data. Not affecting ingest apis.

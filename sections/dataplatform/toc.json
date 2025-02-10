@@ -6,6 +6,10 @@
       "href": "overview.md"
     },
     {
+      "text": "Release Notes",
+      "href": "releasenotes.md"
+    },
+    {
       "text": "Concepts",
       "items": [
         {
@@ -45,7 +49,7 @@
     {
       "text": "API endpoints",
       "href": "apiendpoints.md"
-    },   
+    },
     {
       "text": "Authentication",
       "href": "auth.md"
@@ -72,7 +76,7 @@
         {
           "text": "Upload any file",
           "href": "storage/files.md"
-        },      
+        },
         {
           "text": "Stream",
           "href": "storage/streaming.md"
@@ -104,12 +108,12 @@
         },
         {
           "text": "Event queries",
-          "href": "query/eventquery.md"         
+          "href": "query/eventquery.md"
         },
         {
           "text": "Sensor data query",
           "href": "query/sensordataqueryproxy.md"
-        }        
+        }
       ]
     },
     {
@@ -186,7 +190,7 @@
     {
       "text": "Data sharing",
       "href": "datasharing.md"
-    },   
+    },
     {
       "text": "SDKs",
       "href": "sdk.md"

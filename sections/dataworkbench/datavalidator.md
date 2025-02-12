@@ -7,232 +7,78 @@ Data Validator is a powerful tool designed to help users ensure the quality and 
 
 This guide will walk you through the features of Data Validator and provide step-by-step instructions on how to use them effectively. We will cover the following sections in the recommended order of use:
 
-1. [Getting Started with Data Validator](#getting-started)
-2. [Loading Your Dataset](#loading-dataset)
-3. [Setting Up Validation Rules](#setting-up-rules)
-4. [Data Type Validation](#data-type-validation)
-5. [Missing Value Detection](#missing-value-detection)
-6. [Range and Constraint Checks](#range-checks)
-7. [Format Validation](#format-validation)
-8. [Executing the Validation](#executing-validation)
-9. [Reviewing Validation Results](#reviewing-results)
-10. [Exporting Reports and Taking Action](#exporting-reports)
-11. [Conclusion](#conclusion)
+## How to get started
+To use Data Validator, you will need the following:
+* A Data Workbench workspace in which you are workspace admin.
+* A File Storage subscription.
+* Subscriptions to Schema Management, Rule Management, and File Validation.
+If you need help in getting them or checking everything is configured correctly, contact Data Workbench support.
+
+## To access Data Validator
+1. Sign into a Data Workbench workspace where you are an admin user.
+1. Navigate to the **Data catalogue** page.
+1. Select **Schema manager** in the upper right corner to access schema and validation rule management.
+1. Navigate to **Data catalogue** > **File storage** to access File storage and validation setup.
+
+## To create a new schema
+1. In **Schema manager**, select **Create schema** in the upper right corner.
+1. Fill in the **Name** and, optionally, **Short name** for the schema. Choose descriptive names that reflect the data you will be working with.
+1. Optionally, under **Description**, describe the purpose of this schema and its intended use.
+1. Select Add column to define a column.
+
+### To define a column
+For each column:
+1. Fill in the **Name (internal name)**: this is a required field and should be unique within the schema. It's used for referencing the column in expressions or code.
+2. Fill in the **Display name (user-friendly name)**: this is how the column will be presented in the user interface. It's limited to 100 characters.
+3. Optionally, add a **Description**: for the column to provide more context. Select **Add** to expand the description field.
+4. Select the appropriate **Data Type**: (for example, Boolean, Decimal, Int64) from the dropdown menu. This defines the kind of data the column is expected to hold.
+5. Set the **Order** of the column in the dataset. '0' means it will be the first column.
+6. Configure the column properties using the toggles:
+   - **Sortable**: Enable if you want users to be able to sort the data by this column.
+   - **Filterable**: Enable if you want users to be able to filter the data based on this column's values.
+   - **Required**: Enable if the column must have a value for every row in the dataset.
+7. Select the **Meta type**: for the column. Choose **Validation** if you want to apply validation rules to this column. Other meta types might be available depending on your Data Validator setup.
+8. If you selected **Validation** as the Meta type:
+   - Select a **Validation rule**: from the dropdown menu. This dropdown will list the validation rules that you've already created in your workspace. You can use the filter to search for specific rules by name.
+9. Select the **Severity level**: from the dropdown menu:
+   - **Correction**: If the data doesn't match the rule, it will be automatically corrected using the Fallback value defined in the validation rule.
+   - **Error**: If the data doesn't match the rule, the entire row will be flagged as an error and potentially removed from the dataset, depending on how you're using Data Validator.
+   - **Warning**: If the data doesn't match the rule, the row will be flagged as a warning, but it will still be kept in the dataset.
+10. Select **Add**: to associate the selected validation rule and severity with the column. You'll see the added rule below.
+11. Repeat steps 3-4 for all columns in your data.
+12. Select **Save**: A toast message will confirm successful saving.
+13. Select the newly created **schema**: to open Schema details.
+
+## To create validation rules
+1. **In Schema manager**: select the Validation rules tab.
+2. **Select Create validation rule**: in the upper right corner.
+3. **Fill in the Name**: for the validation rule (for example, "Required Email"). This is a required field and should be unique.
+4. **Define the validation conditions**: You can use one or more of the following options:
+   - **Data type (optional)**: Select the expected data type from the dropdown menu (for example, String, Integer, Boolean, Date). This is optional; if not specified, the data type will not be checked during validation.
+   - **Min length (optional)**: Enter the minimum allowed length for string values. This field is only applicable if you've selected "String" as the data type or haven't specified a data type.
+   - **Max length (optional)**: Enter the maximum allowed length for string values. This field is only applicable if you've selected "String" as the data type or haven't specified a data type.
+   - **Min (optional)**: Enter the minimum allowed numerical value. This field is only applicable if you've selected a numerical data type (Integer, Float, etc.) or haven't specified a data type.
+   - **Exclusive min**: Select "Yes" if you want the minimum value to be exclusive (meaning values equal to the minimum are invalid). Select "No" if you want the minimum to be inclusive. This field is only relevant if you've provided a "Min" value.
+   - **Max (optional)**: Enter the maximum allowed numerical value. This field is only applicable if you've selected a numerical data type (Integer, Float, etc.) or haven't specified a data type.
+   - **Exclusive max**: Select "Yes" if you want the maximum value to be exclusive. Select "No" if you want it to be inclusive. This field is only relevant if you've provided a "Max" value.
+   - **Pattern (optional)**: Enter a regular expression to define an allowed pattern for string values (for example, for validating email or phone number formats). This field is only applicable if you've selected "String" as the data type or haven't specified a data type.
+   - **Enum (optional)**: Enter a comma-separated list of allowed values. For example, you might enter "US, CA, MX" for a country code field. This field is useful for restricting values to a predefined set. Select Add to add the enum values.
+   - **Fallback value (optional)**: Enter a default value that will be used if the data fails validation and you've set the "Severity" to "Correction" when applying the validation rule to a column. This is useful for automatically correcting invalid data. The information icon next to the field clarifies its function.
+5. **Must not be empty**: Select "Yes" to specify that the field cannot be empty. This adds an implicit "Required" validation. Select "No" if empty values are acceptable.
+6. **Error message**: Enter the message to be displayed if the data does not pass the validation. Be descriptive and user-friendly. Use magic numbers {0}, {1}, {2}, and {3} for dynamic messages (column name, value, row index, rule name).
+7. Optionally, to cancel the changes, select Cancel.
+8. To save the changes in the validation rule, select **Save**.
+
+## To connect validation rules to a schema
+1. In **Schema manager**, select the **pencil icon** next to your schema.
+2. Select the **pencil icon** next to the column you want to validate.
+3. In the **Meta type** dropdown, select **Validation**.
+4. In the **Validation rule** dropdown, select the appropriate validation rule.
+5. In the **Severity** dropdown, choose:
+   - **Error**: The row will be removed if validation fails.
+   - **Warning**: The row will be kept, but flagged.
+   - **Correction**: The value will be replaced with the fallback value if validation fails.
+6. Select **Add**. The rule will appear at the bottom.
+7. Repeat steps 2-6 for all columns needing validation.
+8. Select **Save** to save the schema with validation rules.
 
-## Getting Started with Data Validator
-To use Data Validator, you must:
-* Be a Data Workbench user.
-* Have a File Storage license?
-* Something else?
-
-To activate Data Validator:
-* Step 1?
-
-**To open Data Validator**:
-1. Go to Data Catalogue.
-1. In the top right corner, select **Schema manager**.
-
-## To create a validation rule
-1. Select the **Validation rules** tab. 
-1. In the top right corner, select **Create validation rule**.
-
-## Loading Your Dataset
-
-Before you can validate your data, you need to load it into Data Validator.
-
-### Steps to Load a Dataset
-
-- Step 1: Click on the "File" menu in the top-left corner.
-- Step 2: Select "Open Dataset" or simply click the "Open" button on the toolbar.
-- Step 3: In the file dialog that appears, navigate to the location of your dataset file.
-  - Supported file formats typically include CSV, Excel (.xlsx), JSON, and XML.
-- Step 4: Select your dataset file and click "Open".
-- Step 5: The dataset will be loaded, and you will see a preview of your data in the workspace area.
-
-### Example Scenario
-
-*You have a CSV file named customer_data.csv containing customer information. You want to validate this data before using it in your CRM system.*
-
-- Load customer_data.csv following the steps above.
-
-## 3. Setting Up Validation Rules
-
-Before running validations, you need to define the rules that Data Validator will use to check your data.
-
-### Accessing Validation Rules
-
-- Step 1: Click on the "Validation Rules" tab or menu.
-- Step 2: You will see a list of available validation types that you can apply to your data.
-
-### Defining Global or Column-Specific Rules
-
-- You can set rules that apply to the entire dataset or specific columns.
-- It is recommended to set up rules in the following order:
-  1. Data Type Validation
-  2. Missing Value Detection
-  3. Range and Constraint Checks
-  4. Format Validation
-
-## 4. Data Type Validation
-
-Ensuring that each column contains the expected data type is crucial for data integrity.
-
-### Steps for Data Type Validation
-
-- Step 1: In the "Validation Rules" section, select "Data Type Validation".
-- Step 2: A list of columns from your dataset will be displayed.
-- Step 3: For each column, specify the expected data type:
-  - String/Text
-  - Integer
-  - Float/Decimal
-  - Date/Time
-  - Boolean
-- Step 4: Optionally, set additional constraints like maximum length for strings.
-
-### Example Scenario
-
-*In customer_data.csv, the Age column should be an integer, and the Email column should be a string.*
-
-- Set the Age column to Integer.
-- Set the Email column to String with an optional maximum length of 255 characters.
-
-## 5. Missing Value Detection
-
-Identifying missing or null values helps you understand data completeness.
-
-### Steps for Missing Value Detection
-
-- Step 1: In "Validation Rules", select "Missing Value Detection".
-- Step 2: Choose whether to check all columns or select specific ones.
-- Step 3: Define what constitutes a missing value (e.g., empty cells, NULL, N/A).
-- Step 4: Choose whether to allow or disallow missing values in each column.
-
-### Example Scenario
-
-*You want to ensure that the Customer_ID and Email columns have no missing values.*
-
-- Select the Customer_ID and Email columns.
-- Set missing values to Not Allowed.
-
-## 6. Range and Constraint Checks
-
-Validate that numerical values fall within acceptable ranges or meet specific conditions.
-
-### Steps for Range Checks
-
-- Step 1: Select "Range and Constraint Checks" from the "Validation Rules".
-- Step 2: Choose the numerical columns you want to validate.
-- Step 3: Define the minimum and maximum acceptable values.
-
-
-- Step 4: Optionally, add custom constraints or expressions.
-
-### Example Scenario
-
-*The Age column should contain values between 18 and 99.*
-
-- Select the Age column.
-- Set the minimum value to 18 and the maximum value to 99.
-
-
-## 7. Format Validation
-
-Ensure that data matches a specific format, such as email addresses, phone numbers, or dates.
-
-### Steps for Format Validation
-
-- Step 1: In "Validation Rules", choose "Format Validation".
-- Step 2: Select the columns that require format checks.
-- Step 3: Specify the expected format using predefined patterns or regular expressions.
-  - Common formats include:
-    - Email Address
-    - Phone Number
-    - Date Formats (e.g., YYYY-MM-DD)
-    - Custom Regular Expressions
-
-### Example Scenario
-
-*You need to verify that the Email column contains valid email addresses.*
-
-- Select the Email column.
-- Choose the Email Address format from the predefined options.
-
-## 8. Executing the Validation
-
-After setting up all your validation rules, you're ready to run the validation.
-
-### Steps to Run Validation
-
-- Step 1: Click on the "Validate" button, usually found at the top of the application or within the "Validation Rules" section.
-- Step 2: Data Validator will process your dataset according to the rules you've defined.
-- Step 3: A progress bar or indicator will show the validation status.
-
-## 9. Reviewing Validation Results
-
-Once the validation is complete, you need to review the results to identify and address any issues.
-
-### Steps to Review Results
-
-- Step 1: Upon completion, a "Validation Results" window or tab will open.
-- Step 2: The results are typically categorized into:
-  - Errors: Data that failed validation rules.
-  - Warnings: Data that may be problematic but not necessarily incorrect.
-  - Passes: Data that met the validation criteria.
-- Step 3: Click on each category to view detailed records.
-  - You can often sort or filter the results for easier analysis.
-
-### Example Scenario
-
-*You find that some records in the Email column failed the format validation.*
-
-- Review the specific entries.
-- Identify common issues (e.g., missing @ symbol, typos).
-
-## 10. Exporting Reports and Taking Action
-
-After reviewing the results, you may want to export the findings or take corrective actions.
-
-### Exporting Validation Reports
-
-- Step 1: In the "Validation Results" window, click on the "Export Report" button.
-- Step 2: Choose the desired format (e.g., PDF, Excel, CSV).
-- Step 3: Select the components of the report you wish to include (e.g.
-
-
-, summary, detailed errors).
-- Step 4: Save the report to your desired location.
-
-### Taking Corrective Actions
-
-- Option 1: Manual Correction
-  - Edit the erroneous data directly within Data Validator if supported.
-- Option 2: Export Error Records
-  - Export the records with errors for correction in another tool.
-- Option 3: Apply Auto-Corrections
-  - Use Data Validator’s built-in auto-correction features if available.
-    - For example, setting default values for missing data.
-
-### Example Scenario
-
-*You decide to export the error report and correct the Email entries in Excel.*
-
-- Export the error records.
-- Open them in Excel and correct the email addresses.
-- Reload the corrected dataset into Data Validator and re-run the validation.
-
-## 11. Conclusion
-
-Data Validator is an essential tool for anyone looking to maintain high data quality standards. By following this guide, you should be able to:
-
-- Load and prepare your dataset for validation.
-- Define and apply various validation rules.
-- Execute validations and interpret the results.
-- Take appropriate actions based on validation outcomes.
-
-Ensuring your data is accurate and reliable not only improves the quality of your analyses but also enhances decision-making processes. Don’t hesitate to explore advanced features of Data Validator, such as custom scripting, integration with databases, and automated scheduling of validations.
-
-Additional Tips:
-
-- Regular Validation: Incorporate data validation into your regular data management workflow.
-- Stay Updated: Check for updates to Data Validator to access new features and improvements.
-- Support Resources: Utilize tutorials, forums, and customer support provided by the Data Validator team for additional help.

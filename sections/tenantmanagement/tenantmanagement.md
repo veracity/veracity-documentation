@@ -99,7 +99,7 @@ Eventual consistency is only important for applications that are calling endpoin
 To get these messages, in Domain Events, configure that you want messages to the Tenant topic and use this connection to the Service Bus.
 
 
-For more information, see the [Service Bus documentation](https://github.com/veracity/veracity-documentation/blob/VTM-docs/sections/servicebus/servicebus.md).
+For more information, see the [Service Bus documentation](../servicebus/servicebus.md).
 
 
 ### How to use the API

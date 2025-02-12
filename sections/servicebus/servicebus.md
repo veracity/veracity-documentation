@@ -516,6 +516,5 @@ following: 
 
 -   Error handling – There should be a retry mechanism if an operation
     fails. It may be already covered by your framework, but check it. 
-
 -   Logging – You need logs to tell when an event or consumer is having
     a problem and to know what may have caused it. 

@@ -4,34 +4,20 @@ description: This is the changelog for the February 2025 second release of Data 
 ---
 
 # February 2025 Data Validator release
-Data Validator is a new feature that lets end-users to define their own data schemas and validation rules. This feature enables users to validate data files against the defined schemas and validation rules, ensuring data quality and consistency.
+We are releasing Data Validator, a new feature for Data Workbench that empowers you to ensure the quality and consistency of your data through customizable validation rules and automated checks. This release streamlines data quality management, helping you identify and correct errors early in the data lifecycle.
 
-## Key capabilities
-Learn what you can do with Data Validator.
+## Key features 
 
-### Create validation rules
-   - Users can define custom validation rules by specifying conditions such as required fields, data types, thresholds, and more.
-   - Validation rules can be configured with error, warning, or correction severity levels.
+*   **Flexible validation rules:** Define a wide range of validation rules based on data type, length, regular expressions, allowed values (enums), and more. Combine multiple conditions within a single rule for complex validation scenarios.
+*   **Schema-level integration:** Connect validation rules directly to your data schemas, specifying the severity of validation failures (Correction, Error, Warning). Easily manage and reuse validation rules across different schemas.
+*   **Automated file validation:** Set up automatic validation of files uploaded to designated folders in File Storage. Data Validator will process your data according to the defined rules and provide detailed reports.
+*   **Row-level validation:** Implement validation rules that span multiple columns, ensuring data consistency across related fields. Use logical operators (AND, OR) to define complex dependencies.
+*   **Schema versioning:** Manage different versions of your schemas, allowing you to track changes and easily revert to previous versions. Activate specific schema versions for validation.
+*   **Fallback indicators:** Track which data points have been automatically corrected using fallback values. This provides transparency and auditability for your data validation process.
+*   **API integration:** Leverage the Data Map API and the new Data Validator UI package to integrate the validation functionality programmatically. This allows for seamless integration with external systems and workflows.
 
-### Create schemas
-   - Users can create new data schemas and define the structure, including columns and their properties.
-   - Validation rules can be associated with specific columns within a schema.
+## Known limitations
+The validation process may be impacted by large file sizes or complex validation rules. Users should consider these factors when designing their validation workflows.
 
-### Connect validation rules to schemas
-   - Users can easily connect the defined validation rules to the appropriate schemas.
-   - This allows the validation rules to be applied during the data validation process.
-
-### Set up folder validation
-   - Users can configure specific folders in the Data catalogue to apply validation rules.
-   - When files are uploaded to these folders, the data validation process will automatically run.
-
-### Validate files
-   - Users can upload data files to the configured folders, and the Data Validator will validate the data against the associated schemas and rules.
-   - Validation results, including errors and warnings, are provided, and corrected data files are generated.
-
-### API integration:
-   - The OVD team can leverage the Data Map API and the new Data Validator UI package to integrate the validation functionality programmatically.
-   - This allows for seamless integration with external systems and workflows.
-
-### Known limitations
-- The validation process may be impacted by large file sizes or complex validation rules. Users should consider these factors when designing their validation workflows.
+## Documentation
+[See Data Validator documentation](../datavalidator.md) for detailed instructions and examples.

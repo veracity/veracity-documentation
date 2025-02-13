@@ -96,7 +96,7 @@ public abstract class EventPayload: IEventPayload
     public string PrimaryId { get; set; }
 
     [Obsolete("Typo, will be removed in the future", false)]
-    public string SecondaryId { get; set; }
+    public string SecoundaryId { get; set; }
     public string SecondaryId { get; set; }
 
     public EntityTypes EntityType { get; set; }

@@ -4,7 +4,7 @@ description: These are release notes for the first release of Domain Events in F
 ---
 We are releasing Domain Events, a service bus that lets your application listen to events happening in the Veracity ecosystem and react to them in real-time. This simplifies integration with Veracity, enabling you to build more responsive and efficient applications by eliminating the need for constant polling and improving data synchronization.
 
-## Events you can listen to
+# Events you can listen to
 The service bus supports a wide range of events related to:
 
 * User management: Track user account creation, updates, and deletions.

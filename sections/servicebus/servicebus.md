@@ -1,20 +1,17 @@
 ---
 author: Veracity
-description: Service bus documentation
+description: Domain Events documentation
 ---
 
-# Service Bus Documentation 
+# Domain Events Documentation 
 
-### Overview 
+Domain Events are useful for service providers and Veracity developers because they bind a service bus connection to the service and send notifications about what happens to your service. Thus, Domain Events lets the applications react to changes rather than periodically pull data and check for changes. 
 
-The service bus is useful for service providers and Veracity developers because it binds a service bus connection to the service and sends notifications about what happens to your service. Thus, the service bus lets the applications react to changes rather than periodically pull data and check for changes. 
+Before using Domain Events, you must configure it in the Developer portal and specify what kind of notifications you want to receive. 
 
-Before using the service bus, you must configure it in the Developer
-portal and specify what kind of notifications you want to receive. 
+## Setup 
 
-### Setup 
-
-To use the Veracity service bus: 
+To use Domain Events: 
 
 1. On developer.veracity.com, go to **My projects**, and [create a Veracity service](../developerexperience/introduction.md). Alternatively, use an existing service.  For this service, create a Resource of the **Domain Event Management** type.
 2. When setting up a Domain Event Management resource, on the **Configure** step, under **Service**, select the service for which you want to get notifications about events. Then, under **Subscriptions**, select the event types for which you want to be notified.
@@ -24,14 +21,14 @@ To use the Veracity service bus: 
 6. In the **Summary** step, ensure that everything is set up correctly, and when it is, select **Submit** to publish your resource.
 
 
-After the setup, the Veracity service bus notifies you about changes in
+After the setup, Domain Events notifies you about changes in
 the information you listen to. 
 
-Note that you can enable and disable service bus notifications for your
+Note that you can enable and disable Domain Events notifications for your
 applications. 
 
-### To get connection strings
-In the Developer portal, you can check connection strings for the service bus and then save them to your key vault for later use. 
+## To get connection strings
+In the Developer portal, you can check connection strings for Domain Events and then save them to your key vault for later use. 
 
 To do so:
 1. On developer.veracity.com, go to **My projects**, and open the Domain Event Management resource you created during setup.
@@ -39,9 +36,9 @@ To do so:
 1. Now, you can copy or regenerate your connection strings.
 
 
-### Confidentiality 
+## Confidentiality 
 
-Service bus sends notifications only to relevant services and does not
+Domain Events send notifications only to relevant services and does not
 share information with parties that are not supposed to get it.  
 
 In detail: 
@@ -55,12 +52,12 @@ In detail: 
     confidentiality. 
 Note that [tenants](../tenantmanagement/tenantmanagement.md) can get all information relating to tenant users (profiles) and user groups. So, every application installed on a tenant has access to it.  
 
-### Messages from the service bus 
+## Messages from Domain Events 
 
 You can see the messaging pack containing message schemas on
 [Veracity NuGet](https://www.nuget.org/profiles/Veracity)
-Service bus messages have an envelope and a payload with data. Note that
-the service bus does not send error messages. 
+Domain Events messages have an envelope and a payload with data. Note that
+Domain Events do not send error messages. 
 
 All messages have the following fields: 
 
@@ -100,7 +97,7 @@ public abstract class EventPayload: IEventPayload
 
     [Obsolete("Typo, will be removed in the future", false)]
     public string SecondaryId { get; set; }
-    public string SupportCode { get; set; }
+    public string SecondaryId { get; set; }
 
     public EntityTypes EntityType { get; set; }
     public string Actor { get; set; }
@@ -108,100 +105,11 @@ public abstract class EventPayload: IEventPayload
 ```
  
 
-### Common messages 
+## Common messages 
 
 This section shows the most common messages in the flow with their
 schemas and the event types mapping to them. Note that a single topic
 can have multiple schemas mapping to it. 
-
-*CompanyCreateEvent JSON*
-
-```json
- {   
-   "route": null,   
-   "primaryEntityId": "d361cda3-2f5c-4b89-a9ea-67a24c7747ce",   
-   "secoundaryEntityId": null,   
-   "secondaryEntityId": null,   
-   "eventType": "CompanyCreateEvent",   
-   "entityType": "Company",   
-   "source": "tenantManagement",   
-   "subSystem": null,   
-   "ts": "2023-09-25T11:06:09.7514515Z",   
-   "actor": "3dc22382-3fec-42de-a828-9d1d3ebedd6e",   
-   "supportCode": "824d9f09-adef-494e-ac20-a0afdd374089",   
-   "payload": "{\r\n  \\company\\: {\r\n    \\name\\:
- \\string\\,\r\n    \\address\\: {},\r\n    \\domains\\:
- \\kk.no\\,\r\n    \\mdmName\\: \\string\\,\r\n    \\customerId\\:
- \\string\\\r\n  },\r\n  \\primaryId\\:
- \\d361cda3-2f5c-4b89-a9ea-67a24c7747ce\\,\r\n  \\supportCode\\:
- \\824d9f09-adef-494e-ac20-a0afdd374089\\,\r\n  \\entityType\\:
- \\Company\\,\r\n  \\actor\\:
- \\3dc22382-3fec-42de-a828-9d1d3ebedd6e\\\r\n}",   
-   "targets": \[   
-     "veracity"   
-   \],   
-   "messageId": null   
- } 
- ```
-  
-
-*CompanyModifiedEvent JSON*
-
-```json
- {   
-   "route": null,   
-   "primaryEntityId": "c426bc01-1fe4-42f9-a312-d86eae7e9dc5",   
-   "secoundaryEntityId": null,   
-   "secondaryEntityId": null,   
-   "eventType": "CompanyModifiedEvent",   
-   "entityType": "Company",   
-   "source": "tenantManagement",   
-   "subSystem": null,   
-   "ts": "2023-08-31T10:20:59.8840617Z",   
-   "actor": "c681d6fb-fcac-4bd2-9168-312035262633",   
-   "supportCode": "b8b61b0c-1656-4c37-9cdf-1e47b3046447",   
-   "payload": "{\r\n  \\name\\: \\Heimdalr Guitars\\,\r\n  \\domains\\:
- \\gmail.com\\,\r\n  \\mdmName\\: \\Heimdalr Guitars\\,\r\n 
- \\customerId\\: \\123456789\\,\r\n  \\primaryId\\:
- \\c426bc01-1fe4-42f9-a312-d86eae7e9dc5\\,\r\n  \\supportCode\\:
- \\b8b61b0c-1656-4c37-9cdf-1e47b3046447\\,\r\n  \\entityType\\:
- \\Company\\,\r\n  \\actor\\:
- \\c681d6fb-fcac-4bd2-9168-312035262633\\\r\n}",   
-   "targets": \[   
-     "veracity"   
-   \],   
-   "messageId": null   
- } 
- ```
-
-*CompanyAffiliationRequestEvent JSON*
-
-```json
- {   
-   "route": null,   
-   "primaryEntityId": "c426bc01-1fe4-42f9-a312-d86eae7e9dc5",   
-   "secoundaryEntityId": "b8da9d4d-dd5b-41af-a022-c0c52c2e13ce",   
-   "secondaryEntityId": "b8da9d4d-dd5b-41af-a022-c0c52c2e13ce",   
-   "eventType": "CompanyAffiliationRequestEvent",   
-   "entityType": "Company",   
-   "source": "tenantManagement",   
-   "subSystem": null,   
-   "ts": "2023-08-31T12:54:15.0757789Z",   
-   "actor": "c681d6fb-fcac-4bd2-9168-312035262633",   
-   "supportCode": "0f9cbee3-11ba-4a61-84bf-1d93b93aa144",   
-   "payload": "{\r\n  \\primaryId\\:
- \\c426bc01-1fe4-42f9-a312-d86eae7e9dc5\\,\r\n  \\secoundaryId\\:
- \\b8da9d4d-dd5b-41af-a022-c0c52c2e13ce\\,\r\n  \\secondaryId\\:
- \\b8da9d4d-dd5b-41af-a022-c0c52c2e13ce\\,\r\n  \\supportCode\\:
- \\0f9cbee3-11ba-4a61-84bf-1d93b93aa144\\,\r\n  \\entityType\\:
- \\Company\\,\r\n  \\actor\\:
- \\c681d6fb-fcac-4bd2-9168-312035262633\\\r\n}",   
-   "targets": \[   
-     "veracity"   
-   \],   
-   "messageId": null   
- } 
-```
 
 *User update JSON*
 
@@ -238,7 +146,6 @@ can have multiple schemas mapping to it. 
  } 
  ```
   
-
 *Delete user JSON*
 
 ```json
@@ -263,7 +170,6 @@ can have multiple schemas mapping to it. 
  } 
 ```
   
-
 *Create user JSON*
 
 ```json
@@ -470,11 +376,11 @@ can have multiple schemas mapping to it. 
  } 
  ```
   
-### Events you can listen to
+## Events you can listen to
 
 When you create a Domain Evement Management resource, you choose the service about which you want to get notifications, and you choose the type of notifications you want to subscribe to.
 
-An `entityType` is the thing about which you want to get information, and in the event messages you get, you can see different types of entities such as `Subscription`, `Service`, `User`, `Company`, `Tenant`, and so on.
+An `entityType` is the thing about which you want to get information, and in the event messages you get, you can see different types of entities such as `Subscription`, `Service`, `User`, `Tenant`, and so on.
 
 Below is a description of the main entity types:
 
@@ -486,7 +392,7 @@ Below is a description of the main entity types:
 -   Service – Changes done in Developer towards the service definition.
     For example, you have an app, and you want images and logos to be
     consistent. So, upload a picture in the widget in Developer and get
-    this message flowing through the service bus.  
+    this message flowing through Domain Events.  
 
 -   Subscription – User's relationship to a service. For example, adding
     a new user to the service. This legacy entity type doesn’t consider
@@ -509,9 +415,9 @@ Note that: 
 Always use a unique schema reference. The schema reference is a
 combination of the entity type and event type. 
 
-### Error handling and logging 
+## Error handling and logging 
 
-When using the Veracity service bus, your application should have the
+When using Domain Events, your application should have the
 following: 
 
 -   Error handling – There should be a retry mechanism if an operation

@@ -14,7 +14,6 @@ We are releasing Data Validator, a new feature for Data Workbench that empowers 
 *   **Row-level validation:** Implement validation rules that span multiple columns, ensuring data consistency across related fields. Use logical operators (AND, OR) to define complex dependencies.
 *   **Schema versioning:** Manage different versions of your schemas, allowing you to track changes and easily revert to previous versions. Activate specific schema versions for validation.
 *   **Fallback indicators:** Track which data points have been automatically corrected using fallback values. This provides transparency and auditability for your data validation process.
-*   **API integration:** Leverage the Data Map API and the new Data Validator UI package to integrate the validation functionality programmatically. This allows for seamless integration with external systems and workflows.
 
 ## Known limitations
 The validation process may be impacted by large file sizes or complex validation rules. Users should consider these factors when designing their validation workflows.

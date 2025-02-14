@@ -29,16 +29,16 @@ For each column:
 1. Fill in the **Name (internal name)**: this is a required field and should be unique within the schema. It's used for referencing the column in expressions or code.
 2. Fill in the **Display name (user-friendly name)**: this is how the column will be presented in the user interface. It's limited to 100 characters.
 3. Optionally, add a **Description**: for the column to provide more context. Select **Add** to expand the description field.
-4. Select the appropriate **Data Type**: (for example, Boolean, Decimal, Int64) from the dropdown menu. This defines the kind of data the column is expected to hold. (Currently it only work for defining the column filters on UI, it is different from the `Data type` in `column validator`)
+4. Select the appropriate **Data Type**: (for example, Boolean, Decimal, Int64) from the dropdown menu. This defines the kind of data the column is expected to hold. **Note that** as of February 2025, it only works for defining the column filters in UI, and it is different from the `Data type` in `column validator`.
 5. Set the **Order** of the column in the dataset. '0' means it will be the first column.
 6. Configure the column properties using the toggles:
    - **Sortable**: Enable if you want users to be able to sort the data by this column.
    - **Filterable**: Enable if you want users to be able to filter the data based on this column's values.
-   - **Required**: Enable if the column must have a value for every row in the dataset. (THis is a critical validation rule, missing required column will cause validation to fail)
+   - **Required**: Enable if the column must have a value for every row in the dataset. **This is a critical validation rule** since missing a required column will cause validation to fail.
 7. Select the **Meta type** for the column:
    - **Validation**: Choose this option to apply validation rules to this column to ensure data quality and consistency.
    - **FallbackIndicator**:  Choose this to mark or track which columns have had fallback values applied during validation. This might be useful for auditing or understanding how data has been modified.
-   - **Timestamp**: Choose this to automatically record the date and time when the validation is executed.
+   - **Timestamp**: Choose this to automatically record the date and time when the validation was executed.
 8. If you selected **Validation** as the Meta type:
    - Select a **Validation rule**: from the dropdown menu. This dropdown will list the `column validators`that you've already created in your workspace. You can use the filter to search for specific rules by name.
 9. Select the **Severity level**: from the dropdown menu:
@@ -53,29 +53,30 @@ For each column:
 ### To better understand FallbackIndicator
 A column can have its "Meta type" set to `FallbackIndicator`. If you want to better understand how to use it, see the explanation below.
 
-
-// `FallbackIndicator` is an extra column and will be appended to out result by validation, you can choose both `Validation` and `FallbackIndicator` to a single column, which mean some of the following guide is not correct and will confuse user.
 1. **Validation rule with correction severity**: You create a validation rule (let's call it "MustBeValidEmail") and set its severity to "Correction".  Crucially, you also define a fallback value (for example, an empty string "" or a placeholder like "invalid@email.com").
 2. **Data fails validation:** A user uploads data, and a particular cell in the "Email" column fails the "MustBeValidEmail" validation rule (for example, it's missing the "@" symbol).
-3. **Correction action:** Because the severity is "Correction", Data Validator *automatically* replaces the invalid email value with the fallback value you defined (e.g., "").
-4. **FallbackIndicator marks the change:** If the "Email" column has its Meta type set to `FallbackIndicator`, Data Validator records an `Y` to this cell to indicate that it was corrected to the fallback value.
-5. **User can see the correction:** When the user reviews the validated data, they can see both the corrected value (for exaple, "") and the indication that a fallback was applied (thanks to the `FallbackIndicator`). This allows them to understand that the data they are viewing might not be exactly what was originally uploaded.
-
+3. **Correction action:** Because the severity is "Correction", Data Validator *automatically* replaces the invalid email value in the output with the fallback value you defined (for example, ""). The original input data remains unchanged.
+4. **FallbackIndicator marks the change:** If the "Email" column has its Meta type set to `FallbackIndicator`, Data Validator adds a new column to the output data.  This new column's name will be derived from the original column's name (e.g., "Email_Fallback") and will contain a "Y" to indicate that a correction was made for that specific row.
+5. **User can see the correction:** When the user reviews the validated output data, they can see both the corrected value (e.g., "") in the original "Email" column and the "Y" in the corresponding "Email_Fallback" column, clearly indicating that a fallback was applied. This helps them understand that the data they are viewing might not be exactly what was originally uploaded.
 Here is an example:
 * Let's say you have a column named "IsActive" with "Data type" set to "Boolean" and "Meta type" set to "FallbackIndicator". 
-* If a user uploads a value of "1" (which is not a valid Boolean), and your validation rule corrects it to "True" (your fallback value), then Data Validator adds a "Y" to the corresponding cell in the "IsActive_Fallback" column (or similar) in the Results in the output folder. This "Y" indicates that a correction was made for that specific row and column.
+* If a user uploads a value of "1" (which is not a valid Boolean), and your validation rule corrects it to "True" (your fallback value), then Data Validator adds a "Y" to the corresponding cell in the "IsActive_Fallback" column in the output data. This "Y" indicates that a correction was made for that specific row and column.
 * This helps users understand that the data has been modified automatically.
----
-Input Data
+
+**Input Data**
+```json
 | IsActive |
 | --- |
 | 1 |
----
-Output Data
+```
+
+**Output Data**
+
+```json
 | IsActive | FallbackIndicator_Column |
 | --- | --- |
 | True | Y |
----
+```
 
 ### To validate rows
 1.  Ensure you have at least two columns with the **Validation meta type** added to your schema. Row validation requires columns to check against.

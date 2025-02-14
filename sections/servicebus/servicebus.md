@@ -1,9 +1,9 @@
 ---
 author: Veracity
-description: Domain Events documentation
+description: Veracity Domain Events documentation
 ---
 
-# Domain Events Documentation 
+# Veracity Domain Events Documentation 
 
 Domain Events are useful for service providers and Veracity developers because they bind a service bus connection to the service and send notifications about what happens to your service. Thus, Domain Events lets the applications react to changes rather than periodically pull data and check for changes. 
 

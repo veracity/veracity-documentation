@@ -53,30 +53,30 @@ For each column:
 ### To better understand FallbackIndicator
 A column can have its "Meta type" set to `FallbackIndicator`. If you want to better understand how to use it, see the explanation below.
 
-1. **Validation rule with correction severity**: You create a validation rule (let's call it "MustBeValidEmail") and set its severity to "Correction".  Crucially, you also define a fallback value (for example, an empty string "" or a placeholder like "invalid@email.com").
-2. **Data fails validation:** A user uploads data, and a particular cell in the "Email" column fails the "MustBeValidEmail" validation rule (for example, it's missing the "@" symbol).
-3. **Correction action:** Because the severity is "Correction", Data Validator *automatically* replaces the invalid email value in the output with the fallback value you defined (for example, ""). The original input data remains unchanged.
-4. **FallbackIndicator marks the change:** If the "Email" column has its Meta type set to `FallbackIndicator`, Data Validator adds a new column to the output data.  This new column's name will be derived from the original column's name (e.g., "Email_Fallback") and will contain a "Y" to indicate that a correction was made for that specific row.
-5. **User can see the correction:** When the user reviews the validated output data, they can see both the corrected value (e.g., "") in the original "Email" column and the "Y" in the corresponding "Email_Fallback" column, clearly indicating that a fallback was applied. This helps them understand that the data they are viewing might not be exactly what was originally uploaded.
-Here is an example:
-* Let's say you have a column named "IsActive" with "Data type" set to "Boolean" and "Meta type" set to "FallbackIndicator". 
-* If a user uploads a value of "1" (which is not a valid Boolean), and your validation rule corrects it to "True" (your fallback value), then Data Validator adds a "Y" to the corresponding cell in the "IsActive_Fallback" column in the output data. This "Y" indicates that a correction was made for that specific row and column.
-* This helps users understand that the data has been modified automatically.
+1.  **Validation rule with correction severity:** You create a validation rule (let's call it "MustBeValidEmail") and set its severity to "Correction". Crucially, you also define a fallback value (for example, an empty string "" or a placeholder like "invalid@email.com").
+2.  **Data fails validation:** A user uploads data, and a particular cell in the "Email" column fails the "MustBeValidEmail" validation rule (for example, it's missing the "@" symbol).
+3.  **Correction action:** Because the severity is "Correction", Data Validator *automatically* replaces the invalid email value in the *output data* with the fallback value you defined (e.g., ""). The original input data remains unchanged.
+4.  **FallbackIndicator marks the change:** If you define a separate column with its Meta type set to `FallbackIndicator` (for example, a column called "Email_Fallback"), Data Validator will populate this column in the output data. For the rows where a correction was made, the corresponding cell in the "Email_Fallback" column will contain a "Y" to indicate that a correction was applied to the "Email" column in that row.
+5.  **User can see the correction:** When the user reviews the validated *output data*, they can see both the corrected value (e.g., "") in the "Email" column and the "Y" in the corresponding "Email_Fallback" column, clearly indicating that a fallback was applied. This allows them to understand that the data they are viewing might not be exactly what was originally uploaded.
 
-**Input Data**
-```json
+**Example:**
+
+*   Let's say you have a column named "IsActive" with "Data type" set to "Boolean" and "Meta type" set to "Validation", and a separate column named "IsActive_Fallback" with "Data type" set to "Boolean" and "Meta type" set to "FallbackIndicator".
+*   If a user uploads a value of "1" (which is not a valid Boolean) in the "IsActive" column, and your validation rule corrects it to "True" (your fallback value), then Data Validator adds a "Y" to the corresponding cell in the "IsActive_Fallback" column in the output data. This "Y" indicates that a correction was made for that specific row and column.
+*   This helps users understand that the data has been modified automatically.
+
+**Input Data:**
+
 | IsActive |
-| --- |
-| 1 |
-```
+| :------- |
+| 1        |
 
-**Output Data**
+**Output Data:**
 
-```json
-| IsActive | FallbackIndicator_Column |
-| --- | --- |
-| True | Y |
-```
+| IsActive | IsActive_Fallback |
+| :------- | :---------------- |
+| True     | Y                 |
+
 
 ### To validate rows
 1.  Ensure you have at least two columns with the **Validation meta type** added to your schema. Row validation requires columns to check against.

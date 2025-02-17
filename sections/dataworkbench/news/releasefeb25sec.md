@@ -17,3 +17,6 @@ We are releasing Data Validator, a new feature for Data Workbench that empowers 
 
 ## Known limitations
 The validation process may be impacted by large file sizes or complex validation rules. Users should consider these factors when designing their validation workflows.
+
+## Documentation
+[See Data Validator documentation](../datavalidator.md) for detailed instructions and examples.

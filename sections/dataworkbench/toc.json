@@ -260,6 +260,10 @@
 			]
 		},
 		{
+			"text": "Data validator",
+			"href": "datavalidator.md"
+		},
+		{
 			"text": "Analytics",
 			"href": "analytics.md"
 		},

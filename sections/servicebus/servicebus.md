@@ -378,7 +378,7 @@ can have multiple schemas mapping to it. 
   
 ## Events you can listen to
 
-When you create a Domain Evement Management resource, you choose the service about which you want to get notifications, and you choose the type of notifications you want to subscribe to.
+When you create a Domain Event Management resource, you choose the service about which you want to get notifications, and you choose the type of notifications you want to subscribe to.
 
 An `entityType` is the thing about which you want to get information, and in the event messages you get, you can see different types of entities such as `Subscription`, `Service`, `User`, `Tenant`, and so on.
 

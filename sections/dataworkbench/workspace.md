@@ -1,6 +1,6 @@
 ﻿---
 author: Veracity
-description: This is an overview of the workspace page in Data Workbench.
+description: This page gives an overview of the workspace page in Data Workbench.
 ---
 # Workspace
 The workspace page has three tabs related to your Data Workbench workspace:

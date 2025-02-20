@@ -1,4 +1,4 @@
-﻿---
+---
 author: Veracity
 description: This page gives an overview of the workspace page in Data Workbench.
 ---

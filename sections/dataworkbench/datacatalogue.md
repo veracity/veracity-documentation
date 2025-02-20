@@ -81,7 +81,7 @@ To create a new data set from a template:
 
 
 ## To upload a data set from a CSV file
-If you are an [admin](usermanagement.md), you can upload a data set from a CSV file.
+If you are an [admin](workspace.md), you can upload a data set from a CSV file.
 
 To upload a data set from a CSV file:
 1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.

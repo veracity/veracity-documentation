@@ -14,7 +14,7 @@ The **File storage** tab shows the files uploaded to the workspace and lets you 
 
 The **Shared with me** tab shows the data sets that were shared with you. You cannot modify the original data sets that were shared with you. However, you can copy those data sets and modify the copies.
 
-For each data set, in the top right corner, you can select the following action icons.
+When you open a data set, in the top right corner, you can select the following action icons.
 1. Data set info: See data set name and its description.
 2. Edit table properties: Disable or enable column picker and select what data columns to show.
 3. Filter: Apply and clear the filters available for the data set.
@@ -23,7 +23,7 @@ For each data set, in the top right corner, you can select the following action 
 6. Share: Share the data set with someone else.
 7. Delete: If you are an admin, delete the data set.
 
- Note that, depending on your [user role](usermanagement.md), you might not see some icons.
+ Note that, depending on your [member role](workspace.md), you might not see some icons.
 
 <figure>
 	<img src="assets/dataseticons2.png"/>
@@ -32,8 +32,8 @@ For each data set, in the top right corner, you can select the following action 
 
 ## Types of data sets
 Data sets can be saved and shared as:
-* Data live streams (dynamic) dynamic:When there is a change in a data set, it gets automatically updated.
-* Snapshots:When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
+* Data live streams (dynamic) dynamic: When there is a change in a data set, it gets automatically updated.
+* Snapshots: When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
 
 In Data catalogue > Created data sets, you see the following types of data sets:
 * **Created**: Data sets created in your workspace.

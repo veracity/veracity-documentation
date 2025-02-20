@@ -272,16 +272,12 @@
 			"href": "connectors.md"
 		},
 		{
-			"text": "User management",
-			"href": "usermanagement.md"
+			"text": "Workspace",
+			"href": "workspace.md"
 		},
 		{
 			"text": "API management",
 			"href": "apimanagement.md"
-		},
-		{
-			"text": "Activity log",
-			"href": "activitylog.md"
 		},
 		{
 			"text": "Authentication",

@@ -21,6 +21,7 @@ We have improved the interface for editing resources to provide greater clarity 
 
 ### Credential management for Data Workbench uploaded data in Reports
 Reports utilizing Data Workbench uploaded data now support credential management. Users can set credentials, update SAS tokens, or enable automatic SAS token renewal, ensuring secure and continuous data access.
+
 Here, you can see a [tutorial on using Data Workbench File storage as a data source for Power BI](../file-storage-as-data-source/create-report.md).
 
 ### Generate a Public Viewer link (Admin only)
@@ -32,7 +33,7 @@ As an Admin user, now you can go to a report with a Public Viewer enabled, and *
 As an Admin, if you want to enable or disable Public Viewer: 
 1. Go to the **Entitites** page and find the entity for which you want to enable or disable Public Viewer.
 1. In the "Actions" column, select the **Edit** icon.
-1. Next to **Allow Public View**, toggle it on or toggle it off. When the toggle is off, it is gray and users can't access the entity via URL without signing in.
+1. Next to **Allow Public View**, toggle it on or toggle it off. When the toggle is off, it is grey and users can't access the entity via URL without signing in.
 1. At the right bottom, select the **Save** button to confirm your changes.
 
 ### Easier access to "Batch Add User"

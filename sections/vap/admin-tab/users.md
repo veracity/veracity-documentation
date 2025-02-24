@@ -35,7 +35,7 @@ To hide a filter, select the search icon.
 ## To add a user
 
 To add a user to an entity:
-1. From the left sidebar, select the plus icon and **Add User**.
+1. In the top right corner, select the plus icon. Alternatively, from the left sidebar, select the plus icon and **Add User**.
 2. Enter the user's email address or their unique Veracity ID, and select the **Check** button. If the email address is not associated with a Veracity account, you have to invite this user to create a Veracity account, and after they do it, you can add them to your VAP.
 3. Under **Entity List**, select the entity (entities) to which you want to add the user and confirm with the **Add to Entity List** button.
 4. Under **Roles**, select one or more [roles](../user-roles.md) for the user. Each role gives different kinds of permissions in your VAP.

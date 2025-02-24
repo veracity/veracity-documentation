@@ -24,6 +24,15 @@ Note that:
 	<img src="assets/resource_actions.png"/>
 </figure>
 
+## To find a SAS token
+Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
+
+To generate a SAS token in Data Workbench UI, follow [the instructions](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-a-sas-token).
+To generate a SAS token with Data Workbench API, refer to the API specification:
+1. Under Data sets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas` endpoint to get a readonly SAS token for a workspace data set, including an uploaded data set. [See the detailed instructions here](../file-storage-as-data-source/create-report.md).
+1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas` to get a SAS token for a data set in File Storage that was shared with you. [See the Data Workbench API specification for the details on this endpoint](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
+
+
 ## File
 
 Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
@@ -42,22 +51,35 @@ When you have scheduled a refresh plan, you can apply it to reports.
 	<img src="assets/schedule.png"/>
 </figure>
 
-### To refresh a report
+### To apply a refresh plan
 To apply a refresh plan to a file:
 1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
 2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
 3. In the bottom right corner of the panel, select **Save**.
 
+Note that the scheduled refresh of paginated reports in .RDL format is not supported.
+
 <figure>
 	<img src="assets/scheduleicon2.png"/>
 </figure>
 
+### To refresh a file on demand
+You can apply an on-demand refresh on Power BI reports (File Type must be .PBIX ord .RDL) which datasource is a semantic model. This functions allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for the reports relying on real-time data or requiring frequent updates.
+
+To refresh a file on demand, in the row with a Power BI report, under **Refresh**, select the **Refresh Report** icon.
+
+<figure>
+	<img src="assets/refreshreport.png"/>
+</figure>
+
+**Note that** most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
+
 ### To upload a file
 
 To upload a file:
-1. From the left sidebar, select the plus icon and the **Add Resource File** button.
+1. In the top right corner, select the plus icon. Alternatively, from the left sidebar, select the plus icon and the **Add Resource File** button.
 2. Under **File Name**, enter the name for the file. Veracity recommends including in the file name information that would help recognize the latest version of the file, such as, for example, the client's name, the report's date, and the upload date.
-3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF.
+3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF, RDL.
 4. Under **Personal data policy**, confirm if the file contains no personal data or it contains personal data and you agree to process it according to Veracity DPA.
 5. Select the **Upload** button.
 
@@ -70,6 +92,28 @@ If you upload a Power BI report:
 Note that:
 * If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
 * If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
+
+#### Paginated report
+
+You can upload a paginated report in .rdl format. Paginated reports are ideal for presenting content with tightly controlled rendering requirements, such as certificates, audit findings, test results, purchase orders, and long tabular data that must be printed on multiple pages. These reports ensure that your data is presented in a precise and organized manner, meeting the high standards of professional documentation.
+
+##### Service Principal required
+
+To upload a paginated report, your VAP service must use a Service Principal account. If your service is a new setup using Service Principal, then the **Paginated Report** toggle button can be turned on in Admin. You cannot upload the paginated report file for the legacy Power BI Service Principal. If you try to do so, you will get the error message 'Paginated report is not enabled to upload'. 
+
+##### Supported data sources
+
+We support the following methods to add a data source to a paginated report.
+* You can connect a database as a data source directly. We support Azure SQL database.
+* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .xlsx, and more) and Azure Blob.
+
+##### Report reloading
+
+The report reloads after an hour of interacting with it. When it happens, you will see a reload icon. To continue reading the report, wait for the report to finish reloading.
+
+##### Session expiry
+
+If you do not interact with a paginated report for ten minutes, your session expires. You can close the session expiry dialog with the 'X' icon or select **Refresh**. It will extend the report session time and allow you to continue interacting with your report.
 
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>

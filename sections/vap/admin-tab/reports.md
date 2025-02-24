@@ -4,7 +4,7 @@ description: Overview of the Manage Reports tab in the admin tab.
 ---
 
 # Reports
-This page describes administrator tasks you can do in "Reports".
+This page describes administrator tasks you can do to create and edit reports.
 
 ## To upload a file
 1. In the left navigation sidebar, select the plus icon.
@@ -15,12 +15,15 @@ This page describes administrator tasks you can do in "Reports".
 
 ## To refresh a report with new content 
 
-If your Power BI report contains imported data and you want to show its newer version with the fresh data, or if you need to replace an image or a PDF file with its newer version, upload the file again. For instructions, refer to the section above.
+If your Power BI report contains imported data and you want to show its newer version with the fresh data, refer to [Resources](resource.md#refresh-schedule-plan).
+
+## To change to the latest file version 
+
+If you need to replace a file with a newer version, upload the file again in the **Resources** section. Then, edit the report here to connect to the latest file. It will allow your user to interact with the last version of the file.
 
 ## To create a new report
-1. In the left navigation sidebar, select the plus icon.
-1. Select **Add report**.
-1. Under **Report Type**, select the type of the report that you want to add (either "Power BI / PDF / Image" or "Web App").
+1. In the top right corner, select the plus icon. Alternatively, in the left navigation sidebar, select the plus icon and the **Add report** button.
+1. Under **Report Type**, select the type of the report that you want to add (either "Power BI / Paginated / PDF / Image" or "Web App"). Note that for the paginated report type, when you create an RDL file, the legacy report settings fields are not displayed.
 2. In the **Display name**, name the report. This is the name that will show in the Home menu.
 4. If you want to create a custom URL for your report, deselect the toggle **Use Display Name as Report URL Name**. Then, in the field **Report URL name** provide your custom URL for the report. The URL name must be unique and can't contain spaces or special characters. You can use alphanumeric values, underscore, and hyphen.
 5. Optionally, in the **Description** field, describe your report for the end users. Note that currently we don't show the description to the users.
@@ -49,6 +52,9 @@ To add a new Web app report:
 1. In the row with the report, in the **Actions** column, select the **Report Filter** icon.
 2. Select the filters that you want to apply to the report.
 3. In the right corner of the window, select the **Save** button.
+
+Note that the **Report Filter** icon needs to be enabled in Config tenant properties to appear in the Reports user interface.
+
 
 ## To see report statistics
 

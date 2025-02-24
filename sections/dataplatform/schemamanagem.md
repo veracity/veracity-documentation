@@ -103,7 +103,7 @@ Call the following  endpoint with the PATCH method.
 
 Note that only a workspace admin can do this.
 
-### Modify schenma
+### Modify schema
 To modify a schema, you need to make a new schema version
 
 Call the following endpoint with the POST method.

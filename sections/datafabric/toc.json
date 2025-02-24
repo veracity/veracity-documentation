@@ -65,6 +65,10 @@
 				{
 					"text": "Download data",
 					"href": "tutorials/download-my-data.md"
+				},
+				{
+					"text": "Move data to Veracity Data Workbench",
+					"href": "tutorials/move-data-to-data-workbench.md"
 				}
 			]
 		},

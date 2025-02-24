@@ -9,6 +9,30 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "February 2025 third release",
+					"href": "news/releasefeb25trd.md"
+				},
+				{
+					"text": "February 2025 second release",
+					"href": "news/releasefeb25sec.md"
+				},
+				{
+					"text": "January 2025 release",
+					"href": "news/releasejan25.md"
+				},
+				{
+					"text": "December 2024 second release",
+					"href": "news/releasedec24sec.md"
+				},
+				{
+					"text": "December 2024 release",
+					"href": "news/releasedec24.md"
+				},
+				{
+					"text": "November 2024 release",
+					"href": "news/releasenov24.md"
+				},
+				{
 					"text": "September 2024 release",
 					"href": "news/releasesep24.md"
 				},
@@ -219,8 +243,25 @@
 			"href": "datacatalogue.md"
 		},
 		{
-			"text": "Migrating from Data Fabric",
-			"href": "filestorage.md"
+			"text": "File storage",
+			"items": [
+				{
+					"text": "Migrating from Data Fabric",
+					"href": "filestorage/migrating.md"
+				},
+				{
+					"text": "File storage",
+					"href": "filestorage/filestorage.md"
+				},
+				{
+					"text": "Connect File storage with Azure Storage Explorer",
+					"href": "filestorage/ase.md"
+				}
+			]
+		},
+		{
+			"text": "Data validator",
+			"href": "datavalidator.md"
 		},
 		{
 			"text": "Analytics",
@@ -231,16 +272,12 @@
 			"href": "connectors.md"
 		},
 		{
-			"text": "User management",
-			"href": "usermanagement.md"
+			"text": "Workspace",
+			"href": "workspace.md"
 		},
 		{
 			"text": "API management",
 			"href": "apimanagement.md"
-		},
-		{
-			"text": "Activity log",
-			"href": "activitylog.md"
 		},
 		{
 			"text": "Authentication",

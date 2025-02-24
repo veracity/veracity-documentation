@@ -17,4 +17,4 @@ Please also see the document [How to report fuel consumption and ROBs using the 
 
 
 **Applicable services**
-MRV / DCS/ EC.
+MRV / DCS/ EC

@@ -7,7 +7,7 @@ description: Veracity Access Hub Guide with user groups
 
 ## Overview
 
-Veracity Access Hub (VAH) lets you manage access to your applications and the apps you are addedibing to in the Veracity ecosystem.
+[Veracity Access Hub (VAH)](https://accesshub.veracity.com/) lets you manage access to your applications and the apps you are addedibing to in the Veracity ecosystem.
 
 For developer documentation, go [here](../tenantmanagement/tenantmanagement.md).
 

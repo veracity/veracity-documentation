@@ -59,6 +59,14 @@
 				{
 					"text": "Shifting in port",
 					"href": "ovd-guides/shiftinginport.md"
+				},
+				{
+					"text": "Shore power",
+					"href": "ovd-guides/shorepower.md"
+				},
+				{
+					"text": "Offshore vessel",
+					"href": "ovd-guides/offshore-vessel.md"
 				}
 			]
 		},

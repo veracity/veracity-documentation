@@ -14,16 +14,16 @@ The **File storage** tab shows the files uploaded to the workspace and lets you 
 
 The **Shared with me** tab shows the data sets that were shared with you. You cannot modify the original data sets that were shared with you. However, you can copy those data sets and modify the copies.
 
-For each data set, in the top right corner, you can select the following action icons.
-1. Data set info - See data set name and its description.
-2. Edit table properties - Disable or enable column picker and select what data columns to show.
-3. Filter - Apply and clear the filters available for the data set.
-4. Save - **Save** the current view of the data set (including applied filters and shown columns) or **Save as new** to create a new data set with the applied filters and shown data columns.
-5. Download - Download the data set as a CSV file.
-6. Share - Share the data set with someone else.
-7. Delete - If you are an admin, delete the data set.
+When you open a data set, in the top right corner, you can select the following action icons.
+1. Data set info: See data set name and its description.
+2. Edit table properties: Disable or enable column picker and select what data columns to show.
+3. Filter: Apply and clear the filters available for the data set.
+4. Save:**Save** the current view of the data set (including applied filters and shown columns) or **Save as new** to create a new data set with the applied filters and shown data columns.
+5. Download: Download the data set as a CSV file.
+6. Share: Share the data set with someone else.
+7. Delete: If you are an admin, delete the data set.
 
- Note that, depending on your [user role](usermanagement.md), you might not see some icons.
+ Note that, depending on your [member role](workspace.md), you might not see some icons.
 
 <figure>
 	<img src="assets/dataseticons2.png"/>
@@ -32,13 +32,13 @@ For each data set, in the top right corner, you can select the following action 
 
 ## Types of data sets
 Data sets can be saved and shared as:
-* Data live streams (dynamic) dynamic - When there is a change in a data set, it gets automatically updated.
-* Snapshots - When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
+* Data live streams (dynamic) dynamic: When there is a change in a data set, it gets automatically updated.
+* Snapshots: When you download a data set, you get a snapshot of the data. That is, the downloaded data set contains the state of the data from the time when it was downloaded.
 
 In Data catalogue > Created data sets, you see the following types of data sets:
-* **Created** - Data sets created in your workspace.
-* **Shared** - Data sets shared with you or your workspace. You cannot modify them (but you can create a copy and modify it), and the original sharer has decided if you can share this data set with others.
-* **Uploaded** - Data sets that were uploaded from CSV files.
+* **Created**: Data sets created in your workspace.
+* **Shared**: Data sets shared with you or your workspace. You cannot modify them (but you can create a copy and modify it), and the original sharer has decided if you can share this data set with others.
+* **Uploaded**: Data sets that were uploaded from CSV files.
 
 You can check the data set type in the **Type** column.
 
@@ -81,7 +81,7 @@ To create a new data set from a template:
 
 
 ## To upload a data set from a CSV file
-If you are an [admin](usermanagement.md), you can upload a data set from a CSV file.
+If you are an [admin](workspace.md), you can upload a data set from a CSV file.
 
 To upload a data set from a CSV file:
 1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
@@ -169,43 +169,6 @@ To revoke access to a data set:
 When you revoke a user's or workspace's access to a data set, they are notified about that by email. Also, if they have reshared the data set with other people, they will loose access to the data set too.
 
 ## File storage
-Note that this feature is only available for the workspaces that have a subscription for File storage.
+Note that this feature is only available for the workspaces that have a subscription for File storage. You can [purchase File storage for Veracity Data Workbench here](https://store.veracity.com/veracity-file-storage-data-workbench).
 
-To go to File storage:
-1. In your workspace, go to **Data catalogue** page.
-2. Select the **File storage** tab.
-
-### To upload files
-1. In the top right corner, select **Upload files**. You can upload multiple files at once.
-2. Select the coloured circle with the file icon and select the files from your computer. Alternatively, drag and drop files.
-3. Select **Upload**.
-
-### Folders
-In File storage, you can use folders to organize files. If you are a workspace admin, you can create folders.
-
-To create a folder:
-1. In the top right corner, select **Create folder**.
-2. Name the folder.
-3. Select **Save**.
-
-### To delete files and folders
-If you are a workspace admin, you can delete files and folders. To do so:
-1. In the row with the file or folder you want to delete, on the right, select three dots.
-2. Select **Delete**.
-3. In the window that shows, confirm by selecting **Delete**.
-
-Note that deleting is permanent, and cannot be undone.
-
-### To download files and folders
-If you are a workspace reader or admin, you can download files and folders. To do so:
-1. In the row with the file or folder you want to download, on the right, select three dots.
-2. Select **Download**.
-
-### To generate a SAS token
-If you are a workspace admin, you can generate access keys to files and folders and use them in external systems. To do so:
-1. In the row with a file or folder you want to generate a SAS token for, on the right, select three dots.
-2. Under **Set access level**, choose access level (read or read and write).
-3. Optionally, under **Set access start**, choose a date from which this file or folder should be accessible.
-4. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
-5. Select **Generate key** and a new field called **Access key** will show.
-6. Select **Copy key**. 
+[Go here for File storage documentation](filestorage/filestorage.md).

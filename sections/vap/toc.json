@@ -9,6 +9,18 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "Release 4.20",
+					"href": "news/releasejan25.md"
+				},
+				{
+					"text": "Release 4.19",
+					"href": "news/releasedec24.md"
+				},
+				{
+					"text": "Release 4.18",
+					"href": "news/releasenov24.md"
+				},
+				{
 					"text": "Release 4.17",
 					"href": "news/releaseoct24.md"
 				},
@@ -61,6 +73,10 @@
 					"href": "news/releasesept22.md"
 				}
 			]
+		},
+		{
+			"text": "Migration from Data Fabric",
+			"href": "dfmigration.md"
 		},
 		{
 			"text": "Reading reports",
@@ -129,36 +145,7 @@
 			"href": "user-roles.md"
 		},
 		{
-			"text": "Tutorial: Using Veracity container as a data source",
-			"items": [
-				{
-					"text": "Introduction",
-					"href": "veracity-container-as-data-source/introduction.md"
-				},
-				{
-					"text": "Create your container",
-					"href": "veracity-container-as-data-source/1-create-container.md"
-				},
-				{
-					"text": "Upload data",
-					"href": "veracity-container-as-data-source/2-upload-data.md"
-				},
-				{
-					"text": "Configure file url",
-					"href": "veracity-container-as-data-source/3-get-file-url.md"
-				},
-				{
-					"text": "Create your report",
-					"href": "veracity-container-as-data-source/4-create-powerbi-report.md"
-				},
-				{
-					"text": "Upload in VAP",
-					"href": "veracity-container-as-data-source/5-upload-report.md"
-				}
-			]
-		},
-		{
-			"text": "Tutorial: Using File storage as a data source",
+			"text": "Tutorial: Using Data Workbench data set as a source",
 			"items": [
 				{
 					"text": "Introduction",

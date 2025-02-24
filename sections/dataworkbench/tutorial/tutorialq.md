@@ -15,28 +15,31 @@ Get your API key and a bearer token to authenticate and authorize your calls. Se
 
 Find your workspace ID. To do so, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.
 <figure>
-	<img src="../assets/workspaceid.png"/>
+	<img src="assets/workspaceid.png"/>
 	<figcaption>The image shows where to find the ID of your workspace.</figcaption>
 </figure>
 
 ### Data set ID
-Find the 'datasetId' for a data set you want to query:
+Find the `datasetId` for a data set you want to query:
 1. In Data Workbench, go to **Data catalogue**.
 2. Open a data set.
 3. Copy the part of the URL after 'datasets'.
 
 <figure>
-	<img src="../assets/datasetid.png"/>
+	<img src="assets/datasetid.png"/>
 	<figcaption>The ID of a data set .</figcaption>
 </figure>
 
 ## To query a data set
-To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint. 
+To query for data by workspace ID, call the https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query endpoint using the POST method. **Before calling the endpoint:**
+* Replace {workspaceId} with the ID of the workspace where the data set is
+* Replace {datasetId} with the ID of the data set you want to query
 
-In the request, you must provide:
-* API key and bearer token in the header of your call
-* {workspaceId}
-* {datasetId}
+In the header of your API call, provide the bearer token (1) and API key (2).
+
+<figure>
+	<img src="assets/queryheader.png"/>
+</figure>
 
 ```json
 "pageIndex": 0,

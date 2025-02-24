@@ -4,7 +4,7 @@ description: This is the changelog for the release 4.21 of Veracity Adapter for 
 ---
 # VAP 4.21 release
 
-We have enhanced the Users list view with interaction counts, improved the Edit Resource File UI, and added credential management for Data Workbench uploaded data in reports.
+Read this page to learn what has changed in the Veracity Adapter for Power BI. 
 
 ## New features
 

@@ -16,14 +16,6 @@ For any user, you can see what entities they interacted with and when you select
 	<img src="assets/vap-user-interactions.png"/>
 </figure>
 
-### Improved the Edit Resource interface
-We have improved the interface for editing resources to provide greater clarity and flexibility when updating data sources, connections, and credentials. This enhancement streamlines the management of data connections.
-
-### Credential management for Data Workbench uploaded data in Reports
-Reports utilizing Data Workbench uploaded data now support credential management. Users can set credentials, update SAS tokens, or enable automatic SAS token renewal, ensuring secure and continuous data access.
-
-Here, you can see a [tutorial on using Data Workbench File storage as a data source for Power BI](../file-storage-as-data-source/create-report.md).
-
 ### Generate a Public Viewer link (Admin only)
 As an Admin user, now you can go to a report with a Public Viewer enabled, and **Generate a link** that can be used to access this report without signing in, which makes it suitable for sharing non-sensitive data with external stakeholders.
 <figure>

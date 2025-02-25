@@ -150,7 +150,7 @@
       "items": [
         {
           "text": "Access matrix",
-          "href": "analytics/accessmatrix.md"
+          "href": "analytics/matrix.md"
         },
         {
           "text": "Python development",

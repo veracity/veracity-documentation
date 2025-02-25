@@ -31,7 +31,7 @@ Each rule has a type; the following types are supported (more can be developed):
 When adding a rule, define which asset model type it will validate. One rule per asset model type
 
 ## Add rule
-`POST: {baseUrl}/{tenantAlias}/api/v1/rulesets`
+`POST: {baseUrl}/{tenantAlias}/api/v1/{technology}/rulesets`
 
 ### Rule example
 
@@ -61,7 +61,7 @@ When adding a rule, define which asset model type it will validate. One rule per
 
 
 ## Update ruleset
-`PUT: {baseUrl}/{tenantAlias}/api/v1/rulesets/{rulesetName}/rules`
+`PUT: {baseUrl}/{tenantAlias}/api/v1/{technology}/rulesets/{rulesetName}/rules`
 
 Update all rules in ruleset.
 

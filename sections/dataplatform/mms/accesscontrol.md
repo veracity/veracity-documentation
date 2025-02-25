@@ -26,13 +26,16 @@ Currently on Admin and Reader is available as roles. New roles will be added sho
 - Can evaluate ruleset.
 - Can view standard.
 
+**Edit standard**
+- Veracity needs to onboard the users that have access to edit and publish the standard. 
+- Different users can have access to edit and publsih different part of the standard, based on selected technology.
+
 ## Tenant manager
 Tenant managers must be added by Onboarding team, contact (mail: support@veracity.com)
 - Can access all assets with admin rights.
 - Can create new portfolio.
 - Can delete portfolio.
-- Can update standard.
-- Can publish new version of standard.
+
 
 
 ## Query for permissions

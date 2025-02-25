@@ -1,4 +1,9 @@
+---
+author: Veracity
+description: This page explains how to utilize the analytics capabilities
+---
 
+# User management and access control
 
 Adding or removing users will be managed exclusively through the Data Workbench:
 

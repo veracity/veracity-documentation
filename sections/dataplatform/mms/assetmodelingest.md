@@ -48,10 +48,13 @@ Set portfolioId to empty string (or null) since this id will be created in data 
 ## Create sites
 Use POST method to create a new site and PUT method to update existing sites. 
 For ingest new site there is one endpoint for asyc and one for sync operations, see descriptions below.
-The synch method only allows you to ingest site level data (not devices and hierachies), whereas the async method all information can be ingested.
+The synch method only allows you to ingest site level data and information about devices and hierachies need to be posted in seperate methods. Whereas, the async method all information can be ingested in the body.
 
 ## Ingest a new site  (async operation)
 Site ID must be a unique string (does not have to be a guid). If site id is not given, a guid is created
+
+**Note:** The technology needs to be specified in the body.
+
 
 `POST: {baseUrl}/{tenantAlias}/api/v1/portfolios/{portfolioId}/sites`
 
@@ -62,8 +65,9 @@ Minimum body when ingesting:
   "siteId": "Test123",
   "name": "Test Asset",
   "modelType": "Site",
+  "technology": "Solar",
   "metadata": [], 
-  "parameters": [],   
+  "timeseries": [],   
   "devices": [],         
   "hierarchies": [],    
   "internalStatus": [
@@ -87,12 +91,14 @@ Since this is a async operation, the id returned is job-id and not site id
 
 `POST: {baseUrl}/{tenantAlias}/api/v1/portfolios/{portfolioId}/sites/sync`
 
+The technology for the site must be defined in the body.
+
 ## Update whole site
 
 If you need to syncronize from source to Asset Model on regular basis, the endpoint for updating whole site should be used:
 
-**Note**: When using this methods metadata and parameters not listed will be removed:
--If metadata or parameters are is not listed, they will be removed
+**Note**: When using this methods metadata and timeseries-tags not defined in the source body will be removed from the target:
+-If metadata or timeseries-tags are is not listed, they will be removed
 -If devices are not listed, they will be removed
 -Hierarchies are not affected!!
 
@@ -115,16 +121,16 @@ Example request body:
       "value": 44
     }
   ],
-  "parameters": [
+  "timeseries": [
     {
       "name": "AirPressure",
-      "parameterId": "",
+      "timeseriesId": "",
       "alternativeId": "",
       "unit": "Pa"
     },
 {
       "name": "Azimuth",
-      "parameterId": "",
+      "timeseriesId": "",
       "alternativeId": "",
       "unit": "Deg"
     }
@@ -141,10 +147,10 @@ Example request body:
           "value": "1.0"
         }
       ],
-      "parameters": [
+      "timeseries": [
         {
           "name": "CommStatus",
-          "parameterId": "",
+          "timeseriesId": "",
           "alternativeId": "",
           "unit": "string"
         }
@@ -195,25 +201,25 @@ Request Body:
 }
 ```
 
-## Update set of parameters
-Parameters are the same as signals/data channels and represents the name of a monitored value typically coming from sensors. The names of the parameter must exist in the standard.
+## Update set of timeseries 
+Timeseries are the same as signals/data channels and represents the name of a monitored value typically coming from sensors. The names of the timeseries must exist in the standard.
 
-`PUT: {baseUrl}/{tenantAlias}/api/v1/sites/{siteId}/parameters`
+`PUT: {baseUrl}/{tenantAlias}/api/v1/sites/{siteId}/timeseries`
 
 When parameterId is not given, a unique signal id is created. 
 **Example request payload**
 ```
 {
-  "parameters": [
+  "timeseries": [
     {
       "name": "AirPressure",
-      "parameterId": "",
+      "timeseriesId": "",
       "alternativeId": "",
       "unit": "Pa"
     },
 {
       "name": "Azimuth",
-      "parameterId": "",
+      "timeseriesId": "",
       "alternativeId": "A123",
       "unit": "Deg"
     }
@@ -230,6 +236,9 @@ Devices are created and updated much the same way as site using
 Use POST method
 If deviceId is not given, a guid is created
 
+DeviceType should be the asset model of the device you are creating such as Meter, Inverter etc. The device TYpe needs to be defined in the standard
+The technology for the device is inherited from the site.  
+
 `POST {baseUrl}/{tenantAlias}/api/v1/sites/{siteId}/devices/dev123/metadata`
 
 Request body:
@@ -242,18 +251,17 @@ Request body:
     {
       "name": "string",
       "unit": "string",
-      "value": {}
+      "value": "string"
     }
   ],
-  "parameters": [
+  "timeseries": [
     {
       "name": "string",
-      "parameterId": "string",
+      "timeseriesId": "string",
       "alternativeId": "string",
       "unit": "string"
     }
   ]
-}
 ```
 
 ### Change metadata on device
@@ -272,16 +280,16 @@ Request body is array of metadata to change
 }
 ```
 ### Set parameter on device
-`PUT {baseUrl}/{tenantAlias}/api/v1/sites/{siteId}/devices/{deviceId}}/parameters`
+`PUT {baseUrl}/{tenantAlias}/api/v1/sites/{siteId}/devices/{deviceId}}/timeseries`
 
 When parameterId is not given, a unique signal id is created. 
 **Request payload**
-```json
+```
 {
-  "parameters": [
+  "timeseries": [
     {
       "name": "string",
-      "parameterId": "string",
+      "timeseriesId": "string",
       "alternativeId": "string",
       "unit": "string"
     }

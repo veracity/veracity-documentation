@@ -37,9 +37,9 @@ Will search for sites using exact match on id (in this case Test123)
 This endpoint allows for using an assessment (optional), [see details](#query-site-using-assessment)
 
 ### Search by any metadata
-You can search for sites using any metadata as criteria. You can combine serach criteria and decide which metadata to return in order to reduce the repsonse.
+You can search for sites using any metadata as criteria using the ODATA queries. You can combine serach criteria and decide which metadata to return in order to reduce the repsonse.
 
-Example:
+**Example**
 
 This eample returns all sites (user has access to) with Capacity AC greater than 70 and where City contains 'EL'. In addition the metadata in the response is reduced to only list SiteName, SiteId, City, Latitude and CapacityAC
 ```
@@ -68,12 +68,6 @@ NOTE: No space between ?$filter=   and &$select=
 |contains | string contains | $filter=contains(City, 'El')|
 |endswith|  string ends with | $filter=startswith(City, 'El')|
 |startswith|  string starts with | $filter=endsswith(City, 'KO')|
-
-
-### By name
-Search for all sites that contains "ter" in its name (using naming filter).
-- Pagesize: Indicate max no of sites in return.
-- SortD
 
 
 ### By name

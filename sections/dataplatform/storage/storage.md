@@ -17,4 +17,4 @@ With Azure Data Lake Store you can analyze all of its data in a single place wit
 
 ## Retention
 
-It is possible to specify number of days a file willbe available in storage. Default is "forever".
+It is possible to specify number of days a file will be available in storage. Default is forever.

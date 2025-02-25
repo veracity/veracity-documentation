@@ -15,8 +15,8 @@ Databricks has built-in support for charts and visualizations in both Databricks
 
 ## Visualization using Power BI from Dataworkbench
 
-Analytics can write their output to a dataset in data workbench and all files written will be available.
-Power BI can connect to a dataset or to a file in filestoage and a report can be developed.
+Analytics can write their output(s) to data workbench filestorage or as a dataset.
+Power BI can connect to a dataset or to a file in filestoage and reports can be developed.
 Veracity Adapter for PowerBI (VAP) can be used to distribute the report to the external customers.
 
 You can see the new dataset in the same workspace you executed the script of Dataworkbench UI.

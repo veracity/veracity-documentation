@@ -150,6 +150,10 @@
       "items": [      
         {
           "text": "Analytics development",
+          "href": "analytics/matrix.md"
+        },
+        {
+          "text": "Python development",
           "href": "analytics/analyticsdevelopment.md"
         },
         {

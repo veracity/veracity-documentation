@@ -6,11 +6,13 @@ description: Release Notes for Data Platform.
 # Release Notes
 
 ## 2025-02-27 Analytics environment
+
 Veracity enables an advanced analytics environment using Azure Databricks and ensuring compliance with security best practices. A databricks workspace synchronizes data with the assosiated workspace in Veracity Data Workbench.
+=======
+Veracity enables an advanced analytics environment using Azure Databricks by ensuring compliance with security best practices. A databricks workspace synchronizes data with the assosiated data in Veracity Data workbench.
 
 ## 2025-02-23 Veracity Asset Model, Release 2.0.2
-Access control on technology level for edit on standard.
-New technologies on standard must be onboarded by Veracity.
+Access control on technology level for edit on standard. New technologies on standard must be onboarded by Veracity.
 
 ## 2025-02-10 Veracity Asset Model, Release 2.0.0
 

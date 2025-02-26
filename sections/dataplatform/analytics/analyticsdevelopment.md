@@ -3,7 +3,7 @@ author: Veracity
 description: This page explains how to utilize the analytics capabilities
 ---
 
-# Veracity Analytics Environemnt
+# Veracity Analytics Environment
 
 Veracity enables an advanced analytics environment using Azure Databricks and ensuring compliance with security best practices.
 

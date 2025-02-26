@@ -147,13 +147,9 @@
     },
     {
       "text": "Analytics",
-      "items": [      
+      "items": [             
         {
-          "text": "Analytics development",
-          "href": "analytics/matrix.md"
-        },
-        {
-          "text": "Python development",
+          "text": "Analytic development",
           "href": "analytics/analyticsdevelopment.md"
         },
         {

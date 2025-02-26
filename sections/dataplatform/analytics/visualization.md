@@ -12,6 +12,7 @@ Databricks has built-in support for charts and visualizations in both Databricks
 
 [Visualization in Databricks SQL](https://docs.databricks.com/aws/en/sql/user/visualizations/)
 	
+However, these results can not be shared with users outside dnv.
 
 ## Visualization using Power BI from Dataworkbench
 

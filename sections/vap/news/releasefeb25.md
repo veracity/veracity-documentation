@@ -16,6 +16,8 @@ For any user, you can see what entities they interacted with and when you select
 	<img src="assets/vap-user-interactions.png"/>
 </figure>
 
+For details, see the [Users page documentation](../admin-tab/users.md).
+
 ### Generate a Public Viewer link (Admin only)
 As an Admin user, now you can go to a report with a Public Viewer enabled, and **Generate a link** that can be used to access this report without signing in, which makes it suitable for sharing non-sensitive data with external stakeholders.
 <figure>
@@ -28,6 +30,8 @@ As an Admin, if you want to enable or disable Public Viewer:
 1. Next to **Allow Public View**, toggle it on or toggle it off. When the toggle is off, it is grey and users can't access the entity via URL without signing in.
 1. At the right bottom, select the **Save** button to confirm your changes.
 
+For details, see the [Entities page documentation](../admin-tab/entities.md).
+
 ### Easier access to "Batch Add User"
 Now, for Admins, it is easier to find the  "Batch Add User" option:
 * On any page, you can select the plus button (1) on the left and then then "Batch Add User" (2).
@@ -36,3 +40,5 @@ Now, for Admins, it is easier to find the  "Batch Add User" option:
 <figure>
 	<img src="assets/batch-add-users.png"/>
 </figure>
+
+For details, see the [Users page documentation](../admin-tab/users.md).

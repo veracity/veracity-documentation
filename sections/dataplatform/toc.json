@@ -147,18 +147,22 @@
     },
     {
       "text": "Analytics",
-      "items": [
+      "items": [      
         {
-          "text": "Python development",
+          "text": "Analytics development",
           "href": "analytics/analyticsdevelopment.md"
         },
         {
-          "text": "Python execution",
+          "text": "Workflow",
           "href": "analytics/analyticsexecution.md"
         },
         {
           "text": "Visualization",
           "href": "analytics/visualization.md"
+        },
+        {
+          "text": "Access control",
+          "href": "analytics/matrix.md"
         }
       ]
     },

@@ -11,8 +11,7 @@ Adding or removing users will be managed exclusively through the Data Workbench:
 - Creating or upgrading clusters will not be permitted.
 - Unity Catalog is enabled
 
-
-The following features is only mangaged by Veracity:
+The following features are mangaged by Veracity:
 - Creating Credentials
 - Creating External Locations 
 - Creating New Catalog 

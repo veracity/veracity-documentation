@@ -11,17 +11,23 @@ Azure Databricks is a unified, open analytics platform for building, deploying, 
 
 [Azure Databricks documentation](https://learn.microsoft.com/en-us/azure/databricks/)
 
-## How does Databricks connect to Veracity dataplatform storage
+## How does Databricks connect to Veracity data platform storage
 
 A dedicated Databricks environment is enabled for a single workspace in Veracity Data Workbench on request. Veracity managed Databricks environments enable Unity Catalog, a unified governance solution for data and AI assets on Databricks.
 
+<figure>
+  <img src="assets/dataplatformAnalytics.PNG"/>  
+</figure>
+
+
 All structured data (datasets) and all files stored in the Data Workbench workspace are available in the databricks catalog and can be processed. New datasets and files can be created and synched back to Veracity Data Workbench datalake.
+
 
 To buy subscription for Analytics Environment, contact support@veracity.com
 
 ## Data management 
 
-A Databricks Catalog is created for each Data workbench workspace you have access to that has Analytics eneabled. You will see these  under **Catalog** as **vdp_tenant_workspaceName**
+A Databricks Catalog is created for each Data workbench workspace you have access to that has Analytics enabled. You will see these  under **Catalog** as **vdp_tenant_workspaceName**
 
 Databricks uses two primary securable objects to store and access data:
 
@@ -37,7 +43,7 @@ Users can not create new catalogs since share is not enabled.
 ## Users and access
 When users are added to Data Workbench, they will be synced with databricks user group (Readers or Admins Group).
 
-**Note:** Only internal user(dnv.com ) will be granted access to databricks evironment.
+**Note:** Only internal user(dnv.com ) will be granted access to databricks environment.
 
 The role the user has in the Veracity Data Workbench workspace [affects permissions in Databricks](matrix.md).
 
@@ -81,13 +87,14 @@ openpyxl provides fine-grained control over reading and writing Excel files. The
 Read CSV is faster that reading XLSX
 
 ```
-df2= pd.read_csv("<filepath>")
+var filepath = ""
+df2= pd.read_csv(filepath)
 ```
 Navigate to the file and use copy path
 
 
 ## Synchronize files with Data workbench
-There is no action required to synchronize files between Veracity Dataworkbech filestorage and the Databricks environment. Files uploaded to Dataworkbech are visible in Databricks. New files stored in Volume in databricks are visible in Dataworkbech filesstorage in same sub-folders.
+There is no action required to synchronize files between Veracity data platform file storage and the Databricks environment. Files uploaded to Veracity data platform filestorage are visible in Databricks. New files stored in Volume in databricks are visible in data platform file storage in same sub-folders.
 
 ### Write files
 If creating a new file in Volume, you can create a new directory from workspace or from notebook
@@ -103,7 +110,7 @@ df.to_csv("/Volumes/<path>/default/filestorage/MyDir/<filename>.csv", index= Fal
 Datasets uploaded to Veracity Data Workbench is available in Databricks tables. 
 
 First release of this Analytics environment does not synch new tables made in databricks or modified tables back to Data Workbench. 
-Data shared from other workspaces are not avialble in Databricks in this release.  These features are planned released in Q1-2025.
+Data shared from other workspaces are not available in Databricks in this release.  These features are planned released in Q1-2025.
 
 ### Connect to Asset model
 How to connect to Asset model from Python

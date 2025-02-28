@@ -13,5 +13,4 @@ Documentation will soon be in place
 
 ## Execute Databricks api
 
-How to execute analytics from api
 Documentation will soon be in place

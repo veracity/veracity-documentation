@@ -37,10 +37,9 @@ The 'Shared with' dialog's submit button now adapts its text based on the sharin
 ## Changes in existing features
 
 ### Deprecated and new SAS token endpoints
-We have deprecated the following version 1 endpoints for SAS token generation:
+We have deprecated the following version 1 endpoint for SAS token generation:
 * `POST https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/storages/sas`
-* `GET /api/v1/workspaces/{workspaceId}/shares/{shareId}/storages/sas`
-Note tha these endpoints still work but we recommend using their version 2.
+Note that this endpoints still works but we recommend using its version 2.
 
 Now, use version 2 endpoints for SAS token generation:
 * To generate a SAS token for internal storage without connection settings, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas` endpoint with the POST method.
@@ -50,16 +49,7 @@ Note that:
 * The `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/shares/{shareId}/storages/sas` endpoint, called with the GET method, has a different return type compared to Version 1.
 * You can check [what is internal and external storage in this document](https://developer.veracity.com/docs/section/dataplatform/storage/files).
 
-### Improved tenant member deletion message
-We have improved the text in the message that shows when you delete a tenant member, so that that this action does not remove this user's workspace roles.
-
 ## Bug fixes
-
-### Fixed toast message auto-dismissal
-The toast message that shows after adding a user to a tenant now automatically disappears after a few seconds.
-
-### Disabled delete icon after user deletion
-The delete icon on the tenant management page is now correctly disabled after a user is deleted.
 
 ### Corrected file/folder sharing toast message
 The success toast message when sharing a folder from File Storage now accurately states that a folder has been shared, not a file.

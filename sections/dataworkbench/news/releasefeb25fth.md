@@ -26,7 +26,7 @@ Workspace admins can now generate read-only SAS tokens for all Uploaded data set
 </figure>
 
 ### Access Databricks from Data Workbench
-If Databricks is enabled for your workspace, you will see the **Analytics** page in the top navigation menu. To be redirected to your Databricks, open the Analytics tab and click the button labeled **Launch Databricks workspace**.
+If Databricks is enabled for your workspace, you will see the **Analytics** page in the top navigation menu. To be redirected to your Databricks, open the Analytics page and click the button labeled **Launch Databricks workspace**.
 
 ### Improved share button visibility
 The "Share" button is now more visible in the UI and consistently positioned  on the right side of the actions for data set details and shared data set details pages.

@@ -153,6 +153,10 @@
           "href": "analytics/analyticsdevelopment.md"
         },
         {
+          "text": "Data connectivity",
+          "href": "analytics/dataconnectivity.md"
+        },
+        {
           "text": "Workflow",
           "href": "analytics/analyticsexecution.md"
         },

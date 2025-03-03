@@ -92,6 +92,8 @@ You can generate a blob SAS token URL by calling `https://api.veracity.com/verac
 
 #### Code examples
 
+In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token.
+
 ```csharp
 
  var containerClient = new DataLakeDirectoryClient(sasToken);

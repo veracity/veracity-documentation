@@ -112,27 +112,66 @@ Datasets uploaded to Veracity Data Workbench is available in Databricks tables.
 First release of this Analytics environment does not synch new tables made in databricks or modified tables back to Data Workbench. 
 Data shared from other workspaces are not available in Databricks in this release.  These features are planned released in Q1-2025.
 
+## Variables
+Use variables to make your script more dynamic. DECLARE variable is a user-defined variable that can hold a single value. It acts as a container to store and manipulate data during the execution of a script or code. By using DECLARE variables, you can enhance the readability and efficiency of your Databricks scripts.
+
+[For more information](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-declare-variable)
+
+[Identifier Clause](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-names-identifier-clause)
+
 ### Connect to Asset model
 How to connect to Asset model from Python
 
+[Explore Asset Model Query API](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Query-API-swagger.json)
+
+This example; use client id and secret from API-integration and retrieves a token which is used in the following apis.
 
 ```
 import requests
 import json
-import os
 
-res = None
-try:
-  data = {'scope':'https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/.default',
-          'grant_type': 'client_credentials',
-          'client_id': os.environ["MMS_CLIENT_ID"],
-          'client_secret' : os.environ["MMS_CLIENT_SECRET"]}
-  auth = requests.post("https://login.veracity.com/dnvglb2cprod.onmicrosoft.com/b2c_1a_signinwithadfsidp/oauth2/v2.0/token"
-  ,data= data) 
-  token = auth.json()['access_token']
-  res = requests.get(f"https://api.veracity.com/veracity/mms/query/{tenantId}}/api/v1/sites/{currentSiteId}",
-        headers= {'Authorization': f'Bearer {token}','Ocp-Apim-Subscription-Key': os.environ["Ocp-Apim-Subscription-Key"]})
-except Exception as e:
-  print(e)
+# Token URL for authentication 
+token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
+clientId = "CLIENT_ID"
+secret =  "SECRET"
+# define the request payload    
+payload = {"resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75",
+          "grant_type": "client_credentials",
+          "client_id": clientId,
+          "client_secret" :secret
+          }
+response = requests.post(token_url, data=payload)   
+if response.status_code == 200:
+        access_token = response.json().get("access_token")
+else:
+        print(f"Error: {response.status_code}")
 
 ````
+
+Retrive site information
+```
+tenantId = "DNVES"
+siteId = SITE_ID  (get from variable)
+subscriptionKey = SUBKEY
+queryurl = f"https://api.veracity.com/veracity/mms/query/{tenantId}/api/v1/sites/{siteId}"
+
+header = {"Authorization": f"Bearer {access_token}", "Ocp-Apim-Subscription-Key": subscriptionKey,
+          "Content-Type": "application/json"}
+response = requests.get(queryurl, headers=header)
+
+```
+
+Get devices 
+```
+tenantId = "DNVES"
+siteId = SITE_ID  (get from variable)
+subscriptionKey = SUBKEY
+
+queryurl = f"https://api.veracity.com/veracity/mms/query/{tenantId}/api/v1/sites/{siteId}/devices?start=0&pageSize=1000&sortColumn=Description&sortDirection=0&productTypeFilter=Inverter"
+
+header = {"Authorization": f"Bearer {access_token}", "Ocp-Apim-Subscription-Key": subscriptionKey,
+          "Content-Type": "application/json"}
+response = requests.get(queryurl, headers=header)
+
+```
+

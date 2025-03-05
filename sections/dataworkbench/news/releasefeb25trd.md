@@ -8,40 +8,51 @@ Read this page to learn what has changed in Veracity Data Workbench with the thi
 ## New features
 This section covers new features.
 
-### Improved UI scaling for smaller screens
-We have improved scaling in the UI for smaller screens to make it easier to use Data Workbench on devices with screen size below 1280 pixels.
+### Generate read-only SAS token for Uploaded data sets
+Tenant and workspace admins can now generate read-only SAS tokens for Uploaded data sets. This allows controlled access to data for external users or applications. Note that you cannot generate SAS tokens for shared or derived data sets.
 
-### Workspace details page
-We have added a page with workspace details. To find it, open the Workspace page and then select the **Details** tab.
+To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/datasets/{datasetsId}/sas?expiresOn=UTCtime` endpoint with the GET method. 
 
-On this tab, you can see the following:
-* Workspace name
-* Region
-* Workspace description
+The `expiresOn` parameter should be in the format `2024-12-14T23:59:59.000Z`. The API will return a SAS token string.
 
-If you are a workspace admin, you can also edit this information. However, you cannot change workspace's region.
+### Generate access keys button for Uploaded data sets
+Workspace admins can now generate read-only SAS tokens for all Uploaded data sets directly from the Data Catalogue. To do so:
+1. Go to Data catalogue > Created data sets.
+1. Open a data set.
+1. In the top right corner, select the **Generate access keys** icon.
 
+<figure>
+	<img src="../news/assets/ui-access-keys.png"/>
+</figure>
 
-### Add or edit workspace description
-Now, workspace admins can add workspace descriptions when creating or editing a workspace. They can use this description to provide helpful information on the workspace; for example, what kind of data sets are shared inside it, who's using it, and for what.
+### Access Databricks from Data Workbench
+If Databricks is enabled for your workspace, you will see the **Analytics** page in the top navigation menu. To be redirected to your Databricks, open the Analytics page and click the button labeled **Launch Databricks workspace**.
 
-As a workspace admin, to edit workspace description, go to Workspace > Details and, on the **Workspace details** tile, select the editing icon.
+### Improved share button visibility
+The "Share" button is now more visible in the UI and consistently positioned  on the right side of the actions for data set details and shared data set details pages.
 
-### See user's tenant access level
-Now, in Workspace > Members, you can see user's tenant access level and workspace access level. If your role allows it, you can also change user's access level.
-
-See [details on user access level](../usermanagement.md).
-
-### Data set schema information
-You can now view the schema description for each dataset in the datasets list. This provides additional context and understanding of the data within the dataset. The `schemaDescription` field is now included in the response of the `/workspaces/{workspaceId}/datasets/query` endpoint.
-
-### Get workspace details via API
-You can now retrieve detailed information about a workspace calling the following endpoint `/tenants/{tenantIdOrAlias}/workspaces/{workspaceId}`. This API returns the workspace ID, name, description, and region.
-
-### Update workspace details via API
-You can now update the name and description of a workspace calling the following endpoint `/tenants/{tenantIdOrAlias}/workspaces/{workspaceId}`.
+### Adjusted shared with dialog submit button
+The 'Shared with' dialog's submit button now adapts its text based on the sharing context, with a 'Close' button replacing it for view-only options
 
 ## Changes in existing features
 
-### Updated text in the tick box allowing resharing
-We have updated the text in the tick box that you can select when sharing a data set, file, or folder. If you select it, it allows the recipient to share the data set, file, or folder with other people.
+### Deprecated and new SAS token endpoints
+We have deprecated the following version 1 endpoint for SAS token generation:
+* `POST https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId}/storages/sas`
+Note that this endpoints still works but we recommend using its version 2.
+
+Now, use version 2 endpoints for SAS token generation:
+* To generate a SAS token for internal storage without connection settings, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas` endpoint with the POST method.
+* To generate a SAS token for external storage with connection settings, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/external/sas` endpoint with the POST method.
+
+Note that:
+* The `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/shares/{shareId}/storages/sas` endpoint, called with the GET method, has a different return type compared to Version 1.
+* You can check [what is internal and external storage in this document](https://developer.veracity.com/docs/section/dataplatform/storage/files).
+
+## Bug fixes
+
+### Corrected file/folder sharing toast message
+The success toast message when sharing a folder from File Storage now accurately states that a folder has been shared, not a file.
+
+### Corrected revoke access toast message
+The toast message that shows when revoking access to a folder or file from File Storage now correctly refers to the folder or file, not a data set.

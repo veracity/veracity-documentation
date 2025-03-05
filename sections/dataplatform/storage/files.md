@@ -7,11 +7,11 @@ description: Gives an overview of the Veracity Data Platform services and relate
 This feature lets you store any file in the Azure Data Lake. Files are stored as unstructured data and cannot be queried using SQL-like operations.
 
 ## Internal and external storage
-Internal storage is a data storage account that comes together with your Data Workbench File Storage.
+Internal storage is a data storage account that comes together with your Data Lake File Storage.
 
-External storage is a data storage account from your company that was added to your Data Workbench File storage. 
+External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes)
 
-If you want to add a new external storage account, contact Data Workbench support and provide connection strings to this account.
+If you want to add a new external storage account, contact Veracity support and provide connection strings to this account.
 
 ## File storage endpoints
 You can upload files to File storage via API. To do so, generate a SAS token.
@@ -32,21 +32,7 @@ Below, you can see a sample request payload.
 
 }
 ```
-
-Below, you can see a sample response with a SAS token as a string.
-
-```json
-{
-  "sasToken": "https://test.dfs.core.windows.net/",
-  "policy": {
-    "policyName": "rl-policy",
-    "policyPermissions": [
-      "Read",
-      "List"
-    ]
-  }
-}
-```
+The result contains the SAS token as a string.
 
 Note that:
 * `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the `ContainerName` which was specified when creating the internal storage connection.
@@ -77,20 +63,7 @@ Below, you can see a sample request payload.
         }
 ```
 
-Below, you can see a sample response with a SAS token as a string.
-
-```json
-{
-  "sasToken": "https://test.dfs.core.windows.net/",
-  "policy": {
-    "policyName": "rl-policy",
-    "policyPermissions": [
-      "Read",
-      "List"
-    ]
-  }
-}
-```
+The result contains the SAS token as a string.
 
 Note that:
 * `containerName` is the name of the container for which the SAS policy needs to be granted.
@@ -103,6 +76,8 @@ Note that:
 
 
 ### Upload files using API
+
+In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token.
 ```csharp
 
  var containerClient = new DataLakeDirectoryClient(sasToken);

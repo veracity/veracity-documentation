@@ -1,9 +1,9 @@
 ---
 author: Veracity
-description: This is the changelog for the February 2025 secondrelease of Data Workbench.
+description: This is the changelog for the February 2025 second release of Data Workbench.
 ---
 # February 2025 secondrelease
-Read this page to learn what has changed in Veracity Data Workbench with the secondFebruary 2025 release.
+Read this page to learn what has changed in Veracity Data Workbench with the second February 2025 release.
 
 ## New features
 This section covers new features.

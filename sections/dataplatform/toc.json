@@ -173,6 +173,10 @@
           "href": "analytics/analyticslibraries.md"
         },
         {
+          "text": "Secure Management of Secrets",
+          "href": "analytics/secretmgm.md"
+        },     
+        {
           "text": "Devops Integration",
           "href": "analytics/devopsintegration.md"
         }

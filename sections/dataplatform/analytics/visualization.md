@@ -20,9 +20,5 @@ Analytics can write their output(s) to data workbench filestorage or as a datase
 Power BI can connect to a dataset or to a file in filestoage and reports can be developed.
 Veracity Adapter for PowerBI (VAP) can be used to distribute the report to the external customers.
 
-You can see the new dataset in the same workspace you executed the script of Dataworkbench UI.
-<figure>
-	<img src="../assets/pythonexecution-datasets.png"/>
-</figure>
-
+[How to use VAP to share your report](https://developer.veracity.com/docs/section/vap/vap)
 

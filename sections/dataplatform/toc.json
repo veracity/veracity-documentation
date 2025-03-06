@@ -167,6 +167,14 @@
         {
           "text": "Access control",
           "href": "analytics/matrix.md"
+        },
+        {
+          "text": "Library management",
+          "href": "analytics/analyticslibraries.md"
+        },
+        {
+          "text": "Devops Integration",
+          "href": "analytics/devopsintegration.md"
         }
       ]
     },

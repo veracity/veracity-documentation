@@ -65,20 +65,66 @@ Notebooks are a common tool in data science and machine learning for developing 
 [How to get started](https://learn.microsoft.com/en-us/azure/databricks/developers/)
 
 
+## Variables and parameters
+Use variables to make your script more dynamic.  Multiple values can be passed to the notebook using Widgets or Notebook parameters.
 
-### Read datasets
+[See how to handle secrets in Databricks](secretmgm.md)
+
+### Notebook parameters
+When executing the notebook via a Databricks job, parameters should be passed dynamically.
+Notebook parameters should be used when calling one Notebook from another and need to pass values.
+
+[For more information](https://docs.databricks.com/aws/en/jobs/parameters)
+
+### Widgets
+Use widgets when running a notebook interactively and manually changing the parameters.
+[How to use Widgets](https://learn.microsoft.com/en-us/azure/databricks/notebooks/widgets)
+
+To escape table names and column names that clash with SQL keywords, enclose the name between two grave accent marks `` (ASCII value 96).
+
+```
+dbutils.widgets.text("filepath", "full_file_path")
+dbutils.widgets.text("datasetName", "`myTableName`")
+```
+Read widget paramter into variable
+```
+filename = dbutils.widgets.get("filepath")
+```
+
+### Decalare variables
+DECLARE variable is a user-defined variable that can hold a single hardcoded values that do not change often. It acts as a container to store and manipulate data during the execution of a script or code. 
+
+[For more information](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-declare-variable)
+
+## Read datasets
 
 Use Sql Editor or Notebook with Sql to query dataset from tables.
 
+To read dataset using python
+table name (datasetName) is stored in Widget
+
+```
+dsName = dbutils.widgets.get("datasetName")
+df2 = spark.table(dsName)
+``` 
+
+```
+dsName = dbutils.widgets.get("datasetName")
+query = f"select * from {dsName}"
+df = spark.sql(query)
+```
+
+
+When using sql, use the widgetname directly to parameterize tableNmae
 ```
 %sql
-SELECT * FROM `vdp_<workspaceName>`.`default`.`b<datasetName>` limit 100
-
+select * from ${datasetName} where Value > 1000
 ```
 This result is stored as _sqldf and can be used in other Python and SQL cells.
 
 
-### Read files
+
+## Read files
 
 The choice between Pyspark or Pandas depends on the size and complexity of your dataset and the nature of your application. If you are working with small to medium-sized datasets, Pandas is a good choice. If you are dealing with big data or real-time processing, Pyspark is a better option. Pandas loads data in memory before running queries, so it can only query datasets that fit into memory. Spark can query datasets that are larger than memory by streaming the data and incrementally running computations
 
@@ -87,23 +133,25 @@ openpyxl provides fine-grained control over reading and writing Excel files. The
 Read CSV is faster that reading XLSX
 
 ```
-var filepath = ""
-df2= pd.read_csv(filepath)
+filename = dbutils.widgets.get("filepath")
+df2= pd.read_csv(filename)
 ```
-Navigate to the file and use copy path
 
 
 ## Synchronize files with Data workbench
-There is no action required to synchronize files between Veracity data platform file storage and the Databricks environment. Files uploaded to Veracity data platform filestorage are visible in Databricks. New files stored in Volume in databricks are visible in data platform file storage in same sub-folders.
+There is no action required to synchronize files between Veracity data platform file storage and the Databricks environment. Files uploaded to Veracity data platform filestorage are visible in Databricks under Data catalog/Default/Volumes. New files stored in Volume in databricks are visible in data platform file storage in same sub-folders.
 
-### Write files
+## Write files
 If creating a new file in Volume, you can create a new directory from workspace or from notebook
 
 **Example:**
 ```py
 import os
 os.mkdir('/Volumes/<path>/default/filestorage/MyDir')
-df.to_csv("/Volumes/<path>/default/filestorage/MyDir/<filename>.csv", index= False) 
+
+##outputfilename is stored in widget
+filename = dbutils.widgets.get("outputfilepath")
+df.to_csv(filename, index= False) 
 ```
 
 ## Synchronize datasets with Data workbench
@@ -112,14 +160,8 @@ Datasets uploaded to Veracity Data Workbench is available in Databricks tables.
 First release of this Analytics environment does not synch new tables made in databricks or modified tables back to Data Workbench. 
 Data shared from other workspaces are not available in Databricks in this release.  These features are planned released in Q1-2025.
 
-## Variables
-Use variables to make your script more dynamic. DECLARE variable is a user-defined variable that can hold a single value. It acts as a container to store and manipulate data during the execution of a script or code. By using DECLARE variables, you can enhance the readability and efficiency of your Databricks scripts.
 
-[For more information](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-declare-variable)
-
-[Identifier Clause](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-names-identifier-clause)
-
-### Connect to Asset model
+## Connect to Asset model using API
 How to connect to Asset model from Python
 
 [Explore Asset Model Query API](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Query-API-swagger.json)

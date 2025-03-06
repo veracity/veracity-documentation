@@ -448,8 +448,8 @@ You can access our use cases in a PDF Format. Note that these applications are f
 * [Mall Management Application](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/vtm/Mall%20Management%20Application.pdf) (service-managed)
 
 ### Watch our webinar
-We held and recorded a webinar for Veracity:
-* [Webinar demoing Hot Seating Office Manager](https://cdn.veracity.com/developer/veracitystatic/vtm/vtm-webinar.mp4)
+If you prefer to watch a demo with example code for a real app, we have prepared a webinar:
+* [Webinar: Hot Seating Office Manager Demo](https://cdn.veracity.com/developer/veracitystatic/vtm/vtm-webinar.mp4)
 
 ### Listen to our podcasts
 For those who prefer to listen, we have prepared podcasts discussing the applications of the fictious SafeTech Solutions company:

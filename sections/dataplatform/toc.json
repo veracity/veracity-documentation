@@ -157,6 +157,10 @@
           "href": "analytics/dataconnectivity.md"
         },
         {
+          "text": "Concurrency",
+          "href": "analytics/concurrency.md"
+        },
+        {
           "text": "Workflow",
           "href": "analytics/analyticsexecution.md"
         },

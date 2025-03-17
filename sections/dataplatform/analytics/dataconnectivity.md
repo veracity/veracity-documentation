@@ -5,7 +5,16 @@ description: This page explains how to utilize the analytics capabilities
 
 # Connectivity to other datasources
 
-Recommended approach is to ingest data to Veracity datalake using apis or SAS keys. These data are then available directly for Analytics.
+## Migrate into datalake
+
+Recommended approach is to ingest data to Veracity datalake using apis or SAS keys. These data are then available directly for Analytics:
+-Datasets are visible as Tables in Databricks Catalog
+-Filestorage as Volume/Filestorage in Databricks Catalog
+
+
+## Share from another workspace
+Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
+
 
 ## How to connect existing databases:
 
@@ -19,4 +28,4 @@ If source system is not on Verit; the data can be queried using Rest-apis direct
 
 ## Connectors
 
-When datasets are available in Veracity Data platform through connectors, data is not ingested to the platform. For the analytics environment to be able to use these data, the data must be queries using the Veracity query apis.
+When datasets are available in Veracity Data platform through connectors, data is not ingested to the platform. For the analytics environment to be able to use these data, the data must be queried using the Veracity query apis.

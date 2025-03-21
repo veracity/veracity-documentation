@@ -10,16 +10,16 @@
 			"href": "sso.md"
 		},
 		{
+			"text": "Release notes for Veracity Access Hub",
+			"href": "notesaccesshub.md"
+		},
+		{
 			"text": "Video tutorial for Veracity Access Hub",
 			"href": "tutorial.md"
 		},
 		{
 			"text": "Veracity Access Hub",
 			"href": "accesshub.md"
-		},
-		{
-			"text": "Veracity Access Hub with user groups",
-			"href": "accesshub2.md"
 		}
 	]
 }

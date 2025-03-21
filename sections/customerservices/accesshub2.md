@@ -46,25 +46,26 @@ Later, if you want to switch to another company account:
 The Home page shows you an overview of data related to your company account and offers quick access to popular actions.
 
 ## Admin roles
-What you can do in VAH depends on your admin role, and Veracity offers several admin roles to facilitate granular access control and distributed management.
+What you can do in VAH depends on your admin role, and Veracity offers several admin roles to facilitate granular access control and distributed management. Tenant Admins can add and remove admins in the **Admins** page, and they can grant admin roles only to already existing users in a tenant.
 
 ### Tenant Admin
 * Has full control over the entire tenant and all available actions.
 
 ### User admin
 * Can add new users to the tenant, approve pending access requests, and remove users from the tenant.
-* This role does not influence the behavior of applications connected to the tenant.
+* This role has no rights to manage user groups or users' and groups' access to applications (licenses).
 
 ### Application admin
-* Local to specific applications within a tenant.
-* Can add or remove members from an application, view, add, and delete licenses and change application configuration.
+* Can manage applications that Tenant Admin has assigned to them.
+* Can add or remove members from an application, view, add, and delete licenses (access to applications) and change application configuration.
 
 **Note that**:
-* The application admin page is only editable by a tenant admin if the application is Veracity managed or legacy, if not then there will be a button Manage in application where the Add application admin button should be.
+* For applications fully managed by Veracity, this role is granted through Veracity Access Hub.
+* For hybrid access control and complex access models applications, this roles is granted within the application itself.
 
 ### Group admin
-* Local to specific groups within a tenant.
-* Can add or remove members from a group.
+* Can manage groups that Tenant Admin has assigned to them.
+* Can add or remove members from a group provided these users are already tenant members.
 
 ## Users
 To manage users, go to the **Users** page. You will see a list containing all the users in your company account. To find a user, type their name or email in the search box.
@@ -176,12 +177,7 @@ Veracity suggests following your own naming convention. However, you might base 
 'Everyone'. Using these words in User Group names can cause confusion. Instead, use underscores (\_) or hyphens (-) to separate words in User Group names, and avoid using reserved words or abbreviate them. 
 
 ## Admins
-Only Tenant Admins see this page. It is divided into two tabs: **Tenant Admin** and **User Admin**. 
-
-From these pages, Tenant Admins can:
-- View and manage all admin roles, including adding/removing **User Admins**.
-- Manage application-specific admin roles through the **Application Admin** management interface.
-- Organize and delegate responsibilities for user and application access within the tenant.
+Only Tenant Admins see this page. It is divided into two tabs: **Tenant Admin** and **User Admin**, each tab letting a Tenant Admin add or remove an admin user.
 
 ## Applications 
 This page shows the applications available to the company account. Here, you can:

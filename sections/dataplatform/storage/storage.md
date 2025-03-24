@@ -5,7 +5,14 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 # Storage
 
-All data (structured and unstructred) is stored in Azure Data Lake.
+All data is stored in Azure Data Lake. The data is either stored as structured data using Delta tables or as unstructrured data using file storage.
+
+## Structured data
+Structured data is data that fits neatly into data tables and includes discrete data types such as numbers, short text, and dates. Structured data is called datasets and can be effectively queried using SQL-like queries from REST api or sql from Analytics environment.
+When ingesting datasets, a schema which defines the columns for the structured data is required. 
+
+## Unstructured data
+Unstructured data can be of any file format and does not require a schema to be defined. File storage can still be used for CSV files with file validation.
 
 ## Scaling
 

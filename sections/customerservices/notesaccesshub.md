@@ -16,7 +16,6 @@ We've introduced new admin roles to provide more flexible and granular access ma
 #### New admin roles  
 We have added the following admin roles to help you delegate responsibilities more effectively:  
 
-- **Tenant Admin** – Full control over the tenant, including user management, application settings, and admin role assignments.  
 - **User Admin** – Manages users within the tenant, including adding, approving, and removing users.  
 - **Application Admin** – Manages assigned applications, including user access and configuration.  
 - **Group admin** – Manages user groups assigned to them by a tenant admin.  
@@ -24,7 +23,7 @@ We have added the following admin roles to help you delegate responsibilities mo
 These roles ensure more structured delegation of responsibilities. For details, see [the documentation.](accesshub.md) 
 
 #### New Admins page  
-Tenant admins can now manage all admin roles in the newly added **Admins** page. This centralizes administrative settings, making role assignments more streamlined.  
+Tenant Admins can now manage all admin roles in the newly added **Admins** page. This centralizes administrative settings, making role assignments more streamlined.  
 
 ### Changes to existing features  
 

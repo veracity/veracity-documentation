@@ -5,9 +5,9 @@ description: This page explains how to utilize the analytics capabilities
 
 # Multi users and concurrency
 
-Veracity Analytics environment is a serverless compute enabled by Databricks.
-
 Databricks offers built-in collaboration features, allowing multiple users to work on the same project concurrently. It also provides the ability to easily share and collaborate on notebooks and data. When multiple users are working on same workspace at the same time; you can see them as an icon in the top right and you should see their cursor in the file.
+
+From Veracity Analytics, you run a dedicated compute for that Databricks workspace, shared by all users in that workspace.
 
 When multiple users run the same Databricks notebook, it is essential to follow best practices to avoid conflicts, ensure reproducibility and optimize resource usage.
 

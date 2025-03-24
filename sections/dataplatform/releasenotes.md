@@ -8,7 +8,7 @@ description: Release Notes for Data Platform.
 Connect to storage containers from Analytics environment using SAS key.
 
 ## 2025-02-27 Analytics environment
-Veracity enables an advanced analytics environment powered by Azure Databricks by ensuring compliance with security best practices. A databricks workspace synchronizes data with the assosiated workspace in Veracity Data Workbench.
+Veracity enables an advanced analytics environment powered by Azure Databricks by ensuring compliance with security best practices. A databricks workspace synchronises data with the assosiated workspace in Veracity Data Workbench.
 
 ## 2025-02-23 Veracity Asset Model, Release 2.0.2
 Access control on technology level for edit on standard. New technologies on standard must be onboarded by Veracity.

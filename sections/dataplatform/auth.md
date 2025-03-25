@@ -4,16 +4,6 @@ description: This page explains how to authenticate API calls for Data Workbench
 ---
 # Authentication
 Authenticate your API calls with an API key and a bearer token (`tokenUrl`) placed in the header of your API call.
-
-## API key 
-To get the API key:
-1. In your Data Workbench workspace, select the **API Integrations** tab.
-2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).
-3. Find the **API key**, and copy it.
-
-When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
-
-## Bearer token
 There are two ways of making requests to the Veracity dataplatform endpoints:
 * You can request as a user through using B2C authentication, or
 * as application using client credentials (i.e. from Postman or application) 
@@ -21,6 +11,14 @@ There are two ways of making requests to the Veracity dataplatform endpoints:
 When you request the endpoints as user, then your personal token and API Key are used. On the other hand, when you make requests as application then application token and API key are being used.
 
 ### Client Credentials /Service principle
+
+To get the client cerdentials:
+1. In your Data Workbench workspace, select the **API Integrations** tab.
+2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).
+3. Find the **API key**, and copy it.
+
+When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
+
 To get the bearer token, call the URL https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token with the POST method.
 Use the following request body:
 * `client_id` - this is the Service account ID for your app.
@@ -33,10 +31,6 @@ Use the following request body:
 	<figcaption>An application with direct user interaction can redirect the user to the login page to authenticate them.</figcaption>
 </figure>
 
-To get `client_id` and `client_secret`:
-1. In your Data Workbench workspace, select the **API Integrations** tab.
-2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).
-3. Find and copy the values. The **Service account ID** is the `client_id`. The **Service account secret** is the `client_secret`.
 
 ### C# Code example
 ```cs

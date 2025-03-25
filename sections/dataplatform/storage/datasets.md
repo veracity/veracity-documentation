@@ -19,19 +19,20 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 
 ## Ingest process
 
-1. Authenticate towards veracity api using client credentials
+1. Authenticate towards Veracity api using client credentials
 2. Get SAS token uri from Veracity api
-3. Read CSV file from your location
-4. Push file to storage using received SAS token uri
+3. Read CSV file from your location and upload file to storage using received SAS token uri
 
-When ingesting a dataset, you can
--create a new dataset based on given schema,
--append data to exisiting dataset
--Update existing dataset (soon to be released)
+When ingesting a dataset, you can:
+* Create a new dataset based on given schema,
+* Append data to exisiting dataset
+* Update existing dataset (soon to be released)
 
 ### Create a new dataset
 
 **Main program**
+
+```csharp
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
 using Newtonsoft.Json.Linq;
@@ -51,11 +52,13 @@ string token = await GetToken(client_id, client_secret);
 string sasToken = await GetSASToken(token, workspaceId, appKey);
 await UploadStructuredDataset(workspaceId, sasToken, filename, schemaId, veracityUserId);
 
-
-**1. Get token for authentication**
-Client Id and secret for your workspace is defined under tab API Integration.
-
 ```
+
+**Step 1: Get Veracity token for authentication**
+Client Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
+If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
+
+```csharp
 async Task<string> GetToken(string clientId, string clientSecret)
 {
     var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
@@ -81,12 +84,12 @@ async Task<string> GetToken(string clientId, string clientSecret)
 
 ```
 
-**2. Get SAS token**
+**Step 2: Get SAS token**
 To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method.
 
 Subscription key for your workspace is defined under tab API Integration.
 
-```
+```csharp
 
 Guid _requestId = Guid.Empty;
 async Task<string> GetSASToken(string veracityToken, string workspaceId, string subscriptionKey)
@@ -110,12 +113,19 @@ async Task<string> GetSASToken(string veracityToken, string workspaceId, string 
 
 }
 ```
-The request id is
+From the response you get sas key ans well as a request id. The request id can be used to Poss the status of the ingest job.
 
-**3.Upload file**
-Get schemaId from Schema management. If schema is not created, create one.
 
-```
+
+[!Note]
+If DataLakeDirectoryClient can not be used, you would need the blob SAS token
+You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?type=blob`
+
+**Step 3: Upload  dataset using SAS key from step2**
+
+Get schemaId from [Schema management](..\schemamanagem.md). If schema is not created, create one.
+
+```csharp
 async Task UploadStructuredDataset(string workspaceId, string sasToken, string filename, string schemaId, string veracityUserId)
 {
     var sasUri = new System.Uri(sasToken);
@@ -143,51 +153,17 @@ async Task UploadStructuredDataset(string workspaceId, string sasToken, string f
 }
 ```
 
-
-
-#### Note
-If DataLakwe Client can not be used, you would need the blob SAS token
-You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?type=blob`
-
-
 ### Append to a existing dataset
+To append to an exisiting data set, the SAS token Uri is different since it need information about the datasetId
 
-#### Get append SAS token
 To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}` endpoint with the POST method.
 
 You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}&type=blob`
 
-#### Code examples
-
-```csharp
-
- var containerClient = new DataLakeDirectoryClient(sasToken);
- var containerFileClient = containerClient.GetFileClient(filename);
- var correlationId = Guid.NewGuid();
- var metadata = new Dictionary<string, string>
-        {
-            { "userId", veracityUserId.ToString() },
-            { "correlationId", correlationId.ToString() },
-            { "datasetName", datasetName },
-            { "description", datasetDescription},
-            { "tags", "{}" },
-            { "schemaId", schemaId.ToString() } //optinal
-        };
-  var opts = new DataLakeFileUploadOptions { Metadata = metadata };
-  using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
-  {
-      var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);     
-  };
-```
 
 ### Overwrite a existing dataset
 
 #### Get append SAS token
-To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}` endpoint with the POST method.
-
-You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?datasetId={datasetId}&type=blob`
-
-#### Code examples
 
 In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token.
 

@@ -3,25 +3,25 @@ author: Veracity
 description: Changelog for the March 2025 second release of Data Workbench.
 ---
 
-# March 2025 Second release
-
-Here's what's new and improved in the March 2025 second release of Veracity Data Workbench.
+# March 2025 second release
+Read this page to learn what has changed in Veracity Data Workbench with the March 2025 second release.
 
 ## Changes in existing features
 
-### Granular access control for shared items
+### Set access level when sharing files, data sets, and folders
 You can now set specific access levels ('Read' or 'Read and write') when sharing files, datasets, and folders in File Storage. Previously, sharing defaulted to 'Read' only.
 
 - **'Read and write' access:** Allows recipients to upload files, create folders, and delete files (within the shared folder's children).
-- **'Read' access:** Recipients can only view content and won't see upload or folder creation options.
+- **'Read access:** Recipients can only view content and won't see upload or folder creation buttons.
 
-You can view and manage access levels in the dataset's Details tab. When reshareing, you can't grant higher access than you currently have.
+You can view and manage access levels in the dataset's Details tab. When reshareing, you can't grant higher access than you currently have. So, if you only have 'Read' access to a data set, you cannot reshare it with 'Read and write' acces.
 
-### Generate SAS tokens for write-accessible shares
+### Generate SAS tokens for write-access shares
 Users with 'Read and write' access to shared files or folders can now generate SAS tokens directly from the 'Shared with me' tab or guest view.
 
 ### Removed Python Execution from Data Requests
-The option to run Python execution analytics during data requests has been removed. This feature is replaced by our enhanced analytics capabilities; see [documentation](../analytics.md) for details.
+When you requested a data provider to share a data set with your workspace, you could tick the box **Run Python execution analytics (optional)**. Now, we removed this option.
+This feature is replaced by our enhanced analytics capabilities; see [documentation](../analytics.md) for details.
 
 ## Bug fixes
 

@@ -3,7 +3,7 @@ author: Veracity
 description: Veracity Access Hub Guide
 ---
 
-# Veracity Access Hub Guide with user groups
+# Veracity Access Hub Guide
 
 ## Overview
 [Veracity Access Hub (VAH)](https://accesshub.veracity.com/) lets you manage access to your applications and the apps you are addedibing to in the Veracity ecosystem.

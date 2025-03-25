@@ -4,20 +4,126 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # File storage
-This feature lets you store any file in the Azure Data Lake. Files are stored as unstructured data and cannot be queried using SQL-like operations.
+This feature lets you upload files of any type into Azure Data Lake. Files are stored as unstructured data and cannot be queried using SQL-like operations.
 
 ## Internal and external storage
-Internal storage is a data storage account that comes together with your Data Lake File Storage.
 
-External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes)
+* Internal storage is a data storage account that comes together with your Data Lake File Storage.
+
+* External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes)
 
 If you want to add a new external storage account, contact Veracity support and provide connection strings to this account.
 
-## File storage endpoints
-You can upload files to File storage via API. To do so, generate a SAS token.
+## API endpoints
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
+See section Ingest
 
-### Get a SAS token for internal storage
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
+## Ingest process
+
+1. Authenticate towards Veracity api using client credentials or user authentication.
+2. Get SAS token uri from Veracity api
+3. Read CSV file from your location and upload file to storage using received SAS token uri 
+
+See code examples below for each step in the process.
+
+### Code example
+
+**Main program**
+
+```csharp
+using Azure.Storage.Files.DataLake;
+using Azure.Storage.Files.DataLake.Models;
+using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
+
+//read secrets and parameters
+string filename = "";
+string workspaceId = "";
+string subscriptionkey = "";
+var client_id = "";
+var client_secret = "";
+
+
+string token = await GetToken(client_id, client_secret);
+string sasToken = await GetSASToken(token, workspaceId, subscriptionkey);
+await UploadFile( sasToken, filename);
+
+```
+
+**Step 1: Get Veracity token for authentication**
+Client Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
+If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
+
+**Note: In order to use client credentials, this service principle needs Admin access to workspace. This will be available as self service shortly.** But, for now contact support@veracity.com  and request Admin role on service principle "servicePrincipeID" in workspace "workspaceID"**
+
+
+```csharp
+async Task<string> GetToken(string clientId, string clientSecret)
+{
+    var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
+    var grant_type = "client_credentials";
+    var resource = "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75";
+
+    var postData = new Dictionary<string, string>
+       {
+           {"grant_type", grant_type},
+           {"client_id", clientId},
+           {"client_secret", clientSecret},
+           {"resource", resource},
+       };
+    using HttpClient httpClient = new HttpClient();
+    httpClient.BaseAddress = new Uri(url);
+    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, httpClient.BaseAddress);
+    request.Content = new FormUrlEncodedContent(postData);
+    HttpResponseMessage authResponse = httpClient.PostAsync(url, new FormUrlEncodedContent(postData)).Result;
+    var result = await authResponse.Content.ReadAsStringAsync();
+    var token = (string)JToken.Parse(result)["access_token"];
+    return token;
+}
+
+```
+
+**Step 2: Get SAS token**
+
+#### Get a SAS token for internal storage
 To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method.
+
+```
+async Task<string> GetSASToken(string veracityToken, string workspaceId, string subscriptionKey)
+{
+    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
+
+    string jsonBody = "{\"readOrWritePermission\":\"Write\",\"expiresOn\":\"2025-03-26T09:04:12.297Z\"}";
+
+    HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+     
+    var token = veracityToken;
+    HttpClient _httpClient = new HttpClient();
+    _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    try
+    {
+        var result = await _httpClient.PostAsync(url, content);
+        if (result.IsSuccessStatusCode)
+        {
+            string sasKey = result.Content.ReadAsStringAsync().Result;
+            return sasKey.Trim('"');
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    return null;
+}
+
+```
 
 Below, you can see a sample request payload.
 
@@ -25,7 +131,7 @@ Below, you can see a sample request payload.
 ```json
 {
 "path": "string",
-  "readOrWritePermission": "Read",
+  "readOrWritePermission": "Write",
   "startsOn": "2024-05-14T09:04:12.297Z",
   "expiresOn": "2024-05-14T09:04:12.297Z",
   "storageName": "string"
@@ -41,10 +147,10 @@ Note that:
 * `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
 * `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
 
-### Get a SAS token for external storage
+#### Get a SAS token for external storage
 To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/external/sas` endpoint with the POST method.
 
-Below, you can see a sample request payload.
+Below, you can see the sample request payload
 
 
 ```json
@@ -75,18 +181,24 @@ Note that:
 * `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default external storage data set.
 
 
-### Upload files using API
+**Step 3: Upload files using the SAS token received**
 
-In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token.
+In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token from step 2.
 ```csharp
+   async Task UploadFile(string sasToken, string filename)
+   {
+       var sasUri = new System.Uri(sasToken);
+       var containerClient = new DataLakeDirectoryClient(sasUri);
+       var containerFileClient = containerClient.GetFileClient(filename);
+       using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
+       {
+           bool overwrite = false;
+           var response = await containerFileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
+       };
 
- var containerClient = new DataLakeDirectoryClient(sasToken);
- var containerFileClient = containerClient.GetFileClient(filename);
-  using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
-  {
-      var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);     
-  };
+   }
 ```
+
 
 ## List SAS policies for internal storage
 To list all SAS policies for internal storage, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}/storages/policies` endpoint with the GET method.

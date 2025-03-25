@@ -63,18 +63,18 @@
       "href": "tenantmgm.md"
     },
     {
-      "text": "Data storage and ingest",
+      "text": "Data ingest",
       "items": [
         {
           "text": "Overview",
           "href": "storage/storage.md"
         },
         {
-          "text": "Ingest datasets",
+          "text": "Upload datasets",
           "href": "storage/datasets.md"
         },
         {
-          "text": "Upload any file",
+          "text": "Upload files",
           "href": "storage/files.md"
         },
         {

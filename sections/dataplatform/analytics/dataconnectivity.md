@@ -13,8 +13,30 @@ Recommended approach is to ingest data to Veracity datalake using apis or SAS ke
 
 
 ## Share from another workspace
-Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
+If the data you want access to from Analytics is not in the datalake (databricsk workspace), but in another workspace in Veracity Data platform then  sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
 
+Connect to data using SAS key is also possible
+
+## Connect to stroage account using SAS key
+Data from other storage containers can be accessed from Analytics using SAS key.
+
+```
+storage_account_name = "prdstorageconst01weu"
+container_name = "container id" #same as workspace id in DWB
+ 
+#If sas token received from DWB, only use part after '?'
+sas_token = "sv=XXXXXX"
+
+spark.conf.set("fs.azure.account.auth.type.prdstorageconst01weu.dfs.core.windows.net", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type.prdstorageconst01weu.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
+spark.conf.set("fs.azure.sas.fixed.token.prdstorageconst01weu.dfs.core.windows.net", sas_token)
+ 
+#folder and file name
+filename = "Test/DemoCustomerInput.csv" 
+src_path = f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/{filename}"
+ 
+display(df)
+```
 
 ## How to connect existing databases:
 

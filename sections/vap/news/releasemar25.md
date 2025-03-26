@@ -25,8 +25,7 @@ Now, you can automatically renew SAS tokens for Data Workbench uploaded data set
 
 If you want to learn more about structured data in uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).
 
-#### How to use
-To enable auto-renewal for a SAS token, follow these steps:
+**To enable auto-renewal for a SAS token**, follow these steps:
 1. Edit your report in the **Resource** section.
 2. Click the **Load Data Source** button.
 3. For Azure Data Lake Storage data sources, enable **Data Workbench uploaded dataset** and check the **Auto-Renew SAS token** option. 
@@ -35,7 +34,7 @@ The token will renew automatically once a day at CET midnight.
 ### Improved resource UI and data source management
 We have enhanced the user interface for data source management after uploading a report or clicking **Load Data Source**. The changes make it easier to understand data source status and identify issues.
 
-#### Key improvements:
+Below are key improvements:
 - Users can now select the auto-renew option for Data Workbench uploaded datasets and provide necessary renewal information.
 - The data source type is now clearly defined, which is crucial for background processes like token renewal.
 - Detailed error information for loading data sources and data source actions (update data source, credentials, SAS token, bind gateway)

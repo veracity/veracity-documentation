@@ -17,7 +17,7 @@ On the **Resources** page, in the top right corner, we have added an icon to acc
 When you open it, you can add your Data Workbench Dataset Service Account providing the following information:
 - Data Workbench workspace ID: [Check here how to find it](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id).
 - Data Workbench workspace name: You can find it in your Data Workbench > Workspace > [Details tab](https://developer.veracity.com/docs/section/dataworkbench/workspace#details).
-- [Data Workbench Service Account ID](../../dataworkbench/apimanagement.md).
+- [Data Workbench Service Account ID](../../dataworkbench/apimanagement.md): Note you can only add an account with "Grant all workspace data" enabled.
 - [Account Secret](../../dataworkbench/apimanagement.md).
 
 ### Auto-renew SAS token for Data Workbench uploaded datasets

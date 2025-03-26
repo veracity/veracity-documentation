@@ -9,3 +9,8 @@ Azure Data Lake Storage is a cloud-based, enterprise data lake solution. We are
 
 Is fully integrated with the Azure Blob Storage platform; Every Blob Storage capability (Azure Active Directory Integration, At Rest Encryption, High-availability and disaster recovery, Automated Lifecycle Policy Management, Storage Account Firewalls, etc.) can be used by Azure Data Lake Storage.
 
+
+<figure>
+    <img src="assets/structureddata.jpg"/>
+    <figcaption>Structured and unstructured data storage</figcaption>
+</figure>

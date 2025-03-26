@@ -5,6 +5,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 # File storage
 This feature lets you upload files of any type into Azure Data Lake. Files are stored as unstructured data and cannot be queried using SQL-like operations.
+Subscriptions to File Storage required.
 
 ## Internal and external storage
 
@@ -98,15 +99,13 @@ To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/
 async Task<string> GetSASToken(string veracityToken, string workspaceId, string subscriptionKey)
 {
     string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
+    //path is folder name in storage container
+    string jsonBody = "{\"path\":\"Test\",\"readOrWritePermission\":\"Write\",\"expiresOn\":\"2025-03-26T09:04:12.297Z\"}";
 
-    string jsonBody = "{\"readOrWritePermission\":\"Write\",\"expiresOn\":\"2025-03-26T09:04:12.297Z\"}";
-
-    HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-     
-    var token = veracityToken;
+    HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");         
     HttpClient _httpClient = new HttpClient();
     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", veracityToken);
     try
     {
         var result = await _httpClient.PostAsync(url, content);
@@ -185,18 +184,21 @@ Note that:
 
 In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token from step 2.
 ```csharp
-   async Task UploadFile(string sasToken, string filename)
-   {
-       var sasUri = new System.Uri(sasToken);
-       var containerClient = new DataLakeDirectoryClient(sasUri);
-       var containerFileClient = containerClient.GetFileClient(filename);
-       using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
-       {
-           bool overwrite = false;
-           var response = await containerFileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
-       };
-
-   }
+async Task UploadFile(string sasToken, string filename)
+{
+    var sasUri = new System.Uri(sasToken);
+    var containerClient = new DataLakeDirectoryClient(sasUri);
+    
+    string remoteFileName = Path.GetFileName(filename);
+    var containerFileClient = containerClient.GetFileClient(remoteFileName);
+    
+    using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
+    {
+        bool overwrite = false;
+        var response = await containerFileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
+    };
+}
+   
 ```
 
 

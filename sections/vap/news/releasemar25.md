@@ -46,4 +46,4 @@ We have enhanced the user interface for data source management after uploading a
 This section covers changes in existing features.
 
 ### API management link added in resource file dialog
-In the **Edit Resource file** dialogWe, we have linked to [API Management documentation](../../dataworkbench/apimanagement.md) where you can learn how to manage service accounts, including granting "all workspace data" permissions.
+In the **Edit Resource file** dialog, we have linked to [API Management documentation](../../dataworkbench/apimanagement.md) where you can learn how to manage service accounts, including granting "all workspace data" permissions.

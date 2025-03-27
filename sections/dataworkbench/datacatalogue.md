@@ -124,7 +124,6 @@ Below are detailed information on the fields in a data request:
 * For **Aggregation**, each parameter has an aggregation setting (for example, default, min, max). A parameter can only have one aggregation for a device type. This is how data is aggregated given the granularity time period; for example, "min" would aggregate with the lowest value recorded in the time period (for example, within 5 minutes if that was the granularity)
 * For **Granularity**, this is the time unit for the granularity. For example, it can be in minutes.
 * For **Interval**, select the start and end date for the data you are requesting. For example, you can request data from 20 January 2024 to 10 March 2024. 
-* You can tick the tickbox **Run Python execution analytics** and select an available Python script. This script will transform the data you are getting from your request, which can give you additional contextualization or transformation of the data and thus increase its quality and relevance.
 
 ## To modify, save, and share a data set
 1. In the **Data catalogue** tab, open the data set you want to modify.

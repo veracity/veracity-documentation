@@ -28,7 +28,7 @@ If you want to learn more about structured uploaded data sets, [go here](../../d
 **To enable auto-renewal for a SAS token**, follow these steps:
 1. Edit your report in the **Resource** section.
 2. Click the **Load Data Source** button.
-3. For Data Source "Azure Data Lake Storage", under **Data Source Sub Type** select **DWB Structured Dataset**.
+3. For Data Source "Azure Data Lake Storage", under **Data Source Sub Type**, select **DWB Structured Dataset**.
 4. Tick the **Auto Renew SAS Token** box. 
 The token will renew automatically once a day at CET midnight.
 

@@ -20,22 +20,23 @@ When you open it, you can add your Data Workbench Dataset Service Account provid
 - [Data Workbench Service Account ID](../../dataworkbench/apimanagement.md): Note you can only add an account with "Grant all workspace data" enabled.
 - [Account Secret](../../dataworkbench/apimanagement.md).
 
-### Auto-renew SAS token for Data Workbench uploaded datasets
-Now, you can automatically renew SAS tokens for Data Workbench uploaded data sets. This ensures your data connections remain active without manual intervention.
+### Auto-renew SAS token for Data Workbench structured uploaded datasets
+Now, you can automatically renew SAS tokens for Data Workbench structured uploaded data sets. This ensures your data connections remain active without manual intervention.
 
-If you want to learn more about structured data in uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).
+If you want to learn more about structured uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).
 
 **To enable auto-renewal for a SAS token**, follow these steps:
 1. Edit your report in the **Resource** section.
 2. Click the **Load Data Source** button.
-3. For Azure Data Lake Storage data sources, enable **Data Workbench uploaded dataset** and check the **Auto-Renew SAS token** option. 
+3. For Data Source "Azure Data Lake Storage", under **Data Source Sub Type** select **DWB Structured Dataset**.
+4. Tick the **Auto Renew SAS Token** box. 
 The token will renew automatically once a day at CET midnight.
 
 ### Improved resource UI and data source management
 We have enhanced the user interface for data source management after uploading a report or clicking **Load Data Source**. The changes make it easier to understand data source status and identify issues.
 
 Below are key improvements:
-- Users can now select the auto-renew option for Data Workbench uploaded datasets and provide necessary renewal information.
+- Users can now select the auto-renew option for Data Workbench structured uploaded datasets and provide necessary renewal information.
 - The data source type is now clearly defined, which is crucial for background processes like token renewal.
 - Detailed error information for loading data sources and data source actions (update data source, credentials, SAS token, bind gateway)
 - Users can independently reload each data source without reopening the "Edit File" page.

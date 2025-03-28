@@ -21,7 +21,7 @@ You can generate access keys (tokens) from your Data Workbench workspace or via 
 1. Choose an uploaded data set (check in the "Type" column that its type is "Uploaded").
 1. Open the data set and in the top right corner, select the icon for **Generate access keys**.
 <figure>
-	<img src="assets/generateacesskeys.png"/>
+	<img src="assets/generateaccesskey.png"/>
 </figure>
 
 After opening the "Generate keys" dialog window:

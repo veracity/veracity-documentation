@@ -24,6 +24,18 @@ Note that:
 	<img src="assets/resource_actions.png"/>
 </figure>
 
+## Configure Data Workbench Service Account
+If your reports use Data Workbench data sets, configuring your Data Workbench Service Account allows the necessary connection details to be automatically filled in whenever needed. This saves you from manually entering them each time you access your data sets.
+
+To configure your Data Workbench Service Account, select its icon in the top right corner and add the following information:
+- **Data Workbench workspace ID**: [Check here how to find it](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id).
+- **Data Workbench workspace name**: You can find it in your Data Workbench > Workspace > [Details tab](https://developer.veracity.com/docs/section/dataworkbench/workspace#details).
+- **[Data Workbench Service Account ID](../../dataworkbench/apimanagement.md)**: Note that you can only add an account with "Grant all workspace data" enabled.
+- **[Account Secret](../../dataworkbench/apimanagement.md)**.
+<figure>
+	<img src="assets/dwbicon.png"/>
+</figure>
+
 ## To find a SAS token
 Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
 
@@ -32,9 +44,17 @@ To generate a SAS token with Data Workbench API, refer to the API specification:
 1. Under Data sets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas` endpoint to get a readonly SAS token for a workspace data set, including an uploaded data set. [See the detailed instructions here](../file-storage-as-data-source/create-report.md).
 1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas` to get a SAS token for a data set in File Storage that was shared with you. [See the Data Workbench API specification for the details on this endpoint](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
+## Auto-renew SAS token for Data Workbench structured uploaded data sets
+You can now automatically renew SAS tokens for Data Workbench structured uploaded data sets. This ensures your data connections remain active without manual intervention.
+If you want to learn more about structured uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).
+
+To enable auto-renewal for a SAS token:
+1. Edit your report in the **Resource** section.
+2. Click the **Load Data Source** button.
+3. For Data Source "Azure Data Lake Storage", under **Data Source Sub Type**, select **DWB Structured Dataset**.
+4. Tick the **Auto Renew SAS Token** box. The token will renew automatically once a day at CET midnight.
 
 ## File
-
 Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
 
 ### Refresh Schedule Plan

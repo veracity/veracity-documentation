@@ -15,18 +15,18 @@ There are two types of data sets you can use as data source:
 ## To generate an access token for a structured uploaded data set
 You can generate access keys (tokens) from your Data Workbench workspace or via API calls. Note that those access keys must have a date and time when they expire, but you can automatically renew them. For details, check the section [Auto-renew SAS token for Data Workbench structured uploaded data sets](../admin-tab/resource.md).
 
-### In Data Workbench UI
+### Using the Data Workbench UI
 1. Open your Data Workbench workspace.
 1. Navigate to Data Catalogue > Created data sets.
 1. Choose an uploaded data set (check in the "Type" column that its type is "Uploaded").
-1. Open the data set and in the top right corner, select the icon for **Generate access keys**.
+1. Open the data set and in the top-right corner, select **Generate access keys**.
 <figure>
 	<img src="assets/generateaccesskey.png"/>
 </figure>
 
 After opening the "Generate keys" dialog window:
-1. Under "Set access level", select **Read**.
-1. Under "Set access end", select the date and time when the access should expire.
+1. Under **Set access level**, select **Read**.
+1. Under **Set access end**, select the date and time when the access should expire.
 1. Select the **Generate key** button.
 1. Select the **Copy key** button to copy the access token.
 

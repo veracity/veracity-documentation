@@ -18,6 +18,22 @@ If you need help in getting them or checking everything is configured correctly,
 1. Select **Schema manager** in the upper right corner to access schema and validation rule management.
 1. Navigate to **Data catalogue** > **File storage** to access File storage and validation setup.
 
+## To recognize a folder with data validation enabled
+A folder with validation enabled will have an icon showing a tick (check mark) inside the folder. Below you can see a folder without validation (1) and a folder with validation set  (2).
+<figure>
+	<img src="assets/fvalidation.png"/>
+</figure>
+
+## Validation information and tags
+When you open a folder with validation enabled, you can check what schema is applied to it, and you can also see the tags used for this schema after selecting **Validation information**. 
+
+To find it, in the row with the file or folder, select the three dots, and then select **Validation information**. You will see the following information:
+- What schema is used for validation.
+- What tags are assigned to this folder.
+- The description added to these validation rules.
+
+If you are a workspace admin, you can edit this information, including adding or removing tags.
+
 ## To create a new schema
 1. In **Schema manager**, select **Create schema** in the upper right corner.
 1. Fill in the **Name** and, optionally, **Short name** for the schema. Choose descriptive names that reflect the data you will be working with.
@@ -29,7 +45,7 @@ For each column:
 1. Fill in the **Name (internal name)**: this is a required field and should be unique within the schema. It's used for referencing the column in expressions or code.
 2. Fill in the **Display name (user-friendly name)**: this is how the column will be presented in the user interface. It's limited to 100 characters.
 3. Optionally, add a **Description**: for the column to provide more context. Select **Add** to expand the description field.
-4. Select the appropriate **Data Type**: (for example, Boolean, Decimal, Int64) from the dropdown menu. This defines the kind of data the column is expected to hold. **Note that** as of February 2025, it only works for defining the column filters in UI, and it is different from the `Data type` in `column validator`.
+4. Select the appropriate **Data Type**: (for example, Boolean, Decimal, Int64) from the dropdown menu. This defines the kind of data the column is expected to hold.
 5. Set the **Order** of the column in the dataset. '0' means it will be the first column.
 6. Configure the column properties using the toggles:
    - **Sortable**: Enable if you want users to be able to sort the data by this column.
@@ -114,6 +130,15 @@ A column can have its "Meta type" set to `FallbackIndicator`. If you want to bet
 7. If you want to discard all changes made during the current editing session, select the **Reset** button at the bottom of the editor.
 8. Once you're satisfied with the changes, select **Save** to update the schema.
 
+### To lock a schema
+You can lock a schema version to prevent unintended edits. To do so, under **Versions**, on the left side, select the **Lock this version** button.
+
+Note that:
+- Once locked, the schema version cannot be edited.
+- All fields and buttons related to editing will be disabled.
+- You can still create a new schema version and make edits there.
+- Locking a schema does not affect whether it is active or inactive.
+
 ## To create validation rules
 You can create validation rules and reuse them in your schema validation to avoid defining the same rule multiple times.
 
@@ -159,12 +184,6 @@ To create a validation rule:
 
 ### The input and output folder
 After you set up validation for a folder, Data Workbench will create two empty subfolders inside it: one named after the original folder with 'input' added, and another with 'output' added.
-
-### To recognize a folder with data validation enabled
-A folder with validation enabled will have an icon showing a tick (check mark) inside the folder. Below you can see a folder without validation (1) and a folder with validation set  (2).
-<figure>
-	<img src="assets/fvalidation.png"/>
-</figure>
 
 ## To upload and validate data
 1. Enter the folder you just set up validation for.

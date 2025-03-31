@@ -9,13 +9,13 @@ Read this page to learn what has changed in Veracity Data Workbench's Data Valid
 ## New features
 This section covers new features.
 
-### Added tags and Validation Information in Data Validator
+### Added tags and Validation information in Data Validator
 Now, in File storage, when you open a folder with validation enabled:
 - In the **Tags** column, you can see the tags associated with the schema used for validating a file or folder.
 - If you are a workspace admin, you can remove and add the tags.
-- You can select the three dots in the row with the folder's or file's name to open **Validation Information**.
+- You can select the three dots in the row with the folder's or file's name to open **Validation information**.
 
-Validation Information shows the following information:
+Validation information shows the following information:
 - The folder's name.
 - What schema is used for validation.
 - What tags are assigned to this folder.

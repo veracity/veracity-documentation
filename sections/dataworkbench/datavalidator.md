@@ -34,6 +34,11 @@ To find it, in the row with the file or folder, select the three dots, and then 
 
 If you are a workspace admin, you can edit this information, including adding or removing tags.
 
+
+<figure>
+	<img src="news/assets/validationinfo.png"/>
+</figure>
+
 ## To create a new schema
 1. In **Schema manager**, select **Create schema** in the upper right corner.
 1. Fill in the **Name** and, optionally, **Short name** for the schema. Choose descriptive names that reflect the data you will be working with.
@@ -139,6 +144,10 @@ Note that:
 - You can still create a new schema version and make edits there.
 - Locking a schema does not affect whether it is active or inactive.
 
+<figure>
+	<img src="news/assets/lockschema.png"/>
+</figure>
+
 ## To create validation rules
 You can create validation rules and reuse them in your schema validation to avoid defining the same rule multiple times.
 
@@ -209,3 +218,8 @@ As a result of data validation, the output folder is populated with:
 * A **Log** folder with detailed log information for the validation.
 * A **Results** folder with the output after validation. You can select the three dots in the row with this file, and download it as a CSV file. For example, if the data file you uploaded had some rows that were marked as errors in the validation, those rows would be removed from the output data file.
 * A **Summary** folder with a summary of data validation, its logs, and so on.
+
+## To remove validation
+1. Navigate to **Data catalogue** > **File storage**.
+1. In the row with a folder, select three dots and **Remove validation**.
+1. Select **Delete** to confirm.

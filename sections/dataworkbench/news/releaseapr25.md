@@ -9,18 +9,24 @@ Read this page to learn what has changed in Veracity Data Workbench's Data Valid
 ## New features
 This section covers new features.
 
-### Added tags and Validation information in Data Validator
-Now, in File storage, when you open a folder with validation enabled:
+### Added tags column
+Now, in File storage, when you have a folder with validation enabled:
 - In the **Tags** column, you can see the tags associated with the schema used for validating a file or folder.
-- If you are a workspace admin, you can remove and add the tags.
-- You can select the three dots in the row with the folder's or file's name to open **Validation information**.
+- If you are a workspace admin, you can remove and add the tags by clicking on a tag and using the dialog window that shows.
+<figure>
+	<img src="../news/assets/tags.png"/>
+</figure>
 
-Validation information shows the following information:
-- The folder's name.
+### Added Validation information
+You can select the three dots in the row with the folder's name to open **Validation information** that shows:
 - What schema is used for validation.
 - What tags are assigned to this folder.
+- The description of the validation.
 
-If you are a workspace admin, you can change the schema used for validation and add or remove the tags.
+If you are a workspace admin, you can change the schema used for validation, edit its description, and add or remove the tags.
+<figure>
+	<img src="../news/assets/validationinfo.png"/>
+</figure>
 
 ## Changes in existing features
 This section covers changes in existing features.
@@ -36,11 +42,12 @@ Now, if you are a workspace admin, you can lock a schema version to prevent furt
   - You can still create a new schema version and make edits there.
 - Locking a schema does not affect whether it is active or inactive.
 
+<figure>
+	<img src="../news/assets/lockschema.png"/>
+</figure>
+
 ### Validation rule dialog improvements
 We have improved the UI for the **Create Validation Rule** and **Edit Validation Rule** dialogs to enhance usability.
 
 - 'Data Type' is now a mandatory field.
-- The 'Data Type' dropdown includes more options:
-  - New categories: **String**, **Date & Time**, **Number**, **Boolean**.
-  - Added support for 'Date Only' and 'Time Only'.
 - Input fields now dynamically adjust based on the selected data type.

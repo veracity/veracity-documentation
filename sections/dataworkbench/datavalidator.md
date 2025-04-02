@@ -24,16 +24,20 @@ A folder with validation enabled will have an icon showing a tick (check mark) i
 	<img src="assets/fvalidation.png"/>
 </figure>
 
-## Validation information and tags
-When you open a folder with validation enabled, you can check what schema is applied to it, and you can also see the tags used for this schema after selecting **Validation information**. 
+## Tags and validation information
+In the **Tags** column, you can see the tags associated with the schema used for validating a folder.
 
-To find it, in the row with the file or folder, select the three dots, and then select **Validation information**. You will see the following information:
+If you are a workspace admin, you can remove and add the tags by clicking on a tag and using the dialog window that shows.
+<figure>
+	<img src="news/assets/tags.png"/>
+</figure>
+
+You can select the three dots in the row with the folder's name to open **Validation information** that shows:
 - What schema is used for validation.
 - What tags are assigned to this folder.
-- The description added to these validation rules.
+- The description of the validation.
 
-If you are a workspace admin, you can edit this information, including adding or removing tags.
-
+If you are a workspace admin, you can change the schema used for validation, edit its description, and add or remove the tags.
 
 <figure>
 	<img src="news/assets/validationinfo.png"/>

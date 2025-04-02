@@ -11,7 +11,7 @@ This section covers new features.
 
 ### Added tags column
 Now, in File storage, when you have a folder with validation enabled:
-- In the **Tags** column, you can see the tags associated with the schema used for validating a file or folder.
+- In the **Tags** column, you can see the tags associated with the schema used for validating a folder.
 - If you are a workspace admin, you can remove and add the tags by clicking on a tag and using the dialog window that shows.
 <figure>
 	<img src="../news/assets/tags.png"/>

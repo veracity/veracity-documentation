@@ -158,7 +158,7 @@ To set a privacy level for a data source, in the Admin Panel > Manage Files, in 
 
 ## Web App 
 
-The "Web app" subtab shows all connections created in your VAP service. 
+The "Web app" subtab shows all connections created in your VAP service. This tab is available on request, so if you don't have it, you can contact [VAP support](mailto:mailto:VAP@dnv.com) to request it.
 
 ## To create a new web connection
 

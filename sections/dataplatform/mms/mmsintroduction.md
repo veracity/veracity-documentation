@@ -12,7 +12,7 @@ The asset is described using metadata names, signals names and datatypes defined
 
 ## Standard
 
-The standard describes all asset-types available to represent a station, site or project.  Each asset type is described with a set of metadata and, if applicable, a set of sensor metadata (signals).  Examples of asset types are Meter, Inverter, Turbine. 
+The standard describes all asset-types available to represent a power station, site or project.  Each asset type is described with a set of metadata and, if applicable, a set of sensor metadata (signals).  Examples of asset types are Meter, Inverter, Turbine. 
 
 ### Technologies
 The standard is divided into different technologies such as Solar, Wind, Storage, Wind preconstruction etc. Each technology has a defined set of asset types.

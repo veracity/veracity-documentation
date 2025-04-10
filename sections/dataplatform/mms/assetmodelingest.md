@@ -28,9 +28,6 @@ Only users or service principles with access to an site can access the site; [fo
 ## Create Portfolio
 A site needs to be added to a portfolio. A portfolio in AssetModel is a group of assets/sites that share access control. If portfolio already exist, use [query](assetmodelQuery.md) portfolio to get id.
 
-When creating a new portfolio; a workspace in Data workbench is automatically created.  
-Only users with admin access on tenant level can create portfolios.
-
 
 `POST: {baseurl}/{tenantAlias}/api/v1/portfolios`
 
@@ -41,9 +38,6 @@ Only users with admin access on tenant level can create portfolios.
 }
 ```
 
-Set portfolioId to empty string (or null) since this id will be created in data Workbench.
-**Note:** If a workspace already exist in Data Workbench, and you want to create a portfolio that corresponds, use workspace id as portfolio Id.
-
 
 ## Create sites
 Use POST method to create a new site and PUT method to update existing sites. 
@@ -53,7 +47,7 @@ The synch method only allows you to ingest site level data and information about
 ## Ingest a new site  (async operation)
 Site ID must be a unique string (does not have to be a guid). If site id is not given, a guid is created
 
-**Note:** The technology needs to be specified in the body.
+**Note:** The technology needs to be specified in the body. Workspaceid needs to be provided and needs to be an exisiting workspace in Dataworkbench. 
 
 
 `POST: {baseUrl}/{tenantAlias}/api/v1/portfolios/{portfolioId}/sites`
@@ -66,6 +60,7 @@ Minimum body when ingesting:
   "name": "Test Asset",
   "modelType": "Site",
   "technology": "Solar",
+  "dwWorkspaceId": "string",
   "metadata": [], 
   "timeseries": [],   
   "devices": [],         
@@ -279,10 +274,10 @@ Request body is array of metadata to change
   ]
 }
 ```
-### Set parameter on device
+### Set signal on device
 `PUT {baseUrl}/{tenantAlias}/api/v1/sites/{siteId}/devices/{deviceId}}/timeseries`
 
-When parameterId is not given, a unique signal id is created. 
+When signalId is not given, a unique signal id is created. 
 **Request payload**
 ```
 {

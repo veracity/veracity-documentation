@@ -4,16 +4,14 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # File storage
-This feature lets you upload files of any type into Azure Data Lake. Files are stored as unstructured data and cannot be queried using SQL-like operations.
-Subscriptions to File Storage required.
+This feature lets you upload files of any type into your Azure Data Lake. Files are stored as unstructured data and cannot be queried using SQL-like operations.
+Subscriptions to File Storage is required.
 
 ## Internal and external storage
 
 * Internal storage is a data storage account that comes together with your Data Lake File Storage.
 
-* External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes)
-
-If you want to add a new external storage account, contact Veracity support and provide connection strings to this account.
+* External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes). If you want to add a new external storage account, contact Veracity support and provide connection strings to this account.
 
 ## API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
@@ -93,39 +91,64 @@ async Task<string> GetToken(string clientId, string clientSecret)
 **Step 2: Get SAS token**
 
 #### Get a SAS token for internal storage
-To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method.
+You need a SAS token with write access to the folder (path) where file should be uploaded. To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method using the Veracity token from step 1.
 
-```
-async Task<string> GetSASToken(string veracityToken, string workspaceId, string subscriptionKey)
-{
-    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
-    //path is folder name in storage container
-    string jsonBody = "{\"path\":\"Test\",\"readOrWritePermission\":\"Write\",\"expiresOn\":\"2025-03-26T09:04:12.297Z\"}";
 
-    HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");         
-    HttpClient _httpClient = new HttpClient();
-    _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", veracityToken);
-    try
-    {
-        var result = await _httpClient.PostAsync(url, content);
-        if (result.IsSuccessStatusCode)
-        {
-            string sasKey = result.Content.ReadAsStringAsync().Result;
-            return sasKey.Trim('"');
-        }
-    }
-    catch (Exception ex)
-    {
+```csharp
+ async Task<string> GetSASToken(string veracityToken, string folder, bool writePermission, string workspaceId, string subscriptionKey)
+ {
+     string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
 
-    }
-    return null;
+     DateTime expiresOn = DateTime.UtcNow.AddDays(1);
+     //path is folder name in storage container
+     SasRequest request = new SasRequest()
+     {
+         Path = folder,
+         ReadOrWritePermission = writePermission ? "Write": "Read",
+         ExpiresOn = expiresOn
+     };
+
+     string jsonBody = JsonConvert.SerializeObject(request );    
+     HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+     
+    if (_httpClient == null)
+         _httpClient = new HttpClient();
+
+     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", veracityToken);
+     try
+     {
+         var result = await _httpClient.PostAsync(url, content);
+         if (result.IsSuccessStatusCode)
+         {
+             string sasKey = result.Content.ReadAsStringAsync().Result;
+             return sasKey.Trim('"');
+         }
+     }
+     catch (Exception ex)
+     {
+
+     }
+     return null;
+ }
+
+
+internal class SasRequest    {
+
+    [JsonProperty("path")]
+    public string Path {get;set;}
+
+    [JsonProperty("readOrWritePermission")] 
+    public string ReadOrWritePermission { get; set; }
+    
+    [JsonProperty("expiresOn")]
+    public DateTime ExpiresOn { get; set; }
 }
 
 ```
 
-Below, you can see a sample request payload.
 
+Below, you can see a sample request payload.
 
 ```json
 {
@@ -146,7 +169,47 @@ Note that:
 * `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
 * `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
 
-#### Get a SAS token for external storage
+
+**Step 3: Upload file**
+In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token from step 2.
+
+```csharp
+ async Task UploadFile(string sasToken, string filepath)
+ {
+     var sasUri = new System.Uri(sasToken);
+     var containerClient = new DataLakeDirectoryClient(sasUri);
+     
+     string remoteFileName = Path.GetFileName(filepath);
+     var fileClient = containerClient.GetFileClient(remoteFileName);
+     
+     using (FileStream fsSource = new FileStream(filepath, FileMode.Open, FileAccess.Read))
+     {
+         bool overwrite = true;
+         var response = await fileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
+
+         //example upload metadata to file
+          Dictionary<string, string> metadata = new Dictionary<string, string>();
+          metadata.Add("Asset", "123");
+          metadata.Add("Project", "5454");
+          var respone = await fileClient.SetMetadataAsync(metadata);           
+
+     };
+
+ }
+``` 
+
+## Ingest metadata to file or folder
+Use DataLakeFileClient to set metadata during upload or later.
+
+```csharp
+  Dictionary<string, string> metadata = new Dictionary<string, string>();
+  metadata.Add("Asset", "123");
+  metadata.Add("Project", "5454");
+  var respone = await fileClient.SetMetadataAsync(metadata); 
+``` 
+
+
+## Get a SAS token for external storage
 To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/external/sas` endpoint with the POST method.
 
 Below, you can see the sample request payload
@@ -179,33 +242,11 @@ Note that:
 * `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
 * `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default external storage data set.
 
-
-**Step 3: Upload files using the SAS token received**
-
-In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token from step 2.
-```csharp
-async Task UploadFile(string sasToken, string filename)
-{
-    var sasUri = new System.Uri(sasToken);
-    var containerClient = new DataLakeDirectoryClient(sasUri);
-    
-    string remoteFileName = Path.GetFileName(filename);
-    var containerFileClient = containerClient.GetFileClient(remoteFileName);
-    
-    using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
-    {
-        bool overwrite = false;
-        var response = await containerFileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
-    };
-}
-   
-```
-
-
-## List SAS policies for internal storage
+## SAS Policies
+### List SAS policies for internal storage
 To list all SAS policies for internal storage, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}/storages/policies` endpoint with the GET method.
 
-## List SAS policies for external storage
+### List SAS policies for external storage
 To list all SAS policies for external storage, call the `https://api.veracity.com/veracity/dw/gateway/api/v1/workspaces/{workspaceId:guid}/storages/external/policies` endpoint with the POST method.
 Below, you can see a sample request payload.
 
@@ -220,7 +261,9 @@ Note that:
 * `containerName` is the name of the container for which the SAS policy needs to be granted.
 * `connectionString` is the connection string of the external storage account.
 
-## Revoke a SAS policy for internal storage
+## Revoke a SAS policy
+
+### Revoke a SAS policy for internal storage
 To revoke a SAS token for internal storage, you don't revoke the token directly. Instead, you revoke the policy that the token is attached to.  Revoking the policy revokes all SAS tokens associated with that policy.
 
 To revoke a SAS policy, call the following endpoint with the DELETE method:
@@ -234,7 +277,7 @@ Regarding `policyToRevoke` parameter, here are some important considerations:
 * **If you don't provide the** `policyToRevoke` **parameter**: You'll revoke all SAS policies for the entire storage container (workspace). This means all active SAS tokens for that container will be revoked, regardless of which policy they were associated with.
 * **If you do provide the** `policyToRevoke` **parameter**: You'll revoke only the specified policy. This means only the active SAS tokens associated with that specific policy will be revoked. Other tokens tied to different policies will remain active.
 
-## Revoke a SAS policy for external storage
+### Revoke a SAS policy for external storage
 To revoke a SAS token for external storage, you don't revoke the token directly. Instead, you revoke the policy that the token is attached to. Revoking the policy revokes all SAS tokens associated with that policy.
 
 To revoke a SAS policy, call the following endpoint with the DELETE method:

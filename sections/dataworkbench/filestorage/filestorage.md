@@ -22,9 +22,6 @@ After you purchase a subscription to File storage, Veracity sets up your account
 
 **Do you want to use Azure Storage Explorer to connect to your files**? If so, [download it](https://azure.microsoft.com/en-us/products/storage/storage-explorer#Download-4) and install it.
 
-## VAP File storage tutorial
-If you are a VAP user, see [VAP File storage tutorial](https://developer.veracity.com/docs/section/vap/file-storage-as-data-source/introduction).
-
 ## To go to File storage
 1. In your workspace, go to **Data catalogue** page.
 2. Select the **File storage** tab.

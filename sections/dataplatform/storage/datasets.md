@@ -85,7 +85,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
 ```
 
 **Step 2: Get SAS token**
-To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method.
+To generate a dfs SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest` endpoint with the POST method using the Veracity token from step 1.
 
 Subscription key for your workspace is defined under tab API Integration.
 

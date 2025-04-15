@@ -4,6 +4,10 @@ description: Release Notes for Data Platform.
 ---
 
 # Release Notes
+
+## 2025-04-07
+Veracity Asset Model - APi change for Ingest of new sites. Dataworkbench workspace id is required.
+
 ## 2025-03-20
 Connect to storage containers from Analytics environment using SAS key.
 

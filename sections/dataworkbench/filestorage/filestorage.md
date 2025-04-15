@@ -10,13 +10,11 @@ In your [Data Catalogue](../datacatalogue.md), you can find a tab called **File 
 Note you can [connect File storage with Azure Storage Explorer](ase.md).
 
 ## Prerequisites
-To use File storage:
-1. You need Veracity Data Workbench. 
-2. You need File storage, which is an additional feature for Data Workbench.
+To use File storage: 
+You need File storage, which is an additional feature for Data Workbench.
 
 You can purchase them on Veracity Marketplace:
-* [Purchase Veracity Data Workbench](https://store.veracity.com/data-workbench).
-* [Purchase file storage for Veracity Data Workbench](https://store.veracity.com/veracity-file-storage-data-workbench).
+* [Purchase File storage for Veracity Data Workbench](https://store.veracity.com/veracity-file-storage-data-workbench).
 
 Note that you might already have access to them as a part of another service you purchased from Veracity.
 
@@ -91,10 +89,9 @@ If you are a workspace reader or admin, you can download files and folders. To d
 If you are a workspace admin, you can generate access keys to files and folders and use them in external systems. To do so:
 1. In the row with a file or folder you want to generate a SAS token for, on the right, select three dots.
 2. Under **Set access level**, choose access level (read or read and write).
-3. Optionally, under **Set access start**, choose a date from which this file or folder should be accessible.
-4. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
-5. Select **Generate key** and a new field called **Access key** will show.
-6. Select **Copy key**. 
+3. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
+4. Select **Generate key** and a new field called **Access key** will show.
+5. Select **Copy key**. 
 
 ## Need Support?
 If you need any support:

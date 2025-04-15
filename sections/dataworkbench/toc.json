@@ -262,12 +262,16 @@
 			"text": "File storage",
 			"items": [
 				{
-					"text": "Migrating from Data Fabric",
-					"href": "filestorage/migrating.md"
-				},
-				{
 					"text": "File storage",
 					"href": "filestorage/filestorage.md"
+				},
+				{
+					"text": "Tutorial for VAP users",
+					"href": "filestorage/vapfilestorage.md"
+				},
+				{
+					"text": "Migrating from Data Fabric",
+					"href": "filestorage/migrating.md"
 				},
 				{
 					"text": "Connect File storage with Azure Storage Explorer",

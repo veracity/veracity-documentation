@@ -36,6 +36,10 @@ To configure your Data Workbench Service Account, select its icon in the top rig
 	<img src="assets/dwbicon.png"/>
 </figure>
 
+## Data Workbench data set ID
+When you open a data set, you can find its ID in the URL after `datasets`. For example, in the URL `https://dw.veracity.com/veracity/ws/f6427539-6y63-41d0-8795-b878213631d8/dataCatalogue/datasets/4f7rfb44-b632-4d78-843f-0j15a66k8944`, the part after `datasets/` is the data set ID, which is `4f7rfb44-b632-4d78-843f-0j15a66k8944` in our example.
+
+For more details, go to [Data Workbench documentation](../../dataworkbench/datacatalogue.md).
 ## To find a SAS token
 Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
 

@@ -14,6 +14,9 @@ The **File storage** tab shows the files uploaded to the workspace and lets you 
 
 The **Shared with me** tab shows the data sets that were shared with you. You cannot modify the original data sets that were shared with you. However, you can copy those data sets and modify the copies.
 
+## Data set ID and actions
+When you open a data set, you can find its ID in the URL after `datasets`. For example, in the URL `https://dw.veracity.com/veracity/ws/f6427539-6y63-41d0-8795-b878213631d8/dataCatalogue/datasets/4f7rfb44-b632-4d78-843f-0j15a66k8944`, the part after `datasets/` is the data set ID, which is `4f7rfb44-b632-4d78-843f-0j15a66k8944` in our example.
+
 When you open a data set, in the top right corner, you can select the following action icons.
 1. Data set info: See data set name and its description.
 2. Edit table properties: Disable or enable column picker and select what data columns to show.

@@ -4,7 +4,7 @@ description: This is the changelog for the April 2025 release of Data Workbench.
 ---
 
 # Data Workbench April 2025 release
-Read this page to learn what has changed in Veracity Data Workbench's Data Validator feature with the April 2025 release.
+Read this page to learn what has changed in Veracity Data Workbench's April 2025 release.
 
 ## New features
 This section covers new features.
@@ -27,6 +27,17 @@ If you are a workspace admin, you can change the schema used for validation, edi
 <figure>
 	<img src="../news/assets/validationinfo.png"/>
 </figure>
+
+### Running Analytics on Shared Datasets
+
+If the data you want access to from Analytics is not in the related Data Workbench workspace, but in another workspace in Veracity Data platform then sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
+
+
+
+### Writing Back Data From Databricks to Dataworkbench
+
+When integrating data from a Databricks environment back into Dataworkbench, we follow a structured approach based on the Medallion Architecture. This ensures data is processed in layers, improving quality, structure, and usability. 
+[Tutorial](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment#synchronize-with-datasets-in-data-workbench)
 
 ## Changes in existing features
 This section covers changes in existing features.
@@ -51,14 +62,4 @@ We have improved the UI for the **Create Validation Rule** and **Edit Validation
 
 - 'Data Type' is now a mandatory field.
 - Input fields now dynamically adjust based on the selected data type.
-
-### Running Analytics on Shared Datasets
-
-If the data you want access to from Analytics is not in the related Data Workbench workspace, but in another workspace in Veracity Data platform then sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
-
-
-### Writing Back Data From Databricks to Dataworkbench
-
-When integrating data from a Databricks environment back into Dataworkbench, we follow a structured approach based on the Medallion Architecture. This ensures data is processed in layers, improving quality, structure, and usability. 
-[Tutorial](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment#synchronize-with-datasets-in-data-workbench)
 

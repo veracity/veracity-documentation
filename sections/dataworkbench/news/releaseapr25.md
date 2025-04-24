@@ -32,12 +32,15 @@ If you are a workspace admin, you can change the schema used for validation, edi
 
 If the data you want access to from Analytics is not in the related Data Workbench workspace, but in another workspace in Veracity Data platform then sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
 
+<img src="../news/assets/sharingimage.png"/>
 
 
 ### Writing Back Data From Databricks to Dataworkbench
 
 When integrating data from a Databricks environment back into Dataworkbench, we follow a structured approach based on the Medallion Architecture. This ensures data is processed in layers, improving quality, structure, and usability. 
 [Tutorial](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment#synchronize-with-datasets-in-data-workbench)
+
+<img src="../news/assets/syncback.png"/>
 
 ## Changes in existing features
 This section covers changes in existing features.

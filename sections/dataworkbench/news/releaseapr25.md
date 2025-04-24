@@ -36,11 +36,23 @@ If the data you want access to from Analytics is not in the related Data Workben
 
 
 ### Writing Back Data From Databricks to Dataworkbench
+We have released a Veracity Data Workbench Python SDK for integration between the Databricks workspace and the Data Workbench workspace. For this first release it provides a save method for creating datasets. The library is automatically installed on cluster startup. To write a pyspark DataFrame from a Notebook to the Data Catalogue, you can run the following in a notebook:
 
-When integrating data from a Databricks environment back into Dataworkbench, we follow a structured approach based on the Medallion Architecture. This ensures data is processed in layers, improving quality, structure, and usability. 
-[Tutorial](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment#synchronize-with-datasets-in-data-workbench)
+```python
+from dataworkbench import DataCatalogue
 
-<img src="../assets/syncback.png"/>
+df = spark.createDataFrame([("a", 1), ("b", 2), ("c", 3)], ["letter", "number"])
+
+datacatalogue = DataCatalogue()
+datacatalogue.save(
+    df,
+    "Dataset Name",
+    "Description",
+    tags={"environment": ["test"]}
+)
+```
+
+For more details, see the [tutorial](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment#synchronize-with-datasets-in-data-workbench) or the [library repository](https://github.com/veracity/DataWorkbench)
 
 ## Changes in existing features
 This section covers changes in existing features.

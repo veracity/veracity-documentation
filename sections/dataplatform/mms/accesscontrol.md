@@ -4,16 +4,16 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # Access control for assets
-Users and service principles can only access assets they have access to. User and service principles are handled in Data Workbench.
+Users and service principles can only access assets/sites they have access to. User and service principles are handled in Veracity Data Workbench.
 
 ## Workspace 
-Each instance of a site needs to be linked to a workspace in Veracity Dataworkbench. Only members of that workspace can sites (assets) associated with that workspace.  
+Each instance of a site needs to be linked to a workspace in Veracity Data Workbench. Only members of that workspace can view sites (assets) associated with that workspace.  
 
 ## Portfolio
 A portfolio is a group of sites. A site can be part on several portfolios.
 
 ## Roles
-Currently on Admin and Reader is available as roles. New roles will be added shortly.
+Currently only Admin and Reader is available as roles. New roles will be added shortly.
 
 **Admin**
 - Can create site

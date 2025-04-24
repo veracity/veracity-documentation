@@ -122,8 +122,6 @@ select * from ${datasetName} where Value > 1000
 ```
 This result is stored as _sqldf and can be used in other Python and SQL cells.
 
-
-
 ## Read files
 
 The choice between Pyspark or Pandas depends on the size and complexity of your dataset and the nature of your application. If you are working with small to medium-sized datasets, Pandas is a good choice. If you are dealing with big data or real-time processing, Pyspark is a better option. Pandas loads data in memory before running queries, so it can only query datasets that fit into memory. Spark can query datasets that are larger than memory by streaming the data and incrementally running computations
@@ -138,8 +136,65 @@ df2= pd.read_csv(filename)
 ```
 
 
+## Synchronize with datasets in Data workbench
+Datasets in Data workbench are synchronized into tables in the Databricks environment. 
+
+### Create new tables in databricks
+New datasets can be created from Databricks and synchronized with Data Workbench. This is especially useful for data transformations (medallion architecture). For creating new tables in Databricks that need to be synced to Data Workbench, use Veracity internal library named **dataworkbench** that comes pre-installed to the cluster. 
+
+In below example demo dataframe is written to dataset in Data Workbench using library "dataworkbench"
+```python
+import dataworkbench
+
+df = spark.createDataFrame([("a", 1), ("b", 2), ("c", 3)], ["letter", "number"])
+
+datacatalogue = dataworkbench.DataCatalogue()
+datacatalogue.save(
+    df,
+    "Dataset Name",
+    "Description",
+    tags={"asset": ["123"], "level": ["Silver"]},
+    schema_id="abada0f7-acb4-43cf-8f54-b51abd7ba8b1"  # Using an existing schema ID, if not provided a new schema is created
+)
+```
+The code above will create a dataset with the existing schema id "current active version". 
+If schema_id is not provided, a new schema will be created based on the definition in the table.
+
+
+### Updating existing tables using overwrite
+
+For existing tables that are synchronized between Databricks and Data Workbench, you can directly overwrite the table using Spark's write methods.
+
+```python
+# Create a new DataFrame
+df = spark.createDataFrame([
+    ("d", 1), 
+    ("e", 2), 
+    ("f", 5)
+], ["letter", "number"])
+
+
+# Overwrite the existing table
+df.write.mode("overwrite").saveAsTable("TableNameOverwrite")
+```
+
+### Updating existing tables using append mode
+
+When you want to add new rows to an existing table:
+```python
+# Append new data to the existing table 
+df.write.mode("append").saveAsTable("TableName")`
+```
+
+**Common modes:**
+*   `overwrite`: Completely replaces the existing table
+*   `append`: Adds new rows to the existing table
+*   `ignore`: Skips insertion if data already exists
+*   `error`: Raises an error if data conflicts (default behavior)
+
+
 ## Synchronize files with Data workbench
-There is no action required to synchronize files between Veracity data platform file storage and the Databricks environment. Files uploaded to Veracity data platform filestorage are visible in Databricks under Data catalog/Default/Volumes. New files stored in Volume in databricks are visible in data platform file storage in same sub-folders.
+There is no action required to synchronize files between Veracity data platform file storage and the Databricks environment. Files uploaded to Veracity data platform filestorage are visible in Databricks under Data Catalog/Default/Volumes. New files stored in Volume in databricks are visible in data platform file storage in same sub-folders.
 
 ## Write files
 If creating a new file in Volume, you can create a new directory from workspace or from notebook
@@ -153,12 +208,6 @@ os.mkdir('/Volumes/<path>/default/filestorage/MyDir')
 filename = dbutils.widgets.get("outputfilepath")
 df.to_csv(filename, index= False) 
 ```
-
-## Synchronize datasets with Data workbench
-Datasets uploaded to Veracity Data Workbench is available in Databricks tables. 
-
-First release of this Analytics environment does not synch new tables made in databricks or modified tables back to Data Workbench. 
-Data shared from other workspaces are not available in Databricks in this release.  These features are planned released in Q1-2025.
 
 
 ## Connect to Asset model using API

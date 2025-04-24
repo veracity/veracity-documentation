@@ -53,21 +53,12 @@ We have improved the UI for the **Create Validation Rule** and **Edit Validation
 - Input fields now dynamically adjust based on the selected data type.
 
 ### Running Analytics on Shared Datasets
-The Data Workbench now supports sharing datasets, enabling users to execute Python code on shared datasets.
+
+If the data you want access to from Analytics is not in the related Data Workbench workspace, but in another workspace in Veracity Data platform then sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
+
 
 ### Writing Back Data From Databricks to Dataworkbench
 
-When integrating data from a Databricks environment back into Dataworkbench, we follow a structured approach based on the Medallion Architecture. This ensures data is processed in layers, improving quality, structure, and usability. The three stages are as follows:
+When integrating data from a Databricks environment back into Dataworkbench, we follow a structured approach based on the Medallion Architecture. This ensures data is processed in layers, improving quality, structure, and usability. 
+[Tutorial](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticsdevelopment#synchronize-with-datasets-in-data-workbench)
 
-1) **Bronze Layer** – Raw & Unstructured Data
-This stage handles raw, unprocessed data, including unstructured and semi-structured formats.
-Data can be read from or written to the filestorage volume in its native form (e.g., JSON, Parquet, CSV, Delta).
-External tables can also reference this volume, providing direct access to raw data without transformation.
-2) **Silver Layer** – Structured & Intermediate Processing
-At this stage, data is refined and transformed into a structured format, making it easier to work with.
-Users can create tables or save dataframes as tables, enabling optimized querying and processing.
-This layer is particularly useful for joins, aggregations, and deduplication, serving as an intermediate storage before final synchronization.
-3) **Gold Layer** – Optimized & Ready for Dataworkbench
-The final stage prepares data for full integration into Dataworkbench.
-Data must be stored in BYOD (Bring Your Own Data) storage, ensuring compatibility with Dataworkbench’s functionality.
-Once in BYOD storage, users can leverage Dataworkbench’s full suite of capabilities, including data sharing, SAS token authentication, and UI-based data access.

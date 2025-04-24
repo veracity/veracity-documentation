@@ -5,10 +5,10 @@ description: Gives an overview of the Veracity Data Platform services and relate
 
 # Datasharing
 
-Vertacity dataplatform supports several types of secure sharing of data:
+Vertacity data platform supports several types of secure sharing of data:
 
 **Invite users into workspace**
-* Invite users to workspace. User have read or write acceess to data depending on role.
+* Add user to workspace and provide role. User has read or write acceess to data depending on role.
 * Create a service principle within the workspace. To be used for applicaiton integration. Service priniple has by default Read access to all data in workspace.
 
 **Share data to any user using email**
@@ -36,30 +36,31 @@ The receiver will receive an email and when opening the workspace they can only 
 
 If receiver is already member of one or several workspaces; shared data is visible in each of his workspaces from **Data Catalogue/Shared-to-me**. This dataset is not visible in Analytics environment. The shared dataset using this sharing is not visible for other users in the receivers workspaces.
 
-Receiver can chose to add the shared dataset into current workspace and make the shared dataset available for all users in this workspace.
-Select dataset from shared to me and then button "Add to Workspace". The dataset is now shared with a B2B sharing and this sharing is available the next time someone shares from the orginal workspace.  The dataset is now available in Analytic Environment  (if environemtn is enabled). 
+Receivers can chosoe to add the shared dataset into current workspace and make the shared dataset available for all users in this workspace. Select dataset from shared to me and then button "Add to Workspace". The dataset is now shared with a B2B sharing and this sharing is available the next time someone shares from the orginal workspace.  The dataset is now available in the Analytics Environment. 
 
 ### Share single dataset to another workspace (B2B sharing)
-If a dataset is shared from workspace A to a user and receiver adds this dataset to his workspace B, a workspace sharing is enabled between workspace A and B. Next time someone shares from workspace A, the "sharer" can select workspace B automatically from the dropdown list. All users in workspace B, can see the shared dataset in Data Catalog. The dataset is now available in Analytic Environment (if environemtn is enabled).
+If a dataset is shared from workspace A to a user and receiver adds this dataset to his workspace B, a *workspace sharing* is enabled between workspace A and B. Next time someone shares from workspace A, the "sharer" can select workspace B automatically from the dropdown list. All users in workspace B, can see the shared dataset in Data Catalog. The dataset is now available in the Analytic Environment (if environment is enabled).
 
 ### Share datasets using SAS key
 Select dataset and Generate SAS access kyes. This key is Read only and last until given end-date.
-From api you can generate sas token for whole workspace or for individual dataset.
+From api you can generate sas token for the whole workspace or for individual dataset.
 
 ### Share single file or folder to individual user (B2C sharing)
 Select single file or whole folder and select share icon. User can be external to the tenant.
 The receiver will receive an email and when opening the workspace they can only see the files/folders shared to them. 
 
 If receiver is already member of one or several workspaces; shared data is visible in each of his workspaces from **Data Catalogue/Shared-to-me**. 
-These files are not visible in Analytics environment. The shared files using this sharing is not visible for other users in the receivers workspace(s).
+These files are not visible in Analytics environment. The shared files using this sharing is not visible for other users in the receiver's workspace(s).
+
+These files are *not* available in the Analytics environment.
 
 *Adding shared files to a workspace will soon be available.
 
-### Share single file or folder to another workspace (B2C sharing)
+### Share single file or folder to another workspace (B2B sharing)
 Soon to be available.
 
 ### Share files using SAS key
-From Filestorage SAS keys can be generated for single file, folder or workspace level.
+From Filestorage SAS keys can be generated for a single file, a folder or on workspace level.
 To generate a SAS token, call the endpoint:
 ```POST: https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/sas```
 
@@ -68,7 +69,7 @@ To generate a SAS token, call the endpoint:
 [See how to receive SAS keys using apis](https://developer.veracity.com/docs/section/dataplatform/storage/files#ingest-process)
 
 ## Revoke sharing
-Sharing to user or to workspace can be revoked and receiver will no longer see the shared data.
+A sharing to user or to workspace can be revoked and receiver will no longer see the shared data.
 
 
 ## Share using API endpoints

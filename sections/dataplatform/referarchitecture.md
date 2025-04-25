@@ -34,8 +34,8 @@ In this use-case you build a separate web application that you host using GSS-IT
 |Veracity Tenant Manager| | |
 |Storage | Store data as structured data in Data lake | Predefined schemas  |
 |Ingest | Upload CSV files into DWB using api or through portal | |
-|Analytics|Upload analytics scripts into DWB | |
-|Trigger analytics|Analytics can be triggered from your service using API | | 
+|Analytics|Secure integration with Databricks analytics environment | |
+|Trigger analytics|Analytics can be triggered from your service using APIs or by events|Q3/Q4| 
 |Presentation | Service reads datasets and visualize them| |
 
 ## Use case: Real time event handling   

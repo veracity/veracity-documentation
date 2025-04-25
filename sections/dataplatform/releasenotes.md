@@ -5,6 +5,8 @@ description: Release Notes for Data Platform.
 
 # Release Notes
 
+Release notes for Veracity Data Workbench and Dataplatform is found [in Data Workbench Documentation *What is new*](https://developer.veracity.com/docs/section/dataworkbench/dataworkbench)
+
 ## 2025-04-07
 Veracity Asset Model - APi change for Ingest of new sites. Dataworkbench workspace id is required.
 

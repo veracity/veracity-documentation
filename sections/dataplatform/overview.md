@@ -16,6 +16,11 @@ Overall, Veracity aims to enhance operational efficiency, sustainability, and in
 Veracity data platform offers several components and features that can be used when building a new service such as secure ingest, asset models, storage and consumption of structured and unstructured data. Data governance is handled by role based access control and data sharing. In addition we enable data transformation, analytics and AI services. 
 
 <figure>
-    <img src="assets/architecture2.png"/>
+    <img src="assets/architectureQ2.png"/>
     <figcaption>Veracity data platform</figcaption>
 </figure>
+
+*Planned to be delivered soon
+
+
+See user guide for the portal [Data Workbench](https://developer.veracity.com/services/dataworkbench). 

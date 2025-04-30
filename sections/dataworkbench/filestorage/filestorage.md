@@ -1,96 +1,137 @@
+﻿---
+author: Veracity  
+description: This page explains how to use File storage in Data Workbench, and how to share files and folders using access levels and SAS keys.
 ---
-author: Veracity
-description: This page explains how to use File storage in Data Workbench and how to migrate to it from Data Fabric.
----
+
 # File storage
-In your [Data Catalogue](../datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
+
+In your [Data Catalogue](../datacatalogue.md), you can find a tab called **File storage** for uploading, organizing, sharing, and accessing files.
 
 **If you want to access it via API**, see [File storage API endpoints in API docs](../apiendpoints.md).
 
-Note you can [connect File storage with Azure Storage Explorer](ase.md).
+You can [connect File storage with Azure Storage Explorer](ase.md).
 
-## Prerequisites
-To use File storage: 
-You need File storage, which is an additional feature for Data Workbench.
-
-You can purchase them on Veracity Marketplace:
-* [Purchase File storage for Veracity Data Workbench](https://store.veracity.com/veracity-file-storage-data-workbench).
-
-Note that you might already have access to them as a part of another service you purchased from Veracity.
-
-After you purchase a subscription to File storage, Veracity sets up your account and sends you an email notification when it is ready.
-
-**Do you want to use Azure Storage Explorer to connect to your files**? If so, [download it](https://azure.microsoft.com/en-us/products/storage/storage-explorer#Download-4) and install it.
-
-## To go to File storage
-1. In your workspace, go to **Data catalogue** page.
-2. Select the **File storage** tab.
-
-<figure>
-	<img src="../assets/access.png"/>
-	<figcaption>Location of File Storage.</figcaption>
-</figure>
-
-## Action menu in File storage
-For each file, you can find the three dots in the row with the file and open the action menu (1). In the menu, you can:
-* Download the file (2).
-* Share the file (3). After sharing, the recipient will see the file in the Shared with me tab in Data catalogue.
-* Revoke access (4) to the file.
-* Generate SaS keys (5) for accessing files through external systems.
-* As a file owner, delete (6) the files you uploaded.
-
-<figure>
-	<img src="../assets/filestorage.png"/>
-
-## To upload files
-1. In the top right corner, select **Upload files**. You can upload multiple files at once.
-2. Select the coloured circle with the file icon and select the files from your computer. Alternatively, drag and drop files.
-3. Select **Upload**.
+---
 
 ## Folders
-In File storage, you can use folders to organize files. If you are a workspace admin, you can create folders.
+
+In File storage, you can use folders to organize files.
+
+**You can:**
+- Create folders (admin only).
+- Delete folders (admin only).
+- Nest files inside folders.
+
+**You cannot:**
+- Rename folders.
+- Move folders.
 
 To create a folder:
 1. In the top right corner, select **Create folder**.
 2. Name the folder.
 3. Select **Save**.
 
+---
+
+## To upload files
+
+1. In the top right corner, select **Upload files**. You can upload multiple files at once.
+2. Select the coloured circle with the file icon and choose files from your computer. Alternatively, drag and drop files.
+3. Select **Upload**.
+
+---
+
+## Access levels
+
+When sharing files or folders, you can choose between two access levels:
+
+- **Read only**: Recipients can view or download the item but **cannot create SAS keys** or re-share it.
+- **Read and write**: Recipients can edit, upload new files, and **create SAS keys**. However, they **cannot share the folder with another workspace** directly.
+
+> ℹ️ If the recipient uses a SAS key with read and write access, the activity is logged in the **original sharer’s** workspace Activity Log.
+
+---
+
+## Action menu in File storage
+
+For each file or folder, select the three dots in the row to open the action menu. You can:
+- **Download** the item.
+- **Share** the item.
+- **Revoke access** to shared items.
+- **Generate SAS key** (admin only, and only for items shared with *read and write* access).
+- **Delete** files or folders (admin only, permanent).
+  
+<figure>
+	<img src="../assets/filestorage.png"/>
+</figure>
+
+---
+
 ## To share files and folders
-1. In a row with a file or folder to share, select three dots and then **Share**.
-2. In the window that shows, under **Share access with**, add the email address of the person with whom you are sharing the file or folder.
-	1. Optionally, to allow further sharing, tick the tickbox that reads "Allow recipients to share...".
-	1. Optionally, add a **Note to recipient**.
-1. Select the **Share** button.
 
-Shared files and folders show in Data catalogue in the **Shared with me** tab.
+1. In the row with the file or folder to share, select three dots and then **Share**.
+2. In the popup:
+   - Under **Share access with**, enter the recipient’s email.
+   - Choose **Access level**: Read or Read and write.
+   - (Optional) Enable "Allow recipients to share..." to let the recipient re-share the file/folder with others (read-only).
+   - (Optional) Add a **Note to recipient**.
+3. Select **Share**.
 
-## To revoke access to shared files or folders
-1. In a row with a file or folder to share, select three dots and then **Revoke sharing**.
-2. Next to the person who's access you're revoking, select the X icon.
-1. Select the **Save and Close** button to complete the revoking.
+> Shared files and folders appear in the **Shared with me** tab in the Data Catalogue.
 
-## To delete files and folders
-If you are a workspace admin, you can delete files and folders. To do so:
-1. In the row with the file or folder you want to delete, on the right, select three dots.
-2. Select **Delete**.
-3. In the window that shows, confirm by selecting **Delete**.
+> 🔁 If the recipient deletes a shared folder, it is removed only from their workspace—not the original owner's.
 
-Note that deleting is permanent, and cannot be undone.
-
-## To download files and folders
-If you are a workspace reader or admin, you can download files and folders. To do so:
-1. In the row with the file or folder you want to download, on the right, select three dots.
-2. Select **Download**.
+---
 
 ## To generate a SAS token
-If you are a workspace admin, you can generate access keys to files and folders and use them in external systems. To do so:
-1. In the row with a file or folder you want to generate a SAS token for, on the right, select three dots.
-2. Under **Set access level**, choose access level (read or read and write).
-3. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
-4. Select **Generate key** and a new field called **Access key** will show.
-5. Select **Copy key**. 
+
+> ⚠️ Only workspace **admins** can generate SAS keys, and only for items shared with **Read and write** access.
+
+1. In the row with a file or folder, select three dots > **Generate SAS key**.
+2. Under **Set access level**, choose:
+   - **Read**: For view/download only.
+   - **Read and write**: For uploading/modifying files.
+3. Under **Set access end**, choose the expiration date for the key.
+4. Select **Generate key**.
+5. A new field called **Access key** appears.
+6. Select **Copy key**.
+
+> 💡 **Best practices**: Use the minimum required access level and set an appropriate expiration date.
+
+You can also:
+- **Generate workspace-level keys**.
+- **Revoke all SAS keys** if needed.
+
+---
+
+## To revoke access to shared files or folders
+
+You can revoke access at any time.
+
+1. In the row with the shared item, select three dots > **Revoke sharing**.
+2. Find the person whose access you want to revoke and select the **X** icon next to their name.
+3. Select **Save and Close**.
+
+---
+
+## To delete files and folders
+
+If you are a workspace admin:
+1. In the row with the file or folder, select three dots > **Delete**.
+2. Confirm by selecting **Delete** in the popup.
+
+> ⚠️ Deletion is **permanent** and cannot be undone.
+
+---
+
+## To download files and folders
+
+If you are a workspace **reader** or **admin**:
+1. In the row with the file or folder, select three dots > **Download**.
+
+---
 
 ## Need Support?
-If you need any support:
-1. Visit [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) where you will find articles and video tutorials on Data Workbench.
-2. Contact the [support team](mailto:support@veracity.com) for assistance.
+
+1. Visit the [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) for articles and video tutorials.
+2. Contact [support@veracity.com](mailto:support@veracity.com) for assistance.

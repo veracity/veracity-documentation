@@ -4,17 +4,14 @@ description: This page explains how to use File storage in Data Workbench and ho
 ---
 
 # File storage
-
-In your [Data Catalogue](../datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. 
+In your [Data Catalogue](../datacatalogue.md), you can find a tab called **File storage** and use it for uploading, sharing, and accessing files. If you don't see it, you may not have the subscription for File storage, but you can contact the [support team](mailto:support@veracity.com) for assistance.
 
 **If you want to access it via API**, see [File storage API endpoints in API docs](../apiendpoints.md).
 
 Note you can [connect File storage with Azure Storage Explorer](ase.md).
 
----
 
 ## To go to File storage
-
 1. In your workspace, go to the **Data catalogue** page.
 2. Select the **File storage** tab.
 
@@ -22,8 +19,6 @@ Note you can [connect File storage with Azure Storage Explorer](ase.md).
 	<img src="../assets/access.png"/>
 	<figcaption>Location of File Storage.</figcaption>
 </figure>
-
----
 
 ## Folders
 In File storage, you can use folders to organize files. If you are a workspace admin, you can create folders.

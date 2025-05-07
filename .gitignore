@@ -6,3 +6,7 @@ logs
 **/.obsidian
 /sections/dataworkbench/news/assets/releasedec22.md
 /sections/dataworkbench/datastandards
+
+# Python scripts in Data Platform news section
+veracity-documentation/sections/dataworkbench/news/*.py
+/sections/dataworkbench/news/return_latest_files.py

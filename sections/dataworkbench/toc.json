@@ -9,6 +9,10 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "Latest releases",
+					"href": "news/latest_releases.md"
+				},
+				{
 					"text": "May 2025 release",
 					"href": "news/releasemay25.md"
 				},
@@ -18,7 +22,7 @@
 				},
 				{
 					"text": "Data Platform April 2025 release",
-					"href": "news/dp.releaseapr25.md"
+					"href": "news/dp-releaseapr25.md"
 				},
 				{
 					"text": "March 2025 third release",
@@ -34,7 +38,7 @@
 				},
 				{
 					"text": "Data Platform February 2025 third release",
-					"href": "news/dp.releasefeb25trd.md"
+					"href": "news/dp-releasefeb25trd.md"
 				},
 				{
 					"text": "February 2025 third release",
@@ -42,7 +46,7 @@
 				},
 				{
 					"text": "Data Platform February 2025 second release",
-					"href": "news/dp.releasefeb25sec.md"
+					"href": "news/dp-releasefeb25sec.md"
 				},
 				{
 					"text": "February 2025 second release",
@@ -50,7 +54,7 @@
 				},
 				{
 					"text": "Data Platform February 2025 release",
-					"href": "news/dp.releasefeb25.md"
+					"href": "news/dp-releasefeb25.md"
 				},
 				{
 					"text": "February 2025 release",
@@ -58,7 +62,7 @@
 				},
 				{
 					"text": "Data Platform January 2025 release",
-					"href": "news/dp.releasejan25.md"
+					"href": "news/dp-releasejan25.md"
 				},
 				{
 					"text": "January 2025 release",

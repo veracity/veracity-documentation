@@ -1,3 +1,8 @@
+---
+author: Veracity
+description: This is an overview of recent releases of Data Workbench and Data Platform.
+---
+
 # Overview of recent release notes for Data Workbench and Data Platform
 
 ## Recent Data Workbench changes

@@ -5,4 +5,4 @@ description: Release Notes for Data Platform.
 
 # Release Notes
 
-Release notes for Veracity Data Workbench and Data Platform are in [latest releases](../dataworkbench/news/latest_releases.md).
+Release notes for Veracity Data Workbench and Data Platform are in [recent releases](../dataworkbench/news/recent-releases.md).

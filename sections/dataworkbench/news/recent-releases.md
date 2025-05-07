@@ -1,7 +1,3 @@
----
-author: Veracity
-description: List of latest releases for Data Workbench and Data Platform.
----
 # Overview of recent release notes for Data Workbench and Data Platform
 
 ## Recent Data Workbench changes
@@ -14,11 +10,6 @@ description: List of latest releases for Data Workbench and Data Platform.
 
 ## Recent Data Platform changes
 
-1. [April 2025 release](dp-releaseapr25.md)
-2. [March 2025 release](dp-releasemar25.md)
-3. [February 2025 release](dp-releasefeb25.md)
-4. [February 2025 second release](dp-releasefeb25sec.md)
-5. [February 2025 third release](dp-releasefeb25trd.md)
 
 ## Recent API changes
 

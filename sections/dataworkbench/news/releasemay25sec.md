@@ -3,7 +3,7 @@ author: Veracity
 description: This is the changelog for the May 2025 second release of Data Workbench.
 ---
 
-# May 2025 release
+# May 2025 second release
 Read this page to learn what has changed in Veracity Data Workbench with the May 2025 second release. 
 
 These changes provide improved visibility and control over data sharing, helping workspace users collaborate more efficiently.

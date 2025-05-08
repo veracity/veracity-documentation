@@ -10,7 +10,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the May
 This section covers new features.
 
 ### Choose dataset download format
-You can now choose your preferred file format when downloading datasets. When you open a dataset from the **Data catalogue** and click the **Download** button in the top-right corner, you’ll see a new dropdown menu with the options **Download as CSV** and **Download as Excel**. 
+You can now choose your preferred file format when downloading datasets. When you open a dataset from the **Data catalogue** and click the **Download** button in the top-right corner, you will see a new dropdown menu with the options **Download as CSV** and **Download as Excel**. 
 
 This feature is available for normal datasets, shared datasets, and guest view datasets.
 

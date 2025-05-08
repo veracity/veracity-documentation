@@ -39,7 +39,7 @@ These endpoints allow you to initiate a request for data set access, review the 
 
 ## Manage share request from Data Workbench interface
 
-You can manage requests in Data Workbench interface in **Data Catalogue**, after selecting the **"Requests"** tab.
+You can manage requests in Data Workbench interface in **Data Catalogue**, after selecting the **Requests** tab.
 <figure>
 	<img src="assets/requests.png"/>
 </figure>

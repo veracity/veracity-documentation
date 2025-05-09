@@ -51,7 +51,6 @@ You can also process the request from the **Request details** page by clicking t
 
 When you **accept** a request:
 - A data set is created in **both the requester and the receiver** workspaces.
-- The data set appears in the requester’s **Data Catalogue**.
 - The request moves to the **Completed requests** tab with a status of **Approved**.
 
 When you **decline** a request:

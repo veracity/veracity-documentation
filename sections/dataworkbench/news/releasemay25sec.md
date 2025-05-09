@@ -21,7 +21,7 @@ These changes improve how you manage data access and enhance visibility into req
 A new **Requests** tab is now available in the **Data catalogue** section of the Data Workbench. It helps you handle data sharing requests from other users in a clear and structured way.
 
 <figure>
-	<img src="assets/request.png"/>
+	<img src="assets/request1.png"/>
 </figure>
 
 The tab includes two subtabs:
@@ -31,26 +31,30 @@ The tab includes two subtabs:
 
 When someone requests access to a data set you manage, you’ll receive an **email notification** with a direct link to review and act on the request.
 
+In the **Requests awaiting your action** tab, you can also refine the view by clicking the **Add filter** button above the table on the left. You can filter requests by **Schema** and **Request from** to find specific entries faster.
+
 ## Take action directly in the interface
 
-In the *Requests awaiting your action* view, each row displays request details including request date, schema, IMO, and time period.
+In the **Requests awaiting your action** view, each row displays request details including request date, schema, IMO, and time period (for example, data from December 2023 to December 2024).
 
 When you hover over a request’s **status**, three action icons appear:
 
-- ??? **View details** – shows who made the request and what they are asking for.
-- ?? **Accept request** – grants the user access to the data set.
-- ? **Decline request** – denies the request.
+- **View** (1) – shows who made the request and what they are asking for.
+- **Approve request** (2) – grants the user access to the data set.
+- **Decline request** (3)– denies the request.
 
 <figure>
 	<img src="assets/request2.png"/>
 </figure>
 
-When you accept a request, the user gains access immediately, and the request is logged in the *Completed requests* subtab with a status of **Approved**. If you decline it, the user is not granted access and the request is recorded with a status of **Declined**.
+When you **accept** a request:
+- The data set is immediately shared with the requester.
+- It appears in their **Data Catalogue**.
+- The request moves to the **Completed requests** tab with a status of **Approved**.
 
-All past decisions—approved, declined, or processing—are visible in the *Completed requests* view for auditing and tracking.
+When you **decline** a request:
+- The data set is **not shared**.
+- The action **cannot be undone**.
+- The request is still recorded in the **Completed requests** tab with a status of **Declined**.
 
-## What’s next?
-
-We are considering enhancements to clarify how requests are approved or declined, and what happens after each decision.
-
-Let us know if this would be useful or if you’d like to see more improvements to the access management workflow.
+All past decisions—approved, declined, or processing—are visible in the **Completed requests** view for auditing and tracking.

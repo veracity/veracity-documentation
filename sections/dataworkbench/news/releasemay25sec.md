@@ -31,30 +31,34 @@ The tab includes two subtabs:
 
 When someone requests access to a data set you manage, you’ll receive an **email notification** with a direct link to review and act on the request.
 
-In the **Requests awaiting your action** tab, you can also refine the view by clicking the **Add filter** button above the table on the left. You can filter requests by **Schema** and **Request from** to find specific entries faster.
+Both subtabs include a **filter** option. Click **Add filter** above the table on the left to narrow results by **Schema** or **Request from**.
 
 ## Take action directly in the interface
 
-In the **Requests awaiting your action** view, each row displays request details including request date, schema, IMO, and time period (for example, data from December 2023 to December 2024).
+In the **Requests awaiting your action** view, each row displays request details including request date, schema, IMO, and time period.
 
 When you hover over a request’s **status**, three action icons appear:
 
-- **View** (1) – shows who made the request and what they are asking for.
-- **Approve request** (2) – grants the user access to the data set.
-- **Decline request** (3)– denies the request.
+- **View details** – shows who made the request and what they are asking for.
+- **Accept request** – grants the user access to the data set.
+- **Decline request** – denies the request.
+
+You can also process the request from the **Request details** page by clicking the request date or the **View** icon.
 
 <figure>
 	<img src="assets/request2.png"/>
 </figure>
 
 When you **accept** a request:
-- The data set is immediately shared with the requester.
-- It appears in their **Data Catalogue**.
+- A data set is created in **both the requester and the receiver** workspaces.
+- The data set appears in the requester’s **Data Catalogue**.
 - The request moves to the **Completed requests** tab with a status of **Approved**.
 
 When you **decline** a request:
 - The data set is **not shared**.
 - The action **cannot be undone**.
-- The request is still recorded in the **Completed requests** tab with a status of **Declined**.
+- The request is recorded in the **Completed requests** tab with a status of **Declined**.
+
+Even after a request has been approved, you can **revoke access** by declining it later. Go to the *Completed requests* tab, hover over the approved request, and click the **Decline** icon.
 
 All past decisions—approved, declined, or processing—are visible in the **Completed requests** view for auditing and tracking.

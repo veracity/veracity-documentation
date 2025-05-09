@@ -59,6 +59,6 @@ When you **decline** a request:
 - The action **cannot be undone**.
 - The request is recorded in the **Completed requests** tab with a status of **Declined**.
 
-Even after a request has been approved, you can **revoke access** by declining it later. Go to the *Completed requests* tab, hover over the approved request, and click the **Decline** icon.
+Even after a request has been approved, you can **revoke access** by declining it later. Go to the **Completed requests** tab, hover over the approved request, and click the **Decline** icon.
 
 All past decisions—approved, declined, or processing—are visible in the **Completed requests** view for auditing and tracking.

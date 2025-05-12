@@ -128,6 +128,36 @@ Below are detailed information on the fields in a data request:
 * For **Granularity**, this is the time unit for the granularity. For example, it can be in minutes.
 * For **Interval**, select the start and end date for the data you are requesting. For example, you can request data from 20 January 2024 to 10 March 2024. 
 
+## To handle incoming data set share requests
+
+When someone requests access to one of your data sets, the request will appear in the **Requests** tab of the **Data Catalogue**.
+<figure>
+	<img src="news/assets/request1.png"/>
+</figure>
+
+This tab includes two views:
+- **Requests awaiting your action** – shows incoming data set share requests that you can respond to.
+- **Completed requests** – shows all past requests and their outcomes.
+
+You’ll also receive an **email notification** when a new request is sent to your workspace.
+
+In the **Requests awaiting your action** view:
+- You can select **Add filter** to narrow requests by **Schema** or **Request from**.
+- You can hover over the request’s status to see available actions or click the request date to open full details.
+- You can either **Accept** or **Decline** the request.
+
+### What happens when you respond
+
+- If you **accept** the request:
+  - A data set is created in both your workspace and the requestor’s workspace.
+  - The data set will be visible in the requestor’s **Data Catalogue**.
+- If you **decline**, the request is rejected and the data set is **not** shared. This action **cannot be undone**.
+
+Even after a request has been accepted, you can still **revoke access** later:
+1. Go to the **Completed requests** view.
+2. Hover over the approved request.
+3. Select the **Decline** icon to withdraw access.
+
 ## To modify, save, and share a data set
 1. In the **Data catalogue** tab, open the data set you want to modify.
 2. Modify the data set.

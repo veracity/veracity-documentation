@@ -333,8 +333,8 @@ can have multiple schemas mapping to it. 
    "actor": "A5CA71B3-EF03-4D8F-BF5B-DDBEBAC0052C",   
    "supportCode": null,   
    "payload": "{\r\n  \\accessLevel\\: \\Data consumer\\,\r\n 
- \\serviceType\\: 2,\r\n  \\serviceTitle\\: \\Veracity Data
- Fabric\\,\r\n  \\serviceInternalName\\: \\VeracityDataFabric\\,\r\n 
+ \\serviceType\\: 2,\r\n  \\serviceTitle\\: \\Veracity File Storage
+ \\,\r\n  \\serviceInternalName\\: \\VeracityFileStorage\\,\r\n 
  \\user\\: {\r\n    \\firstName\\: \\Test2\\,\r\n    \\lastName\\:
  \\Veracity\\,\r\n    \\displayName\\: \\Veracity, Test2\\,\r\n   
  \\email\\: \\emailaddretwo@gmail.com\\,\r\n    \\id\\:

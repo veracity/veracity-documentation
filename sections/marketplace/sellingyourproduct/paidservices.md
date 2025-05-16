@@ -42,11 +42,6 @@ The “side-by-side" visualization should be preferred when showing subscription
 
 In general try to keep the description in the plan short and if needed refer to further explanation in the "Details section" above pricing plans section. 
 
-<figure>
-	<img src="assets/sidebyside.png"/>
-	<figcaption>Example from Veracity Data Fabric</figcaption>
-</figure>
-
 ## Offering trials
 Offering a free trial for a short period will show your customers the value of your service and help them make an informed decision. When purchasing your service with trial, the customers share their payment information and after the trial period ends, they are automatically charged, prior cancellation. 
 

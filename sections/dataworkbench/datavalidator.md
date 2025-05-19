@@ -132,7 +132,6 @@ A column can have its "Meta type" set to `FallbackIndicator`. If you want to bet
 
 
 ### To validate rows
-Below is a screenshot of the popup for adding row validation.
 1.  Ensure you have at least two columns with the **Validation meta type** added to your schema. Row validation requires columns to check against.
 2.  Scroll down to the **Row validation** section of the schema editor.
 3.  Select **Add row** to open the "Add row validation" popup.

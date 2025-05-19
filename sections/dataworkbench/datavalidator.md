@@ -2,12 +2,13 @@
 author: Veracity
 description: This page contains an overview of Data Validator.
 ---
-# Data Validator
-Data Validator, a new feature for Data Workbench, empowers you to ensure the quality and consistency of your data through customizable validation rules and automated checks. This streamlines data quality management, helping you identify and correct errors early in the data lifecycle.
+# Data Validator and Schema manager
+Now, you can set up validation rules for your folders in File storage, and have automated validation checks when you upload new data.
 
-How does it work? You create schemas in Schema manager, and then you use them to set up validation for folders.
+How does it work? You create schemas in Schema manager, and then you use them to set up validation for folders with Data Validator.
+This helps you ensure the quality and consistency of your data by identifying data quality problems early.
 
-## How to get started
+## To get started
 To use Data Validator, you will need the following:
 * A Data Workbench workspace in which you are workspace admin.
 * A File Storage subscription.
@@ -17,60 +18,64 @@ If you need help in getting them or checking everything is configured correctly,
 ## Schema manager
 Schema manager is where you define the schemas that you will later use for validating folders in your File storage.
 
-To access Schema manager:
+Schema manager has two tabs:
+- Schemas: A list of schemas used in your workspace.
+- Validation rules: Reusable validation rules for your schemas.
+
+### To access Schema manager
 1. Navigate to the **Data catalogue** page.
-1. Select **Schema manager** in the upper right corner to access schema and validation rule management.
+1. Select **Schema manager** in the upper right corner.
 
 <figure>
 	<img src="assets/schemamanager.png"/>
 </figure>
 
+### Schemas tab overview
+In the **Schemas** tab, you can:
+- Filter schemas to find the schema you need (1).
+- Sort schemas by name (2).
+- Sort schemas by their last update date (3).
+- Sort schemas by their availability, either predefined or custom (4).
+- Sort schemas by their version number (5).
+- See details of a schema (6).
+- Create a new schema (7).
 
-## To access Data Validator and Schema manager
-To use Schema manager and Data Validator, you must be an admin user.
+To sort by a column (descending or ascending), click on the column name.
 
-
-
-To access Data Validator:
-1. Navigate to **Data catalogue**.
-1. Go to **File storage**.
-1. Choose a folder for which you want to set up validation and select three dots in the row with it.
-1. Select **Set up validation**.
-
-
-
-## To recognize a folder with data validation enabled
-A folder with validation enabled will have an icon showing a tick (check mark) inside the folder. Below you can see a folder without validation (1) and a folder with validation set  (2).
 <figure>
-	<img src="assets/fvalidation.png"/>
+	<img src="assets/schemamang.png"/>
 </figure>
 
-## Tags and validation information
-In the **Tags** column, you can see the tags associated with the schema used for validating a folder.
+### Validation rules tab overview
+In the **Validation rules** tab, you can:
+- Filter validation rules to find the rule you need (1).
+- Sort validation rules by name (2).
+- Sort validation rules by data type they validate (3).
+- Sort validation rules by the error message they return (4).
+- Sort validation rules by their availability, either predefined or custom (5).
+- See details of a validation rule (6).
+- Edit a validation rule (7)
+- Delete a validation rule (8)
+- Create a new validation rule (9).
 
-If you are a workspace admin, you can remove and add the tags by clicking on a tag and using the dialog window that shows.
+To sort by a column (descending or ascending), click on the column name.
+
 <figure>
-	<img src="news/assets/tags.png"/>
-</figure>
-
-You can select the three dots in the row with the folder's name to open **Validation information** that shows:
-- What schema is used for validation.
-- What tags are assigned to this folder.
-- The description of the validation.
-
-If you are a workspace admin, you can change the schema used for validation, edit its description, and add or remove the tags.
-
-<figure>
-	<img src="news/assets/validationinfo.png"/>
+	<img src="assets/validrules.png"/>
 </figure>
 
 ## To create a new schema
 1. In **Schema manager**, select **Create schema** in the upper right corner.
 1. Fill in the **Name** and, optionally, **Short name** for the schema. Choose descriptive names that reflect the data you will be working with.
 1. Optionally, under **Description**, describe the purpose of this schema and its intended use.
-1. Select Add column to define a column.
+1. Select **Add column** to define a column.
 
 ### To define columns and set their validation rules
+Below is a screenshot of the popup for adding column definition and validation.
+<figure>
+	<img src="assets/addcolumn2.png"/>
+</figure>
+
 For each column:
 1. Fill in the **Name (internal name)**: this is a required field and should be unique within the schema. It's used for referencing the column in expressions or code.
 2. Fill in the **Display name (user-friendly name)**: this is how the column will be presented in the user interface. It's limited to 100 characters.
@@ -86,7 +91,7 @@ For each column:
    - **FallbackIndicator**:  Choose this to mark or track which columns have had fallback values applied during validation. This might be useful for auditing or understanding how data has been modified.
    - **Timestamp**: Choose this to automatically record the date and time when the validation was executed.
 8. If you selected **Validation** as the Meta type:
-   - Select a **Validation rule**: from the dropdown menu. This dropdown will list the `column validators`that you've already created in your workspace. You can use the filter to search for specific rules by name.
+   - Select a **Validation rule**: from the dropdown menu. This dropdown will list the `column validators` that you've already created in your workspace. You can use the filter to search for specific rules by name.
 9. Select the **Severity level**: from the dropdown menu:
    - **Correction**: If the data doesn't match the rule, it will be automatically corrected using the fallback value defined in the `column validator`.
    - **Error**: If the data doesn't match the rule, the entire row will be flagged as an error and removed from the output result.
@@ -96,7 +101,9 @@ For each column:
 12. Select **Save**: A toast message will confirm successful saving.
 13. Select the newly created **schema**: to open Schema details.
 
-### To better understand FallbackIndicator
+
+
+### FallbackIndicator meta type
 A column can have its "Meta type" set to `FallbackIndicator`. If you want to better understand how to use it, see the explanation below.
 
 1.  **Validation rule with correction severity:** You create a validation rule (let's call it "MustBeValidEmail") and set its severity to "Correction". Crucially, you also define a fallback value (for example, an empty string "" or a placeholder like "invalid@email.com").
@@ -125,6 +132,7 @@ A column can have its "Meta type" set to `FallbackIndicator`. If you want to bet
 
 
 ### To validate rows
+Below is a screenshot of the popup for adding row validation.
 1.  Ensure you have at least two columns with the **Validation meta type** added to your schema. Row validation requires columns to check against.
 2.  Scroll down to the **Row validation** section of the schema editor.
 3.  Select **Add row** to open the "Add row validation" popup.
@@ -144,6 +152,9 @@ A column can have its "Meta type" set to `FallbackIndicator`. If you want to bet
 12. Select **Save** in the main schema editor to save all schema changes, including the new row validation rule.
 
 ## To edit a schema
+Note that you cannot edit schemas with "Availability" set to "Predefined" since those are schemas that Data Workbench team has defined for you according to your business needs.
+
+To edit a schema:
 1. In **Schema manager**, find the schema you want to edit. You can use filters (**Add filters**) and sort by schema name, their last updated date, or availability.
 2. Select the pencil icon in the row corresponding to the schema you want to edit. This will open the schema editor.
 3. Under the **Versions** section, you'll see a dropdown menu listing the available versions of the schema. Select the version you want to work on.
@@ -160,7 +171,7 @@ A column can have its "Meta type" set to `FallbackIndicator`. If you want to bet
 7. If you want to discard all changes made during the current editing session, select the **Reset** button at the bottom of the editor.
 8. Once you're satisfied with the changes, select **Save** to update the schema.
 
-### To lock a schema
+## To lock a schema
 You can lock a schema version to prevent unintended edits. To do so, under **Versions**, on the left side, select the **Lock this version** button.
 
 Note that:
@@ -209,15 +220,58 @@ To create a validation rule:
 7. Repeat steps 2-6 for all columns needing validation.
 8. Select **Save** to save the schema with validation rules.
 
-## To set up data set validation
-1. Navigate to **Data catalogue** > **File storage**.
-1. Create a new folder or use an existing folder.
-1. In the row with the folder, select three dots and **Set up validation**.
-1. In the window that pops up, under **Validation schema**, choose the schema you want to use for validation. You can choose from the schemas defined in your workspace.
-1. Select **Save**.
+## Data Validator in File storage
+In File storage, you can set up validation for folders, and use a schema saved in your workspace to validate input data and return validated output data inside this folder.
 
-### The input and output folder
-After you set up validation for a folder, Data Workbench will create two empty subfolders inside it: one named after the original folder with 'input' added, and another with 'output' added.
+If you need to edit or create a new schema, go to the section of this document on **Schema manager**.
+
+## To recognize a folder with data validation enabled
+A folder with validation enabled will have an icon showing a tick (check mark) inside the folder. Below you can see a folder without validation (1) and a folder with validation set  (2).
+<figure>
+	<img src="assets/fvalidation.png"/>
+</figure>
+
+## Tags and validation information
+In the **Tags** column, you can see the tags associated with the schema used for validating a folder.
+
+If you are a workspace admin, you can remove and add the tags by clicking on a tag and using the dialog window that shows.
+<figure>
+	<img src="news/assets/tags.png"/>
+</figure>
+
+You can select the three dots in the row with the folder's name to open **Validation information** that shows:
+- What schema is used for validation.
+- What tags are assigned to this folder.
+- The description of the validation.
+
+If you are a workspace admin, you can change the schema used for validation, edit its description, and add or remove the tags.
+
+<figure>
+	<img src="news/assets/validationinfo.png"/>
+</figure>
+
+## To set up validation for a folder
+1. Navigate to **Data catalogue**.
+1. Go to **File storage**.
+1. Choose a folder for which you want to set up validation and select three dots in the row with it.
+1. Select **Set up validation**.
+
+<figure>
+	<img src="assets/foldertovalidate.png"/>
+</figure>
+
+When you set up a validation for a folder, Data Workbench will create two subfolders inside it and name it after your folder. However, one subfolder will have the word "input" added and another will have "output" added. 
+
+Now, you can upload your files to the input subfolder and they will be automatically validated and you will see validation results in the output folder.
+
+
+## To remove validation for a folder
+1. Choose a folder for which you want to remove validation and select three dots in the row with it.
+1. Select **Remove validation**.
+
+<figure>
+	<img src="assets/removevalidation.png"/>
+</figure>
 
 ## To upload and validate data
 1. Enter the folder you just set up validation for.
@@ -243,8 +297,3 @@ As a result of data validation, the output folder is populated with:
 * A **Log** folder with detailed log information for the validation.
 * A **Results** folder with the output after validation. You can select the three dots in the row with this file, and download it as a CSV file. For example, if the data file you uploaded had some rows that were marked as errors in the validation, those rows would be removed from the output data file.
 * A **Summary** folder with a summary of data validation, its logs, and so on.
-
-## To remove validation
-1. Navigate to **Data catalogue** > **File storage**.
-1. In the row with a folder, select three dots and **Remove validation**.
-1. Select **Delete** to confirm.

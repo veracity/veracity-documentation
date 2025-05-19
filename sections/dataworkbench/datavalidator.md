@@ -5,6 +5,8 @@ description: This page contains an overview of Data Validator.
 # Data Validator
 Data Validator, a new feature for Data Workbench, empowers you to ensure the quality and consistency of your data through customizable validation rules and automated checks. This streamlines data quality management, helping you identify and correct errors early in the data lifecycle.
 
+How does it work? You create schemas in Schema manager, and then you use them to set up validation for folders.
+
 ## How to get started
 To use Data Validator, you will need the following:
 * A Data Workbench workspace in which you are workspace admin.
@@ -12,11 +14,30 @@ To use Data Validator, you will need the following:
 * Subscriptions to Schema Management, Rule Management, and File Validation.
 If you need help in getting them or checking everything is configured correctly, contact Data Workbench support.
 
-## To access Data Validator
-1. Sign into a Data Workbench workspace where you are an admin user.
+## Schema manager
+Schema manager is where you define the schemas that you will later use for validating folders in your File storage.
+
+To access Schema manager:
 1. Navigate to the **Data catalogue** page.
 1. Select **Schema manager** in the upper right corner to access schema and validation rule management.
-1. Navigate to **Data catalogue** > **File storage** to access File storage and validation setup.
+
+<figure>
+	<img src="assets/schemamanager.png"/>
+</figure>
+
+
+## To access Data Validator and Schema manager
+To use Schema manager and Data Validator, you must be an admin user.
+
+
+
+To access Data Validator:
+1. Navigate to **Data catalogue**.
+1. Go to **File storage**.
+1. Choose a folder for which you want to set up validation and select three dots in the row with it.
+1. Select **Set up validation**.
+
+
 
 ## To recognize a folder with data validation enabled
 A folder with validation enabled will have an icon showing a tick (check mark) inside the folder. Below you can see a folder without validation (1) and a folder with validation set  (2).

@@ -66,10 +66,9 @@ For each file, you can find the three dots in the row with the file and open the
 > Shared files and folders show in the **Shared with me** tab in the Data catalogue.  
 > If the recipient deletes the shared folder, it only disappears from their workspace; the original folder in your workspace remains unchanged.
 
-Note:
-- Recipients with **read access** cannot generate SAS keys.
-- Recipients with **read and write access** can generate SAS keys, but cannot share the file or folder to another workspace.
-- If workspace-to-workspace sharing is enabled, recipients in a different workspace may generate SAS keys with their own credentials — this is logged in your Activity log.
+Note that you cannot share a file or folder with higher access level than you have:
+- If you have **read and write access** to a file or folder, you can share it with **read** or **read and write** access.
+- If you have **read** access to a file or folder, you can only share it with **read** access.
 
 ## To revoke access to shared files or folders
 1. In a row with a file or folder you shared, select three dots and then **Revoke sharing**.
@@ -91,8 +90,10 @@ If you are a workspace reader or admin, you can download files and folders. To d
 1. In the row with the file or folder you want to download, on the right, select three dots.
 2. Select **Download**.
 
-## To generate a SAS token
-If you are a workspace admin, you can generate access keys (SAS tokens) to files and folders and use them in external systems. To do so:
+## To generate SAS tokens
+A workspace user can generate a SAS key only if they have **read and write** access to a file or folder. Whenever they generate it, it is logged in their workspace's **Activity log**.
+
+To generate a SAS key:
 1. In the row with a file or folder you want to generate a SAS token for, on the right, select three dots.
 2. Under **Set access level**, choose access level (read or read and write).
 3. Under **Set access end**, choose a date from which this file or folder will no longer be accessible.
@@ -106,7 +107,7 @@ If you are a workspace admin, you can generate access keys (SAS tokens) to files
 
 You can also revoke all SAS tokens at once using the **Revoke all SAS keys** option from the file/folder menu.
 
-## Need Support?
+## Need support?
 If you need any support:
 1. Visit [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) where you will find articles and video tutorials on Data Workbench.
 2. Contact the [support team](mailto:support@veracity.com) for assistance.

@@ -2,10 +2,6 @@
 	"$schema": "../../schemas/toc.json",
 	"items": [
 		{
-			"text": "Veracity Data fabric",
-			"href": "datafabric.md"
-		},
-		{
 			"text": "Veracity Data Workbench migration",
 			"href": "datafabric-migration.md"
 		}

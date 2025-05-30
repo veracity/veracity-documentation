@@ -16,7 +16,9 @@ We will enable the feature on your databricks workspace, after that, you will se
 </figure>
 
 ### ETL Pipeline
-
+<figure>
+	<img src="../news/assets/ETLPipeline.png"/>
+</figure>
 
 
 

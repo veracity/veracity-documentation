@@ -15,6 +15,6 @@ These updates enhance how you manage schemas using the API by introducing suppor
 
 You can now set and retrieve the `"isKey"` property for schema columns using the Data Workbench API. This property marks a column as a key, which is important for enforcing row uniqueness and enabling row-level updates or deletions.
 
-If `"isKey"` is set to `true`, the column is treated as a key. The value is optional and defaults to `null` if not specified.
+If `"isKey"` is set to `true`, the column is treated as a key. The value is optional and defaults to `false` if not specified.
 
 **Note that** a key column should contain unique values to ensure that operations like row updates or deletions behave as expected.

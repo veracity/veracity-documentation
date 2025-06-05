@@ -22,5 +22,6 @@ description: This is an overview of recent releases of Data Workbench and Data P
 5. [February 2025 third release](dp-releasefeb25trd.md)
 
 ## Recent API changes
+1. [June 2025 second release](releasejun25sec.md)
 
 The latest API specification is available through our [API Explorer](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).

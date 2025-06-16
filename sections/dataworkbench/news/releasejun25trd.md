@@ -1,4 +1,4 @@
-﻿---
+---
 author: Veracity
 description: This is the changelog for the June 2025 B2B file sharing release in Data Workbench.
 ---

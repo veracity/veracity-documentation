@@ -57,10 +57,10 @@ If you are an admin of one or more workspaces, you can now **add shared files or
 
 To do this:
 
-1. Go to **File storage > Shared by other workspaces**.
+1. Go to **File storage > Shared with me**.
 2. Find the shared file or folder and select **Add to my workspace**.
 3. In the popup, choose your workspace from the list.
 
-The file or folder will appear in your main **File storage** tab, under **Workspace file storage**.
+The file or folder will appear in your main **File storage** tab, under **Shared by other workspaces**.
 
-**Note that** if the folder is already added or you do not have any workspaces where you are an admin, the option will be disabled.
+**Note that** if you do not have any workspaces where you are an admin, the option will be disabled.

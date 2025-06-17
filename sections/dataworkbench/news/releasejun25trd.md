@@ -35,17 +35,25 @@ It shows the files and folders your workspace received from other workspaces in 
 
 You can take the following actions, based on your workspace role and access level:
 
-| Action           | Admin with ReadWrite | Admin with ReadOnly | Reader with ReadWrite | Reader with ReadOnly |
-|------------------|----------------------|----------------------|------------------------|-----------------------|
-| Download         | ✓                    | ✓                    | ✓                      | ✓                     |
-| Delete access    | ✓                    | ✕                    | ✕                      | ✕                     |
-| Generate keys    | ✓                    | ✕                    | ✕                      | ✕                     |
+| Actions           | Admin with ReadWrite access | Admin with Read access | Reader with Read access | Reader with ReadWrite access |
+|------------------|-----------------------------|-------------------------|--------------------------|------------------------------|
+| Download         | ✓                           | ✓                       | ✓                        | ✓                            |
+| Share            | ✓*                          | ✓*                      | ✓*                       | ✓*                           |
+| Revoke sharing   | ✓*                          | ✓*                      | ✓*                       | ✓*                           |
+| Generate keys    | ✓                           | ✗                       | ✗                        | ✗                            |
+| Delete access    | ✓                           | ✓                       | ✗                        | ✗                            |
+| Create Folder    | ✓                           | ✗                       | ✗                        | ✗                            |
+| Upload Files     | ✓                           | ✗                       | ✗                        | ✗                            |
+| Delete Folder/File | ✓                         | ✗                       | ✗                        | ✗                            |
 
+✓* Actions marked with an asterisk are only available if the original sharer enabled reshare permissions, or if the user previously reshared the item.
+
+### To revoke access from your workspace
 To revoke access from your workspace, select the three-dot icon next to the item and choose **Delete access**.
 
-### Add shared files to your workspace
+### Add shared files to your workspace (admin only)
 
-If you're a workspace admin, you can now **add shared files or folders to your own workspace** for easier navigation and further access management.
+If you are an admin of one or more workspaces, you can now **add shared files or folders to your own workspace** for easier navigation and access management.
 
 To do this:
 
@@ -55,4 +63,4 @@ To do this:
 
 The file or folder will appear in your main **File storage** tab, under **Workspace file storage**.
 
-**Note that** if the folder is already added or you're not a workspace admin, the option will be disabled.
+**Note that** if the folder is already added or you do not have any workspaces where you are an admin, the option will be disabled.

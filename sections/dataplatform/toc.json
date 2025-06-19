@@ -63,7 +63,7 @@
       "href": "tenantmgm.md"
     },
     {
-      "text": "Data ingest",
+      "text": "Data ingest/upload",
       "items": [
         {
           "text": "Overview",
@@ -76,7 +76,7 @@
         {
           "text": "Upload files",
           "href": "storage/files.md"
-        },
+        },       
         {
           "text": "Stream",
           "href": "storage/streaming.md"
@@ -84,6 +84,14 @@
         {
           "text": "Events",
           "href": "storage/eventbroker.md"
+        },
+        {
+          "text": "Sas policies",
+          "href": "ingets/saspolicies.md"
+        },
+        {
+          "text": "External storage account",
+          "href": "storage/filesexternal.md"
         },
         {
           "text": "FAQ",
@@ -114,6 +122,7 @@
           "text": "Sensor data query",
           "href": "query/sensordataqueryproxy.md"
         }
+        
       ]
     },
     {
@@ -151,6 +160,10 @@
         {
           "text": "Analytic development",
           "href": "analytics/analyticsdevelopment.md"
+        },
+        {
+          "text": "Compute configurations",
+          "href": "analytics/configurations.md"
         },
         {
           "text": "Data connectivity",

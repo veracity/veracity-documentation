@@ -11,6 +11,8 @@ Azure Databricks is a unified, open analytics platform for building, deploying, 
 
 [Azure Databricks documentation](https://learn.microsoft.com/en-us/azure/databricks/)
 
+To buy subscription for Analytics Environment, contact support@veracity.com
+
 ## How does Databricks connect to Veracity data platform storage
 
 A dedicated Databricks environment is enabled for a single workspace in Veracity Data Workbench on request. Veracity managed Databricks environments enable Unity Catalog, a unified governance solution for data and AI assets on Databricks.
@@ -22,8 +24,8 @@ A dedicated Databricks environment is enabled for a single workspace in Veracity
 
 All structured data (datasets) and all files stored in the Data Workbench workspace are available in the databricks catalog and can be processed. New datasets and files can be created and synched back to Veracity Data Workbench datalake.
 
+To upload data directly to Veracity dataplatform storage, see [Upload dataset](https://developer.veracity.com/docs/section/dataplatform/storage/datasets)  and [Upload files](https://developer.veracity.com/docs/section/dataplatform/storage/files)
 
-To buy subscription for Analytics Environment, contact support@veracity.com
 
 ## Data management 
 
@@ -31,14 +33,26 @@ A Databricks Catalog is created for each Data workbench workspace you have acces
 
 Databricks uses two primary securable objects to store and access data:
 
-- Tables govern access to tabular data: This is were all datasets from your Veracity workspace will be listed
-- Volumes govern access to non-tabular data: This is where all files from Veracity filestorage is listed.
+- **Tables** govern access to tabular data: This is were all datasets from your Veracity workspace will be listed. This includes shared datasets from other workspaces.
+- **Volumes** govern access to non-tabular data: This is where all files from Veracity filestorage is listed. 
+
+**Note:** See exception for shared files/folders below.
 
 **For more information**
 - [The unity catalogue model](https://docs.databricks.com/aws/en/data-governance/unity-catalog)
 - [Datbase objects](https://docs.databricks.com/aws/en/database-objects/)
 
 Users can not create new catalogs since share is not enabled.
+
+### Shared files/folders
+Shared files and folders from other workspaces, will currently NOT appear in Databricks Volume section. This feature is depending on a Databricks update planned this year. The workaround for using shared files/folders in Analytics is:
+
+```
+1. Share files/folders from one DWB workspace to the workspace with Write access. [Share files]()
+2. Create sas token from DWB file/folder.  [Create SAS token]()
+3. Access shared files in Databricks using SAS token. [Use Sas token in Python]
+
+Shared datasets are available under DataBricks catalog Tables.
 
 ## Users and access
 When users are added to Data Workbench, they will be synced with databricks user group (Readers or Admins Group).
@@ -97,6 +111,7 @@ DECLARE variable is a user-defined variable that can hold a single hardcoded val
 [For more information](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-declare-variable)
 
 ## Read datasets
+Datasets in your Dataworkbench is automatically available as Tables in Azure Databricks.
 
 Use Sql Editor or Notebook with Sql to query dataset from tables.
 

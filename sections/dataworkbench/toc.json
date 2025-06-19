@@ -13,12 +13,12 @@
 					"href": "news/recent-releases.md"
 				},
 				{
-					"text": "June 2025 third release",
-					"href": "news/releasejun25trd.md"
-				},
-				{
 					"text": "Data Platform June 2025 release",
 					"href": "news/dp-releasejun25.md.md"
+				},
+				{
+					"text": "June 2025 third release",
+					"href": "news/releasejun25trd.md"
 				},
 				{
 					"text": "June 2025 second release",

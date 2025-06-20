@@ -10,8 +10,7 @@ Read this page to learn what has changed in the Veracity Adapter for Power BI.
 
 ### Improved error messages and faster support
 We are giving you better error messages:
-- **New error codes** are now shown when something goes wrong.  
-- **Click “Details”** to view the full error message and code.  
-- **Copy and include the error code** in your support ticket for quicker issue resolution.
+- When an error occurs, you’ll now see a unique **error ID** and additional details.
+- **Copy the error ID and details** and include them in your support case for a quicker resolution.
 
 These changes minimize back-and-forth with the support team and help developers identify and fix problems more efficiently.

@@ -17,14 +17,14 @@ Note: The Ingest api-endpoints are different for uploading files to filestorage 
 
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+See section **Data Workbench API**
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 **When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to <service account id> in <workspace id>**
 
-### Baseurl
-See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
-See section **Data Workbench API**
 
 ## Ingest process
 
@@ -37,7 +37,8 @@ See code examples below for each step in the process.
 
 ### Python code example
 #### Step 1: Get Veracity token for service principle/service account
-```json
+
+```python
 import requests
 import json
 
@@ -64,7 +65,7 @@ else:
 Using veracityToken  from step 1
 **Ensure service account has Write access (ie. has Admin role in workspace )**
 
-```json
+```python
 
 import requests
 import json
@@ -112,7 +113,7 @@ print("SAS Token:", sas_uri)
 ### Step 3: Upload file using SAS URI 
 File is uploaded using Microsoft libraries using SAS uri in step 2
 
-```json
+```python
 from azure.storage.filedatalake import DataLakeFileClient
 from urllib.parse import urlparse
 import os
@@ -169,7 +170,7 @@ var client_secret = <my service account secret>;
 ```
 
 #### Step 1: Get Veracity token for authentication
-Client Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
+Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
 If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
 
 **Note: In order to use client credentials, this service principle needs Admin access to workspace. This will be available as self service shortly.** But, for now contact support@veracity.com  and request Admin role on service principle "servicePrincipeID" in workspace "workspaceID"**
@@ -250,7 +251,7 @@ You need a SAS token with write access to the folder (path) where file should be
 
 ```
 
-The result contains the SAS token as a string.
+The result contains the SAS token uri as a string.
 
 Payload options:
 * `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the `ContainerName` which was specified when creating the internal storage connection.
@@ -264,25 +265,29 @@ Payload options:
 In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token from step 2.
 
 ```csharp
-async Task UploadFile(string sasToken, string filepath, Dictionary<string, string> metadata)            
-{
-    var sasUri = new System.Uri(sasToken);
-    var containerClient = new DataLakeDirectoryClient(sasUri);
-    
-    string remoteFileName = Path.GetFileName(filepath);
-    var fileClient = containerClient.GetFileClient(remoteFileName);
-    
-    using (FileStream fsSource = new FileStream(filepath, FileMode.Open, FileAccess.Read))
-    {
-        bool overwrite = true;
-        var response = await fileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
-    };
+        public async Task<string> UploadFileToFileStorage(string sasToken, string filepath, Dictionary<string, string> metadata)            
+        {
+            var sasUri = new System.Uri(sasToken);
+            var containerClient = new DataLakeDirectoryClient(sasUri);
+            
+            string remoteFileName = Path.GetFileName(filepath);
+            var fileClient = containerClient.GetFileClient(remoteFileName);
 
-    //metadata is optional
-    if (metadata != null && metadata.Count > 0) 
-       await fileClient.SetMetadataAsync(metadata);            
-}
+            string repsonse_status = "Unknown";
+            using (FileStream fsSource = new FileStream(filepath, FileMode.Open, FileAccess.Read))
+            {
+                bool overwrite = true;
+                var response = await fileClient.UploadAsync(fsSource, overwrite, CancellationToken.None);
+                repsonse_status = response.GetRawResponse().Status.ToString();
+            }
+            //metadata is optional
+            if (metadata != null && metadata.Count > 0) 
+               await fileClient.SetMetadataAsync(metadata);
 
+            return repsonse_status;
+        }
+
+When successful - it returns 200
 ``` 
 
 ## Ingest metadata to existing file or folder 

@@ -7,54 +7,169 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 
 ## API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
-See section Storages
+See section **Storages**
 
-### Authentication and authorization
-To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
 ## Query for files
 
 You can access files via API if you generate a SAS token. To query for data on file storage you need to perform the following steps:
 
 1. Authenticate towards Veracity api using client credentials or user authentication.
-2. Get SAS token uri from Veracity api
+2. Get SAS token uri from Veracity api - with READ access
 3. Get data content (files, folders, metadata etc.)
-4. Get all files in 
+
 See code examples below for each step in the process.
 
-### Code example
+## Python Code example
 
-**Main program**
+### Step 1: Get Veracity token for authentication using Veracity service principle
+```python
+import requests
 
-```csharp
-using Azure.Storage.Files.DataLake;
-using Azure.Storage.Files.DataLake.Models;
-using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
+# Token URL for authentication 
+token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
+clientId = <service account id>
+secret = <service account secret>
 
-//read secrets and parameters
-string filename = "";
-string workspaceId = "";
-string subscriptionkey = "";
-var client_id = "";
-var client_secret = "";
+# define the request payload    
+payload = {
+    "resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75",
+    "grant_type": "client_credentials",
+    "client_id": clientId,
+    "client_secret": secret
+}
+
+response = requests.post(token_url, data=payload)
+if response.status_code == 200:
+    veracityToken = response.json().get("access_token")
+else:
+    print(f"Error: {response.status_code}")
+
+print(veracityToken)  # Will print None if request fails
+```
+
+### Step 2: Get SAS Uri for folder
+
+```python
+import requests
+import json
+from datetime import datetime, timedelta
+ 
+mySubcriptionKey = <my service account api key>
+workspaceId = <workspace id in DWB>
+dwbFolderName = <folder name - if not provided root folder is used>
+ 
+def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
+    base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
+    endpoint = f"/workspaces/{workspace_id}/storages/sas"
+    url = base_url + endpoint
+    expires_on = (datetime.utcnow() + timedelta(hours=5)).isoformat() + "Z"
+ 
+    payload = {
+      "path": dwbFolderName,
+      "readOrWritePermission": "Read",
+      "expiresOn": expires_on
+    }
+
+    headers = {
+        "Content-Type": "application/json",
+        "Ocp-Apim-Subscription-Key": mySubcriptionKey,
+        "Authorization": f"Bearer {veracityToken}",
+        "User-Agent": "python-requests/2.31.0"
+    }
+
+    try:
+        response = requests.post(url, json=payload, headers=headers)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching SAS token: {e}")
+        return None
 
 
-string token = await GetToken(client_id, client_secret);
-string sasToken = await GetSASToken(token, workspaceId, subscriptionkey);
-await UploadFile( sasToken, filename);
+sas_uri = get_sas_token(veracity_token= veracityToken,  folder=dwbFolderName, workspace_id=workspaceId,subscription_key= mySubcriptionKey)
+print("SAS Token:", sas_uri)
+
+```
+### Step 3: Read folder using SAS uri 
+
+```python
+from azure.storage.filedatalake import DataLakeServiceClient
+from urllib.parse import urlparse
+
+# Your SAS URI from step 2
+sas_url = sas_uri
+
+# Parse the URL
+parsed_url = urlparse(sas_url)
+account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+file_system_name = parsed_url.path.strip("/").split("/")[0]
+folder_path = "/".join(parsed_url.path.strip("/").split("/")[1:])
+sas_token = parsed_url.query
+
+
+print(folder_path)
+
+# Create the service client
+service_client = DataLakeServiceClient(account_url=account_url, credential=sas_token)
+directoryClient = service_client.get_directory_client(file_system_name, folder_path)
+
+
+filesystem_client = service_client.get_file_system_client(file_system=file_system_name)
+
+# List files in the folder
+paths = filesystem_client.get_paths(path=folder_path, recursive=False)
+
+print(f"\nContents of folder '{folder_path}':")
+for path in paths:
+    print(f"- {path.name} (Directory: {path.is_directory})")
 
 ```
 
-**Step 1: Get Veracity token for authentication**
+### Step 3b: Read storagedatasets using Veracity api
+
+```python
+import requests
+import json
+from datetime import datetime, timedelta
+ 
+mySubcriptionKey = <api key>
+workspaceId = <workspace id>
+dwbFolderName = "Test"
+
+base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
+endpoint = f"/workspaces/{workspaceId}/storages/storagedatasets"
+url = base_url + endpoint
+ 
+headers = {
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": mySubcriptionKey,
+    "Authorization": f"Bearer {veracityToken}",
+    "User-Agent": "python-requests/2.31.0"
+}
+
+try:
+    response = requests.get(url, json=payload, headers=headers)
+    response.raise_for_status()   
+except requests.exceptions.RequestException as e:
+    print(f"Error fetching SAS token: {e}")
+    
+result = response.json()
+print(result)
+```
+
+
+## C# Code example
+
+#### Step 1: Get Veracity token for authentication using Veracity service principle
 Client Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
 If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
-
-**Note: In order to use client credentials, this service principle needs Admin access to workspace. This will be available as self service shortly.** But, for now contact support@veracity.com  and request Admin role on service principle "servicePrincipeID" in workspace "workspaceID"**
 
 
 ```csharp
@@ -83,30 +198,36 @@ async Task<string> GetToken(string clientId, string clientSecret)
 
 ```
 
-**Step 2: Get SAS token**
+#### Step 2: Get SAS token
 
 To generate a SAS token, call the `{baseurl}/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method using the Veracity token from step 1.
 Create a SAS token for a given folder with Read access
 
 ```csharp
- async Task<string> GetSASToken(string veracityToken, string folder, string workspaceId, string subscriptionKey)
+ 
+ public async Task<string> GetSASToken(string veracityToken, string folder, string workspaceId, string subscriptionKey)
  {
      string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
 
      DateTime expiresOn = DateTime.UtcNow.AddHours(1);
+     string expiresOnStr = expiresOn.ToString("O");
+                 
      //path is folder name in storage container
-     SasRequest request = new SasRequest()
+     var postData = new Dictionary<string, string>
      {
-         Path = folder,
-         ReadOrWritePermission = "Read",
-         ExpiresOn = expiresOn
+         {"path", folder},
+         {"readOrWritePermission", "Read"},
+         {"expiresOn", expiresOnStr }
      };
-     string jsonBody = JsonConvert.SerializeObject(request );
-     HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-     
-    if (_httpClient == null)
+
+     string jsonString = JsonConvert.SerializeObject(postData);
+     HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+     if (_httpClient == null)
          _httpClient = new HttpClient();
 
+     _httpClient.BaseAddress = new Uri(url);
+                            
      _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
      _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", veracityToken);
      try
@@ -125,22 +246,9 @@ Create a SAS token for a given folder with Read access
      return null;
  }
 
-
- internal class SasRequest    {
-
-    [JsonProperty("path")]
-    public string Path {get;set;}
-
-    [JsonProperty("readOrWritePermission")] 
-    public string ReadOrWritePermission { get; set; }
-    
-    [JsonProperty("expiresOn")]
-    public DateTime ExpiresOn { get; set; }
-}
-
  ```
 
-**Step 3: Read files in folder**
+### Step 3: Read files in folder
 In step 2 the sas token was generated for a folder and this example iterates all files in that folder and reads metadata and content
 
 ```csharp
@@ -173,7 +281,7 @@ In step 2 the sas token was generated for a folder and this example iterates all
       }
   }
 ```
-## Read metadata
+### Read metadata
 
 ```csharp
           //build file client for file
@@ -211,108 +319,3 @@ Note that:
 To get all storage data sets of a workspace, call the following endpoint with a GET method.
 `{baseurl}/workspaces/{workspaceId:guid}/storages/storagedatasets`
 
-
-
-## Python sample for calling the endpoints
-You can use the sample Python code below to call Data Workbench endpoints.
-
-```json
-import requests
-
-# Configuration
-client_id = "YOUR_CLIENT_ID"
-client_secret = "YOUR_CLIENT_SECRET"
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-workspace_id = "YOUR_WORKSPACE_ID"
-dataset_id = "YOUR_DATASET_ID"
-
-# Query endpoint URL    
-query_endpoint = f"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspace_id}/storages/storagedatasets"
-
-# Token URL for authentication 
-token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
-
-# Token payload for authentication request
-token_payload = {
-    "grant_type": "client_credentials",
-    "client_id": client_id,
-    "client_secret": client_secret,
-    "resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75"
-}
-
-# Function to retrieve access token
-def get_token():
-    try:
-        response = requests.post(token_url, data = token_payload)
-        return response.json()["access_token"]
-    except Exception as e:
-        print(f"Failed to retrieve access token: {e}")
-
-# Headers for the API request    
-headers = {
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Authorization': f"Bearer {get_token()}"
-}
-
-# Payload for the query request
-query_payload = {
-  # Request body
-  # Add properties as needed
-  # See documentation 
-}
-
-# Function to call the query endpoint and return the response as a dictionary object
-def call_query_endpoint(url):
-    try:
-        response = requests.post(url = url, headers = headers, json = query_payload)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.HTTPError as e:
-        print(f"HTTP error occurred: {e}")
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred during the request: {e}")
-    except Exception as e:
-        print(f"error occured: {e}")
-
-# Call the query endpoint and retrieve the result
-query_res_dict = call_query_endpoint(query_endpoint)
-print(query_res_dict)
-
-''' 
-Response Schema:
-
-{
-  "type": "object",
-  "properties": {
-    "data": {
-      "type": "array",
-      "items": {}
-    },
-    "pagination": {
-      "type": "object",
-      "properties": {
-        "pageIndex": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "pageSize": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "totalPages": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "totalCount": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "additionalProperties": false
-    }
-  },
-  "additionalProperties": false
-}
-'''
-```

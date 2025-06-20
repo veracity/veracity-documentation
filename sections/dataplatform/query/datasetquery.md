@@ -7,23 +7,65 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 
 ## API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
-See section Datasets
-
-### Authentication and authorization
-To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+**See section Datasets**
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
-## Query datasets
+### Authentication and authorization
+To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
-### Get all datasets
+## Python code example
+
+### Authenticate with service account
+
+### Query dataset
+
+```python
+
+import requests
+import json
+from datetime import datetime, timedelta
+ 
+mySubcriptionKey = dbutils.secrets.get(scope="secrets", key="bkal_subKey")
+workspaceId = "473ef07d-e914-4db4-959f-6eb737e391a6"
+
+base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
+endpoint = f"/workspaces/{workspaceId}/datasets/query"
+url = base_url + endpoint
+ 
+headers = {
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": mySubcriptionKey,
+    "Authorization": f"Bearer {veracityToken}",
+    "User-Agent": "python-requests/2.31.0"
+}
+payload = {
+    "pageIndex": 1,
+    "pageSize": 100,         
+    "sortColumn": "CreatedOn",
+    "sortDirection" : "Descending"     
+}
+
+try:
+    response = requests.post(url, json=payload, headers=headers)
+    response.raise_for_status()   
+except requests.exceptions.RequestException as e:
+    print(f"Error AS token: {e}")
+    
+result = response.json()
+print(result)
+
+```
+
+
+### C# code example
 
 
 `POST: {baseurl}/workspaces/{workspaceId}/datasets/query`
 
 Body in request:
-```json
+```Csharp
 {
   "isBaseDataset": true,
   "pageIndex": 0,
@@ -56,7 +98,7 @@ Example
 
 Example response
 
-``` json
+``` csharp
 {
     "id": "2bb34d81-75fd-4053-9d4c-c96e1cf94744",
     "name": "derektest",

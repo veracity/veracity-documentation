@@ -8,33 +8,29 @@ Datasets are structured data and defined using schemas. Data can be queried usin
 
 ## API endpoints
 
-Note: The Ingest api-endpoints are different for uploading datasets vs uploading files to filestorage. **See section Ingest**
-
-To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
+Note: The Ingest api-endpoints are different for uploading datasets vs uploading files to filestorage. To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Ingest**
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints).  See section **Data Workbench API**
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
-**When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to <service account id> in <workspace id>**
+**When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to "service account id" in "workspace id"**
 
-
-## Ingest process
-
+## Ingest/Upload process
 Using the apis these are the three steps to follow:
 1. Authenticate towards Veracity api using service account (service principle)
 2. Get SAS token uri from Veracity api
 3. Read CSV file from your location and upload file to storage using received SAS token uri
-4. Verisy status on upload
+4. Verify status on upload
 
 When ingesting a dataset, you can:
 * Create a new dataset based on given schema,
 * Append data to exisiting dataset (soon to be released)
 * Update existing dataset (soon to be released)
 
-### Python code example
-#### Step 1: Authentication: Get Veracity token for service principle/service account
+## Python code example
+### Step 1: Authentication: Get Veracity token for service principle/service account
 Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
 
 ```python
@@ -60,7 +56,7 @@ else:
 
 ```
 
-#### Step 2: Get SAS URI for Datasets (not for filestorage)
+### Step 2: Get SAS URI for Datasets (not for filestorage)
 Using the Veracity token from step 1
 
 ```python
@@ -90,6 +86,8 @@ try:
 except requests.exceptions.RequestException as e:
     print(f"Error fetching SAS token: {e}")
 ```
+
+request_id is used in step 4 to get status of the upload.
 
 ### Step 3a: Upload file as new dataset using SAS URI from Step 2
 We are using Microsoft libraries to upload data
@@ -133,7 +131,7 @@ file_client = DataLakeFileClient(
 # Create a new file (overwrite if exists)
 file_client.create_file()
 
-# Metadata
+# Metadata, tags are optional and is a key/value set representing custom metadata such as asset id, project id, customer etc,
 correlation_id = str(uuid.uuid4())
 metadata = {
     "userId": str(veracityUser),
@@ -154,7 +152,7 @@ with open(localFilePath, 'rb') as file_data:
 print("New dataset created and uploaded - check status using request_id.")
 ```
 
-See How to request status below.
+File is uploaded, but not processed before the response. **To request processed status, see step 4.**
 
 
 ### Step 3b: Append to exisiting dataset using SAS URI from Step 2
@@ -173,8 +171,7 @@ We are using Microsoft libraries to upload data
 
 ```
 
-
-### C# Code example 
+## C# Code example 
 
 ```csharp
 using Azure.Storage.Files.DataLake;
@@ -191,7 +188,6 @@ string appKey = <my service account subscription key>;
 var client_id = <my service account ID>;
 var client_secret = <my service account secret>;
 ```
-
 
 ### Step 1: Get Veracity token for authentication
 Service account Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
@@ -277,7 +273,7 @@ Methods returns tuple that can be read like this:
 ```csharp
 var(sasToken, requestId) = await ingestDataSetHandler.GetSASToken(token, workspaceId, apiKey);
 ```
-The request id can be used to receive the status of the ingest job (see seperate endpoint)
+The request id can be used to receive the status of the ingest job (see step 4)
 
 [!Note]
 If DataLakeDirectoryClient can not be used, you would need the blob SAS token
@@ -311,10 +307,11 @@ async Task UploadStructuredDataset(string workspaceId, string sasToken, string f
         var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);
     };
 
-    //poll for response using the request id from step 2
+    //poll for response using the request id from step 2  
 
 }
 ```
+File is uplaoded, but not processed before the response. To request processed status, see step 4.
 
 ### Step 3b: Append to a existing dataset
 To append to an exisiting data set, the SAS token Uri is different since it need information about the datasetId
@@ -350,8 +347,7 @@ In this example we utilize Microsoft library to access the filestorage by using 
   };
 ```
 
-## Step 4: Get Status from upload
-
+## Verify upload status (Step 4)
 Since upload dataset takes 30-40 sec, status can be queried using status endpoint with the request_if from step 2.
 
 Before uplad is completed status will show:
@@ -362,8 +358,8 @@ Example:
 {"status":"Completed","correlationId":"00000000-0000-0000-0000-000000000000","dataSetName":"weatherdata.csv","datasetId":"6b34f3c6-1e70-4676-beda-0b2dc604433a"}
 
 
-### Python code example
-```json
+## Python code example
+```python
 import requests
 
 #request id from step 2
@@ -391,7 +387,7 @@ else:
 print(status)
 ```
 
-### C# Code example
+## C# Code example
 
 ```csharp
  async Task<string> GetStatus(Guid requestId, string veracityToken, string workspaceId, string subscriptionKey)                     
@@ -420,5 +416,4 @@ print(status)
     }
     return $"Cannot retrieve status for request id {requestId.ToString()}";
 }
-
 ```

@@ -19,16 +19,40 @@ To authenticate and authorize your calls, get your API key and a bearer token [h
 
 ### Authenticate with service account
 
-### Query dataset
+### Step 1: Authentication: Get Veracity token for service principle/service account
+Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
 
 ```python
-
 import requests
 import json
-from datetime import datetime, timedelta
+
+# Token URL for authentication 
+token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
+clientId =  <myServiceAccountId>
+secret =   <myServiceAccountSecret>
+
+# define the request payload    
+payload = {"resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75",
+          "grant_type": "client_credentials",
+          "client_id": clientId,
+          "client_secret" :secret
+          }
+response = requests.post(token_url, data=payload)   
+if response.status_code == 200:
+        veracityToken = response.json().get("access_token")
+else:
+        print(f"Error: {response.status_code}")
+
+```
+
+### Query for datasets
+
+```python
+import requests
+import json
  
-mySubcriptionKey = dbutils.secrets.get(scope="secrets", key="bkal_subKey")
-workspaceId = "473ef07d-e914-4db4-959f-6eb737e391a6"
+mySubcriptionKey = <api key for service account>
+workspaceId = < workspace id>
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/datasets/query"
@@ -42,7 +66,7 @@ headers = {
 }
 payload = {
     "pageIndex": 1,
-    "pageSize": 100,         
+    "pageSize": 10,         
     "sortColumn": "CreatedOn",
     "sortDirection" : "Descending"     
 }
@@ -58,14 +82,117 @@ print(result)
 
 ```
 
+### Query for data within a dataset
+Schemas must have query filters defined to be able to query using these data query filters such as column Greater or Less than a value.
 
-### C# code example
+```python
+import requests
+import json
+from datetime import datetime, timedelta
+ 
+mySubcriptionKey = <api key for service account>
+workspaceId = < workspace id>
+datasetId = <dataset id>
 
+base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
+endpoint = f"/workspaces/{workspaceId}/datasets/{datasetId}/query"
+url = base_url + endpoint
+ 
+headers = {
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": mySubcriptionKey,
+    "Authorization": f"Bearer {veracityToken}",
+    "User-Agent": "python-requests/2.31.0"
+}
+# column filter is used to readuse number of columns in response, and query filter is used to filter on content
+payload = {
+    "pageIndex": 1,
+    "pageSize": 100,         
+    "sortColumn": "CreatedOn",
+    "sortDirection" : "Descending",
+    "columnFilter": ["Winddir", "Wind", "Irr", "Temp"]
+    # to use query filter, the schema used for the dataset must support it    
+}
+
+try:
+    response = requests.post(url, json=payload, headers=headers)
+    response.raise_for_status()   
+except requests.exceptions.RequestException as e:
+    print(f"Error AS token: {e}")
+    
+result = response.json()
+print(result)
+```
+
+### Query for dataset using SAS URI
+**Get URI**
+```python
+import requests
+import json
+ 
+mySubcriptionKey = dbutils.secrets.get(scope="secrets", key="bkal_subKey")
+workspaceId = "473ef07d-e914-4db4-959f-6eb737e391a6"
+datasetId = "7f0e5cc3-f5c6-43cb-9414-634cb1ae7f4f"
+
+base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
+endpoint = f"/workspaces/{workspaceId}/datasets/{datasetId}/sas?durationInMinutes=60&type=dfs"
+url = base_url + endpoint
+ 
+headers = {
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": mySubcriptionKey,
+    "Authorization": f"Bearer {veracityToken}",
+    "User-Agent": "python-requests/2.31.0"
+}
+try:
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()   
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+    
+read_sas_uri = response.json()
+```
+
+**Use sas uri**
+Each dataset is stored as a deltalake folder with transaction logs in folder _delta_logs and parquest file(s). You can read this using libraries.
+
+```python
+from azure.storage.filedatalake import DataLakeServiceClient
+from urllib.parse import urlparse
+
+# Your SAS URI from step 2
+sas_url = read_sas_uri
+
+# Parse the URL - it points to a flder
+parsed_url = urlparse(sas_url)
+account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+file_system_name = parsed_url.path.strip("/").split("/")[0]
+folder_path = "/".join(parsed_url.path.strip("/").split("/")[1:]) if len(parsed_url.path.strip("/").split("/")) > 1 else ""
+sas_token = parsed_url.query if parsed_url.query.startswith('sv=') else ''
+
+# Create the service client
+service_client = DataLakeServiceClient(account_url=account_url, credential=sas_token)
+directoryClient = service_client.get_directory_client(file_system_name, folder_path) if folder_path else None
+
+filesystem_client = service_client.get_file_system_client(file_system=file_system_name)
+
+# List files in the folder
+paths = filesystem_client.get_paths(path=folder_path, recursive=False)
+pathsLst = list(paths)
+
+# each dataset is stored as a deltalake folder with transaction logs in in folder _delta_logs and parquest file(s). You can read this using libraries.
+print(f"\nContents of folder '{folder_path}':")
+for path in pathsLst:
+    print(f"- {path.name} (Directory: {path.is_directory})")   
+```
+
+
+## C# code example
 
 `POST: {baseurl}/workspaces/{workspaceId}/datasets/query`
 
 Body in request:
-```Csharp
+```csharp
 {
   "isBaseDataset": true,
   "pageIndex": 0,
@@ -87,48 +214,52 @@ Example
 { 
     "PageIndex": 1,
     "PageSize": 100,         
-  "SortColumn": "CreatedOn",
-  "SortDirection" : "Descending"     
+    "SortColumn": "CreatedOn",
+    "SortDirection" : "Descending"     
 }
 ```
 
-### Get information about a dataset
-
-`GET: {baseurl}/workspaces/{workspaceId}/datasets/{datasetId}`
-
-Example response
-
-``` csharp
-{
-    "id": "2bb34d81-75fd-4053-9d4c-c96e1cf94744",
-    "name": "derektest",
-    "description": "derektest created by Python execution",
-    "workspaceId": "f60eee63-4bc3-45af-a8e2-8105733f5453",
-    "connectionId": "9bf38e23-d95a-484a-99b2-61e461fc9b75",
-    "createdBy": "e6270571-7f09-4b75-b599-3740236f6bc1",
-    "createdOn": "2024-08-28T17:55:59.111436Z",
-    "lastModifiedBy": "e6270571-7f09-4b75-b599-3740236f6bc1",
-    "lastModifiedOn": "2024-08-28T17:55:59.1114368Z",
-    "schemaInfo": {
-        "schemaVersionId": "0f2b7174-e964-4f31-8187-91b796f2d064",
-        "schemaName": "derektest Schema-2024-08-28 17:55:53"
-    },
-    "queries": [],
-    "columns": [],
-    "isBaseDataset": false,
-    "tags": {
-        "SiteId": [
-            "44b17070-f7d5-423b-8ace-90c5e0d6813a"
-        ]
-    }
-}
-```
 
 ### Query data within a dataset
 
-`POST: {baseurl}/workspaces/{workspaceId}/datasets/{datasetId}/query`
+```csharp
+ public async Task QueryDataSet(string veracityToken, string workspaceId, string subscriptionKey)
+ {
+     string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/query";
 
-The request body contains the filters
+     var token = veracityToken;
+               
+     var postData = new Dictionary<string, string>
+     {
+         {"pageIndex", "1"},
+         {"pageSize", "10"},
+         {"sortColumn", "CreatedOn"},
+         {"sortDirection",  "Descending"}
+     };
+
+     string jsonString = JsonConvert.SerializeObject(postData);
+     HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+     if (_httpClient == null)
+         _httpClient = new HttpClient();
+
+     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+     try
+     {
+         var result = await _httpClient.PostAsync(url,content);
+         if (result.IsSuccessStatusCode)
+         {
+             var listOfDataset = result.Content.ReadAsStringAsync().Result;
+         }
+     }
+     catch (Exception ex)
+     {
+     }     
+ }
+```
+
+The request body contains the filters. Schemas must have query filters defined to be able to query using these data query filters such as column Greater or Less than a value.
 ```json
 {
   "pageIndex": 0,
@@ -154,7 +285,7 @@ The request body contains the filters
 
 ** Example **
 The following filter will filter on timestamp and data channel ids. In addition return datapoints in descending order.
-```json
+```csharp
 {
 "pageIndex": 1,
 "pageSize": 500,
@@ -191,140 +322,4 @@ The following filter will filter on timestamp and data channel ids. In addition 
    }
 }
 ```
-
-### How to get column names for your dataset
-The GET dataset repsons provides schema id for the dataset
-
-``` json
-    "schemaInfo": {
-        "schemaVersionId": "0f2b7174-e964-4f31-8187-91b796f2d064",
-        "schemaName": "derektest Schema-2024-08-28 17:55:53"
-    },
-  
-```
-
-
-You can query the schema endpoint to list all columns in the schema and use these for filters in the dataset query
-
-```json
-GET {baseurl}workspaces/{workspaceid}/schemas/schemaversions/{schemaVersionId}
-```
-
-### To query share owners by data set ID list
-You can query who shared the data sets with you so that you understand the data set context by using the POST method and calling the following endpoint.
-
-`{baseUrl}/{workspaceId:guid}/shares/sharedBy/Query`
-
-Below you can see a sample request payload.
-
-```json
-{
-"datasetIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-  ]
-}
-```
-
-Below you can see a sample response.
-
-```json
-[ {
-        "datasetId": "f80b0de1-3b1d-4a64-aa4d-88d6073ff1cd",    // ID of the data set
-        "sharedBy": {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",   // ID of the shared user
-            "sharedByType": "User",
-            "name": "User Name"  // Name of the shared user
-        }
-    },
-]
-```
-
-Note that:
-* If the data sets were shared with a person, you must be this person or the person who initiated the share. 
-* If the data sets were shared with a workspace, you must be a member of this workspace.
-
-
-## Download SoC from a data set
-You can download Statement of Compliance (SoC) PDF file from a data set based on workspaceId, datasetId, and documentId.
-
-`{baseUrl}/workspaces/{workspaceId}/datasets/documents/download`
-
-Below, you can see a sample request payload.
-
-```json
-{
-"datasetId": "DatasetId",
-"documentId": "DocumentId"
-}
-```
-
-To get documentID, call the `{baseUrl}/workspaces/{workspaceId}/datasets/{datasetId}/query` endpoint. In the response, locate the **File_Link** field and copy it; this **is the documentId**.
-
-
-## Sample Python code for calling API endpoints
-You can use the sample Python code below to call Data Workbench endpoints.
-```json
-
-# Configuration
-client_id = "YOUR_CLIENT_ID"
-client_secret = "YOUR_CLIENT_SECRET"
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-workspace_id = "YOUR_WORKSPACE_ID"
-dataset_id = "YOUR_DATASET_ID"
-
-# Query endpoint URL    
-query_endpoint = "{baseurl}/workspaces/{workspace_id}/datasets/{dataset_id}/query"
-
-# Token URL for authentication 
-token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
-
-# Token payload for authentication request
-token_payload = {
-    "grant_type": "client_credentials",
-    "client_id": client_id,
-    "client_secret": client_secret,
-    "resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75"
-}
-
-# Function to retrieve access token
-def get_token():
-    try:
-        response = requests.post(token_url, data = token_payload)
-        return response.json()["access_token"]
-    except Exception as e:
-        print(f"Failed to retrieve access token: {e}")
-
-# Headers for the API request    
-headers = {
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Authorization': f"Bearer {get_token()}"
-}
-
-# Payload for the query request
-query_payload = {
-  # Request body
-  # Add properties as needed
-  # See documentation 
-}
-
-# Function to call the query endpoint and return the response as a dictionary object
-def call_query_endpoint(url):
-    try:
-        response = requests.post(url = url, headers = headers, json = query_payload)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.HTTPError as e:
-        print(f"HTTP error occurred: {e}")
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred during the request: {e}")
-    except Exception as e:
-        print(f"error occured: {e}")
-
-# Call the query endpoint and retrieve the result
-query_res_dict = call_query_endpoint(query_endpoint)
-print(query_res_dict)
-
-```
-
 

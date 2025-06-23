@@ -3,40 +3,37 @@ author: Veracity
 description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
-# File storage
+# Upload files to Filestorage
 This feature lets you upload files of any type into your Azure Data Lake. Files are stored as unstructured data in Veracity File storage and cannot be queried using SQL-like operations. Subscriptions to Veracity File Storage is required.
 
-## Internal and external storage
+### Internal and external storage
 
 * Internal storage is a data storage account that comes together with your Veracity Data Lake File Storage.
 * External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes). If you want to add a new external storage account, contact Veracity support and provide connection strings to this account. For [details regarding apis](filesexternal.md)
 
 ## API endpoints
 
-Note: The Ingest api-endpoints are different for uploading files to filestorage vs uploading datasets **See api section Storage**
-
-To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
+Note: The Ingest api-endpoints are different for uploading files to filestorage vs uploading datasets **See api section Storage**.  To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
 ### Baseurl
-See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
-See section **Data Workbench API**
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints). See section **Data Workbench API**
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
-**When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to <service account id> in <workspace id>**
+**When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to service_account_id in workspace_ id**
 
 
-## Ingest process
+## Ingest process to Filestorage
 
 Using the apis these are the three steps to follow:
 1. Authenticate towards Veracity api using client credentials
-2. Get SAS token uri from Veracity api  (differnet endpoint than for getting SAS Uri for datasets)
-3. Read CSV file from your location and upload file to storage using received SAS token uri
+2. Get SAS token uri from Veracity api  (different endpoint than for getting SAS Uri for datasets)
+3. Read file from your location and upload file to storage using received SAS token uri
 
 See code examples below for each step in the process.
 
-### Python code example
-#### Step 1: Get Veracity token for service principle/service account
+## Python code example
+### Step 1: Get Veracity token for service principle/service account
 
 ```python
 import requests
@@ -61,7 +58,7 @@ else:
 
 ```
 
-#### Step 2: Get SAS URI for Datasets (not for filestorage)
+### Step 2: Get SAS URI for Filestorage
 Using veracityToken  from step 1
 **Ensure service account has Write access (ie. has Admin role in workspace )**
 
@@ -73,7 +70,8 @@ from datetime import datetime, timedelta
  
 myApiKey =  <service account api key>
 workspaceId =<workspace id>
-#folder name, i.e "Test", folder must exist
+
+#folder name, i.e "Test", folder must exist. If not provided you get access to storage container level (root level)
 dwbFolderName = <name of folder in File Storage>
  
 
@@ -107,8 +105,8 @@ def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
 
 sas_uri = get_sas_token(veracity_token= veracityToken,  folder=dwbFolderName, workspace_id=workspaceId,subscription_key= mySubcriptionKey)
 print("SAS Token:", sas_uri)
-
 ```
+If path is set to "" (empty string), path points default to root level of storage container.
 
 ### Step 3: Upload file using SAS URI 
 File is uploaded using Microsoft libraries using SAS uri in step 2
@@ -149,9 +147,9 @@ file_client.create_file()
 with open(localFilePath, "rb") as file_data:
     file_client.upload_data(file_data, overwrite=True)
 ```
+When returning 200, file upload was successful.
 
-
-### C# Code example
+## C# Code example
 
 ```csharp
 using Azure.Storage.Files.DataLake;
@@ -161,7 +159,7 @@ using System.Net.Http.Headers;
 
 //read secrets and parameters
 string filename = <filepath to upload>;
-string folder = <>
+string folder = <folder to use>
 string workspaceId = <DWB workspace id>;
 string appKey = <my service account api key>;
 var client_id = <my service account ID>;
@@ -169,12 +167,11 @@ var client_secret = <my service account secret>;
 
 ```
 
-#### Step 1: Get Veracity token for authentication
+### Step 1: Get Veracity token for authentication
 Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
 If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
 
 **Note: In order to use client credentials, this service principle needs Admin access to workspace. This will be available as self service shortly.** But, for now contact support@veracity.com  and request Admin role on service principle "servicePrincipeID" in workspace "workspaceID"**
-
 
 ```csharp
 async Task<string> GetToken(string clientId, string clientSecret)
@@ -200,7 +197,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
 
 ```
 
-#### Step 2: Get a SAS token for internal storage
+### Step 2: Get a SAS token for internal storage
 You need a SAS token with write access to the folder (path) where file should be uploaded. To generate a SAS token, call the `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method using the Veracity token from step 1.
 
 **Ensure service account has Write access (ie. has Admin role in workspace )**
@@ -214,7 +211,7 @@ You need a SAS token with write access to the folder (path) where file should be
             DateTime expiresOn = DateTime.UtcNow.AddHours(1);
             string expiresOnStr = expiresOn.ToString("O");
                         
-            //path is folder name in storage container
+            //path is folder name in storage container, if not provided you get access to storage container level (root level)
             var postData = new Dictionary<string, string>
             {
                 {"path", folder},
@@ -261,7 +258,7 @@ Payload options:
 * `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
 
 
-#### Step 3: Upload file using SAS URI 
+### Step 3: Upload file using SAS URI 
 In this example we utilize Microsoft library to access the filestorage by using the aquired SAS-token from step 2.
 
 ```csharp
@@ -292,8 +289,7 @@ When successful - it returns 200
 
 ## Ingest metadata to existing file or folder 
 
-Use sas-token from Step 2 for uploading files
-Use DataLakeFileClient to set metadata during upload or later.
+Use sas-token uri from Step 2 and use DataLakeFileClient to set metadata during upload or later.
 
 
 ```csharp

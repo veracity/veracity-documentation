@@ -5,7 +5,7 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 
 # Data catalogue
 
-View all datasets and files available in your workspace from the[Data Catalogue](https://developer.veracity.com/docs/section/dataworkbench/datacatalogue).
+View all datasets and files available in your workspace from the [Data Catalogue](https://developer.veracity.com/docs/section/dataworkbench/datacatalogue).
 
 You can access the same data using apis:
 

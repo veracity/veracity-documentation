@@ -6,8 +6,7 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 # Query files
 
 ## API endpoints
-To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
-See section **Storages**
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). See section **Storages**
 
 
 ### Baseurl
@@ -92,12 +91,13 @@ def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
         print(f"Error fetching SAS token: {e}")
         return None
 
-
 sas_uri = get_sas_token(veracity_token= veracityToken,  folder=dwbFolderName, workspace_id=workspaceId,subscription_key= mySubcriptionKey)
 print("SAS Token:", sas_uri)
-
 ```
-### Step 3: Read folder using SAS uri 
+
+In payload, if path is set to "empty string", path points default to root level of storage container.
+
+### Step 3: Read folder and file content using SAS uri 
 
 ```python
 from azure.storage.filedatalake import DataLakeServiceClient
@@ -110,29 +110,37 @@ sas_url = sas_uri
 parsed_url = urlparse(sas_url)
 account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
 file_system_name = parsed_url.path.strip("/").split("/")[0]
-folder_path = "/".join(parsed_url.path.strip("/").split("/")[1:])
-sas_token = parsed_url.query
-
-
-print(folder_path)
+folder_path = "/".join(parsed_url.path.strip("/").split("/")[1:]) if len(parsed_url.path.strip("/").split("/")) > 1 else ""
+sas_token = parsed_url.query if parsed_url.query.startswith('sv=') else ''
 
 # Create the service client
 service_client = DataLakeServiceClient(account_url=account_url, credential=sas_token)
-directoryClient = service_client.get_directory_client(file_system_name, folder_path)
-
+directoryClient = service_client.get_directory_client(file_system_name, folder_path) if folder_path else None
 
 filesystem_client = service_client.get_file_system_client(file_system=file_system_name)
 
 # List files in the folder
 paths = filesystem_client.get_paths(path=folder_path, recursive=False)
+pathsLst = list(paths)
 
 print(f"\nContents of folder '{folder_path}':")
-for path in paths:
-    print(f"- {path.name} (Directory: {path.is_directory})")
+for path in pathsLst:
+    print(f"- {path.name} (Directory: {path.is_directory})")   
+
+
+print(f"\nContents of all files in '{folder_path}':")
+# list content of each file in folder
+for path in pathsLst:
+    print(f"- {path.name} :")   
+    downloaded_bytes = filesystem_client.get_file_client(path).download_file().readall()
+    # Decode and print the content
+    file_content = downloaded_bytes.decode('utf-8')  # Adjust encoding if needed
+    print(file_content)
+
 
 ```
 
-### Step 3b: Read storagedatasets using Veracity api
+### Read storage datasets using Veracity api
 
 ```python
 import requests
@@ -198,7 +206,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
 
 ```
 
-#### Step 2: Get SAS token
+#### Step 2: Get SAS uri
 
 To generate a SAS token, call the `{baseurl}/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method using the Veracity token from step 1.
 Create a SAS token for a given folder with Read access
@@ -247,6 +255,27 @@ Create a SAS token for a given folder with Read access
  }
 
  ```
+ 
+Below, you can see a sample request payload. In the response, you will get a SAS token as a string.
+
+```json
+{
+"path": "string",
+  "readOrWritePermission": "Read",
+  "startsOn": "2024-05-14T09:04:12.297Z",
+  "expiresOn": "2024-05-14T09:04:12.297Z",
+  "storageName": "string"
+
+}
+```
+
+Note that:
+* `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the ContainerName or SubFolder which was specified when creating the internal storage connection.
+* `readOrWritePermission` can take the value `read` or `write` depending on the access type you want to give to the resource. A workspace admin can generate tokens giving both `read` and `write` access. If you have Reader access to a workspace, you can only give `read` access. Also, Service Accounts should generate only `read` tokens.
+* `StartsOn` is optional. It is the start date when the SAS token becomes valid. If not provided, it takes the current UTC date time.
+* `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
+* `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
+
 
 ### Step 3: Read files in folder
 In step 2 the sas token was generated for a folder and this example iterates all files in that folder and reads metadata and content
@@ -295,27 +324,4 @@ In step 2 the sas token was generated for a folder and this example iterates all
           }
 ```
 
-
-Below, you can see a sample request payload. In the response, you will get a SAS token as a string.
-
-```json
-{
-"path": "string",
-  "readOrWritePermission": "Read",
-  "startsOn": "2024-05-14T09:04:12.297Z",
-  "expiresOn": "2024-05-14T09:04:12.297Z",
-  "storageName": "string"
-
-}
-```
-
-Note that:
-* `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the ContainerName or SubFolder which was specified when creating the internal storage connection.
-* `readOrWritePermission` can take the value `read` or `write` depending on the access type you want to give to the resource. A workspace admin can generate tokens giving both `read` and `write` access. If you have Reader access to a workspace, you can only give `read` access. Also, Service Accounts should generate only `read` tokens.
-* `StartsOn` is optional. It is the start date when the SAS token becomes valid. If not provided, it takes the current UTC date time.
-* `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
-* `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
-
-To get all storage data sets of a workspace, call the following endpoint with a GET method.
-`{baseurl}/workspaces/{workspaceId:guid}/storages/storagedatasets`
 

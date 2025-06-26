@@ -22,7 +22,7 @@ When you open a data set, in the top right corner, you can select the following 
 2. Edit table properties: Disable or enable column picker and select what data columns to show.
 3. Filter: Apply and clear the filters available for the data set.
 4. Save:**Save** the current view of the data set (including applied filters and shown columns) or **Save as new** to create a new data set with the applied filters and shown data columns.
-5. Download: Download the data set as a CSV file.
+5. Download: Download the data set as a CSV or Excel file.
 6. Share: Share the data set with someone else.
 7. Delete: If you are an admin, delete the data set.
 

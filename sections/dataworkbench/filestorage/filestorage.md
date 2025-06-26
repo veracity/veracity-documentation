@@ -18,6 +18,11 @@ Note you can [connect File storage with Azure Storage Explorer](ase.md).
 	<figcaption>Location of File Storage.</figcaption>
 </figure>
 
+## File storage tabs
+File storage is divided into the following tabs:
+- **Workspace file storage** - Files and folders belonging to this workspace.
+- **Shared by other workspaces** - Files and folders shared with this workspace by other workspaces. For details, see the corresponding section at the bottom of this document.
+
 ## Folders
 In File storage, you can use folders to organize files. If you are a workspace admin, you can create folders.
 
@@ -70,6 +75,21 @@ Note that you cannot share a file or folder with higher access level than you ha
 - If you have **read and write access** to a file or folder, you can share it with **read** or **read and write** access.
 - If you have **read** access to a file or folder, you can only share it with **read** access.
 
+### To share with other workspaces
+You can now share files and folders directly with another workspace under the same tenant.
+
+To do this:
+1. In **Data catalogue > File storage**, locate the file or folder you want to share.
+2. Select the three dots next to the item and choose **Share**.
+3. Under **Share access with**, select the people icon, and choose a workspace from the list or search for one.
+4. Under **Set access level**, choose access level (**Read** or **Read and write**).
+5. Optionally, under **Note to recipient**, add a note for the person with whom you are sharing the file or folder.
+6. Select **Share**.
+
+Shared files will appear in the recipient workspace under **Shared by other workspaces**.
+
+**Note that** users can reshare only if the original sharer allowed it and you cannot share a file or folder with higher access level than you have.
+
 ## To revoke access to shared files or folders
 1. In a row with a file or folder you shared, select three dots and then **Revoke sharing**.
 2. Next to the person whose access you're revoking, select the X icon.
@@ -105,7 +125,56 @@ To generate a SAS key:
 > - Use short expiration periods and the minimum required access level.  
 > - Revoke tokens when they are no longer needed.
 
-You can also revoke all SAS tokens at once using the **Revoke all SAS keys** option from the file/folder menu.
+## To revoke all SAS keys
+Workspace admins can revoke all SAS keys:
+
+1. In **Data catalogue > File storage**, open the action menu (three dots in the top-right corner).
+2. Select **Revoke all keys**.
+3. In the dialog that shows, choose which keys to revoke:
+   - **Revoke all read access keys**
+   - **Revoke all read and write access keys**
+
+## Shared by other workspaces tab
+Workspaces organized under the same tenant as your workspace can share with it files and folders, and you will find them in the "Share by other workspaces" tab with the following information:
+- **Name** - The name of the file or folder.
+- **Shared with** - People and workspaces who also have access to this file or folder.
+- **Shared by** - The workspace that has originally shared this file or folder.
+
+<figure>
+	<img src="../assets/sharedby.png"/>
+	<figcaption>Screenshot of the Shared by other workspaces tab.</figcaption>
+</figure>
+
+To manage a shared item, select the three dots next to it and you will be able to:
+- **Download** - Download the file or folder.
+- **Share** - Share the file or folder with your partner (only possible if the original sharer allowed it).
+- **Generate keys** - Generate access keys to this file or folder.
+- **Delete access** - Revoke access to the file or folder for all members of this workspace.
+
+- You can take the following actions, based on your workspace role and access level:
+
+| Actions           | Admin with ReadWrite access | Admin with Read access | Reader with Read access | Reader with ReadWrite access |
+|------------------|-----------------------------|-------------------------|--------------------------|------------------------------|
+| Download         | ✓                           | ✓                       | ✓                        | ✓                            |
+| Share            | ✓*                          | ✓*                      | ✓*                       | ✓*                           |
+| Revoke sharing   | ✓*                          | ✓*                      | ✓*                       | ✓*                           |
+| Generate keys    | ✓                           | ✗                       | ✗                        | ✗                            |
+| Delete access    | ✓                           | ✓                       | ✗                        | ✗                            |
+| Create Folder    | ✓                           | ✗                       | ✗                        | ✗                            |
+| Upload Files     | ✓                           | ✗                       | ✗                        | ✗                            |
+| Delete Folder/File | ✓                         | ✗                       | ✗                        | ✗                            |
+
+✓* Actions marked with an asterisk are only available if the original sharer enabled reshare permissions, or if the user previously reshared the item.
+
+### To add shared files to your workspace (admin only)
+If you are an admin of one or more workspaces, you can now **add shared files or folders to your own workspace** for easier navigation and access management.
+
+To do this:
+1. Go to **File storage > Shared with me**.
+2. Find the shared file or folder and select **Add to my workspace**.
+3. In the popup, choose your workspace from the list.
+
+The file or folder will appear in your main **File storage** tab, under **Shared by other workspaces**.
 
 ## Need support?
 If you need any support:

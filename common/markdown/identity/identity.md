@@ -24,7 +24,6 @@ To be able to authenticate correclty and get a valid access token you will need 
 Service|Scope
 -|-
 Services API|`https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75/user_impersonation`
-Data Fabric API|`https://dnvglb2cprod.onmicrosoft.com/37c59c8d-cd9d-4cd5-b05a-e67f1650ee14/user_impersonation`
 
 You will also receive a serviceId, this id is the unique identifier for your application. This is primarily used with the [Services API](https://developer.veracity.com/doc/service-api) 
 

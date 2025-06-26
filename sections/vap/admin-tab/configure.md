@@ -15,7 +15,11 @@ Under "Tenant Properties", you can see tenant properties and edit them.
 To edit tenant properties, select the **Edit** button and edit the fields you need to change. You can edit the following fields:
 * Invoice Detail - Add information for invoicing, such as cost center, your project and task number, and so on.
 * Invoice Contact Email - Provide an email address for sending invoices.
-* Business Owner - Provide the name of the service owner.
+* Business Owner - Provide the email of the service owner.
+* Project Number - Provide the number of the project.
+* Task Number - Provide the number of the task.
+* Legal Entity - Provide the legal entity.
+* Cost Center - Provide the cost center.
 * Contact Email - Provide an email address to contact you regarding your VAP service.
 * Service Description - Describe your VAP service.
 * Send notification to all users - Enable this to send notifications to users when their accounts are modified. This is the default setting, but you can override it for each user account.
@@ -28,6 +32,8 @@ To edit tenant properties, select the **Edit** button and edit the fields you ne
 	Show dataset and report id - Enable to show the ID of data sets and reports on Power BI reports in "Resources."
 	
 	Enable Power BI - Enable Power BI in your VAP service.
+	
+	Allow download Pbix - Enable downloading Power BI files in your VAP service.
 	
 	Enable Web Apps - Enable connecting web applications to your VAP service.
 

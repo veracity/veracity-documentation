@@ -4,7 +4,7 @@ description: Give a general description of the Veracity Marketplace Service.
 ---
 
 # Veracity Marketplace
-Veracity Marketplace is the place where you can present and sell your services and applications publicly on the web. Whether you have a service that is already in operation or have a product that you are planning to launch, Veracity Marketplace can help expand your reach, increase global sales and boost the consumption of your solution.
+Veracity Marketplace is the place where you can present and sell your services and applications publicly on the web to external customers. Whether you have a service that is already in operation or have a product that you are planning to launch, Veracity Marketplace can help expand your reach, increase global sales and boost the consumption of your solution.
 
 ## Achieving your business goals 
 Veracity Marketplace will help you:

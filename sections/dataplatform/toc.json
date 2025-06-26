@@ -1,0 +1,236 @@
+{
+  "$schema": "../../schemas/toc.json",
+  "items": [
+    {
+      "text": "Overview",
+      "href": "overview.md"
+    },
+    {
+      "text": "Release Notes",
+      "href": "releasenotes.md"
+    },
+    {
+      "text": "Concepts",
+      "items": [
+        {
+          "text": "Data Lake",
+          "href": "concepts/datalake.md"
+        },
+        {
+          "text": "Structured/Unstructured data",
+          "href": "concepts/structdata.md"
+        },
+        {
+          "text": "Schema",
+          "href": "concepts/structdata.md"
+        },
+        {
+          "text": "AssetModel",
+          "href": "mms/mmsintroduction.md"
+        },
+        {
+          "text": "Data transformation and aggregation",
+          "href": "concepts/transformation.md"
+        },
+        {
+          "text": "Tenant and workspace",
+          "href": "concepts/workspace.md"
+        }
+      ]
+    },
+    {
+      "text": "Reference architecture",
+      "href": "referarchitecture.md"
+    },
+    {
+      "text": "How to get started",
+      "href": "howtogetstart.md"
+    },
+    {
+      "text": "API endpoints",
+      "href": "apiendpoints.md"
+    },
+    {
+      "text": "Authentication",
+      "href": "auth.md"
+    },
+    {
+      "text": "Schema management",
+      "href": "schemamanagem.md"
+    },
+    {
+      "text": "Workspace management",
+      "href": "tenantmgm.md"
+    },
+    {
+      "text": "Data ingest/upload",
+      "items": [
+        {
+          "text": "Overview",
+          "href": "storage/storage.md"
+        },
+        {
+          "text": "Upload datasets",
+          "href": "storage/datasets.md"
+        },
+        {
+          "text": "Upload files",
+          "href": "storage/files.md"
+        },       
+        {
+          "text": "Stream",
+          "href": "storage/streaming.md"
+        },
+        {
+          "text": "Events",
+          "href": "storage/eventbroker.md"
+        },
+        {
+          "text": "Sas policies",
+          "href": "storage/saspolicies.md"
+        },
+        {
+          "text": "External storage account",
+          "href": "storage/filesexternal.md"
+        },
+        {
+          "text": "FAQ",
+          "href": "storage/faq.md"
+        }
+      ]
+    },
+    {
+      "text": "Data query",
+      "items": [
+        {
+          "text": "Data catalogue",
+          "href": "query/datacatalogue.md"
+        },
+        {
+          "text": "Dataset queries",
+          "href": "query/datasetquery.md"
+        },
+        {
+          "text": "File queries",
+          "href": "query/filequery.md"
+        },
+        {
+          "text": "Event queries",
+          "href": "query/eventquery.md"
+        },
+        {
+          "text": "Sensor data query",
+          "href": "query/sensordataqueryproxy.md"
+        }
+        
+      ]
+    },
+    {
+      "text": "Asset Model",
+      "items": [
+        {
+          "text": "Overview",
+          "href": "mms/mmsintroduction.md"
+        },
+        {
+          "text": "Standard",
+          "href": "mms/standard.md"
+        },
+        {
+          "text": "Access control",
+          "href": "mms/accesscontrol.md"
+        },
+        {
+          "text": "Update assets/sites",
+          "href": "mms/assetmodelingest.md"
+        },
+        {
+          "text": "Query assets/sites",
+          "href": "mms/assetmodelquery.md"
+        },
+        {
+          "text": "Validate site using ruleset",
+          "href": "mms/rulesetvalidation.md"
+        }
+      ]
+    },
+    {
+      "text": "Analytics",
+      "items": [             
+        {
+          "text": "Analytic development",
+          "href": "analytics/analyticsdevelopment.md"
+        },
+        {
+          "text": "Compute configurations",
+          "href": "analytics/configurations.md"
+        },
+        {
+          "text": "Data connectivity",
+          "href": "analytics/dataconnectivity.md"
+        },
+        {
+          "text": "Concurrency",
+          "href": "analytics/concurrency.md"
+        },
+        {
+          "text": "Workflow",
+          "href": "analytics/analyticsexecution.md"
+        },
+        {
+          "text": "Visualization",
+          "href": "analytics/visualization.md"
+        },
+        {
+          "text": "Access control",
+          "href": "analytics/matrix.md"
+        },
+        {
+          "text": "Library management",
+          "href": "analytics/analyticslibraries.md"
+        },
+        {
+          "text": "Secure Management of Secrets",
+          "href": "analytics/secretmgm.md"
+        },     
+        {
+          "text": "Devops Integration",
+          "href": "analytics/devopsintegration.md"
+        }
+      ]
+    },
+    {
+      "text": "Real time event consumption",
+      "items": [
+        {
+          "text": "Using Azure function",
+          "href": "query/servicebusazurefunctionconsumer.md"
+        },
+        {
+          "text": "Azure functions and WebPubSub",
+          "href": "query/servicebuswebpubsubconsumer.md"
+        },
+        {
+          "text": "Console app in Docker container",
+          "href": "query/servicebusdockerconsumer.md"
+        }
+      ]
+    },
+    {
+      "text": "Access control",
+      "href": "accesscontrol.md"
+    },
+    {
+      "text": "Data validation",
+      "href": "datavalidation.md"
+    },
+    {
+      "text": "Data sharing",
+      "href": "datasharing.md"
+    },
+    {
+      "text": "SDKs",
+      "href": "sdk.md"
+    }
+  ]
+}

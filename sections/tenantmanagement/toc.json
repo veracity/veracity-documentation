@@ -2,6 +2,10 @@
   "$schema": "../../schemas/toc.json",
   "items": [
     {
+      "text": "What is new",
+      "href": "releasedec24.md"
+    },
+    {
       "text": "Veracity Tenant Management",
       "href": "tenantmanagement.md"
     }

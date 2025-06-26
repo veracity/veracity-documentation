@@ -17,7 +17,7 @@ If you want to use the sample code provided below, you will need to check for th
 For a list of API endpoints, go [here](../apiendpoints.md).
 
 ### Authentication and authorization
-To authenticate and authorize your calls, get your API key and a bearer token [here](authentication.md).
+To authenticate and authorize your calls, get your API key and a bearer token [here](../authentication.md).
 
 ### Workspace ID
 To find your workspace ID, see the URL of your workspace in a browser. The part after ```ws/```is the ID of your workspace.

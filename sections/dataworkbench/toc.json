@@ -9,6 +9,170 @@
 			"text": "What is new?",
 			"items": [
 				{
+					"text": "Latest releases",
+					"href": "news/recent-releases.md"
+				},
+				{
+					"text": "Data Platform June 2025 release",
+					"href": "news/dp-releasejun25.md"
+				},
+				{
+					"text": "June 2025 third release",
+					"href": "news/releasejun25trd.md"
+				},
+				{
+					"text": "June 2025 second release",
+					"href": "news/releasejun25sec.md"
+				},
+				{
+					"text": "June 2025 release",
+					"href": "news/releasejun25.md"
+				},
+				{
+					"text": "May 2025 fourth release",
+					"href": "news/releasemay25frth.md"
+				},
+				{
+					"text": "May 2025 third release",
+					"href": "news/releasemay25trd.md"
+				},
+				{
+					"text": "May 2025 second release",
+					"href": "news/releasemay25sec.md"
+				},
+				{
+					"text": "May 2025 release",
+					"href": "news/releasemay25.md"
+				},
+				{
+					"text": "April 2025 release",
+					"href": "news/releaseapr25.md"
+				},
+				{
+					"text": "Data Platform April 2025 release",
+					"href": "news/dp-releaseapr25.md"
+				},
+				{
+					"text": "March 2025 third release",
+					"href": "news/releasemar25trd.md"
+				},
+				{
+					"text": "March 2025 second release",
+					"href": "news/releasemar25sec.md"
+				},
+				{
+					"text": "March 2025 release",
+					"href": "news/releasemar25.md"
+				},
+				{
+					"text": "Data Platform March 2025 release",
+					"href": "news/dp-releasemar25.md"
+				},
+				{
+					"text": "Data Platform February 2025 third release",
+					"href": "news/dp-releasefeb25trd.md"
+				},
+				{
+					"text": "February 2025 third release",
+					"href": "news/releasefeb25trd.md"
+				},
+				{
+					"text": "Data Platform February 2025 second release",
+					"href": "news/dp-releasefeb25sec.md"
+				},
+				{
+					"text": "February 2025 second release",
+					"href": "news/releasefeb25sec.md"
+				},
+				{
+					"text": "Data Platform February 2025 release",
+					"href": "news/dp-releasefeb25.md"
+				},
+				{
+					"text": "February 2025 release",
+					"href": "news/releasefeb25.md"
+				},
+				{
+					"text": "Data Platform January 2025 release",
+					"href": "news/dp-releasejan25.md"
+				},
+				{
+					"text": "January 2025 release",
+					"href": "news/releasejan25.md"
+				},
+				{
+					"text": "December 2024 second release",
+					"href": "news/releasedec24sec.md"
+				},
+				{
+					"text": "December 2024 release",
+					"href": "news/releasedec24.md"
+				},
+				{
+					"text": "November 2024 release",
+					"href": "news/releasenov24.md"
+				},
+				{
+					"text": "September 2024 release",
+					"href": "news/releasesep24.md"
+				},
+				{
+					"text": "July 2024 sixth release",
+					"href": "news/releasejul246th.md"
+				},
+				{
+					"text": "July 2024 fifth release",
+					"href": "news/releasejul24fth.md"
+				},
+				{
+					"text": "July 2024 fourth release",
+					"href": "news/releasejul24frh.md"
+				},
+				{
+					"text": "July 2024 third release",
+					"href": "news/releasejul24trd.md"
+				},
+				{
+					"text": "July 2024 second release",
+					"href": "news/releasejul24sec.md"
+				},
+				{
+					"text": "July 2024 release",
+					"href": "news/releasejul24.md"
+				},
+				{
+					"text": "June 2024 seventh release",
+					"href": "news/releasejun247th.md"
+				},
+				{
+					"text": "June 2024 sixth release",
+					"href": "news/releasejun246th.md"
+				},
+				{
+					"text": "June 2024 fifth release",
+					"href": "news/releasejun245th.md"
+				},
+				{
+					"text": "June 2024 fourth release",
+					"href": "news/releasejun24fth.md"
+				},
+				{
+					"text": "June 2024 third release",
+					"href": "news/releasejun24trd.md"
+				},
+				{
+					"text": "June 2024 second release",
+					"href": "news/releasejunsec24.md"
+				},
+				{
+					"text": "June 2024 release",
+					"href": "news/releasejun24.md"
+				},
+				{
+					"text": "May 2024 release",
+					"href": "news/releasemay24.md"
+				},
+				{
 					"text": "April 2024 fourth release",
 					"href": "news/releaseapr24frh.md"
 				},
@@ -159,16 +323,45 @@
 			"href": "datacatalogue.md"
 		},
 		{
-			"text": "User management",
-			"href": "usermanagement.md"
+			"text": "File storage",
+			"items": [
+				{
+					"text": "File storage",
+					"href": "filestorage/filestorage.md"
+				},
+				{
+					"text": "Tutorial for VAP users",
+					"href": "filestorage/vapfilestorage.md"
+				},
+				{
+					"text": "Migrating from Data Fabric",
+					"href": "filestorage/migrating.md"
+				},
+				{
+					"text": "Connect File storage with Azure Storage Explorer",
+					"href": "filestorage/ase.md"
+				}
+			]
+		},
+		{
+			"text": "Data validator",
+			"href": "datavalidator.md"
+		},
+		{
+			"text": "Analytics",
+			"href": "analytics.md"
+		},
+		{
+			"text": "Connectors",
+			"href": "connectors.md"
+		},
+		{
+			"text": "Workspace",
+			"href": "workspace.md"
 		},
 		{
 			"text": "API management",
 			"href": "apimanagement.md"
-		},
-		{
-			"text": "Activity log",
-			"href": "activitylog.md"
 		},
 		{
 			"text": "Authentication",

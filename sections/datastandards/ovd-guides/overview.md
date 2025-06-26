@@ -23,5 +23,11 @@ The EUs main page on the MRV reporting scheme. You will find answers to:
 [EU ETS page with FAQs](https://climate.ec.europa.eu/eu-action/transport/reducing-emissions-shipping-sector/faq-maritime-transport-eu-emissions-trading-system-ets_en) 
 This is an FAQ page for the EU ETS regulations. You will find useful information about timing & scope, buying and surrendering EUAs, and the use of alternative fuels.
 
+[DCS reporting scheme for CII correction factors](https://www.dnv.com/news/new-dcs-reporting-scheme-for-cii-correction-factors-and-out-of-scope-activities-for-mrv-230345/) 
+On this page you find the updated DCS reporting scheme to apply CII correction factors and voyage adjustments starting from 2023.
+Please check the pdf document at the bottom of this page.
+
+[FuelEU Maritime page with FAQs](https://www.dnv.com/maritime/insights/topics/fueleu-maritime/faq/) 
+This is a FAQ page for the FuelEU Maritime regulations. You will find useful information about timing & scope, alternative fuels, compliance measures, and reporting requirements.
 
 To get in touch with us use either our [support portal](https://support.veracity.com/) or email [support](mailto:support@veracity.com?subject=OVD).

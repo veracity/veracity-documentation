@@ -1,0 +1,13 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "What is new?",
+			"href": "releasefeb25.md"
+		},
+		{
+			"text": "Veracity Domain Events",
+			"href": "servicebus.md"
+		}
+	]
+}

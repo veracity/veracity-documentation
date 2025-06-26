@@ -17,6 +17,6 @@ However, in the commercial setting it might be wanted to get the emissions and t
 
 
 **Applicable services**
-EC
+EC.
 
 

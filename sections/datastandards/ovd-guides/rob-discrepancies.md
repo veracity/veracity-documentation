@@ -11,7 +11,7 @@ description: Description of Data Standards in Veracity
   <br>
   <br>
 
-To ensure consumed fuel is correctly converted to emissions in case there are discrepancies between the bunkered, consumed and sounded fuels, the reported data must be fixed. This is described [in this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20bunker%20corrections.pdf).
+To ensure consumed fuel is correctly converted to emissions in case there are discrepancies between the bunkered, consumed and sounded fuels, the reported data must be fixed. This is described [in this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20bunker%20corrections.pdf)..
 
 
 **Applicable services**

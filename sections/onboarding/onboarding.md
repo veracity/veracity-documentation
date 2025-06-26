@@ -27,12 +27,12 @@ To see the specifications for APIs provided by Veracity, go [here](https://devel
 To see Veracity GitHub, go [here](https://github.com/veracity).
 ## <a name="project"></a>Project Portal
 To start setting up your Veracity service, you need access to the Project Portal. To get it, [sign up](https://id.veracity.com/sign-up?return-url=https%3a%2f%2fdeveloper.veracity.com%2fauth%2flogin%3freturnTo%3d%2fdevEnrolled) for an account or [sign in](https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/oauth2/v2.0/authorize?p=b2c_1a_signinwithadfsidp&redirect_uri=https%3A%2F%2Fdeveloper.veracity.com%2Fauth%2Foidc%2Floginreturn&response_type=code&response_mode=form_post&client_id=3e6d5154-57c6-4fb2-a591-1f51b6c7739e&mfa_required=true&state=CUSTOMOVVnHKeZnaNhrB3VRj7KsCCA56dBjh9U%7B%22query%22%3A%7B%22returnTo%22%3A%22%2FdevEnrolled%22%2C%22p%22%3A%22B2C_1A_SignInWithADFSIdp%22%7D%7D&nonce=Dhgzqrv_YktA_BRvQCKJR3fkpVJaTFqP&scope=openid%20offline_access%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fuser_impersonation%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fmanage_appregistrations%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fuser_administration%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fmanage_services%20https%3A%2F%2Fdnvglb2cprod.onmicrosoft.com%2F83054ebf-1d7b-43f5-82ad-b2bde84d7b75%2Fresource_administration&x-client-SKU=passport-azure-ad&x-client-Ver=4.3.2) to your account.
-In the [Project Portal](https://developer.veracity.com/projects), create the resources you need. For an overview, go [here](https://developer.veracity.com/docs/section/developerexperience/introduction). For a step-by-step guide, go [here](https://developer.veracity.com/docs/section/developerexperience/step-by-step-guide/getting-started).
+In the [Project Portal](https://developer.veracity.com/projects), create the resources you need. For an overview, go [here](https://developer.veracity.com/docs/section/developerexperience/introduction). For a step-by-step guide, go [here](https://developer.veracity.com/docs/section/developerexperience/introduction#tutorials).
 Once you have created the resources you need, you will be able to get information for authenticating with Veracity IDP. 
 
 ## Technical requirements
 If your company only needs a lead-generating site on Veracity, skip this section.
-However, if you want to integrate your application with Veracity, you must meet the requirements described below. 
+You must meet the requirements described below if you want to integrate your application with Veracity. 
 
 The Veracity platform is built on Microsoft Azure and uses Azure Active Directory B2C (OpenID Connect OAuth 2.0) for managing authentication with Veracity IDP. Because of that, the integration with Veracity will be easier for apps written in common languages and hosted on Azure, Amazon Web Services (AWS) or another large cloud platform.
 
@@ -54,7 +54,13 @@ Your app should have a sign-in button integrated with [Veracity IDP](https://dev
 
 ### Sign-out button
 Your app should have a sign-out button that is easy to find. 
-The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint sings out the user both from ADFS and Azure AD B2C.
+The sign-out button should clear relevant cookies and return the user to the Veracity sign-out endpoint: https://www.veracity.com/auth/logout. The endpoint signs out the user from Azure AD B2C.
+
+You can add the "redirectUri" parameter to the logout call, for example https://www.veracity.com/auth/logout?redirectUri=https://store.veracity.com. If the URL specified in the parameter is valid, the user will be redirected to this URL.
+
+Note that:
+* The "redirectUri" parameter must be a registered URL in a service (Developer portal).
+* The app's logout page must instruct users to close the browser to ensure they are fully logged out. 
 
 If applicable, all local session info (including cookies) should be deleted when the user signs out.
 Note that this applies to all Digital Services on Veracity.
@@ -68,11 +74,11 @@ Because of that, please stay in sync with Veracity. To do that, every time you a
 If you delete or deactivate a user in your app's database, call a corresponding API endpoint to notify Veracity that we should revoke this user's access to your app. 
 
 Veracity recommends creating an admin panel in your app for user management, so that non-technical admins can select buttons for actions that trigger API calls to Veracity.
+You can also grant and remove subscriptions in the [Veracity for Developers portal](https://developer.veracity.com/).
 
 To see Veracity MyServices endpoints for managing subscriptions, go [here](https://developer.veracity.com/docs/section/identity/services-openapi). Note that:
 * The viewpoints "My" and "This" are available to you.
 * The viewpoints "Directory" and "Options" are not available to you. 
-* When you test API calls, you can do it in the browser for the "My" viewpoint. For the "This" viewpoint, use Postman or a similar tool.
 
 ### Consider authorization
 Veracity provides user authentication but offers limited authorization options. 

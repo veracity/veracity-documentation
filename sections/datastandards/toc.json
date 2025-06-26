@@ -5,7 +5,10 @@
 			"text": "Data standards",
 			"href": "datastandards.md"
 		},
-
+		{
+			"text": "Maintenance Activity Data",
+			"href": "mad.md"
+		},
 		{
 			"text": "Operational Vessel Data",
 			"href": "operationalvesseldata.md"
@@ -30,10 +33,6 @@
 					"href": "ovd-guides/biofuels.md"
 				},
 				{
-					"text": "Report biofuels for verification - interim solution",
-					"href": "ovd-guides/biofuels-interim.md"
-				},
-				{
 					"text": "Correct discrepancies between fuel consumption and sounded ROBs",
 					"href": "ovd-guides/rob-discrepancies.md"
 				},
@@ -56,6 +55,18 @@
 				{
 					"text": "Report of port calls",
 					"href": "ovd-guides/portcalls.md"
+				},
+				{
+					"text": "Shifting in port",
+					"href": "ovd-guides/shiftinginport.md"
+				},
+				{
+					"text": "Shore power",
+					"href": "ovd-guides/shorepower.md"
+				},
+				{
+					"text": "Offshore vessel",
+					"href": "ovd-guides/offshore-vessel.md"
 				}
 			]
 		},

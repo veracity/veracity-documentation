@@ -13,13 +13,52 @@ In the **Actions** column, you can:
 * See the history of the changes done to the resource (1).
 * Edit the resource (2).
 * Delete the resource (3).
+* Download the resource which file type is .PBIX (4). 
+
+Note that:
+* Due to limitations set by Microsoft, you cannot download a large .pbix. It may time out after 4 minues. If it happens, send a support ticket to get help to download the report. For more information, go [here](https://learn.microsoft.com/en-us/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).
+* Downloading .PBIX file types is only possible if a System Admin enabled it. To enable the download of Power BI files, on the **Config** page, in the **Tenant Properties**, select **Edit** and toggle on **Allow download Pbix**.
+
 
 <figure>
 	<img src="assets/resource_actions.png"/>
 </figure>
 
-## File
+## Configure Data Workbench Service Account
+If your reports use Data Workbench data sets, configuring your Data Workbench Service Account allows the necessary connection details to be automatically filled in whenever needed. This saves you from manually entering them each time you access your data sets.
 
+To configure your Data Workbench Service Account, select its icon in the top right corner and add the following information:
+- **Data Workbench workspace ID**: [Check here how to find it](https://developer.veracity.com/docs/section/dataworkbench/apiendpoints#workspace-id).
+- **Data Workbench workspace name**: You can find it in your Data Workbench > Workspace > [Details tab](https://developer.veracity.com/docs/section/dataworkbench/workspace#details).
+- **[Data Workbench Service Account ID](../../dataworkbench/apimanagement.md)**: Note that you can only add an account with "Grant all workspace data" enabled.
+- **[Account Secret](../../dataworkbench/apimanagement.md)**.
+<figure>
+	<img src="assets/dwbicon.png"/>
+</figure>
+
+## Data Workbench data set ID
+When you open a data set, you can find its ID in the URL after `datasets`. For example, in the URL `https://dw.veracity.com/veracity/ws/f6427539-6y63-41d0-8795-b878213631d8/dataCatalogue/datasets/4f7rfb44-b632-4d78-843f-0j15a66k8944`, the part after `datasets/` is the data set ID, which is `4f7rfb44-b632-4d78-843f-0j15a66k8944` in our example.
+
+For more details, go to [Data Workbench documentation](../../dataworkbench/datacatalogue.md).
+## To find a SAS token
+Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
+
+To generate a SAS token in Data Workbench UI, follow [the instructions](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-a-sas-token).
+To generate a SAS token with Data Workbench API, refer to the API specification:
+1. Under Data sets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas` endpoint to get a readonly SAS token for a workspace data set, including an uploaded data set. [See the detailed instructions here](../file-storage-as-data-source/create-report.md).
+1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas` to get a SAS token for a data set in File Storage that was shared with you. [See the Data Workbench API specification for the details on this endpoint](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
+
+## Auto-renew SAS token for Data Workbench structured uploaded data sets
+You can now automatically renew SAS tokens for Data Workbench structured uploaded data sets. This ensures your data connections remain active without manual intervention.
+If you want to learn more about structured uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).
+
+To enable auto-renewal for a SAS token:
+1. Edit your report in the **Resource** section.
+2. Click the **Load Data Source** button.
+3. For Data Source "Azure Data Lake Storage", under **Data Source Sub Type**, select **DWB Structured Dataset**.
+4. Tick the **Auto Renew SAS Token** box. The token will renew automatically once a day at CET midnight.
+
+## File
 Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
 
 ### Refresh Schedule Plan
@@ -36,22 +75,35 @@ When you have scheduled a refresh plan, you can apply it to reports.
 	<img src="assets/schedule.png"/>
 </figure>
 
-### To refresh a report
+### To apply a refresh plan
 To apply a refresh plan to a file:
 1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
 2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
 3. In the bottom right corner of the panel, select **Save**.
 
+Note that the scheduled refresh of paginated reports in .RDL format is not supported.
+
 <figure>
-	<img src="assets/scheduleicon.png"/>
+	<img src="assets/scheduleicon2.png"/>
 </figure>
+
+### To refresh a file on demand
+You can apply an on-demand refresh on Power BI reports (File Type must be .PBIX ord .RDL) which datasource is a semantic model. This functions allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for the reports relying on real-time data or requiring frequent updates.
+
+To refresh a file on demand, in the row with a Power BI report, under **Refresh**, select the **Refresh Report** icon.
+
+<figure>
+	<img src="assets/refreshreport.png"/>
+</figure>
+
+**Note that** most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
 
 ### To upload a file
 
 To upload a file:
-1. From the left sidebar, select the plus icon and the **Add File** button.
+1. In the top right corner, select the plus icon. Alternatively, from the left sidebar, select the plus icon and the **Add Resource File** button.
 2. Under **File Name**, enter the name for the file. Veracity recommends including in the file name information that would help recognize the latest version of the file, such as, for example, the client's name, the report's date, and the upload date.
-3. Under **Uploaded File**, select **Choose File** and select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF.
+3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF, RDL.
 4. Under **Personal data policy**, confirm if the file contains no personal data or it contains personal data and you agree to process it according to Veracity DPA.
 5. Select the **Upload** button.
 
@@ -64,6 +116,28 @@ If you upload a Power BI report:
 Note that:
 * If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
 * If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
+
+#### Paginated report
+
+You can upload a paginated report in .rdl format. Paginated reports are ideal for presenting content with tightly controlled rendering requirements, such as certificates, audit findings, test results, purchase orders, and long tabular data that must be printed on multiple pages. These reports ensure that your data is presented in a precise and organized manner, meeting the high standards of professional documentation.
+
+##### Service Principal required
+
+To upload a paginated report, your VAP service must use a Service Principal account. If your service is a new setup using Service Principal, then the **Paginated Report** toggle button can be turned on in Admin. You cannot upload the paginated report file for the legacy Power BI Service Principal. If you try to do so, you will get the error message 'Paginated report is not enabled to upload'. 
+
+##### Supported data sources
+
+We support the following methods to add a data source to a paginated report.
+* You can connect a database as a data source directly. We support Azure SQL database.
+* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .xlsx, and more) and Azure Blob.
+
+##### Report reloading
+
+The report reloads after an hour of interacting with it. When it happens, you will see a reload icon. To continue reading the report, wait for the report to finish reloading.
+
+##### Session expiry
+
+If you do not interact with a paginated report for ten minutes, your session expires. You can close the session expiry dialog with the 'X' icon or select **Refresh**. It will extend the report session time and allow you to continue interacting with your report.
 
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>
@@ -108,7 +182,7 @@ To set a privacy level for a data source, in the Admin Panel > Manage Files, in 
 
 ## Web App 
 
-The "Web app" subtab shows all connections created in your VAP service. 
+The "Web app" subtab shows all connections created in your VAP service. This tab is available on request, so if you don't have it, you can contact [VAP support](mailto:mailto:VAP@dnv.com) to request it.
 
 ## To create a new web connection
 

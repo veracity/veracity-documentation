@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\sections",
-    "\\sections\\marketplace\\sellingyourproduct",
-    "\\sections\\vap",
-    "\\sections\\vap\\admin-tab",
-    "\\sections\\vap\\news"
+    "\\sections\\datastandards",
+    "\\sections\\datastandards\\ovd-guides",
+    "\\sections\\tenantmanagement"
   ],
-  "SelectedNode": "\\sections\\vap\\news\\assets",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,18 @@
+{
+	"$schema": "../../schemas/toc.json",
+	"items": [
+		{
+			"text": "Overview",
+			"href": "vcb.md"
+		},
+		{
+			"text": "What is new?",
+			"items": [
+				{
+					"text": "Initial release",
+					"href": "news/initialrelease.md"
+				}
+			]
+		}
+	]
+}

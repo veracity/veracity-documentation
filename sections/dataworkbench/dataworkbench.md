@@ -18,7 +18,7 @@ Also, you might want to see:
 * [How to call API endpoints](tutorial/tutorial2.md).
 
 ## Tenants and workspaces
-Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers. For information on user management, go [here](usermanagement.md).
+Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers. For information on user management, go [here](workspace.md).
 
 ### To create a new workspace
 If you are a tenant admin, you can use the picker button to create a new workspace:
@@ -67,4 +67,4 @@ You can integrate APIs with Data Workbench. See:
 * [How to authenticate and authorize your API calls](authentication.md).
 
 ## Activity logs
-Data Workbench logs certain events, and gives you access to [activity logs](activitylog.md).
+Data Workbench logs certain events, and gives you access to [activity logs](workspace.md).

@@ -100,6 +100,8 @@ Data Workbench logs the following events, including information about who perfor
 
 *   Changes to the data sets (created, modified, deleted) and access to them (including granting and revoking SAS access keys).
 *   Downloading a data set.
+*   SAS key generation (read-only, read-write).
+*   SAS key revocation.
 
 **6. Integrations & API access:**
 

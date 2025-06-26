@@ -17,6 +17,10 @@
 					"href": "appapischema.md"
 				},
 				{
+					"text": "VRM Api Spec",
+					"href": "apispecschema.md"
+				},
+				{
 					"text": "VRM Veracity Service schema",
 					"href": "serviceschema.md"
 				},

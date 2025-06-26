@@ -171,7 +171,7 @@ To edit a schema:
 8. Once you're satisfied with the changes, select **Save** to update the schema.
 
 ## To lock a schema
-You can lock a schema version to prevent unintended edits. To do so, under **Versions**, on the left side, select the **Lock this version** button.
+Workspace admins can lock a schema version to prevent unintended edits. To do so, under **Versions**, on the left side, select the **Lock this version** button.
 
 Note that:
 - Once locked, the schema version cannot be edited.

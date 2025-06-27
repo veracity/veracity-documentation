@@ -15,7 +15,16 @@ A Veracity API spec is the representation of your application within Veracity AP
 |resourceType|schema used by veracity|veracity.apiSpec|
 |locked|Locked state will determine if the user can edit the apiSpec through the user interface in developer. Manual override is still possible. VRM ignores this field and will make chages regardless |true/false|
 |sku|Not used in the current release|standard|
-|properties.description|A description of the apiSpec (optional)|||
+|sections.properties.uploadType| type of upload | "swagger-json", "swagger-link-json", "openapi", "openapi+json", "openapi-link", "openapi+json-link"  |
+|sections.properties.apiSpec|API spec URL, eg: swagger url|string|
+|sections.properties.version|API version, if not specified the API will be created with no version. If specified, the API will be created with the specified version. If the API already exists, it will be updated to the specified version|string|
+|sections.properties.products|List of product IDs that the API spec will be associated with. If the API spec is not associated with any products, it will not be accessible to users. If the API spec is associated with a product, it will be accessible to users who have access to that product|array of strings|
+|sections.properties.requireSubscription|If true, users must subscribe to the API spec before they can access it. If false, users can access the API spec without subscribing|true/false|
+|sections.properties.backendUrl|The backend URL of the API spec. This is the URL that the API spec will use to access the backend service. If not specified, the API spec will use the default backend URL of the API Management service|string|
+|sections.properties.versionSetId|The version set ID of the API spec. If not specified, the API spec will not be associated with any version set. If specified, the API spec will be associated with the specified version set|string|
+|sections.properties.apiSuffix|apiSuffix text that will be used for APIM based API URL|string|
+|sections.properties.description|A description of the apiSpec (optional)|string|
+
 
 ## Examples
 

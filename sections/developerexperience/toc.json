@@ -1,34 +1,39 @@
 {
-	"$schema": "../../schemas/toc.json",
-	"items": [
-		{
-			"text": "Projects and resources",
-			"href": "introduction.md"
-		},
-		{
-			"text": "Veracity Resource Manager (VRM)",
-			"href": "vrm.md"
-		},
-		{
-			"text": "Veracity Resource Manager (VRM) schemas",
-			"items": [
-				{
-					"text": "VRM Application or API schema",
-					"href": "appapischema.md"
-				},
-				{
-					"text": "VRM Veracity Service schema",
-					"href": "serviceschema.md"
-				},
-				{
-					"text": "Combining resources with VRM",
-					"href": "combiningresources.md"
-				}
-			]
-		},
-		{
-			"text": "How to publish an API",
-			"href": "publishapi.md"
-		}
-	]
+  "$schema": "../../schemas/toc.json",
+  "items": [
+    {
+      "text": "Projects and resources",
+      "href": "introduction.md"
+    },
+    {
+      "text": "Veracity Resource Manager (VRM)",
+      "href": "vrm.md"
+    },
+    {
+      "text": "Veracity Resource Manager (VRM) schemas",
+      "items": [
+        {
+          "text": "VRM Application or API schema",
+          "href": "appapischema.md"
+        },
+        {
+          "text": "VRM Veracity Service schema",
+          "href": "serviceschema.md"
+        },
+        {
+          "text": "VRM Api Spec",
+          "href": "apispecschema.md"
+        },
+        {
+          "text": "VRM Api Product",
+          "href": "apiproductschema.md"
+        },
+        {
+          "text": "Combining resources with VRM",
+          "href": "combiningresources.md"
+        }
+      ]
+    }
+
+  ]
 }

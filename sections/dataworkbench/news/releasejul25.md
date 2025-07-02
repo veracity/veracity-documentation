@@ -35,10 +35,4 @@ We have simplified how some tables look:
 This section covers resolved bugs. 
 
 ### Guest banner display issue
-A guest banner was sometimes shown incorrectly when navigating to the **Member** page. This has now been fixed. 
-
-### Connector sorting issue
-Connectors were not always shown in the correct order. They now display as expected. 
-
-### File sharing access 
-We fixed an issue where files or folders could appear shareable even when they were not actually shared with you.
+A guest banner was sometimes shown incorrectly when a member user navigated to a shared resource via an email link.

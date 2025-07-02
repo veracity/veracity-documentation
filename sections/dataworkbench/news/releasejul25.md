@@ -11,10 +11,10 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jul
 This section covers new features. 
 
 ### Better support for different connector types
-Connectors are now grouped more clearly based on their function. You'll see partner integrations and quick actions organized into separate sections on the **Connectors** page, helping you navigate more easily. 
+Connectors are now grouped more clearly based on their purpose. The **Connectors** page displays separate sections for quick actions, industry-standard solution partners, and data partners with automated feedback loops. This makes it easier to navigate and find the right integration for your needs.
 
 ### Improved connector search
-It is now easier to find the connector you're looking for. We have improved the search function on the **Connectors** page to provide faster and more relevant results. 
+We have enhanced the search bar on the **Connectors** page. You can now search by quick actions, industry templates, or partner names, making it easier to find the connector you're looking for.
 
 ### Updated connector layout 
 The **Connectors** page now opens with all sections expanded by default. This makes it quicker to view available connectors without extra clicks. When you search or reset your search, the sections remain expanded. 

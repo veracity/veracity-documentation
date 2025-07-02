@@ -8,10 +8,19 @@ Connectors let you share data with Veracity's trusted partners using our pre-bui
 
 However, if you already participate in Veracity Solution Partner program, contact the Data Workbench team and request configuring the connectors you need.
 
-Here you can see [the list of our trusted partners](https://wwwstag.veracity.com/partner-integration?_gl=1*ibguxg*_ga*OTI3MzQzODAzLjE2NTQwODgxOTU.*_ga_DYYE3X0DZL*MTcxNzc2MzA0OS4yNDIuMS4xNzE3NzY0ODQyLjAuMC4w) with whom you can share your data and use their data.
+Here you can see [the list of our trusted partners](https://www.veracity.com/partner-integration?_gl=1*ibguxg*_ga*OTI3MzQzODAzLjE2NTQwODgxOTU.*_ga_DYYE3X0DZL*MTcxNzc2MzA0OS4yNDIuMS4xNzE3NzY0ODQyLjAuMC4w) with whom you can share your data and use their data.
 
 ## Watch this tutorial
 If you prefer to watch, you can [see the video tutorial.](https://help-center.veracity.com/en/articles/9342627-video-how-to-share-datasets-with-your-partners)
+
+## Find the right connector
+Connectors are now grouped into sections based on their type:
+- **Partner integrations** include Solution Partners and Data Partners.
+- **Quick Actions** include task-based templates or automations.
+
+These sections help you quickly find the connector you need.
+
+To find a connector, use the search bar on the page.
 
 ## How to share data sets with your partners
 To share data sets with your partners:

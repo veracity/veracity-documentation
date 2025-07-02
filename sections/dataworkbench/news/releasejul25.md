@@ -16,11 +16,11 @@ Connectors are now grouped more clearly based on their function. You'll see part
 ### Improved connector search
 It is now easier to find the connector you're looking for. We have improved the search function on the **Connectors** page to provide faster and more relevant results. 
 
-## Changes in existing features
-This section covers changes in existing features. 
-
 ### Updated connector layout 
 The **Connectors** page now opens with all sections expanded by default. This makes it quicker to view available connectors without extra clicks. When you search or reset your search, the sections remain expanded. 
+
+## Changes in existing features
+This section covers changes in existing features. 
 
 ### Refreshed connector descriptions and tooltips
 Some texts and tooltips on the **Connectors** page have been updated to provide clearer explanations. 
@@ -28,7 +28,7 @@ Some texts and tooltips on the **Connectors** page have been updated to provide 
 ### Cleaner tables in file storage and member views
 We have simplified how some tables look: 
 - File sizes now appear without unnecessary decimals. 
-- In the member list, the copy function works faster. 
+- In the member list, copy email with one click instead of two as before.
 - File listings now show the last modified date instead of the created date. 
 
 ## Bugs fixed 
@@ -41,10 +41,4 @@ A guest banner was sometimes shown incorrectly when navigating to the **Member**
 Connectors were not always shown in the correct order. They now display as expected. 
 
 ### File sharing access 
-We fixed an issue where files or folders could appear shareable even when they were not actually shared with you. 
-
-### Error when loading workspace configuration
-Some users saw an error when trying to load workspace configuration. This issue has been resolved. 
-
-### Cloud storage connection error
-A problem with file access due to a connection error with cloud storage services has been fixed. 
+We fixed an issue where files or folders could appear shareable even when they were not actually shared with you.

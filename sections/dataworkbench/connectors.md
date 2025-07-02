@@ -15,9 +15,9 @@ If you prefer to watch, you can [see the video tutorial.](https://help-center.ve
 
 ## Find the right connector
 Connectors are now grouped into sections based on their type:
-- **Partner integrations** include Solution Partners and Data Partners.
-- **Quick Actions** include task-based templates or automations.
-
+- **Solution Partners** offer software solutions or services that help customers unlock value from their data.
+- **Data Partners** provide operational or validated data sets that can be shared securely and integrated with other services.
+- **Quick Actions** are predefined templates or automations that let you perform common tasks quickly.
 These sections help you quickly find the connector you need.
 
 To find a connector, use the search bar on the page.

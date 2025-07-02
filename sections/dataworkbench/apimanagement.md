@@ -19,6 +19,11 @@ After that, your account will be created, and you will get the values for the se
 
 **Note that** you will see the service account secret only once. Copy it and store securely. 
 
+### 403 Forbidden error
+If you select **Select data sets manually** in **Access to data sets**, the service account will only be able to access APIs related to the specific shared data sets.
+
+Calls to endpoints requiring **workspace or tenant-level access** will return a `403 Forbidden` error. See the section **Limitations of dataset-scoped service accounts** below for details.
+
 ## To copy the base URL endpoint
 To copy the base URL endpoint of a service account:
 1. In your workspace, select the **API management** tab. 
@@ -74,3 +79,20 @@ To generate the code:
 2. Select a service account.
 3. Under **Generate sample Python code**, select the **Generate** button.
 
+## Limitations of dataset-scoped service accounts
+
+Service accounts created with **Select data sets manually** are restricted to data set–level operations. They **cannot** call workspace-level or tenant-level API endpoints.
+
+If such an account tries to access unsupported endpoints, the response will be `403 Forbidden`.
+
+**Examples of unsupported endpoints** for accounts with access to data sets that are selected manually:
+
+- `GET /workspaces/{workspaceId}`
+- `POST /workspaces/{workspaceId}/ingest`
+- `GET /tenants/{tenantId}/users/roles`
+- `GET /workspaces/{workspaceId}/users/roles`
+- `GET /tenants/{tenantId}/workspaces`
+- `GET /workspaces/{workspaceId}/schemas`
+- `GET /workspaces/{workspaceId}/ledger`
+
+To avoid this, use a service account with **Grant all workspace data** access or an authenticated user token with the required privileges.

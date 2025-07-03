@@ -13,6 +13,20 @@ Here you can see [the list of our trusted partners](https://www.veracity.com/par
 ## Watch this tutorial
 If you prefer to watch, you can [see the video tutorial.](https://help-center.veracity.com/en/articles/9342627-video-how-to-share-datasets-with-your-partners)
 
+## Find the right connector
+Connectors are now grouped into sections based on their purpose:
+- **Quick actions** include predefined templates that let you perform common data-sharing tasks efficiently.
+- **Industry standards and Solution partners** offer industry-specific software or services that help you unlock extra value from your data.
+- **Data partners with data quality feedback loop** provide automated, synchronized feedback that improves the quality of your shared data over time.
+
+These sections help you quickly find the connector that best matches your data-sharing need.
+
+Use the search bar at the top of the page to find connectors by quick actions, industry templates, or partners.
+<figure>
+	<img src="assets/connectorspage.png"/>
+	<figcaption>Connectors page in Data Workbench.</figcaption>
+</figure>
+
 ## How to share data sets with your partners
 To share data sets with your partners:
 1. Go to the **Connectors** page and select a tile representing a partner you want to share data with.

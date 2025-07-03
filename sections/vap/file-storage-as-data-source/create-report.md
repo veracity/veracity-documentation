@@ -15,6 +15,8 @@ There are two types of data sets you can use as data source:
 ## To generate an access token for a structured uploaded data set
 You can generate access keys (tokens) from your Data Workbench workspace or via API calls. Note that those access keys must have a date and time when they expire, but you can automatically renew them. For details, check the section [Auto-renew SAS token for Data Workbench structured uploaded data sets](../admin-tab/resource.md).
 
+**Note that** the "Key" generated in Data Workbench is the same as the SAS Token used in VAP. Paste it into the Credential field when editing the resource.
+
 ### Using the Data Workbench UI
 1. Open your Data Workbench workspace.
 1. Navigate to Data Catalogue > Created data sets.
@@ -130,7 +132,13 @@ Instead, follow the steps below.
    - Click **Edit** on the resource file.
    - Change the **Data Source Sub Type** to `DWB Structured Data Set`.
    - Paste the SAS token into the **Credential** field.
-   - Save your changes.
+   - Click **Update** to apply the SAS token.
+   - Wait for the message **"Update SAS token successfully"** to appear.
+   - Click the **refresh** icon next to the source title to validate the connection.
+   - Wait for the confirmation message **"Connect to data source successfully."**
+   - Then click **Save** to confirm and store the full configuration.
+
+**Remember that the SAS Token** required in the Credential field **is** the same as **the Key generated** for the data set **in Data Workbench**.
 
 ### 4. Optional: Enable auto-renew SAS token
 If you want the system to renew the SAS token automatically:

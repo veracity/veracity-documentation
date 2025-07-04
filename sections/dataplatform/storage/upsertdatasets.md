@@ -3,8 +3,8 @@ author: Veracity
 description: Gives an overview of the Veracity Data Platform services and related components.
 ---
 
-# Datasets
-Datasets are structured data and defined using schemas. Data can be queried using query language. Data is ingested using an api to receive SAS token and then SAS token is used to upload CSV.
+# Update Datasets
+Datasets are structured data and defined using schemas. Dataset content can be updated with operation commands: upsert, append, overwrite and delete.
 
 ## API endpoints
 
@@ -19,22 +19,16 @@ To authenticate and authorize your calls, get your API key and a bearer token [h
 
 For code example, see step 1 below.
 
-## Ingest/Upload dataset process
-Using the apis these are the steps to follow:
+## Update process
+Using the apis these are the three steps to follow:
 1. Authenticate towards Veracity api using service account (service principle)
-2. Define dataset with metadata and get SAS token uri from Veracity api
-3. Read CSV file from your location and upload file to storage using received SAS token uri
+2. Get SAS token uri from Veracity api
+3. Read CSV file(s) from your location and upload file to storage using received SAS token uri
 4. Verify status on upload
-
-
-## Prerequisite
-A schema must be defined before you can upload a dataset. A schema is defined using Schema Management in the Portal, or [using the api](https://developer.veracity.com/docs/section/dataplatform/schemamanagem). 
-
-When uploading a dataset it is the **schema version id** that is used (and not schema id). When using the api, schema version id is received in repsonse. However, when schema is created in Data Workbench portal, you can only see the schema_id (in url). Use this schema Id and query the GET endpoint to get schema version id,[see how to get it](get_schema_version_id).
 
 ## Python code example
 ### Step 1: Authentication: Get Veracity token for service principle/service account
-Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
+Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in Data Workbench Portal.
 
 ```python
 import requests
@@ -56,45 +50,43 @@ if response.status_code == 200:
         veracityToken = response.json().get("access_token")
 else:
         print(f"Error: {response.status_code}")
-
 ```
 
-### Step 2: Define dataset with metadata and get SAS URI for uploading csv file
-This step prepare upload operation and get SAS URI to upload file content. Ensure you have schema version id, [see how to get it](get_schema_version_id)
-
+### Step 2: Prepare dataset update operation and get SAS URI for csv file upload
+Using the Veracity token from step 1
 
 **Payload**
-*datasetName: name of dataset 
-*schemaVersionId: The id of the version of the schema
-*Files: Currently only support for one file. Operations: "Create" (when this is a new dataset)
-*The filename used does not need to match the source filename (local filepath), BUT is must match the target filename used in step 3. I.e you can use a generic filename such as ImportData.csv
-*DatasetDescription: Description field is optional
-*Tags: Tags are metadata for the dataset, and is an array of key/values. Tags are optional. In the example below; customer and site are keys and "ABC" and "123" are values.
-*Start Automatically: If True, the job of processing the file uploaded (step 3) will start automatically. However, if set to False, you need to start the job with api-endpoint. This is will trigger the job faster.
-*Provider: Use "BYOD" (will be made optional)
+-Files can be more than one file. Operations: Upsert, Delete, Overwrite, Append. See operations defined below.
+-Tags are metadata for the dataset, and is an array of key/values. Tags are optional and can be removed or null.
+-Start Automatically: If True, the job of processing the file (step 3) will start automatically. However, if set to False, you need to start the job with api-endpoint. This is will trigger the job faster.
+-Provider: Use "BYOD" (will be made optional)
 
 **Output**
 Job id and sas_uri
 
+**Operations**
+When updating a dataset, you can use one of the following operations:
+* **Upsert**: Update existing rows in dataset and ingest new rows (require that row keys are defined in schema)
+* **Delete**: Delete rows in dataset where row keys match with row keys in file uploaded (require that row keys are defined in schema)
+* **Overwrite**: Owerwrite existing dataset with new content from file uploaded
+* **Append**: add data to dataset with content from file uploaded. This operation can only be used on schemas that o NOT have schema keys
+
+**This is a PUT endpoint**
 ```python
 import requests
 import json
 
-#from step 2
+#token from step 1
 token = veracityToken
 apiKey =  "<api key>"
-workspaceId = "<workspace id"
-schemaVersionId = "<schema version id>
-filename = "Importdata.csv"
+workspaceId = "<workspace id>"
+datasetId = "<dataset id>"
+
+fileNameToImport = "ImportData.csv"
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
-endpoint = f"/workspaces/{workspaceId}/ingest/dataset"
+endpoint = f"/workspaces/{workspaceId}/ingest/dataset/{datasetId}"
 url = base_url + endpoint
-
-#Name to see in DWb
-datasetName = "WindData"
-fileNameToImport = "ImportData.csv"
-description = "some dataset description"
 
 headers = {
     "Content-Type": "application/json",
@@ -104,43 +96,60 @@ headers = {
 }
 
 payload = {
-  "datasetName": datasetName,
-  "datasetDescription": description,
-  "schemaVersionId": schemaVersionId,
-  "files": [
+"files": [
     {
       "fileName": fileNameToImport,
-      "operation": "Create"
+      "operation": "Upsert"
     }
-  ], 
-  "tags": [{
-            "Key": "Customer",
-            "Values": ["ABC"]
-        },
-        {
-            "Key": "Site",
-            "Values": ["123"]
-        }
-  ],
-  "provider": "BYOD",
-  "startAutomatically": False
+],
+"startAutomatically": False
 }
 
 try:
-    response = requests.post(url, json=payload, headers=headers)
+    response = requests.put(url, json=payload, headers=headers)
     response.raise_for_status()   
 except requests.exceptions.RequestException as e:
     print(f"Error fetching sas uri: {e}")
     
 result = response.json()
-# Extract the SAS token
+
+# Extract the SAS token and job id
 sas_uri = result.get('sasToken')
 job_id = result.get('jobId')
 ```
-job_id is used to [get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
-### Step 3: Upload file using SAS URI from Step 2
-We are using Microsoft libraries to upload data
+job_id is used to [get status of the update](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
+
+#### Delete data
+Payload
+```
+"files": [
+    {
+      "fileName": "FileWithRowsToDelete.csv",
+      "operation": "Delete"
+    }
+],
+```
+#### Multi operations
+
+Updating multiple files with different operations will soon be supported
+
+Payload
+```
+"files": [
+    {
+      "fileName": "FileWithRowsToDelete.csv",
+      "operation": "Delete"
+    },
+     {
+      "fileName": "FileWithRowsToInsert.csv",
+      "operation": "Upsert"
+    }
+],
+```
+
+### Step 3: Upload file to process using SAS URI from Step 2
+We are using Microsoft libraries to upload data. The file will be processed using the operation defined in step 2.
 
 ```python
 from azure.storage.filedatalake import DataLakeFileClient, DataLakeDirectoryClient
@@ -151,21 +160,19 @@ from azure.core.exceptions import ResourceExistsError
 import uuid
 from urllib.parse import urlparse
 
-#Source file
-localFilePath = "<filepath>"
-
-#Same file name used in step 2 under Files
-target_file_name = fileNameToImport
+localFilePath = <full path to file to be uploaded>
 
 # sas uri from step 2
 sas_folder_url = sas_uri
-
-# Parse the SAS URI from step 2
+# Parse the SAS URI
 parsed_url = urlparse(sas_folder_url)
 account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
 file_system_name = parsed_url.path.strip("/").split("/")[0]
 folder_path = "/".join(parsed_url.path.strip("/").split("/")[1:])
 sas_token = parsed_url.query
+
+#Must be same filename as in step 2
+target_file_name = fileNameToImport
 
 # === COMBINE FOLDER + FILE NAME ===
 file_path = f"{folder_path}/{target_file_name}"
@@ -181,13 +188,16 @@ file_client = DataLakeFileClient(
 # Create a new file (overwrite if exists)
 file_client.create_file()
 
+
 # Upload file content
 with open(localFilePath, 'rb') as file_data:
     file_contents = file_data.read()
     file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
     file_client.flush_data(len(file_contents))
+
+print("Dataset update job started - check status using jobId from step 2.")
 ```
-After file is uploaded and processing is triggered, use job_id from step 2 to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
+After file is uploaded, use job_id from step 2 to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
 ### Step 3b: Start processing the uploaded file(s) 
 **This step only applies when  "startAutomatically": False in step 2**
@@ -214,6 +224,7 @@ result = response.json()
 ```
 After file is uploaded, use job_id to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
+
 ## C# Code example 
 
 ```csharp
@@ -232,7 +243,7 @@ var client_id = <my service account ID>;
 var client_secret = <my service account secret>;
 ```
 
-### Step 1: Get Veracity token for authentication
+### Step 1: Authentication: Get Veracity token for service principle/service account
 Service account Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
 If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
 
@@ -262,19 +273,16 @@ async Task<string> GetToken(string clientId, string clientSecret)
 
 ```
 
-### Step 2: Prepare dataset update operation and get SAS URI for csv file upload
-Ensure you have schema version id, [see how to get it](get_schema_version_id)
-
+### Step 2: Prepare dataset update operation and get SAS URI for dataset file upload
 Using the Veracity token from step 1
 
-**Payload**
--Files can be more than one file. Operations: "Create" (when this is a new dataset)
--Tags are metadata for the dataset, and is an array of key/values. Tags are optional and can be removed or null.
--Start Automatically: If True, the job of processing the file (step 3) will start automatically. However, if set to False, you need to start the job with api-endpoint. This is will trigger the job faster.
--Provider: Use "BYOD" (will be made optional)
+When updating a dataset, you can use one of the following operations:
+* **Upsert**: Update existing rows in dataset and ingest new rows (require that row keys are defined in schema)
+* **Delete**: Delete rows in dataset where row keys match with row keys in file uploaded (require that row keys are defined in schema)
+* **Overwrite**: Owerwrite existing dataset with new content from file uploaded
+* **Append**: add data to dataset with content from file uploaded. This operation can only be used on schemas that o NOT have schema keys
 
-**Output**
-Job id and sas_uri
+**This is a PUT endpoint**
 
 ```csharp
 
@@ -327,13 +335,12 @@ var(sasToken, requestId) = await ingestDataSetHandler.GetSASToken(token, workspa
 ```
 The request id can be used to receive the status of the ingest job (see step 4)
 
-
-### Step 3: Upload csv file using SAS uri
-
 [!Note]
 If DataLakeDirectoryClient can not be used, you would need the blob SAS token
 You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?type=blob`
 
+### Step 3: Upload file to process using SAS URI from Step 2
+We are using Microsoft libraries to upload data. The file will be processed using the operation defined in step 2.
 
 ```csharp
 async Task UploadStructuredDataset(string workspaceId, string sasToken, string filepath, string schemaId, string veracityUserId)
@@ -363,112 +370,8 @@ async Task UploadStructuredDataset(string workspaceId, string sasToken, string f
 
 }
 ```
-After file is uploaded, use job_id to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
+File is uploaded, but not processed. To [request processed status, use job_id from step 2](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status-step-4)
 
 
-## Verify upload status
-Since upload dataset takes 30-40 sec and processing is an asynchronous operation, status can be queried using status endpoint with the job_id from step 2.
-
-Before upload is completed status will show:
-{'jobId': '<job_id>', 'status': 'Running', 'operations': ['Create'], 'notebookErrorMessage': '', 'validationError': []}
-
-After completion status shows:
-{'jobId': 'job_id', 'status': 'Completed', 'operations': ['Create'], 'notebookErrorMessage': '', 'dataSetName': 'dataset name', 'datasetId': 'dataset_id', 'validationError': []}
 
 
-## Python code example
-```python
-import requests
-apiKey =  "<api key>"
-workspaceId = "<workspace id>"
-
-base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
-endpoint = f"/workspaces/{workspaceId}/ingest/job/{job_id}/status"
-url = base_url + endpoint
-
-headers = {
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": apiKey,
-    "Authorization": f"Bearer {veracityToken}",
-    "User-Agent": "python-requests/2.31.0"
-}
-
-try:
-    response = requests.get(url,  headers=headers)
-    response.raise_for_status()   
-except requests.exceptions.RequestException as e:
-    print(f"Error fetching job status: {e}")
-    
-result = response.json()
-```
-
-## C# Code example
-
-```csharp
- async Task<string> GetStatus(Guid requestId, string veracityToken, string workspaceId, string subscriptionKey)                     
-{
-
-    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/ingest/{requestId}/status";
-
-    var token = veracityToken;
-    if (_httpClient == null)
-        _httpClient = new HttpClient();
-
-    _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-    try
-    {
-        var result = await _httpClient.GetAsync(url);
-        if (result.IsSuccessStatusCode)
-        {
-            string status = result.Content.ReadAsStringAsync().Result;
-            return status;
-        }
-    }
-    catch (Exception ex)
-    {
-
-    }
-    return $"Cannot retrieve status for request id {requestId.ToString()}";
-}
-```
-
-## Get schema version id
-
-Fetch schema id from url in Dataworkbench Portal (Schema management)
-
-## Python code example
-
-```python
-apiKey =  "<api key>"
-workspaceId = "<Workspace id>"
-schemaId = "<Schema id>"
-
-base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
-endpoint = f"/workspaces/{workspaceId}/schemas/{schemaId}"
-url = base_url + endpoint
-
-headers = {
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": apiKey,
-    "Authorization": f"Bearer {veracityToken}",
-    "User-Agent": "python-requests/2.31.0"
-}
-
-try:
-    response = requests.get(url, json=None, headers=headers)
-    response.raise_for_status()   
-except requests.exceptions.RequestException as e:
-    print(f"Error starting job: {e}")
-    
-result = response.json()
-
-# Get the list of schema versions
-schema_versions = result.get('schemaVersions')
-
-# Get the first element - or iterate if there are several
-first_schema_version = schema_versions[0]
-# get id of schema version
-schemaVersionId = first_schema_version.get('id')
-
-```

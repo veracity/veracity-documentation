@@ -30,7 +30,7 @@ After opening the "Generate keys" dialog window:
 1. Under **Set access level**, select **Read**.
 1. Under **Set access end**, select the date and time when the access should expire.
 1. Select the **Generate key** button.
-1. Select the **Copy key** button to copy the access token.
+1. Select the **Copy key** button to copy the access token. This is the SAS token that you will use when building a .pbix report.
 
 ### With an API call
 Call the endpoint `/workspaces/{workspaceId}/datasets/{datasetId}/sas`, [authenticating your API call](https://developer.veracity.com/docs/section/dataplatform/auth) and providing required parameters:

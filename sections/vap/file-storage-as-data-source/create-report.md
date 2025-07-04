@@ -15,6 +15,8 @@ There are two types of data sets you can use as data source:
 ## To generate an access token for a structured uploaded data set
 You can generate access keys (tokens) from your Data Workbench workspace or via API calls. Note that those access keys must have a date and time when they expire, but you can automatically renew them. For details, check the section [Auto-renew SAS token for Data Workbench structured uploaded data sets](../admin-tab/resource.md).
 
+**Note that** the "Key" generated in Data Workbench is the same as the SAS Token used in VAP. Paste it into the Credential field when editing the resource.
+
 ### Using the Data Workbench UI
 1. Open your Data Workbench workspace.
 1. Navigate to Data Catalogue > Created data sets.
@@ -28,7 +30,7 @@ After opening the "Generate keys" dialog window:
 1. Under **Set access level**, select **Read**.
 1. Under **Set access end**, select the date and time when the access should expire.
 1. Select the **Generate key** button.
-1. Select the **Copy key** button to copy the access token.
+1. Select the **Copy key** button to copy the access token. This is the SAS token that you will use when building a .pbix report.
 
 ### With an API call
 Call the endpoint `/workspaces/{workspaceId}/datasets/{datasetId}/sas`, [authenticating your API call](https://developer.veracity.com/docs/section/dataplatform/auth) and providing required parameters:
@@ -69,9 +71,8 @@ Note that this information may get outdated, and the latest information on this 
 	<img src="assets/4.png"/>
 </figure>
 
-## To use a Data Workbench data set as a source in a VAP report
-
-Follow the steps below to create your report with a Data Workbench File storage.
+## To use a File Storage Data Workbench data set as a source in a VAP report
+Follow the steps below to create your report using a File Storage data set from Data Workbench. For uploaded structured datasets, see the section below.
 1. Open Power BI Desktop.
 2. From the **Home** tab (1), select **Get Data** (2), and then select **Web** (3).
 
@@ -105,6 +106,50 @@ Below, an example of what your report will look like.
 **Note that** if you have several files in the File storage, you must repeat all the steps above for each file.
 
 7. Finally, it is time to build your visuals in the report. Save the file in the storage folder of your choice.
+
+## To use an Uploaded structured Data Workbench data set in a VAP report
+For uploaded structured datasets from Data Workbench, **do not** use the "Web" data connector in Power BI, because this will result in an empty dataset.
+
+Instead, follow the steps below.
+
+### 1. Connect in Power BI Desktop
+1. Open Power BI Desktop.
+2. From the **Home** tab, select **Get Data**, then go to **Azure** > **Azure Data Lake Storage Gen2**.
+3. In the connection window:
+   - For the **URL**, paste the **part of the SAS token before the `?`** (this is the path to the file).
+   - Under **Authentication method**, select **Shared access signature (SAS)**.
+   - For the **Token**, paste the **part of the SAS token starting from and including the `?`** symbol.
+
+### 2. Load and transform data
+1. Once the connection succeeds, Power BI will show you the contents of the data set.
+2. Click **Transform Data** to open the Power Query Editor.
+3. In Power Query Editor, verify or adjust your data as needed, then click **Close & Apply** to load it into your report.
+
+### 3. Save and upload to VAP
+1. Build your visuals as needed and save the file as a `.pbix`.
+2. In VAP, upload the Power BI file as a **Resource File**.
+3. If the data source shows a connection error (for example, missing token):
+   - Click **Edit** on the resource file.
+   - Change the **Data Source Sub Type** to `DWB Structured Data Set`.
+   - Paste the SAS token into the **Credential** field.
+   - Click **Update** to apply the SAS token.
+   - Wait for the message **"Update SAS token successfully"** to appear.
+   - Click the **refresh** icon next to the source title to validate the connection.
+   - Wait for the confirmation message **"Connect to data source successfully."**
+   - Then click **Save** to confirm and store the full configuration.
+
+**Remember that the SAS Token** required in the Credential field **is** the same as **the Key generated** for the data set **in Data Workbench**.
+
+### 4. Optional: Enable auto-renew SAS token
+If you want the system to renew the SAS token automatically:
+1. In the Edit Resource File screen, toggle **Auto Renew SAS Token** to ON.
+2. Ensure that both the **Data Workbench Workspace ID** and **Data Set ID** are filled in.
+3. Click **Save**.
+
+**Note that** if either the Workspace ID or Data Set ID is missing, auto-renew will not work.
+
+### 5. Optional: Use API to generate token
+You can also generate the SAS token using the API. See [With an API call](#with-an-api-call) for full details. You can then copy the token and paste it into the VAP Credential field as needed.
 
 ## Use parameter to save access key and URL
 You can also use a parameter to save the access key and URL. However, **note that** VAP currently has no user interface for setting the parameter. 

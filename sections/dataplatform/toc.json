@@ -74,6 +74,10 @@
           "href": "storage/datasets.md"
         },
         {
+          "text": "Update datasets",
+          "href": "storage/upsertdatasets.md"
+        },
+        {
           "text": "Upload files",
           "href": "storage/files.md"
         },       

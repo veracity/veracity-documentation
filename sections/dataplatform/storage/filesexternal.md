@@ -8,7 +8,7 @@ External storage is a data storage account from your company that was added to y
 ## API endpoints
 
 Note: The Ingest api-endpoints are different for uploading files to filestorage vs uploading datasets **See section Storage and endpoints with "external" in path**. To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
-
+For code exampple, see step 1 below.
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).

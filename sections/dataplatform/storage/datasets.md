@@ -21,21 +21,22 @@ For code example, see step 1 below.
 
 ## Ingest/Upload dataset process
 Using the apis these are the steps to follow:
-1. Authenticate towards Veracity api using service account (service principle)
-2. Define dataset with metadata and get SAS token uri from Veracity api
-3. Read CSV file from your location and upload file to storage using received SAS token uri
-4. Verify status on upload
-
+* Step 1: Authenticate towards Veracity api using service account (service principle)
+* Step 2: Define dataset with metadata and get SAS token uri from Veracity api
+* Step 3: Read CSV file from your location and upload file to storage using received SAS token uri
+* Step 4: Start job (if not set to automatic job processing in step 2)
+* Step 5: Verify status on upload
 
 ## Prerequisite
 A schema must be defined before you can upload a dataset. A schema is defined using Schema Management in the Portal, or [using the api](https://developer.veracity.com/docs/section/dataplatform/schemamanagem). 
 
-When uploading a dataset it is the **schema version id** that is used (and not schema id). When using the api, schema version id is received in repsonse. However, when schema is created in Data Workbench portal, you can only see the schema_id (in url). Use this schema Id and query the GET endpoint to get schema version id,[see how to get it](get_schema_version_id).
+When uploading a dataset it is the **schema version id** that is used (and not schema id). When using the api, schema version id is received in response. However, when schema is created in Data Workbench portal, you only see the schema_id (in url). To get schema version id, use schema Id and query the GET endpoint, [see how to get it](#get-schema-version-id).
 
-## Python code example
-### Step 1: Authentication: Get Veracity token for service principle/service account
+## Step 1: Authenticate
+### Get Veracity token for service principle/service account
 Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
 
+#### Python
 ```python
 import requests
 import json
@@ -56,36 +57,62 @@ if response.status_code == 200:
         veracityToken = response.json().get("access_token")
 else:
         print(f"Error: {response.status_code}")
+```
+#### C#
+```csharp
+using Newtonsoft.Json.Linq;
+async Task<string> GetToken(string clientId, string clientSecret)
+{
+    var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
+    var grant_type = "client_credentials";
+    var resource = "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75";
 
+    var postData = new Dictionary<string, string>
+       {
+           {"grant_type", grant_type},
+           {"client_id", clientId},
+           {"client_secret", clientSecret},
+           {"resource", resource},
+       };
+    using HttpClient httpClient = new HttpClient();
+    httpClient.BaseAddress = new Uri(url);
+    HttpResponseMessage authResponse = httpClient.PostAsync(url, new FormUrlEncodedContent(postData)).Result;
+    var result = await authResponse.Content.ReadAsStringAsync();
+    var token = (string)Newtonsoft.Json.Linq.JToken.Parse(result)["access_token"];
+   return token;
+}
 ```
 
-### Step 2: Define dataset with metadata and get SAS URI for uploading csv file
-This step prepare upload operation and get SAS URI to upload file content. Ensure you have schema version id, [see how to get it](get_schema_version_id)
+## Step 2: Prepare dataset for upload
+### Define dataset with metadata and get SAS URI for uploading csv file
 
+This step prepare upload operation and get SAS URI to upload file content. Ensure you have schema version id, [see how to get it](#get-schema-version-id)
 
 **Payload**
-*datasetName: name of dataset 
-*schemaVersionId: The id of the version of the schema
-*Files: Currently only support for one file. Operations: "Create" (when this is a new dataset)
-*The filename used does not need to match the source filename (local filepath), BUT is must match the target filename used in step 3. I.e you can use a generic filename such as ImportData.csv
-*DatasetDescription: Description field is optional
-*Tags: Tags are metadata for the dataset, and is an array of key/values. Tags are optional. In the example below; customer and site are keys and "ABC" and "123" are values.
-*Start Automatically: If True, the job of processing the file uploaded (step 3) will start automatically. However, if set to False, you need to start the job with api-endpoint. This is will trigger the job faster.
-*Provider: Use "BYOD" (will be made optional)
+* datasetName: name of dataset 
+* SchemaVersionId: The id of the version of the schema
+* Files: Currently only support for one file. 
+* Operations: "Create" (when this is a new dataset)
+* Filename used does not need to match the source filename (local filepath used in step 3), but must match the target filename used in step 3. I.e you can use a generic filename such as ImportData.csv
+* DatasetDescription: Description field is optional
+* Tags: Tags are metadata for the dataset, and is an array of key/values. Tags are optional. In the example below; customer and site are keys and "ABC" and "123" are values.
+* Start Automatically: If True, the job of processing the file uploaded (step 3) will start automatically. However, if set to False, you need to start the job with api-endpoint. This is will trigger the job faster.
+* Provider: Use "BYOD" (will be made optional)
 
 **Output**
 Job id and sas_uri
+job_id is used to [get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
+#### Python
 ```python
 import requests
 import json
 
-#from step 2
+#from step 1
 token = veracityToken
 apiKey =  "<api key>"
 workspaceId = "<workspace id"
 schemaVersionId = "<schema version id>
-filename = "Importdata.csv"
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/ingest/dataset"
@@ -93,7 +120,7 @@ url = base_url + endpoint
 
 #Name to see in DWb
 datasetName = "WindData"
-fileNameToImport = "ImportData.csv"
+targetFileName = "ImportData.csv"
 description = "some dataset description"
 
 headers = {
@@ -109,7 +136,7 @@ payload = {
   "schemaVersionId": schemaVersionId,
   "files": [
     {
-      "fileName": fileNameToImport,
+      "fileName": targetFileName,
       "operation": "Create"
     }
   ], 
@@ -137,11 +164,101 @@ result = response.json()
 sas_uri = result.get('sasToken')
 job_id = result.get('jobId')
 ```
-job_id is used to [get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
-### Step 3: Upload file using SAS URI from Step 2
+#### C#
+
+```csharp
+using Azure.Storage.Files.DataLake;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+
+//output is a tuple with sasTokenUri and jobId       
+ public async Task<(string, string)> GetSASUriForCreateOperation(string datasetName, string description, 
+     string schemaVersionId, string targetFileName, string workspaceId,
+     string veracityToken, string subscriptionKey)
+ {
+     string sasTokenUri = string.Empty;
+     string job_Id = string.Empty;
+
+     string baseUrl = "https://api.veracity.com/veracity/dw/gateway/api/v2";
+     string url = $"{baseUrl}/workspaces/{workspaceId}/ingest/dataset";
+     var token = veracityToken;
+                 
+     var fileOperations = new List<Dictionary<string, object>>
+     {
+         new Dictionary<string, object>{
+         ["fileName"] = targetFileName,
+         ["operation"] = "Create"
+         }
+     };
+
+     //Example of how metadata can be created on dataset
+     var tags = new List<Dictionary<string, object>> {
+         new Dictionary<string, object> {
+             ["Key"] = "Customer",
+             ["Values"] = new List<string> { "ABC" }
+         },
+         new Dictionary<string, object> {
+             ["Key"] = "Site",
+             ["Values"] = new List<string> { "123" }
+         }
+     };
+
+     //if start autoamtically = false, job must be started with seperate endpoint after fileupload
+     var payload = new Dictionary<string, object>
+     {
+         {"datasetName", datasetName},
+         {"datasetDescription", description},
+         {"schemaVersionId",  schemaVersionId},
+         {"provider", "BYOD"},
+         {"startAutomatically", false },
+         {"files", fileOperations },
+         {"tags", tags }
+     };
+
+     string jsonString = JsonConvert.SerializeObject(payload);
+     HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+     if (_httpClient == null)
+         _httpClient = new HttpClient();
+ 
+     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+     
+     try
+     {
+         var result = await _httpClient.PostAsync(url, content);                
+         if (result.IsSuccessStatusCode)
+         {                   
+             string json = result.Content.ReadAsStringAsync().Result;
+             using JsonDocument doc = JsonDocument.Parse(json);
+             JsonElement root = doc.RootElement;
+             JsonElement jobId = root.GetProperty("jobId");
+             JsonElement sasUri = root.GetProperty("sasToken");
+             sasTokenUri = sasUri.ToString().Trim('"');
+             job_Id = jobId.ToString().Trim('"');
+         }             
+     }
+     catch (Exception ex)
+     {
+         throw ex;
+     }    
+     return (sasTokenUri, job_Id);          
+ }
+```
+
+## Step 3: Upload CSV file
+### Upload file using SAS URI from Step 2
 We are using Microsoft libraries to upload data
 
+After file is uploaded and processing is triggered, use job_id from step 2 to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
+
+* localFilepath is path for file to be uploaded
+* targetFileName must be same as in step 2
+
+#### Python
 ```python
 from azure.storage.filedatalake import DataLakeFileClient, DataLakeDirectoryClient
 from urllib.parse import urlparse
@@ -152,14 +269,13 @@ import uuid
 from urllib.parse import urlparse
 
 #Source file
-localFilePath = "<filepath>"
+localFilePath = "/Workspace/Shared/Demo/TestData/WindDataJune.csv"
 
-#Same file name used in step 2 under Files
-target_file_name = fileNameToImport
+#Same file name as from step 2
+target_file_name = targetFileName
 
 # sas uri from step 2
 sas_folder_url = sas_uri
-
 # Parse the SAS URI from step 2
 parsed_url = urlparse(sas_folder_url)
 account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
@@ -187,11 +303,36 @@ with open(localFilePath, 'rb') as file_data:
     file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
     file_client.flush_data(len(file_contents))
 ```
-After file is uploaded and processing is triggered, use job_id from step 2 to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
-### Step 3b: Start processing the uploaded file(s) 
-**This step only applies when  "startAutomatically": False in step 2**
+#### C#
+```csharp
+using Azure.Storage.Files.DataLake;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
 
+public async Task<int> UploadFileToDataset(string sasUriToken, string localFilepath, string targetFileName)
+{
+    var sasUri = new System.Uri(sasUriToken);
+    string remoteFileName = targetFileName;
+    var containerClient = new DataLakeDirectoryClient(sasUri);
+    var containerFileClient = containerClient.GetFileClient(remoteFileName);
+         
+    using (FileStream fsSource = new FileStream(localFilepath, FileMode.Open, FileAccess.Read))
+    {
+        var response = await containerFileClient.UploadAsync(fsSource, true, CancellationToken.None);
+        return response.GetRawResponse().Status;
+    };
+}
+```
+
+## Step 4: Start job processing
+### Start processing the uploaded file(s) and store as delta tables
+**This step only applies when "StartAutomatically" = False in step 2**
+After file is uploaded, use job_id to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
+
+#### Python
 ```python
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/ingest/job/{job_id}/start"
@@ -212,161 +353,39 @@ except requests.exceptions.RequestException as e:
     
 result = response.json()
 ```
-After file is uploaded, use job_id to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
-## C# Code example 
-
+#### C#
 ```csharp
-using Azure.Storage.Files.DataLake;
-using Azure.Storage.Files.DataLake.Models;
-using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
-
-//read secrets and parameters
-string filename = <filepath to upload>;
-string schemaId = <schema id>;
-string veracityUserId = <user id of user uploading>;
-string workspaceId = <DWB workspace id>;
-string appKey = <my service account subscription key>;
-var client_id = <my service account ID>;
-var client_secret = <my service account secret>;
-```
-
-### Step 1: Get Veracity token for authentication
-Service account Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
-If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
-
-```csharp
-async Task<string> GetToken(string clientId, string clientSecret)
+public async Task<string> StartProcessingJob(string jobId, string workspaceId, string veracityToken, string subscriptionKey)
 {
-    var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
-    var grant_type = "client_credentials";
-    var resource = "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75";
+    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/ingest/job/{jobId}/start";
+    var token = veracityToken;
+    if (_httpClient == null)
+        _httpClient = new HttpClient();
 
-    var postData = new Dictionary<string, string>
-       {
-           {"grant_type", grant_type},
-           {"client_id", clientId},
-           {"client_secret", clientSecret},
-           {"resource", resource},
-       };
-    using HttpClient httpClient = new HttpClient();
-    httpClient.BaseAddress = new Uri(url);
-    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, httpClient.BaseAddress);
-    request.Content = new FormUrlEncodedContent(postData);
-    HttpResponseMessage authResponse = httpClient.PostAsync(url, new FormUrlEncodedContent(postData)).Result;
-    var result = await authResponse.Content.ReadAsStringAsync();
-    var token = (string)JToken.Parse(result)["access_token"];
-    return token;
-}
-
-```
-
-### Step 2: Prepare dataset update operation and get SAS URI for csv file upload
-Ensure you have schema version id, [see how to get it](get_schema_version_id)
-
-Using the Veracity token from step 1
-
-**Payload**
--Files can be more than one file. Operations: "Create" (when this is a new dataset)
--Tags are metadata for the dataset, and is an array of key/values. Tags are optional and can be removed or null.
--Start Automatically: If True, the job of processing the file (step 3) will start automatically. However, if set to False, you need to start the job with api-endpoint. This is will trigger the job faster.
--Provider: Use "BYOD" (will be made optional)
-
-**Output**
-Job id and sas_uri
-
-```csharp
-
-  public async Task<(string,string)> GetSASToken(string veracityToken, string workspaceId, string subscriptionKey)
-  {
-      //output is a tuple with sasTokenUri and RequestId
-      string sasTokenUri = string.Empty;
-      string request_Id = string.Empty; // to be used to request status
-      string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/ingest";
-
-      var token = veracityToken;
-      if (_httpClient == null)
-           _httpClient = new HttpClient();
-
-      _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-      _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-      HttpContent content = null;
-      try
-      {
-          var result = await _httpClient.PostAsync(url, content);
-          
-          var values = result.Headers.GetValues("X-Request-Id");
-          var requestId = values.FirstOrDefault();
-          if (!String.IsNullOrWhiteSpace(requestId))
-          {
-              if (Guid.TryParse(requestId, out var requestIdGuid))
-                  request_Id = requestIdGuid.ToString();
-          }
-          //use requestIdGuid to request status of operation using endpoint - need to wait 30-60 sec
-
-          if (result.IsSuccessStatusCode)
-          {
-              string sasKey = result.Content.ReadAsStringAsync().Result;
-              sasTokenUri = sasKey.Trim('"');
-              Dictionary<string, string> sasUriAndRequestId = new Dictionary<string, string>();
-              return (sasTokenUri, request_Id);
-          }             
-      }
-      catch (Exception ex)
-      {
-
-      }    
-      return (null, null);
-  }
-
-```
-Methods returns tuple that can be read like this: 
-```csharp
-var(sasToken, requestId) = await ingestDataSetHandler.GetSASToken(token, workspaceId, apiKey);
-```
-The request id can be used to receive the status of the ingest job (see step 4)
-
-
-### Step 3: Upload csv file using SAS uri
-
-[!Note]
-If DataLakeDirectoryClient can not be used, you would need the blob SAS token
-You can generate a blob SAS token URL by calling `https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/ingest?type=blob`
-
-
-```csharp
-async Task UploadStructuredDataset(string workspaceId, string sasToken, string filepath, string schemaId, string veracityUserId)
-{
-    var sasUri = new System.Uri(sasToken);
-    string remoteFileName  = Path.GetFileName(filepath);  //filepath is full path to file to be uploaded
-    var containerClient = new DataLakeDirectoryClient(sasUri);
-    var containerFileClient = containerClient.GetFileClient(remoteFileName);
-    var correlationId = Guid.NewGuid();
-    var description = "some description";
-    var metadata = new Dictionary<string, string>
-        {
-            { "userId", veracityUserId },
-            { "correlationId", correlationId.ToString() },
-            { "datasetName", remoteFileName },
-            { "description", description},
-            { "tags", "{}" },
-            { "schemaId", schemaId.ToString() } 
-        };
-    var opts = new DataLakeFileUploadOptions { Metadata = metadata };
-    using (FileStream fsSource = new FileStream(filename, FileMode.Open, FileAccess.Read))
+    _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    HttpContent content = null;
+    try
     {
-        var response = await containerFileClient.UploadAsync(fsSource, opts, CancellationToken.None);
-    };
+        var result = await _httpClient.PostAsync(url, content);
+        if (result.IsSuccessStatusCode)
+        {
+            string status = result.Content.ReadAsStringAsync().Result;
+            return status;
+        }
+    }
+    catch (Exception ex)
+    {
 
-    //poll for response using the request id from step 2  
-
+    }
+    return $"Cannot start job {jobId}";
 }
+
 ```
-After file is uploaded, use job_id to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
-
-## Verify upload status
+## Step 5: Check status
+### Verify upload status
 Since upload dataset takes 30-40 sec and processing is an asynchronous operation, status can be queried using status endpoint with the job_id from step 2.
 
 Before upload is completed status will show:
@@ -376,7 +395,7 @@ After completion status shows:
 {'jobId': 'job_id', 'status': 'Completed', 'operations': ['Create'], 'notebookErrorMessage': '', 'dataSetName': 'dataset name', 'datasetId': 'dataset_id', 'validationError': []}
 
 
-## Python code example
+#### Python
 ```python
 import requests
 apiKey =  "<api key>"
@@ -401,15 +420,11 @@ except requests.exceptions.RequestException as e:
     
 result = response.json()
 ```
-
-## C# Code example
-
+#### C#
 ```csharp
- async Task<string> GetStatus(Guid requestId, string veracityToken, string workspaceId, string subscriptionKey)                     
+public async Task<string> GetJobStatus(string jobId, string workspaceId, string veracityToken, string subscriptionKey)                     
 {
-
-    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/ingest/{requestId}/status";
-
+    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/ingest/job/{jobId}/status";
     var token = veracityToken;
     if (_httpClient == null)
         _httpClient = new HttpClient();
@@ -429,16 +444,14 @@ result = response.json()
     {
 
     }
-    return $"Cannot retrieve status for request id {requestId.ToString()}";
+    return $"Cannot retrieve status for job {jobId.ToString()}";
 }
 ```
 
 ## Get schema version id
+Schema version id must be used to uplad a new dataset. Fetch schema id from url in Dataworkbench Portal (Schema management)
 
-Fetch schema id from url in Dataworkbench Portal (Schema management)
-
-## Python code example
-
+#### Python
 ```python
 apiKey =  "<api key>"
 workspaceId = "<Workspace id>"
@@ -470,5 +483,43 @@ schema_versions = result.get('schemaVersions')
 first_schema_version = schema_versions[0]
 # get id of schema version
 schemaVersionId = first_schema_version.get('id')
-
 ```
+
+#### C#
+```csharp
+public async Task<string> GetSchemaVersionId(string schemaId, string workspaceId, string veracityToken, string subscriptionKey)
+{
+    string schemaVersionId = null;
+    if (!string.IsNullOrEmpty(schemaId))
+    {
+        string baseUrl = "https://api.veracity.com/veracity/dw/gateway/api/v2";
+        string url = $"{baseUrl}/workspaces/{workspaceId}/schemas/{schemaId}";
+        var token = veracityToken;
+        if (_httpClient == null)
+            _httpClient = new HttpClient();
+
+        _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        try
+        {
+            var result = await _httpClient.GetAsync(url);
+            if (result.IsSuccessStatusCode)
+            {
+                string json = result.Content.ReadAsStringAsync().Result;
+                using JsonDocument doc = JsonDocument.Parse(json);
+                JsonElement root = doc.RootElement;
+                //in this example, reading first version
+                JsonElement schemaVersions = root.GetProperty("schemaVersions")[0];
+                var id = schemaVersions.GetProperty("id");
+                return id.ToString();
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }                
+    }
+    return schemaVersionId;        
+}
+```
+

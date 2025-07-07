@@ -9,16 +9,20 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jul
 ## New features 
 
 ### Run validations on shared folders between workspaces
-You can now use Data Validator in File storage folders shared with you from other workspaces under the same tenant as your workspace.
+Data Validator now works with File storage folders that have been shared with your workspace by other workspaces within the same tenant. You will see them in File storage in the **Shared by other workspaces** tab.
+
+<figure>
+	<img src="../assets/shared-validated-folder.png"/>
+</figure>
 
 This means you can:
-- Upload files into a **shared input folder** from another workspace.
-- Automatically detect the **output folder and validation schema** based on internal configuration.
+- Upload files into a shared input folder from another workspace.
+- Automatically detect the output folder and validation schema based on internal configuration.
 - Use validation just like on your own workspace's folders even though the input and output folders belong to a different workspace.
 
 This opens the door for:
-- **Cross-team collaboration** where one team manages schemas and validation rules.
-- **Centralized validation** for external data pipelines.
+- Cross-team collaboration where one team manages schemas and validation rules.
+- Centralized validation for external data pipelines.
 - Seamless integration across teams using shared folders.
 
 **Note that** for validation to work, the input and output folders must both be shared with your workspace.
@@ -32,7 +36,7 @@ This opens a read-only dialog showing the schema, tags, and description used for
 ### Better upload experience with real-time feedback
 When you upload files to a shared input folder:
 - Data Workbench automatically checks whether validation is enabled and where the output will go.
-- You'll see **toast messages** confirming validation has started or finished.
+- You'll see toast messages confirming validation has started or finished.
 - After the upload completes, you can view the output result or download the validation summary from the output folder just like you would when using a folder in your own workspace.
 
 This lets you confidently upload to shared folders and understand what happens next.
@@ -52,4 +56,4 @@ Validation configuration is now only returned for:
 - The **input** subfolder.
 - The **output** subfolder.
 
-All other subfolders will **not** show validation metadata, preventing confusion in nested folder structures.
+All other subfolders will not show validation metadata, preventing confusion in nested folder structures.

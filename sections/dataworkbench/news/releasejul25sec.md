@@ -9,7 +9,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jul
 ## New features 
 
 ### Run validations on shared folders between workspaces
-Data Validator now works with File storage folders that have been shared with your workspace by other workspaces within the same tenant. You will see them in File storage in the **Shared by other workspaces** tab.
+Data Validator now works with File storage folders that have been shared with your workspace by other workspaces. You will see them in File storage in the **Shared by other workspaces** tab.
 
 <figure>
 	<img src="../assets/shared-validated-folder.png"/>
@@ -40,10 +40,3 @@ When you upload files to a shared input folder:
 - After the upload completes, you can view the output result or download the validation summary from the output folder just like you would when using a folder in your own workspace.
 
 This lets you confidently upload to shared folders and understand what happens next.
-
-## Changes in existing features
-
-### Configuration metadata now available in shared folder details
-If a shared folder is used for validation, its metadata now includes:
-- `validatorConfiguration` (if present).
-- Schema ID, name, tags, and folder paths.

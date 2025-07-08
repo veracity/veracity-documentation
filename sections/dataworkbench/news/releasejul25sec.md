@@ -47,13 +47,3 @@ This lets you confidently upload to shared folders and understand what happens n
 If a shared folder is used for validation, its metadata now includes:
 - `validatorConfiguration` (if present).
 - Schema ID, name, tags, and folder paths.
-
-## Bug fixes
-
-### Subfolders no longer return misleading validation metadata
-Validation configuration is now only returned for:
-- The **parent** folder that was explicitly set up for validation.
-- The **input** subfolder.
-- The **output** subfolder.
-
-All other subfolders will not show validation metadata, preventing confusion in nested folder structures.

@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: This is the changelog for the July 2025 release of Data Platform.
+description: This is the change log for the July 2025 release of Data Platform.
 ---
 
 # July 2025 release

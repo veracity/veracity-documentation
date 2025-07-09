@@ -8,9 +8,9 @@ Read this page to learn what has changed in Veracity Data Platform with the July
 
 ## New features
 
-### New gateway v2 endpoints for dataset ingest
+### New Dataworkbench V2 endpoints for dataset ingest
 
-You can now use the gateway v2 API to manage dataset ingest operations more flexibly and securely. Workspace admins can:
+You can now use the Dataworkbench V2 API to manage dataset ingest operations more flexibly and securely. Workspace admins can:
 
 - **Create** a new ingest dataset.
 - **Update** an existing ingest dataset (for example, using Upsert, Delete, Overwrite, or Append).

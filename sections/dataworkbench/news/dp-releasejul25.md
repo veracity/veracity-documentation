@@ -22,6 +22,6 @@ In addition, you can now query:
 - **Job history**
 - **Workspace history**
 
-These features are available to workspace administrators through the `gateway/v2` endpoints.
+These features are available to workspace administrators through the `v2` endpoints.
 
 > Refer to the [API documentation](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json) for payload examples and full endpoint structure.

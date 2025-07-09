@@ -27,7 +27,7 @@ This is an FAQ page for the EU ETS regulations. You will find useful information
 On this page you find the updated DCS reporting scheme to apply CII correction factors and voyage adjustments starting from 2023.
 Please check the pdf document at the bottom of this page.
 
-## Updated reporting requirements for GHG compliance
+### Updated reporting requirements for GHG compliance
 From August 2025 for newbuilds, and from 2026 for all vessels, updated regulatory requirements will apply under the IMO Data Collection System (DCS). These changes also affect reporting obligations under the EU Monitoring, Reporting and Verification (MRV) regulation, the EU Emissions Trading System (ETS), and FuelEU Maritime.  
 For an overview of the updates and their implications, see the [DNV news article on the updated requirements](https://www.dnv.com/).
 

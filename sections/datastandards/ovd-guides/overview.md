@@ -11,7 +11,7 @@ description: Description of Data Standards in Veracity
  <a href ="https://www.dnv.com/maritime/insights/topics/dcs/index.html" target="_blank"> On this page </a> you will find DCS Regulation [FAQs](https://www.dnv.com/maritime/insights/topics/dcs/FAQs-IMO-DCS.html), how DCS, CII and SEEMP Part III are connected, as well as links to related CII, MEPC and EEXI pages. 
 
 ### MRV reporting (EU and UK) - DNV resource page
-[This page provides]((https://www.dnv.com/maritime/insights/topics/mrv/index.html) ) an overview of MRV reporting for EU and the UK, [FAQs](https://www.dnv.com/maritime/insights/topics/mrv/FAQs-EU-MRV.html), and links to topic pages for FuelEU Maritime, EU ETS and SEEMP Part III. 
+[This page provides]((https://www.dnv.com/maritime/insights/topics/mrv/index.html) an overview of MRV reporting for EU and the UK, [FAQs](https://www.dnv.com/maritime/insights/topics/mrv/FAQs-EU-MRV.html), and links to topic pages for FuelEU Maritime, EU ETS and SEEMP Part III. 
 
 ### EU MRV page with FAQs
 [The EUs main page on the MRV reporting scheme](https://climate.ec.europa.eu/eu-action/transport/reducing-emissions-shipping-sector/faq-monitoring-reporting-and-verification-maritime-transport-emissions_en). You will find answers to: 
@@ -27,10 +27,11 @@ Please check the pdf document at the bottom of this page.
 
 ### Updated reporting requirements for GHG compliance
 From August 2025 for newbuilds, and from 2026 for all vessels, updated regulatory requirements will apply under the IMO Data Collection System (DCS). These changes also affect reporting obligations under the EU Monitoring, Reporting and Verification (MRV) regulation, the EU Emissions Trading System (ETS), and FuelEU Maritime.  
+
 For an overview of the updates and their implications, see the [DNV news article on the updated requirements](https://www.dnv.com/).
 
 ### FuelEU Maritime page with FAQs
-[This is a FAQ page for the FuelEU Maritime regulations]((https://www.dnv.com/maritime/insights/topics/fueleu-maritime/faq/). You will find useful information about timing & scope, alternative fuels, compliance measures, and reporting requirements.
+[This is a FAQ page for the FuelEU Maritime regulations](https://www.dnv.com/maritime/insights/topics/fueleu-maritime/faq/). You will find useful information about timing & scope, alternative fuels, compliance measures, and reporting requirements.
 news/2025/new-reporting-requirements-for-ghg-com),
 
 ## Support

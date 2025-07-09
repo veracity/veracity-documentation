@@ -11,7 +11,7 @@ description: Description of Data Standards in Veracity
  <a href ="https://www.dnv.com/maritime/insights/topics/dcs/index.html" target="_blank"> On this page </a> you will find DCS Regulation [FAQs](https://www.dnv.com/maritime/insights/topics/dcs/FAQs-IMO-DCS.html), how DCS, CII and SEEMP Part III are connected, as well as links to related CII, MEPC and EEXI pages. 
 
 ### MRV reporting (EU and UK) - DNV resource page
-[This page provides]((https://www.dnv.com/maritime/insights/topics/mrv/index.html) an overview of MRV reporting for EU and the UK, [FAQs](https://www.dnv.com/maritime/insights/topics/mrv/FAQs-EU-MRV.html), and links to topic pages for FuelEU Maritime, EU ETS and SEEMP Part III. 
+[This page provides](https://www.dnv.com/maritime/insights/topics/mrv/index.html) an overview of MRV reporting for EU and the UK, [FAQs](https://www.dnv.com/maritime/insights/topics/mrv/FAQs-EU-MRV.html), and links to topic pages for FuelEU Maritime, EU ETS and SEEMP Part III. 
 
 ### EU MRV page with FAQs
 [The EUs main page on the MRV reporting scheme](https://climate.ec.europa.eu/eu-action/transport/reducing-emissions-shipping-sector/faq-monitoring-reporting-and-verification-maritime-transport-emissions_en). You will find answers to: 

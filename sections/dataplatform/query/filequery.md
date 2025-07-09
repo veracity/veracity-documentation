@@ -8,7 +8,6 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 ## API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). See section **Storages**
 
-
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
@@ -16,18 +15,17 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
 ## Query for files
-
 You can access files via API if you generate a SAS token. To query for data on file storage you need to perform the following steps:
 
-1. Authenticate towards Veracity api using client credentials or user authentication.
-2. Get SAS token uri from Veracity api - with READ access
-3. Get data content (files, folders, metadata etc.)
-
+* Step 1: Authenticate towards Veracity api using client credentials or user authentication.
+* Step 2: Get SAS token uri from Veracity api - with READ access
+* Step 3: Read data content (files, folders, metadata etc.)
 See code examples below for each step in the process.
 
-## Python Code example
+## Step 1: Authentication
+### Get Veracity token for authentication using Veracity service principle
 
-### Step 1: Get Veracity token for authentication using Veracity service principle
+#### Python
 ```python
 import requests
 
@@ -53,20 +51,62 @@ else:
 print(veracityToken)  # Will print None if request fails
 ```
 
-### Step 2: Get SAS Uri for folder
+#### C#
+```csharp
+async Task<string> GetToken(string clientId, string clientSecret)
+{
+    var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
+    var grant_type = "client_credentials";
+    var resource = "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75";
 
+    var postData = new Dictionary<string, string>
+       {
+           {"grant_type", grant_type},
+           {"client_id", clientId},
+           {"client_secret", clientSecret},
+           {"resource", resource},
+       };
+    using HttpClient httpClient = new HttpClient();
+    httpClient.BaseAddress = new Uri(url);
+    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, httpClient.BaseAddress);
+    request.Content = new FormUrlEncodedContent(postData);
+    HttpResponseMessage authResponse = httpClient.PostAsync(url, new FormUrlEncodedContent(postData)).Result;
+    var result = await authResponse.Content.ReadAsStringAsync();
+    var token = (string)JToken.Parse(result)["access_token"];
+    return token;
+    }
+```
+
+## Step 2: Get SAS Uri
+### get SAS URI for folder
+
+**Input payload**
+Payload options:
+* `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the `ContainerName` (i.e. root level)
+* `readOrWritePermission` : Set write to be able to Write. **Ensure service account has Write access (ie. has Admin role in workspace )**
+* `StartsOn` is optional. It is the start date when the SAS token becomes valid. If not provided, it takes the current UTC date time.
+* `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
+* `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
+
+**Output**
+Either full sas uri path or split into objects (resourceUri and sasToken) depending on wether '?format=object' is used in query string.
+
+#### Python
 ```python
 import requests
 import json
 from datetime import datetime, timedelta
  
-mySubcriptionKey = <my service account api key>
-workspaceId = <workspace id in DWB>
-dwbFolderName = <folder name - if not provided root folder is used>
- 
+myApiKey =  <service account api key>
+workspaceId =<workspace id>
+
+#folder name, i.e "Test", folder must exist.
+#If not provided you get access to storage container level (root level)
+dwbFolderName = <name of folder in File Storage>
+
 def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
     base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
-    endpoint = f"/workspaces/{workspace_id}/storages/sas"
+    endpoint = f"/workspaces/{workspace_id}/storages/sas?format=object"
     url = base_url + endpoint
     expires_on = (datetime.utcnow() + timedelta(hours=5)).isoformat() + "Z"
  
@@ -91,14 +131,65 @@ def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
         print(f"Error fetching SAS token: {e}")
         return None
 
-sas_uri = get_sas_token(veracity_token= veracityToken,  folder=dwbFolderName, workspace_id=workspaceId,subscription_key= mySubcriptionKey)
-print("SAS Token:", sas_uri)
+sas_uri_object = get_sas_token(veracity_token= veracityToken,  folder=dwbFolderName, workspace_id=workspaceId,subscription_key= mySubcriptionKey)
+sasToken = sas_uri_object.get("sasToken")
+resourceUri = sas_uri_object.get("resourceUri")
 ```
 
-In payload, if path is set to "empty string", path points default to root level of storage container.
+#### C#
+```csharp
+using Azure.Storage.Files.DataLake;
+using System.Net.Http.Headers;
+using System.Text;
+using Newtonsoft.Json;
 
-### Step 3: Read folder and file content using SAS uri 
+public async Task<string> GetSASUri(string veracityToken, string folder, string workspaceId, string subscriptionKey)
+{
+    string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
+    // use ?format=object if you want an object to be returned with parsed SAS URI
 
+    DateTime expiresOn = DateTime.UtcNow.AddHours(1);
+    string expiresOnStr = expiresOn.ToString("O");
+
+    //path is folder name in storage container
+    var postData = new Dictionary<string, string>
+    {
+        {"path", folder},
+        {"readOrWritePermission", "Read"},
+        {"expiresOn", expiresOnStr }
+    };
+
+    string jsonString = JsonConvert.SerializeObject(postData);
+    HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+    if (_httpClient == null)
+        _httpClient = new HttpClient();
+
+    _httpClient.BaseAddress = new Uri(url);
+
+    _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", veracityToken);
+    try
+    {
+        var result = await _httpClient.PostAsync(url, content);
+        if (result.IsSuccessStatusCode)
+        {
+            string sasKey = result.Content.ReadAsStringAsync().Result;
+            return sasKey.Trim('"');
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    return null;
+}
+``` 
+
+## Step 3: Read folder and file content
+Using SAS URI from step 2
+
+#### Python
 ```python
 from azure.storage.filedatalake import DataLakeServiceClient
 from urllib.parse import urlparse
@@ -136,150 +227,9 @@ for path in pathsLst:
     # Decode and print the content
     file_content = downloaded_bytes.decode('utf-8')  # Adjust encoding if needed
     print(file_content)
-
-
 ```
 
-### Read storage datasets using Veracity api
-
-```python
-import requests
-import json
-from datetime import datetime, timedelta
- 
-mySubcriptionKey = <api key>
-workspaceId = <workspace id>
-dwbFolderName = "Test"
-
-base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
-endpoint = f"/workspaces/{workspaceId}/storages/storagedatasets"
-url = base_url + endpoint
- 
-headers = {
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": mySubcriptionKey,
-    "Authorization": f"Bearer {veracityToken}",
-    "User-Agent": "python-requests/2.31.0"
-}
-
-try:
-    response = requests.get(url, json=payload, headers=headers)
-    response.raise_for_status()   
-except requests.exceptions.RequestException as e:
-    print(f"Error fetching SAS token: {e}")
-    
-result = response.json()
-print(result)
-```
-
-
-## C# Code example
-
-#### Step 1: Get Veracity token for authentication using Veracity service principle
-Client Id, secret and subscription key for your workspace are defined under tab API Integration in data Workbench Portal.
-If you want to use user authentication, [see further details in Veracity Identity Documentation](https://developer.veracity.com/docs/section/identity/identity).
-
-
-```csharp
-async Task<string> GetToken(string clientId, string clientSecret)
-{
-    var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
-    var grant_type = "client_credentials";
-    var resource = "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75";
-
-    var postData = new Dictionary<string, string>
-       {
-           {"grant_type", grant_type},
-           {"client_id", clientId},
-           {"client_secret", clientSecret},
-           {"resource", resource},
-       };
-    using HttpClient httpClient = new HttpClient();
-    httpClient.BaseAddress = new Uri(url);
-    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, httpClient.BaseAddress);
-    request.Content = new FormUrlEncodedContent(postData);
-    HttpResponseMessage authResponse = httpClient.PostAsync(url, new FormUrlEncodedContent(postData)).Result;
-    var result = await authResponse.Content.ReadAsStringAsync();
-    var token = (string)JToken.Parse(result)["access_token"];
-    return token;
-}
-
-```
-
-#### Step 2: Get SAS uri
-
-To generate a SAS token, call the `{baseurl}/workspaces/{workspaceId:guid}/storages/sas` endpoint with the POST method using the Veracity token from step 1.
-Create a SAS token for a given folder with Read access
-
-```csharp
- 
- public async Task<string> GetSASToken(string veracityToken, string folder, string workspaceId, string subscriptionKey)
- {
-     string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/storages/sas";
-
-     DateTime expiresOn = DateTime.UtcNow.AddHours(1);
-     string expiresOnStr = expiresOn.ToString("O");
-                 
-     //path is folder name in storage container
-     var postData = new Dictionary<string, string>
-     {
-         {"path", folder},
-         {"readOrWritePermission", "Read"},
-         {"expiresOn", expiresOnStr }
-     };
-
-     string jsonString = JsonConvert.SerializeObject(postData);
-     HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
-
-     if (_httpClient == null)
-         _httpClient = new HttpClient();
-
-     _httpClient.BaseAddress = new Uri(url);
-                            
-     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", veracityToken);
-     try
-     {
-         var result = await _httpClient.PostAsync(url, content);
-         if (result.IsSuccessStatusCode)
-         {
-             string sasKey = result.Content.ReadAsStringAsync().Result;
-             return sasKey.Trim('"');
-         }
-     }
-     catch (Exception ex)
-     {
-
-     }
-     return null;
- }
-
- ```
- 
-Below, you can see a sample request payload. In the response, you will get a SAS token as a string.
-
-```json
-{
-"path": "string",
-  "readOrWritePermission": "Read",
-  "startsOn": "2024-05-14T09:04:12.297Z",
-  "expiresOn": "2024-05-14T09:04:12.297Z",
-  "storageName": "string"
-
-}
-```
-
-Note that:
-* `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the ContainerName or SubFolder which was specified when creating the internal storage connection.
-* `readOrWritePermission` can take the value `read` or `write` depending on the access type you want to give to the resource. A workspace admin can generate tokens giving both `read` and `write` access. If you have Reader access to a workspace, you can only give `read` access. Also, Service Accounts should generate only `read` tokens.
-* `StartsOn` is optional. It is the start date when the SAS token becomes valid. If not provided, it takes the current UTC date time.
-* `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
-* `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
-
-
-### Step 3: Read files in folder
-In step 2 the sas token was generated for a folder and this example iterates all files in that folder and reads metadata and content
-
+#### C#
 ```csharp
   public async Task ReadFiles(string sasToken)
   {
@@ -310,7 +260,8 @@ In step 2 the sas token was generated for a folder and this example iterates all
       }
   }
 ```
-### Read metadata
+
+## Read metadata
 
 ```csharp
           //build file client for file

@@ -15,13 +15,11 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 
-## Python code example
-
-### Authenticate with service account
-
-### Step 1: Authentication: Get Veracity token for service principle/service account
+## Step 1: Authenticate with service account
+### Get Veracity token for service principle/service account
 Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
 
+#### Python
 ```python
 import requests
 import json
@@ -42,17 +40,42 @@ if response.status_code == 200:
         veracityToken = response.json().get("access_token")
 else:
         print(f"Error: {response.status_code}")
-
 ```
+#### C#
+```csharp
+using Newtonsoft.Json.Linq;
+async Task<string> GetToken(string clientId, string clientSecret)
+{
+    var url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token";
+    var grant_type = "client_credentials";
+    var resource = "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75";
 
-### Query for datasets
+    var postData = new Dictionary<string, string>
+       {
+           {"grant_type", grant_type},
+           {"client_id", clientId},
+           {"client_secret", clientSecret},
+           {"resource", resource},
+       };
+    using HttpClient httpClient = new HttpClient();
+    httpClient.BaseAddress = new Uri(url);
+    HttpResponseMessage authResponse = httpClient.PostAsync(url, new FormUrlEncodedContent(postData)).Result;
+    var result = await authResponse.Content.ReadAsStringAsync();
+    var token = (string)Newtonsoft.Json.Linq.JToken.Parse(result)["access_token"];
+   return token;
+}
+```
+## Query for datasets
 
+In this example datasets based on give schemaId is requested
+#### Python
 ```python
 import requests
 import json
  
 mySubcriptionKey = <api key for service account>
 workspaceId = < workspace id>
+schemaId = <schema id>
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/datasets/query"
@@ -60,7 +83,7 @@ url = base_url + endpoint
  
 headers = {
     "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": mySubcriptionKey,
+    "Ocp-Apim-Subscription-Key": apiKey,
     "Authorization": f"Bearer {veracityToken}",
     "User-Agent": "python-requests/2.31.0"
 }
@@ -68,7 +91,8 @@ payload = {
     "pageIndex": 1,
     "pageSize": 10,         
     "sortColumn": "CreatedOn",
-    "sortDirection" : "Descending"     
+    "sortDirection" : "Descending",
+    "schemaId": schemaId
 }
 
 try:
@@ -78,13 +102,104 @@ except requests.exceptions.RequestException as e:
     print(f"Error AS token: {e}")
     
 result = response.json()
-print(result)
-
 ```
 
-### Query for data within a dataset
-Schemas must have query filters defined to be able to query using these data query filters such as column Greater or Less than a value.
+##### C#
+```csharp
+ public async Task QueryDataSet(string veracityToken, string workspaceId, string subscriptionKey)
+ {
+     string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/query";
+     var token = veracityToken;
+               
+     var postData = new Dictionary<string, string>
+     {
+         {"pageIndex", "1"},
+         {"pageSize", "10"},
+         {"sortColumn", "CreatedOn"},
+         {"sortDirection",  "Descending"}
+     };
 
+     string jsonString = JsonConvert.SerializeObject(postData);
+     HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+     if (_httpClient == null)
+         _httpClient = new HttpClient();
+
+     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+     try
+     {
+         var result = await _httpClient.PostAsync(url,content);
+         if (result.IsSuccessStatusCode)
+         {
+             var listOfDataset = result.Content.ReadAsStringAsync().Result;
+         }
+     }
+     catch (Exception ex)
+     {
+     }     
+ }
+```
+Full payload:
+```json
+{
+  "isBaseDataset": true,
+  "pageIndex": 0,
+  "pageSize": 0,
+  "sortColumn": "string",
+  "sortDirection": "Ascending",
+  "datasetName": "string",
+  "tags": {},
+  "createdAfter": "string",
+  "createdBefore": "string",
+  "schemaVersionIds": [
+    "string"
+  ]
+}
+```
+
+## Step 3: Query for data within a dataset
+The request body contains the filters fiot the query:
+* queryFilters: Schemas must have query filters defined to be able to use queryFilters such as column Greater or Less than a value. 
+* columnFilter: Define the columns to be listed in output, if not provided all columns will be listed
+
+The following filter will filter on timestamp and data channel ids. In addition return datapoints in descending order:
+```json
+{
+"pageIndex": 1,
+"pageSize": 500,
+"queryFilters": [
+    {
+      "column": "Timestamp",
+      "filterType": "Greater",
+      "filterValues": [
+        "2024-05-01"
+      ]
+    },
+    {
+      "column": "Timestamp",
+      "filterType": "Less",
+      "filterValues": [
+        "2024-05-03"
+      ]
+    },
+    {
+      "column": "DataChannelId",
+      "filterType": "Equals",
+      "filterValues": [
+        "HAYS_FC-RUN1-TT01",
+        "Emerson_700XA-MOL_PCT_0"
+      ]
+    }
+  ],
+  "columnFilter": ["Timestamp", "DataChannelId", "Value", "_ValueNumeric"],
+  "sorting": {
+       "column": "Timestamp",
+       "order": "Descending"
+   }
+}
+```
+#### Python
 ```python
 import requests
 import json
@@ -109,8 +224,11 @@ payload = {
     "pageIndex": 1,
     "pageSize": 100,         
     "sortColumn": "CreatedOn",
-    "sortDirection" : "Descending",
-    "columnFilter": ["Winddir", "Wind", "Irr", "Temp"]
+    "sorting": {
+        "column": "TS",
+        "order": "Ascending"
+    },
+    "columnFilter": ["TS", "Wind"]
     # to use query filter, the schema used for the dataset must support it    
 }
 
@@ -118,14 +236,68 @@ try:
     response = requests.post(url, json=payload, headers=headers)
     response.raise_for_status()   
 except requests.exceptions.RequestException as e:
-    print(f"Error AS token: {e}")
+    print(f"Error reading dataset: {e}")
     
 result = response.json()
-print(result)
 ```
+#### C#
+```csharp
+  public async Task QueryDataInDataSet(string veracityToken, string workspaceId, string datasetId, string subscriptionKey)
+  {
+      string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/{datasetId}/query";
+      var token = veracityToken;
+      
+      var sorting = new Dictionary<string, string>
+      {
+          {"column", "TS"},
+          {"order", "Ascending"},               
+      };
 
-### Query for dataset using SAS URI
-**Get URI**
+      var sortingColumns = new List<Dictionary<string, string>>
+      {
+          new Dictionary<string, string>{
+              {"column", "TS"},
+              {"order", "Ascending"},
+          },
+          new Dictionary<string, string>{
+              {"column", "TS"},
+              {"order", "Ascending"},
+          },
+      };
+      
+      var postData = new Dictionary<string, object>
+      {
+          {"pageIndex", "1"},
+          {"pageSize", "1000"},
+          {"sortColumn", "CreatedOn"},
+          {"sorting", sorting },
+          { "columnFilter", new string[]{"TS", "Wind" } }
+      };
+
+      string jsonString = JsonConvert.SerializeObject(postData);
+      HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+      if (_httpClient == null)
+          _httpClient = new HttpClient();
+
+      _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+      _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+      try
+      {
+          var result = await _httpClient.PostAsync(url, content);
+          if (result.IsSuccessStatusCode)
+          {
+              var filtereddataset = result.Content.ReadAsStringAsync().Result;
+          }
+      }
+      catch (Exception ex)
+      {
+      }
+  }
+```
+## Query using SAS URI
+### Get SAS uri for a dataset
+#### Python
 ```python
 import requests
 import json
@@ -153,7 +325,8 @@ except requests.exceptions.RequestException as e:
 read_sas_uri = response.json()
 ```
 
-**Use sas uri**
+### Query using SAS
+#### Python
 Each dataset is stored as a deltalake folder with transaction logs in folder _delta_logs and parquest file(s). You can read this using libraries.
 
 ```python
@@ -186,140 +359,4 @@ for path in pathsLst:
     print(f"- {path.name} (Directory: {path.is_directory})")   
 ```
 
-
-## C# code example
-
-`POST: {baseurl}/workspaces/{workspaceId}/datasets/query`
-
-Body in request:
-```csharp
-{
-  "isBaseDataset": true,
-  "pageIndex": 0,
-  "pageSize": 0,
-  "sortColumn": "string",
-  "sortDirection": "Ascending",
-  "datasetName": "string",
-  "tags": {},
-  "createdAfter": "string",
-  "createdBefore": "string",
-  "schemaVersionIds": [
-    "string"
-  ]
-}
-```
-
-Example
-```
-{ 
-    "PageIndex": 1,
-    "PageSize": 100,         
-    "SortColumn": "CreatedOn",
-    "SortDirection" : "Descending"     
-}
-```
-
-
-### Query data within a dataset
-
-```csharp
- public async Task QueryDataSet(string veracityToken, string workspaceId, string subscriptionKey)
- {
-     string url = $"https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId}/datasets/query";
-
-     var token = veracityToken;
-               
-     var postData = new Dictionary<string, string>
-     {
-         {"pageIndex", "1"},
-         {"pageSize", "10"},
-         {"sortColumn", "CreatedOn"},
-         {"sortDirection",  "Descending"}
-     };
-
-     string jsonString = JsonConvert.SerializeObject(postData);
-     HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
-
-     if (_httpClient == null)
-         _httpClient = new HttpClient();
-
-     _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-     try
-     {
-         var result = await _httpClient.PostAsync(url,content);
-         if (result.IsSuccessStatusCode)
-         {
-             var listOfDataset = result.Content.ReadAsStringAsync().Result;
-         }
-     }
-     catch (Exception ex)
-     {
-     }     
- }
-```
-
-The request body contains the filters. Schemas must have query filters defined to be able to query using these data query filters such as column Greater or Less than a value.
-```json
-{
-  "pageIndex": 0,
-  "pageSize": 0,
-  "queryFilters": [
-    {
-      "column": "string",
-      "filterType": "List",
-      "filterValues": [
-        "string"
-      ]
-    }
-  ],
-  "columnFilter": [
-    "string"
-  ],
-  "sorting": {
-    "column": "string",
-    "order": "Ascending"
-  }
-}
-```
-
-** Example **
-The following filter will filter on timestamp and data channel ids. In addition return datapoints in descending order.
-```csharp
-{
-"pageIndex": 1,
-"pageSize": 500,
-"columnFilter": [
-"Timestamp", "DataChannelId", "Value", "_ValueNumeric"
-],
-"queryFilters": [
-    {
-      "column": "Timestamp",
-      "filterType": "Greater",
-      "filterValues": [
-        "2024-05-01"
-      ]
-    },
-    {
-      "column": "Timestamp",
-      "filterType": "Less",
-      "filterValues": [
-        "2024-05-03"
-      ]
-    },
-    {
-      "column": "DataChannelId",
-      "filterType": "Equals",
-      "filterValues": [
-        "HAYS_FC-RUN1-TT01",
-        "Emerson_700XA-MOL_PCT_0"
-      ]
-    }
-  ],
-"sorting": {
-       "column": "Timestamp",
-       "order": "Descending"
-   }
-}
-```
 

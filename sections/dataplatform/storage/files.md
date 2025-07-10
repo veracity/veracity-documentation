@@ -11,7 +11,7 @@ This feature lets you upload files of any type into your Azure Data Lake. Files 
 * External storage is a data storage account from your company that was added to your Data Lake File storage (ie.e Mounting of datalakes). If you want to add a new external storage account, contact Veracity support and provide connection strings to this account. For [details regarding apis](filesexternal.md)
 
 ## API endpoints
-Note: The Ingest api-endpoints are different for uploading files to filestorage vs uploading datasets **See api section Storage**.  To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
+Note: The Ingest api-endpoints are different for uploading files to filestorage vs uploading datasets **See api section File Storages**.  To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints). See section **Data Workbench API**
@@ -97,29 +97,27 @@ import requests
 import json
 from datetime import datetime, timedelta
  
-myApiKey =  <service account api key>
-workspaceId =<workspace id>
-
-#folder name, i.e "Test", folder must exist.
-#If not provided you get access to storage container level (root level)
-dwbFolderName = <name of folder in File Storage>
-
+mySubcriptionKey = dbutils.secrets.get(scope="secrets", key="bkal_subKey")
+workspaceId = "<workspace id>"
+#if path not provided, root is used
+dwbFolderName = "<folder name>"
+ 
 def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
     base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
     endpoint = f"/workspaces/{workspace_id}/storages/sas?format=object"
     url = base_url + endpoint
-    expires_on = (datetime.utcnow() + timedelta(hours=5)).isoformat() + "Z"
+    expires_on = (datetime.utcnow() + timedelta(hours=2)).isoformat() + "Z"
  
     payload = {
-      "path": dwbFolderName,
+      "path": folder,
       "readOrWritePermission": "Write",
       "expiresOn": expires_on
     }
 
     headers = {
         "Content-Type": "application/json",
-        "Ocp-Apim-Subscription-Key": mySubcriptionKey,
-        "Authorization": f"Bearer {veracityToken}",
+        "Ocp-Apim-Subscription-Key": subscription_key,
+        "Authorization": f"Bearer {veracity_token}",
         "User-Agent": "python-requests/2.31.0"
     }
 
@@ -297,6 +295,7 @@ file_client = DataLakeFileClient(
     credential=sas_token
 )
 
+#Example of metadata - is optional
 metadata = {
     "Customer": "123",
     "Site": "ABC"    

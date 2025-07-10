@@ -6,7 +6,7 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 # Query files
 
 ## API endpoints
-To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). See section **Storages**
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). See section **File Storages**
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
@@ -83,7 +83,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
 **Input payload**
 Payload options:
 * `path` is optional. It is the path to the resource for which you're generating the SAS token. If you don't provide a path, the default path will be used. The default path is the `ContainerName` (i.e. root level)
-* `readOrWritePermission` : Set write to be able to Write. **Ensure service account has Write access (ie. has Admin role in workspace )**
+* `readOrWritePermission` : Should be "Read"
 * `StartsOn` is optional. It is the start date when the SAS token becomes valid. If not provided, it takes the current UTC date time.
 * `ExpiresOn` is when the SAS token stops being valid. It should be greated than `StartsOn` and can't be a past date.
 * `StorageName` is optional. If used, it should be a valid name of a data set in File storage. If not provided, it takes the default internal storage data set.
@@ -262,7 +262,6 @@ for path in pathsLst:
 ```
 
 ## Read metadata
-
 ```csharp
           //build file client for file
           var fileClient = new DataLakeFileClient(new System.Uri(fileUrl));

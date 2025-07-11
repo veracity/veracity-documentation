@@ -15,6 +15,7 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
 **When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to "service account id" in "workspace id"**
 
 For code example, see step 1 below.

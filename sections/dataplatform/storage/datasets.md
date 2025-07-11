@@ -14,15 +14,12 @@ Note: The Ingest api-endpoints are different for uploading datasets vs uploading
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints).  See section **Data Workbench API**
 
 ### Authentication and authorization
-To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
-**When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to "service account id" in "workspace id"**
-
-For code example, see step 1 below.
+To authenticate and authorize your calls, you need API key and a bearer token [here](../auth.md). **To write data, the user/service account needs WRITE permissions (admin role). When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to "service account id" in "workspace id"**
 
 ## Ingest/Upload dataset process
 Using the apis these are the steps to follow:
 * Step 1: Authenticate towards Veracity api using service account (service principle)
-* Step 2: Define dataset with metadata and get SAS token uri from Veracity api
+* Step 2: Define dataset with metadata and get SAS token uri from Veracity api (Note: different endpoint than for getting SAS Uri for filestorage)
 * Step 3: Read CSV file from your location and upload file to storage using received SAS token uri
 * Step 4: Start job (if not set to automatic job processing in step 2)
 * Step 5: Verify status on upload
@@ -34,7 +31,7 @@ When uploading a dataset it is the **schema version id** that is used (and not s
 
 ## Step 1: Authenticate
 ### Get Veracity token for service principle/service account
-Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal.
+Service Account Id (Client Id), secret and api key (subscription key) for your workspace are defined under tab API Integration in data Workbench Portal. **To write data, the user/service account needs WRITE permissions (admin role). When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to "service account id" in "workspace id"**
 
 #### Python
 ```python
@@ -85,7 +82,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
 
 ## Step 2: Prepare dataset for upload
 ### Define dataset with metadata and get SAS URI for uploading csv file
-
+Using the Veracity token from step 1, ensure user/service account has Write access.
 This step prepare upload operation and get SAS URI to upload file content. Ensure you have schema version id, [see how to get it](#get-schema-version-id)
 
 **Payload**
@@ -111,8 +108,8 @@ import json
 #from step 1
 token = veracityToken
 apiKey =  "<api key>"
-workspaceId = "<workspace id"
-schemaVersionId = "<schema version id>
+workspaceId = "<workspace id>"
+schemaVersionId = "<schema version id>"
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/ingest/dataset"
@@ -269,7 +266,7 @@ import uuid
 from urllib.parse import urlparse
 
 #Source file
-localFilePath = "/Workspace/Shared/Demo/TestData/WindDataJune.csv"
+localFilePath = "<local file path>"
 
 #Same file name as from step 2
 target_file_name = targetFileName
@@ -293,17 +290,19 @@ file_client = DataLakeFileClient(
     file_path=file_path,
     credential=sas_token
 )
-
 # Create a new file (overwrite if exists)
 file_client.create_file()
 
 # Upload file content
-with open(localFilePath, 'rb') as file_data:
-    file_contents = file_data.read()
-    file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
-    file_client.flush_data(len(file_contents))
+try:
+    with open(localFilePath, 'rb') as file_data:
+        file_contents = file_data.read()
+        file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
+        file_client.flush_data(len(file_contents))
+        print("✅ File uploaded successfully, check status for file processing using jobId from step 2")
+except Exception as e:
+    print(f"❌ General error occurred: {e}")
 ```
-
 #### C#
 ```csharp
 using Azure.Storage.Files.DataLake;
@@ -332,8 +331,12 @@ public async Task<int> UploadFileToDataset(string sasUriToken, string localFilep
 **This step only applies when "StartAutomatically" = False in step 2**
 After file is uploaded, use job_id to request status of the processing. [Get status of the upload](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#verify-upload-status)
 
+Use job_id from step 2
+
 #### Python
 ```python
+#from step 1
+token = veracityToken
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/ingest/job/{job_id}/start"
 url = base_url + endpoint
@@ -341,7 +344,7 @@ url = base_url + endpoint
 headers = {
     "Content-Type": "application/json",
     "Ocp-Apim-Subscription-Key": apiKey,
-    "Authorization": f"Bearer {veracityToken}",
+    "Authorization": f"Bearer {token}",
     "User-Agent": "python-requests/2.31.0"
 }
 

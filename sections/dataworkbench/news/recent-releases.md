@@ -8,10 +8,10 @@ description: This is an overview of recent releases of Data Workbench and Data P
 ## Recent Data Workbench changes
 
 1. [July 2025 release](releasejul25.md)
-2. [June 2025 release](releasejun25.md)
-3. [June 2025 second release](releasejun25sec.md)
-4. [June 2025 third release](releasejun25trd.md)
-5. [May 2025 release](releasemay25.md)
+2. [July 2025 second release](releasejul25sec.md)
+3. [June 2025 release](releasejun25.md)
+4. [June 2025 second release](releasejun25sec.md)
+5. [June 2025 third release](releasejun25trd.md)
 
 ## Recent Data Platform changes
 

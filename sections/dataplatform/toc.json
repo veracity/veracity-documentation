@@ -166,6 +166,10 @@
           "href": "analytics/analyticsdevelopment.md"
         },
         {
+          "text": "Using files and datasets",
+          "href": "analytics/workspaceintegration.md"
+        },
+        {
           "text": "Compute configurations",
           "href": "analytics/configurations.md"
         },

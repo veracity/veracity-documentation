@@ -38,8 +38,8 @@ import json
 
 # Token URL for authentication 
 token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
-clientId =  <myServiceAccountId>
-secret =   <myServiceAccountSecret>
+clientId =  "myServiceAccountId"
+secret =   "myServiceAccountSecret"
 
 # define the request payload    
 payload = {"resource": "https://dnvglb2cprod.onmicrosoft.com/83054ebf-1d7b-43f5-82ad-b2bde84d7b75",
@@ -98,9 +98,9 @@ import json
 from datetime import datetime, timedelta
  
 mySubcriptionKey = dbutils.secrets.get(scope="secrets", key="bkal_subKey")
-workspaceId = "<workspace id>"
+workspaceId = "workspace id"
 #if path not provided, root is used
-dwbFolderName = "<folder name>"
+dwbFolderName = "folder name"
  
 def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
     base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
@@ -195,7 +195,7 @@ from urllib.parse import urlparse
 import os
 from urllib.parse import urlparse
 
-localFilePath = "/Workspace/Shared/Demo/TestData/weatherdata.csv"
+localFilePath = "local-file-path"
 #target file name does not need to be same as source path
 targetFileName = "MyTestData.csv"
 
@@ -264,7 +264,7 @@ public async Task<string> UploadFileToFileStorage(string sasToken, string filepa
 Use sas-token uri from Step 2 and use DataLakeFileClient to update metadata
 #### Python
 
-```python
+```py
 from azure.storage.filedatalake import DataLakeFileClient
 from urllib.parse import urlparse
 import os

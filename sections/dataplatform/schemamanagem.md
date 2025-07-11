@@ -343,7 +343,7 @@ try:
   
 except requests.exceptions.RequestException as e:
     print(f"Error activating schema: {e}")
-```python
+```
 
 ## Get schema and versions
 Only the active schema_version is listed with columns.
@@ -395,10 +395,10 @@ headers = {
     "User-Agent": "python-requests/2.31.0"
 }
 try:
-    response = requests.post(url, json=None, headers=headers)
+    response = requests.post(url, json=No```pythonne, headers=headers)
     response.raise_for_status()   
-    result = response.json()   
-    print(result)  
+    result = response.getstatus_code()
+    print(result)
 except requests.exceptions.RequestException as e:
     print(f"Error locking schema: {e}")
 ```

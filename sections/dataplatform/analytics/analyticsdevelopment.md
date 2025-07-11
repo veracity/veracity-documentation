@@ -102,117 +102,11 @@ DECLARE variable is a user-defined variable that can hold a single hardcoded val
 
 [For more information](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-declare-variable)
 
-## Read datasets
-Datasets in your Dataworkbench is automatically available as Tables in Azure Databricks.
+## Libraries
+How to manage libraries on cluster and notebook level, [see library management](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticslibraries)
 
-Use Sql Editor or Notebook with Sql to query dataset from tables.
-
-To read dataset using python
-table name (datasetName) is stored in Widget
-
-```python
-dsName = dbutils.widgets.get("datasetName")
-df2 = spark.table(dsName)
-``` 
-
-```python
-dsName = dbutils.widgets.get("datasetName")
-query = f"select * from {dsName}"
-df = spark.sql(query)
-```
-
-When using sql, use the widgetname directly to parameterize tableNmae
-```python
-%sql
-select * from ${datasetName} where Value > 1000
-```
-This result is stored as _sqldf and can be used in other Python and SQL cells.
-
-## Read files from Volume
-
-The choice between Pyspark or Pandas depends on the size and complexity of your dataset and the nature of your application. If you are working with small to medium-sized datasets, Pandas is a good choice. If you are dealing with big data or real-time processing, Pyspark is a better option. Pandas loads data in memory before running queries, so it can only query datasets that fit into memory. Spark can query datasets that are larger than memory by streaming the data and incrementally running computations
-
-openpyxl provides fine-grained control over reading and writing Excel files. The read_only mode significantly improves performance when reading large files
-
-Read CSV is faster that reading XLSX
-
-```
-filename = dbutils.widgets.get("filepath")
-df2= pd.read_csv(filename)
-```
-
-
-## Synchronize with datasets in Data workbench
-Datasets in Data workbench are synchronized into tables in the Databricks environment. 
-
-### Create new tables in databricks
-New datasets can be created from Databricks and synchronized with Data Workbench. This is especially useful for data transformations (medallion architecture). For creating new tables in Databricks that need to be synced to Data Workbench, use Veracity internal library named **dataworkbench** that comes pre-installed to the cluster. 
-
-In below example demo dataframe is written to dataset in Data Workbench using library "dataworkbench"
-```python
-import dataworkbench
-
-df = spark.createDataFrame([("a", 1), ("b", 2), ("c", 3)], ["letter", "number"])
-
-datacatalogue = dataworkbench.DataCatalogue()
-datacatalogue.save(
-    df,
-    "Dataset Name",
-    "Description",
-    tags={"asset": ["123"], "level": ["Silver"]},
-    schema_id="abada0f7-acb4-43cf-8f54-b51abd7ba8b1"  # Using an existing schema ID, if not provided a new schema is created
-)
-```
-The code above will create a dataset with the existing schema id "current active version". 
-If schema_id is not provided, a new schema will be created based on the definition in the table.
-
-
-### Updating existing tables using overwrite
-
-For existing tables that are synchronized between Databricks and Data Workbench, you can directly overwrite the table using Spark's write methods.
-
-```python
-# Create a new DataFrame
-df = spark.createDataFrame([
-    ("d", 1), 
-    ("e", 2), 
-    ("f", 5)
-], ["letter", "number"])
-
-
-# Overwrite the existing table
-df.write.mode("overwrite").saveAsTable("TableNameOverwrite")
-```
-
-### Updating existing tables using append mode
-
-When you want to add new rows to an existing table:
-```python
-# Append new data to the existing table 
-df.write.mode("append").saveAsTable("TableName")`
-```
-
-**Common modes:**
-*   `overwrite`: Completely replaces the existing table
-*   `append`: Adds new rows to the existing table
-*   `ignore`: Skips insertion if data already exists
-*   `error`: Raises an error if data conflicts (default behavior)
-
-## Synchronize files with Data workbench
-There is no action required to synchronize files between Veracity data platform file storage and the Databricks environment. Files uploaded to Veracity data platform filestorage are visible in Databricks under Data Catalog/Default/Volumes. New files stored in Volume in databricks are visible in data platform file storage in same sub-folders.
-
-## Write files
-If creating a new file in Volume, you can create a new directory from workspace or from notebook
-
-**Example:**
-```py
-import os
-os.mkdir('/Volumes/<path>/default/filestorage/MyDir')
-
-##outputfilename is stored in widget
-filename = dbutils.widgets.get("outputfilepath")
-df.to_csv(filename, index= False) 
-```
+## Handle secrets
+How to manage secrets in a secure way, [see details](https://developer.veracity.com/docs/section/dataplatform/analytics/secretmgm)
 
 ## Connect to Asset model using API
 How to connect to Asset model from Python
@@ -222,7 +116,7 @@ How to connect to Asset model from Python
 This example; use client id and secret from API-integration and retrieves a token which is used in the following apis.
 
 ### Authenticate
-```
+```py
 import requests
 import json
 
@@ -241,11 +135,10 @@ if response.status_code == 200:
         access_token = response.json().get("access_token")
 else:
         print(f"Error: {response.status_code}")
-
 ```
 
 ### Retrive site information
-```
+```py
 tenantId = "DNVES"
 siteId = SITE_ID  (get from variable)
 subscriptionKey = SUBKEY
@@ -258,7 +151,7 @@ response = requests.get(queryurl, headers=header)
 ```
 
 ### Get devices 
-```
+```py
 tenantId = "DNVES"
 siteId = SITE_ID  (get from variable)
 subscriptionKey = SUBKEY

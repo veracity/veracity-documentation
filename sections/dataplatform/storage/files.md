@@ -100,8 +100,7 @@ from datetime import datetime, timedelta
 mySubcriptionKey = dbutils.secrets.get(scope="secrets", key="bkal_subKey")
 workspaceId = "workspace id"
 #if path not provided, root is used
-dwbFolderName = "folder name"
- 
+dwbFolderName = "folder name" 
 def get_sas_token(veracity_token, folder, workspace_id, subscription_key):
     base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
     endpoint = f"/workspaces/{workspace_id}/storages/sas?format=object"

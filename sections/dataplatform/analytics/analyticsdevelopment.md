@@ -102,6 +102,12 @@ DECLARE variable is a user-defined variable that can hold a single hardcoded val
 
 [For more information](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-declare-variable)
 
+## Libraries
+How to manage libraries on cluster and notebook level, [see library management](https://developer.veracity.com/docs/section/dataplatform/analytics/analyticslibraries)
+
+## Handle secrets
+How to manage secrets in a secure way, [see details](https://developer.veracity.com/docs/section/dataplatform/analytics/secretmgm)
+
 ## Read datasets
 Datasets in your Dataworkbench is automatically available as Tables in Azure Databricks.
 
@@ -222,7 +228,7 @@ How to connect to Asset model from Python
 This example; use client id and secret from API-integration and retrieves a token which is used in the following apis.
 
 ### Authenticate
-```
+```py
 import requests
 import json
 
@@ -241,11 +247,10 @@ if response.status_code == 200:
         access_token = response.json().get("access_token")
 else:
         print(f"Error: {response.status_code}")
-
 ```
 
 ### Retrive site information
-```
+```py
 tenantId = "DNVES"
 siteId = SITE_ID  (get from variable)
 subscriptionKey = SUBKEY
@@ -258,7 +263,7 @@ response = requests.get(queryurl, headers=header)
 ```
 
 ### Get devices 
-```
+```py
 tenantId = "DNVES"
 siteId = SITE_ID  (get from variable)
 subscriptionKey = SUBKEY

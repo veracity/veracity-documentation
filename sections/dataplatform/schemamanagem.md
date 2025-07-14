@@ -343,7 +343,17 @@ try:
   
 except requests.exceptions.RequestException as e:
     print(f"Error activating schema: {e}")
+```
+
+## Modify schema version
+This is a PATCH operation. 
+In this example, a column is removed from the schema_version from previous example.
+####  Python
 ```python
+apiKey =  "<api key>"
+workspaceId = "<workspace id>"
+schema_id = "<schema id>"
+schema_version_id = "<schema version id>"
 
 ## Get schema and versions
 Only the active schema_version is listed with columns.
@@ -355,6 +365,7 @@ schema_id = "<schema id>"
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/schemas/{schema_id}"
+
 url = base_url + endpoint
 
 headers = {
@@ -395,10 +406,10 @@ headers = {
     "User-Agent": "python-requests/2.31.0"
 }
 try:
-    response = requests.post(url, json=None, headers=headers)
+    response = requests.post(url, json=No```pythonne, headers=headers)
     response.raise_for_status()   
-    result = response.json()   
-    print(result)  
+    result = response.getstatus_code()
+    print(result)
 except requests.exceptions.RequestException as e:
     print(f"Error locking schema: {e}")
 ```

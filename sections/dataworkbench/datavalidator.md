@@ -15,6 +15,18 @@ To use Data Validator, you will need the following:
 * Subscriptions to Schema Management, Rule Management, and File Validation.
 If you need help in getting them or checking everything is configured correctly, contact Data Workbench support.
 
+### Role-based limitations
+Only workspace admins can set up and remove validation for folders in File storage.
+
+### Shared folders from other workspaces
+Other workspaces can share folders with your workspace and those folders can have validation enabled. You will see them in File storage in the **Shared by other workspaces** tab.
+
+<figure>
+	<img src="assets/shared-validated-folder.png"/>
+</figure>
+
+However, for validation to work correctly, both the input folder and the corresponding output folder must be shared with your workspace.
+
 ## Schema manager
 Schema manager is where you define the schemas that you will later use for validating folders in your File storage.
 
@@ -225,7 +237,19 @@ In File storage, you can set up validation for folders, and use a schema saved i
 If you need to edit or create a new schema, go to the section of this document on **Schema manager**.
 
 ## To recognize a folder with data validation enabled
-A folder with validation enabled will have an icon showing a tick (check mark) inside the folder. Below you can see a folder without validation (1) and a folder with validation set  (2).
+Folders with validation enabled show a **check (tick) mark icon** next to their name in the File storage list. 
+
+This icon appears on:
+- Folders owned by your workspace.
+- Folders shared with your workspace from another workspace.
+- Subfolders that are configured as **input** for validation and their subfolders.
+
+To see the configuration for any folder:
+1. Select the **three dots** in the folder row.
+2. Choose **Validation information**.
+3. A **dialog** will appear showing the validation schema, and, if they are not empty, tags and description.
+
+This helps you confirm which folders have validation enabled even if your workspace didn't configure them.
 <figure>
 	<img src="assets/fvalidation.png"/>
 </figure>
@@ -259,7 +283,7 @@ If you are a workspace admin, you can change the schema used for validation, edi
 	<img src="assets/foldertovalidate.png"/>
 </figure>
 
-When you set up a validation for a folder, Data Workbench will create two subfolders inside it and name it after your folder. However, one subfolder will have the word "input" added and another will have "output" added. 
+When a workspace admin sets up a validation for a folder, Data Workbench will create two subfolders inside it and name it after your folder. However, one subfolder will have the word "input" added and another will have "output" added. 
 
 Now, you can upload your files to the input subfolder and they will be automatically validated and you will see validation results in the output folder.
 
@@ -288,6 +312,18 @@ Below is a sample validation report.
 	<img src="assets/validationreport.png"/>
 </figure>
 
+## To upload to a shared input folder
+You can upload files to an **input folder that was shared with your workspace** from another workspace.
+
+If validation is configured for that folder and the corresponding output folder has been shared with you, Data Workbench will:
+- Automatically detect the corresponding **output folder** and schema.
+- Trigger validation after upload.
+- Display **toast messages** in the bottom right informing about validation progress.
+
+After uploading files to a shared folder:
+- Open the **output folder** to view the validation result.
+- Download the **summary** or validated output file, just like when using folders in your own workspace.
+
 ## To get a validated data file
 After validation, you can get the validated data file from the output folder from the **Results** subfolder.
 
@@ -296,3 +332,5 @@ As a result of data validation, the output folder is populated with:
 * A **Log** folder with detailed log information for the validation.
 * A **Results** folder with the output after validation. You can select the three dots in the row with this file, and download it as a CSV file. For example, if the data file you uploaded had some rows that were marked as errors in the validation, those rows would be removed from the output data file.
 * A **Summary** folder with a summary of data validation, its logs, and so on.
+
+Note that the input and output folder that were shared with you from another workspace will show in your File storage in the **Shared by other workspaces** tab. You can access the result, logs, and summary files there as usual.

@@ -202,17 +202,30 @@ To upload a Power BI File in VAP, follow the steps below.
 	<img src="assets/12.png"/>
 </figure>
 
-4. Specify what is needed and continue using VAP as usual.
-5. When the file is uploaded, you will see the information below.
+4. Fill in the required details and upload your `.pbix` file.
+5. If the file uses a **File Storage data set** and this is the **first time** it's added in the current service:
+   - Click **Edit** on the uploaded resource.
+   - Change the **Data Source Sub Type** from `Web` to `DWB File Storage`.
+   - Click **Save**.
+   - After saving, the **Credential** section appears.
+   - Paste the SAS token (generated in Data Workbench) into the **Credential** field.
+   - Click **Update** to apply the token.
+   - Click the **refresh icon** to validate the connection.
+   - When you see **"Connect to data source successfully"**, click **Save** again.
 
-<figure>
-	<img src="assets/13.png"/>
-</figure>
+   > If you skip this step, the token field will not appear and the connection will fail.
 
-6. If you want to update the access key, after loading the data source, click the link or key symbol. Then, paste the new SAS token you got from the Data Workbench File Storage [in point 10](https://developer.veracity.com/docs/section/vap/file-storage-as-data-source/create-report#use-parameter-to-save-access-key-and-url).
-7. Select the **+** icon and select **Add Report**. Then, add a report for the new uploaded file.
+6. If the same File Storage data source was previously connected in this service:
+   - The saved credential is reused automatically.
+   - In this case, the connection will succeed with `Web` as the default subtype, and no manual changes are needed.
 
-For more information, go [here](https://developer.veracity.com/docs/section/vap/admin-tab/resource).
+7. To update the SAS token later:
+   - Click the link or key icon next to the data source.
+   - Paste the new token (see [step 10](https://developer.veracity.com/docs/section/vap/file-storage-as-data-source/create-report#use-parameter-to-save-access-key-and-url)).
+
+8. Once the file is connected, select the **+** icon again and choose **Add Report** to register the report in VAP.
+
+For more details, see the [resource management guide](https://developer.veracity.com/docs/section/vap/admin-tab/resource).
 
 ## Enable scheduled refresh on report to get fresh data
 

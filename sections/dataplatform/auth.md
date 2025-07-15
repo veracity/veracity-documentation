@@ -10,14 +10,12 @@ There are two ways of making requests to the Veracity dataplatform endpoints:
 
 When you request the endpoints as user, then your personal token and API Key are used. On the other hand, when you make requests as application then application token and API key are being used.
 
-### Client Credentials /Service principle
+## Service account
 
-To get the client cerdentials:
+To get the service account (id, secret of client cerdentials):
 1. In your Data Workbench workspace, select the **API Integrations** tab.
 2. In the left sidebar, select a service account or [create a new service account](apiintegrations.md).
-3. Find the **API key**, and copy it.
-
-When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
+3. Find the **API key**, and copy it. When you construct an API request, put the API key into an HTTP header `Ocp-Apim-Subscription-Key`.
 
 To get the bearer token, call the URL https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token with the POST method.
 Use the following request body:
@@ -32,7 +30,7 @@ Use the following request body:
 </figure>
 
 
-### C# Code example
+## C# Code example
 ```cs
 async Task<string> GetToken()
 {
@@ -60,8 +58,8 @@ async Task<string> GetToken()
 }
 ```
 
-### Python example
-```(python)
+## Python example
+```python
 token_url = "https://login.microsoftonline.com/dnvglb2cprod.onmicrosoft.com/oauth2/token"
 
 # Token payload for authentication request
@@ -80,9 +78,6 @@ def get_token():
     except Exception as e:
         print(f"Failed to retrieve access token: {e}")
 ```
-
-### Node.ds example
-
 
 ## User credentials 
 

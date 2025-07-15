@@ -20,7 +20,7 @@ See [overview of base urls](https://developer.veracity.com/docs/section/dataplat
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
 **When authenticating using service account, the service account needs WRITE permissions. When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to service_account_id in workspace_ id**
 
-## Ingest process to Filestorage
+## Ingest/Upload process
 Using the apis these are the three steps to follow:
 * Step 1: Authenticate towards Veracity api using client credentials
 * Step 2: Get SAS token uri from Veracity api  (Note: different endpoint than for getting SAS Uri for datasets)
@@ -263,7 +263,7 @@ public async Task<string> UploadFileToFileStorage(string sasToken, string filepa
 Use sas-token uri from Step 2 and use DataLakeFileClient to update metadata
 #### Python
 
-```py
+```python
 from azure.storage.filedatalake import DataLakeFileClient
 from urllib.parse import urlparse
 import os

@@ -4,13 +4,6 @@ description: Documentation for APIs bought through the Veracity Marketplace.
 ---
 
 # OVD Egest Data 
-
- <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/ovd-egest/OVD%20architecture%20and%20processes%20-%20OVD%20Egest%20Schema%20to%20Data%20Workbench%20-%20Internal%20(002).pdf">
-    <img src="assets/button.png" alt="OVD data sets on Data Workbench" height="40">
-  </a>
-
-  <br>
-
 The  **OVD Egest Data** is based on submissions made in accordance with the Operational Vessel Data (OVD) standard. The OVD data has been processed by DNV through validation, enrichment, data quality control and verification steps to support a variety of emissions use cases.
 
 The goal is to provide customers with access to the complete datasets as available in Emissions Connect through the Veracity Data Workbench — including not only the data displayed in Emissions Connect, but also more detailed and comprehensive datasets intended to support deeper analysis and smooth integration with other services.
@@ -43,6 +36,14 @@ The overview below illustrates the available, upcoming, and planned datasets, al
 <figure>
 	<img src="assets/relations.png"/>
 </figure>
+
+If the image is too small, open it with the button below.
+
+ <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/ovd-egest/OVD%20architecture%20and%20processes%20-%20OVD%20Egest%20Schema%20to%20Data%20Workbench%20-%20Internal%20(002).pdf">
+    <img src="assets/button.png" alt="OVD data sets on Data Workbench" height="40">
+  </a>
+
+  <br>
 
 ## Dataset descriptions 
 - **Leg Emissions** contains emissions data aggregated to the vessel and berth to berth voyage leg level. Each row represents the emissions data for a single vessel on a specific voyage leg. It also includes the leg CII score and rating.

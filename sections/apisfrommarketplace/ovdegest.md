@@ -1,4 +1,4 @@
-﻿---
+---
 author: Veracity
 description: Information on OVD data sets available in Data Workbench.
 ---

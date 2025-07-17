@@ -39,7 +39,7 @@ The overview below illustrates the available, upcoming, and planned datasets, al
 
 If the image is too small, open it with the button below.
 
- <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/ovd-egest/OVD%20architecture%20and%20processes%20-%20OVD%20Egest%20Schema%20to%20Data%20Workbench%20-%20Internal%20(002).pdf">
+ <a href="https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/ovd-egest/OVD%20Egest%20Schema%20to%20Data%20Workbench.pdf">
     <img src="assets/button.png" alt="OVD data sets on Data Workbench" height="40">
   </a>
 

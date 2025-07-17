@@ -12,6 +12,10 @@
 		{
 			"text": "FatFree REST API",
 			"href": "fatfree-rest-api-openapi.yaml"
+		},
+		{
+			"text": "OVD Egest Data",
+			"href": "ovdegest.md"
 		}
 	]
 }

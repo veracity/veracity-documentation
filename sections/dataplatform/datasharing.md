@@ -4,7 +4,6 @@ description: Gives an overview of the Veracity Data Platform services and relate
 ---
 
 # Datasharing
-
 Vertacity data platform supports several types of secure sharing of data:
 
 **Invite users into workspace**
@@ -17,18 +16,19 @@ Vertacity data platform supports several types of secure sharing of data:
 
 **Share data to a workspace**
 * Share selected dataset to a workspace
-* Share selected file or folder to a workspace (not yet released)
+* Share selected file or folder to a workspace
 
 **Share access using SAS keys**
 * Share access to selected dataset, or all datasets, by generating SAS key for dataset
 * Share access to files by generating SAS key for workspace, folder or file
-
 
 <figure>
     <img src="assets/datasharing.jpg"/>
     <figcaption>Structured and unstructured data storage</figcaption>
 </figure>
 
+## Regions
+When sharing files, folder or dataset to a user; that user will see these shared datasets/files under Data Catalog/Shared with me in all workspaces he is member of as long as the workspace is in teh **same region as the region data was shared from**. I.e, data from US can only be viewed in another workspace located in US. 
 
 ### Share single dataset to individual user (B2C sharing)
 From Data Catalog, select dataset and share to user using email. User can be external to the tenant. 
@@ -57,13 +57,14 @@ These files are *not* available in the Analytics environment.
 *Adding shared files to a workspace will soon be available.
 
 ### Share single file or folder to another workspace (B2B sharing)
-Soon to be available.
+If a file or folder is shared from workspace A to a user and receiver adds this file to his workspace B, a *workspace sharing* is enabled between workspace A and B. Next time someone shares from workspace A, the "sharer" can select workspace B automatically from the dropdown list.
 
 ### Share files using SAS key
 From Filestorage SAS keys can be generated for a single file, a folder or on workspace level.
 To generate a SAS token, call the endpoint:
 ```POST: https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceId:guid}/storages/sas```
 
+If using **?format=object** in query string, the SAS URI is received as an object parsed into SasToken and resourceUri
 
 **Code Example**
 [See how to receive SAS keys using apis](https://developer.veracity.com/docs/section/dataplatform/storage/files#ingest-process)

@@ -65,14 +65,16 @@ async Task<string> GetToken(string clientId, string clientSecret)
    return token;
 }
 ```
-## Query for datasets
+## Step 2: Query for datasets
 
 In this example datasets based on give schemaId is requested
 #### Python
 ```python
 import requests
 import json
- 
+
+# from step 1
+veracityToken = token 
 mySubcriptionKey = <api key for service account>
 workspaceId = < workspace id>
 schemaId = <schema id>
@@ -208,6 +210,8 @@ from datetime import datetime, timedelta
 mySubcriptionKey = <api key for service account>
 workspaceId = < workspace id>
 datasetId = <dataset id>
+# from step 1
+veracityToken = token 
 
 base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
 endpoint = f"/workspaces/{workspaceId}/datasets/{datasetId}/query"
@@ -296,7 +300,7 @@ result = response.json()
   }
 ```
 ## Query using SAS URI
-### Get SAS uri for a dataset
+## Step 1: Get SAS uri for a dataset
 #### Python
 ```python
 import requests
@@ -325,7 +329,7 @@ except requests.exceptions.RequestException as e:
 read_sas_uri = response.json()
 ```
 
-### Query using SAS
+## Step 2: Query using SAS
 #### Python
 Each dataset is stored as a deltalake folder with transaction logs in folder _delta_logs and parquest file(s). You can read this using libraries.
 

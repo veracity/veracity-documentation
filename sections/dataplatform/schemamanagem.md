@@ -7,7 +7,7 @@ description: Gives an overview of the Veracity Data Platform services and relate
 Datasets stored in a workspace in Data Workbench must be based on a schema. A schema is like the definition of a table defining the columns of the schema. Schemas can be created and managed in the portal or using APIs. You need to be Admin in workspace to modify a schema.
 
 ## Versioning
-A schema can have several versions. When creating a schema, a first version is autoamtically created. Only one version can be active at one time.
+A schema can have several versions. When creating a new schema, a first schema version is autoamtically created. Only one version can be active at one time.
 
 ## Schema API endpoints
 To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Schemas**
@@ -74,7 +74,7 @@ In the example below a schema is created with two columns.
 To define "rowValidators" in input payload - Validator must be subcribed to (Validation Rule Management).
 
 **output**
-Schema created with schema id and a schema version id. When creating a schema, the active schema Version 1 will also be created and the version name is '[Schema name] V1'. Note: When uploading a new dataset, schema version id is used [see how to upload dataset](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#step-2-prepare-dataset-for-upload)
+Schema created with schema id and a schema version id. When creating a new schema, the active schema Version 1 will also be created and the version name is '[Schema name] V1'. Note: When uploading a new dataset, schema version id is used [see how to upload dataset](https://developer.veracity.com/docs/section/dataplatform/storage/datasets#step-2-prepare-dataset-for-upload)
 
 Configure each column by setting:
 * **isSortable:** Enable if you want users to be able to sort the data by this column.
@@ -151,8 +151,7 @@ To set validation rules, subscription to Rule validation is required.
 ```
 
 ## Modify schema
-When modifying a schema, you can set new name, description and short name using **Patch** endpoint.
-To change the columns, you need to either add new schema version or modify columns in an existing schema version.
+When modifying a schema, you can set new name, description and short name using **Patch** endpoint. To change the columns, you need to either add new schema version or modify columns in an existing schema version.
 
 ####  Python
 ```python
@@ -180,13 +179,12 @@ try:
     response = requests.patch(url, json=payload, headers=headers)
     response.raise_for_status()   
     result = response.json()   
-    print(result)  
 except requests.exceptions.RequestException as e:
     print(f"Error updating schema: {e}")    
 ```
 
 ## Add new schema version
-In this example, a new version of previos schema is created where a new column is added.
+In this example, a new version of previous schema is created where a new column is added.
 ####  Python
 ```python
 apiKey =  "<api key>"
@@ -249,15 +247,12 @@ try:
     response = requests.post(url, json=payload, headers=headers)
     response.raise_for_status()   
     result = response.json()   
-    print(result)
-    schema_version_id = result
-  
+    schema_version_id = result.get("id")
 except requests.exceptions.RequestException as e:
     print(f"Error updating schema: {e}")
 ```
 ## Modify schema version
-This is a PATCH operation. 
-In this example, a column is removed from the schema_version from previous example.
+This is a **PATCH** operation. In this example, a column is removed from the schema_version from previous example.
 ####  Python
 ```python
 apiKey =  "<api key>"
@@ -309,7 +304,6 @@ try:
     response = requests.patch(url, json=payload, headers=headers)
     response.raise_for_status()   
     result = response.json()   
-    print(result)
     schema_version_id = result.get("id")
   
 except requests.exceptions.RequestException as e:
@@ -345,48 +339,8 @@ except requests.exceptions.RequestException as e:
     print(f"Error activating schema: {e}")
 ```
 
-## Modify schema version
-This is a PATCH operation. 
-In this example, a column is removed from the schema_version from previous example.
-####  Python
-```python
-apiKey =  "<api key>"
-workspaceId = "<workspace id>"
-schema_id = "<schema id>"
-schema_version_id = "<schema version id>"
-
-## Get schema and versions
-Only the active schema_version is listed with columns.
-#### Python
-```python
-apiKey =  "<api key>"
-workspaceId = "<workspace id>"
-schema_id = "<schema id>"
-
-base_url = "https://api.veracity.com/veracity/dw/gateway/api/v2"
-endpoint = f"/workspaces/{workspaceId}/schemas/{schema_id}"
-
-url = base_url + endpoint
-
-headers = {
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": apiKey,
-    "Authorization": f"Bearer {veracityToken}",
-    "User-Agent": "python-requests/2.31.0"
-}
-try:
-    response = requests.get(url, json=payload, headers=headers)
-    response.raise_for_status()     
-    result = response.json()
-      # get version id for first version
-    version_id =   result.get("schemaVersions")[0].get("id")
-    print(version_id)
-except requests.exceptions.RequestException as e:
-    print(f"Error fetching schema {e}")
-```
-
 ## Lock schema version
-A locked schema version can not be modified with PATCH and a new schema version needs to be created.
+A locked schema version can not be modified with a PATCH and a new schema version would need to be created if a change is required.
 
 #### Python
 ```python
@@ -405,11 +359,13 @@ headers = {
     "Authorization": f"Bearer {veracityToken}",
     "User-Agent": "python-requests/2.31.0"
 }
+
 try:
-    response = requests.post(url, json=No```pythonne, headers=headers)
+    response = requests.post(url, json=None, headers=headers)
     response.raise_for_status()   
     result = response.getstatus_code()
     print(result)
+  
 except requests.exceptions.RequestException as e:
     print(f"Error locking schema: {e}")
 ```

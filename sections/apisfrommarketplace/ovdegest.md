@@ -34,7 +34,7 @@ Additionally, ingested OVD data is available upon request through the Data Workb
 
 The overview below illustrates the available, upcoming, and planned datasets, along with their interrelationships.
 <figure>
-	<img src="assets/relations.png"/>
+	<img src="assets/relations2.png"/>
 </figure>
 
 If the image is too small, open it with the button below.
@@ -46,10 +46,15 @@ If the image is too small, open it with the button below.
   <br>
 
 ## Dataset descriptions 
+Got it! Here's the text formatted as a Markdown list with the specified requirements:
+
 - **Leg Emissions** contains emissions data aggregated to the vessel and berth to berth voyage leg level. Each row represents the emissions data for a single vessel on a specific voyage leg. It also includes the leg CII score and rating.
 
-- **Leg Part Emissions** contains emissions data aggregated to the vessel and voyage leg part level. Each row represents the emissions data for a single vessel on a specific voyage leg part. A voyage leg may be divided into parts based on business requirements, such as the start of a new voyage or a new month. It also includes the leg CII score and rating. 
-**FuelEU Leg Part Emissions** contains additional FuelEU compliance-related columns. This includes actual and target GHGIE, compliance balance and penalty cost.
+- **FuelEU - Leg Emissions** contains emissions data aggregated to the vessel and berth to berth voyage leg level. Each row represents the emissions data for a single vessel on a specific voyage leg. It also includes the leg CII score and rating. It also includes key figures related to FuelEU.
+
+- **Leg Part Emissions** contains emissions data aggregated to the vessel and voyage leg part level. Each row represents the emissions data for a single vessel on a specific voyage leg part. A voyage leg may be divided into parts based on business requirements, such as the start of a new voyage or a new month. It also includes the leg CII score and rating.
+
+- **FuelEU Leg Part Emissions** contains emissions data aggregated to the vessel level for each year. Each row represents one vessel and its yearly data. For the current year, the data reflects year-to-date values. It also contains additional FuelEU columns in addition to this dataset. This is a temporary schema and will be replaced by new FuelEU schemas.
 
 - **Leg Part Consumption** contains fuel consumption and emissions data aggregated to vessel, voyage leg part, fuel type, and consumer type. Each row represents the total consumption of a specific fuel type for a single vessel and consumer type (e.g., main engine, auxiliary engine) within a voyage leg part.
 
@@ -63,8 +68,6 @@ If the image is too small, open it with the button below.
 
 - **Yearly Consumption (Component)** contains fuel consumption and emissions data aggregated by year, vessel, fuel type, ETS CO₂ conversion factor, and consumer type. Each row represents the total consumption of a specific fuel type, along with its corresponding CO₂ conversion factor, for a given vessel and consumer type (e.g., main engine, auxiliary engine) over the entire year.
 
-- **FuelEU Leg Part Emissions** contains emissions data aggregated to the vessel level for each year. Each row represents one vessel and its yearly data. For the current year, the data reflects year-to-date values. It also contains additional FuelEU columns in addition to this dataset. This is a temporary schema and will be replaced by new FuelEU schemas.
-
 - **DCS Period** contains aggregated emissions and fuel consumption data for each DCS reporting period. Each row corresponds to one vessel's reported emissions and fuel consumption during a specific period, categorized by the vessel's document of compliance holder and flag state. It also includes the verification status of the reported data. Note: A vessel may appear multiple times in the dataset.
 
 - **Data Quality Report Voyage Leg Verification** includes all checks applied during the Voyage Leg Verification (VLV) process, including those required for MRV and DCS compliance.
@@ -77,4 +80,4 @@ If the image is too small, open it with the button below.
 
 - **Log Abstract** contains raw data extracted from OVD Log Abstract Interface. This is data as it was delivered to OVD by the customer.
 
-- **Bunker Delivery Note** contains raw data extract from OVD Bunker Report. This is data as it was delivered to OVD by the customer. 
+- **Bunker Delivery Note** contains raw data extract from OVD Bunker Report. This is data as it was delivered to OVD by the customer.

@@ -223,7 +223,7 @@ To upload a Power BI File in VAP, follow the steps below.
 
 7. To update the SAS token later:
    - Click the link or key icon next to the data source.
-   - Paste the new token (for instructions how to generate it, see [To generate an access token for a structured uploaded data set](#to-generate-an-access-token-for-a-structured-uploaded-data-set)).
+   - Paste the new token (for instructions how to generate it, see [To generate an access token for a File Storage data set](#to-generate-an-access-token-for-a-file-storage-data-set)).
 
 8. Once the file is connected, select the **+** icon again and choose **Add Report** to register the report in VAP.
 

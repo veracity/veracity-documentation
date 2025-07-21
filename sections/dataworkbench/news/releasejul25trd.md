@@ -16,8 +16,8 @@ Now, when you create a service account granting it access to all workspace data,
 </figure>
 
 ### View and change access level for service accounts
-When you **edit** a service account that has full workspace access:
-  - You can **view and change** the **Workspace Access Level** (Reader or Admin) under **Access to data sets**
+When you edit a service account that has full workspace access:
+  - You can **view and change** the **Workspace Access Level** (Reader or Admin) under **Access to data sets**.
   - If you switch to **Select data sets manually**, the role will automatically change to **Guest**, and the dropdown will be hidden.
 
 ### Access level for existing accounts

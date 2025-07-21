@@ -23,5 +23,5 @@ All existing service accounts have been automatically assigned the Reader access
 
 ## Workspace access level
 The access level defines what the service account can do in the workspace.
-- **Reader** – View-only access to the workspace. The service account can read data but cannot invite users, connect services, or modify any content or settings.
-- **Admin** – Full access to manage the workspace. The service account can create and modify data sets and files, invite users, manage permissions, and adjust all settings and content.
+- **Reader** - View-only access to the workspace. The service account can read data but cannot invite users, connect services, or modify any content or settings.
+- **Admin** - Full access to manage the workspace. The service account can create and modify data sets and files, invite users, manage permissions, and adjust all settings and content.

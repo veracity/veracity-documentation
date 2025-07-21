@@ -46,8 +46,6 @@ If the image is too small, open it with the button below.
   <br>
 
 ## Dataset descriptions 
-Got it! Here's the text formatted as a Markdown list with the specified requirements:
-
 - **Leg Emissions** contains emissions data aggregated to the vessel and berth to berth voyage leg level. Each row represents the emissions data for a single vessel on a specific voyage leg. It also includes the leg CII score and rating.
 
 - **FuelEU - Leg Emissions** contains emissions data aggregated to the vessel and berth to berth voyage leg level. Each row represents the emissions data for a single vessel on a specific voyage leg. It also includes the leg CII score and rating. It also includes key figures related to FuelEU.

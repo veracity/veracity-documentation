@@ -12,12 +12,21 @@ To add a new account:
 2. In the left sidebar, select **Add account**. 
 3. Under **Account name**, enter the name for the account.
 4. Under **Contact email**, enter the contact email to the owner of this service account.
-5. Under **Access to data sets**, decide whether the account should have access to all data sets in the workspace ("Grant all workspace data") or just to selected data sets ("Select data sets manually").
-6. Select the **Create service account** button. 
+5. Under **Access to data sets**, choose one of the following:
+   - **Grant all workspace data** – Grants full access to the workspace. You must also set the **Workspace access level** to either **Reader** or **Admin**.
+   - **Select data sets manually** – Lets you share specific data sets with the account. The account will automatically receive **Guest** access.
+6. If you selected "Grant all workspace data", under **Workspace access level**, choose whether the account should have **Reader** or **Admin** access. For details, see the section below.
+7. Select the **Create service account** button.
 
 After that, your account will be created, and you will get the values for the service account secret, ID, and API key. You will need them to [authenticate API calls](authentication.md).
 
 **Note that** you will see the service account secret only once. Copy it and store securely. 
+
+### Workspace access level
+The access level defines what the service account can do in the workspace.
+- **Guest** – Assigned automatically when "Select data sets manually" is chosen. Guest accounts can only access the specific data sets shared with them. They cannot perform actions that require workspace-level or tenant-level permissions. Calls to such endpoints will return a `403 Forbidden` error.
+- **Reader** – View-only access to the workspace. The service account can read data but cannot invite users, connect services, or modify any content or settings.
+- **Admin** – Full access to manage the workspace. The service account can create and modify data sets and files, invite users, manage permissions, and adjust all settings and content.
 
 ### 403 Forbidden error
 If you select **Select data sets manually** in **Access to data sets**, the service account will only be able to access APIs related to the specific shared data sets.
@@ -45,7 +54,6 @@ To update the name of a service account:
 4. Select the **Save** button.
 
 ## To update shared data sets
-
 For a service account with "Select data sets manually" enabled, do the following to update the data sets shared with this account.
 1. In your workspace, select the **API management** tab. 
 2. In the left sidebar, under **Service accounts**, select an account.
@@ -81,7 +89,7 @@ To generate the code:
 
 ## Limitations of dataset-scoped service accounts
 
-Service accounts created with **Select data sets manually** are restricted to data set–level operations. They **cannot** call workspace-level or tenant-level API endpoints.
+Service accounts created with **Select data sets manually** are assigned Guest access and are restricted to data set–level operations. They **cannot** call workspace-level or tenant-level API endpoints.
 
 If such an account tries to access unsupported endpoints, the response will be `403 Forbidden`.
 

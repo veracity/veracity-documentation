@@ -1,4 +1,4 @@
----
+﻿---
 author: Veracity
 description: This section describes how to create a report with a Data Workbench source and upload it in VAP
 ---
@@ -84,7 +84,7 @@ Follow the steps below to create your report using a File Storage data set from 
 4. Under **URL parts** (2), paste the access key (SAS token) you just generated in Data Workbench in the following way:
 	* In the upper part, paste the part of the access key which is before **?** symbol. Do not include the **?** symbol here.
 	* In the lower part, paste the part of the URL which begins with the **?** symbol, including the **?** symbol.
-	Note that you can use a parameter to save the access key and URL. To see how to do it, see the section below.
+	Note that you can [use a parameter to save the access key and URL](#use-parameter-to-save-access-key-and-url).
 5.	Select **Ok** (3).
 
 <figure>
@@ -106,6 +106,18 @@ Below, an example of what your report will look like.
 **Note that** if you have several files in the File storage, you must repeat all the steps above for each file.
 
 7. Finally, it is time to build your visuals in the report. Save the file in the storage folder of your choice.
+
+⚠️ **If you got the error "Access to the resource is forbidden**, it may be because Power BI is reusing a previously cached, incorrect, or invalid connection string. 
+
+To resolve this, in PowerBI:
+1. Go to **File** > **Options and settings** > **Data source settings**.
+2. Find the data source that caused the error, right-click it, and select **Clear Permissions**.
+<figure>
+	<img src="assets/clearpermissions.png"/>
+</figure>
+
+3. After clearing permissions, reconnect to the data source by re-entering the correct URL and query parameters when prompted.
+
 
 ## To use an Uploaded structured Data Workbench data set in a VAP report
 For uploaded structured datasets from Data Workbench, **do not** use the "Web" data connector in Power BI, because this will result in an empty dataset.

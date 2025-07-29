@@ -1,7 +1,6 @@
-﻿---
+---
 author: Veracity
 description: This section describes how to create a report with a Data Workbench source and upload it in VAP
----
 ---
 
 # Create a report with a Data Workbench source and upload it in VAP
@@ -107,7 +106,7 @@ Below, an example of what your report will look like.
 
 7. Finally, it is time to build your visuals in the report. Save the file in the storage folder of your choice.
 
-⚠️ **If you got the error "Access to the resource is forbidden**, it may be because Power BI is reusing a previously cached, incorrect, or invalid connection string. 
+⚠️ **If you got the error "Access to the resource is forbidden"**, it may be because Power BI is reusing a previously cached, incorrect, or invalid connection string. 
 
 To resolve this, in PowerBI:
 1. Go to **File** > **Options and settings** > **Data source settings**.

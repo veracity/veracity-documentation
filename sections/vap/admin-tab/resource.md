@@ -4,9 +4,11 @@ description: Overview of the Resource tab in the admin tab.
 ---
 
 # Resources
+The 'Resources' tab lets you manage files (like Power BI reports) and web app connections in your VAP service. It includes two subtabs:
+- **File**: Opens by default.
+- **[Web App](#web-app)**: Available only for selected services; most services do not include Web App support by default.
 
-The 'Resources' tab consists of the **File** subtab (that opens by default) and the <a href="#webapp">**Web App** subtab</a>.
-
+## Resources table
 Resources are shown in a table and each resource is presented in one row. Some columns are sortable which is inidcated by arrow symbols next to the column name. To sort the column, select its name.
 
 In the **Actions** column, you can:
@@ -15,14 +17,129 @@ In the **Actions** column, you can:
 * Delete the resource (3).
 * Download the resource which file type is .PBIX (4). 
 
-Note that:
-* Due to limitations set by Microsoft, you cannot download a large .pbix. It may time out after 4 minues. If it happens, send a support ticket to get help to download the report. For more information, go [here](https://learn.microsoft.com/en-us/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).
-* Downloading .PBIX file types is only possible if a System Admin enabled it. To enable the download of Power BI files, on the **Config** page, in the **Tenant Properties**, select **Edit** and toggle on **Allow download Pbix**.
-
-
 <figure>
 	<img src="assets/resource_actions.png"/>
 </figure>
+
+Note that:
+* Due to limitations set by Microsoft, you cannot download a large .pbix. It may time out after 4 minutes. If it happens, send a support ticket to get help to download the report. For more information, go [here](https://learn.microsoft.com/en-us/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).
+* Downloading .PBIX file types is only possible if a System Admin enabled it. To enable the download of Power BI files, on the **Config** page, in the **Tenant Properties**, select **Edit** and toggle on **Allow download Pbix**.
+
+## To upload a file
+Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. 
+
+By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
+
+To upload a file:
+1. In the top right corner, select the plus icon. Alternatively, from the left sidebar, select the plus icon and the **Add Resource File** button.
+2. Under **File Name**, enter the name for the file. Veracity recommends including information like client name, report date, or upload date.
+3. Drag and drop the file onto **Drop file here or click to upload**, or select it manually. Supported formats: PBIX, PDF, PNG, JPEG, GIF, RDL.
+4. Under **Personal data policy**, confirm if the file contains no personal data or, if personal data is used, confirm you are following the data processing terms that are linked as Veracity DPA.
+5. Select **Upload**.
+
+If you upload a Power BI report:
+- Set the [**Privacy Level**](#privacy-level).
+- Toggle **I accept and understand that I'm responsible for the content I share**.
+- Optionall,y toggle **I am using Azure Analysis Service** if you are using this service. Using this as a data source will load your data significantly faster than from Azure SQL DB. Before enabling this toggle, check the prerequisites under <a href="#AAS">'To use Azure Analysis Service as a data source'</a>.
+
+
+**Note that**:
+- For first-time database connections in VAP, use the warning icons to set credentials.  
+- If your data source cannot refresh automatically, either ensure it's stored in a [supported location](../data.md) or replace files manually to update data.
+
+### Privacy Level
+There are the following privacy levels:
+* None - Before this release, it was the default setting.
+* Organizational
+* Private
+* Public
+
+For details on privacy levels, go [here](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-security-content-creator-planning#privacy-levels).
+
+Note that privacy levels set in Power BI Desktop are **not transferred** during the upload. However, after uploading the report, you can set data privacy for each data source separately.
+
+### For organizational privacy level
+Suppose the privacy level in Power BI Desktop data source is organizational. In that case, you must also set it on the data source in your service to avoid issues with refreshing the data source. For details, go [here](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-security-content-creator-planning#privacy-levels).
+
+### To set a privacy level for a data source
+To set a privacy level for a data source, in the Admin Panel > Manage Files, in the row with the name of the report:
+1. Select the editing icon.
+2. Select the **Load datasource status** button.
+3. Select the icon shown below.
+4. For each data source, under **Privacy Level**, select a privacy level.
+
+<figure>
+	<img src="assets/privacylevel.png"/>
+</figure>
+
+## To use a Paginated report
+You can upload a paginated report in `.rdl` format. Paginated reports are ideal for certificates, audit findings, purchase orders, or long tabular data.
+
+### Service Principal required
+Your VAP service must use a Service Principal account. Legacy Power BI Service Principal setups cannot upload paginated reports.
+
+### Supported data sources
+- Databases: Azure SQL.
+- Semantic models: Azure SQL, on-prem SQL, Web (API), files (.csv, .xlsx), Azure Blob.
+
+### Reloading and session expiry
+- Reports reload after 1 hour of interaction (reload icon will appear).  
+- Inactive sessions expire after 10 minutes. Use **'X'** or **'Refresh'** to resume.
+
+## To Schedule Refresh Plans
+Admins (Data Admins, Report Admins, and System Admins) can schedule automatic refreshes for Power BI reports to keep data up to date.
+
+1. In the top right corner of **Resources** > **File**, select the schedule icon.
+
+<figure>
+	<img src="assets/schedule.png"/>
+</figure>
+
+2. In the panel, add, edit, or delete a refresh plan.
+3. Set the start time, interval, and number of daily refreshes (up to 48 times per day, every 30 minutes).
+
+**Note that**:
+- Refreshes run as background tasks.
+- User interactions (like opening or filtering reports) are prioritized, so refreshes may be delayed during busy periods.
+
+## Optimize performance with the Refresh Time Chart
+When you add or edit a Refresh Schedule Plan, you can **Preview Refresh Times** to check for the best time to schedule a refresh, and you can also click **Check Refresh Time Chart** to visualize this information.
+
+Peak hours are red, and non-peak hours are green. Try to schedule your refreshes during green hours to get smoother performance.
+
+<figure>
+	<img src="assets/refresh-time-chart.png"/>
+</figure>
+
+### Why timing matters
+Refresh operations are resource-intensive because they:
+- Load new data
+- Recalculate models
+- Update visuals in the background
+
+In contrast, user clicks (for example, opening a report) are lightweight since they only display already-loaded data.
+
+When too many refreshes run at once, they can slow down the entire VAP service in your region.
+By scheduling refreshes during off-peak (green) times, you help maintain good performance for everyone.
+
+**Note that** refresh schedules don't auto-adjust for daylight saving time. Update manually when DST changes.
+
+## To apply a refresh plan
+To apply a plan:
+1. In a PBIX row, under **Refresh**, select the schedule icon.
+2. Pick a plan under **Select a Schedule Plan** and select **Save**.
+
+**Note that** paginated reports (`.RDL`) do not support scheduled refresh.
+
+<figure>
+	<img src="assets/scheduleicon2.png"/>
+</figure>
+
+## To refresh a file on demand
+Trigger an on-demand refresh for PBIX or RDL files with semantic models:
+1. In the report row, under **'Refresh'**, select **'Refresh Report'**.
+
+**Note that** most semantic models with dynamic data sources can't refresh in paginated reports. [See Microsoft docs](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
 
 ## Configure Data Workbench Service Account
 If your reports use Data Workbench data sets, configuring your Data Workbench Service Account allows the necessary connection details to be automatically filled in whenever needed. This saves you from manually entering them each time you access your data sets.
@@ -40,6 +157,7 @@ To configure your Data Workbench Service Account, select its icon in the top rig
 When you open a data set, you can find its ID in the URL after `datasets`. For example, in the URL `https://dw.veracity.com/veracity/ws/f6427539-6y63-41d0-8795-b878213631d8/dataCatalogue/datasets/4f7rfb44-b632-4d78-843f-0j15a66k8944`, the part after `datasets/` is the data set ID, which is `4f7rfb44-b632-4d78-843f-0j15a66k8944` in our example.
 
 For more details, go to [Data Workbench documentation](../../dataworkbench/datacatalogue.md).
+
 ## To find a SAS token
 Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
 
@@ -49,7 +167,9 @@ To generate a SAS token with Data Workbench API, refer to the API specification:
 1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas` to get a SAS token for a data set in File Storage that was shared with you. [See the Data Workbench API specification for the details on this endpoint](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
 ## Auto-renew SAS token for Data Workbench structured uploaded data sets
-You can now automatically renew SAS tokens for Data Workbench structured uploaded data sets. This ensures your data connections remain active without manual intervention.
+You can now automatically renew SAS tokens for Data Workbench structured uploaded data sets (data sets of the Uploaded type that you can find in Data Workbench > Data catalogue > Created data sets).
+
+This ensures your data connections remain active without manual intervention.
 If you want to learn more about structured uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).
 
 To enable auto-renewal for a SAS token:
@@ -58,87 +178,7 @@ To enable auto-renewal for a SAS token:
 3. For Data Source "Azure Data Lake Storage", under **Data Source Sub Type**, select **DWB Structured Dataset**.
 4. Tick the **Auto Renew SAS Token** box. The token will renew automatically once a day at CET midnight.
 
-## File
-Once you have built your report in Power BI, you can upload it into VAP and share access to it with your clients. By default, VAP will use the data sources from the report, but you can override and update them when uploading a file. For details on data sources and security, go [here](../data.md).
-
-### Refresh Schedule Plan
-
-Data Admins, Report Admins, and System Admins can access Refresh Schedule Plans on the Resources page and plan when the reports should be refreshed.
-
-To schedule refresh plans for reports:
-1. In the top right corner of Resources > File, select the schedule icon.
-2. In the panel that shows, **Add** a new plan, **Edit** an existing plan, or **Delete** a plan.
-
-When you have scheduled a refresh plan, you can apply it to reports.
-
-<figure>
-	<img src="assets/schedule.png"/>
-</figure>
-
-### To apply a refresh plan
-To apply a refresh plan to a file:
-1. In the row with a Power BI report (File Type must be .PBIX), in the **Refresh** column, select the schedule icon.
-2. Under **Select a Schedule Plan**, select a Refresh Schedule Plan.
-3. In the bottom right corner of the panel, select **Save**.
-
-Note that the scheduled refresh of paginated reports in .RDL format is not supported.
-
-<figure>
-	<img src="assets/scheduleicon2.png"/>
-</figure>
-
-### To refresh a file on demand
-You can apply an on-demand refresh on Power BI reports (File Type must be .PBIX ord .RDL) which datasource is a semantic model. This functions allows you to refresh the data in your reports whenever you need the most current information. We recommend you use this feature for the reports relying on real-time data or requiring frequent updates.
-
-To refresh a file on demand, in the row with a Power BI report, under **Refresh**, select the **Refresh Report** icon.
-
-<figure>
-	<img src="assets/refreshreport.png"/>
-</figure>
-
-**Note that** most Power BI semantic models using dynamic data sources cannot be refreshed in a paginated report. To check if your dynamic data source can be refreshed, follow [this instruction](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data#refresh-and-dynamic-data-sources).
-
-### To upload a file
-
-To upload a file:
-1. In the top right corner, select the plus icon. Alternatively, from the left sidebar, select the plus icon and the **Add Resource File** button.
-2. Under **File Name**, enter the name for the file. Veracity recommends including in the file name information that would help recognize the latest version of the file, such as, for example, the client's name, the report's date, and the upload date.
-3. Drag and drop the file from your local machine onto **Drop file here or click to upload**. You can also select **Drop file here or click to upload** to select a file from your local machine. Supported file formats are PBIX, PDF, PNG, JPEG, GIF, RDL.
-4. Under **Personal data policy**, confirm if the file contains no personal data or it contains personal data and you agree to process it according to Veracity DPA.
-5. Select the **Upload** button.
-
-
-If you upload a Power BI report:
-* Under **Privacy Level**, select a privacy level for the report. For details, see the 'Privacy Level' subsection below.
-* Toggle "I accept and understand that I'm responsible for the content I share in my report".
-* Optionally, toggle **I am using Azure Analysis Service** if you are using this service. Using this as a data source will load your data significantly faster than from Azure SQL DB. **Before enabling this toggle**, check the prerequisites under <a href="#AAS">'To use Azure Analysis Service as a data source'</a>.
-
-Note that:
-* If you are using a database for the first time in VAP, use the icons from the warning message to set the credentials for the database.
-* If your data source cannot be automatically refreshed, you can either check whether your data is stored in a [location supporting refreshable data sources](../data.md) or accept the default fix (no automatic data refresh) and do manual data updates by replacing the file with your report.
-
-#### Paginated report
-
-You can upload a paginated report in .rdl format. Paginated reports are ideal for presenting content with tightly controlled rendering requirements, such as certificates, audit findings, test results, purchase orders, and long tabular data that must be printed on multiple pages. These reports ensure that your data is presented in a precise and organized manner, meeting the high standards of professional documentation.
-
-##### Service Principal required
-
-To upload a paginated report, your VAP service must use a Service Principal account. If your service is a new setup using Service Principal, then the **Paginated Report** toggle button can be turned on in Admin. You cannot upload the paginated report file for the legacy Power BI Service Principal. If you try to do so, you will get the error message 'Paginated report is not enabled to upload'. 
-
-##### Supported data sources
-
-We support the following methods to add a data source to a paginated report.
-* You can connect a database as a data source directly. We support Azure SQL database.
-* You can connect a semantic model as a data source. We support Azure SQL database, on-premises SQL database, Web (API call), files (.csv, .xlsx, and more) and Azure Blob.
-
-##### Report reloading
-
-The report reloads after an hour of interacting with it. When it happens, you will see a reload icon. To continue reading the report, wait for the report to finish reloading.
-
-##### Session expiry
-
-If you do not interact with a paginated report for ten minutes, your session expires. You can close the session expiry dialog with the 'X' icon or select **Refresh**. It will extend the report session time and allow you to continue interacting with your report.
-
+**Note that** we have a **tutorial** showing how to [**Create a report with a Data Workbench source**](../file-storage-as-data-source/create-report.md).
 ### To use Azure Analysis Service as a data source
 <a id="AAS"></a>
 To be able to load data, add a Veracity VAP service account to your Azure Analysis Services Cube for PowerBI:
@@ -151,41 +191,10 @@ After this, VAP will pass the Veracity user 'GUID' (the unique Veracity user ID)
 
 For more information, refer to [Power BI documentation](https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fpower-bi%2Fdeveloper%2Fembedded%2Fembedded-row-level-security&data=05%7C02%7CMichal.Zieba%40dnv.com%7Cf56e31065363481d6fdc08dbfc95dc7e%7Cadf10e2bb6e941d6be2fc12bb566019c%7C0%7C0%7C638381492816141580%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=l%2FsdbYT6obGcAl6T8ijvWheeWEariONKXRPzvPFYKOE%3D&reserved=0).
 
-### Privacy Level
-
-There are the following privacy levels:
-* None - Before this release, it was the default setting.
-* Organizational
-* Private
-* Public
-
-For details on privacy levels, go [here](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-security-content-creator-planning#privacy-levels).
-
-Note that privacy levels set in Power BI Desktop are **not transferred** during the upload. However, after uploading the report, you can set data privacy for each data source separately.
-
-#### For organizational privacy level
-Suppose the privacy level in Power BI Desktop data source is organizational. In that case, you must also set it on the data source in your service to avoid issues with refreshing the data source. For details, go [here](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-security-content-creator-planning#privacy-levels).
-
-### To set a privacy level for a data source
-
-To set a privacy level for a data source, in the Admin Panel > Manage Files, in the row with the name of the report:
-1. Select the editing icon.
-2. Select the **Load datasource status** button.
-3. Select the icon shown below.
-4. For each data source, under **Privacy Level**, select a privacy level.
-
-<figure>
-	<img src="assets/privacylevel.png"/>
-</figure>
-
-<p id="webapp"></p>
-
-## Web App 
-
+## Web App
 The "Web app" subtab shows all connections created in your VAP service. This tab is available on request, so if you don't have it, you can contact [VAP support](mailto:mailto:VAP@dnv.com) to request it.
 
 ## To create a new web connection
-
 To create a new web connection:
 1. From the left sidebar, select the plus icon and the **Add Web App** button.
 2. In the **Root URL**, enter the full root URL to your web application.
@@ -211,4 +220,3 @@ To create a new web connection:
 10. After that, go to [Entities](entities.md) and add your web application to a new or existing entity.
 
 For help with connecting your web app to VAP, go to [Veracity Community](https://community.veracity.com/t/how-to-plug-the-web-apps-into-vap/145/3).
-

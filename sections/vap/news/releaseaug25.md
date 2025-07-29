@@ -2,9 +2,11 @@
 author: Veracity
 description: This is the changelog for the release 4.25 of Veracity Adapter for Power BI (VAP).
 ---
-# VAP 4.25 release
+# VAP 4.25 release (planned)
 
 Read this page to learn what has changed in the Veracity Adapter for Power BI. 
+
+**Note that we haven't made this release yet, and we will let you know when it's out.**
 
 ## New Features
 

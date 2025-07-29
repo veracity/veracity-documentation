@@ -40,4 +40,4 @@ Refresh schedules **do not adjust automatically for daylight saving time changes
 Please review and update your schedules manually when DST starts or ends.
 
 ## Learn more  
-See the updated [Resources documentation](../admin-tab/resource.md) to learn more about managing files, scheduling refreshes, and using the new refresh time chart.
+See the updated [Resources documentation](../admin-tab/resource.md) to learn more about scheduling report refreshes.

@@ -63,10 +63,10 @@ Suppose the privacy level in Power BI Desktop data source is organizational. In 
 
 ### To set a privacy level for a data source
 To set a privacy level for a data source, in the Admin Panel > Manage Files, in the row with the name of the report:
-1. Select the editing icon.
-2. Select the **Load datasource status** button.
-3. Select the icon shown below.
-4. For each data source, under **Privacy Level**, select a privacy level.
+1. Select the editing icon (pencil).
+2. For each data source, select the **Load data source** button.
+3. Under **Privacy Level**, select an appropriate privacy level.
+4. To confirm the changes, select **Update**.
 
 <figure>
 	<img src="assets/privacylevel.png"/>

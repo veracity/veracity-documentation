@@ -1,4 +1,4 @@
-﻿---
+---
 author: Veracity
 description: Overview of the Resource tab in the admin tab.
 ---

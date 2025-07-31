@@ -1,4 +1,4 @@
----
+﻿---
 author: Veracity
 description: Overview of the Resource tab in the admin tab.
 ---
@@ -76,7 +76,7 @@ To set a privacy level for a data source, in the Admin Panel > Manage Files, in 
 You can upload a paginated report in `.rdl` format. Paginated reports are ideal for certificates, audit findings, purchase orders, or long tabular data.
 
 ### Service Principal required
-Your VAP service must use a Service Principal account. Legacy Power BI Service Principal setups cannot upload paginated reports.
+Your VAP service must use a Service Principal account. Legacy Power BI setups cannot upload paginated reports. If you cannot upload an .rdl file, contact [VAP support](mailto:mailto:VAP@dnv.com).
 
 ### Supported data sources
 - Databases: Azure SQL.
@@ -158,16 +158,52 @@ When you open a data set, you can find its ID in the URL after `datasets`. For e
 
 For more details, go to [Data Workbench documentation](../../dataworkbench/datacatalogue.md).
 
-## To find a SAS token
-Your report can use Data Workbench data sets as data source. If it does, you will be prompted to provide a SAS token for this data set. 
+## Data Workbench data source and SAS tokens
+If your Power BI report uses a Data Workbench data set as a data source, you must provide a SAS token (access token) for this data set.
 
-To generate a SAS token in Data Workbench UI, follow [the instructions](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-a-sas-token).
+### Connection Success ≠ Refresh Success 
+Even if the data source shows **Connect successfully** during upload or edit, scheduled or on-demand refreshes may still fail with the error
+`The credentials provided for the Web source are invalid`.
+
+This happens because:
+- The connection test may use cached or anonymous access.
+- Refresh requires a valid SAS token, even if the test passed.
+
+**In VAP, you must manually enter the SAS token for a data set**.
+
+### To generate a SAS token in Data Workbench
+In Data Workbench UI, follow [the instructions](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-a-sas-token).
+
 To generate a SAS token with Data Workbench API, refer to the API specification:
 1. Under Data sets, call the `workspaces/{workspaceId}/datasets/{datasetId}/sas` endpoint to get a readonly SAS token for a workspace data set, including an uploaded data set. [See the detailed instructions here](../file-storage-as-data-source/create-report.md).
 1. Under Storages, call the `/workspaces/{workspaceId}/shares/{shareId}/storage/sas` to get a SAS token for a data set in File Storage that was shared with you. [See the Data Workbench API specification for the details on this endpoint](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
+### Where to enter the SAS token in VAP
+After uploading your report, follow these steps to provide the SAS token:
+
+For a Data Workbench File Storage data set:
+1. Go to **Admin Panel > Resources > File**.
+2. Find your report and click the **Edit** (pencil) icon.
+3. Click **Load Data Source**.
+4. Click the data source URL.
+5. Under **Data Source Sub Type**, change from **Web** to **DWB File Storage**. Then, the **Credential** section appears.
+7. Paste the SAS token into the **SAS Token** field.
+8. Click **Update**.
+9. Click the **refresh icon** (🔄) next to the data source name.
+10. Wait for the message: "Connect to data source successfully."
+11. Click **Save** to finalize.
+
+### For Uploaded Structured Data Sets
+1. Follow steps 1–4 above.
+2. Under **Data Source Sub Type**, select **`DWB Structured Data Set`** and click **Save**.
+3. Paste the SAS token into the SAS Token field.
+4. Click **Update**, then **refresh** to validate.
+5. Click **Save**.
+
+**Note that** the SAS token used here is the same as the "Key" generated in Data Workbench.
+
 ## Auto-renew SAS token for Data Workbench structured uploaded data sets
-You can now automatically renew SAS tokens for Data Workbench structured uploaded data sets (data sets of the Uploaded type that you can find in Data Workbench > Data catalogue > Created data sets).
+You can automatically renew SAS tokens for Data Workbench structured uploaded data sets (data sets of the Uploaded type that you can find in Data Workbench > Data catalogue > Created data sets).
 
 This ensures your data connections remain active without manual intervention.
 If you want to learn more about structured uploaded data sets, [go here](../../dataplatform/concepts/structdata.md).

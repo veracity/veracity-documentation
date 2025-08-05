@@ -132,9 +132,10 @@ To resolve this, in PowerBI:
 3. After clearing permissions, reconnect to the data source by re-entering the correct URL and query parameters when prompted.
 
 ### Using a SAS token for data sets in a folder
-1. Under **URL parts**, paste the folder SAS key (before the `?`) and then manually append the sub-file name you want to load (for example `.../FolderName/SubFile.csv`).
-2. Use the query parameter (`?` and following) from the folder SAS key for authentication.
-3. Repeat for each sub-file you want to include in your report (for example, multiple data sets within the folder).
+1. In Power BI Desktop, under **From Web**, select **Advanced**
+2. 1. Under **URL parts**, paste the folder SAS key (before the `?`) and then manually append the sub-file name you want to load (for example `.../FolderName/SubFile.csv`).
+3. Use the query parameter (`?` and following) from the folder SAS key for authentication.
+4. Repeat for each sub-file you want to include in your report (for example, multiple data sets within the folder).
 
 You can then build a report with multiple pages or visuals, each based on different sub-files using the same folder-level key.
 

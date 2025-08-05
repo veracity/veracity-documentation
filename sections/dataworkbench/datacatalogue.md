@@ -108,6 +108,8 @@ Note that:
 ## To request sharing a data set
 You can ask a data provider to share a data set with your workspace. A data provider has stored large amounts of data, such as time series data (IoT) for solar plants, and they can share a subset of this data with you.
 
+**Note that** if you do not see the **Request data** button, your workspace is not subscribed to any data providers that support this feature. To enable it, contact Data Workbench support and request access to the "data request" feature for a specific provider subscription.
+
 To request that a data provider shares a data set with you:
 1. In Data Workbench UI, go to **Data catalogue**.
 2. In the upper right corner, select **Request data**. 

@@ -70,8 +70,19 @@ Note that this information may get outdated, and the latest information on this 
 	<img src="assets/4.png"/>
 </figure>
 
+## To generate a SAS token at folder level in File Storage
+You can generate a SAS token (key) for an entire folder in File Storage and use it to access all the data sets in that folder. This can be helpful if your report uses multiple data sets because it saves you the effort of generating a separate key for each data set.
+
+To do so:
+1. In Data Workbench, [generate a SAS token for a folder](https://developer.veracity.com/docs/section/dataworkbench/filestorage/filestorage#to-generate-sas-tokens).
+2. Copy the token. You will use it in Power BI when connecting to each file in the folder.
+
+**To refresh data in your report**, upload a new version of a data set in your File Storage folder (with the same name as the old version so that you overwrite it), and then refresh the resource in VAP.
+
 ## To use a File Storage Data Workbench data set as a source in a VAP report
-Follow the steps below to create your report using a File Storage data set from Data Workbench. For uploaded structured datasets, see the section below.
+If you want to use an uploaded data set as a data source, go to the section [To use an Uploaded structured Data Workbench data set in a VAP report](#to-use-an-uploaded-structured-data-workbench-data-set-in-a-vap-report).
+
+Follow the steps below to create your report using a File Storage data set from Data Workbench:
 1. Open Power BI Desktop.
 2. From the **Home** tab (1), select **Get Data** (2), and then select **Web** (3).
 
@@ -79,18 +90,21 @@ Follow the steps below to create your report using a File Storage data set from 
 	<img src="assets/1.png"/>
 </figure>
 
-3. In Power BI Desktop, under **From Web**, select **Advanced** (1).
-4. Under **URL parts** (2), paste the access key (SAS token) you just generated in Data Workbench in the following way:
+3. Follow the corresponding subsection below depending on whether you are providing a [SAS token to a single data set](#using-a-sas-token-for-a-single-data-set) or to [multiple data sets in a folder](#using-a-sas-token-for-data-sets-in-a-folder).
+
+### Using a SAS token for a single data set
+1. In Power BI Desktop, under **From Web**, select **Advanced** (1).
+2. Under **URL parts** (2), paste the access key (SAS token) you just generated in Data Workbench in the following way:
 	* In the upper part, paste the part of the access key which is before **?** symbol. Do not include the **?** symbol here.
 	* In the lower part, paste the part of the URL which begins with the **?** symbol, including the **?** symbol.
 	Note that you can [use a parameter to save the access key and URL](#use-parameter-to-save-access-key-and-url).
-5.	Select **Ok** (3).
+3.	Select **Ok** (3).
 
 <figure>
 	<img src="assets/5.png"/>
 </figure>
 
-6. Then, the information below will display. Select **Ok**.
+4. Then, the information below will display. Select **Ok**.
 	
 	<figure>
 	<img src="assets/6.png"/>
@@ -104,7 +118,7 @@ Below, an example of what your report will look like.
 
 **Note that** if you have several files in the File storage, you must repeat all the steps above for each file.
 
-7. Finally, it is time to build your visuals in the report. Save the file in the storage folder of your choice.
+5. Finally, it is time to build your visuals in the report. Save the file in the storage folder of your choice.
 
 ⚠️ **If you got the error "Access to the resource is forbidden"**, it may be because Power BI is reusing a previously cached, incorrect, or invalid connection string. 
 
@@ -117,6 +131,12 @@ To resolve this, in PowerBI:
 
 3. After clearing permissions, reconnect to the data source by re-entering the correct URL and query parameters when prompted.
 
+### Using a SAS token for data sets in a folder
+1. Under **URL parts**, paste the folder SAS key (before the `?`) and then manually append the sub-file name you want to load (for example `.../FolderName/SubFile.csv`).
+2. Use the query parameter (`?` and following) from the folder SAS key for authentication.
+3. Repeat for each sub-file you want to include in your report (for example, multiple data sets within the folder).
+
+You can then build a report with multiple pages or visuals, each based on different sub-files using the same folder-level key.
 
 ## To use an Uploaded structured Data Workbench data set in a VAP report
 For uploaded structured datasets from Data Workbench, **do not** use the "Web" data connector in Power BI, because this will result in an empty dataset.

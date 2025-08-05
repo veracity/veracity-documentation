@@ -136,14 +136,14 @@ When someone requests access to one of your data sets, the request will appear i
 </figure>
 
 This tab includes two views:
-- **Requests awaiting your action** – shows incoming data set share requests that you can respond to.
-- **Completed requests** – shows all past requests and their outcomes.
+- **Requests awaiting your action** - shows incoming data set share requests that you can respond to.
+- **Completed requests** - shows all past requests and their outcomes.
 
-You’ll also receive an **email notification** when a new request is sent to your workspace.
+You'll also receive an **email notification** when a new request is sent to your workspace.
 
 In the **Requests awaiting your action** view:
 - You can select **Add filter** to narrow requests by **Schema** or **Request from**.
-- You can hover over the request’s status to see available actions or click the request date to open full details.
+- You can hover over the request's status to see available actions or click the request date to open full details.
 - You can either **Accept** or **Decline** the request.
 
 ### What happens when you respond

@@ -34,7 +34,7 @@ Additionally, ingested OVD data is available upon request through the Data Workb
 
 The overview below illustrates the available, upcoming, and planned datasets, along with their interrelationships.
 <figure>
-	<img src="assets/relations2.png"/>
+	<img src="assets/relations2.jpg"/>
 </figure>
 
 If the image is too small, open it with the button below.
@@ -55,6 +55,10 @@ If the image is too small, open it with the button below.
 - **FuelEU Leg Part Emissions** contains emissions data aggregated to the vessel level for each year. Each row represents one vessel and its yearly data. For the current year, the data reflects year-to-date values. It also contains additional FuelEU columns in addition to this dataset. This is a temporary schema and will be replaced by new FuelEU schemas.
 
 - **Leg Part Consumption** contains fuel consumption and emissions data aggregated to vessel, voyage leg part, fuel type, and consumer type. Each row represents the total consumption of a specific fuel type for a single vessel and consumer type (e.g., main engine, auxiliary engine) within a voyage leg part.
+
+- **FuelEU Period** contains FuelEU data aggregated to the vessel and different FuelEU reporting periods (Annual, Monthly, Year to Month, Voyage, Commercial Period, etc.). Each row shows the FuelEU intensity, energy and related calculation results within a specific FuelEU period for a single vessel. Important Note: To ensure accurate analysis, only one FuelEU reporting period should be selected at a time, as aggregations are not additive across different period types.
+
+- **FuelEU Period Consumption** contains fuel consumption and emissions data aggregated to the vessel, different FuelEU reporting periods and different fuel types/GHGIE. Each row represents a consumption with its specific GHGIE and emissions data used by a single vessel during a specific FuelEU period. Important Note: To ensure accurate analysis, only one FuelEU reporting period should be selected at a time, as aggregations are not additive across different period types.
 
 - **Monthly Emissions** contains emissions data aggregated to the vessel level and month. Each row represents the total emissions for a single vessel in a specific month.
 

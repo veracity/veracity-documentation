@@ -16,4 +16,4 @@ Electricity received from ashore, either in ports which provide onshore power su
 [This document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/How%20to%20report%20Onshore%20Power%20Supply.pdf) describes how the reporting shall be done in the OVD Log Abstract.
 
 **Applicable services**
-MRV/DCS/EC
+MRV/DCS/EC.

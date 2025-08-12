@@ -13,7 +13,6 @@ This section covers changes in existing features.
 We have updated the table view in the **Data catalogue** for both created and predefined datasets:
 
 - Adjusted the **Shared by** column for created datasets to improve visibility and consistency.
-- Shortened the content in the **Source** column using abbreviations.
 - Renamed **Created** column to **Last modified (UTC)** and removed seconds from the timestamp.
 - Changed the column order for predefined datasets.
 - Added a horizontal scroll bar if the table is too wide.

@@ -171,10 +171,15 @@ If you are an admin of one or more workspaces, you can now **add shared files or
 
 To do this:
 1. Go to **File storage > Shared with me**.
-2. Find the shared file or folder and select **Add to my workspace**.
+2. Open the shared file or folder and select **Add to my workspace**.
 3. In the popup, choose your workspace from the list.
 
-The file or folder will appear in your main **File storage** tab, under **Shared by other workspaces**.
+<figure>
+	<img src="../assets/add_to_workspace.png"/>
+	<figcaption>Screenshot showing where is the Add to workspace button.</figcaption>
+</figure>
+
+The file or folder will disappear from your **Shared with me** tab and appear in your main **File storage** tab, under **Shared by other workspaces**.
 
 ## Need support?
 If you need any support:

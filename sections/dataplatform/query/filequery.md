@@ -22,6 +22,9 @@ You can access files via API if you generate a SAS token. To query for data on f
 * Step 3: Read data content (files, folders, metadata etc.)
 See code examples below for each step in the process.
 
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the query files API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section File Storage**
+
 ## Step 1: Authentication
 ### Get Veracity token for authentication using Veracity service principle
 
@@ -76,6 +79,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
     return token;
     }
 ```
+
 
 ## Step 2: Get SAS Uri
 ### get SAS URI for folder

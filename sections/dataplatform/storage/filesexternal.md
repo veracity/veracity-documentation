@@ -26,6 +26,9 @@ Using the apis these are the three steps to follow:
 
 See code examples below for each step in the process.
 
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the Upload files API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json), see section **File Storages**
+
 ## Python code example
 ### Step 1: Get Veracity token for service principle/service account
 ```python

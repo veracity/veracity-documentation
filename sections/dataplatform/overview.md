@@ -5,15 +5,17 @@ description: This is an overview of Data Platform.
 
 # Data Platform overview
 
-The Veracity data platform, developed by DNV, is an independent, secure cloud-based platform designed to facilitate efficient industry collaboration and digital transformation, particularly in the maritime, oil and gas, and energy sectors.
+Developed by DNV, the Veracity data platform is a secure, cloud-based solution designed to support efficient industry collaboration and accelerate digital transformation, with a particular focus on the maritime, oil and gas, and energy sectors.
 
-It allows for seamless integration and management of large volumes of data from various sources, ensuring secure data sharing through robust governance mechanisms like role-based access control. The platform supports advanced analytics and AI services, enabling users to derive valuable insights from their data. 
+The platform enables seamless integration and management of large-scale data from diverse sources, underpinned by robust governance frameworks such as role-based access control to ensure secure data sharing. It supports advanced analytics and AI capabilities, empowering users to extract actionable insights and drive data-informed decision-making.
 
-The platform connects users with a growing ecosystem of integrated partners, providing access to a wide range of datasets, APIs, and applications.
+Veracity connects users to a growing ecosystem of integrated partners, offering access to a wide array of datasets, APIs, and applications. This ecosystem fosters innovation and enhances operational efficiency by enabling scalable, data-driven solutions.
 
-Overall, Veracity aims to enhance operational efficiency, sustainability, and innovation by leveraging data-driven insights and fostering collaboration across industries.
+Key platform components include secure data ingestion, asset modeling, and the storage and consumption of both structured and unstructured data. Governance is maintained through comprehensive access controls and data-sharing protocols. Additionally, the platform facilitates data transformation, analytics, and AI services to support the development of new digital offerings.
 
-Veracity data platform offers several components and features that can be used when building a new service such as secure ingest, asset models, storage and consumption of structured and unstructured data. Data governance is handled by role based access control and data sharing. In addition we enable data transformation, analytics and AI services. 
+By leveraging these capabilities, Veracity aims to advance sustainability, improve performance, and promote cross-sector collaboration.
+
+Read more about the main concepts [here](concepts/datalake.md)
 
 <figure>
     <img src="assets/architectureQ2.png"/>

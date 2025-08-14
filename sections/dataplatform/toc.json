@@ -13,25 +13,29 @@
       "text": "Concepts",
       "items": [
         {
-          "text": "Data Lake",
+          "text": "Datalake and Storage",
           "href": "concepts/datalake.md"
         },
         {
-          "text": "Structured/Unstructured data",
-          "href": "concepts/structdata.md"
+          "text": "Data ingest and transformation",
+          "href": "concepts/ingest.md"
         },
         {
-          "text": "Schema",
-          "href": "concepts/structdata.md"
+          "text": "Data catalogue and discovery",
+          "href": "query/datacatalogue.md"
         },
         {
-          "text": "AssetModel",
+          "text": "Data sharing",
+          "href": "concepts/sharing.md"
+        },
+         {
+          "text": "Analytics and Insights",
           "href": "mms/mmsintroduction.md"
         },
         {
-          "text": "Data transformation and aggregation",
-          "href": "concepts/transformation.md"
-        },
+          "text": "Asset Model",
+          "href": "mms/mmsintroduction.md"
+        },       
         {
           "text": "Tenant and workspace",
           "href": "concepts/workspace.md"

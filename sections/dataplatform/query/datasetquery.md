@@ -6,14 +6,16 @@ description: This is a tutorial how to call API endpoints of Data Workbench with
 # Query datasets using API
 
 ## API endpoints
-To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
-**See section Datasets**
+To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).  **See section Datasets**
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).
+
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the query dataset API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Dataset**
 
 ## Step 1: Authenticate with service account
 ### Get Veracity token for service principle/service account
@@ -65,6 +67,7 @@ async Task<string> GetToken(string clientId, string clientSecret)
    return token;
 }
 ```
+
 ## Step 2: Query for datasets
 
 In this example datasets based on give schemaId is requested

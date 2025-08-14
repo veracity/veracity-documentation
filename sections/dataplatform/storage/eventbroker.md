@@ -19,6 +19,10 @@ var resource = "https://dnvglb2cprod.onmicrosoft.com/29a8760a-d13a-41ce-998e-0a0
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
+
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the Ingest Events API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-IoTEventBrokerIngestAPI-swagger.json).
+
 ## Event ingest
  Veracity supports ingesting events via two main channels:
 - HTTP API	

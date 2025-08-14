@@ -27,6 +27,9 @@ Using the apis these are the three steps to follow:
 * Step 3: Upload file from localpath to storage using received SAS token uri
 * Step 4: Update metadata
 
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the Upload files API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json), see section **File Storages**
+
 ## Step 1: Authenticate
 ### Get Veracity token for service principle/service account
 **To write data, the user/service account needs WRITE permissions (admin role). When creating a service account, its role is by default READER. To give it Write access, send request to [Veracity support](https://support.veracity.com/?r=1) requesting Admin role to "service account id" in "workspace id"**

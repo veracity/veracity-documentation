@@ -8,7 +8,7 @@ Datasets are structured data and defined using schemas. Data can be queried usin
 
 ## API endpoints
 
-Note: The Ingest api-endpoints are different for uploading datasets vs uploading files to filestorage. To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Dataset Ingest**
+Note: The Ingest api-endpoints are different for uploading datasets vs uploading files to filestorage. To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Datasets Ingest**
 
 ### Baseurl
 See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints).  See section **Data Workbench API**
@@ -28,6 +28,9 @@ Using the apis these are the steps to follow:
 A schema must be defined before you can upload a dataset. A schema is defined using Schema Management in the Portal, or [using the api](https://developer.veracity.com/docs/section/dataplatform/schemamanagem). 
 
 When uploading a dataset it is the **schema version id** that is used (and not schema id). When using the api, schema version id is received in response. However, when schema is created in Data Workbench portal, you only see the schema_id (in url). To get schema version id, use schema Id and query the GET endpoint, [see how to get it](#get-schema-version-id).
+
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the upload dataset API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Datasets Ingest**
 
 ## Step 1: Authenticate
 ### Get Veracity token for service principle/service account

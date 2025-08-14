@@ -25,6 +25,9 @@ The tenant-alias to be used in query is given for the environment setup for you.
 ## Access rights
 Only users or service principles with access to an site can access the site; [for more details how to manage users](accesscontrol.md)
 
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the asset model API for ingest and update there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Ingest-API-swagger.json).
+
 ## Create Portfolio
 A site needs to be added to a portfolio. A portfolio in AssetModel is a group of assets/sites that share access control. If portfolio already exist, use [query](assetmodelQuery.md) portfolio to get id.
 

@@ -27,6 +27,8 @@ To authenticate and authorize your calls, get your API key and a bearer token [h
 ## Access rights
 Only users or service principles with access to an site can access the site; [for more details how to manage users](accesscontrol.md)
 
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the asset model API for queries there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/DataFabric-MMS-Query-API-swagger.json). 
 
 ## Search for sites
 

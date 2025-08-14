@@ -69,6 +69,9 @@ async Task<string> GetToken(string clientId, string clientSecret)
 }
 ```
 
+## Response codes and response payloads
+All response formats and status codes are documented in the API Explorer, where each endpoint is listed. You can [browse the schema management API there for detailed information](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json). **See section Schemas**
+
 ## Create a new schema
 In the example below a schema is created with two columns. 
 To define "rowValidators" in input payload - Validator must be subcribed to (Validation Rule Management).

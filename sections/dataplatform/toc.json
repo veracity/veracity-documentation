@@ -28,9 +28,9 @@
           "text": "Data sharing",
           "href": "concepts/sharing.md"
         },
-         {
+        {
           "text": "Analytics and Insights",
-          "href": "mms/mmsintroduction.md"
+          "href": "concepts/insight.md"
         },
         {
           "text": "Asset Model",

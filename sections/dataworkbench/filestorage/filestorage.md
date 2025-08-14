@@ -46,7 +46,9 @@ When you share a file or folder, you assign access to recipients:
 - **Read and write access** allows recipients to modify content, and also generate SAS keys.
 - **Only workspace admins** can generate SAS keys. If you give **read-only** access, the recipient will **not** be able to generate SAS keys.
 
-SAS key creation by a recipient is **logged in the original sharer’s workspace** under **Activity log**.
+Note that:
+- You cannot share a file or folder with higher access level than you have.
+- SAS key creation by a recipient is **logged in the original sharer’s workspace** under **Activity log**.
 
 > 🔒 If you share a folder with someone and they delete it, it will only be removed from **their** workspace. The original remains unaffected.
 

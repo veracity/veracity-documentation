@@ -6,60 +6,31 @@ description: This is the changelog for the August 2025 second release of Data Wo
 # August 2025 release
 Read this page to learn what has changed in Veracity Data Workbench with the August 2025 third release. 
 
-## Add metadata to folders  
-You can now add metadata as tags when creating folders in **File storage**: 
-1. In the top right corner, select **Create folder**.
-2. In the line with the **Tags** heading, select **Add**.
-3. Add the tags.
-4. Select **Save**.
+## Find your customer ID
+In Data Workbench, the customer ID uniquely identifies your tenant and is the same across all workspaces in that tenant.
+
+You can find the customer ID in several places:
+- In the tenant picker, however over your workspace name.
 
 <figure>
-	<img src="assets/create_folder.png"/>
+	<img src="assets/customer_id_hover.png"/>
 </figure>
 
-Metadata (tags) makes it easier to identify and organize content.  
+- In the tenant picker, select **Administration page**, and locate the **Customer ID** in the right corner of the top banner.
+<figure>
+	<img src="assets/customer_id_page.png"/>
+</figure>
 
-## Add metadata to files
-To add metadata to a file:
-1. In the line with the file, select the action menu (three dots).
-2. Select **Information**.
+- On the **Workspace** page, open the **Details** tab and check the number below **Customer ID**.
+	- Alternatively, in the **Description** section, select the editing icon and read your **Customer ID** in the dialog that opens.
 
 <figure>
-	<img src="assets/valid_file.png"/>
+	<img src="assets/customer_id_workspace.png"/>
 </figure>
 
-3. In the **Tags** section, select **Add**.
-4. Add the tags (metadata).
-5. Select **Save**.
-
-## Sort by Name or Last modified
-You can now sort files by their **Name** or **Last modified** date by clicking on the column name.
-
-## Hidden tags column  
-We no longer show the **Tags** column in the **File storage** table. Tags are still available from the action menu for a file or folder when you select **Information** or **Validation information**. 
-
-## Validation information dialog 
-The action menu (three dots menu) now changes depending on the folder's validation status:  
-- For folders without [validation](../datavalidator.md) enabled, the menu shows **Information**.
-<figure>
-	<img src="assets/no_validation.png"/>
-</figure>
-
-- For folders with [validation](../datavalidator.md) enabled, the menu shows **Validation information**.  
-<figure>
-	<img src="assets/validation.png"/>
-</figure>
-
-When opened, both **Information** and **Validation information** show metadata in the **Tags** section.
-
-## View and change metadata
-To see the metadata (tags), in the line with a folder or file, select the action menu (three dots) and then **Information** or **Validation information** and locate the **Tags** section.
-
-If you are a workspace admin, you can also add new tags and remove them by selecting an X icon next to their names. If you are a reader, you can only view tags.
+## Entire data request row clickable
+In **Data Catalogue > Requests > Requests awaiting your action**, now you can click anywhere in the row with a request to share a data set to open the details of this request.
 
 <figure>
-	<img src="assets/valid_info2.png"/>
+	<img src="assets/awaiting_requests.png"/>
 </figure>
-
-## Updated toast messages for tags  
-We have refreshed some of the toast messages shown when you add or update tags to provide clearer feedback.

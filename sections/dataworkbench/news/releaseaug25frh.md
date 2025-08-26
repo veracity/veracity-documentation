@@ -23,7 +23,7 @@ Now, if a workspace has schema management subscription, its users will see the *
 ## Bugs fixed
 
 ### Tags field not expanded
-Files and folders with tags should show the tag field in an expanded view. This wasn't working consistently, but it's now fixed.
+Files and folders with tags should show the tags field in an expanded view. This wasn't working consistently, but it's now fixed.
 
 <figure>
 	<img src="assets/expanded_tag.png"/>

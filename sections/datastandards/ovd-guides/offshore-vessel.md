@@ -16,4 +16,4 @@ Starting with 1 January 2025, the MRV Maritime Regulation will apply to offshore
 Although the reporting does not differ from what other ship types must report for DNV's Verification services, [this document](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/ovd/Offshore%20vessels%20-%20Reporting%20Requirements.pdf) describes and exemplifies some special considerations for those ships.
 
 **Applicable services** 
-MRV/EC
+MRV/EC.

@@ -39,6 +39,45 @@ To create a folder:
 2. Select the coloured circle with the file icon and select the files from your computer. Alternatively, drag and drop files.
 3. Select **Upload**.
 
+## Tags for metadata and organization
+You can add tags to folders and files to store metadata. Tags make it easier to categorize and organize content in File storage.
+
+### To add tags to folders
+When creating a folder:
+1. In the top right corner, select **Create folder**.
+2. In the line with the **Tags** heading, select **Add**.
+3. Enter the tags.
+4. Select **Save**.
+
+<figure>
+	<img src="../news/assets/create_folder.png"/>
+</figure>
+
+### To add tags to files
+1. In the line with the file, select the action menu (three dots).
+2. Select **Information**.
+
+<figure>
+	<img src="../news/assets/valid_file.png"/>
+</figure>
+
+3. In the **Tags** section, select **Add**.
+4. Enter the tags.
+5. Select **Save**.
+
+### To view and change tags
+- To see the tags, in the line with a file or folder, select the action menu (three dots) and then choose **Information** or **Validation information**.
+- If you are a workspace admin, you can add new tags or remove existing ones by selecting the X icon next to a tag.  
+- If you are a reader, you can only view tags.
+
+<figure>
+	<img src="../news/assets/valid_info2.png"/>
+</figure>
+
+### Sort files
+You can sort files by **Name** or **Last modified** by clicking the column name in the file list.  
+
+
 ## Access levels
 When you share a file or folder, you assign access to recipients:
 

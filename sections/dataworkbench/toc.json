@@ -404,6 +404,10 @@
 			"href": "apiendpoints.md"
 		},
 		{
+			"text": "Tenant administration page",
+			"href": "tenantpage.md"
+		},
+		{
 			"text": "Tutorials",
 			"items": [
 				{

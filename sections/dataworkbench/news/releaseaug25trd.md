@@ -3,7 +3,7 @@ author: Veracity
 description: This is the changelog for the August 2025 third release of Data Workbench.
 ---
 
-# August 2025 release
+# August 2025 third release
 Read this page to learn what has changed in Veracity Data Workbench with the August 2025 third release. 
 
 ## Find your customer ID

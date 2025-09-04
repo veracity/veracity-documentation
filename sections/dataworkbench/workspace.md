@@ -71,6 +71,7 @@ The details tab shows:
 * Workspace name: The display name for this workspace.
 * Region: Where this workspace's data is stored (EU or USA). Note that after you select a Region, you cannot change it. Data residency regulations may require you to select a specific region.
 * Description: Workspace description.
+* Customer ID: Uniquely identifies your tenant and is the same across all workspaces in that tenant.
 
 ## Activity log
 The activity log provides an audit trail of all actions performed within the workspace, which can be helpful for troubleshooting and compliance

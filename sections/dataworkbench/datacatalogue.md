@@ -152,7 +152,7 @@ In the **Requests awaiting your action** view:
 
 - If you **accept** the request:
   - A data set is created in both your workspace and the requestor’s workspace.
-  - The data set will be visible in the requestor’s **Data Catalogue**.
+  - The data set will be visible in the requestor's **Data Catalogue**.
 - If you **decline**, the request is rejected and the data set is **not** shared. This action **cannot be undone**.
 
 Even after a request has been accepted, you can still **revoke access** later:

@@ -90,7 +90,9 @@ In the row with the user, in the right corner of the table with the users:
 ## System account access tab
 The **System account access** tab gives tenant admins visibility and control over system accounts connected to the tenant.  
 
-System accounts are created in workspaces on the [API management page](apimanagement.md), but appear here to provide a tenant-wide view.
+A **system account connected to a tenant has read and write access to all data in all workspaces of that tenant**
+
+If you need help creating or configuring a system account, contact the Data Workbench support team.
 
 ### System account connections
 This section shows all services connected to workspaces in this tenant. Each service is a tile, and if it is connected, it has a green badge that reads **Connected**.
@@ -118,6 +120,18 @@ This section shows all services connected to workspaces in this tenant. Each ser
 2. In the top right corner, select the three dots.
 3. Select **Disconnect**.
 4. To confirm, select **Yes, proceed**. This will remove the account permanently.
+
+### System accounts versus service accounts
+The table below highlights the main differences between system accounts and [service accounts](apimanagement.md) in Data Workbench.  
+
+
+| Feature                     | Service account [(API management)](apimanagement.md)              | System account (Administration page)               |
+|-----------------------------|-----------------------------------------------|---------------------------------------------------|
+| **Scope**                   | Workspace-level only                         | Tenant-wide (all workspaces)                      |
+| **Access levels**           | Reader or Admin (per workspace)              | Admin      |
+| **Typical use**             | Connect APIs or services to a single workspace | Connect services that need access to all tenant data |
+| **Creation**                | Created in a workspace under API management  | Not created in Admin page; contact support if needed |
+| **Management location**     | Managed in the API management tab of a workspace | Managed in the Administration page under System account access |
 
 ## To find your customer ID
 In Data Workbench, the customer ID uniquely identifies your tenant and is the same across all workspaces in that tenant.

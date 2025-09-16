@@ -1,4 +1,4 @@
-﻿--- 
+﻿---
 author: Veracity 
 description: Tutorial for testing your API using Veracity.
 ---
@@ -10,7 +10,7 @@ This tutorial guides you through setting up a new API on the Veracity platform, 
 - Choose the correct authentication flow when the client type is set to "None".
 - Decide which access control model to use with **Veracity Access Hub**.
 
-By following this guide, you’ll:
+By following this guide, you'll:
 - Register your API correctly.
 - Configure authentication using Veracity Identity Provider (IDP).
 - Grant test users access via Veracity Access Hub.
@@ -74,7 +74,7 @@ Each incoming request must include a Bearer token. Your API must:
 2. Validate it using the Veracity metadata endpoint: https://login.veracity.com/a68572e3-63ce-4bc1-acdc-b64943502e9d/v2.0/.well-known/openid-configuration?p=B2C_1A_SignInWithADFSIdp
 3. 3. Check:
 - Token signature using `jwks_uri`.
-- `aud` (audience) matches your API’s Client ID.
+- `aud` (audience) matches your API's Client ID.
 - `exp` (expiration) is valid.
 - `scp` (scope) includes your defined scope (for example, `user_impersonation`).
 

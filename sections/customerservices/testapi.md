@@ -1,5 +1,5 @@
 ﻿---
-author: Veracity 
+author: Veracity
 description: Tutorial for testing your API using Veracity.
 ---
 

@@ -1,10 +1,10 @@
 ---
 author: Veracity
-description: This is the changelog for the September 2025 release of Data Workbench.
+description: This is the changelog for the September 2025 second release of Data Workbench.
 ---
 
 # September 2025 release
-Read this page to learn what has changed in Veracity Data Workbench with the September 2025 release. 
+Read this page to learn what has changed in Veracity Data Workbench with the September 2025 second release. 
 
 ## New features
 

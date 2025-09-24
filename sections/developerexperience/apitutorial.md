@@ -4,15 +4,12 @@ description: Tutorial on setting up and testing an API in the Veracity ecosystem
 ---
 
 # How to set up and test a Veracity API with user access and authentication
-
 If you want to register an API, configure authentication, and grant users access for testing, this tutorial will guide you through the steps. You will learn how to:
-
 - Register your API using the correct resource types.
 - Secure it with Veracity Identity.
 - Use Veracity Access Hub (if applicable) or manage access internally.
 
 ## Register your API in My Projects
-
 To publish and secure your API, you need three resources:
 
 1. **Application (App/API)** - defines authentication (scopes, Client ID).
@@ -58,8 +55,6 @@ This determines if your API appears in API Explorer and manages policies.
 
 You'll get an **API Product ID** and can generate subscription keys.
 
-> For more, see [Publishing APIs in API Explorer](https://developer.veracity.com/docs/section/publishing/publish-api-explorer).
-
 ## Step 3: Create and assign an API Specification
 This defines your API's endpoints and connects them to the API Product.
 
@@ -80,7 +75,6 @@ Your API is now fully defined and ready for testing.
 > For more, see [Publish API specifications](https://developer.veracity.com/docs/section/publishing/publish-api-explorer#to-publish-api-specifications).
 
 ## Validate Tokens in Your API
-
 Every request must include a Bearer token in the `Authorization` header.
 
 Your API must:
@@ -135,7 +129,7 @@ Once your API appears in VAH under **Applications**, you can manage access for t
 
 > This grants access at the company account level. Your application may still enforce additional permissions (hybrid model).
 
-> For full steps, see [Veracity Access Hub Guide – Managing Users](__VAH_GUIDE_LINK__#users) and [Applications](__VAH_GUIDE_LINK__#applications).
+> For full steps, see [Veracity Access Hub Guide – Managing Users](https://developer.veracity.com/docs/section/customerservices/accesshub#users) and [Applications](https://developer.veracity.com/docs/section/customerservices/accesshub#applications).
 
 ## Manage access internally (for non-marketplace or custom access APIs)
 If your API is not part of a Marketplace offering, or you need full control over permissions, manage access in your application.

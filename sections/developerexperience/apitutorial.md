@@ -1,4 +1,4 @@
-﻿---
+---
 author: Veracity
 description: Tutorial on setting up and testing an API in the Veracity ecosystem.
 ---

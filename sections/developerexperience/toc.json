@@ -37,6 +37,10 @@
           "href": "publishapi.md"
         }
       ]
+    },
+    {
+      "text": "Tutorial: Set up an API and test it",
+      "href": "apitutorial.md"
     }
 
   ]

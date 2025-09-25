@@ -176,6 +176,23 @@ To see how to save and share a new data set, click on the image below to play th
 
 [![Watch the video](news/assets/saveshare.png)](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/dataworkbench/save%20and%20share%20dataset.mp4)
 
+## To update a data set
+You can update a data set only if it is listed under **Created data sets** in the **Data catalogue** and its type is **Uploaded**.  
+
+To update a data set:
+1. In the **Data catalogue**, go to **Created data sets** and open a data set of the **Uploaded** type.  
+2. If your workspace has the **Schema management** subscription, you will see the **Update data set** button in the top right corner. Select it.  
+3. In the dialog window that opens:  
+   - **Upload a CSV file** - Drop or select a file. The file must be in CSV format, no larger than 1 GB, use commas as delimiters, include headers for all columns, and have a filename without special characters.  
+   - **Validate the file against the schema** - The uploaded file is compared with the schema used for the data set. If the columns do not match, an error message is shown and the update cannot proceed.  
+   - **Choose how to apply the data** - If validation succeeds, you can select the update method. The available options depend on whether the schema defines key columns:  
+     * *No key columns*: Add data, Overwrite data.  
+     * *Key columns set*: Update data, Delete data, Overwrite data.  
+   - **Confirm changes** - For *Delete* and *Overwrite*, a confirmation dialog is shown. Progress and results are displayed with toasts.  
+
+### Concurrent updates
+If another admin modifies the same data set (for example, by sharing it or saving a filtered view) while an update is in progress, their changes will apply to the version of the data set that existed before the update.
+
 ## To see data sets shared with you
 To see data sets shared with you, in the **Data catalogue** tab, go to the **Shared with me** tab.
 

@@ -96,6 +96,24 @@ If your API is part of a service available in the **Veracity Marketplace**, you 
 > Veracity Access Hub only supports access management for services purchased via the **Veracity Marketplace**.  
 > For services in Energy, Maritime (for example, Fleet Status, Certification), or Classification, continue using existing tools like [Maritime Access Management (MAM)](https://maritime.dnv.com/mam/Users).
 
+### Check User Access via VTM API (v4)
+If your API is integrated with Veracity Access Hub, you can use the [**Veracity Tenant Management (VTM) API v4**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/v4-api-swagger.json) to check if a user has access and what role they have.
+
+1. After validating the bearer token, extract:
+   - `userId` (from token claim)
+   - `tenantId` (from tenant selector or URL)
+   - `applicationId` (your API's Client ID)
+
+2. Call: `GET /tenants/{tenantId}/applications/{applicationId}/licenses/{userId}`
+
+3. If the response is `200 OK`, the user has access. You can:
+- Check `accessLevel` for built-in roles.
+- Read `properties` for custom permissions.
+
+> Use **VTM API v4** and **not V3**. V3 is legacy and not supported for new integrations.
+
+> You might want to see [VTM documentation](https://developer.veracity.com/docs/section/tenantmanagement/tenantmanagement#overview).
+
 ### Can I use VAH for a non-production or non-Marketplace API?
 Not through self-service. Currently, **only Marketplace-purchased services** can be installed in a company account.
 
@@ -145,3 +163,43 @@ Example:
 - If yes, allow access.
 
 This gives you full control and works independently of Veracity Access Hub.
+
+## Legacy access model (not recommended for new services)
+Before Veracity Access Hub and VTM API v4, developers used a legacy model:
+- Grant access by sharing **subscription keys** in Developer Portal.
+- Use [**V3 API**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/identity/services-openapi) to check if a key was valid.
+
+It is not recommended to use the legacy access model for the following reasons:
+- **V3 is deprecated** - not documented or supported.
+- No integration with company accounts or VAH.
+- Manual key management - insecure and hard to scale.
+- No role-based access -all users with a key have the same access.
+
+For all new services, use:
+- **VTM API v4** + **Veracity Access Hub** (for tenant-aware apps), or
+- **Internal access control** (for non-tenant-aware apps).
+
+However, **you may consider using the legacy model** for legacy applications that cannot be upgraded.
+
+## Going to production
+If you've tested your API in a non-production environment and used Veracity Access Hub (VAH) for access management, see the [Onboarding Guide](https://developer.veracity.com/docs/section/onboarding/onboarding) for detailed instructions on how to go live.
+
+Below, you can see a short overview of how to go with your API to production:
+
+1. **Ensure your service meets technical requirements**:
+   - Implement sign-in/out with Veracity IDP.
+   - Use the Policy API on every sign-in.
+   - Manage subscriptions in sync with Veracity (GDPR compliance).
+   - Use HTTPS and support modern browsers.
+
+2. **Contact the onboarding team**:
+   - Request verification of your non-production setup.
+   - After approval, you'll get **production credentials**.
+
+3. **Publish to production**:
+   - Use production credentials to configure your live environment.
+   - Request final verification from the onboarding team.
+
+4. **Your API can be bought from the Veracity Marketplace**:
+   - Once live, your service can be purchased via the **Veracity Marketplace**.
+   - Customers will install it in their company account and manage access with Veracity Access Hub.

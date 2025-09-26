@@ -34,6 +34,17 @@ Then, to give your users access to Emissions Connect:
  
 Note that for applications that are fully managed by Veracity and use access levels, you set access levels for users when you give them access to the application. Access level defines what the user can do in the application, and each application may have different access levels. 
 
+## Checking if you already have a company account
+If you are unsure whether your organization already has a company account in Veracity Access Hub:
+1. Go to [Veracity Access Hub](https://accesshub.veracity.com/) and sign in.  
+2. If your organization has a company account and you have access, it will appear on the home page.  
+3. If you do not see a company account:  
+   - Ask internally who purchased the service for your organization. The purchaser becomes the Tenant Admin by default.  
+   - If you cannot identify this person or still do not have access, [open a support ticket](https://support.veracity.com) and provide your organization details. Support can:  
+     - Confirm if a company account exists.  
+     - Tell you who the current Tenant Admin is so that you can ask them to add you to this company account. 
+     - Help you if you should be a Tenant Admin but are not.
+
 ## Choosing company account
 If you have access to more than one company account, when you go to Veracity Access Hub, you must select which account you want to sign in to.
 

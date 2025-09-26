@@ -21,7 +21,7 @@ Follow these steps in order.
 ## Step 1: Create an API resource to define the scopes
 This enables OAuth2 authentication and token validation.
 
-1. In your resourcfor exampleoup, select **New Resource**.
+1. In your resource group, select **New Resource**.
 2. Choose **App/API**.
 3. On the **Configure** step:
    - Name your API.
@@ -41,7 +41,7 @@ You'll get a **Client ID** (used as `aud` in tokens) and can define scopes.
 ## Step 2: Create an API product to control access
 This determines if your API appears in API Explorer and manages policies.
 
-1. In the same resourcfor exampleoup, select **New Resource**.
+1. In the same resource group, select **New Resource**.
 2. Choose **API Product**.
 3. On the **Configure** tab:
    - Name the product.
@@ -58,7 +58,7 @@ You'll get an **API Product ID** and can generate subscription keys.
 ## Step 3: Create and assign an API Specification
 This defines your API's endpoints and connects them to the API Product.
 
-1. In the same resourcfor exampleoup, select **New Resource**.
+1. In the same resource group, select **New Resource**.
 2. Choose **API Specification**.
 3. On the **Configure** tab:
    - Name the specification.
@@ -92,7 +92,7 @@ If your API is part of a service available in the **Veracity Marketplace**, you 
 
 > **Important limitation**:  
 > Veracity Access Hub only supports access management for services purchased via the **Veracity Marketplace**.  
-> For services in Enfor example, Maritime (for example, Fleet Status, Certification), or Classification, continue using existing tools like [Maritime Access Management (MAM)](https://maritime.dnv.com/mam/Users).
+> For services in Energy, Maritime (for example, Fleet Status, Certification), or Classification, continue using existing tools like [Maritime Access Management (MAM)](https://maritime.dnv.com/mam/Users).
 
 ### Check User Access via VTM API (v4)
 If your API is integrated with Veracity Access Hub, you can use the [**Veracity Tenant Management (VTM) API v4**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/v4-api-swagger.json) to check if a user has access and what role they have.

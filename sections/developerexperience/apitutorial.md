@@ -21,7 +21,7 @@ Follow these steps in order.
 ## Step 1: Create an API resource to define the scopes
 This enables OAuth2 authentication and token validation.
 
-1. In your resource group, select **New Resource**.
+1. In your resourcfor exampleoup, select **New Resource**.
 2. Choose **App/API**.
 3. On the **Configure** step:
    - Name your API.
@@ -41,7 +41,7 @@ You'll get a **Client ID** (used as `aud` in tokens) and can define scopes.
 ## Step 2: Create an API product to control access
 This determines if your API appears in API Explorer and manages policies.
 
-1. In the same resource group, select **New Resource**.
+1. In the same resourcfor exampleoup, select **New Resource**.
 2. Choose **API Product**.
 3. On the **Configure** tab:
    - Name the product.
@@ -58,7 +58,7 @@ You'll get an **API Product ID** and can generate subscription keys.
 ## Step 3: Create and assign an API Specification
 This defines your API's endpoints and connects them to the API Product.
 
-1. In the same resource group, select **New Resource**.
+1. In the same resourcfor exampleoup, select **New Resource**.
 2. Choose **API Specification**.
 3. On the **Configure** tab:
    - Name the specification.
@@ -72,8 +72,6 @@ This defines your API's endpoints and connects them to the API Product.
 
 Your API is now fully defined and ready for testing.
 
-> For more, see [Publish API specifications](https://developer.veracity.com/docs/section/publishing/publish-api-explorer#to-publish-api-specifications).
-
 ## Validate Tokens in Your API
 Every request must include a Bearer token in the `Authorization` header.
 
@@ -84,7 +82,7 @@ Your API must:
 - Signature using `jwks_uri`.
 - `aud` matches your **API's Client ID** (from the Application resource).
 - `exp` is not expired.
-- `scp` includes your defined scope (e.g., `user_impersonation`).
+- `scp` includes your defined scope (for example, `user_impersonation`).
 4. If validation fails, return `401 Unauthorized`.
 
 > For details, see [Authentication for APIs](https://developer.veracity.com/docs/section/identity/authentication/overview).
@@ -94,7 +92,7 @@ If your API is part of a service available in the **Veracity Marketplace**, you 
 
 > **Important limitation**:  
 > Veracity Access Hub only supports access management for services purchased via the **Veracity Marketplace**.  
-> For services in Energy, Maritime (for example, Fleet Status, Certification), or Classification, continue using existing tools like [Maritime Access Management (MAM)](https://maritime.dnv.com/mam/Users).
+> For services in Enfor example, Maritime (for example, Fleet Status, Certification), or Classification, continue using existing tools like [Maritime Access Management (MAM)](https://maritime.dnv.com/mam/Users).
 
 ### Check User Access via VTM API (v4)
 If your API is integrated with Veracity Access Hub, you can use the [**Veracity Tenant Management (VTM) API v4**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/v4-api-swagger.json) to check if a user has access and what role they have.
@@ -145,7 +143,7 @@ Once your API appears in VAH under **Applications**, you can manage access for t
 	- View all users with access.
 	- Add users in bulk via user groups (if enabled).
 
-> This grants access at the company account level. Your application may still enforce additional permissions (hybrid model).
+> This grants access at the company account level. Your application may still enforce additional permissions [(hybrid access control model)](https://developer.veracity.com/docs/section/customerservices/accesshub#overview).
 
 > For full steps, see [Veracity Access Hub Guide – Managing Users](https://developer.veracity.com/docs/section/customerservices/accesshub#users) and [Applications](https://developer.veracity.com/docs/section/customerservices/accesshub#applications).
 

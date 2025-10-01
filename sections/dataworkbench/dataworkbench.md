@@ -24,10 +24,10 @@ Each company or a B2C customer has one tenant in Data Workbench. A tenant can ha
 
 First admins are added when your company [purchases Data Workbench](https://store.veracity.com/data-workbench) and they can be tenant admins or workspace admins. Tenant admins can invite users to join their tenant and any workspace in it, and workspace admins can only invite to their workspace. For details, see [Members and access levels](workspace.md).
 
-If you are a tenant admin, see [**how to manage your tenant**](tenantpage.md).
+If you are a tenant admin, see [how to manage your tenant](tenantpage.md).
 
 ## To start using Data Workbench
-**To use Data Workbench, you need**:
+To use Data Workbench, you need:
 - An **invitation to** join a **workspace** or a **tenant**.
 - A **Veracity account** to sign into Data Workbench.
 

@@ -64,6 +64,8 @@ Tenant members are shown in a table, and you can use the search field to find th
 	1. Confirm adding the user with the **Add** button.
 3. To confirm inviting the user(s), select **Invite**.
 
+**A tenant member uses their Veracity account to sign into Data Workbench**. If they report problems with it, tell them to follow the instructions in [To start using Data Workbench](dataworkbench.md).
+
 #### To change tenant access level for a member
 1. In the row with the user, locate the **Access level** column.
 2. In the **Access level** column, select the current role and change it to another role.

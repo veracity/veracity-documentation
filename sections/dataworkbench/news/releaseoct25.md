@@ -28,8 +28,3 @@ When you select this button, you go through the following steps:
 ### Column order in data sets
 Previously, when creating a data set with an assigned schema, the dataset view did not respect the column order defined in the schema. Instead, it displayed columns in the JSON response order.  
 Now, data set details show columns in the order configured in the schema definition.
-
-## Bug fixes
-
-### Schema column order not consistent
-An issue where the column order from a schema was ignored in the dataset view has been fixed. The order now correctly follows the schema definition.

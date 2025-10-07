@@ -41,7 +41,8 @@ Data sets can be saved and shared as:
 In Data catalogue > Created data sets, you see the following types of data sets:
 * **Created**: Data sets created in your workspace.
 * **Shared**: Data sets shared with you or your workspace. You cannot modify them (but you can create a copy and modify it), and the original sharer has decided if you can share this data set with others.
-* **Uploaded**: Data sets that were uploaded from CSV files.
+* **Uploaded**: Data sets created from CSV files. 
+	* If you have a  Schema management subscription, when uploading a new data set, you must select a schema with an active locked version to validate your file against. The columns in the file must match the schema definition before the data set can be created.
 
 You can check the data set type in the **Type** column.
 
@@ -87,10 +88,14 @@ To create a new data set from a template:
 If you are an [admin](workspace.md), you can upload a data set from a CSV file.
 
 To upload a data set from a CSV file:
-1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
-2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
-3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
-4. To upload the data set created from the CSV file, select the **Upload** button.
+1. In the **Data catalogue** tab, go to the **Predefined data sets** or **Created data sets** tab, and select **Upload new data set**.  
+2. In the first dialog, upload a CSV file by dragging and dropping it or selecting it from your computer.  
+3. In the next dialog, select a schema with an active locked version to validate your file against. You can search for schemas by name or open schema details before selecting one.  
+4. The system validates your file against the schema. If there are errors, they must be fixed before you can continue.  
+5. When validation succeeds, enter a unique data set name and, optionally, a description.  
+6. Select **Upload**. You will return to the Data catalogue, where a toast notification shows upload progress. The toast updates until the upload is complete, and it displays whether the upload succeeded or failed (with an error ID if failed).
+
+Note that steps 3,4,and 5 applies if your workspace has Schema management subscription.
 
 Note that now you have created a data set you can share with other users.
 

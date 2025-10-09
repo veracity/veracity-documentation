@@ -85,7 +85,7 @@ To create a new data set from a template:
 
 
 ## To upload a data set from a CSV file
-If you are an [admin](workspace.md), you can upload a data set from a CSV file.
+If you are an [admin](workspace.md), you can upload a data set from a CSV file if your workspace has Schema management subscription.
 
 To upload a data set from a CSV file:
 1. In the **Data catalogue** tab, go to the **Predefined data sets** or **Created data sets** tab, and select **Upload new data set**.  
@@ -94,10 +94,6 @@ To upload a data set from a CSV file:
 4. The system validates your file against the schema. If there are errors, they must be fixed before you can continue.  
 5. When validation succeeds, enter a unique data set name and, optionally, a description.  
 6. Select **Upload**. You will return to the Data catalogue, where a toast notification shows upload progress. The toast updates until the upload is complete, and it displays whether the upload succeeded or failed (with an error ID if failed).
-
-Note that steps 3,4,and 5 applies if your workspace has Schema management subscription.
-
-Note that now you have created a data set you can share with other users.
 
 ## To share a data set
 1. In the **Data catalogue** tab, open the data set you want to share.
@@ -156,7 +152,7 @@ In the **Requests awaiting your action** view:
 ### What happens when you respond
 
 - If you **accept** the request:
-  - A data set is created in both your workspace and the requestor’s workspace.
+  - A data set is created in both your workspace and the requestorÂ’s workspace.
   - The data set will be visible in the requestor's **Data Catalogue**.
 - If you **decline**, the request is rejected and the data set is **not** shared. This action **cannot be undone**.
 

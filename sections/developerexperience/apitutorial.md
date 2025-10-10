@@ -94,8 +94,19 @@ If your API is part of a service available in the **Veracity Marketplace**, you 
 > Veracity Access Hub only supports access management for services purchased via the **Veracity Marketplace**.  
 > For services in Energy, Maritime (for example, Fleet Status, Certification), or Classification, continue using existing tools like [Maritime Access Management (MAM)](https://maritime.dnv.com/mam/Users).
 
-### Check User Access via VTM API (v4)
-If your API is integrated with Veracity Access Hub, you can use the [**Veracity Tenant Management (VTM) API v4**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/v4-api-swagger.json) to check if a user has access and what role they have.
+### Check User Access via VTM API
+If your API is integrated with Veracity Access Hub, you can use the **Veracity Tenant Management (VTM) API** to check if a user has access and what role they have.
+
+#### Consider what API version to use
+**Consider what API version to use**:
+- For **new APIs** ("green field" development): use **VTM API v4** [(see the specification)]((https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/v4-api-swagger.json)).
+- For **existing APIs** under maintenance or extension: You may continue using **V3** [(see the specification)](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/identity/services-openapi), but plan to **migrate to V4**.
+
+**Note that** V4 is the current standard and recommended for all new integrations.
+> For more, see [VTM documentation](https://developer.veracity.com/docs/section/tenantmanagement/tenantmanagement#overview).
+
+#### How to check access (using V4)
+To verify user's access using VTM API V4:
 
 1. After validating the bearer token, extract:
    - `userId` (from token claim)
@@ -107,10 +118,6 @@ If your API is integrated with Veracity Access Hub, you can use the [**Veracity 
 3. If the response is `200 OK`, the user has access. You can:
 - Check `accessLevel` for built-in roles.
 - Read `properties` for custom permissions.
-
-> Use **VTM API v4** and **not V3**. V3 is legacy and not supported for new integrations.
-
-> You might want to see [VTM documentation](https://developer.veracity.com/docs/section/tenantmanagement/tenantmanagement#overview).
 
 ### Can I use VAH for a non-production or non-Marketplace API?
 Not through self-service. Currently, **only Marketplace-purchased services** can be installed in a company account.
@@ -162,22 +169,30 @@ Example:
 
 This gives you full control and works independently of Veracity Access Hub.
 
-## Legacy access model (not recommended for new services)
-Before Veracity Access Hub and VTM API v4, developers used a legacy model:
-- Grant access by sharing **subscription keys** in Developer Portal.
-- Use [**V3 API**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/identity/services-openapi) to check if a key was valid.
+### Access Models for User Permissions
 
-It is not recommended to use the legacy access model for the following reasons:
-- **V3 is deprecated** - not documented or supported.
-- No integration with company accounts or VAH.
-- Manual key management - insecure and hard to scale.
-- No role-based access -all users with a key have the same access.
+There are two main models for managing user access to your API:
+- Modern model using Veracity Services API v4 with Veracity Access Hub (recommended for New APIs).
+- Legacy model using Veracity Services API v3 and subscription keys (for maitenance only).
 
-For all new services, use:
-- **VTM API v4** + **Veracity Access Hub** (for tenant-aware apps), or
-- **Internal access control** (for non-tenant-aware apps).
+For new APIs, we recommend the modern model:
+- Using **Veracity Access Hub** to manage user access.
+- Checking permissions via **VTM API v4**.
+- Leveraging tenant-aware roles, access levels, and group-based permissions.
 
-However, **you may consider using the legacy model** for legacy applications that cannot be upgraded.
+This model supports modern, scalable, and secure access control.
+
+> For details, see [Veracity Tenant Management documentation](https://developer.veracity.com/docs/section/tenantmanagement/tenantmanagement).
+
+Some older APIs use the legacy model:
+- **Subscription keys** (shared via Developer Portal) for access.
+- **VTM API v3** to validate access and permissions.
+
+While this model is still in use, it lacks integration with Veracity Access Hub and offers limited scalability.
+
+> Use this only for **maintaining or extending existing APIs**.
+> If using V3, plan to **migrate to V4** over time.
+> For more, see [Veracity MyServices API](https://developer.veracity.com/docs/section/identity/services-openapi).
 
 ## Going to production
 If you've tested your API in a non-production environment and used Veracity Access Hub (VAH) for access management, see the [Onboarding Guide](https://developer.veracity.com/docs/section/onboarding/onboarding) for detailed instructions on how to go live.

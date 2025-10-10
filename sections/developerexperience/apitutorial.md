@@ -36,7 +36,7 @@ This enables OAuth2 authentication and token validation.
 
 You'll get a **Client ID** (used as `aud` in tokens) and can define scopes.
 
-> For details, see [My Projects guide – creating and managing resources](../developerexperience/introduction.md).
+> For details, see [My Projects guide – creating and managing resources](https://developer.veracity.com/docs/section/developerexperience/introduction).
 
 ## Step 2: Create an API product to control access
 This determines if your API appears in API Explorer and manages policies.
@@ -98,7 +98,6 @@ If your API is part of a service available in the **Veracity Marketplace**, you 
 If your API is integrated with Veracity Access Hub, you can use the **Veracity Tenant Management (VTM) API** to check if a user has access and what role they have.
 
 #### Consider what API version to use
-**Consider what API version to use**:
 - For **new APIs** ("green field" development): use **VTM API v4** [(see the specification)]((https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/v4-api-swagger.json)).
 - For **existing APIs** under maintenance or extension: You may continue using **V3** [(see the specification)](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/identity/services-openapi), but plan to **migrate to V4**.
 
@@ -173,7 +172,7 @@ This gives you full control and works independently of Veracity Access Hub.
 
 There are two main models for managing user access to your API:
 - Modern model using Veracity Services API v4 with Veracity Access Hub (recommended for New APIs).
-- Legacy model using Veracity Services API v3 and subscription keys (for maitenance only).
+- Existing model using Veracity Services API v3 and subscription keys (for maintenance only).
 
 For new APIs, we recommend the modern model:
 - Using **Veracity Access Hub** to manage user access.
@@ -184,7 +183,7 @@ This model supports modern, scalable, and secure access control.
 
 > For details, see [Veracity Tenant Management documentation](https://developer.veracity.com/docs/section/tenantmanagement/tenantmanagement).
 
-Some older APIs use the legacy model:
+Some older APIs use the existing model:
 - **Subscription keys** (shared via Developer Portal) for access.
 - **VTM API v3** to validate access and permissions.
 

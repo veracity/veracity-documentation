@@ -13,6 +13,9 @@ If you are a Power BI report developer:
 - Store your Power BI files and source code in a secure folder.
 - Ensure access for coworkers who may need to substitute for you when you are unavailable.
 
+## Update old datasource to new data source
+If your Power BI file was connected to Data Fabric, connect it to Data Workbench File storage. [See the tutorial for guidance](file-storage-as-data-source/update-old-data-source.md).
+
 ## Supported data sources
 VAP allows multiple data sources in your Power BI report. The data sources and credentials you use when creating your report are part of your Power BI file. You can override and update them in VAP, but changes are made directly to the Power BI file since VAP does not store or capture them.
 

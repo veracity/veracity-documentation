@@ -20,7 +20,6 @@ Sometimes, giving customers free access to your service can be a strategic move.
 You can combine different options. For instance, they offer both free and paid versions of your service. This flexibility caters to a broader audience and accommodates varying preferences.
 
 ## Digital Quotes
-#### Digital Quotes
 Customize a specific quote to a specific customer based on marketplace product page offerings. This feature streamlines the negotiation process and ensures clarity in pricing.<a href="https://developer.veracity.com/docs/section/marketplace/sellingyourproduct/digitalquote"> Read more</a>
  
 Remember that Veracity provides a global platform within maritime, energy, oil, and gas sectors. It reduces the cost of selling your digital services, data, or APIs while reaching a rapidly growing customer base. <a href="https://developer.veracity.com/docs/section/marketplace/sellingyourproduct/subscriptionrenewal"> Read more</a>

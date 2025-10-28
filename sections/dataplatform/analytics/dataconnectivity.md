@@ -21,25 +21,77 @@ Connect to data using SAS key is also possible
 
 For more [details about sharing of datasets](../datasharing.md)
 
-## Connect to stroage account using SAS key
+## Read a file using SAS key
 Data from other storage containers can be accessed from Analytics using SAS key.
 
 ```
-storage_account_name = "prdstorageconst01weu"
-container_name = "container id" #same as workspace id in DWB
- 
-#If sas token received from DWB, only use part after '?'
-sas_token = "sv=XXXXXX"
+from urllib.parse import urlparse, parse_qs
+#the complete sas key from dataworkbench - should be stores as secret
+dfs_url = "https://prdstorageconst01weu.dfs.core.windows.net/......"
 
-spark.conf.set("fs.azure.account.auth.type.prdstorageconst01weu.dfs.core.windows.net", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type.prdstorageconst01weu.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
-spark.conf.set("fs.azure.sas.fixed.token.prdstorageconst01weu.dfs.core.windows.net", sas_token)
+parsed = urlparse(dfs_url)
+sas_token = parsed.query  # everything after '?'
+storage_account = parsed.hostname.split('.')[0] 
+container = parsed.path.split('/')[1]  
+file_path = '/'.join(parsed.path.split('/')[2:]) 
+
+print(sas_token)
+print(storage_account)
+print(container)
+print(file_path)
+
+spark.conf.set(
+    f"fs.azure.sas.{container}.{storage_account}.blob.core.windows.net",
+    sas_token
+)
+
+# Build abfss:// path
+abfss_path = f"wasbs://{container}@{storage_account}.blob.core.windows.net/{file_path}"
  
-#folder and file name
-filename = "Test/DemoCustomerInput.csv" 
-src_path = f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/{filename}"
+# Load CSV file with Spark
+df_spark = spark.read.csv(abfss_path, header=True, inferSchema=True)
  
-display(df)
+# Display the Spark DataFrame
+df_spark.display()
+
+```
+
+## Read to a folder using SAS key
+
+```
+from urllib.parse import urlparse, parse_qs
+from pyspark.dbutils import DBUtils
+
+#the complete sas key from dataworkbench - should be stores as secret
+dfs_url = "https://prdstorageconst01weu.dfs.core.windows.net/......"
+
+parsed = urlparse(dfs_url)
+sas_token = parsed.query  # everything after '?'
+storage_account = parsed.hostname.split('.')[0]  
+container = parsed.path.split('/')[1]  
+folder_path = '/'.join(parsed.path.split('/')[2:])  
+
+print(sas_token)
+print(storage_account)
+print(container)
+print(folder_path)
+
+# Set Spark config for abfss
+spark.conf.set(
+    f"fs.azure.sas.{container}.{storage_account}.blob.core.windows.net",
+    sas_token
+)
+
+dbutils = DBUtils(spark)
+
+files = dbutils.fs.ls(f"wasbs://{container}@{storage_account}.blob.core.windows.net/{folder_path}/")
+for f in files:
+    print(f.path)
+    # Load CSV file with Spark
+    df = spark.read.csv(f.path, header=True, inferSchema=True) 
+    # Display the Spark DataFrame
+    df.display()
+    
 ```
 
 ## How to connect existing databases:

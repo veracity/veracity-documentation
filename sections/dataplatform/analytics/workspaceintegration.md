@@ -62,13 +62,47 @@ df.write.mode("append").saveAsTable("TableName")`
 ```
 
 
-### Create new tables and synch to Data Workbench
-New datasets can be created from Databricks and synchronized with Data Workbench. This is especially useful for data transformations (medallion architecture). For creating new tables in Databricks that need to be synced to Data Workbench, use Veracity internal library named **dataworkbench** that comes pre-installed to the cluster. 
+### Create new dataframe or table and synch to Data Workbench
+New datasets can be created from Databricks and synchronized with Data Workbench. This is especially useful for data transformations (medallion architecture). For creating new dataframes in Databricks that need to be synced to Data Workbench, use Veracity internal library named **dataworkbench** that comes pre-installed to the cluster. 
 
-* Create a table in databricks and write that table to a new dataset, or
-* Create a dataframe and write the dataframe to a new dataset in Data workbench 
+There are different approaches:
+1) Create a dataframe and write the dataframe as a new dataset in Data workbench. After the dataset is written to Data worksbench, the dataset is synched with Databricks and the table will be created. 
 
-In below example demo dataframe is written to dataset in Data Workbench using library "dataworkbench"
+2) Create a table in databricks and write that table to a new dataset. The dataset you write to DWB needs another name than the table name, since the dataset with autoamtically be synched back. This results in 2 equal tables in databricks.
+Remember to drop the first table.
+
+Note: you should use a schema id in order to comply to a predefined schema.
+
+In below example new dataframe is written to dataset in Data Workbench using library "dataworkbench"
+The dataset will be autamatically be synched back to Databricks as a table.
+
+```
+import dataworkbench
+
+dsName = dbutils.widgets.get("inputDataset")
+query = f"select * from {dsName}  where t_set_h > 5.0"
+df = spark.sql(query)
+
+filtered_df = df.filter((df["EFC"] > 200) & (df["Ah_Step"] > 3)).select("test", "EFC")
+#use schema id
+schemaId = "6982f0e7-6f9a-473b-81cb-a341b373c2a0"
+datasetName = "BKALTest"
+description = "Some description"
+#tags are stores as key, values
+metadata = {"asset": ["123"], "level": ["Silver"]}  
+
+datacatalogue = dataworkbench.DataCatalogue()
+datacatalogue.save(
+   filtered_df,
+   datasetName,
+    description,
+    tags= metadata,
+    schema_id = schemaId   
+)
+
+```
+
+In below example a table is written to dataset in Data Workbench using library "dataworkbench". The dataset will be synched back to Databricks. The original table should therefore be dropped (deleted).
 
 ```python
 import dataworkbench
@@ -91,6 +125,12 @@ datacatalogue.save(
 ```
 The code above will create a dataset with the existing schema id "current active version". 
 If schema_id is not provided, a new schema will be created based on the definition in the table.
+
+
+```
+%sql
+drop table if exists BKAL2003
+``` 
 
 ## Read files from Volume
 The choice between Pyspark or Pandas depends on the size and complexity of your dataset and the nature of your application. If you are working with small to medium-sized datasets, Pandas is a good choice. If you are dealing with big data or real-time processing, Pyspark is a better option. Pandas loads data in memory before running queries, so it can only query datasets that fit into memory. Spark can query datasets that are larger than memory by streaming the data and incrementally running computations

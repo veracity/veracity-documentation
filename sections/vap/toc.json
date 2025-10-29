@@ -172,8 +172,12 @@
 					"href": "file-storage-as-data-source/introduction.md"
 				},
 				{
-					"text": "Create a report with a Data Workbench source and upload it in VAP",
-					"href": "file-storage-as-data-source/create-report.md"
+					"text": "Create a report using Data Workbench File Storage files and upload it in VAP",
+					"href": "file-storage-as-data-source/create-report-filestorage.md"
+				},
+				{
+					"text": "Create a report using Data Workbench Uploaded datasets and upload it in VAP",
+					"href": "file-storage-as-data-source/create-report-uploaded-datasets.md"
 				},
 				{
 					"text": "Update old data source to a new data source",

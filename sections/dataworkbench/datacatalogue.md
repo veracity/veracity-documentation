@@ -41,7 +41,8 @@ Data sets can be saved and shared as:
 In Data catalogue > Created data sets, you see the following types of data sets:
 * **Created**: Data sets created in your workspace.
 * **Shared**: Data sets shared with you or your workspace. You cannot modify them (but you can create a copy and modify it), and the original sharer has decided if you can share this data set with others.
-* **Uploaded**: Data sets that were uploaded from CSV files.
+* **Uploaded**: Data sets created from CSV files. 
+	* If you have a  Schema management subscription, when uploading a new data set, you must select a schema with an active locked version to validate your file against. The columns in the file must match the schema definition before the data set can be created.
 
 You can check the data set type in the **Type** column.
 
@@ -84,15 +85,15 @@ To create a new data set from a template:
 
 
 ## To upload a data set from a CSV file
-If you are an [admin](workspace.md), you can upload a data set from a CSV file.
+If you are an [admin](workspace.md), you can upload a data set from a CSV file if your workspace has Schema management subscription.
 
 To upload a data set from a CSV file:
-1. In the **Data catalogue** tab, in the top right corner, select **Upload data set**. A pop-up window will appear.
-2. In the window, add a CSV file by draging and dropping it or selecting it from your drive. You can add only one file.
-3. In the **Data set name**, define the data set name and, in the **Description**, add its description.
-4. To upload the data set created from the CSV file, select the **Upload** button.
-
-Note that now you have created a data set you can share with other users.
+1. In the **Data catalogue** tab, go to the **Predefined data sets** or **Created data sets** tab, and select **Upload new data set**.  
+2. In the first dialog, upload a CSV file by dragging and dropping it or selecting it from your computer.  
+3. In the next dialog, select a schema with an active locked version to validate your file against. You can search for schemas by name or open schema details before selecting one.  
+4. The system validates your file against the schema. If there are errors, they must be fixed before you can continue.  
+5. When validation succeeds, enter a unique data set name and, optionally, a description.  
+6. Select **Upload**. You will return to the Data catalogue, where a toast notification shows upload progress. The toast updates until the upload is complete, and it displays whether the upload succeeded or failed (with an error ID if failed).
 
 ## To share a data set
 1. In the **Data catalogue** tab, open the data set you want to share.
@@ -151,8 +152,8 @@ In the **Requests awaiting your action** view:
 ### What happens when you respond
 
 - If you **accept** the request:
-  - A data set is created in both your workspace and the requestor’s workspace.
-  - The data set will be visible in the requestor’s **Data Catalogue**.
+  - A data set is created in both your workspace and the requestorÂ’s workspace.
+  - The data set will be visible in the requestor's **Data Catalogue**.
 - If you **decline**, the request is rejected and the data set is **not** shared. This action **cannot be undone**.
 
 Even after a request has been accepted, you can still **revoke access** later:
@@ -175,6 +176,23 @@ Even after a request has been accepted, you can still **revoke access** later:
 To see how to save and share a new data set, click on the image below to play the video.
 
 [![Watch the video](news/assets/saveshare.png)](https://veracitycdnprod.blob.core.windows.net/developer/veracitystatic/dataworkbench/save%20and%20share%20dataset.mp4)
+
+## To update a data set
+You can update a data set only if it is listed under **Created data sets** in the **Data catalogue** and its type is **Uploaded**.  
+
+To update a data set:
+1. In the **Data catalogue**, go to **Created data sets** and open a data set of the **Uploaded** type.  
+2. If your workspace has the **Schema management** subscription, you will see the **Update data set** button in the top right corner. Select it.  
+3. In the dialog window that opens:  
+   - **Upload a CSV file** - Drop or select a file. The file must be in CSV format, no larger than 1 GB, use commas as delimiters, include headers for all columns, and have a filename without special characters.  
+   - **Validate the file against the schema** - The uploaded file is compared with the schema used for the data set. If the columns do not match, an error message is shown and the update cannot proceed.  
+   - **Choose how to apply the data** - If validation succeeds, you can select the update method. The available options depend on whether the schema defines key columns:  
+     * *No key columns*: Add data, Overwrite data.  
+     * *Key columns set*: Update data, Delete data, Overwrite data.  
+   - **Confirm changes** - For *Delete* and *Overwrite*, a confirmation dialog is shown. Progress and results are displayed with toasts.  
+
+### Concurrent updates
+If another admin modifies the same data set (for example, by sharing it or saving a filtered view) while an update is in progress, their changes will apply to the version of the data set that existed before the update.
 
 ## To see data sets shared with you
 To see data sets shared with you, in the **Data catalogue** tab, go to the **Shared with me** tab.

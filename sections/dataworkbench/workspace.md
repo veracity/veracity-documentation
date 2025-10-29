@@ -42,6 +42,8 @@ If the member is not registered in Veracity, you will be prompted to invite them
 	<img src="assets/invite.png"/>
 </figure>
 
+**If a member needs help with signing into the workspace**, tell them to consult [To start using Data Workbench](dataworkbench.md).
+
 ### To change member's role
 To change a member's role:
 1. Find the member in the list.
@@ -71,6 +73,7 @@ The details tab shows:
 * Workspace name: The display name for this workspace.
 * Region: Where this workspace's data is stored (EU or USA). Note that after you select a Region, you cannot change it. Data residency regulations may require you to select a specific region.
 * Description: Workspace description.
+* Customer ID: Uniquely identifies your tenant and is the same across all workspaces in that tenant.
 
 ## Activity log
 The activity log provides an audit trail of all actions performed within the workspace, which can be helpful for troubleshooting and compliance

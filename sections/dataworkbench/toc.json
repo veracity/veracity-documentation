@@ -13,6 +13,30 @@
 					"href": "news/recent-releases.md"
 				},
 				{
+					"text": "October 2025 release",
+					"href": "news/releaseoct25.md"
+				},
+				{
+					"text": "September 2025 second release",
+					"href": "news/releasesep25sec.md"
+				},
+				{
+					"text": "September 2025 release",
+					"href": "news/releasesep25.md"
+				},
+				{
+					"text": "August 2025 fourth release",
+					"href": "news/releaseaug25frh.md"
+				},
+				{
+					"text": "August 2025 third release",
+					"href": "news/releaseaug25trd.md"
+				},
+				{
+					"text": "August 2025 second release",
+					"href": "news/releaseaug25sec.md"
+				},
+				{
 					"text": "August 2025 release",
 					"href": "news/releaseaug25.md"
 				},
@@ -390,6 +414,10 @@
 		{
 			"text": "API endpoints",
 			"href": "apiendpoints.md"
+		},
+		{
+			"text": "Tenant administration page",
+			"href": "tenantpage.md"
 		},
 		{
 			"text": "Tutorials",

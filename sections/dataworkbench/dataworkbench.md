@@ -10,20 +10,51 @@ Data Workbench lets you:
 * Build dashboards and reports on top of the data.
 * Work with scalable data streams and self-defined non-time-series data streams.
 
-## Tutorials
-If you prefer watching than reading, see our [video tutorials](https://help-center.veracity.com/en/collections/3824716-data-workbench?_gl=1*7qojbi*_ga*MjQwOTQ4NzExLjE2NTg1MDk5OTQ.*_ga_DYYE3X0DZL*MTcxMTQ0MjYwMC4xOC4xLjE3MTE0NDI3ODcuMC4wLjA.).
+See [a video overview of Data Workbench here](https://help-center.veracity.com/en/articles/8494632-video-a-quick-overview-of-data-workbench).
 
-Also, you might want to see:
-* [How to query data](tutorial/tutorialq.md)
+## Help Center and tutorials
+See our [Help Center](https://help-center.veracity.com/en/collections/3824716-data-workbench) and [Data Workbench video tutorials](https://help-center.veracity.com/en/collections/6552033-data-workbench-video-tutorials) for an easy overview of how to use Data Workbench.
+
+If you are a developer, you might want to check:
+* [How to query data](tutorial/tutorialq.md).
 * [How to call API endpoints](tutorial/tutorial2.md).
 
 ## Tenants and workspaces
-Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers. For information on user management, go [here](workspace.md).
+Each company or a B2C customer has one tenant in Data Workbench. A tenant can have multiple workspaces. Each workspace has members. Workspace members can be admins or readers.
 
-### To create a new workspace
-If you are a tenant admin, you can use the picker button to create a new workspace:
-1. In the upper-left corner of the "Home" page, select the workspace and tenant picker button.
-2. In the dropdown that appears, at the bottom, select the **Add workspace** button.
+First admins are added when your company [purchases Data Workbench](https://store.veracity.com/data-workbench) and they can be tenant admins or workspace admins. Tenant admins can invite users to join their tenant and any workspace in it, and workspace admins can only invite to their workspace. For details, see [Members and access levels](workspace.md).
+
+If you are a tenant admin, see [how to manage your tenant](tenantpage.md).
+
+## To start using Data Workbench
+To use Data Workbench, you need:
+- An **invitation to** join a **workspace** or a **tenant**.
+- A **Veracity account** to sign into Data Workbench.
+
+Once a workspace admin invites you, you'll receive an email from Veracity with:
+- The name of the workspace you're invited to join.
+- Your assigned role (admin or reader).
+- The name and email of the person who invited you.
+- A **Go to Data Workbench** button.
+
+<figure>
+	<img src="assets/invitation.png"/>
+</figure>
+
+#### To accept an invitation and join a workspace
+1. Click **Go to Data Workbench** in the email.  
+2. If you have a Veracity account:
+   - Enter your password and select **Log in**.  
+   - If you forgot your password, select **I forgot my password** to reset it.
+3. If you don't have a Veracity account: 
+   - Select **Create account**.  
+   - Confirm your email address, set a password, and select **Sign up**.  
+   - Check your inbox for a verification code and enter it to complete registration.
+   - After verifying, return to the invitation email and click **Go to Data Workbench** again to sign in.
+
+<figure>
+	<img src="assets/signin.png"/>
+</figure>
 
 ## Data integrations
  Data Workbench fetches data from external data sources by using data integrations. A data integration:
@@ -36,7 +67,7 @@ To see available data integrations in your workspace, go to the **Data integrati
 
 Once you have a data integration set up, the Data Catalogue will show the predefined data sets queried from the corresponding source system.
 
-### Become a data provider
+### To become a data provider
 To become a data provider and integrate with Data Workbench, contact the Data Workbench team for assistance.
 
 To integrate, you will need to implement a standardized API that consists of mandatory and optional endpoints that cover REST API verbs, paths, and contracts for request and response payloads.

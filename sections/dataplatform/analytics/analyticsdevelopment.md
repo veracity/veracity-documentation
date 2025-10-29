@@ -51,9 +51,9 @@ Shared files and folders from other workspaces, will currently NOT appear in Dat
 Shared datasets are available under DataBricks catalog Tables.
 
 ## Users and access
-When users are added to Data Workbench, they will be synced with databricks user group (Readers or Admins Group).
+When users are added to Data Workbench, they will be synced with databricks user group (Readers or Admins Group). If it doesn't happen, open a support ticket with Veracity Support.
 
-**Note:** Only internal user(dnv.com ) will be granted access to databricks environment.
+**Note that:**: Only internal user(dnv.com ) will be granted access to databricks environment.
 
 The role the user has in the Veracity Data Workbench workspace [affects permissions in Databricks](matrix.md).
 

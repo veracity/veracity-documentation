@@ -39,6 +39,45 @@ To create a folder:
 2. Select the coloured circle with the file icon and select the files from your computer. Alternatively, drag and drop files.
 3. Select **Upload**.
 
+## Tags for metadata and organization
+You can add tags to folders and files to store metadata. Tags make it easier to categorize and organize content in File storage.
+
+### To add tags to folders
+When creating a folder:
+1. In the top right corner, select **Create folder**.
+2. In the line with the **Tags** heading, select **Add**.
+3. Enter the tags.
+4. Select **Save**.
+
+<figure>
+	<img src="../news/assets/create_folder.png"/>
+</figure>
+
+### To add tags to files
+1. In the line with the file, select the action menu (three dots).
+2. Select **Information**.
+
+<figure>
+	<img src="../news/assets/valid_file.png"/>
+</figure>
+
+3. In the **Tags** section, select **Add**.
+4. Enter the tags.
+5. Select **Save**.
+
+### To view and change tags
+- To see the tags, in the line with a file or folder, select the action menu (three dots) and then choose **Information** or **Validation information**.
+- If you are a workspace admin, you can add new tags or remove existing ones by selecting the X icon next to a tag.  
+- If you are a reader, you can only view tags.
+
+<figure>
+	<img src="../news/assets/valid_info2.png"/>
+</figure>
+
+### Sort files
+You can sort files by **Name** or **Last modified** by clicking the column name in the file list.  
+
+
 ## Access levels
 When you share a file or folder, you assign access to recipients:
 
@@ -46,7 +85,9 @@ When you share a file or folder, you assign access to recipients:
 - **Read and write access** allows recipients to modify content, and also generate SAS keys.
 - **Only workspace admins** can generate SAS keys. If you give **read-only** access, the recipient will **not** be able to generate SAS keys.
 
-SAS key creation by a recipient is **logged in the original sharer’s workspace** under **Activity log**.
+Note that:
+- You cannot share a file or folder with higher access level than you have.
+- SAS key creation by a recipient is **logged in the original sharer’s workspace** under **Activity log**.
 
 > 🔒 If you share a folder with someone and they delete it, it will only be removed from **their** workspace. The original remains unaffected.
 
@@ -171,10 +212,15 @@ If you are an admin of one or more workspaces, you can now **add shared files or
 
 To do this:
 1. Go to **File storage > Shared with me**.
-2. Find the shared file or folder and select **Add to my workspace**.
+2. Open the shared file or folder and select **Add to my workspace**.
 3. In the popup, choose your workspace from the list.
 
-The file or folder will appear in your main **File storage** tab, under **Shared by other workspaces**.
+<figure>
+	<img src="../assets/add_to_workspace.png"/>
+	<figcaption>Screenshot showing where is the Add to workspace button.</figcaption>
+</figure>
+
+The file or folder will disappear from your **Shared with me** tab and appear in your main **File storage** tab, under **Shared by other workspaces**.
 
 ## Need support?
 If you need any support:

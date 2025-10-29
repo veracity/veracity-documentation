@@ -13,7 +13,7 @@ Recommended approach is to ingest data to Veracity datalake using apis or SAS ke
 
 
 ## Share from another workspace
-If the data you want access to from Analytics is not in the related Data Workbench workspace, but in another workspace in Veracity Data platform then sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.
+If the data you want access to from Analytics is not in the related Data Workbench workspace, but in another workspace in Veracity Data platform then sharing is recommended. Set up a share on workspace level from one Veracity workspace to another (B2B sharing). If Workspace B has analytics enabled and when sharing on workspace level from workspace A to Workspace B; data from workspace A is available in Databricks catalog.  Note: Currently this applies to datasets only. Shaerd files from Filestorage needs to be accessed using SAS-keys.
 
 Shared datasets are available in the Analytics Environment as a Table. Shared files will soon be available.
 
@@ -21,8 +21,8 @@ Connect to data using SAS key is also possible
 
 For more [details about sharing of datasets](../datasharing.md)
 
-## Read a file using SAS key
-Data from other storage containers can be accessed from Analytics using SAS key.
+## Access single file using SAS key
+Data from other storage containers can be accessed from Analytics using SAS key. See how to [generate SAS key from the portal](https://developer.veracity.com/docs/section/dataworkbench/filestorage/ase#to-generate-a-sas-token). SAS-keys can also be generated using the api-endpoint.
 
 ```
 from urllib.parse import urlparse, parse_qs
@@ -56,7 +56,7 @@ df_spark.display()
 
 ```
 
-## Read to a folder using SAS key
+## Access folder using SAS key
 
 ```
 from urllib.parse import urlparse, parse_qs

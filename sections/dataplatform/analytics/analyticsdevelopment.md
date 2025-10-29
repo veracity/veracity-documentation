@@ -46,7 +46,7 @@ Shared files and folders from other workspaces, will currently NOT appear in Dat
 
 1. Share files/folders from one DWB workspace to the workspace with Write access. [Share files]()
 2. Create sas token from DWB file/folder.  [Create SAS token]()
-3. Access shared files in Databricks using SAS token. [Use Sas token in Python]
+3. Access shared files in Databricks using SAS token. [Use Sas token in Python](dataconnectivity.md)
 
 Shared datasets are available under DataBricks catalog Tables.
 

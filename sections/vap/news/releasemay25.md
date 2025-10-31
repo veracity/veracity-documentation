@@ -10,7 +10,7 @@ Read this page to learn what has changed in the Veracity Adapter for Power BI.
 
 ### Default role for new users  
 New users are now automatically assigned the **DataReader** role when added to the system.  
-This default assignment aligns with the IT Security Baseline principle of least privilege, ensuring new users only have the access necessary to read data unless additional permissions are explicitly granted.
+This default assignment follows the [information security principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), ensuring users only have the access necessary to read data unless additional permissions are explicitly granted.
 
 ### Improved UI for SAS token auto-renewal  
 The **SAS token auto-renewal** feature now includes an updated interface that offers improved visibility and control.  

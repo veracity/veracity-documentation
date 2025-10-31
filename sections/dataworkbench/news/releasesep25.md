@@ -4,7 +4,7 @@ description: This is the changelog for the September 2025 release of Data Workbe
 ---
 
 # September 2025 release
-Read this page to learn what has changed in Veracity Data Workbench with the September 2024 release.
+Read this page to learn what has changed in Veracity Data Workbench with the September 2025 release.
 
 ## Changes to existing features
 

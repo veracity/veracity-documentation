@@ -12,6 +12,8 @@ To avoid injecting sensitive information directly into notebooks, we use a dedic
 -Security Benefits: By avoiding hardcoded secrets in notebooks, you reduce the risk of accidental exposure and adhere to security best practices.
 -Easy Management: The Databricks SDK and dbutils commands provide simple methods to manage and retrieve secrets efficiently.
 
+- Is available for all users in the databricks workspace
+
 ## Listing Available Secret Scopes
 You can list all the available secret scopes to verify that the "secrets" scope exists:
 

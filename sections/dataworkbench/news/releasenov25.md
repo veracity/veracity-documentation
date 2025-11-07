@@ -20,8 +20,7 @@ We've updated the **Upload new data set** dialog to make schema selection cleare
 </figure>
 
 ### New link to Developer documentation
-When you select the **Help** button (the question mark icon) in the top right corner of Data Workbench, a new link now takes you directly to the **Developer guides** section of the Veracity Developer Portal.  
-Use this link to learn more about the [Data Platform overview](https://developer.veracity.com/docs/section/dataplatform/overview).
+When you select the **Help** button (the question mark icon) in the top right corner of Data Workbench, now you can find there a new link to the **Developer guides** that takes you to the [Data Platform overview](https://developer.veracity.com/docs/section/dataplatform/overview).
 
 ## Bug fixes
 

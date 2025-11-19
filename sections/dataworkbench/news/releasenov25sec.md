@@ -32,7 +32,7 @@ When creating a new schema or adding a version to an existing schema, you can no
 	<img src="assets/import_version.png"/>
 </figure>
 
-- In an existing schema, click **Import new version** in the **Create version** dialog.
+- In an existing schema, click **Import version** in the **Create version** dialog.
 <figure>
 	<img src="assets/import_version2.png"/>
 </figure>

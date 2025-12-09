@@ -19,9 +19,9 @@ You can now create shares for datasets and file storage via API. This includes:
 Only workspace administrators can share with `ReadAndWrite` access or apply modifications during sharing.
 
 **New endpoints:**
-- `POST /workspaces/{workspaceId}/storages/shares` – Share file storage with a user or workspace.
-- `POST /workspaces/{workspaceId}/datasets/{datasetId}/shares` – Share a dataset with a user or workspace.
-- `POST /workspaces/{workspaceId}/datasets/{datasetId}/shareasnew` – Share a dataset with modifications (e.g., filtered columns or queries).
+- `POST /workspaces/{workspaceId}/storages/shares` - Share file storage with a user or workspace.
+- `POST /workspaces/{workspaceId}/datasets/{datasetId}/shares` - Share a dataset with a user or workspace.
+- `POST /workspaces/{workspaceId}/datasets/{datasetId}/shareasnew` - Share a dataset with modifications (for example, filtered columns or queries).
 
 Full details on these endpoints, including request payloads and responses, are available in the [**API Explorer**](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).
 
@@ -29,7 +29,7 @@ Full details on these endpoints, including request payloads and responses, are a
 You can now revoke a share programmatically, enabling automated access management when collaborators no longer need access.
 
 **New endpoint:**
-- `POST /workspaces/{workspaceId}/shares/{shareId}/revoke` – Revoke a share (owner or workspace admin only).
+- `POST /workspaces/{workspaceId}/shares/{shareId}/revoke` - Revoke a share (owner or workspace admin only).
 
 See the **API Explorer** for full specifications.
 
@@ -37,8 +37,8 @@ See the **API Explorer** for full specifications.
 Gain better visibility into data sharing with two new read operations.
 
 **New endpoints:**
-- `GET /workspaces/{workspaceId}/shares/{shareId}` – Get details of a specific share.
-- `POST /workspaces/{workspaceId}/shares/query` – Query shares using filters such as dataset ID, receiver type, status, and creator.
+- `GET /workspaces/{workspaceId}/shares/{shareId}` - Get details of a specific share.
+- `POST /workspaces/{workspaceId}/shares/query` - Query shares using filters such as dataset ID, receiver type, status, and creator.
 
 These support auditability and integration with external tools. Refer to the [API Explorer](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json) for full request and response schemas.
 
@@ -62,4 +62,4 @@ A new configuration option allows control over synchronization during workspace 
 This provides greater flexibility in managing analytics integrations.
 
 ### Unified storage for Unity Catalog  
-For newly onboarded workspaces, managed tables in Unity Catalog now use the metastore’s storage account as the default location. This simplifies storage management and improves consistency.
+For newly onboarded workspaces, managed tables in Unity Catalog now use the metastore's storage account as the default location. This simplifies storage management and improves consistency.

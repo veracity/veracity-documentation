@@ -42,9 +42,6 @@ Gain better visibility into data sharing with two new read operations.
 
 These support auditability and integration with external tools. Refer to the [API Explorer](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json) for full request and response schemas.
 
-### Event routing for updated datasets  
-The platform now routes `DatasetUpdated` events to the Share service. This enables automatic updates to shared datasets when their source datasets change, ensuring consistency across shared data.
-
 **Configuration change:**
 - The `dataworkbench.dataset.updated` event is now routed to the `shareservice` subscription in the `sbt-dataset` event topic.
 
@@ -53,13 +50,6 @@ This section covers changes in existing features.
 
 ### Improved event handling for analytics  
 The Share event listeners have been updated to ensure only necessary permissions are granted or revoked in response to sharing actions. This improves security and compliance in event-driven workflows.
-
-### Controlled dataset and user synchronization  
-A new configuration option allows control over synchronization during workspace onboarding:
-- `IsSyncDatasets`: Determines whether tables/views are synced to Unity Catalog.
-- `IsSyncUsers`: Controls whether users are synced.
-
-This provides greater flexibility in managing analytics integrations.
 
 ### Unified storage for Unity Catalog  
 For newly onboarded workspaces, managed tables in Unity Catalog now use the metastore's storage account as the default location. This simplifies storage management and improves consistency.

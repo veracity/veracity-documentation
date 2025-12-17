@@ -21,7 +21,8 @@ A dedicated Databricks environment is enabled for a single workspace in Veracity
 
 All structured data (datasets) and all files stored in the Data Workbench workspace are available in the databricks catalog and can be processed. New datasets and files can be created and synched back to Veracity Data Workbench datalake.
 
-To upload data directly to Veracity dataplatform storage, see [Upload dataset](https://developer.veracity.com/docs/section/dataplatform/storage/datasets)  and [Upload files](https://developer.veracity.com/docs/section/dataplatform/storage/files)
+* To upload data directly to Veracity dataplatform storage, see [Upload dataset](https://developer.veracity.com/docs/section/dataplatform/storage/datasets)  
+* To [Upload files](https://developer.veracity.com/docs/section/dataplatform/storage/files)
 
 
 ## Data management 
@@ -41,14 +42,21 @@ See examples of [how to read datasets from tables and files from Volume](https:/
 
 Users can not create new catalogs since share is not enabled.
 
+### Shared datasets
+When datasets are shared from one workspace to another workspace where Analytics is enabled, these shared datasets appear in separate catalogs in Databricks. This enhances readability by displaying the source workspace in the catlog name with format: tenant_name – workspace_name.  Datasets shared from the same workspace will be grouped under the same catalog in Databricks.
+
+* Shared datasets to use the correct catalog name. You can easily obtain the correct reference by selecting the dataset and copying its reference from the platform.
+* Datasets from the workspace where Databricks is enabled can still be referred to by name only.
+
+
 ### Shared files/folders
-Shared files and folders from other workspaces, will currently NOT appear in Databricks Volume section. This feature is depending on a Databricks update planned this year. The workaround for using shared files/folders in Analytics is:
+Shared files and folders from other workspaces, will currently NOT appear in Databricks Volume section. This feature is depending on a Databricks update planned this year. The workaround for using shared files/folders in Analytics is using SAS keys:
 
 1. Share files/folders from one DWB workspace to the workspace with Write access. [Share files]()
 2. Create sas token from DWB file/folder.  [Create SAS token]()
-3. Access shared files in Databricks using SAS token. [Use Sas token in Python]
+3. Access shared files in Databricks using SAS token. [Use Sas token in Python](dataconnectivity.md)
 
-Shared datasets are available under DataBricks catalog Tables.
+Shared datasets are available in Databricks catalog as tables.
 
 ## Users and access
 When users are added to Data Workbench, they will be synced with databricks user group (Readers or Admins Group). If it doesn't happen, open a support ticket with Veracity Support.

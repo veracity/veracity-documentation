@@ -42,6 +42,13 @@ See examples of [how to read datasets from tables and files from Volume](https:/
 
 Users can not create new catalogs since share is not enabled.
 
+### Shared datasets
+When datasets are shared from one workspace to another workspace where Analytics is enabled, these shared datasets appear in separate catalogs in Databricks. This enhances readability by displaying the source workspace in the catlog name with format: tenant_name – workspace_name.  Datasets shared from the same workspace will be grouped under the same catalog in Databricks.
+
+* Shared datasets to use the correct catalog name. You can easily obtain the correct reference by selecting the dataset and copying its reference from the platform.
+* Datasets from the workspace where Databricks is enabled can still be referred to by name only.
+
+
 ### Shared files/folders
 Shared files and folders from other workspaces, will currently NOT appear in Databricks Volume section. This feature is depending on a Databricks update planned this year. The workaround for using shared files/folders in Analytics is using SAS keys:
 

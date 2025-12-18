@@ -20,7 +20,9 @@ To add a new account:
 
 After that, your account will be created, and you will get the values for the service account secret, ID, and API key. You will need them to [authenticate API calls](authentication.md).
 
-**Note that** you will see the service account secret only once. Copy it and store securely. 
+**Important**:
+- You will see the service account secret only once. Copy it and store securely. 
+- Service account secrets expire 2 years after creation and you will not be notified automatically. Plan to [regenerate the secret](https://developer.veracity.com/docs/section/dataworkbench/apimanagement#to-regenerate-a-service-account-secret) before expiry to avoid authentication failures (HTTP 401).
 
 ### Workspace access level
 The access level defines what the service account can do in the workspace.
@@ -66,10 +68,14 @@ For a service account with "Select data sets manually" enabled, do the following
 4. To save changes, select the **Save** button.
 
 ## To regenerate a service account secret
+Note that regenerating invalidates the old secret immediately.
+
 To regenerate a service account secret:
 1. In your workspace, select the **API management** tab. 
 2. In the left sidebar, select a service account.
 3. Next to the **Service account secret**, select **Regenerate**.
+
+Remember that secrets expire 2 years after creation and they need to be manually regenerated. Also, you will not be notified before your secret expires.
 
 ## To delete a service account
 To delete a service account:

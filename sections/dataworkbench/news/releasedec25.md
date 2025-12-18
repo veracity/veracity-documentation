@@ -9,6 +9,9 @@ Read this page to learn what has changed in Veracity Data Workbench with the Dec
 ## New features  
 This section covers new features.
 
+### Invoke Databricks jobs from other services
+Now, you can invoke Databricks jobs from other services thanks to the new gateway API endpoints. [Check documentation for details](https://developer.veracity.com/docs/section/dataplatform/analytics/workflow).
+
 ### Programmatic sharing of datasets and storage  
 You can now create shares for datasets and file storage via API. This includes:
 - Sharing a dataset with a user or workspace.

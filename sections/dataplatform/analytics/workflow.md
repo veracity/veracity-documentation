@@ -8,14 +8,14 @@ In Azure Databricks, a job is a way to automate and schedule tasks such as runni
 
 Azure Databricks does not use distinct terminology to separate the job definition (the configuration of tasks, clusters, and schedule) from the job run (the actual execution instance). Both are referred to under the umbrella of “jobs,” but conceptually:
 
-* **Job (Definition):** The configured workflow, including tasks, dependencies, cluster settings, and schedule. Each job has its own job id.
+* **Job (Definition):** The configured workflow, including tasks, dependencies, cluster settings, and schedule. Each job has its own **job id**.
 * **Job Run (Execution):** An instantiation of that job definition when it is triggered (either manually or by schedule). Each run has its own **Run ID**, logs, and status.
 
-## Use case
-Develop a service that triggers and executes an analytics job either on specific events or through manual initiation. The service communicates with Dataworkbench and the analytics environment via APIs. The job performs operations such as reading datasets, aggregating data, and other analytical tasks.
+## Use case example
+Develop a service that triggers and executes an analytics job either on specific events or through manual initiation. The service communicates with Dataworkbench and the analytics environment via APIs. The job performs operations such as reading datasets, aggregating data, and other analytical tasks. The output of the job can be one or several datasets (or files). These can be read by your service for further processing or visualization.
 
 ## Create job definition
-Jobs are defined within databricks. The job creator orchestrates tasks, dependecies, cluster settings.  Only Admin in workspace can create jobs.
+Jobs are defined within databricks. The job creator orchestrates tasks, dependecies and cluster settings.  Only Admin in Dataworkbench workspace can create jobs.
 
 Assign service principals as the “Run as” identity for the job. This ensures job execution does not depend on individual user accounts, preventing failures if a user leaves or loses permissions.  The run-as is by default set to job creator.
 
@@ -38,20 +38,54 @@ Since the key/value pairs representing the job parameters does not contain a "de
 Key: InputDataset  Value: Name of operational dataset to be aggregated
 Key: ResultDatasetName  Value:  Name of output dataset
 
-**Best Practices**
+### How to use job parameters in Notebooks
+
+Use widgets and use same name as defined in the job, for example:
+```
+dbutils.widgets.text("InputDataset", "")
+dbutils.widgets.text("ResultDatasetName", "")
+
+inputdataset = dbutils.widgets.get("InputDataset")
+outputdatasetname = dbutils.widgets.get("ResultDatasetName")
+```
+
+### Task parameters
+Job parameters use auto pushdown as key‑value to all tasks that support key‑value parameters (Notebook, Python wheel with keyword args, SQL, Run Job).  Task parameters are only passed to specific tasks. I.e one tasks can create a task parameter to be used by another task.
+
+****Example**
+Task A defines and sets a task parameter:
+```
+dbutils.jobs.taskValues.set(key="demoTable", value={some value})
+```
+
+Task B  reads the parameter value from task A  (taskKey is name of Task)
+```
+temptableName = dbutils.jobs.taskValues.get(taskKey="Task A", key="demoTable", debugValue="test")
+```
+
+### Best Practices
 
 * Use clear names and default values for parameters.
 * Validate parameter values inside your code to avoid runtime errors.
 * Combine with widgets in notebooks for interactive runs.
 * Create a job tag, with same key as the job parameter where value describes what this parameter is.
 
-For more documentation](https://docs.databricks.com/aws/en/jobs/parameters)
+For [more documentation](https://docs.databricks.com/aws/en/jobs/parameters)
+
+
+## API endpoints
+To browse the workflow api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).  **See section Analytics**
+
+### Baseurl
+See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
+
+
+To use the api, you need a token, see [Authentication](#authentication-and-authorization) and in header set Ocp-Apim-Subscription-Key. 
+
 
 ## List all jobs definitions 
 
 From Databricks you can list all jobs available. When creating a job definition, the job is not autoamtically shared with all workspace users and others will not see it in the list of available jobs. However, the api-endpoint listing jobs will list all jobs (also the ones not shared).
-
-To use the api, you need a token, see [Authentication](#authentication-and-authorization)
 
 
 ```
@@ -79,7 +113,7 @@ To run a job, the job can be started (invoked) from Databricks.
 To run the job without entering Databricks, use the job id for the job defintion and use endpoint:
 
 ```
-POST: https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceid}/jobs/331283232308510/invoke
+POST: https://api.veracity.com/veracity/dw/gateway/api/v2/workspaces/{workspaceid}/jobs/{jobId}/invoke
 ```
 
 The body must containt the values for the defined job parameters. In the following example the job has defined two parameters: InputDataset and ResultDatasetName.
@@ -113,11 +147,6 @@ Jobs run on clusters, which can be:
 * All-purpose clusters: shared clusters used for interactive work and jobs.
 
 
-## API endpoints
-To browse the api, go [here](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).  **See section Analytics**
-
-### Baseurl
-See [overview of base urls](https://developer.veracity.com/docs/section/dataplatform/apiendpoints)
 
 ### Authentication and authorization
 To authenticate and authorize your calls, get your API key and a bearer token [here](../auth.md).

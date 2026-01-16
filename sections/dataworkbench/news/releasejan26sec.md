@@ -12,11 +12,6 @@ Read this page to learn what has changed in Veracity Data Workbench with the Jan
 You can now define **Precision** and **Scale** when creating or editing schema columns of type Decimal.  
 The UI displays numeric input fields for these properties and validates that the precision is between 1–28, and that scale does not exceed the precision.
 
-### Created and last modified timestamps available in Share APIs
-External API consumers can now access **CreatedOn** and **LastModifiedOn** fields when retrieving share information.  
-
-These metadata fields are included across Share Service and Gateway Service endpoints, enabling better tracking and automation.
-
 ## Changes in existing features
 
 ### Improvements to the Schemas list page

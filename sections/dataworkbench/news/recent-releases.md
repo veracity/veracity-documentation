@@ -7,11 +7,11 @@ description: This is an overview of recent releases of Data Workbench and Data P
 
 ## Recent Data Workbench changes
 
+1. [January 2026 second release](releasejan26sec.md)
 1. [January 2026 release](releasejan26.md)
-1. [December 2025 release](releasedec25.md)
-2. [November 2025 release](releasenov25.md)
-3. [November 2025 second release](releasenov25sec.md)
-4. [October 2025 release](releaseoct25.md)
+3. [December 2025 release](releasedec25.md)
+4. [November 2025 release](releasenov25.md)
+5. [November 2025 second release](releasenov25sec.md)
 
 ## Recent Data Platform changes
 
@@ -22,8 +22,8 @@ description: This is an overview of recent releases of Data Workbench and Data P
 5. [February 2025 release](dp-releasefeb25.md)
 
 ## Recent API changes
+1. [January 2026 second release](releasejan26sec.md)
 1. [January 2026 release](releasejan26.md)
 1. [Platform July 2025 release](dp-releasejul25.md)
-2. [June 2025 second release](releasejun25sec.md)
 
 The latest API specification is available through our [API Explorer](https://developer.veracity.com/docs/section/api-explorer/76904bcb-1aaf-4a2f-8512-3af36fdadb2f/developerportal/dataworkbenchv2-swagger.json).

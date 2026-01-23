@@ -14,9 +14,13 @@ This section covers changes in existing features.
 
 You can now edit and save shared data sets without canceling and re-sharing them. The **Save** button is now active for shared datasets.
 
-A warning will appear when saving changes to alert you of downstream impacts.
+A warning will appear when saving changes to alert you of downstream impacts. Note that:
 
-If you reduce the data set's scope by removing assets or columns, the change propagates to all linked shares, which may cause them to break. Invalid datasets will display a clear error message explaining the issue.
+* If you reduce the data set's scope by removing assets or columns, or by narrowing filters, the change propagates to all linked shares, which may cause them to break.
+
+* If you add a column filter that downstream shares do not use, they may also break.
+
+Invalid data sets display a clear error message explaining the issue.
 
 ### Simplified dataset names in SPP templates
 

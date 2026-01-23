@@ -13,7 +13,11 @@
 					"href": "news/recent-releases.md"
 				},
 				{
-					"text": "January 2026 release",
+					"text": "January 2026 third release",
+					"href": "news/releasejan26trd.md"
+				},
+				{
+					"text": "January 2026 second release",
 					"href": "news/releasejan26sec.md"
 				},
 				{

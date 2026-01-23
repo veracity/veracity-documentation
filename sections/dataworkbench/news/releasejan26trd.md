@@ -14,11 +14,15 @@ This section covers changes in existing features.
 
 You can now edit and save shared data sets without canceling and re-sharing them. The **Save** button is now active for shared datasets.
 
-A warning will appear when saving changes to alert you of downstream impacts. Note that:
+A warning will appear when saving changes to alert you of downstream impacts. 
 
-* If you reduce the data set's scope by removing assets or columns, or by narrowing filters, the change propagates to all linked shares, which may cause them to break.
-
-* If you add a column filter that downstream shares do not use, they may also break.
+**Note that**:
+* When you increase the scope, shares remain unaffected.
+* When you decrease the scope, it affects shares.
+* When you completely change the scope by replacing originally shared columns or filters, shares break.
+* When you update the base data set to "select all columns", downstream shares reflect all available columns.
+* When you add a filter on a column not selected by downstream shares, downstream data set becomes invalid.
+* When you remove a filter and its corresponding column from the base data set, downstream shares become invalid.
 
 Invalid data sets display a clear error message explaining the issue.
 

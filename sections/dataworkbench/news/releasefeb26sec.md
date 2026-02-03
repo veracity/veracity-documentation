@@ -9,7 +9,7 @@ Read this page to learn what has changed in Veracity Data Workbench with the Feb
 ## New Features
 This section covers new features.
 
-### Search by file and folder name in File Storage
+### Search by file and folder name in File storage
 Now, in Data catalogue > File storage, you can use the search bar to find the file or folder you need.
 
 <figure>

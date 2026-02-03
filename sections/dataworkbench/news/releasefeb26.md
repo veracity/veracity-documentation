@@ -25,6 +25,6 @@ Several Data Quality schemas have been renamed to provide clearer naming convent
 - `Data Quality DCS` → `Compliance Data Quality DCS`
 - `Data Quality MRV‑EU` → `Compliance Data Quality EU MRV`
 - `Data Quality MRV‑UK` → `Compliance Data Quality UK MRV`
-- `Data Quality VLV` → `Emissions Connect Data Quality`
+- `Data Quality Voyage Leg Verification` → `Emissions Connect Data Quality`
 
 These changes apply only to predefined datasets.

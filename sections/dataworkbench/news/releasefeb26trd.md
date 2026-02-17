@@ -1,7 +1,8 @@
-﻿---
+---
 author: Veracity
 description: This is the changelog for the February 2026 third release of Data Workbench.
 ---
+
 # February 2026 third release: Egest API
 
 To improve system performance and reduce unnecessary data processing, access to historical data within the Egest API has been restricted. 

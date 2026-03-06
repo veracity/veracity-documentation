@@ -1,6 +1,6 @@
 ---
 author: Veracity
-description: This is the changelog for the March 2026 second release of Data Workbench.
+description: This is the changelog for the March 2026 release of Data Workbench.
 ---
 
 # March 2026 release: Egest DB

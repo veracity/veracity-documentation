@@ -1,4 +1,4 @@
-﻿---
+---
 author: Veracity
 description: This is the changelog for the February 2026 third release of Data Workbench.
 ---

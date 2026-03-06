@@ -19,7 +19,7 @@ Data before the defined cutoff years is no longer returned.
 * Emissions Connect Data Quality (OVDQ VLV): Year ≥ 2023
 
 * Data before these cutoff years will be returned as empty periods.
-* **If you want to keep those data, please download it before 2026-03-11.**
+* **If you want to keep those data, please download it before 11 March 2026.**
 
 ## Expected Impact
 * Reduced volume of unnecessary historic data.

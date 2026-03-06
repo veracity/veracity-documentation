@@ -4,10 +4,6 @@ description: This is the changelog for the February 2026 third release of Data W
 ---
 
 # February 2026 third release: Egest API
-
-To improve system performance and reduce unnecessary data processing, access to historical data within the Egest API has been restricted. 
-An additional filter is now applied to the Year column, ensuring data before the defined cutoff years is no longer returned.
-
 To improve system performance and reduce unnecessary data processing, access to historical data within the Egest API has been restricted. 
 Data before the defined cutoff years is no longer returned.
 

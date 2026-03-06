@@ -7,11 +7,11 @@ description: This is an overview of recent releases of Data Workbench and Data P
 
 ## Recent Data Workbench changes
 
+1. [March 2026 second release](releasemar26sec.md)
 1. [March 2026 release](releasemar26.md)
 1. [February 2026 third release](releasefeb26trd.md)
 1. [February 2026 second release](releasefeb26sec.md)
 1. [February 2026 release](releasefeb26.md)
-1. [January 2026 second release](releasejan26sec.md)
 
 ## Recent Data Platform changes
 

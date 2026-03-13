@@ -15,7 +15,7 @@ You can now approve or decline multiple requests at the same time.
 
 To handle multiple requests:
 
-1. Go to **Data Catalog**.
+1. Go to **Data Catalogue**.
 2. Open **Requests awaiting your action**.
 3. Tick the box next to each request you want to process.
 4. In the top-right corner of the page, select **Approve** or **Decline**.

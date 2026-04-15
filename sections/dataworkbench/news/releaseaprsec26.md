@@ -1,4 +1,4 @@
-## Data Workbench Web Security Improvements
+## Data Workbench Connectors, Security, and UI Improvements
 
 This release introduces updates to request management, UI behaviour, and security across the Data Workbench.
 

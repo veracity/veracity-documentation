@@ -3,7 +3,8 @@
 This release introduces updates to request management, UI behaviour, and security across the Data Workbench.
 
 ## Requests dashboard: step-level management view
-Now, on the Connectors page, when you open a connector, a new dashboard is available in the Manage Requests and View responses views, allowing you to monitor and manage requests.
+Now, on the Connectors page, when you open a connector of the RequestDataPartner type (in the **Services** section), a new dashboard is available in the Manage Requests and View responses views.
+This dashboard allows you to monitor and manage requests.
 
 <figure>
 	<img src="assets/connectors_dashboard.png"/>
@@ -47,11 +48,14 @@ Issues related to Reader-role permissions in the request management view have be
   - Action buttons and row-level actions are not visible for Reader users.
   - The UI no longer suggests that these actions are available to users without the required permissions.
 
-## Data collection UI: visual adjustment
-The visual layering of configuration elements has been updated.
+## Data collection: UI improvements
+We have introduced the following improvements in the Data collection UI:
 
 - The blue default configuration line is now displayed above the grey source data.
 - The end of the configuration line is clearly visible.
+- Grey text is now centrally aligned.
+- The second section loads only after selecting vessels and is removed when no vessels are selected.
+- Dropdowns display full values without truncation.
 
 ## Schema management: validation fix in column search
 An issue with validation when searching schema column names has been resolved.
@@ -64,9 +68,4 @@ Addressed issues identified during security scans.
 Improved input validation to strengthen request handling.
 Resolved backend issues affecting application stability.
 
-## Data collection UI: layout and interaction updates
-Several UI issues in the data collection flow have been resolved.
 
-- Grey text is now centrally aligned.
-- The second section loads only after selecting vessels and is removed when no vessels are selected.
-- Dropdowns display full values without truncation.
